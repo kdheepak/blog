@@ -738,13 +738,13 @@ Let me know if you have any questions in the comments below. You can view this p
 
 Format      Link
 -------     -------
-IEEE-PDF    [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
-IEEE-DOCX   [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
-IEEE-HTML   [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
-PDF         [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.pdf)
-DOCX        [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.docx)
-HTML        [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.html)
-SLIDES-PDF  [LINK](http://kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
+IEEE-PDF    [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
+IEEE-DOCX   [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
+IEEE-HTML   [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
+PDF         [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
+DOCX        [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
+HTML        [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
+SLIDES-PDF  [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
 
 Table:  Links to multiple formats
 
