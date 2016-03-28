@@ -23,7 +23,7 @@ script:
   - make publish
 after_success:
   - make travis-github
-  - git push -f -q https://kdheepak89:$(GITHUB_API_KEY)@github.com/kdheepak89/blog gh-pages &2>/dev/null
+  - git push -f -q https://kdheepak89:$GITHUB_API_KEY@github.com/kdheepak89/blog gh-pages &2>/dev/null
 notifications:
   email: false
 # whitelist
@@ -33,4 +33,6 @@ branches:
 cache:
   directories:
   - $HOME/.cache/pip
-
+env:
+  global:
+  - secure: "c/9IuQcbJQ9uaMei9SehUF0gVswCGLba/zOeI7gq4FSglGeFRO/uT3Atz5Zg2Is5z5MRNepj7uUwGqMXCjJ/lbDzkkAqDXuAZ3eJpEBuQs9uD5NlRns8UHWgRE8KzyEoq65HJhVt+Rr5cZWRGGh0AIzxysO9VKLOlbRCL9YsCtaZKdagvUFQb6gvjgZCJZ5qOrDIO2uTTE4nZIEQ3qTucoMF8LP5irYai7IkWtSszyjPuHWW6rZmPMqr3xhXs6gRvacgpkn1GzFkwg3M/UDLW4OjhwHjDM1rjaRijFGopdGpgtE16pbEGetYg+KYDADub9HfEZJF77ToxcAA+FvGqFeV8cNG0BjyMrVusTPbC1oA49PEXJo0atCQcQJwjVVXuYw1BwIBIHUBdH+feFYQJfxpaBr8IsT9h0COxtzPb7kjmr64UZg8y60xk3YjyH32SSBfjMCPn1BoG1AVOudE4sI6JhERCIEK+v1JZspRrVlX0bhMWvNBXYrpNsBdax3l8gCeFGP5ryndkjMtkl3ek1jFJyPK51vXv8GlqxLrcBIpgC2uMGFzXVmHTXSbd9FFHpa2phIJGeLIFkpKnXBdQH/c9yhz85qiDxKY0QfH4t/Ucg8G4rA1HbZmz39pHu7WQaVN+EpJ/oLMxeWYt6SiCtzhZxRMWr59AVlkZfjtMgM="
