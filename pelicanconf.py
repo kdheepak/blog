@@ -98,7 +98,7 @@ EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
 ARTICLE_EXCLUDES = ['downloads']
 
-DIRECT_TEMPLATES = (('index', 'archives', 'blog', 'search', '404'
+DIRECT_TEMPLATES = (('index', 'archives', 'search', '404'
     ))
 
 BLOG_URL = 'blog/index.html'
