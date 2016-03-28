@@ -19,7 +19,10 @@ before_script:
   - COMMIT_MESSAGE="Publishing site on `date "+%Y-%m-%d %H:%M:%S"` from `git log -n 1 --format='commit %h - %s'`"
   - export PATH=$PATH:/home/travis/.cabal/bin
 script:
-  - make github
+  - echo "Running script"
+  - make publish
+after_success:
+  - make travis-github
 notifications:
   email: false
 # whitelist
@@ -29,3 +32,4 @@ branches:
 cache:
   directories:
   - $HOME/.cache/pip
+
