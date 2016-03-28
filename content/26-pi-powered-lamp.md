@@ -7,7 +7,7 @@ tags: raspberry-pi, flask, led
 summary: Use your Raspberry Pi to control a desk lamp
 ---
 
-With a Raspberry Pi, you can control an RGB addressable LED strip.
+With a Raspberry Pi, you can control a RGB addressable LED strip.
 The instructions are very simple^[https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software] and the results are pretty cool.
 I decided to make a desk lamp with a web interface.
 This post will go through the steps to build your own Pi powered desk lamp.
