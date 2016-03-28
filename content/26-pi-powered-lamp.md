@@ -83,7 +83,7 @@ These are all required to control the LED strip.
     sudo pip install BiblioPixel
 
 Instead of installing spidev and BiblioPixel, you can also clone the repository and add them to your `PYTHONPATH`.
-I found that `sudo pip install <package-name>` is easier, however I had to browse through the source code of `BiblioPixel`, and found having a local copy accessible was helpful.
+I found that `sudo pip install <package-name>` is easier, however I had to browse through the source code of `BiblioPixel` and found having a local copy accessible was helpful.
 
 Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
