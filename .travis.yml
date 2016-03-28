@@ -25,5 +25,6 @@ branches:
     - master
 cache:
   directories:
+  - $HOME/.cache/pip
   - pelican-plugins
   - pelican-themes
