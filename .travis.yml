@@ -23,7 +23,7 @@ script:
   - make publish
 after_success:
   - make travis-github
-  - git push -f -q https://kdheepak89:$GITHUB_API_KEY@github.com/kdheepak89/blog gh-pages &2>/dev/null
+  - git push -f -q --branch=gh-pages https://kdheepak89:$GITHUB_API_KEY@github.com/kdheepak89/blog gh-pages > /dev/null
 notifications:
   email: false
 # whitelist
