@@ -8,7 +8,7 @@ summary: Use your Raspberry Pi to control a desk lamp
 ---
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
-The instructions are very simple^[https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software] and the results are pretty cool.
+The instructions are very simple^[I used this post [here](https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software) as a starting point.] and the results are pretty cool.
 I decided to make a desk lamp with a web interface.
 This post will go through the steps to build your own Pi powered desk lamp.
 
@@ -37,20 +37,20 @@ Adafruit has an excellent image in their tutorial that shows how you can do this
 
 I've used the same power source to the LED strip to power the Raspberry Pi as well.
 
-I found the lamp shades on [Amazon](http://www.amazon.com/s/field-keywords=puzzle+lamp). 
+I found the lamp shades on [Amazon](http://www.amazon.com/s/field-keywords=puzzle+lamp).
 I purchased them in white, since the LEDs are RGB.
 
-I purchased the LED strip from Adafruit. 
+I purchased the LED strip from Adafruit.
 
 ## Software
 
-Download the latest Raspbian from the official source^[https://www.raspberrypi.org/downloads/raspbian/].
+Download the latest Raspbian from the [official source](https://www.raspberrypi.org/downloads/raspbian/).
 I used the image `2016-03-18-raspbian-jessie.img`.
 Flash the operating system onto a memory card.
 
     sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
 
-Tip - When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`. Both will work fine, but if you are using `disk` be prepared to wait for an hour^[http://serenity.ee/post/82120938429/mac-os-dd-with-devdisk-vs-devrdisk].
+When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`^[Both `rdisk` and `disk` will work fine, but if you are using `disk` be prepared to wait longer - it took about an hour in my case].
 
 **Optional** - Expand the file system to use all the available space on the memory card.
 
@@ -75,7 +75,7 @@ First, let's update the Raspberry Pi.
     sudo apt-get update
     sudo apt-get upgrade
 
-Then we need to install `python-dev`, `pyspidev`^[https://github.com/doceme/py-spidev] and `BiblioPixel`^[https://github.com/ManiacalLabs/BiblioPixel].
+Then we need to install `python-dev`, [ `pyspidev` ]( https://github.com/doceme/py-spidev ) and [`BiblioPixel`](https://github.com/ManiacalLabs/BiblioPixel).
 These are all required to control the LED strip.
 
     sudo apt-get install python-dev
@@ -100,7 +100,8 @@ At this point, you should be able to run a few examples, and see animations on y
 
 ### Flask
 
-I've set up a simple Flask server and am using a Javascript library called colorwheel^[https://jweir.github.io/colorwheel/] to send a user selected color to the Raspberry Pi.
-The code for the Flask server is available on GitHub^[https://github.com/kdheepak89/arp] under MIT License.
+I've set up a simple Flask server and am using a Javascript library called [colorwheel](https://jweir.github.io/colorwheel/) to send a user selected color to the Raspberry Pi.
+The code for the Flask server is available on [GitHub](https://github.com/kdheepak89/arp) under MIT License.
 
-# References
+Feel free to let me know if you have any questions.
+
