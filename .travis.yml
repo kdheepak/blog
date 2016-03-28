@@ -10,8 +10,6 @@ install:
   - easy_install -U setuptools
   - pip install -U pip wheel
   - pip install -r requirements.txt
-  - cabal update
-  - cabal install pandoc
 before_script:
   - git config user.name "Travis-CI"
   - git config user.email "noreply@travis-ci.org"
@@ -33,4 +31,4 @@ cache:
 addons:
   apt:
     packages:
-    - haskell-platform
+    - pandoc
