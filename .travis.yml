@@ -1,6 +1,9 @@
 language: python
 python:
   - "2.7"
+before_install:
+  - git clone --recursive https://github.com/getpelican/pelican-plugins
+  - git clone --recursive https://github.com/getpelican/pelican-themes
 install:
   - easy_install -U setuptools
   - pip install -U pip wheel
@@ -18,3 +21,8 @@ notifications:
 branches:
   only:
     - master
+cache:
+  pip
+  directories:
+  - pelican-plugins
+  - pelican-themes
