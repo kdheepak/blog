@@ -39,7 +39,8 @@ I've used the same power source to the LED strip to power the Raspberry Pi as we
 
 ## Software
 
-Download the latest Raspbian from the official [source](https://www.raspberrypi.org/downloads/raspbian/). I used the image `2016-03-18-raspbian-jessie.img`.
+Download the latest Raspbian from the official source^[https://www.raspberrypi.org/downloads/raspbian/].
+I used the image `2016-03-18-raspbian-jessie.img`.
 Flash the operating system onto a memory card.
 
     sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
