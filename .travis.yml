@@ -1,0 +1,11 @@
+language: python
+python:
+  - "2.7"
+install:
+    - pip install -r requirements.txt
+before_script:
+  - git config user.name "Travis-CI"
+  - git config user.email "noreply@travis-ci.org"
+  - COMMIT_MESSAGE="Publishing site on `date "+%Y-%m-%d %H:%M:%S"` from `git log -n 1 --format='commit %h - %s'`"
+script:
+  - make github
