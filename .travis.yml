@@ -22,7 +22,6 @@ branches:
   only:
     - master
 cache:
-  pip
   directories:
   - pelican-plugins
   - pelican-themes
