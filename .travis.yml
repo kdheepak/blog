@@ -2,8 +2,8 @@ language: python
 python:
   - "2.7"
 before_install:
-  - git clone --recursive https://github.com/getpelican/pelican-plugins
-  - git clone --recursive https://github.com/getpelican/pelican-themes
+  - git clone --recursive https://github.com/kdheepak89/pelican-plugins
+  - git clone https://github.com/kdheepak89/pelican-smoothie.git pelican-themes/pelican-smoothie
 install:
   - easy_install -U setuptools
   - pip install -U pip wheel
