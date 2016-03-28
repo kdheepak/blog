@@ -12,7 +12,7 @@ The instructions are very simple^[https://learn.adafruit.com/raspberry-pi-spectr
 I decided to make a desk lamp with a web interface.
 This post will go through the steps to build your own Pi powered desk lamp.
 
-[![Raspberry Pi Powered LED Desk Lamp](https://giant.gfycat.com/CoolEvergreenArcticseal.gif)](https://gfycat.com/CoolEvergreenArcticseal)
+[![Raspberry Pi Powered LED Desk Lamp](https://giant.gfycat.com/UnfortunatePessimisticFruitfly.gif)](https://gfycat.com/CoolEvergreenArcticseal)
 
 # Requirements
 
