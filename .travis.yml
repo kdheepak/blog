@@ -3,6 +3,8 @@ python:
   - "2.7"
 before_install:
   - git clone --recursive https://github.com/kdheepak89/pelican-plugins
+  - rm -rf pelican-plugins/pandoc_reader
+  - git clone https://github.com/kdheepak89/pandoc_reader.git pelican-plugins/pandoc_reader
   - git clone https://github.com/kdheepak89/pelican-smoothie.git pelican-themes/pelican-smoothie
 install:
   - easy_install -U setuptools
