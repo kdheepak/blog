@@ -93,7 +93,7 @@ Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
 ### BiblioPixel
 
-The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel.
+The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@bibliopixel].
 I recommend using BiblioPixel as well - if you want to use a different LED strip in the future this will make it very easy to use the same code base.
 
 At this point, you should be able to run a few examples, and see animations on your LED strip.
