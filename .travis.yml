@@ -19,6 +19,8 @@ before_script:
   - COMMIT_MESSAGE="Publishing site on `date "+%Y-%m-%d %H:%M:%S"` from `git log -n 1 --format='commit %h - %s'`"
   - export PATH=$PATH:/home/travis/.cabal/bin
 script:
+  - echo "Export bib to blog.bib"
+  - python scripts/export_bib.py
   - echo "Running script"
   - make publish
 after_success:
