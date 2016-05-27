@@ -19,7 +19,7 @@ def main():
     url = 'https://api.zotero.org/users/{}/collections/{}/items?key={}&format=bibtex'.format(user_id, collection_key, api_key)
     r = requests.get(url)
 
-    with open('./blog.bib', 'w') as f:
+    with open('./content/blog.bib', 'w') as f:
         f.write(r.content)
 
 if __name__ == '__main__':
