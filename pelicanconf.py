@@ -146,7 +146,7 @@ MIXPANEL_ANALYTICS = "e36b00b2053ec1228c81cca16622581f"
 # Comments introduction
 COMMENTS_INTRO = "Let me know what you think below."
 
-PUBLICATIONS_SRC = 'content/research.bib'
+PUBLICATIONS_SRC = 'content/blog.bib'
 
 PANDOC_FILES = ['txt', 'md']
 PANDOC_ARGS = [
