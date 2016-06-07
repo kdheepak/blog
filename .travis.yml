@@ -21,7 +21,6 @@ before_script:
 script:
   - echo "Export bib to blog.bib"
   - python scripts/export_bib.py
-  - cat content/blog.bib
   - echo "Running script"
   - make publish
 after_success:
