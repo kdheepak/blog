@@ -20,7 +20,7 @@ def main():
     r = requests.get(url)
 
     with open('./content/blog.bib', 'w') as f:
-        content = r.content.replace("????", "")
+        content = r.content.replace("_????", "")
         f.write(content)
 
 if __name__ == '__main__':
