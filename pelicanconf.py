@@ -128,14 +128,14 @@ My dream is that one day I’d have travelled to every country in the world (Fou
 
 # Social
 SOCIAL = { 'Twitter': 'http://twitter.com/kdheepak89',
-        'Github': 'http://github.com/kdheepak89',
+        'Github': 'http://github.com/kdheepak',
         'Email': 'mailto:me@kdheepak.com',
         'GooglePlus': 'https://plus.google.com/+DheepakKrishnamurthy/posts'}
 
 # Projects
 PROJECTS = [{ 'link': 'http://kdheepak.com/psst', 'name' : 'PSST' },
             { 'link': 'http://kdheepak.com/think-git', 'name' : 'think-git' },
-            { 'link': 'http://github.com/kdheepak89/c3.py', 'name' : 'c3.py' },]
+            { 'link': 'http://github.com/kdheepak/c3.py', 'name' : 'c3.py' },]
 
 
 # Google and Mixpanel Analytics

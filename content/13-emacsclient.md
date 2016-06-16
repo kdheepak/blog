@@ -16,7 +16,7 @@ Then search for 'Run AppleScript' and drag it to the window on the right.
 
 Copy paste the following gist to the window
 
-<script src="https://gist.github.com/kdheepak89/9e287b937edb2509eab9.js"></script>
+<script src="https://gist.github.com/kdheepak/9e287b937edb2509eab9.js"></script>
 
 Save the application in /Applications or /Users/$USER/Applications. Now you can
 quickly open emacsclient from Alfred. 
