@@ -7,8 +7,8 @@ before_install:
   - sudo dpkg -i pandoc.deb
   - git clone --recursive https://github.com/getpelican/pelican-plugins
   - rm -rf pelican-plugins/pandoc_reader
-  - git clone https://github.com/kdheepak89/pandoc_reader.git pelican-plugins/pandoc_reader
-  - git clone https://github.com/kdheepak89/pelican-smoothie.git pelican-themes/pelican-smoothie
+  - git clone https://github.com/kdheepak/pandoc_reader.git pelican-plugins/pandoc_reader
+  - git clone https://github.com/kdheepak/pelican-smoothie.git pelican-themes/pelican-smoothie
 install:
   - easy_install -U setuptools
   - pip install -U pip wheel
@@ -25,7 +25,7 @@ script:
   - make publish
 after_success:
   - make travis-github
-  - git push -f -q https://kdheepak89:$GITHUB_API_KEY@github.com/kdheepak89/blog gh-pages
+  - git push -f -q https://kdheepak:$GITHUB_API_KEY@github.com/kdheepak89/blog gh-pages
 notifications:
   email: false
 # whitelist
