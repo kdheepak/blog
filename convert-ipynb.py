@@ -19,8 +19,6 @@ def convert_html_to_json(file_name):
 
 def notebook_convert(key, value, format, meta):
 
-    sys.stderr.write("{}, {}, {}, {}".format(key, value, format, meta))
-
     if key == 'Para' and value[0]['c'][0:2] == '{%' and value[-1]['c'][-2:] == '%}' and value[2]['c']=='notebook' :
         convert_notebook_to_html(value[4]['c'])
         convert_html_to_json(value[4]['c'].replace('.ipynb', '.html'))
