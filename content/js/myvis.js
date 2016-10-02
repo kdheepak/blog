@@ -79,7 +79,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
-        console.log(gravity)
 
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
 
@@ -93,8 +92,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-
-        console.log(width, height)
 
         this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
         this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
@@ -203,7 +200,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 
     
-       mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
+       mpld3.draw_figure("fig_el6303944499107368844826201", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el630394450434960", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el630394450434960", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el630394449910736"});
    }(mpld3);
 }else if(typeof define === "function" && define.amd){
    // require.js is available: use it to load d3/mpld3
@@ -280,7 +277,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
-        console.log(gravity)
 
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
 
@@ -294,8 +290,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-
-        console.log(width, height)
 
         this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
         this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
@@ -404,7 +398,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 
     
-         mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
+         mpld3.draw_figure("fig_el6303944499107368844826201", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el630394450434960", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el630394450434960", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el630394449910736"});
       });
     });
 }else{
@@ -480,7 +474,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
-        console.log(gravity)
 
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
 
@@ -494,8 +487,6 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-
-        console.log(width, height)
 
         this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
         this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
@@ -604,7 +595,7 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
 
     
-                 mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
+                 mpld3.draw_figure("fig_el6303944499107368844826201", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el630394450434960", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el630394450434960", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el630394449910736"});
             })
          });
 }

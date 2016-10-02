@@ -35,8 +35,7 @@ pos = None
 plugins.connect(fig, NetworkXD3ForceLayout(G, pos, ax))
 ```
 
-<div id="fig_el5808544520390566548547064"></div>
-
+<div id="fig_el6303944499107368844826201"></div>
 
 I'll run through the explanation briefly here.
 
