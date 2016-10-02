@@ -1,5 +1,3 @@
-console.log('hi')
-
 function mpld3_load_lib(url, callback){
   var s = document.createElement('script');
   s.src = url;
@@ -13,17 +11,13 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
    // already loaded: just create the figure
    !function(mpld3){
        
-    
-    coords = null;
-    plugin = null;
-    graph_debug = null;
 
-    mpld3.register_plugin("networkxd3forcelayoutview", NetworkXD3ForceLayoutViewPlugin);
-    NetworkXD3ForceLayoutViewPlugin.prototype = Object.create(mpld3.Plugin.prototype);
-    NetworkXD3ForceLayoutViewPlugin.prototype.constructor = NetworkXD3ForceLayoutViewPlugin;
-    NetworkXD3ForceLayoutViewPlugin.prototype.requiredProps = ["graph", 
+    mpld3.register_plugin("networkxd3forcelayout", NetworkXD3ForceLayoutPlugin);
+    NetworkXD3ForceLayoutPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    NetworkXD3ForceLayoutPlugin.prototype.constructor = NetworkXD3ForceLayoutPlugin;
+    NetworkXD3ForceLayoutPlugin.prototype.requiredProps = ["graph",
                                                                 "ax_id",];
-    NetworkXD3ForceLayoutViewPlugin.prototype.defaultProps = { coordinates: "data",
+    NetworkXD3ForceLayoutPlugin.prototype.defaultProps = { coordinates: "data",
                                                                draggable: true,
                                                                gravity: 1,
                                                                charge: -30,
@@ -37,14 +31,14 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
                                                                minimum_radius: 1,
                                                                nominal_radius: 5,
                                                             };
-    
-    function NetworkXD3ForceLayoutViewPlugin(fig, props){
+
+    function NetworkXD3ForceLayoutPlugin(fig, props){
         mpld3.Plugin.call(this, fig, props);
     };
 
     var color = d3.scale.category20();
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
+    NetworkXD3ForceLayoutPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
         var zoom = this.ax.zoom;
         scalerFunction = function() {
             var prop = nominal_prop;
@@ -54,75 +48,69 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         }
         return scalerFunction;
     }
-    
-    NetworkXD3ForceLayoutViewPlugin.prototype.setupDefaults = function () {
-    
-        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width, 
+
+    NetworkXD3ForceLayoutPlugin.prototype.setupDefaults = function () {
+
+        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width,
                                                   this.props.minimum_stroke_width,
                                                   this.props.maximum_stroke_width)
-        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius, 
+        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius,
                                                   this.props.minimum_radius,
                                                   this.props.maximum_radius)
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomed = function() {   
-        
-            var stroke = this.zoomScaleStroke()
-            var radius = this.zoomScaleRadius()
-
-            this.link.style("stroke-width",stroke);
-            this.node.attr("r", radius);
-    
-            this.svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    NetworkXD3ForceLayoutPlugin.prototype.zoomed = function() {
+            this.tick()
         }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.draw = function(){
-        
+    NetworkXD3ForceLayoutPlugin.prototype.draw = function(){
+
         plugin = this
+        brush = this.fig.getBrush();
 
         DEFAULT_NODE_SIZE = this.props.nominal_radius;
-            
+
         var height = this.fig.height
         var width = this.fig.width
 
-        var graph = this.props.graph     
+        var graph = this.props.graph
         var gravity = this.props.gravity.toFixed()
         var charge = this.props.charge.toFixed()
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
         console.log(gravity)
-    
+
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
-        
+
         var ax = this.ax;
-        
+
         this.ax.elements.push(this)
-        
+
         ax_obj = this.ax;
-                                                
+
         var width = d3.max(ax.x.range()) - d3.min(ax.x.range()),
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-        
+
         console.log(width, height)
 
-        this.xScale = d3.scale.linear()//.domain([0, width]).range([0, width]) // ax.x;
-        this.yScale = d3.scale.linear()//.domain([0, height]).range([height, 0]) // ax.y;
+        this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
+        this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
 
         this.force = d3.layout.force()
                             .size([width, height]);
-                            
+
         this.svg = this.ax.axes.append("g");
-        
+
         for(var i = 0; i < graph.nodes.length; i++){
             var node = graph.nodes[i];
-            if (node.hasOwnProperty('x')) { 
-                node.x = this.ax.x(node.x); 
+            if (node.hasOwnProperty('x')) {
+                node.x = this.ax.x(node.x);
             }
-            if (node.hasOwnProperty('y')) { 
-                node.y = this.ax.y(node.y); 
+            if (node.hasOwnProperty('y')) {
+                node.y = this.ax.y(node.y);
             }
         }
 
@@ -157,25 +145,25 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
         this.setupDefaults()
         this.conditional_features(this.svg);
-        
-    };    
-        
-    NetworkXD3ForceLayoutViewPlugin.prototype.tick = function() {
-        
-        this.link.attr("x1", function (d) { return this.xScale(d.source.x); }.bind(this))
-                 .attr("y1", function (d) { return this.yScale(d.source.y); }.bind(this))
-                 .attr("x2", function (d) { return this.xScale(d.target.x); }.bind(this))
-                 .attr("y2", function (d) { return this.yScale(d.target.y); }.bind(this));
+
+    };
+
+    NetworkXD3ForceLayoutPlugin.prototype.tick = function() {
+
+        this.link.attr("x1", function (d) { return this.ax.x(this.xScale.invert(d.source.x)); }.bind(this))
+                 .attr("y1", function (d) { return this.ax.y(this.yScale.invert(d.source.y)); }.bind(this))
+                 .attr("x2", function (d) { return this.ax.x(this.xScale.invert(d.target.x)); }.bind(this))
+                 .attr("y2", function (d) { return this.ax.y(this.yScale.invert(d.target.y)); }.bind(this));
 
         this.node.attr("transform", function (d) {
-            return "translate(" + this.xScale(d.x) + "," + this.yScale(d.y) + ")";
+            return "translate(" + this.ax.x(this.xScale.invert(d.x)) + "," + this.ax.y(this.yScale.invert(d.y)) + ")";
             }.bind(this)
         );
-        
+
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.conditional_features = function(svg) {
-    
+    NetworkXD3ForceLayoutPlugin.prototype.conditional_features = function(svg) {
+
         var drag = d3.behavior.drag()
                 .on("dragstart", dragstarted)
                 .on("drag", dragged.bind(this))
@@ -186,17 +174,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             d3.select(this).classed("fixed", d.fixed = true);
             d.fixed = true;
         }
-        
+
         function dblclick(d) {
           self.force.resume();
           d3.select(this).classed("fixed", d.fixed = false);
         }
-        
+
         function dragged(d) {
             var mouse = d3.mouse(svg.node());
-            d.x = this.xScale.invert(mouse[0]);
-            d.y = this.yScale.invert(mouse[1]);
-            d.px = d.x;         
+            d.x = this.xScale(this.ax.x.invert(mouse[0]));
+            d.y = this.yScale(this.ax.y.invert(mouse[1]));
+            d.px = d.x;
             d.py = d.y;
             d.fixed = true;
             this.force.resume();
@@ -205,17 +193,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         function dragended(d) {
             d.fixed = true;
             }
-            
+
         var self = this;
         if (this.props.draggable === true) {
             this.node.on("dblclick", dblclick).call(drag)
-        }        
-        
+        }
+
     }
 
-        
+
     
-       mpld3.draw_figure("fig_el7013147193821602107486826", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el701314693464144", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el701314693464144", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayoutview", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el701314719382160"});
+       mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
    }(mpld3);
 }else if(typeof define === "function" && define.amd){
    // require.js is available: use it to load d3/mpld3
@@ -224,17 +212,13 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
       window.d3 = d3;
       mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
          
-    
-    coords = null;
-    plugin = null;
-    graph_debug = null;
 
-    mpld3.register_plugin("networkxd3forcelayoutview", NetworkXD3ForceLayoutViewPlugin);
-    NetworkXD3ForceLayoutViewPlugin.prototype = Object.create(mpld3.Plugin.prototype);
-    NetworkXD3ForceLayoutViewPlugin.prototype.constructor = NetworkXD3ForceLayoutViewPlugin;
-    NetworkXD3ForceLayoutViewPlugin.prototype.requiredProps = ["graph", 
+    mpld3.register_plugin("networkxd3forcelayout", NetworkXD3ForceLayoutPlugin);
+    NetworkXD3ForceLayoutPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    NetworkXD3ForceLayoutPlugin.prototype.constructor = NetworkXD3ForceLayoutPlugin;
+    NetworkXD3ForceLayoutPlugin.prototype.requiredProps = ["graph",
                                                                 "ax_id",];
-    NetworkXD3ForceLayoutViewPlugin.prototype.defaultProps = { coordinates: "data",
+    NetworkXD3ForceLayoutPlugin.prototype.defaultProps = { coordinates: "data",
                                                                draggable: true,
                                                                gravity: 1,
                                                                charge: -30,
@@ -248,14 +232,14 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
                                                                minimum_radius: 1,
                                                                nominal_radius: 5,
                                                             };
-    
-    function NetworkXD3ForceLayoutViewPlugin(fig, props){
+
+    function NetworkXD3ForceLayoutPlugin(fig, props){
         mpld3.Plugin.call(this, fig, props);
     };
 
     var color = d3.scale.category20();
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
+    NetworkXD3ForceLayoutPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
         var zoom = this.ax.zoom;
         scalerFunction = function() {
             var prop = nominal_prop;
@@ -265,75 +249,69 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         }
         return scalerFunction;
     }
-    
-    NetworkXD3ForceLayoutViewPlugin.prototype.setupDefaults = function () {
-    
-        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width, 
+
+    NetworkXD3ForceLayoutPlugin.prototype.setupDefaults = function () {
+
+        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width,
                                                   this.props.minimum_stroke_width,
                                                   this.props.maximum_stroke_width)
-        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius, 
+        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius,
                                                   this.props.minimum_radius,
                                                   this.props.maximum_radius)
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomed = function() {   
-        
-            var stroke = this.zoomScaleStroke()
-            var radius = this.zoomScaleRadius()
-
-            this.link.style("stroke-width",stroke);
-            this.node.attr("r", radius);
-    
-            this.svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    NetworkXD3ForceLayoutPlugin.prototype.zoomed = function() {
+            this.tick()
         }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.draw = function(){
-        
+    NetworkXD3ForceLayoutPlugin.prototype.draw = function(){
+
         plugin = this
+        brush = this.fig.getBrush();
 
         DEFAULT_NODE_SIZE = this.props.nominal_radius;
-            
+
         var height = this.fig.height
         var width = this.fig.width
 
-        var graph = this.props.graph     
+        var graph = this.props.graph
         var gravity = this.props.gravity.toFixed()
         var charge = this.props.charge.toFixed()
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
         console.log(gravity)
-    
+
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
-        
+
         var ax = this.ax;
-        
+
         this.ax.elements.push(this)
-        
+
         ax_obj = this.ax;
-                                                
+
         var width = d3.max(ax.x.range()) - d3.min(ax.x.range()),
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-        
+
         console.log(width, height)
 
-        this.xScale = d3.scale.linear()//.domain([0, width]).range([0, width]) // ax.x;
-        this.yScale = d3.scale.linear()//.domain([0, height]).range([height, 0]) // ax.y;
+        this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
+        this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
 
         this.force = d3.layout.force()
                             .size([width, height]);
-                            
+
         this.svg = this.ax.axes.append("g");
-        
+
         for(var i = 0; i < graph.nodes.length; i++){
             var node = graph.nodes[i];
-            if (node.hasOwnProperty('x')) { 
-                node.x = this.ax.x(node.x); 
+            if (node.hasOwnProperty('x')) {
+                node.x = this.ax.x(node.x);
             }
-            if (node.hasOwnProperty('y')) { 
-                node.y = this.ax.y(node.y); 
+            if (node.hasOwnProperty('y')) {
+                node.y = this.ax.y(node.y);
             }
         }
 
@@ -368,25 +346,25 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
         this.setupDefaults()
         this.conditional_features(this.svg);
-        
-    };    
-        
-    NetworkXD3ForceLayoutViewPlugin.prototype.tick = function() {
-        
-        this.link.attr("x1", function (d) { return this.xScale(d.source.x); }.bind(this))
-                 .attr("y1", function (d) { return this.yScale(d.source.y); }.bind(this))
-                 .attr("x2", function (d) { return this.xScale(d.target.x); }.bind(this))
-                 .attr("y2", function (d) { return this.yScale(d.target.y); }.bind(this));
+
+    };
+
+    NetworkXD3ForceLayoutPlugin.prototype.tick = function() {
+
+        this.link.attr("x1", function (d) { return this.ax.x(this.xScale.invert(d.source.x)); }.bind(this))
+                 .attr("y1", function (d) { return this.ax.y(this.yScale.invert(d.source.y)); }.bind(this))
+                 .attr("x2", function (d) { return this.ax.x(this.xScale.invert(d.target.x)); }.bind(this))
+                 .attr("y2", function (d) { return this.ax.y(this.yScale.invert(d.target.y)); }.bind(this));
 
         this.node.attr("transform", function (d) {
-            return "translate(" + this.xScale(d.x) + "," + this.yScale(d.y) + ")";
+            return "translate(" + this.ax.x(this.xScale.invert(d.x)) + "," + this.ax.y(this.yScale.invert(d.y)) + ")";
             }.bind(this)
         );
-        
+
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.conditional_features = function(svg) {
-    
+    NetworkXD3ForceLayoutPlugin.prototype.conditional_features = function(svg) {
+
         var drag = d3.behavior.drag()
                 .on("dragstart", dragstarted)
                 .on("drag", dragged.bind(this))
@@ -397,17 +375,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             d3.select(this).classed("fixed", d.fixed = true);
             d.fixed = true;
         }
-        
+
         function dblclick(d) {
           self.force.resume();
           d3.select(this).classed("fixed", d.fixed = false);
         }
-        
+
         function dragged(d) {
             var mouse = d3.mouse(svg.node());
-            d.x = this.xScale.invert(mouse[0]);
-            d.y = this.yScale.invert(mouse[1]);
-            d.px = d.x;         
+            d.x = this.xScale(this.ax.x.invert(mouse[0]));
+            d.y = this.yScale(this.ax.y.invert(mouse[1]));
+            d.px = d.x;
             d.py = d.y;
             d.fixed = true;
             this.force.resume();
@@ -416,17 +394,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         function dragended(d) {
             d.fixed = true;
             }
-            
+
         var self = this;
         if (this.props.draggable === true) {
             this.node.on("dblclick", dblclick).call(drag)
-        }        
-        
+        }
+
     }
 
-        
+
     
-         mpld3.draw_figure("fig_el7013147193821602107486826", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el701314693464144", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el701314693464144", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayoutview", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el701314719382160"});
+         mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
       });
     });
 }else{
@@ -434,17 +412,13 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
     mpld3_load_lib("https://mpld3.github.io/js/d3.v3.min.js", function(){
          mpld3_load_lib("https://mpld3.github.io/js/mpld3.v0.2.js", function(){
                  
-    
-    coords = null;
-    plugin = null;
-    graph_debug = null;
 
-    mpld3.register_plugin("networkxd3forcelayoutview", NetworkXD3ForceLayoutViewPlugin);
-    NetworkXD3ForceLayoutViewPlugin.prototype = Object.create(mpld3.Plugin.prototype);
-    NetworkXD3ForceLayoutViewPlugin.prototype.constructor = NetworkXD3ForceLayoutViewPlugin;
-    NetworkXD3ForceLayoutViewPlugin.prototype.requiredProps = ["graph", 
+    mpld3.register_plugin("networkxd3forcelayout", NetworkXD3ForceLayoutPlugin);
+    NetworkXD3ForceLayoutPlugin.prototype = Object.create(mpld3.Plugin.prototype);
+    NetworkXD3ForceLayoutPlugin.prototype.constructor = NetworkXD3ForceLayoutPlugin;
+    NetworkXD3ForceLayoutPlugin.prototype.requiredProps = ["graph",
                                                                 "ax_id",];
-    NetworkXD3ForceLayoutViewPlugin.prototype.defaultProps = { coordinates: "data",
+    NetworkXD3ForceLayoutPlugin.prototype.defaultProps = { coordinates: "data",
                                                                draggable: true,
                                                                gravity: 1,
                                                                charge: -30,
@@ -458,14 +432,14 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
                                                                minimum_radius: 1,
                                                                nominal_radius: 5,
                                                             };
-    
-    function NetworkXD3ForceLayoutViewPlugin(fig, props){
+
+    function NetworkXD3ForceLayoutPlugin(fig, props){
         mpld3.Plugin.call(this, fig, props);
     };
 
     var color = d3.scale.category20();
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
+    NetworkXD3ForceLayoutPlugin.prototype.zoomScaleProp = function (nominal_prop, minimum_prop, maximum_prop) {
         var zoom = this.ax.zoom;
         scalerFunction = function() {
             var prop = nominal_prop;
@@ -475,75 +449,69 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         }
         return scalerFunction;
     }
-    
-    NetworkXD3ForceLayoutViewPlugin.prototype.setupDefaults = function () {
-    
-        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width, 
+
+    NetworkXD3ForceLayoutPlugin.prototype.setupDefaults = function () {
+
+        this.zoomScaleStroke = this.zoomScaleProp(this.props.nominal_stroke_width,
                                                   this.props.minimum_stroke_width,
                                                   this.props.maximum_stroke_width)
-        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius, 
+        this.zoomScaleRadius = this.zoomScaleProp(this.props.nominal_radius,
                                                   this.props.minimum_radius,
                                                   this.props.maximum_radius)
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.zoomed = function() {   
-        
-            var stroke = this.zoomScaleStroke()
-            var radius = this.zoomScaleRadius()
-
-            this.link.style("stroke-width",stroke);
-            this.node.attr("r", radius);
-    
-            this.svg.attr("transform", "translate(" + d3.event.translate + ")scale(" + d3.event.scale + ")");
+    NetworkXD3ForceLayoutPlugin.prototype.zoomed = function() {
+            this.tick()
         }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.draw = function(){
-        
+    NetworkXD3ForceLayoutPlugin.prototype.draw = function(){
+
         plugin = this
+        brush = this.fig.getBrush();
 
         DEFAULT_NODE_SIZE = this.props.nominal_radius;
-            
+
         var height = this.fig.height
         var width = this.fig.width
 
-        var graph = this.props.graph     
+        var graph = this.props.graph
         var gravity = this.props.gravity.toFixed()
         var charge = this.props.charge.toFixed()
         var link_distance = this.props.link_distance.toFixed()
         var link_strength = this.props.link_strength.toFixed()
         var friction = this.props.friction.toFixed()
         console.log(gravity)
-    
+
         this.ax = mpld3.get_element(this.props.ax_id, this.fig)
-        
+
         var ax = this.ax;
-        
+
         this.ax.elements.push(this)
-        
+
         ax_obj = this.ax;
-                                                
+
         var width = d3.max(ax.x.range()) - d3.min(ax.x.range()),
             height = d3.max(ax.y.range()) - d3.min(ax.y.range());
 
         var color = d3.scale.category20();
-        
+
         console.log(width, height)
 
-        this.xScale = d3.scale.linear()//.domain([0, width]).range([0, width]) // ax.x;
-        this.yScale = d3.scale.linear()//.domain([0, height]).range([height, 0]) // ax.y;
+        this.xScale = d3.scale.linear().domain([0, 1]).range([0, width]) // ax.x;
+        this.yScale = d3.scale.linear().domain([0, 1]).range([height, 0]) // ax.y;
 
         this.force = d3.layout.force()
                             .size([width, height]);
-                            
+
         this.svg = this.ax.axes.append("g");
-        
+
         for(var i = 0; i < graph.nodes.length; i++){
             var node = graph.nodes[i];
-            if (node.hasOwnProperty('x')) { 
-                node.x = this.ax.x(node.x); 
+            if (node.hasOwnProperty('x')) {
+                node.x = this.ax.x(node.x);
             }
-            if (node.hasOwnProperty('y')) { 
-                node.y = this.ax.y(node.y); 
+            if (node.hasOwnProperty('y')) {
+                node.y = this.ax.y(node.y);
             }
         }
 
@@ -578,25 +546,25 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 
         this.setupDefaults()
         this.conditional_features(this.svg);
-        
-    };    
-        
-    NetworkXD3ForceLayoutViewPlugin.prototype.tick = function() {
-        
-        this.link.attr("x1", function (d) { return this.xScale(d.source.x); }.bind(this))
-                 .attr("y1", function (d) { return this.yScale(d.source.y); }.bind(this))
-                 .attr("x2", function (d) { return this.xScale(d.target.x); }.bind(this))
-                 .attr("y2", function (d) { return this.yScale(d.target.y); }.bind(this));
+
+    };
+
+    NetworkXD3ForceLayoutPlugin.prototype.tick = function() {
+
+        this.link.attr("x1", function (d) { return this.ax.x(this.xScale.invert(d.source.x)); }.bind(this))
+                 .attr("y1", function (d) { return this.ax.y(this.yScale.invert(d.source.y)); }.bind(this))
+                 .attr("x2", function (d) { return this.ax.x(this.xScale.invert(d.target.x)); }.bind(this))
+                 .attr("y2", function (d) { return this.ax.y(this.yScale.invert(d.target.y)); }.bind(this));
 
         this.node.attr("transform", function (d) {
-            return "translate(" + this.xScale(d.x) + "," + this.yScale(d.y) + ")";
+            return "translate(" + this.ax.x(this.xScale.invert(d.x)) + "," + this.ax.y(this.yScale.invert(d.y)) + ")";
             }.bind(this)
         );
-        
+
     }
 
-    NetworkXD3ForceLayoutViewPlugin.prototype.conditional_features = function(svg) {
-    
+    NetworkXD3ForceLayoutPlugin.prototype.conditional_features = function(svg) {
+
         var drag = d3.behavior.drag()
                 .on("dragstart", dragstarted)
                 .on("drag", dragged.bind(this))
@@ -607,17 +575,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
             d3.select(this).classed("fixed", d.fixed = true);
             d.fixed = true;
         }
-        
+
         function dblclick(d) {
           self.force.resume();
           d3.select(this).classed("fixed", d.fixed = false);
         }
-        
+
         function dragged(d) {
             var mouse = d3.mouse(svg.node());
-            d.x = this.xScale.invert(mouse[0]);
-            d.y = this.yScale.invert(mouse[1]);
-            d.px = d.x;         
+            d.x = this.xScale(this.ax.x.invert(mouse[0]));
+            d.y = this.yScale(this.ax.y.invert(mouse[1]));
+            d.px = d.x;
             d.py = d.y;
             d.fixed = true;
             this.force.resume();
@@ -626,17 +594,17 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
         function dragended(d) {
             d.fixed = true;
             }
-            
+
         var self = this;
         if (this.props.draggable === true) {
             this.node.on("dblclick", dblclick).call(drag)
-        }        
-        
+        }
+
     }
 
-        
+
     
-                 mpld3.draw_figure("fig_el7013147193821602107486826", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 12.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el701314693464144", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.099999999999999978, 0.77500000000000002, 0.80000000000000004]}], "height": 480.0, "width": 640.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el701314693464144", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayoutview", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el701314719382160"});
+                 mpld3.draw_figure("fig_el5808544520390566548547064", {"axes": [{"xlim": [0.0, 1.0], "yscale": "linear", "axesbg": "#FFFFFF", "texts": [], "zoomable": true, "images": [], "xdomain": [0.0, 1.0], "ylim": [0.0, 1.0], "paths": [], "sharey": [], "sharex": [], "axesbgalpha": null, "axes": [{"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "bottom", "nticks": 6, "tickvalues": null}, {"scale": "linear", "tickformat": null, "grid": {"gridOn": false}, "fontsize": 10.0, "position": "left", "nticks": 6, "tickvalues": null}], "lines": [], "markers": [], "id": "el580854451817872", "ydomain": [0.0, 1.0], "collections": [], "xscale": "linear", "bbox": [0.125, 0.125, 0.77500000000000002, 0.77500000000000002]}], "height": 288.0, "width": 432.0, "plugins": [{"type": "reset"}, {"enabled": false, "button": true, "type": "zoom"}, {"enabled": false, "button": true, "type": "boxzoom"}, {"draggable": true, "charge": -30, "link_distance": 20, "link_strength": 1, "ax_id": "el580854451817872", "graph": {"directed": false, "graph": {}, "nodes": [{"name": "Node1", "color": "red", "y": 0.25, "x": 0.25, "fixed": true, "id": 1}, {"y": 0.75, "x": 0.75, "fixed": true, "id": 2}, {"id": 3}], "links": [{"source": 0, "target": 1}, {"source": 0, "target": 2}, {"source": 1, "target": 2}], "multigraph": false}, "nominal_radius": 5, "type": "networkxd3forcelayout", "gravity": 1, "friction": 0.9}], "data": {}, "id": "el580854452039056"});
             })
          });
 }
