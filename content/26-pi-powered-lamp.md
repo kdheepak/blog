@@ -1,11 +1,9 @@
----
 Title: Raspberry Pi Powered LED Lamp
 Category: blog
 Date: Sun Mar 27 19:17:58 MDT 2016
 keywords: raspberry, pi, led, flask
 tags: raspberry-pi, flask, led
 summary: Use your Raspberry Pi to control a desk lamp
----
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
 The instructions are very simple [@_led] and the results are pretty cool.

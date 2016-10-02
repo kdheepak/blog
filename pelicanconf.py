@@ -30,7 +30,7 @@ MD_EXTENSIONS = ['codehilite(css_class=highlight, linenums=False)', 'extra', 'he
                 'toc(permalink=true)']
 PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = ['sitemap', 'pelican_alias', 'tipue_search', 'liquid_tags.img', 'render_math', 'pandoc_reader',
+PLUGINS = ['sitemap', 'pelican_alias', 'pelican_javascript', 'tipue_search', 'liquid_tags.img', 'render_math', 'pandoc_reader',
             'neighbors', 'related_posts', 'assets', 'liquid_tags.video', # 'extract_toc',
             'liquid_tags.youtube', 'liquid_tags.include_code',]
 SITEMAP = {
