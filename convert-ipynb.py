@@ -14,13 +14,16 @@ def convert_notebook_to_html(file_name):
     out = check_output(["jupyter-nbconvert", "content/notebooks/{}".format(file_name), "--to", "html"])
 
 def convert_html_to_json(file_name):
-    out = check_output(["pandoc", "content/notebooks/{}".format(file_name), "-t", "json"])
+    out = check_output(["pandoc", "{}".format(file_name), "-t", "json"])
     return out
 
 def remove_html(file_name):
-
     try:
         os.remove('content/notebooks/{}'.format(file_name).replace('ipynb', 'html'))
+    except:
+        pass
+    try:
+        os.remove('{}'.format(file_name).replace('ipynb', 'html'))
     except:
         pass
 
