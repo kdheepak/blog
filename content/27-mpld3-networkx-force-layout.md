@@ -37,6 +37,10 @@ plugins.connect(fig, NetworkXD3ForceLayout(G, pos, ax))
 
 <div id="fig_el6303944499107368844826201"></div>
 
+I've implemented a sticky version of the force layout, since this is what I wanted to have.
+Dragging a node to a new position will fix it at that location.
+You can double click the node to release it.
+
 I'll run through the explanation briefly here.
 
 ```
@@ -74,9 +78,5 @@ plugins.connect(fig, NetworkXD3ForceLayout(G, pos, ax))
 Additional keywords arguments can be passed to the constructor of the NetworkXD3ForceLayout class.
 This allows a user to control some force layout properties like `gravity`, `linkDistance`, `linkStrength` etc.
 You can also set the default node size or turn off the dragging feature.
-
-I've implemented a sticky version of the force layout, since this is what I wanted to have.
-Dragging a node to a new position will fix it at that location.
-You can double click the node to release it.
 
 I plan to write a more detailed description of everything I learnt in a following post.
