@@ -81,7 +81,10 @@ You can also set the default node size or turn off the dragging feature.
 
 I plan to write a more detailed description of everything I learnt in a following post.
 
-Here is another example of the social network in Karate Club.
+Here is another example of a NetworkX graph converted to a force layout.
+This is Zachary's Karate Club.
+Nodes in `Mr Hi`'s club are coloured purple and the rest are coloured orange.
+Node size is also changed based on the number of neighbours.
 
 ```
 import matplotlib.pyplot as plt
@@ -113,4 +116,5 @@ mpld3.plugins.connect(fig,  NetworkXD3ForceLayout(G,
                      )
 ```
 
-<div id="fig_el8173445172524322803025658"></div>
+<div id="fig_el8173445058185128276242074"></div>
+
