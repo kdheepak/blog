@@ -6,7 +6,7 @@ keywords:python
 slug:mpld3-networkx-d3js-force-layout
 category:blog
 alias:/blog/mpld3-networkx-d3js-force-layout
-JavaScripts: myvis.js
+JavaScripts: myvis.js, karateclub.js
 
 [mpld3](http://mpld3.github.io/) is a matplotlib to d3 library. There are a number of [examples](http://mpld3.github.io/examples/) on their website.
 There is also the ability to add [plugins](http://mpld3.github.io/_downloads/custom_plugins.html) to add new iterative functionality. I wanted to take a shot at adding a d3.js force layout plugin. I've worked on it over the weekend and here it is, a networkx to d3js force layout plugin for mpld3. I've shared an example here below.
@@ -80,3 +80,37 @@ This allows a user to control some force layout properties like `gravity`, `link
 You can also set the default node size or turn off the dragging feature.
 
 I plan to write a more detailed description of everything I learnt in a following post.
+
+Here is another example of the social network in Karate Club.
+
+```
+import matplotlib.pyplot as plt
+import networkx as nx
+
+fig, axs = plt.subplots(1, 1, figsize=(16, 10))
+ax = axs
+
+G=nx.karate_club_graph()
+pos = None
+
+for node, data in G.nodes(data=True):
+    if data['club'] == 'Mr. Hi':
+        data['color'] = 'purple'
+    else:
+        data['color'] = 'orange'
+
+for n, data in G.nodes(data=True):
+    data['size'] = len(G.neighbors(n))
+
+mpld3.plugins.connect(fig,  NetworkXD3ForceLayout(G,
+                                                  pos,
+                                                  ax,
+                                                  gravity=.5,
+                                                  link_distance=20,
+                                                  charge=-600,
+                                                  friction=1
+                                                 )
+                     )
+```
+
+<div id="fig_el8173445172524322803025658"></div>
