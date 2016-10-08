@@ -75,7 +75,7 @@ First, let's update the Raspberry Pi.
     sudo apt-get update
     sudo apt-get upgrade
 
-Then we need to install `python-dev`, [ `pyspidev` ]( https://github.com/doceme/py-spidev ) and [`BiblioPixel`](https://github.com/ManiacalLabs/BiblioPixel).
+Then we need to install `python-dev`, [pyspidev]( https://github.com/doceme/py-spidev ) and [BiblioPixel](https://github.com/ManiacalLabs/BiblioPixel).
 These are all required to control the LED strip.
 
     sudo apt-get install python-dev
@@ -101,7 +101,7 @@ At this point, you should be able to run a few examples, and see animations on y
 ### Flask
 
 I've set up a simple Flask server and am using a Javascript library called [colorwheel](https://jweir.github.io/colorwheel/) to send a user selected color to the Raspberry Pi.
-The code for the Flask server is available on [GitHub](https://github.com/kdheepak89/arp) under MIT License.
+The code for the Flask server is available on [GitHub](https://github.com/kdheepak/arp) under MIT License.
 
 If you want more information, feel free to ask me any questions in the comments section below! 
 

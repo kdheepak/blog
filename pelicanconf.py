@@ -52,7 +52,7 @@ SITEMAP = {
 STATIC_PATHS = ['blog', 'theme/images', 'images', 'downloads', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
-ARTICLE_EXCLUDES = ['downloads', 'drafts']
+ARTICLE_EXCLUDES = ['downloads', 'drafts', 'notebooks']
 
 
 SITEMAP = {
@@ -118,8 +118,6 @@ SUMMARY_MAX_LENGTH = 5
 STATIC_PATHS = ['blog', 'theme/images', 'images', 'downloads', 'extra/CNAME']
 EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
 
-ARTICLE_EXCLUDES = ['downloads']
-
 DIRECT_TEMPLATES = (('index', 'archives', 'search', '404'
     ))
 
@@ -181,7 +179,6 @@ PANDOC_ARGS = [
   '--filter=pandoc-eqnos',
   '--filter=pandoc-fignos',
   '--filter=pandoc-tablenos',
-  '--filter=./convert-ipynb.py',
   '--filter=./fix-latex-symbol.py',
   '--filter=./remove_ieeekeywords.py',
   '--csl=ieee.csl',
@@ -191,5 +188,4 @@ PANDOC_ARGS = [
 
 PANDOC_EXTENSIONS = [
   #'+hard_line_breaks',
-  '+citations'
 ]
