@@ -28,11 +28,33 @@ CACHE_CONTENT = False
 NOTEBOOK_DIR = 'notebooks'
 MD_EXTENSIONS = ['codehilite(css_class=highlight, linenums=False)', 'extra', 'headerid',
                 'toc(permalink=true)']
+
 PLUGIN_PATHS = ['pelican-plugins']
 
-PLUGINS = ['sitemap', 'pelican_alias', 'pelican_javascript', 'tipue_search', 'liquid_tags.img', 'render_math', 'pandoc_reader',
-            'neighbors', 'related_posts', 'assets', 'liquid_tags.video', # 'extract_toc',
-            'liquid_tags.youtube', 'liquid_tags.include_code',]
+PLUGINS = ['pelican_pandoc']
+
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
+
+
+# Blog specific settings
+STATIC_PATHS = ['blog', 'theme/images', 'images', 'downloads', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'},}
+
+ARTICLE_EXCLUDES = ['downloads', 'drafts']
+
+
 SITEMAP = {
     'format': 'xml',
     'priorities': {

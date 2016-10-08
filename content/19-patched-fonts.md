@@ -1,9 +1,11 @@
-Title:Patched fonts madness
-Category:blog
-Date:Sat Sep 12 19:59:22 MDT 2015
-Tags:vim, tmux
-Keywords:vim, tmux
-Alias:/blog/patched-fonts-madness/
+---
+title: Patched fonts madness
+category: blog
+date: Sat Sep 12 19:59:22 MDT 2015
+tags: vim, tmux
+keywords: vim, tmux
+alias: /blog/patched-fonts-madness/
+---
 
 Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.
 

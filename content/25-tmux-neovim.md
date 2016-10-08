@@ -1,8 +1,10 @@
-Title: Neovim and Tmux
-Category: blog
-Date: Sat Feb 6 00:54:00 MST 2016
-keywords: neovim, tmux, vim, writing
+---
+title:  Neovim and Tmux
+category:  blog
+date:  Sat Feb 6 00:54:00 MST 2016
+Keywords:  neovim, tmux, vim, writing
 tags: writing, vim
+---
 
 These instructions are OSX specific. On Windows machines, I tend to use Sublime Text or Atom. On Linux machines, I use Vim when my local machine is OSX running tmux.
 

@@ -1,10 +1,12 @@
-Title:Create Emacsclient.app using AppleScript
-Category:blog
-Date: Jul 18 10:00:00 MDT 2015
-Tags:emacs, applescript, osx
-Keywords:Create an emacsclient application using OSX, applescript
-Summary:I've created an Emacsclient.app using AppleScript to aid with my Alfred workflow ...
-Alias:/blog/create-emacsclientapp-using-applescript/
+---
+title: Create Emacsclient.app using AppleScript
+category: blog
+date:  Jul 18 10:00:00 MDT 2015
+tags: emacs, applescript, osx
+keywords: Create an emacsclient application using OSX, applescript
+summary: I've created an Emacsclient.app using AppleScript to aid with my Alfred workflow ...
+alias: /blog/create-emacsclientapp-using-applescript/
+---
 
 Open Automator and go to File->New. Click on Application.
 

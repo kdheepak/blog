@@ -1,9 +1,11 @@
-Title:Jupyter Notebook, Reveal.js and Github Pages
-Category:blog 
-Date:Sat Dec 5 13:03:54 MST 2015
-Tags:reveal.js, github pages
-Keywords:ipython, ipython notebook, jupyter, jupyter notebook, reveal.js, github pages, presentations
-Alias:/blog/jupyter-notebook-reveal-js-and-github-pages/
+---
+title: Jupyter Notebook, Reveal.js and Github Pages
+category: blog
+date: Sat Dec 5 13:03:54 MST 2015
+tags: reveal.js, github pages
+keywords: ipython, ipython notebook, jupyter, jupyter notebook, reveal.js, github pages, presentations
+alias: /blog/jupyter-notebook-reveal-js-and-github-pages/
+---
 
 Jupyter Notebook has the ability to convert an notebook `ipynb` to markdown, rst, html and interestingly slides.
 And these Reveal.js powered slides can be hosted on GitHub pages, like any other html page.

@@ -1,9 +1,11 @@
-Title:Robotics
-Category:blog
-Date:2014-12-13 10:00
-Tags:Robotics
-Summary:Here are some videos from projects I worked on during my undergraduate degree ...
-Alias:/blog/robotics/
+---
+title: Robotics
+category: blog
+date: 2014-12-13 10:00
+tags: Robotics
+summary: Here are some videos from projects I worked on during my undergraduate degree ...
+alias: /blog/robotics/
+---
 
 <h3>Robotics and Microcontroller Projects</h3>
 

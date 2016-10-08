@@ -1,9 +1,11 @@
-Title:Mac OSX Tweaks
-Category:blog
-Date:2015-03-21 19:00
-Tags:OSX
-Summary:OSX is more customizable that you think. Here are a bunch of tweaks that I found useful. Since I've posted this, I've maintained a updated version of these tweaks along with my dotfiles on GitHub ... 
-Alias:/blog/mac-osx-tweaks/
+---
+title: Mac OSX Tweaks
+category: blog
+date: 2015-03-21 19:00
+tags: OSX
+summary: OSX is more customizable that you think. Here are a bunch of tweaks that I found useful. Since I've posted this, I've maintained a updated version of these tweaks along with my dotfiles on GitHub ...
+alias: /blog/mac-osx-tweaks/
+---
 
 # Update
 

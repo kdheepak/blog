@@ -1,11 +1,13 @@
-title:Using conda to manage packages
-date:Fri Dec 25 04:32:51 MST 2015
-tags:python
-summary:Use conda env to manage packages
-keywords:python, acaconda, conda, environment, pip, conda vs pip
-slug:using-conda-to-manage-packages
-category:blog 
-alias:/blog/using-conda-to-manage-packages
+---
+title: Using conda to manage packages
+date: Fri Dec 25 04:32:51 MST 2015
+tags: python
+summary: Use conda env to manage packages
+keywords: python, acaconda, conda, environment, pip, conda vs pip
+slug: using-conda-to-manage-packages
+category: blog
+alias: /blog/using-conda-to-manage-packages
+---
 
 # Why use conda
 

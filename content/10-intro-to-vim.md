@@ -1,9 +1,11 @@
-Title:Beginners guide to getting started with Vim
-Category:blog 
-Date:May 01 22:59:49 MDT 2015
-Tags:vim
-Keywords:vim, beginner, tutorial
-Alias:/blog/beginners-guide-to-getting-started-with-vim/
+---
+title: Beginners guide to getting started with Vim
+category: blog
+date: May 01 22:59:49 MDT 2015
+tags: vim
+keywords: vim, beginner, tutorial
+alias: /blog/beginners-guide-to-getting-started-with-vim/
+---
 
 When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.
 

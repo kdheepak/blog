@@ -1,9 +1,11 @@
-Title: Tasker Projects
-Category:blog
-Date:2014-12-12 19:00
-Tags:Tasker,Android
-Summary:A collection of Tasker projects I've worked on ...
-Alias:/blog/tasker-projects/
+---
+title:  Tasker Projects
+category: blog
+date: 2014-12-12 19:00
+tags: Tasker,Android
+summary: A collection of Tasker projects I've worked on ...
+alias: /blog/tasker-projects/
+---
 
 # Google Calendar
 

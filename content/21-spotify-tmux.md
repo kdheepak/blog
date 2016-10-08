@@ -1,9 +1,11 @@
-Title:Spotify and tmux 
-Category:blog 
-Date:Sun Sep 20 09:26:15 MDT 2015
-Tags:tmux
-Keywords:tmux, spotify, powerline
-Alias:/blog/spotify-and-tmux/
+---
+title: Spotify and tmux
+category: blog
+date: Sun Sep 20 09:26:15 MDT 2015
+tags: tmux
+keywords: tmux, spotify, powerline
+alias: /blog/spotify-and-tmux/
+---
 
 Create a file named tmux-spotify-info and place it in a directory that in your `$PATH`. Add the following snippet of code into the file and make sure it is executable.
 
@@ -50,6 +52,6 @@ set -g window-status-format "#[fg=white,bg=colour234] #I #W "
 set -g window-status-current-format "#[fg=colour234,bg=colour39]#[fg=colour16,bg=colour39,noreverse,bold] #I ❭ #W #[fg=colour39,bg=colour234,nobold]"
 ```
 
-And your favourite song will be listed in your tmux powerline! You can change the colours by playing the values above. 
+And your favourite song will be listed in your tmux powerline! You can change the colours by playing the values above.
 
 ![tmux-spotify](/images/tmux-spotify.png)
