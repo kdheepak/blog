@@ -5,10 +5,6 @@ before_install:
   - sudo apt-get -y install jq
   - wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
   - sudo dpkg -i pandoc.deb
-  - git clone --recursive https://github.com/getpelican/pelican-plugins
-  - rm -rf pelican-plugins/pandoc_reader
-  - git clone https://github.com/kdheepak/pandoc_reader.git pelican-plugins/pandoc_reader
-  - git clone https://github.com/kdheepak/pelican-smoothie.git pelican-themes/pelican-smoothie
 install:
   - easy_install -U setuptools
   - pip install -U pip wheel

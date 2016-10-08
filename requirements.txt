@@ -38,3 +38,4 @@ tornado==4.3
 traitlets==4.0.0
 trollius==2.1
 requests==2.10.0
+pypandoc==1.2.0
