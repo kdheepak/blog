@@ -6,6 +6,7 @@ before_install:
   - wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
   - sudo dpkg -i pandoc.deb
   - git clone https://github.com/kdheepak/pelican-smoothie.git pelican-themes/pelican-smoothie
+  - git clone https://github.com/kdheepak/pelican_pandoc.git pelican-plugins/pelican_pandoc
 install:
   - easy_install -U setuptools
   - pip install -U pip wheel
