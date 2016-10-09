@@ -39,15 +39,13 @@ class PandocReader(BaseReader):
         return content
 
     def read_metadata(self, path, format=None):
-        metadata_json = pypandoc.convert_file(path, format=format,
+        metadata_json = pypandoc.convert_file(path, to=self.output_format, format=format,
                                      extra_args=['--template', self.METADATA_TEMPLATE])
 
-        print(metadata_json)
         _metadata = json.loads(metadata_json)
         metadata = dict()
         for key, value in _metadata.items():
             metadata[key] = self.process_metadata(key, value)
-        print(metadata)
 
         return metadata
 
