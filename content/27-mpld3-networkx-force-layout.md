@@ -18,7 +18,7 @@ d3.js is a powerful low level visualization library and there are loads of examp
 mpld3 also has the ability to add [plugins](http://mpld3.github.io/_downloads/custom_plugins.html) to add new functionality. I wanted to take a shot at adding a d3.js force layout plugin. The force layout is a powerful visualization tool and NetworkX has a nifty function that will convert the graph along with its attributes into a JSON graph format.
 I'd played around with this before and figured this would be a nice feature to have, so I've worked on it over the weekend and here it is - a NetworkX to d3.js force layout plugin for mpld3. I've shared an example below.
 
-```
+```python
 %matplotlib inline
 import numpy as np
 import matplotlib.pyplot as plt
@@ -53,7 +53,7 @@ These blocks were used as a reference [@_svg, @_sticky].
 
 I'll run through an explanation of the code briefly.
 
-```
+```python
 fig, ax = plt.subplots()
 ```
 
@@ -65,7 +65,7 @@ The only downside to that is that the final output will not be a force layout.
 
 Next we create a graph with the following commands
 
-```
+```python
 import networkx as nx
 G=nx.Graph()
 G.add_node(1, color='red', x=0.25, y=0.25, fixed=True, name='Node1')
@@ -83,7 +83,8 @@ When converted to a force layout, this will fix the positions of those nodes.
 
 We are almost done! This registers the plugin with mpld3.
 
-```
+
+```python
 plugins.connect(fig, NetworkXD3ForceLayout(G, pos, ax))
 ```
 
@@ -101,7 +102,7 @@ This is Zachary's Karate Club.
 Nodes in `Mr Hi`'s club are coloured purple and the rest are coloured orange.
 Node size is also changed based on the number of neighbours.
 
-```
+```python
 import matplotlib.pyplot as plt
 import networkx as nx
 
