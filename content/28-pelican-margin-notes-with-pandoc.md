@@ -7,6 +7,19 @@ keywords: python, pelican, pandoc, margin notes, side notes
 slug: pelican-margin-notes-with-pandoc
 category: blog
 alias: /blog/pelican-margin-notes-with-pandoc
+references:
+- id: johnjameson
+  author:
+  - family: Jameson
+    given: J.
+  title: Responsive Sidenotes
+  URL: https://johndjameson.com/blog/responsive-sidenotes/
+- id: jgruber
+  author:
+  - family: Gruber
+    given: J.
+  title: Notes on notes
+  URL: http://daringfireball.net/2005/08/notes_on_notes
 ---
 
 # Introduction
@@ -21,7 +34,7 @@ Also, since Pelican is an open source project, it is also inherently more custom
 I can almost guarantee if you think of a feature that you'd like, you'll be able to search for a plugin that does
 exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer __@justinmayer__ is also very responsive to feature requests and pull requests.
 
-And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able (with a little bit of research) to create a plugin to do exactly just that. Their documenation is pretty good too.
+And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able (with a little bit of research) to create a plugin to do exactly just that. Their documentation is pretty good too.
 If you are looking at a creating a blog I highly recommend checking out Pelican^[__aside__ :
 Pelican is only one of the few static site generators in Python. There are others such as [Nikola](https://github.com/getnikola/nikola),
 [Lektor](https://github.com/lektor/lektor), [Cactus](https://github.com/eudicots/Cactus),
@@ -43,8 +56,93 @@ the way Pelican signals works I believe will only activate a plugin if it has to
 And as I mentioned earlier, I was curious to see how far I could push this workflow. So if you are not using Pandoc in Pelican, you will not be
 able to use this theme with margin notes straight away^[You will still be able to use this theme, either with Pandoc or Pelican's default readers,
 however as you might see later in the post, I use `aside` tag elements for side notes or margin notes and I haven't been able to find a plugin
-that does just that]. So, the short version is that this implementation of margin notes employs Pandoc and my theme.
+that does just that]. So, the short version is that this implementation of margin notes employs Pandoc, filters with Pandoc using the [`pandocfilters` package](https://github.com/jgm/pandocfilters) and this theme.
 
 # Inspiration
 
-List of blogs, posts, websites, web books that have inspired this implementation to be updated.
+A list of blogs, posts, websites, web books have inspired this implementation. Most notably, [tuftle-css](https://edwardtufte.github.io/tufte-css/) and [this article](https://medium.com/@owenblacker/marginal-notes-on-medium-268b3f727e6d#.97mvo08w5) published on Medium about Medium sidenotes speak to some length on how margin notes can be used to improve the experience for a reader, especially on the web.
+[Butterick’s Practical Typography](http://practicaltypography.com/)^[__aside__: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.] also is a great example of effective use of margin notes.
+There are a few other articles [@johnjameson;@jgruber] that talk about this and I've added citations to these articles below in case you are interested.
+The CSS for this page and the CSS for the margin notes have been heavily inspired by [gameprogrammingpatterns.com](http://gameprogrammingpatterns.com/).
+
+# Implementation
+
+At the time of writing this article, Pandoc does not support creating margin notes for HTML documents.
+Pandoc does however support [footnotes](http://pandoc.org/MANUAL.html#footnotes) in the form of footnotes and inline notes.
+Inline notes are different for traditional footnotes in the source document. The following is an example of footnotes in Pandoc Markdown.
+
+```markdown
+
+Here is a footnote reference,[^1] and another.[^longnote]
+
+[^1]: Here is the footnote.
+
+[^longnote]: Here's one with multiple blocks.
+
+    Subsequent paragraphs are indented to show that they
+belong to the previous footnote.
+
+        { some.code }
+
+    The whole paragraph can be indented, or just the first
+    line.  In this way, multi-paragraph footnotes work like
+    multi-paragraph list items.
+
+This paragraph won't be part of the note, because it
+isn't indented.
+
+```
+
+The following is an example of inline footnotes in Pandoc Markdown
+
+```markdown
+Here is an inline note.^[Inlines notes are easier to write, since
+you don't have to pick an identifier and move down to type the
+note.]
+```
+
+As described in the example, inline notes are easier to write.
+Pandoc also conveniently also supports filters.
+They allow for additional functionality to be added by walking through the Abstract Syntax Tree, and parsing or modifying information.
+I chose the following syntax for implementing a `aside` tag when converting from a Markdown file to a HTML document.
+
+```markdown
+This is an example for the syntax^[__aside__: This is a note that will appear in a tag] in Markdown.
+```
+
+When run through the filter, the above will be rendered as the following html.
+
+```html
+<p>This is an example for the syntax<span id='aside-0'></span> in Markdown.</p>
+<div id='div-aside-0'>
+    <aside id='aside-0'>This is a note that will appear in a tag</aside>
+</div>
+```
+
+The location of the footnote is replaced with a `<span>` tag, and an `<aside>` tag wrapped in a `<div>` tag is added to the end of the paragraph.
+This filter will also assign `id` to the `<span>`, `<aside>` and `<div>` tags sequentially.
+Additional functionally can be added here, but for now this seems to work for my purposes.
+
+With the HTML generated with `<aside>` tags, it is now a question of assigning the right css.
+This turned out to be more tricky than I originally anticipated.
+The current theme uses bootstrap and the following layout to display content.
+
+```html
+<div class='row'>
+    <div class='col-sm-8'></div> <div class='col-sm-4'></div>
+</div>
+```
+
+Because of the way Pelican and Jinja work, and because of how Pandoc returns the content to Pelican, the entire article content
+is stored in the first `<div>` element of width 8 units.
+Ideally, each paragraph would be wrapped in `<div>` elements of one class, with `<aside>` elements wrapped in a neighboring div class.
+With the current structure of Pelican, the only way I could do that is by injecting `<div>` elements all over the place using something like
+[beautifulsoup](https://www.crummy.com/software/BeautifulSoup/).
+However I decided against it for now, and am using CSS to move the `<aside>` elements outside the element they are currently positioned in.
+Since the `<aside>` elements are located below the actual paragraph, I added javascript to move them up by their height.
+A better implementation could use the location of the `<span>` elements to fix the position of the notes.
+
+I'm sure there are definitely better ways to do the same thing, but this is what worked for now.
+If you have thoughts on how this could be done better or would like to ask questions in general, I'm open to chatting about this.
+
+# References

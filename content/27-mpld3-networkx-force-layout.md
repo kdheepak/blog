@@ -49,7 +49,7 @@ This can be turned off by passing an argument to the plugin.
 The reason it is called a sticky version is because dragging a node to a new position will fix it at that location.
 You can double click the node to release it.
 
-These blocks were used as a reference [@_svg, @_sticky].
+These blocks were used as a reference [@_svg;@_sticky].
 
 I'll run through an explanation of the code briefly.
 
