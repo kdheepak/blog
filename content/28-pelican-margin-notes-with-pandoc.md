@@ -32,7 +32,7 @@ There are a few advantages of using a static site generator instead of a Content
 and I have covered it briefly in [this post](/how-to-set-up-a-pelican-blog-with-github-pages.html).
 Since Pelican is an open source project, it is inherently pretty customization.
 I can almost guarantee if you think of a feature that you'd like, you'll be able to search for a plugin that does
-exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **@justinmayer** is also very responsive to feature requests and pull requests.
+exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **&#64;justinmayer** is also very responsive to feature requests and pull requests.
 
 And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able to (with a little bit of research) create a plugin to do exactly just that. Their documentation is pretty good too.
 If you are looking at a creating a blog I highly recommend checking out Pelican^[__aside__ :
@@ -50,7 +50,7 @@ This approach worked for me, and the reason I went down this path was because I 
 Firstly, I'm not using Pelican's built in reader for Markdown files, but instead am using Pandoc. I wrote a pretty long post on using
 [Pandoc for academic writing](/writing-papers-with-markdown.html); I think it's safe to say that I'm a fan of Pandoc.
 Pelican has better built-in support for RestructuredText compared to Markdown, but plugins allow you to do pretty much everything you want with Markdown as your source file format.
-However the number of plugins required to get everything you want working quickly adds up^[__aside__ : Not that's a bad thing, the way Pelican signals works I believe will only activate a plugin if it has to, so it doesn't slow down your deployment process.].
+However the number of plugins required to get everything you want working quickly adds up^[Not that's a bad thing. The way Pelican signals works I believe will only activate a plugin if it has to, so it doesn't slow down your deployment process.].
 I've used Pandoc for other projects before and wanted to see if I could get it working in my blogging workflow.
 I've since incorporated Pandoc and it seems to be working quite well.
 Getting jupyter notebooks working with Pandoc was a bit of challenge though, but I was able to get past it by writing a filter for converting Jupyter notebooks with Pandoc.
