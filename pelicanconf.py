@@ -181,7 +181,6 @@ PANDOC_ARGS = [
   '--filter=pandoc-eqnos',
   '--filter=pandoc-fignos',
   '--filter=pandoc-tablenos',
-  '--filter=./pandoc-filters/custom_notes/custom_notes.py',
   '--filter=./fix-latex-symbol.py',
   '--filter=./remove_ieeekeywords.py',
   '--csl=ieee.csl',
