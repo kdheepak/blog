@@ -1,7 +1,7 @@
 beautifulsoup==3.2.1
 beautifulsoup4==4.4.1
-futures==3.0.5
-ghp-import==0.4.1
+futures>=3.0.5
+ghp-import>=0.4.1
 ipykernel==4.1.1
 ipython==4.0.1
 ipython-genutils==0.1.0
@@ -14,11 +14,11 @@ Markdown==2.6.5
 nbconvert==4.1.0
 nbformat==4.0.1
 notebook==4.0.6
-pandoc-attributes==0.1.7
-pandoc-eqnos==0.6
-pandoc-fignos==0.6
-pandoc-tablenos==0.5
-pandocfilters==1.2.4
+pandoc-attributes>=0.1.7
+pandoc-eqnos>=0.6
+pandoc-fignos>=0.6
+pandoc-tablenos>=0.5
+pandocfilters>=1.2.4
 pelican==3.6.3
 pelican-alias==1.1
 pexpect==3.3
@@ -38,4 +38,4 @@ tornado==4.3
 traitlets==4.0.0
 trollius==2.1
 requests==2.10.0
-pypandoc==1.2.0
+pypandoc>=1.2.0
