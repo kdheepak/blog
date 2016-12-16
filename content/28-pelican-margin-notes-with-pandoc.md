@@ -22,6 +22,12 @@ references:
   URL: http://daringfireball.net/2005/08/notes_on_notes
 ---
 
+# Update
+
+I've made additional changes to javascript and css since the writing of this post, including an update to the filters and the use of Pelican's HTML reader to perform some additional fixes.
+Margin notes match their intended location a lot more closely now. 
+I'll possibly add another post describing these changes.
+
 # Introduction
 
 I've been inspired by a few other blogs to consider adding margin notes to this theme.
