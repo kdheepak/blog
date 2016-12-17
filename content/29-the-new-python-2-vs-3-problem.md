@@ -26,7 +26,7 @@ The changes to CPython API made it difficult to move packages across versions th
 This de-incentivised other tools that relied on packages to make the switch as well.
 Several of the scientific python stack faced this issue.
 Fortunately, thanks to the efforts of some incredibly smart and dedicated people, NumPy, SciPy, Pandas, Matplotlib all support Python 3.5.
-In arguably one of the more contentious decisions, Python3 also changed strings to handled as Unicode by default. This, as a result made thinking about unicode a more conscious decision^[__aside__: I highly recommend checking out ![Ned Batchelder's talk](https://www.youtube.com/watch?v=sgHbC6udIqc) titled "Pragmatic Unicode, or, How do I stop the pain?" for an excellent summary on how to deal with unicode issues.]
+In arguably one of the more contentious decisions, Python3 also changed strings to handled as Unicode by default. This, as a result made thinking about unicode a more conscious decision^[__aside__: I highly recommend checking out [Ned Batchelder's talk](https://www.youtube.com/watch?v=sgHbC6udIqc) titled "Pragmatic Unicode, or, How do I stop the pain?" for an excellent summary on how to deal with unicode issues.]
 Python3 makes dealing with unicode a lot easier, by providing error messages during compilation time instead of run time.
 Packages that often deal with bytes/text/strings may require some serious retooling.
 Many programs in the web stack in the Python world have taken time to move to the latest versions.
