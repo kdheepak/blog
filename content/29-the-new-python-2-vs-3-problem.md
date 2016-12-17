@@ -10,7 +10,7 @@ alias: /blog/the-new-python-2-vs-3-problem
 draft: true
 ---
 
-# Background 
+# Background
 
 # The New Python 2 vs 3 Problem
 
