@@ -1,7 +1,7 @@
 beautifulsoup==3.2.1
 beautifulsoup4==4.4.1
 futures>=3.0.5
-ghp-import>=0.4.1
+ghp-import==0.4.1
 ipykernel==4.1.1
 ipython==4.0.1
 ipython-genutils==0.1.0
