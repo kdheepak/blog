@@ -7,7 +7,7 @@ keywords: python, python2, python3
 slug: the-new-python-2-vs-3-problem
 category: blog
 alias: /blog/the-new-python-2-vs-3-problem
-draft: true
+status: draft
 ---
 
 # Background
