@@ -30,7 +30,9 @@ In arguably one of the more contentious decisions, Python3 also changed strings 
 Python3 makes dealing with unicode a lot easier, by providing error messages during compilation time instead of run time.
 Packages that often deal with bytes/text/strings may require some serious retooling.
 Many programs in the web stack in the Python world have taken time to move to the latest versions.
-Overall, Python3 introduces a lot of niceties^[__aside__: The latest version of Python3 even introduces a more memory efficient dictionary, and since dictionaries are everywhere you can be sure to expect some improvements in your programs.], and in general I wouldn't be alone in recommending anyone to use Python3 for their projects.
+Overall, Python3 introduces a lot of niceties.
+The latest version of Python3 even introduces a more memory efficient dictionary, and since dictionaries are everywhere you can be sure to expect some improvements in your programs.
+In general I wouldn't be alone in recommending anyone to use Python3 for their projects.
 Personally, I don't think I've ever experienced an issue where a package that I wanted was written for Python2 alone.
 
 I have experienced another issue though.
