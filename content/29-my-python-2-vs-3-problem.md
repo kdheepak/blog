@@ -72,7 +72,7 @@ class Child(Parent):
         super().__init__(**kwargs)
 ```
 
-However, this change, although syntactically cleaner and self documenting, is breaking backward compatibility.
+However, this change, although syntactically cleaner and self documenting, is backward incompatibility.
 More changes like this have been or are being introduced in Python3.
 For example, in Python3 you can merge two dictionaries with the following syntax
 
