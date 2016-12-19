@@ -81,14 +81,20 @@ merged_dict = {**dict1, **dict2}
 ```
 
 This is so much cleaner and readable code that the different ways one would do it in Python2, however this implementation immediately alienates a large Python2 user base.
-The list of backward incompatible changes that Python3 introduced is a lot larger than this, however almost all of these changes can be backported by using the excellent `six` and `future` modules.
+The list of backward incompatible changes that Python3 introduced is a lot larger than this.
+And although almost all of these changes can be backported by using the excellent `six` and `future` modules, not every change is currently backported.
+The following is another really neat feature is that currently not available in Python2.
+
+```python
+value1, *ignore, value2 = function()
+```
+
 I've been a proponent of writing code that is cross compatible with Python2 and Python3, but I anticipate that I may not get much mileage out of that strategy, or at the very least not for too long.
-Python 3.0 has been out for almost 10 years now.
-Python 2.7 has an end date attached to it (2020 will be last year for official support for Python2), which means it is definitely not going to believe any bugfixes or improvements in the future.
+Python 3.0 has been out for almost 10 years now and Python 2.7 has an end date attached to it (2020 will be last year for official support for Python2), which means it is definitely not going to believe any bugfixes or improvements in the future.
 Maybe it is not unreasonable to expect Python3 packages to be incompatitble with Python2.
+However, many enterprise applications and solutions are still using Python2, which are currently not written to be Python3 compatible.
 
 If you are reading this and have best practices to share, I would be very keen to hearing from you.
-Do you write packages that are only compatible with Python3?
-What do you do when posed with the question of Python2 vs Python3?
+Do you write packages that are only compatible with Python3, or strive to make them cross compatible?
 Are there other changes you can think of that make Python3 code incompatible with Python2?
-Are there other tips you recommend for writing cross version compatible code?
+Do you have tips you recommend for writing cross version compatible code?
