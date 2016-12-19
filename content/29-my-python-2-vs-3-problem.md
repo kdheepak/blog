@@ -91,12 +91,11 @@ value1, *ignore, value2 = function()
 
 I've been a proponent of writing code that is cross compatible with Python2 and Python3, but I anticipate that I may not get much mileage out of that strategy, or at the very least not for too long.
 Python 3.0 has been out for almost 10 years now and Python 2.7 has an end date attached to it (2020 will be last year for official support for Python2), which means it is definitely not going to believe any bugfixes or improvements in the future.
-Maybe it is not unreasonable to expect Python3 packages to be incompatitble with Python2.
+Maybe it is not unreasonable to expect Python3 packages to be incompatible with Python2.
 However, many enterprise applications and solutions are still using Python2, which are currently not written to be Python3 compatible.
 In my experience of using Python, I've not encountered a case with a package was only Python2 compatible but have encountered multiple packages where it is only Python3 compatible.
-This post is mainly to start a discussion around this topic.
-
+What are your thoughts on this subject?
 If you are reading this and have best practices to share, I would be very keen to hearing from you.
 Do you write packages that are only compatible with Python3, or strive to make them cross compatible?
 Are there other changes you can think of that make Python3 code incompatible with Python2?
-Do you have tips you recommend for writing cross version compatible code?
+Do you have tips you recommend for writing cross version compatible code or do you think it is no longer worth the effort.
