@@ -132,13 +132,13 @@ CATEGORY_SAVE_AS = ''
 TWITTER_USERNAME = u'kdheepak89'
 
 # Legal
-SITE_LICENSE = u'<div xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/" about="http://kdheepak.com/"> All content by Dheepak Krishnamurthy on this page is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>'
+SITE_LICENSE = u'<div xmlns:cc="https://creativecommons.org/ns#" xmlns:dct="https://purl.org/dc/terms/" about="https://kdheepak.com/"> All content by Dheepak Krishnamurthy on this page is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>.</div>'
 
 # SEO
 SITE_DESCRIPTION = u'My name is Dheepak Krishnamurthy. This is my personal blog.'
 
 LANDING_PAGE_ABOUT = {'title': 'I’m an engineer.',
-'details': """<div itemscope itemtype="http://schema.org/Person"><p>My name is <span itemprop="name">Dheepak Krishnamurthy</span>. I’ve dabbled with mobile application and web development, home automation and photography. I’m currently working towards a Master’s degree in Electrical Engineering.
+'details': """<div itemscope itemtype="https://schema.org/Person"><p>My name is <span itemprop="name">Dheepak Krishnamurthy</span>. I’ve dabbled with mobile application and web development, home automation and photography. I’m currently working towards a Master’s degree in Electrical Engineering.
 </p><p>
 <img src="images/coverPicture.jpg" alt="Alt text! And a picture of me!" style="width:100%">
 </p><p>
@@ -147,15 +147,15 @@ My dream is that one day I’d have travelled to every country in the world (Fou
 </p></div>"""}
 
 # Social
-SOCIAL = { 'Twitter': 'http://twitter.com/kdheepak89',
-        'Github': 'http://github.com/kdheepak',
+SOCIAL = { 'Twitter': 'https://twitter.com/kdheepak89',
+        'Github': 'https://github.com/kdheepak',
         'Email': 'mailto:me@kdheepak.com',
         'GooglePlus': 'https://plus.google.com/+DheepakKrishnamurthy/posts'}
 
 # Projects
-PROJECTS = [{ 'link': 'http://kdheepak.com/psst', 'name' : 'PSST' },
-            { 'link': 'http://kdheepak.com/think-git', 'name' : 'think-git' },
-            { 'link': 'http://github.com/kdheepak/c3.py', 'name' : 'c3.py' },]
+PROJECTS = [{ 'link': 'https://kdheepak.com/psst', 'name' : 'PSST' },
+            { 'link': 'https://kdheepak.com/think-git', 'name' : 'think-git' },
+            { 'link': 'https://github.com/kdheepak/c3.py', 'name' : 'c3.py' },]
 
 
 # Google and Mixpanel Analytics
