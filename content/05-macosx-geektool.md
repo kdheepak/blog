@@ -21,7 +21,7 @@ alias: /blog/geektool-and-desktop-widgets-in-osx/
 <pre class="brush: bash; title: ; notranslate" title="">date '+%I: %M %p'
 </pre>
 <p>Weather</p>
-<pre class="brush: bash; title: ; notranslate" title="">curl --silent "http://xml.weather.yahoo.com/forecastrss?p=50014&amp;u=f" | grep -E '(Current Conditions:|F&lt;BR)' | sed -e 's/Current Conditions://' -e 's/
+<pre class="brush: bash; title: ; notranslate" title="">curl --silent "https://xml.weather.yahoo.com/forecastrss?p=50014&amp;u=f" | grep -E '(Current Conditions:|F&lt;BR)' | sed -e 's/Current Conditions://' -e 's/
 //' -e 's/&lt;b&gt;//' -e 's/&lt;\/b&gt;//' -e 's/
 //' -e 's///' -e 's/&lt;\/description&gt;//'
 </pre>

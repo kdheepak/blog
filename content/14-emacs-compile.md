@@ -11,10 +11,10 @@ alias: /blog/emacs-tips-close-compilation-buffer-if-successful/
 
 When I work with markdown, $\LaTeX$ or code that requires compiling, I like to
 check often if everything looks okay. Emacs has a good description of everything
-you can do with the [CompileCommand](http://emacswiki.org/emacs/CompileCommand).
+you can do with the [CompileCommand](https://emacswiki.org/emacs/CompileCommand).
 
 However, it does not have a description for auto-closing the buffer if the
-compilation was successful. [StackOverflow](http://emacs.stackexchange.com/a/336) to the rescue!
+compilation was successful. [StackOverflow](https://emacs.stackexchange.com/a/336) to the rescue!
 
     #!lisp
     ; from enberg on #emacs

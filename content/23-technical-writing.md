@@ -313,7 +313,7 @@ In the following sections we will look at how to convert a Markdown file to othe
 
 # Pandoc - A "swiss army knife"
 
-Pandoc is a software tool by [John Macfarlane](http://johnmacfarlane.net/) written in Haskell that can convert a document from just about any format to just about any other format.
+Pandoc is a software tool by [John Macfarlane](https://johnmacfarlane.net/) written in Haskell that can convert a document from just about any format to just about any other format.
 And works really well.
 
 <!-- END SLIDES -->
@@ -434,11 +434,11 @@ And this text is in ***bold-italic***.
 
 ### ***Link***
 
-    [Text](http://google.com)
+    [Text](https://google.com)
 
 **Example**
 
-[Text](http://google.com)
+[Text](https://google.com)
 
 ### ***Images***
 
@@ -707,7 +707,7 @@ But if you come across a case where pandoc does not do what you want it to do, y
 
 There is a python package called `pandocfilters` that allows you to walk the AST and parse specific formats or keys.
 It is very powerful, and can offer unique ways to expand on pandoc's functionality.
-I wrote a pandocfilter [@krishnamurthy_github-1] to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this [post](http://kdheepak.com/blog/active-reactive-and-apparent-power.html).
+I wrote a pandocfilter [@krishnamurthy_github-1] to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this [post](https://kdheepak.com/blog/active-reactive-and-apparent-power.html).
 
 <!-- END SLIDES -->
 
@@ -744,13 +744,13 @@ Let me know if you have any questions in the comments below. You can view this p
 
 Format      Link
 -------     -------
-IEEE-PDF    [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
-IEEE-DOCX   [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
-IEEE-HTML   [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
-PDF         [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
-DOCX        [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
-HTML        [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
-SLIDES-PDF  [LINK](http://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
+IEEE-PDF    [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
+IEEE-DOCX   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
+IEEE-HTML   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
+PDF         [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
+DOCX        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
+HTML        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
+SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
 
 Table:  Links to multiple formats
 

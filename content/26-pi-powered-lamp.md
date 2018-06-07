@@ -37,7 +37,7 @@ Adafruit has an excellent image in their tutorial that shows how you can do this
 
 I've used the same power source to the LED strip to power the Raspberry Pi as well.
 
-I found the lamp shades on [Amazon](http://www.amazon.com/s/field-keywords=puzzle+lamp).
+I found the lamp shades on [Amazon](https://www.amazon.com/s/field-keywords=puzzle+lamp).
 I purchased them in white, since the LEDs are RGB.
 
 I purchased the LED strip from Adafruit.

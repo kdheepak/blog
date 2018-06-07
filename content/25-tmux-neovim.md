@@ -12,7 +12,7 @@ I've found that with Neovim and tmux, I rarely have to leave the terminal to get
 I wanted to save here some of the commands required to set up Neovim and tmux.
 
 First update brew.
-If you don't have brew, you can install it from [here](http://brew.sh/).
+If you don't have brew, you can install it from [here](https://brew.sh/).
 
     brew update
 

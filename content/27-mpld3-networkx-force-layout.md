@@ -9,13 +9,13 @@ category: blog
 alias: /blog/mpld3-networkx-d3js-force-layout
 ---
 
-[mpld3](http://mpld3.github.io/) is a matplotlib to d3 library.
+[mpld3](https://mpld3.github.io/) is a matplotlib to d3 library.
 It is lightweight and a pure Python / Javascript package, allowing a lot of the matplotlib interface to be accessible in the web.
-There are a number of [examples](http://mpld3.github.io/examples/) on their website.
+There are a number of [examples](https://mpld3.github.io/examples/) on their website.
 Its integration with d3 allows someone familiar with Javascript to use Python and visualize using the power of d3.
 d3.js is a powerful low level visualization library and there are loads of examples online on the many features it brings to the table.
 
-mpld3 also has the ability to add [plugins](http://mpld3.github.io/_downloads/custom_plugins.html) to add new functionality. I wanted to take a shot at adding a d3.js force layout plugin. The force layout is a powerful visualization tool and NetworkX has a nifty function that will convert the graph along with its attributes into a JSON graph format.
+mpld3 also has the ability to add [plugins](https://mpld3.github.io/_downloads/custom_plugins.html) to add new functionality. I wanted to take a shot at adding a d3.js force layout plugin. The force layout is a powerful visualization tool and NetworkX has a nifty function that will convert the graph along with its attributes into a JSON graph format.
 I'd played around with this before and figured this would be a nice feature to have, so I've worked on it over the weekend and here it is - a NetworkX to d3.js force layout plugin for mpld3. I've shared an example below.
 
 ```python

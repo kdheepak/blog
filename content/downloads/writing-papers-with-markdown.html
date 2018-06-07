@@ -6,7 +6,7 @@
   <title>Writing Technical Papers with Markdown</title>
   <style type="text/css">code{white-space: pre;}</style>
   <!--[if lt IE 9]>
-    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="https://html5shim.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
   <link rel="stylesheet" href="https://cdn.rawgit.com/claymcleod/pandoc-academic-publication/ce07fa7a20af53cab8c8a50c5bad5ad15d726bba/assets/css/academic-pub.css">
   <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
@@ -176,7 +176,7 @@ Right &amp; Left &amp; Center &amp; Default\tabularnewline
 <p>I hope that by now you are convinced that Markdown is a great tool for writing. In the following sections we will look at how to convert a Markdown file to other formats, and what are some potential limitations and how you might overcome them.</p>
 <!-- BEGIN SLIDESNOHEADER -->
 <h1 id="pandoc---a-swiss-army-knife">Pandoc - A “swiss army knife”</h1>
-<p>Pandoc is a software tool by <a href="http://johnmacfarlane.net/">John Macfarlane</a> written in Haskell that can convert a document from just about any format to just about any other format. And works really well.</p>
+<p>Pandoc is a software tool by <a href="https://johnmacfarlane.net/">John Macfarlane</a> written in Haskell that can convert a document from just about any format to just about any other format. And works really well.</p>
 <!-- END SLIDES -->
 <p>Input formats :</p>
 <ul>
@@ -267,9 +267,9 @@ And this text is in ***bold-italic***</code></pre>
 <p><strong>Example</strong></p>
 <p>This text is in <em>italic</em>. This text is in <strong>bold</strong>. And this text is in <strong><em>bold-italic</em></strong>.</p>
 <h3 id="link"><strong><em>Link</em></strong></h3>
-<pre><code>[Text](http://google.com)</code></pre>
+<pre><code>[Text](https://google.com)</code></pre>
 <p><strong>Example</strong></p>
-<p><a href="http://google.com">Text</a></p>
+<p><a href="https://google.com">Text</a></p>
 <h3 id="images"><strong><em>Images</em></strong></h3>
 <pre><code>[Caption](../images/markdown.png)</code></pre>
 <p><strong>Example</strong></p>
@@ -463,7 +463,7 @@ $$ {#eq:pi}</code></pre>
 <!-- END SLIDES -->
 <p>You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion. For most people this will not be necessary since Pandoc is feature complete, and when a specific need arises<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> the community has often provided a custom filter that does the job. But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it.</p>
 <!-- BEGIN SLIDES -->
-<p>There is a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation">[<a href="#ref-krishnamurthy_github-1">19</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this <a href="http://kdheepak.com/blog/active-reactive-and-apparent-power.html">post</a>.</p>
+<p>There is a python package called <code>pandocfilters</code> that allows you to walk the AST and parse specific formats or keys. It is very powerful, and can offer unique ways to expand on pandoc’s functionality. I wrote a pandocfilter <span class="citation">[<a href="#ref-krishnamurthy_github-1">19</a>]</span> to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this <a href="https://kdheepak.com/blog/active-reactive-and-apparent-power.html">post</a>.</p>
 <!-- END SLIDES -->
 <p>In theory, you can write a filter that finds a <span class="math inline">\(\LaTeX\)</span> table block in Markdown, converts it to an image and renders that in Word. Or you can write a filter that inputs other files during run time, allowing you to split your source document.</p>
 <p>My understanding is that the Python <code>pandocfilters</code> package is limited in scope. Alternatively, if you choose to, you can yield Pandoc’s complete power by writing a Haskell filter instead of using Python, but then you will be writing Haskell ;)</p>
@@ -491,31 +491,31 @@ $$ {#eq:pi}</code></pre>
 <tbody>
 <tr class="odd">
 <td align="left">IEEE-PDF</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf">LINK</a></td>
 </tr>
 <tr class="even">
 <td align="left">IEEE-DOCX</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx">LINK</a></td>
 </tr>
 <tr class="odd">
 <td align="left">IEEE-HTML</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.ieee.html">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.html">LINK</a></td>
 </tr>
 <tr class="even">
 <td align="left">PDF</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.pdf">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.pdf">LINK</a></td>
 </tr>
 <tr class="odd">
 <td align="left">DOCX</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.docx">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.docx">LINK</a></td>
 </tr>
 <tr class="even">
 <td align="left">HTML</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.html">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.html">LINK</a></td>
 </tr>
 <tr class="odd">
 <td align="left">SLIDES-PDF</td>
-<td align="left"><a href="http://kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf">LINK</a></td>
+<td align="left"><a href="https://kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf">LINK</a></td>
 </tr>
 </tbody>
 </table>
@@ -523,19 +523,19 @@ $$ {#eq:pi}</code></pre>
 <h1 id="references">References</h1>
 <div id="refs" class="references">
 <div id="ref-stallman_emacs">
-<p>[1] R. Stallman, “Emacs as word processor.” [Online]. Available: <a href="http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html" class="uri">http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html</a>.</p>
+<p>[1] R. Stallman, “Emacs as word processor.” [Online]. Available: <a href="https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html" class="uri">https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html</a>.</p>
 </div>
 <div id="ref-beaumont_bypass_2015">
 <p>[2] K. Beaumont, “Bypass almost every Corporate security control with a point’n’click GUI. Medium,” 23-Dec-2015. [Online]. Available: <a href="https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0" class="uri">https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0</a>.</p>
 </div>
 <div id="ref-steingold_proprietary">
-<p>[3] S. Steingold, “Proprietary Binary Data Formats: Just Say No!” [Online]. Available: <a href="http://www.podval.org/~sds/data.html" class="uri">http://www.podval.org/~sds/data.html</a>.</p>
+<p>[3] S. Steingold, “Proprietary Binary Data Formats: Just Say No!” [Online]. Available: <a href="https://www.podval.org/~sds/data.html" class="uri">https://www.podval.org/~sds/data.html</a>.</p>
 </div>
 <div id="ref-cottrell_word">
-<p>[4] A. Cottrell, “Word Processors: Stupid and Inefficient.” [Online]. Available: <a href="http://ricardo.ecn.wfu.edu/~cottrell/wp.html" class="uri">http://ricardo.ecn.wfu.edu/~cottrell/wp.html</a>.</p>
+<p>[4] A. Cottrell, “Word Processors: Stupid and Inefficient.” [Online]. Available: <a href="https://ricardo.ecn.wfu.edu/~cottrell/wp.html" class="uri">https://ricardo.ecn.wfu.edu/~cottrell/wp.html</a>.</p>
 </div>
 <div id="ref-_stackoverflow">
-<p>[5] “StackOverflow Quote.” [Online]. Available: <a href="http://tex.stackexchange.com/a/95078" class="uri">http://tex.stackexchange.com/a/95078</a>.</p>
+<p>[5] “StackOverflow Quote.” [Online]. Available: <a href="https://tex.stackexchange.com/a/95078" class="uri">https://tex.stackexchange.com/a/95078</a>.</p>
 </div>
 <div id="ref-_wikibooks">
 <p>[6] “Wikibooks LaTeX Tables.” [Online]. Available: <a href="https://en.wikibooks.org/wiki/LaTeX/Tables" class="uri">https://en.wikibooks.org/wiki/LaTeX/Tables</a>.</p>
@@ -547,25 +547,25 @@ $$ {#eq:pi}</code></pre>
 <p>[8] D. Krishnamurthy, “Github repository to Pandoc Paper Template. GitHub.” [Online]. Available: <a href="https://github.com/kdheepak89/pandoc-paper" class="uri">https://github.com/kdheepak89/pandoc-paper</a>.</p>
 </div>
 <div id="ref-krishnamurthy_using">
-<p>[9] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: <a href="http://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri">http://kdheepak.com/blog/using-conda-to-manage-packages.html</a>.</p>
+<p>[9] D. Krishnamurthy, “Using conda to manage packages.” [Online]. Available: <a href="https://kdheepak.com/blog/using-conda-to-manage-packages.html" class="uri">https://kdheepak.com/blog/using-conda-to-manage-packages.html</a>.</p>
 </div>
 <div id="ref-healy_plain">
-<p>[10] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: <a href="http://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri">http://kieranhealy.org/blog/archives/2014/01/23/plain-text/</a>.</p>
+<p>[10] K. Healy, “Plain Text, Papers, Pandoc.” [Online]. Available: <a href="https://kieranhealy.org/blog/archives/2014/01/23/plain-text/" class="uri">https://kieranhealy.org/blog/archives/2014/01/23/plain-text/</a>.</p>
 </div>
 <div id="ref-_writing">
-<p>[11] “Writing academic papers in plain text with Markdown and Jupyter notebook. Sylvain deville.” [Online]. Available: <a href="http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/" class="uri">http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/</a>.</p>
+<p>[11] “Writing academic papers in plain text with Markdown and Jupyter notebook. Sylvain deville.” [Online]. Available: <a href="https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/" class="uri">https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/</a>.</p>
 </div>
 <div id="ref-_writing-1">
-<p>[12] “Writing academic papers in Markdown using Pandoc.” [Online]. Available: <a href="http://blog.cigrainger.com/2014/07/pandoc-markdown.html" class="uri">http://blog.cigrainger.com/2014/07/pandoc-markdown.html</a>.</p>
+<p>[12] “Writing academic papers in Markdown using Pandoc.” [Online]. Available: <a href="https://blog.cigrainger.com/2014/07/pandoc-markdown.html" class="uri">https://blog.cigrainger.com/2014/07/pandoc-markdown.html</a>.</p>
 </div>
 <div id="ref-_academic">
-<p>[13] “Academic Markdown and Citations.” [Online]. Available: <a href="http://www.chriskrycho.com/2015/academic-markdown-and-citations.html" class="uri">http://www.chriskrycho.com/2015/academic-markdown-and-citations.html</a>.</p>
+<p>[13] “Academic Markdown and Citations.” [Online]. Available: <a href="https://www.chriskrycho.com/2015/academic-markdown-and-citations.html" class="uri">https://www.chriskrycho.com/2015/academic-markdown-and-citations.html</a>.</p>
 </div>
 <div id="ref-citation_example">
 <p>[14] citation, “Example of a citation.”.</p>
 </div>
 <div id="ref-_pandoc">
-<p>[15] “Pandoc README.” [Online]. Available: <a href="http://pandoc.org/README.html" class="uri">http://pandoc.org/README.html</a>.</p>
+<p>[15] “Pandoc README.” [Online]. Available: <a href="https://pandoc.org/README.html" class="uri">https://pandoc.org/README.html</a>.</p>
 </div>
 <div id="ref-_googlegroups">
 <p>[16] “GoogleGroups.” [Online]. Available: <a href="https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ" class="uri">https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ</a>.</p>

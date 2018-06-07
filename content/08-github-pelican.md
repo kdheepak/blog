@@ -70,7 +70,7 @@ These are optional packages to install that may come in handy later
 
 # Create a Github account and a User or Project page #
 
-[Github pages](http://pages.github.com/) has instructions on how to create a User or Project page, and will in fact walk you through the process. 
+[Github pages](https://pages.github.com/) has instructions on how to create a User or Project page, and will in fact walk you through the process. 
 If you create a User page, your website will be live at `$GHUSERNAME`.github.io and a Project page will go up at `$GHUSERNAME`.github.io/`$PROJECTNAME`. 
 The rest of this blog assumes you want to create a User page.
 
@@ -101,8 +101,8 @@ This is what you might get. Answer all the questions
     > What will be the title of this web site? Dheepak Krishnamurthy
     > Who will be the author of this web site? Dheepak Krishnamurthy
     > What will be the default language of this web site? [en] 
-    > Do you want to specify a URL prefix? e.g., http://example.com   (Y/n) Y
-    > What is your URL prefix? (see above example; no trailing slash) http://kdheepak.com
+    > Do you want to specify a URL prefix? e.g., https://example.com   (Y/n) Y
+    > What is your URL prefix? (see above example; no trailing slash) https://kdheepak.com
     > Do you want to enable article pagination? (Y/n) Y
     > How many articles per page do you want? [10] 
     > Do you want to generate a Fabfile/Makefile to automate generation and publishing? (Y/n) Y

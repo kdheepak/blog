@@ -46,7 +46,7 @@ def regenerate():
     local('pelican -r -s pelicanconf.py')
 
 def serve():
-    """Serve site at http://localhost:8000/"""
+    """Serve site at https://localhost:8000/"""
     os.chdir(env.deploy_path)
 
     class AddressReuseTCPServer(SocketServer.TCPServer):

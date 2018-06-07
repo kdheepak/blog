@@ -10,7 +10,7 @@ alias: /blog/tasker-projects/
 # Google Calendar
 
 
-[This page](http://kdheepak.com/blog/tasker-and-google-maps.html) contains information about the [profile](https://github.com/kdheepak/tasker_sl4a) that uses Tasker to get contextual information from Google Calendar and react based on it.
+[This page](https://kdheepak.com/blog/tasker-and-google-maps.html) contains information about the [profile](https://github.com/kdheepak/tasker_sl4a) that uses Tasker to get contextual information from Google Calendar and react based on it.
 
 <a href="https://github.com/kdheepak/tasker_sl4a"><img src="https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/7.png" align="middle" height="600"></a>
 
@@ -24,4 +24,4 @@ alias: /blog/tasker-projects/
 
 [This profile](https://github.com/kdheepak/Tasker_WhatsPush) interacts with WhatsApp and allows you to send messages using your desktop
 
-[![Tasker](http://img.youtube.com/vi/plTJ5NGCchM/0.jpg)](http://www.youtube.com/watch?v=plTJ5NGCchM "Tasker")
+[![Tasker](https://img.youtube.com/vi/plTJ5NGCchM/0.jpg)](https://www.youtube.com/watch?v=plTJ5NGCchM "Tasker")

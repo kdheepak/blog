@@ -26,6 +26,6 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
 * Craft your lightsaber - Find other people's dotfiles and build your .vimrc. Don't add anything in your .vimrc that you don't understand.
 * Find plugins to boost your productivity (e.g. NERDTree, ). 
 * Use a plugin manager.
-* Watch other people use vim on [vimcasts](http://vimcasts.org)
+* Watch other people use vim on [vimcasts](https://vimcasts.org)
 * Change CAPSLOCK to ESC
 

@@ -25,5 +25,5 @@ ipython nbconvert index.ipynb --to slides --reveal-prefix reveal.js
 * Rename `index.slides.html` to `index.html`
 * Push your changes to a repository 
 
-You can find an example [here](http://kdheepak.com/jupyter-notebook) and the original notebook [here](https://github.com/kdheepak/jupyter-notebook).
+You can find an example [here](https://kdheepak.com/jupyter-notebook) and the original notebook [here](https://github.com/kdheepak/jupyter-notebook).
 

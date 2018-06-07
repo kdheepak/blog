@@ -8,7 +8,7 @@ summary: A description of my emacs workflow
 alias: /blog/emacs-workflow-using-emacs-in-the-terminal/
 ---
 
-I use the command line a lot, frequently editing files locally or remotely. Up until now, I've been using [vim with tmux and zsh](vim-tmux-zsh.html). I've recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of [this post](http://mjwall.com/blog/2013/10/04/how-i-use-emacs/) nailed it regarding emacs workflow. I've only made minor modifications to get it to suit my requirements.
+I use the command line a lot, frequently editing files locally or remotely. Up until now, I've been using [vim with tmux and zsh](vim-tmux-zsh.html). I've recently been experimenting with emacs and have been trying to get it to work well inplace of vim. I personally think the author of [this post](https://mjwall.com/blog/2013/10/04/how-i-use-emacs/) nailed it regarding emacs workflow. I've only made minor modifications to get it to suit my requirements.
 
 I've created a separate script called ess (emacsserverstart) added a `&` at the end of the emacs script to get it to run in the background.
 

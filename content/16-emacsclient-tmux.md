@@ -14,7 +14,7 @@ I use the following set of lisps my .emacs to get seamless navigation between em
 
     ;; Many thanks to the author of and contributors to the following posts:
     ;; https://gist.github.com/mislav/5189704
-    ;; http://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
+    ;; https://robots.thoughtbot.com/post/53022241323/seamlessly-navigate-vim-and-tmux-splits
     ;;
     ;; TODO: Make a script that generates tmux and emacs code without duplication
     ;;

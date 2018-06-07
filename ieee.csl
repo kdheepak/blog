@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<style xmlns="http://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
+<style xmlns="https://purl.org/net/xbiblio/csl" class="in-text" version="1.0" demote-non-dropping-particle="sort-only">
   <info>
     <title>IEEE</title>
-    <id>http://www.zotero.org/styles/ieee</id>
-    <link href="http://www.zotero.org/styles/ieee" rel="self"/>
-    <link href="http://www.ieee.org/documents/style_manual.pdf" rel="documentation"/>
-    <link href="http://www.ieee.org/documents/auinfo07.pdf" rel="documentation"/>
+    <id>https://www.zotero.org/styles/ieee</id>
+    <link href="https://www.zotero.org/styles/ieee" rel="self"/>
+    <link href="https://www.ieee.org/documents/style_manual.pdf" rel="documentation"/>
+    <link href="https://www.ieee.org/documents/auinfo07.pdf" rel="documentation"/>
     <author>
       <name>Michael Berkowitz</name>
       <email>mberkowi@gmu.edu</email>
@@ -16,11 +16,11 @@
     </contributor>
     <contributor>
       <name>Rintze Zelle</name>
-      <uri>http://twitter.com/rintzezelle</uri>
+      <uri>https://twitter.com/rintzezelle</uri>
     </contributor>
     <contributor>
       <name>Stephen Frank</name>
-      <uri>http://www.zotero.org/sfrank</uri>
+      <uri>https://www.zotero.org/sfrank</uri>
     </contributor>
     <contributor>
       <name>Sebastian Karcher</name>
@@ -29,7 +29,7 @@
     <category field="engineering"/>
     <category field="generic-base"/>
     <updated>2013-12-17T18:04:02+00:00</updated>
-    <rights license="http://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
+    <rights license="https://creativecommons.org/licenses/by-sa/3.0/">This work is licensed under a Creative Commons Attribution-ShareAlike 3.0 License</rights>
   </info>
   <locale xml:lang="en">
     <terms>

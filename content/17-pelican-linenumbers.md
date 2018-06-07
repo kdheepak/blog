@@ -29,7 +29,7 @@ Add the following lines in your theme.css
         word-wrap: break-word;       /* Internet Explorer 5.5+ */
     }
 
-    /* Following http://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class 'code-line' */
+    /* Following https://bililite.com/blog/2012/08/05/line-numbering-in-pre-elements/, use CSS to add line numbers to all spans that have the class 'code-line' */
 
     .highlight pre {
         counter-reset: linecounter;

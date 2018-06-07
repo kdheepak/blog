@@ -10,7 +10,7 @@ alias: /blog/tasker-and-google-maps/
 
 <h3>Android Projects</h3>
 
-<p>I’ve shared this on <a href="http://unleashthephones.com/2013/06/03/tasker-tutorial-integrating-google-calendar-and-google-directions-using-transit/">UnleashThePhones</a> a while back as well. This is a small tutorial on how to use Python with SL4A.</p>
+<p>I’ve shared this on <a href="https://unleashthephones.com/2013/06/03/tasker-tutorial-integrating-google-calendar-and-google-directions-using-transit/">UnleashThePhones</a> a while back as well. This is a small tutorial on how to use Python with SL4A.</p>
 <p style="text-align: center;"><img class="aligncenter" title="" alt="" src="https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/5.png" width="270" height="480"></p>
 <p>When Google Now first came out, it would tell you which bus you could take at what time to get to your meeting or event on time based on the location and time information available in Google Calendar. It’s every student’s dream, especially in countries like the United States or Singapore, where transit navigation is very accurate.</p>
 <p>I loved the idea, but I wanted it to be ever so slightly better. For example, I wanted my phone to inform me well in advance at what time I should consider leaving home to get to the bus on time. I also wanted information on earlier and later buses, so I could have knowledge of my options, very similar to the way it shows in Google Directions.</p>
