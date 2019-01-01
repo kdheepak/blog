@@ -63,6 +63,10 @@ $toc$
 $endif$
 <section>
 $body$
+</section>
+$if(comments)$
+<section>
+    <h2 id="comments">Comments</h2>
 <script src="https://utteranc.es/client.js"
         repo="kdheepak/blog"
         issue-term="url"
@@ -71,6 +75,7 @@ $body$
         async>
 </script>
 </section>
+$endif$
 </article>
 $for(include-after)$
 $include-after$
