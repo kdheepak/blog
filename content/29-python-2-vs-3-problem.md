@@ -13,7 +13,7 @@ This post is an account of my personal experience.
 I'm interested in hearing other people's opinions and having an open discussion on best practices to develop in Python.
 For the rest of this post, when I mention Python2 / Python3 please infer that I am referring to Python 2.7 / Python 3.5 respectively.
 
-# Python 2 vs 3 Problem
+### Python 2 vs 3 Problem
 
 A lot of people talk about Python2 vs Python3, and having to make a choice between them.
 Some beginners venturing to learn Python may be posed with this question themselves.
@@ -27,7 +27,7 @@ This de-incentivised other tools that relied on packages to make the switch as w
 Several of the scientific python stack faced this issue.
 Fortunately, thanks to the efforts of some incredibly smart and dedicated people, NumPy, SciPy, Pandas, Matplotlib now all support Python 3.5.
 In arguably one of the more contentious decisions, Python3 also changed strings to handled as Unicode by default.
-This, as a result made thinking about unicode a more conscious decision^[__aside__: I highly recommend checking out [Ned Batchelder's talk](https://www.youtube.com/watch?v=sgHbC6udIqc) titled "Pragmatic Unicode, or, How do I stop the pain?" for an excellent summary on how to deal with unicode issues.]
+This, as a result made thinking about unicode a more conscious decision^[I highly recommend checking out [Ned Batchelder's talk](https://www.youtube.com/watch?v=sgHbC6udIqc) titled "Pragmatic Unicode, or, How do I stop the pain?" for an excellent summary on how to deal with unicode issues.]
 Python3 makes dealing with unicode a lot easier, by providing error messages during compilation time instead of run time.
 With this change however, packages that often dealt with bytes/text/strings required some serious retooling.
 Many programs in the web stack in the Python world have taken time to move to the latest versions of Python.
@@ -72,7 +72,7 @@ class Child(Parent):
         super().__init__(**kwargs)
 ```
 
-However, this change, although syntactically cleaner and self documenting, is backward incompatibility.
+However, this change, although syntactically cleaner and self documenting, is backward incompatible.
 More changes like this have been or are being introduced in Python3.
 For example, in Python3 you can merge two dictionaries with the following syntax
 
