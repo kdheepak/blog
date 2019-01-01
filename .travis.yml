@@ -1,26 +1,13 @@
-language: python
-python:
-  - "2.7"
 before_install:
   - sudo apt-get -y install jq
   - wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
   - sudo dpkg -i pandoc.deb
-  - git clone https://github.com/kdheepak/pelican-smoothie.git pelican-themes/pelican-smoothie
-  - git clone https://github.com/kdheepak/pelican_pandoc.git pelican-plugins/pelican_pandoc
-  - git clone https://github.com/kdheepak/custom_notes.git pandoc-filters/custom_notes
-install:
-  - easy_install -U setuptools
-  - pip install -U pip wheel
-  - pip install -r requirements.txt
 before_script:
   - git config user.name "Travis-CI"
   - git config user.email "noreply@travis-ci.org"
   - COMMIT_MESSAGE="Publishing site on `date "+%Y-%m-%d %H:%M:%S"` from `git log -n 1 --format='commit %h - %s'`"
   - export PATH=$PATH:/home/travis/.cabal/bin
 script:
-  - echo "Export bib to blog.bib"
-  - python scripts/export_bib.py
-  - echo "Running script"
   - make publish
 after_success:
   - make travis-github
@@ -31,9 +18,6 @@ notifications:
 branches:
   only:
     - master
-cache:
-  directories:
-  - $HOME/.cache/pip
 env:
   global:
   - secure: "c/9IuQcbJQ9uaMei9SehUF0gVswCGLba/zOeI7gq4FSglGeFRO/uT3Atz5Zg2Is5z5MRNepj7uUwGqMXCjJ/lbDzkkAqDXuAZ3eJpEBuQs9uD5NlRns8UHWgRE8KzyEoq65HJhVt+Rr5cZWRGGh0AIzxysO9VKLOlbRCL9YsCtaZKdagvUFQb6gvjgZCJZ5qOrDIO2uTTE4nZIEQ3qTucoMF8LP5irYai7IkWtSszyjPuHWW6rZmPMqr3xhXs6gRvacgpkn1GzFkwg3M/UDLW4OjhwHjDM1rjaRijFGopdGpgtE16pbEGetYg+KYDADub9HfEZJF77ToxcAA+FvGqFeV8cNG0BjyMrVusTPbC1oA49PEXJo0atCQcQJwjVVXuYw1BwIBIHUBdH+feFYQJfxpaBr8IsT9h0COxtzPb7kjmr64UZg8y60xk3YjyH32SSBfjMCPn1BoG1AVOudE4sI6JhERCIEK+v1JZspRrVlX0bhMWvNBXYrpNsBdax3l8gCeFGP5ryndkjMtkl3ek1jFJyPK51vXv8GlqxLrcBIpgC2uMGFzXVmHTXSbd9FFHpa2phIJGeLIFkpKnXBdQH/c9yhz85qiDxKY0QfH4t/Ucg8G4rA1HbZmz39pHu7WQaVN+EpJ/oLMxeWYt6SiCtzhZxRMWr59AVlkZfjtMgM="

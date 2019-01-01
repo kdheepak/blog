@@ -5,6 +5,7 @@ date:  Sun Mar 27 19:17:58 MDT 2016
 keywords: raspberry, pi, led, flask
 tags: raspberry-pi, flask, led
 summary: Use your Raspberry Pi to control a desk lamp
+bibliography: blog.bib
 ---
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
@@ -103,7 +104,7 @@ At this point, you should be able to run a few examples, and see animations on y
 I've set up a simple Flask server and am using a Javascript library called [colorwheel](https://jweir.github.io/colorwheel/) to send a user selected color to the Raspberry Pi.
 The code for the Flask server is available on [GitHub](https://github.com/kdheepak/arp) under MIT License.
 
-If you want more information, feel free to ask me any questions in the comments section below! 
+If you want more information, feel free to ask me any questions in the comments section below!
 
 # References
 
