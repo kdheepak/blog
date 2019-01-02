@@ -54,7 +54,7 @@ The great thing about Word is that there is almost no barrier to *begin* writing
 You can incrementally build your skill in using this tool as and when you are using it.
 This is useful since it makes it immediately accessible, thereby decreasing the time and effort spent on learning how to use a software for writing and allowing you to concentrate on the writing itself.
 
-However, I've found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so [@stallman_emacs]).
+However, I've found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so [@stallman_emacs_nodate]).
 However, products like Word fail miserably at separating content from formatting.
 These products impose on the writer their own concept of how a document should be formatted, which I've found greatly hinders the writing process.
 Have you ever experienced a sudden jump in spacing?
@@ -81,7 +81,7 @@ And speaking of sharing documents, did you know you can end up transferring malw
 Just think about that for a second.
 Opening what should be essentially a text file is a security risk for your machine.
 And some of these viruses (as of the time of this writing) do not even have patches yet [@beaumont_bypass_2015].
-Loads of people have already talked about this and similar issues at some length [@steingold_proprietary;@cottrell_word], and have probably done more justice to this topic that I possibly could.
+Loads of people have already talked about this and similar issues at some length [@steingold_proprietary_nodate;@cottrell_word_nodate], and have probably done more justice to this topic that I possibly could.
 With all these issues, it is hard to believe Word is so widely accepted as a standard.
 
 I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above :
@@ -122,7 +122,7 @@ To quote Raymond Hettinger :
 
 Enter $\LaTeX$.
 
-> $\LaTeX$ is to a book what a set of blueprints is to a building. [@_stackoverflow]
+> $\LaTeX$ is to a book what a set of blueprints is to a building. [@noauthor_stackoverflow_nodate]
 
 <!-- END SLIDES -->
 
@@ -294,7 +294,7 @@ This is what the same table looks like in \LaTeX.
 However, Markdown does not allow for the level of detailed customization that you can achieve using \LaTeX.
 Even a moderately complex table such as the one below is not supported (currently) by any form of Markdown.
 
-![Tabular LaTeX example [@_wikibooks]](../images/table.png)
+![Tabular LaTeX example [@noauthor_wikibooks_nodate]](../images/table.png)
 
 <!-- END SLIDES -->
 
@@ -387,7 +387,7 @@ Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage t
 This is the reason Pandoc is great at converting from and to a wide variety of formats, and why it is potentially easy to support new formats as well.
 Pandoc is also constantly under development. We can use Pandoc to convert a markdown file, to a PDF, HTML or DOCX file for a technical paper.
 
-First off, you will need `pandoc`. You can get the latest version from their GitHub page [@_github].
+First off, you will need `pandoc`. You can get the latest version from their GitHub page [noauthor_github_nodate].
 You may want `pandoc-citeproc` as well.^[__aside__: If you install Pandoc from a package, `pandoc-citeproc` should come pre-installed. However, if you want to use a package manager such as `brew`, you may need to install `pandoc-citeproc` separately as well. Just run `brew install pandoc pandoc-citeproc`.]
 You will also need \LaTeX.
 I've found that the following python packages are useful too.
@@ -399,10 +399,10 @@ I've found that the following python packages are useful too.
 - `pandocfilters`
 
 You can run `pip install <package-name>`.
-Alternatively you can create a virtual environment using `conda` with a suitable environment file [@krishnamurthy_github], which is the approach I recommend [@krishnamurthy_using].
+Alternatively you can create a virtual environment using `conda` with a suitable environment file [@krishnamurthy_github_nodate], which is the approach I recommend [@krishnamurthy_using_nodate].
 
-There are several people that have shared their complete workflow along with all their resources [@healy_plain;@_writing;@_writing-1;@_academic].
-Mine is available on GitHub [@krishnamurthy_github] as well.
+There are several people that have shared their complete workflow along with all their resources [@healy_plain_nodate;@noauthor_writing_nodate;@noauthor_writing_nodate-1;@noauthor_academic_nodate].
+Mine is available on GitHub [@krishnamurthy_github_nodate-1] as well.
 While someone else's workflow will work for you, I encourage you to start from scratch and craft your own.
 That way you will figure out why each item has been added into a workflow, and if that works for you.
 You will also know what to do if (when?) it breaks, and how to fix it.
@@ -584,7 +584,7 @@ It is as simple as that! To generate a HTML file :
 
 <!-- END SLIDES -->
 
-Check out pandoc's README [@_pandoc].
+Check out pandoc's README [@noauthor_pandoc_nodate].
 It has loads of examples and you might be able to find what you are looking for by straight up picking an example or by making a minor tweak to it.
 
 <!-- BEGIN SLIDES -->
@@ -608,7 +608,7 @@ With html files, you can specify the following arguments:
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
-With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post) [@_googlegroups].
+With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post) [@noauthor_googlegroups_nodate].
 You can however, specify a reference-docx :
 
 * `--reference-docx=reference.docx` : docx for reference styles
@@ -700,14 +700,14 @@ Fortunately, some of the problems I mentioned in the previous section can be sol
 <!-- END SLIDES -->
 
 You can write your own custom filter, and you can use it to parse certain blocks in a custom fashion.
-For most people this will not be necessary since Pandoc is feature complete, and when a specific need arises^[The features for references for figures, equations and tables are all python `pandocfilters` packages written by the one person [@duck_github]. There is a two year long standing discussion on cross references [@_pandoc-1] that the curious reader is referred to.] the community has often provided a custom filter that does the job.
+For most people this will not be necessary since Pandoc is feature complete, and when a specific need arises^[The features for references for figures, equations and tables are all python `pandocfilters` packages written by the one person [@duck_github_nodate]. There is a two year long standing discussion on cross references [@noauthor_pandoc_nodate-1] that the curious reader is referred to.] the community has often provided a custom filter that does the job.
 But if you come across a case where pandoc does not do what you want it to do, you can write a filter for it.
 
 <!-- BEGIN SLIDES -->
 
 There is a python package called `pandocfilters` that allows you to walk the AST and parse specific formats or keys.
 It is very powerful, and can offer unique ways to expand on pandoc's functionality.
-I wrote a pandocfilter [@krishnamurthy_github-1] to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this [post](https://kdheepak.com/blog/active-reactive-and-apparent-power.html).
+I wrote a pandocfilter [@krishnamurthy_github_nodate] to embed a jupyter notebook using a liquid tag style syntax, which I currently use for this [post](https://kdheepak.com/blog/active-reactive-and-apparent-power.html).
 
 <!-- END SLIDES -->
 
