@@ -62,7 +62,7 @@ Or mismatched formatting after a copy and paste from one part of the document to
 Or have indents and bullet points misbehave haphazardly?
 Word applies these formatting changes seemingly at random!
 These are all typesetting and formatting processes and these should be applied ***after*** the text is completed.
-These processes should not distract from the task at hand ^[__aside__: I understand that there are *correct* ways to go about it, I just don't want to be thinking about all that while I'm writing.]- writing!
+These processes should not distract from the task at hand ^[I understand that there are *correct* ways to go about it, I just don't want to be thinking about all that while I'm writing.]- writing!
 
 
 There are other issues as well.
@@ -388,7 +388,7 @@ This is the reason Pandoc is great at converting from and to a wide variety of f
 Pandoc is also constantly under development. We can use Pandoc to convert a markdown file, to a PDF, HTML or DOCX file for a technical paper.
 
 First off, you will need `pandoc`. You can get the latest version from their GitHub page [noauthor_github_nodate].
-You may want `pandoc-citeproc` as well.^[__aside__: If you install Pandoc from a package, `pandoc-citeproc` should come pre-installed. However, if you want to use a package manager such as `brew`, you may need to install `pandoc-citeproc` separately as well. Just run `brew install pandoc pandoc-citeproc`.]
+You may want `pandoc-citeproc` as well.^[If you install Pandoc from a package, `pandoc-citeproc` should come pre-installed. However, if you want to use a package manager such as `brew`, you may need to install `pandoc-citeproc` separately as well. Just run `brew install pandoc pandoc-citeproc`.]
 You will also need \LaTeX.
 I've found that the following python packages are useful too.
 
