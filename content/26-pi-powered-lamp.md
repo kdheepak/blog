@@ -51,7 +51,7 @@ Flash the operating system onto a memory card.
 
     sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
 
-When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`^[__aside__: Both `rdisk` and `disk` will work fine, but if you are using `disk` be prepared to wait longer - it took about an hour in my case].
+When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`^[Both `rdisk` and `disk` will work fine, but if you are using `disk` be prepared to wait longer - it took about an hour in my case].
 
 **Optional** - Expand the file system to use all the available space on the memory card.
 
