@@ -3,9 +3,17 @@
     width: 55%;
 }
 
+div.cell.border-box-sizing.rendered p,img {
+    width: 55%;
+}
+
 @media (max-width: 760px) {
     .utterances {
         margin-left: 0 !important;
         width: 100%;
     }
+    div.cell.border-box-sizing.rendered p,img {
+        width: 100%;
+    }
+
 }
