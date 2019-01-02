@@ -35,7 +35,7 @@ def notebook_convert(key, value, format, meta):
         tuple_notebook = tuple(json.loads(convert_html_to_json(value[4]['c'].replace('.ipynb', '.html')))["blocks"][0]['c']) # Remove unMeta
         sys.stderr.write("Converting notebook {}\n".format(value[4]['c']))
 
-        # remove_html(value[4]['c'])
+        remove_html(value[4]['c'])
 
         return Div(*tuple_notebook)
 
