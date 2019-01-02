@@ -45,7 +45,7 @@ Academic writing involves :
 <!-- END SLIDES -->
 
 There's a lot to manage over the length of time this entire process spans. Academics require a set of tools that aid in making this process, i.e. the effective communication of ideas, as seamless as possible.
-There are currently two popular options for academics seeking to write technical papers - Microsoft Word or \LaTeX.
+There are currently two popular options for academics seeking to write technical papers - Microsoft Word or $\LaTeX$.
 
 ## A word about Word
 
@@ -116,17 +116,17 @@ To quote Raymond Hettinger :
 <!-- END SLIDES -->
 
 
-## \LaTeX\ - lah-tekh, lah-tek or lay-tek
+## $\LaTeX$ - lah-tekh, lah-tek or lay-tek
 
 <!-- BEGIN SLIDES -->
 
-Enter \LaTeX.
+Enter $\LaTeX$.
 
-> \LaTeX\ is to a book what a set of blueprints is to a building. [@_stackoverflow]
+> $\LaTeX$ is to a book what a set of blueprints is to a building. [@_stackoverflow]
 
 <!-- END SLIDES -->
 
-\LaTeX\ is a typesetting system and is frequently used in scientific, technical and mathematical papers.
+$\LaTeX$ is a typesetting system and is frequently used in scientific, technical and mathematical papers.
 It is infamous for displaying equations in a manner that looks great.
 Math is beautiful, and it deserves to be presented beautifully.
 
@@ -139,7 +139,7 @@ Math is beautiful, and it deserves to be presented beautifully.
 
 <!-- BEGIN SLIDES -->
 
-Essentially, \LaTeX\ is a markup language.
+Essentially, $\LaTeX$ is a markup language.
 Content is written in plain text and can be annotated with commands that describe how certain elements should be displayed.
 
 <!-- END SLIDES -->
@@ -164,23 +164,23 @@ This allows you to track changes and collaborate with others without any additio
 This also lets you work with your favourite text editor - Vim, Emacs, Atom.
 There are even TeX specific ones, such as TeXShop and Lyx.
 
-\LaTeX\ is free. Free as in beer and free as in freedom.
+$\LaTeX$ is free. Free as in beer and free as in freedom.
 You can have the confidence that your code and documents can survive possibly forever in its current format.
-The \LaTeX\ community is great and are very helpful towards beginners.
-There are hundreds of packages that improve upon the functionality that \LaTeX\ provides.
-There are packages like *TikZ* that let you to create high resolution print quality detailed diagrams, which I've seen used even outside a \LaTeX environment.
+The $\LaTeX$ community is great and are very helpful towards beginners.
+There are hundreds of packages that improve upon the functionality that $\LaTeX$ provides.
+There are packages like *TikZ* that let you to create high resolution print quality detailed diagrams, which I've seen used even outside a $\LaTeX$ environment.
 
-However, there is a barrier to entry which one must overcome in order to begin using \LaTeX.
+However, there is a barrier to entry which one must overcome in order to begin using $\LaTeX$.
 Unlike Word, you have to know which commands are used for what markup functionality, not only to know when to use them, but also when not to use them.
-The biggest problem with \LaTeX\ is probably the error messages.
+The biggest problem with $\LaTeX$ is probably the error messages.
 Most of the time they are near useless, and sometimes they are even borderline cryptic.
 
-Personally, I found learning how to work with \LaTeX\ extremely useful.
+Personally, I found learning how to work with $\LaTeX$ extremely useful.
 It challenged me to think about the structure of a document, and how I could convey information effectively not just through the final document, but also in the source material^[Having the ability to leave comments to myself or fellow collaborators that are filtered out of the final presentation can be very useful.].
 I also didn't think it was difficult.
 Solutions to my initial problems were only a quick Google search away.
 Tables were frustrating at first, but you get the hang of them over time.
-Equations are a joy to type in \LaTeX.
+Equations are a joy to type in $\LaTeX$.
 And the final product looks great!
 
 That said, the markup language is a bit too heavy for notetaking, and not particularly readable.
@@ -204,11 +204,11 @@ For example, take a look at the syntax for a creating a section, a subsection an
 
 <!-- END SLIDES -->
 
-With good IDEs for \LaTeX\ this isn't as bad as it looks, although they still hinder the writer's flow.
-Over time and with experience, one can become proficient in \LaTeX.
-And once you invest the time to learn \LaTeX\ I can't think of any reason why you would go back to Word.
+With good IDEs for $\LaTeX$ this isn't as bad as it looks, although they still hinder the writer's flow.
+Over time and with experience, one can become proficient in $\LaTeX$.
+And once you invest the time to learn $\LaTeX$ I can't think of any reason why you would go back to Word.
 But it is likely that beginners will have a hard time getting started.
-So, if you cannot afford to experiment with \LaTeX, are you resigned to Word?
+So, if you cannot afford to experiment with $\LaTeX$, are you resigned to Word?
 I don't think so.
 Markdown to the rescue!
 
@@ -763,6 +763,6 @@ Table:  Links to multiple formats
 </div>
 
 [^0]: Footnote! If you are viewing the web version, you can continue reading by clicking here ->
-[^2]: 
+[^2]:
 
 <!-- END SLIDES -->
