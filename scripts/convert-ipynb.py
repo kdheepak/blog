@@ -4,7 +4,7 @@ from __future__ import print_function
 
 import os
 import sys
-from pandocfilters import toJSONFilter, Str, Para, Div
+from pandocfilters import toJSONFilter, Str, Para, Div, Header
 import subprocess
 from subprocess import check_output
 from subprocess import Popen, PIPE
@@ -14,7 +14,7 @@ def convert_notebook_to_html(file_name):
     out = check_output(["jupyter-nbconvert", "content/notebooks/{}".format(file_name), "--to", "html"])
 
 def convert_html_to_json(file_name):
-    out = check_output(["pandoc", "content/notebooks/{}".format(file_name), "-t", "json"])
+    out = check_output(["pandoc", "content/notebooks/{}".format(file_name), "-f", "html+tex_math_dollars+tex_math_single_backslash", "-t", "json"])
     return out
 
 def remove_html(file_name):
@@ -35,9 +35,17 @@ def notebook_convert(key, value, format, meta):
         tuple_notebook = tuple(json.loads(convert_html_to_json(value[4]['c'].replace('.ipynb', '.html')))["blocks"][0]['c']) # Remove unMeta
         sys.stderr.write("Converting notebook {}\n".format(value[4]['c']))
 
-        remove_html(value[4]['c'])
+        # remove_html(value[4]['c'])
 
         return Div(*tuple_notebook)
+
+    if key == "Header":
+        # Increment headers by 1
+        value[0] += 1
+        # Remove anchor links
+        value[-1] = value[-1][:-1]
+        return Header(*value)
+        # return []
 
 if __name__ == "__main__":
     toJSONFilter(notebook_convert)
