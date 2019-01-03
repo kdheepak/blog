@@ -4,9 +4,7 @@ date: Sun Oct  9 17:42:12 MDT 2016
 tags: pelican, pandoc, python
 summary: Notes on getting margin notes to work
 keywords: python, pelican, pandoc, margin notes, side notes
-slug: pelican-margin-notes-with-pandoc
 category: blog
-alias: /blog/pelican-margin-notes-with-pandoc
 references:
 - id: johnjameson
   author:

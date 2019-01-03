@@ -1,12 +1,11 @@
 ---
 title: Vim, tmux and zsh - the productivity trio
-slug: vim-tmux-zsh
 category: blog
 date: May 08 22:58:18 MDT 2015
 tags: vim, tmux, zsh
 keywords: vim, tmux, zsh
 summary: I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration ...
-alias: /blog/vim-tmux-zsh/
+slug: vim-tmux-zsh
 ---
 
 I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration to get it working the way I want it to.
@@ -125,11 +124,11 @@ I've not found a greater combination of tools than vim, tmux and zsh. I've detai
     alias vim='mvim -v'
 
     export TERM=xterm-256color
-     
+
     source $ZSH/oh-my-zsh.sh
 
 
-## vim 
+## vim
 
     Plugin 'altercation/vim-colors-solarized'
     Plugin 'bling/vim-airline'

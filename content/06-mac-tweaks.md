@@ -4,12 +4,11 @@ category: blog
 date: 2015-03-21 19:00
 tags: OSX
 summary: OSX is more customizable that you think. Here are a bunch of tweaks that I found useful. Since I've posted this, I've maintained a updated version of these tweaks along with my dotfiles on GitHub ...
-alias: /blog/mac-osx-tweaks/
 ---
 
 # Update
 
-I've decided to maintain a repo [here](https://github.com/kdheepak/dotfiles/blob/master/.osx) instead. 
+I've decided to maintain a repo [here](https://github.com/kdheepak/dotfiles/blob/master/.osx) instead.
 
 ___
 
@@ -20,10 +19,10 @@ ___
 
     # Don’t show Dashboard as a Space
     defaults write com.apple.dock dashboard-in-overlay -bool true
-    
+
     # disable automatic spell checking
     defaults write -g NSAllowContinuousSpellChecking -bool false
-    
+
     # don't treat period or colon as part of words
     # en_US_POSIX corresponds to the "United States (Computer)" setting that was shown in System Preferences in 10.8 and earlier
     defaults write -g AppleTextBreakLocale en_US_POSIX
@@ -31,7 +30,7 @@ ___
     # Disable the sound effects on boot
     sudo nvram SystemAudioVolume=" "
 
-# Disks                                                                        
+# Disks
 
     # Disks: disable Time Machine prompts
     defaults write com.apple.TimeMachine DoNotOfferNewDisksForBackup -bool true
@@ -53,12 +52,12 @@ ___
     # Don’t automatically rearrange Spaces based on most recent use
     defaults write com.apple.dock mru-spaces -bool false
 
-# Keyboard                                                                     
+# Keyboard
 
     # Set a blazingly fast keyboard repeat rate
     defaults write NSGlobalDomain KeyRepeat -int 0
 
-# Finder                                                                      
+# Finder
 
     # Disable automatic termination of inactive apps
     defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
@@ -84,7 +83,7 @@ ___
     # Finder: empty Trash securely by default
     defaults write com.apple.finder EmptyTrashSecurely -bool true
 
-# Dock & hot corners                                                          
+# Dock & hot corners
 
     # Autohide the Dock
     defaults write com.apple.dock autohide -bool true
@@ -92,7 +91,7 @@ ___
     # Magnify Dock icons on hover
     defaults write com.apple.dock magnification -bool false
 
-# Panels                                                                      
+# Panels
 
     # Panels: expand save panel by default
     defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -106,7 +105,7 @@ ___
     # Panels: enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
     defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-# Screen                                                                      
+# Screen
 
     # Screen: save screenshots to the desktop
     defaults write com.apple.screencapture location -string "$HOME/Desktop"
@@ -114,7 +113,7 @@ ___
     # Screen: disable shadow in screenshots
     defaults write com.apple.screencapture disable-shadow -bool true
 
-# Misc                                                                        
+# Misc
 
     # Misc: only use UTF-8 in Terminal.app
     defaults write com.apple.terminal StringEncodings -array 4
@@ -126,9 +125,9 @@ ___
     defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 <!---
-{% comment %} 
+{% comment %}
 for app in "Dashboard" "Dock" "Finder" "SystemUIServer" "Terminal" "iTunes"; do
     killall "$app" > /dev/null 2>&1
 done
-{% uncomment %} 
+{% uncomment %}
 -->

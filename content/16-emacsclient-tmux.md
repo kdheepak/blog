@@ -5,7 +5,6 @@ date:  Jul 26 22:00:00 MDT 2015
 tags: emacs, osx
 keywords: emacsclient, terminal, workflow, tmux, split, navigation
 summary: I use the following set of lisps my .emacs to get seamless navigation between emacs splits and tmux panes ...
-alias: /blog/emacsclient-and-tmux-split-navigation/
 ---
 
 I've described some of the scripts that I use regularly when using emacs in the terminal. I also using emacs with tmux, even though it seems like emacs itself could be tweaked to replace tmux. Currently, my tmux+zsh setup has been much more powerful that what emacs alone can provide. zsh did not play well, even with multiterm and I've had mixed results with getting ipython to work well inside emacs.

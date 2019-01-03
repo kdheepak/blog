@@ -5,7 +5,6 @@ date: Jun 1 20:45:00 MDT 2015
 tags: git
 keywords: Git tips and tricks
 summary: I've competely stopped using git log and have replaced it with this custom command ...
-alias: /blog/better-git-log-with-git-ls/
 ---
 
 

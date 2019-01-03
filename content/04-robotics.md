@@ -4,7 +4,6 @@ category: blog
 date: 2014-12-13 10:00
 tags: Robotics
 summary: Here are some videos from projects I worked on during my undergraduate degree ...
-alias: /blog/robotics/
 ---
 
 <h3>Robotics and Microcontroller Projects</h3>

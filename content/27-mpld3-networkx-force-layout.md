@@ -6,7 +6,6 @@ summary: Notes on mpld3 force layout
 keywords: python
 slug: mpld3-networkx-d3js-force-layout
 category: blog
-alias: /blog/mpld3-networkx-d3js-force-layout
 ---
 
 [mpld3](https://mpld3.github.io/) is a matplotlib to d3 library.

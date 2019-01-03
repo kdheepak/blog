@@ -4,7 +4,6 @@ category: blog
 date: 2014-12-13 10:00
 tags: Tasker,Android
 summary: Tasker in combination with Python with SL4A can be used to calculate information about events from Google Calendar. This is very similar to what Google Now does but more customizable ...
-alias: /blog/tasker-and-google-maps/
 ---
 
 

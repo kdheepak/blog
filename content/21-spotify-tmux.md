@@ -4,7 +4,6 @@ category: blog
 date: Sun Sep 20 09:26:15 MDT 2015
 tags: tmux
 keywords: tmux, spotify, powerline
-alias: /blog/spotify-and-tmux/
 ---
 
 Create a file named tmux-spotify-info and place it in a directory that in your `$PATH`. Add the following snippet of code into the file and make sure it is executable.

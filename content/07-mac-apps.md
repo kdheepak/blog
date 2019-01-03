@@ -4,7 +4,6 @@ category: blog
 date: 2015-04-01 19:00
 tags: OSX
 summary: A number of Mac application can improve productivity. Here I've complied my favourite useful Mac applications ...
-alias: /blog/mac-osx-productivity-apps/
 ---
 
 
@@ -16,7 +15,7 @@ alias: /blog/mac-osx-productivity-apps/
 
 [https://www.alfredapp.com/](https://www.alfredapp.com/)
 
-## 2. BetterTouchTool 
+## 2. BetterTouchTool
 
 ![](https://boastr.net/img/btt/5.jpg)
 
@@ -89,4 +88,4 @@ alias: /blog/mac-osx-productivity-apps/
 ## 13. Homebrew
 
     :::bash
-    $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install) 
+    $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)

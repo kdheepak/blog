@@ -1,12 +1,11 @@
 ---
 title: Emacs Tips - Close compilation buffer
-slug: emacs-tips-close-compilation-buffer-if-successful
 category: blog
 date: Tue Jul 19 12:43:56 MDT 2015
 tags: Emacs, LaTeX
 keywords: tips and tricks, compilation buffer, auto close
 summary: This post shows how to close the compilation buffer in emacs if compile was successful ...
-alias: /blog/emacs-tips-close-compilation-buffer-if-successful/
+slug: emacs-tips-close-compilation-buffer-if-successful
 ---
 
 When I work with markdown, $\LaTeX$ or code that requires compiling, I like to

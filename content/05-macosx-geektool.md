@@ -4,7 +4,6 @@ category: blog
 date: 2014-12-13 10:00
 tags: OSX
 summary:  This is a Geektool tutorial on customizing OSX desktop - Calvin & Hobbes themed ...
-alias: /blog/geektool-and-desktop-widgets-in-osx/
 ---
 
 <p>This is a Geektool tutorial on how to customize your Mac OSX desktop homescreen. Using Geektool you can add a widget like functionality to your desktop.</p>

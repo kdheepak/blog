@@ -4,7 +4,6 @@ category: blog
 date: 2014-12-11 9:00
 tags: Raspberry Pi
 summary: I made some plots using HighCharts from my temperature monitoring system based on a Raspberry Pi ...
-alias: /blog/home-monitoring-system/
 ---
 
 # Example

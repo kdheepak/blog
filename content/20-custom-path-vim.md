@@ -4,7 +4,6 @@ category: blog
 date: Sat Sep 19 09:05:36 MDT 2015
 tags: neovim, vim, osx
 keywords: neovim, vim, osx, change path, set path,
-alias: /blog/change-PATH-inside-vim/
 ---
 
 Save the following script in `/usr/local/bin/cpvim`
@@ -12,7 +11,7 @@ Save the following script in `/usr/local/bin/cpvim`
 ```
 #!/bin/zsh
 source ~/.zshrc >/dev/null 2>&1
-PATH=$VIM_PATH 
+PATH=$VIM_PATH
 exec nvim "$@"
 ```
 
