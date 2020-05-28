@@ -10,26 +10,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: actions/setup-haskell@v1.1
-    - name: Install required packages
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y graphviz
-        sudo apt-get install -y make
-        sudo apt-get install -y python
-        sudo apt-get install -y wget
-    - uses: jiro4989/setup-nim-action@v1.0.2
-      with:
-        nim-version: ${{ env.NIM_VERSION }}
-    - name: Cache choosenim
-      id: cache-choosenim
-      uses: actions/cache@v1
-      with:
-        path: ~/.choosenim
-    - name: Cache nimble
-      id: cache-nimble
-      uses: actions/cache@v1
-      with:
-        path: ~/.nimble
     - name: Generate website
       run: nim c -r ./website.nim
