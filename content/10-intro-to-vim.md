@@ -12,7 +12,7 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
 
 1. Spend half an hour (maybe over lunch) using vimtutor.
     - Type `vimtutor` in a command line window and follow instructions.
-1. Stay in normal mode often. If you want to make a change, enter insert mode, edit text and return to normal mode.
+1. Learn to stay in normal mode often. If you want to make a change, enter insert mode, edit text and return to normal mode.
 1. Speed up your key repeat.
 1. Force yourself to use `hjkl` to navigate by disabling arrow keys.
 1. Understand how to use macros:
