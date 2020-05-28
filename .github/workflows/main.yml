@@ -10,5 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Generate website
-      run: nim c -r ./website.nim
+    - name: Build website
+      uses: docker://kdheepak/blog:latest
+      with:
+        args: /bin/sh -c "which nim"
