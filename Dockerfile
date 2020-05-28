@@ -35,4 +35,4 @@ RUN nim c website.nim
 
 COPY website /
 
-CMD ["./website"]
+ENTRYPOINT /website
