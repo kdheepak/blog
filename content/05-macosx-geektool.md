@@ -1,7 +1,7 @@
 ---
 title: Geektool and Desktop Widgets in OSX
 category: blog
-date: 2014-12-13 10:00
+date: 2014-12-13T10:00:00-06:00
 tags: OSX
 summary:  This is a Geektool tutorial on customizing OSX desktop - Calvin & Hobbes themed ...
 ---
@@ -26,5 +26,3 @@ summary:  This is a Geektool tutorial on customizing OSX desktop - Calvin & Hobb
 </pre>
 <p><br>
 You can also display your battery level, uptime, network connectivity status. There are also loads of preset Geeklets that you can download to get yourself a good looking homescreen. Sky is the limit!</p>
-
-

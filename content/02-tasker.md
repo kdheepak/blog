@@ -1,7 +1,7 @@
 ---
 title:  Tasker Projects
 category: blog
-date: 2014-12-12 19:00
+date: 2014-12-12T19:00:00-06:00
 tags: Tasker,Android
 summary: A collection of Tasker projects I've worked on ...
 ---

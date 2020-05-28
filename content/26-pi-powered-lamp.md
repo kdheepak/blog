@@ -1,7 +1,7 @@
 ---
-title:  Raspberry Pi Powered LED Lamp
-category:  blog
-date:  Sun Mar 27 19:17:58 MDT 2016
+title: Raspberry Pi Powered LED Lamp
+category: blog
+date: 2016-03-27T19:17:58-06:00
 keywords: raspberry, pi, led, flask
 tags: raspberry-pi, flask, led
 summary: Use your Raspberry Pi to control a desk lamp
@@ -107,4 +107,3 @@ The code for the Flask server is available on [GitHub](https://github.com/kdheep
 If you want more information, feel free to ask me any questions in the comments section below!
 
 # References
-

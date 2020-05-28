@@ -1,7 +1,7 @@
 ---
 title:  Neovim and Tmux
 category:  blog
-date:  Sat Feb 6 00:54:00 MST 2016
+date: 2016-02-06T00:54:00-06:00
 Keywords:  neovim, tmux, vim, writing
 tags: writing, vim
 ---

@@ -2,7 +2,7 @@
 title:
 slug:
 category: blog
-date: Sat Oct  8 13:03:31 MDT 2016
+date: 2016-10-08T13:03:31-06:00
 tags:
 keywords:
 summary:

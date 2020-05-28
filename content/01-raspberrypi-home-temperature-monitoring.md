@@ -1,7 +1,7 @@
 ---
 title: Home monitoring system
 category: blog
-date: 2014-12-11 9:00
+date: 2014-12-11T09:00:00-06:00
 tags: Raspberry Pi
 summary: I made some plots using HighCharts from my temperature monitoring system based on a Raspberry Pi ...
 ---
@@ -54,7 +54,7 @@ data: [75.76,75.99,75.76,75.54,75.54,75.65,75.88,76.33,76.10,75.99,76.21,75.65,7
 }]
 });
 });
-</script>    
+</script>
 <script>
 $(function () {
 $('#containerComp').highcharts({

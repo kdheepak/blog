@@ -1,6 +1,6 @@
 ---
 title: Writing Technical Papers with Markdown
-date: Sunday, Dec 20th 2015
+date: 2015-12-20T00:00:00-06:00
 tags: markdown, writing
 summary: Use Markdown for Academic writing
 keywords: markdown, vim, writing, academic, scholarly, technical, scientific, papers

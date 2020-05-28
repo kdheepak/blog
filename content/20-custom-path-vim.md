@@ -1,7 +1,7 @@
 ---
 title: Change $PATH inside vim
 category: blog
-date: Sat Sep 19 09:05:36 MDT 2015
+date: 2015-09-19T09:05:36-06:00
 tags: neovim, vim, osx
 keywords: neovim, vim, osx, change path, set path,
 ---
@@ -18,4 +18,3 @@ exec nvim "$@"
 Add the following to your .zshrc
 
     alias vim=/usr/local/bin/cpvim
-

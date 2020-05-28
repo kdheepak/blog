@@ -1,6 +1,6 @@
 ---
 title: Uninstalling and Re-Installing Homebrew on OSX
-date: Thu Aug 27 22:52:17 MDT 2015
+date: 2015-08-27T22:52:17-06:00
 category: blog
 tags: osx
 keywords: how to install homebrew on osx, how to remove homebrew on osx

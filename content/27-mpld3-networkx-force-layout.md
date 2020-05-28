@@ -1,6 +1,6 @@
 ---
 title: mpld3 networkx d3.js force layout
-date: Sun Oct  2 12:41:05 MDT 2016
+date: 2016-10-02T12:41:05-06:00
 tags: python
 summary: Notes on mpld3 force layout
 keywords: python

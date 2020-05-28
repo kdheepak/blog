@@ -1,7 +1,7 @@
 ---
 title: Emacs Tips - Close compilation buffer
 category: blog
-date: Tue Jul 19 12:43:56 MDT 2015
+date: 2015-07-19T12:43:56-06:00
 tags: Emacs, LaTeX
 keywords: tips and tricks, compilation buffer, auto close
 summary: This post shows how to close the compilation buffer in emacs if compile was successful ...
@@ -29,5 +29,3 @@ compilation was successful. [StackOverflow](https://emacs.stackexchange.com/a/33
 
 Insert the above code into your .emacs file. You can change the time you wish
 the buffer to be available by changing the "1 sec" in the above code
-
-

@@ -1,7 +1,7 @@
 ---
 title: Jupyter Notebook, Reveal.js and Github Pages
 category: blog
-date: Sat Dec 5 13:03:54 MST 2015
+date: 2015-12-05T13:03:54-06:00
 tags: reveal.js, github pages
 keywords: ipython, ipython notebook, jupyter, jupyter notebook, reveal.js, github pages, presentations
 slug: jupyter-notebook-reveal-js-and-github-pages
@@ -26,4 +26,3 @@ ipython nbconvert index.ipynb --to slides --reveal-prefix reveal.js
 * Push your changes to a repository
 
 You can find an example [here](https://kdheepak.com/jupyter-notebook) and the original notebook [here](https://github.com/kdheepak/jupyter-notebook).
-

@@ -1,7 +1,7 @@
 ---
 title: Beginners guide to getting started with Vim
 category: blog
-date: May 01 22:59:49 MDT 2015
+date: 2015-05-01T22:59:49-06:00
 tags: vim
 keywords: vim, beginner, tutorial
 ---
@@ -27,4 +27,3 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
 * Use a plugin manager.
 * Watch other people use vim on [vimcasts](https://vimcasts.org)
 * Change CAPSLOCK to ESC
-

@@ -1,6 +1,6 @@
 ---
 title: Python 2 vs 3 problem
-date: Fri Dec 16 15:31:07 MST 2016
+date: 2016-12-16T15:31:07-06:00
 tags: python
 summary: Some of my thoughts on the current state of Python 2 vs 3
 keywords: python, python2, python3

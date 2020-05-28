@@ -1,8 +1,8 @@
 ---
 title: How to add line numbers for code blocks in Pelican
 category: blog
-date:  Aug 18 02:00:00 MDT 2015
-modified:  Sun Sep 20 10:01:48 MDT 2015
+date: 2015-08-18T02:00:00-06:00
+modified: 2015-09-20T10:01:48-06:00
 tags: pelican
 keywords: How to add line numbers for code blocks in Pelican
 summary: Brief tutorial on adding the right css for getting line numbering for code blocks in pelican ...

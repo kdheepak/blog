@@ -1,7 +1,7 @@
 ---
 title: Vim, tmux and zsh - the productivity trio
 category: blog
-date: May 08 22:58:18 MDT 2015
+date: 2015-05-08T22:58:18-06:00
 tags: vim, tmux, zsh
 keywords: vim, tmux, zsh
 summary: I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration ...
@@ -145,5 +145,3 @@ I've not found a greater combination of tools than vim, tmux and zsh. I've detai
     Plugin 'tomasr/molokai'
     Plugin 'tpope/vim-repeat'
     Plugin 'tpope/vim-surround'
-
-

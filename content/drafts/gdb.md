@@ -1,8 +1,10 @@
-Title:How to install gdb on OSX
-Date:Thu Aug 27 10:52:17 MDT 2015
-Category:blog
-Summary:Installing gdb and fixing the certificate issue
-Status:draft
+---
+title: How to install gdb on OSX
+date: 2015-07-27T10:52:17-06:00
+category: blog
+summary: Installing gdb and fixing the certificate issue
+status: draft
+---
 
     brew tap homebrew/dupes
     brew install gdb

@@ -1,7 +1,7 @@
 ---
 title: Mac OSX Tweaks
 category: blog
-date: 2015-03-21 19:00
+date: 2015-03-21T19:00:00-06:00
 tags: OSX
 summary: OSX is more customizable that you think. Here are a bunch of tweaks that I found useful. Since I've posted this, I've maintained a updated version of these tweaks along with my dotfiles on GitHub ...
 ---

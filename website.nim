@@ -9,8 +9,10 @@ import ospaths
 import streams
 import times
 import algorithm
+import tables
 
 var static_tcss: seq[string] = @[]
+var site_root = "https://blog.kdheepak.com"
 
 type
   TOCElement = tuple[title: string, url: string]
@@ -30,7 +32,46 @@ for exe in @["pandoc-sidenote", "pandoc-eqnos", "pandoc-fignos", "pandoc-tableno
   if existsExe(exe):
     filters = &"{filters} --filter={exe}"
 
-proc render(file: string) =
+
+proc generate_sitemap(posts: seq[JsonNode]) =
+    var
+      seq_post : seq[string]
+      p, post_dt: string
+
+    for key, post in posts:
+      var dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+      post_dt = format(dt, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+      p = """
+<url>
+  <loc>$3/$1.html</loc>
+  <lastmod>$2</lastmod>
+  <priority>1.00</priority>
+</url>
+    """ % [
+          post["slug"].getStr,
+          post_dt,
+          site_root,
+          ]
+      seq_post.add p
+
+    var index_post = %* {
+        "content": seq_post.join("\n"),
+        "root": site_root,
+      }
+
+    var content = &"""
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+      http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+{index_post}
+</urlset>
+"""
+    writeFile("build/" & "sitemap.xml", content)
+
+proc render(file: string): JsonNode =
   var (dir, name, ext) = file.splitFile()
   if "drafts" in dir:
     return
@@ -61,18 +102,18 @@ proc render(file: string) =
   let tmd = joinPath(getTempDir(), "metadata.html")
   writeFile(tmd, "$meta-json$")
   let (outjson, _) = execCmdEx(&"pandoc {file} --template {tmd}", {poUsePath})
-  let md = parseJson(outjson)
-  if md.hasKey("status") and $(md["status"]) == "draft":
+  let post = parseJson(outjson)
+  if post.hasKey("status") and $(post["status"]) == "draft":
     echo "Draft found."
     return
   if name == "index":
     let title = "Blog"
     args = &"{args} -M title={title}"
-  elif md.hasKey("slug"):
-    name = $(md["slug"])
+  elif post.hasKey("slug"):
+    name = $(post["slug"])
     name = name.strip(chars = {'"', '\''})
-  elif md.hasKey("title"):
-    name = $(md["title"])
+  elif post.hasKey("title"):
+    name = $(post["title"])
     name = name.strip(chars = {'"', '\''})
     name = name.toLowerAscii().replace("-", " ")
     name = name.split().join(" ").replace(" ", "-").replace("_", "-")
@@ -83,19 +124,19 @@ proc render(file: string) =
       ]:
       name = name.replace($c, "")
 
-  if md.hasKey("toc"):
+  if post.hasKey("toc"):
     let toc_depth = try:
-      parseInt($md["toc"])
+      parseInt($post["toc"])
     except:
       1
     args = &"{args} --table-of-contents --toc-depth {toc_depth}"
 
-  if md.hasKey("filters"):
-    for f in md["filters"]:
+  if post.hasKey("filters"):
+    for f in post["filters"]:
       args = &"{args} -F {f}"
 
-  if md.hasKey("bibliography"):
-    let bib = joinPath(dir, $(md["bibliography"]))
+  if post.hasKey("bibliography"):
+    let bib = joinPath(dir, $(post["bibliography"]))
     args = &"{args} --bibliography {bib}"
 
   if name != "index" and name != "404":
@@ -111,6 +152,7 @@ proc render(file: string) =
   args = &"{args} --email-obfuscation javascript --base-header-level=2"
 
   let ofile = joinPath(output_dir, &"{name}.html")
+  post["slug"] = %* &"{name}.html"
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
   let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {file} -o {ofile}"
   echo cmd
@@ -120,9 +162,11 @@ proc render(file: string) =
   else:
     # successful render
     if name != "index":
-      var title = $(md["title"])
+      var title = $(post["title"])
       title = title.strip(chars = {'"', '\''})
       toc.add((title, &"{name}.html"))
+
+  result = post
 
 
 proc copy_file(file: string) =
@@ -149,20 +193,33 @@ proc main() =
       if file.match re".*\.md":
           filesToRender.add(file)
 
+  var posts: seq[JsonNode] = @[]
   for file in filesToRender.sorted(system.cmp, order = SortOrder.Descending):
-      render(file)
+    var p = render(file)
+    if not p.isNil: posts.add p
 
   let tindex = joinPath(getTempDir(), "index.md")
   var oindex = open(tindex, fmWrite)
 
+  let current_time = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
+  write(oindex, &"""
+---
+title: Blog
+date: {current_time}
+category: blog
+---
+  """)
   for i, element in toc:
-      if element.title == "404":
-          continue
-      write(oindex, &"[{element.title}]({element.url})")
-      write(oindex, "\n\n")
+    if element.title == "404":
+        continue
+    write(oindex, &"[{element.title}]({element.url})")
+    write(oindex, "\n\n")
   oindex.close()
 
-  render(tindex)
+  var p = render(tindex)
+  if not p.isNil: posts.add p
+
+  generate_sitemap(posts)
 
 
 when isMainModule:

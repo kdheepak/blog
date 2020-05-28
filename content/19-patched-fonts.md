@@ -1,7 +1,7 @@
 ---
 title: Patched fonts madness
 category: blog
-date: Sat Sep 12 19:59:22 MDT 2015
+date: 2015-07-12T19:59:22-06:00
 tags: vim, tmux
 keywords: vim, tmux
 ---
