@@ -17,6 +17,18 @@ type
 
 var toc: seq[TOCElement] = @[]
 
+proc existsExe(exe: string): bool =
+  let (s, _) = when defined(windows):
+    execCmdEx(&"where {exe}")
+  else:
+    execCmdEx(&"which {exe}")
+  return if s.len > 0: true else: false
+
+var filters = ""
+
+for exe in @["pandoc-sidenote", "pandoc-eqnos", "pandoc-fignos", "pandoc-tablenos", "pandoc-citeproc"]:
+  if existsExe(exe):
+    filters = &"{filters} --filter={exe}"
 
 proc render(file: string) =
   var (dir, name, ext) = file.splitFile()
@@ -89,7 +101,7 @@ proc render(file: string) =
   if name != "index" and name != "404":
     args = &"{args} -V comments"
 
-  args = &"{args} --filter=pandoc-sidenote --filter=pandoc-eqnos --filter=pandoc-fignos --filter=pandoc-tablenos --filter pandoc-citeproc"
+  args = &"{args} {filters}"
 
   if fileExists("./templates/csl.csl"):
     args = &"{args} --csl ./templates/csl.csl"
