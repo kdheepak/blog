@@ -83,7 +83,7 @@ And some of these viruses (as of the time of this writing) do not even have patc
 Loads of people have already talked about this and similar issues at some length [@steingold_proprietary_nodate;@cottrell_word_nodate], and have probably done more justice to this topic that I possibly could.
 With all these issues, it is hard to believe Word is so widely accepted as a standard.
 
-I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above :
+I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above:
 
 <!-- BEGIN SLIDES -->
 
@@ -106,7 +106,7 @@ Word however, does not allow me to import these images or tables programmaticall
 If I did somehow manage to contort my workflow and store my data and information in this software, I have absolutely no way of retrieving it.
 The final presentation/report/paper, information and data will exist confined in this closed source proprietary software.
 Word just does not fit into an analysis or research workflow.
-To quote Raymond Hettinger :
+To quote Raymond Hettinger:
 
 <!-- BEGIN SLIDES -->
 
@@ -317,7 +317,7 @@ And works really well.
 
 <!-- END SLIDES -->
 
-Input formats :
+Input formats:
 
 * native (native Haskell)
 * json (JSON version of native AST)
@@ -341,7 +341,7 @@ Input formats :
 * haddock (Haddock markup)
 * or latex (LaTeX)
 
-Output formats :
+Output formats:
 
 * native (native Haskell)
 * json (JSON version of native AST)
@@ -573,11 +573,11 @@ You will have to use the command line for any conversion.
 
 <!-- BEGIN SLIDES -->
 
-To generate a PDF file :
+To generate a PDF file:
 
     pandoc document.md -o document.pdf
 
-It is as simple as that! To generate a HTML file :
+It is as simple as that! To generate a HTML file:
 
     pandoc document.md -o document.html
 
@@ -588,10 +588,10 @@ It has loads of examples and you might be able to find what you are looking for 
 
 <!-- BEGIN SLIDES -->
 
-With PDF files, you can specify the following additional arguments :
+With PDF files, you can specify the following additional arguments:
 
-* `--latex-engine=pdflatex` : latex engine
-* `--latex-template=latex.template` : latex template file
+* `--latex-engine=pdflatex`: latex engine
+* `--latex-template=latex.template`: latex template file
 
 <!-- END SLIDES -->
 
@@ -601,16 +601,16 @@ This allows you to define a \LaTeX\ template to use. By default, `pandoc` uses a
 
 With html files, you can specify the following arguments:
 
-* `--template=html.template` : html template file
-* `--css=cssfile.css` : css file
+* `--template=html.template`: html template file
+* `--css=cssfile.css`: css file
 
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
 With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post) [@noauthor_googlegroups_nodate].
-You can however, specify a reference-docx :
+You can however, specify a reference-docx:
 
-* `--reference-docx=reference.docx` : docx for reference styles
+* `--reference-docx=reference.docx`: docx for reference styles
 
 <!-- END SLIDES -->
 
@@ -618,9 +618,9 @@ You can however, specify a reference-docx :
 
 These following arguments allow you to use citations when writing academic papers.
 
-* `--filter pandoc-citeproc` : filter to parse citations
-* `--csl=CSLFILE` : define a citation style sheet e.g. ieee.csl
-* `--bibliography=BIBFILE` : look for citations from a bibliography
+* `--filter pandoc-citeproc`: filter to parse citations
+* `--csl=CSLFILE`: define a citation style sheet e.g. ieee.csl
+* `--bibliography=BIBFILE`: look for citations from a bibliography
 
 <!-- END SLIDES -->
 
@@ -631,15 +631,15 @@ It works great and I've had no issues with it so far.
 
 Also, I've found the following filters useful.
 
-* `--filter pandoc-eqnos` : equation numbers
-* `--filter pandoc-fignos` : figure numbers
-* `--filter pandoc-tablenos` : table numbers
+* `--filter pandoc-eqnos`: equation numbers
+* `--filter pandoc-fignos`: figure numbers
+* `--filter pandoc-tablenos`: table numbers
 
 <!-- END SLIDES -->
 
 They allow you reference a figure, equation or table. For example, Equation {@eq:pi} is an example of a block equation in Markdown.
 
-A paper may be generated using a command as shown below :
+A paper may be generated using a command as shown below:
 
     pandoc -s -S --latex-engine=pdflatex \
     --template=./templates/ieee-latex.template \
