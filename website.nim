@@ -105,7 +105,7 @@ proc render(file: string) =
 
     let ofile = joinPath(output_dir, &"{name}.html")
     # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
-    let cmd = &"pandoc --katex --mathjax=https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {file} -o {ofile}"
+    let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {file} -o {ofile}"
     echo cmd
     let (outp, errC) = execCmdEx cmd
     if errC != 0:
