@@ -12,6 +12,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         dockerfile: Dockerfile
-        label: unique_label
         tags: latest
         push: ${{ github.ref == 'refs/heads/master' }}
