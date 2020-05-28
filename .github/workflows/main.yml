@@ -1,32 +1,35 @@
 name: CI
 on: [push]
+env:
+  PANDOC_VERSION: 2.9.2.1
+  JQ_VERSION: 1.6
+  TOOLS_DIR: tools
+  NIM_VERSION: 1.2.0
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os:
-          - ubuntu-latest
-    env:
-      NIM_VERSION: 1.2.0
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-haskell@v1.1
+    - name: Install required packages
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y graphviz
+        sudo apt-get install -y make
+        sudo apt-get install -y python
+        sudo apt-get install -y wget
+    - uses: jiro4989/setup-nim-action@v1.0.2
+      with:
+        nim-version: ${{ env.NIM_VERSION }}
     - name: Cache choosenim
       id: cache-choosenim
       uses: actions/cache@v1
       with:
         path: ~/.choosenim
-        key: ${{ runner.os }}-choosenim-stable
     - name: Cache nimble
       id: cache-nimble
       uses: actions/cache@v1
       with:
         path: ~/.nimble
-        key: ${{ runner.os }}-nimble-stable
-    - uses: jiro4989/setup-nim-action@v1.0.2
-      with:
-        nim-version: ${{ env.NIM_VERSION }}
-    - name: Install optional dependencies
-      run: nimble install nimcr -y
-    - name: Build files
-      run: ./website.nim
+    - name: Generate website
+      run: nim c -r ./website.nim
