@@ -19,11 +19,11 @@ RUN apt-get update && \
                        gcc \
                        g++
 
-RUN pip install setuptools --upgrade && \
-  pip install pandocfilters && \
-  pip install pandoc-fignos && \
-  pip install pandoc-eqnos && \
-  pip install pandoc-tablenos
+RUN pip3 install setuptools --upgrade && \
+  pip3 install pandocfilters && \
+  pip3 install pandoc-fignos && \
+  pip3 install pandoc-eqnos && \
+  pip3 install pandoc-tablenos
 
 RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- "-y"
 
@@ -36,6 +36,6 @@ RUN nim c website.nim
 
 RUN nim --version
 RUN pandoc --version
-RUN python --version
+RUN python3 --version
 
 ENTRYPOINT /nim/website
