@@ -1,4 +1,4 @@
-name: CI
+name: Website
 on: [push]
 env:
   PANDOC_VERSION: 2.9.2.1
