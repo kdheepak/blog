@@ -28,6 +28,9 @@ RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh
 
 ENV PATH=/root/.nimble/bin:$PATH
 
+ADD . /nim
+WORKDIR /nim
+
 RUN nim c website.nim
 
 CMD ["./website"]
