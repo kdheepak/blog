@@ -75,3 +75,13 @@ pre:not(.sourceCode) code {
   }
 }
 
+/* Math formatting */
+.katex {
+  font-size: inherit !important;
+}
+
+/* Wrap long URLs in references */
+#refs a {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
