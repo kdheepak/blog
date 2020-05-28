@@ -33,6 +33,4 @@ WORKDIR /nim
 
 RUN nim c website.nim
 
-COPY website /
-
-ENTRYPOINT /website
+CMD website
