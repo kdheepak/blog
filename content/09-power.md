@@ -541,7 +541,6 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ![png](images/power_34_0.png)
 
-
 In a purely capacitive circuit, power oscillates between the source and electric field associated with the capacitor.
 
 # Expression for complex power
@@ -569,6 +568,5 @@ Hence $V$ can be written as,
 $V = |V| \angle \theta_{v}$
 
 $I = |I| \angle \theta_{i}$
-
 
 $VI^* = |V||I|\angle \theta_{v} - \theta_{i}$
