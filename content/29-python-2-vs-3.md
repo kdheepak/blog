@@ -1,5 +1,5 @@
 ---
-title: Python 2 vs 3 problem
+title: Python 2 vs 3
 date: 2016-12-16T15:31:07-06:00
 tags: python
 summary: Some of my thoughts on the current state of Python 2 vs 3
@@ -11,7 +11,7 @@ This post is an account of my personal experience.
 I'm interested in hearing other people's opinions and having an open discussion on best practices to develop in Python.
 For the rest of this post, when I mention Python2 / Python3 please infer that I am referring to Python 2.7 / Python 3.5 respectively.
 
-# Python 2 vs 3 Problem
+# Python 2 vs 3
 
 A lot of people talk about Python2 vs Python3, and having to make a choice between them.
 Some beginners venturing to learn Python may be posed with this question themselves.
