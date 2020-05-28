@@ -20,6 +20,7 @@ RUN apt-get update && \
                        g++
 
 RUN pip install setuptools --upgrade && \
+  pip install pandocfilters && \
   pip install pandoc-fignos && \
   pip install pandoc-eqnos && \
   pip install pandoc-tablenos
