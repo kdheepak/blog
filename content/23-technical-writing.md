@@ -35,11 +35,11 @@ I figured I'd use this post to write about my workflow and my resources on this 
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-Academic writing involves :
+Academic writing involves:
 
-* writing down ideas as they come along and documenting results (notetaking),
-* experimenting with these ideas (simulations and data analysis)
-* and finally presenting them effectively (scientific paper)
+- writing down ideas as they come along and documenting results (notetaking),
+- experimenting with these ideas (simulations and data analysis),
+- and finally presenting them effectively (scientific paper).
 
 <!-- END SLIDES -->
 
