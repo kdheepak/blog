@@ -12,3 +12,8 @@ RUN apt-get update && \
                        pandoc-citeproc \
                        pandoc-sidenote \
                        python3
+
+RUN pip install setuptools --upgrade && \
+  pip install pandoc-fignos && \
+  pip install pandoc-eqnos && \
+  pip install pandoc-tablenos
