@@ -22,10 +22,10 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
     1. `q` : End recording a macro
     1. `@[REG]` : Play a macro from cursor current position
     1. `@@` : Play last played macro
+1. Learn how to use buffers, jumplist, taglist etc.
+1. Change CAPSLOCK to ESC.
+1. Watch other people use vim on [vimcasts](https://vimcasts.org).
 1. "Craft your lightsaber" - Make vim your own using .vimrc.
     - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
       that you don't understand.
-1. Find plugins to boost your productivity (e.g. NERDTree, ).
-1. Use a plugin manager.
-1. Watch other people use vim on [vimcasts](https://vimcasts.org).
-1. Change CAPSLOCK to ESC.
+1. Find plugins to boost your productivity (e.g. NERDTree, ), and use a plugin manager.
