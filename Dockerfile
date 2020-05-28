@@ -15,7 +15,9 @@ RUN apt-get update && \
                        pandoc-citeproc \
                        pandoc-sidenote \
                        python3 \
-                       python3-pip
+                       python3-pip \
+                       gcc \
+                       g++
 
 RUN pip install setuptools --upgrade && \
   pip install pandoc-fignos && \
