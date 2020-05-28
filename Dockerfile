@@ -2,6 +2,11 @@ ARG pandoc_version
 
 FROM pandoc/latex:2.9.2.1
 
+RUN apt-get update && \
+    apt-get install -y pandoc \
+                       pandoc-citeproc \
+                       pandoc-sidenote
+
 # install python
 RUN apk add make \
     python3 \
