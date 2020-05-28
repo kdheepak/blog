@@ -33,4 +33,6 @@ WORKDIR /nim
 
 RUN nim c website.nim
 
+COPY website /
+
 CMD ["./website"]
