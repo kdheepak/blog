@@ -219,7 +219,7 @@ category: blog
     var t = post["title"].getStr
     var s = post["slug"].getStr
     var dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
-    var d = format(dt, "MMM dd, yyyy")
+    var d = format(dt, "MMM, yyyy")
     write(oindex, &"{d}: [{t}]({s})")
     write(oindex, "\n\n")
   oindex.close()
