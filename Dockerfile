@@ -34,4 +34,8 @@ WORKDIR /nim
 
 RUN nim c website.nim
 
+RUN nim --version
+RUN pandoc --version
+RUN python --version
+
 ENTRYPOINT /nim/website
