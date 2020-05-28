@@ -20,3 +20,6 @@ RUN pip install setuptools --upgrade && \
   pip install pandoc-fignos && \
   pip install pandoc-eqnos && \
   pip install pandoc-tablenos
+
+RUN apt-get -y install xz-utils make
+RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- "-y"
