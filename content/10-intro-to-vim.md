@@ -22,7 +22,8 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
     - `q` : End recording a macro
     - `@[REG]` : Play a macro from cursor current position
     - `@@` : Play last played macro
-* Craft your lightsaber - Find other people's dotfiles and build your .vimrc. Don't add anything in your .vimrc that you don't understand.
+* Craft your lightsaber - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
+  that you don't understand.
 * Find plugins to boost your productivity (e.g. NERDTree, ).
 * Use a plugin manager.
 * Watch other people use vim on [vimcasts](https://vimcasts.org)
