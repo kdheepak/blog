@@ -59,7 +59,7 @@ $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
 $if(date)$
-<!-- <p class="byline">$date$$if(author)$ &ndash; $author$$endif$</p> -->
+<p class="subtitle">$date$$if(author)$ &ndash; $date$$endif$</p>
 $else$
 $if(author)$
 <p class="byline">$author$</p>
@@ -93,4 +93,3 @@ $include-after$
 $endfor$
 </body>
 </html>
-

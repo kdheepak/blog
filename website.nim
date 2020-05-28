@@ -149,6 +149,10 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --metadata link-citations=true"
 
+  let dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+  let d = format(dt, "ddd, MMM dd, yyyy")
+  args = &"{args} --metadata date=\"{d}\""
+
   args = &"{args} --email-obfuscation javascript --base-header-level=2"
 
   let ofile = joinPath(output_dir, &"{name}.html")
@@ -209,10 +213,14 @@ date: {current_time}
 category: blog
 ---
   """)
-  for i, element in toc:
-    if element.title == "404":
+  for i, post in posts:
+    if post["title"].getStr == "404":
         continue
-    write(oindex, &"[{element.title}]({element.url})")
+    var t = post["title"].getStr
+    var s = post["slug"].getStr
+    var dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    var d = format(dt, "MMM dd, yyyy")
+    write(oindex, &"{d}: [{t}]({s})")
     write(oindex, "\n\n")
   oindex.close()
 
@@ -220,7 +228,6 @@ category: blog
   if not p.isNil: posts.add p
 
   generate_sitemap(posts)
-
 
 when isMainModule:
     main()
