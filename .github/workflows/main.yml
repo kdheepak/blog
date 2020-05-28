@@ -12,5 +12,3 @@ jobs:
     - uses: actions/checkout@master
     - name: Build website
       uses: docker://kdheepak/blog:latest
-      with:
-        args: /bin/sh -c "which nim"
