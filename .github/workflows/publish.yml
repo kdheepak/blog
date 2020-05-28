@@ -14,3 +14,4 @@ jobs:
         dockerfile: Dockerfile
         label: unique_label
         tags: latest
+        push: ${{ github.ref == 'refs/heads/master' }}
