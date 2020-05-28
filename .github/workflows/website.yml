@@ -1,10 +1,5 @@
 name: Website
 on: [push]
-env:
-  PANDOC_VERSION: 2.9.2.1
-  JQ_VERSION: 1.6
-  TOOLS_DIR: tools
-  NIM_VERSION: 1.2.0
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -12,3 +7,8 @@ jobs:
     - uses: actions/checkout@master
     - name: Build website
       uses: docker://kdheepak/blog:latest
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build
