@@ -15,6 +15,3 @@ RUN apk add make \
     pandoc-fignos \
     pandoc-secnos \
     pandoc-tablenos
-
-# install pandoc-sidenote
-RUN wget -O- "https://github.com/jez/pandoc-sidenote/releases/download/0.20.0/pandoc-sidenote-0.20.0.zip" | tar zx -C/usr/bin/ ./pandoc-sidenote
