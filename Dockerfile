@@ -27,3 +27,7 @@ RUN pip install setuptools --upgrade && \
 RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- "-y"
 
 ENV PATH=/root/.nimble/bin:$PATH
+
+RUN nim c website.nim
+
+CMD ["./website"]
