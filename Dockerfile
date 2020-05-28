@@ -33,4 +33,4 @@ WORKDIR /nim
 
 RUN nim c website.nim
 
-ENTRYPOINT website
+ENTRYPOINT /nim/website
