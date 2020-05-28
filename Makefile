@@ -2,7 +2,7 @@ clean:
 	-rm -rf ./build
 
 publish:
-	../magic-night-panda/mnp
+	nim c -r website
 
 deploy: clean publish
 	-git branch -D gh-pages
