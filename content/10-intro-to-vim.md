@@ -10,21 +10,22 @@ When I first started using vim, I found it frustrating and difficult to get anyt
 
 I haven't been using vim for very long, so I'm by no means an expert. But since I'm starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim.
 
-* Spend half an hour (maybe over lunch) using vimtutor
-    - Type `vimtutor` in a command line window and follow instructions
-* Stay in normal mode often. If you want to make a change, enter insert mode, edit text and return to normal mode
-* Speed up your key repeat
-* Force yourself to use `hjkl` to navigate by disabling arrow keys
-* Understand how to use macros
-    - `q` : Start a macro
-    - `[REG]` : Assign a macro to a register, e.g. `a`. Starts recording a macro
-    - `[keystrokes]` : Perform a set of keystrokes, e.g. `ciwhelloESC`
-    - `q` : End recording a macro
-    - `@[REG]` : Play a macro from cursor current position
-    - `@@` : Play last played macro
-* Craft your lightsaber - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
-  that you don't understand.
-* Find plugins to boost your productivity (e.g. NERDTree, ).
-* Use a plugin manager.
-* Watch other people use vim on [vimcasts](https://vimcasts.org)
-* Change CAPSLOCK to ESC
+1. Spend half an hour (maybe over lunch) using vimtutor.
+    - Type `vimtutor` in a command line window and follow instructions.
+1. Stay in normal mode often. If you want to make a change, enter insert mode, edit text and return to normal mode.
+1. Speed up your key repeat.
+1. Force yourself to use `hjkl` to navigate by disabling arrow keys.
+1. Understand how to use macros:
+    1. `q` : Start a macro
+    1. `[REG]` : Assign a macro to a register, e.g. `a`. Starts recording a macro
+    1. `[keystrokes]` : Perform a set of keystrokes, e.g. `ciwhelloESC`
+    1. `q` : End recording a macro
+    1. `@[REG]` : Play a macro from cursor current position
+    1. `@@` : Play last played macro
+1. "Craft your lightsaber" - Make vim your own using .vimrc.
+    - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
+      that you don't understand.
+1. Find plugins to boost your productivity (e.g. NERDTree, ).
+1. Use a plugin manager.
+1. Watch other people use vim on [vimcasts](https://vimcasts.org).
+1. Change CAPSLOCK to ESC.
