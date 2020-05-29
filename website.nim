@@ -216,6 +216,13 @@ title: Blog
 category: blog
 ---
   """)
+
+  proc my_cmp(x, y: JsonNode): int =
+    if x{"date"}.getStr == "": return -1
+    if y{"date"}.getStr == "": return 1
+    if parse(x{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz") > parse(y{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz"): 1 else: -1
+
+  sort(posts, my_cmp, SortOrder.Descending)
   for i, post in posts:
     if post["title"].getStr == "404":
         continue
