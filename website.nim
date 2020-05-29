@@ -109,7 +109,7 @@ proc render(file: string): JsonNode =
     echo "Draft found."
     return
   if name == "index":
-    let title = "Blog"
+    let title = "My thoughts, notes and blogs"
     args = &"{args} -M title={title}"
   elif post.hasKey("slug"):
     name = $(post["slug"])
