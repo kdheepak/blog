@@ -110,7 +110,7 @@ proc render(file: string): JsonNode =
     return
   if name == "index":
     let title = "My thoughts, notes and blogs"
-    args = &"{args} -M title={title}"
+    args = &"{args} -M title=\"{title}\""
   elif post.hasKey("slug"):
     name = $(post["slug"])
     name = name.strip(chars = {'"', '\''})
