@@ -20,13 +20,13 @@ references:
   URL: https://daringfireball.net/2005/08/notes_on_notes
 ---
 
-### Edit - 2
+## Edit - 2
 
 I've shifted the blog to using just pandoc without pelican.
 I'm also using [Tufte CSS](https://github.com/jez/tufte-pandoc-css) along with [pandoc-sidenote](https://github.com/jez/pandoc-sidenote).
 I'll leave this blog post as is for reference if someone is interested.
 
-### Edit - 1
+## Edit - 1
 
 I've made additional changes to javascript and css since the writing of this post, including an update to the filters and the use of Pelican's HTML reader to perform some additional fixes.
 Margin notes match their intended location a lot more closely now.
