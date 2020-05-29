@@ -39,7 +39,9 @@ proc generate_sitemap(posts: seq[JsonNode]) =
       p, post_dt: string
 
     for key, post in posts:
-      var dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+      var ds = post{"date"}.getStr
+      ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
+      var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
       post_dt = format(dt, "yyyy-MM-dd\'T\'HH:mm:sszzz")
       p = """
 <url>
@@ -149,8 +151,8 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --metadata link-citations=true"
 
-  if name != "index" and name != "404":
-    let ds = post["date"].getStr
+  let ds = post{"date"}.getStr
+  if ds != "":
     let dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
     let d = format(dt, "ddd, MMM dd, yyyy")
     args = &"{args} --metadata date=\"{d}\""
@@ -211,7 +213,6 @@ proc main() =
   write(oindex, &"""
 ---
 title: Blog
-date: {current_time}
 category: blog
 ---
   """)
@@ -220,9 +221,10 @@ category: blog
         continue
     var t = post["title"].getStr
     var s = post["slug"].getStr
-    var dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    var dt: DateTime = parse(post{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
     var d = format(dt, "MMM, yyyy")
-    write(oindex, &"{d}: [{t}]({s})")
+    var line = &"[{t}]({s})"
+    write(oindex, &"{d}: {line}")
     write(oindex, "\n\n")
   oindex.close()
 
