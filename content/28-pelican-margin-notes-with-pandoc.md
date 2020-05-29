@@ -42,7 +42,7 @@ There are a few advantages of using a static site generator instead of a Content
 and I have covered it briefly in [this post](/how-to-set-up-a-pelican-blog-with-github-pages.html).
 Since Pelican is an open source project, it is inherently pretty customization.
 I can almost guarantee if you think of a feature that you'd like, you'll be able to search for a plugin that does
-exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **&#64;justinmayer** is also very responsive to feature requests and pull requests.
+exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **\@justinmayer** is also very responsive to feature requests and pull requests.
 
 And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able to (with a little bit of research) create a plugin to do exactly just that. Their documentation is pretty good too.
 If you are looking at a creating a blog I highly recommend checking out Pelican[^1].
