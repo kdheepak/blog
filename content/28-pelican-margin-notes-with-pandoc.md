@@ -75,7 +75,7 @@ that does just that]. So, the short version is that this implementation of margi
 
 A list of blogs, posts, websites, web books have inspired this implementation. Most notably are the following articles – [tuftle-css](https://edwardtufte.github.io/tufte-css/) and [this article](https://medium.com/@owenblacker/marginal-notes-on-medium-268b3f727e6d#.97mvo08w5) published on Medium about Medium sidenotes. They both speak to some length on how margin notes can be used to improve the experience for a reader, especially on the web.
 [Butterick’s Practical Typography](https://practicaltypography.com/)[^1] is also a great example of effective use of margin notes.
-There are a few other articles that talk about this; I've added references to these articles below in case you are interested.
+There are a few other articles [@johnjameson;@jgruber] that talk about this; I've added citations to these articles below in case you are interested.
 The CSS for this page and the CSS for the margin notes have been heavily inspired by [gameprogrammingpatterns.com](https://gameprogrammingpatterns.com/).
 
 [^1]: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.
