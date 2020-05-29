@@ -149,9 +149,11 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --metadata link-citations=true"
 
-  let dt: DateTime = parse(post["date"].getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
-  let d = format(dt, "ddd, MMM dd, yyyy")
-  args = &"{args} --metadata date=\"{d}\""
+  if name != "index" and name != "404":
+    let ds = post["date"].getStr
+    let dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    let d = format(dt, "ddd, MMM dd, yyyy")
+    args = &"{args} --metadata date=\"{d}\""
 
   args = &"{args} --email-obfuscation javascript --base-header-level=2"
 
