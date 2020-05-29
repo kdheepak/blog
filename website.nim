@@ -149,8 +149,6 @@ proc render(file: string): JsonNode =
   if fileExists("./templates/csl.csl"):
     args = &"{args} --csl ./templates/csl.csl"
 
-  args = &"{args} --metadata link-citations=true"
-
   let ds = post{"date"}.getStr
   if ds != "":
     let dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
