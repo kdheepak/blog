@@ -58,10 +58,12 @@ This approach worked for me, and the reason I went down this path was because I 
 Firstly, I'm not using Pelican's built in reader for Markdown files, but instead am using Pandoc. I wrote a pretty long post on using
 [Pandoc for academic writing](/writing-papers-with-markdown.html); I think it's safe to say that I'm a fan of Pandoc.
 Pelican has better built-in support for RestructuredText compared to Markdown, but plugins allow you to do pretty much everything you want with Markdown as your source file format.
-However the number of plugins required to get everything you want working quickly adds up^[Not that's a bad thing. The way Pelican signals works I believe will only activate a plugin if it has to, so it doesn't slow down your deployment process.].
+However the number of plugins required to get everything you want working quickly adds up.[^1]
 I've used Pandoc for other projects before and wanted to see if I could get it working in my blogging workflow.
 I've since incorporated Pandoc and it seems to be working quite well.
 Getting jupyter notebooks working with Pandoc was a bit of challenge though, but I was able to get past it by writing a filter for converting Jupyter notebooks with Pandoc.
+
+[^1]: Not that's a bad thing. I believe the way Pelican signals works will only activate a plugin if it has to, so it doesn't slow down your deployment process.
 
 And as I mentioned earlier, one of the main purposes of this implementation was because I was curious to see how far I could push this static site generation workflow.
 So if you are not using Pandoc in Pelican, you will not be
