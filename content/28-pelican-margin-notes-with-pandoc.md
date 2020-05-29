@@ -45,11 +45,9 @@ I can almost guarantee if you think of a feature that you'd like, you'll be able
 exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **&#64;justinmayer** is also very responsive to feature requests and pull requests.
 
 And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able to (with a little bit of research) create a plugin to do exactly just that. Their documentation is pretty good too.
-If you are looking at a creating a blog I highly recommend checking out Pelican^[__aside__ :
-Pelican is only one of the few static site generators in Python. There are others such as [Nikola](https://github.com/getnikola/nikola),
-[Lektor](https://github.com/lektor/lektor), [Cactus](https://github.com/eudicots/Cactus),
-[Hyde](https://github.com/hyde/hyde) and [many more](https://www.fullstackpython.com/static-site-generator.html).
-The main reason I chose Pelican was because it had a wide selection of [themes](https://github.com/getpelican/pelican-themes). There are also many popular ones in other languages, but I haven't researched them or used them enough or to have a strong opinion on them.].
+If you are looking at a creating a blog I highly recommend checking out Pelican[^1].
+
+[^1]: Pelican is only one of the few static site generators in Python. There are others such as [Nikola](https://github.com/getnikola/nikola), [Lektor](https://github.com/lektor/lektor), [Cactus](https://github.com/eudicots/Cactus), [Hyde](https://github.com/hyde/hyde) and [many more](https://www.fullstackpython.com/static-site-generator.html). The main reason I chose Pelican was because it had a wide selection of [themes](https://github.com/getpelican/pelican-themes). There are also many popular ones in other languages, but I haven't researched them or used them enough or to have a strong opinion on them.].
 
 That's probably not why you are reading this post though. You are probably interested in getting margin notes working on your blog too.
 I'll have to caveat the following post by saying that this is a proof of concept and by no means a final stable version that you can deploy on your site.
@@ -74,9 +72,11 @@ that does just that]. So, the short version is that this implementation of margi
 # Inspiration
 
 A list of blogs, posts, websites, web books have inspired this implementation. Most notably are the following articles – [tuftle-css](https://edwardtufte.github.io/tufte-css/) and [this article](https://medium.com/@owenblacker/marginal-notes-on-medium-268b3f727e6d#.97mvo08w5) published on Medium about Medium sidenotes. They both speak to some length on how margin notes can be used to improve the experience for a reader, especially on the web.
-[Butterick’s Practical Typography](https://practicaltypography.com/)^[__aside__: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.] is also a great example of effective use of margin notes.
+[Butterick’s Practical Typography](https://practicaltypography.com/)[^1] is also a great example of effective use of margin notes.
 There are a few other articles [@johnjameson;@jgruber] that talk about this; I've added citations to these articles below in case you are interested.
 The CSS for this page and the CSS for the margin notes have been heavily inspired by [gameprogrammingpatterns.com](https://gameprogrammingpatterns.com/).
+
+[^1]: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.
 
 # Implementation
 
