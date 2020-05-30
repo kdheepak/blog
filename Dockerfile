@@ -1,13 +1,10 @@
-ARG base_tag="edge"
-FROM pandoc/ubuntu:${base_tag}
+FROM ubuntu:20.10
 
 ARG PANDOC_VERSION=2.9.2.1
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz pandoc.tar.gz
-
 RUN tar -zxvf pandoc.tar.gz
-RUN mv pandoc-${PANDOC_VERSION}/bin/pandoc /pandoc
-RUN mv pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /pandoc-citeproc
-RUN ["/pandoc", "-v"]
+RUN mv pandoc-${PANDOC_VERSION}/bin/pandoc /usr/local/bin/pandoc
+RUN mv pandoc-${PANDOC_VERSION}/bin/pandoc-citeproc /usr/local/bin/pandoc-citeproc
 
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
@@ -22,6 +19,7 @@ RUN apt-get update && \
                        pandoc-sidenote \
                        python3 \
                        python3-pip \
+                       nim \
                        gcc \
                        g++
 
@@ -30,9 +28,6 @@ RUN pip3 install setuptools --upgrade && \
   pip3 install pandoc-fignos && \
   pip3 install pandoc-eqnos && \
   pip3 install pandoc-tablenos
-
-RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- "-y"
-ENV PATH=/root/.nimble/bin:$PATH
 
 COPY ./website.nim /nim/website.nim
 WORKDIR /nim
