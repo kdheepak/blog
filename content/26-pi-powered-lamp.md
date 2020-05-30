@@ -105,5 +105,3 @@ I've set up a simple Flask server and am using a Javascript library called [colo
 The code for the Flask server is available on [GitHub](https://github.com/kdheepak/arp) under MIT License.
 
 If you want more information, feel free to ask me any questions in the comments section below!
-
-# References

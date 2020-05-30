@@ -756,12 +756,4 @@ Table:  Links to multiple formats
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-# References
-
-<div id="refs" class="references">
-</div>
-
-[^0]: Footnote! If you are viewing the web version, you can continue reading by clicking here ->
-[^2]:
-
 <!-- END SLIDES -->

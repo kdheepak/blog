@@ -71,5 +71,3 @@ When you have set up the environment and would like to share it, you can run the
 I like to update by `environment.yml` by running the following
 
     conda env export > environment.yml
-
-# References
