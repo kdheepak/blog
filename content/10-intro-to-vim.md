@@ -9,7 +9,7 @@ summary: What I had wished I had known when I first started using vim
 
 When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.
 
-I haven't been using vim for very long, so I'm by no means an expert. But since I'm starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim.
+I haven't been using vim for very long, so I'm by no means an expert. But since I'm starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim as a tutorial.
 
 1. Spend half an hour (maybe over lunch) using vimtutor.
     - Type `vimtutor` in a command line window and follow instructions.

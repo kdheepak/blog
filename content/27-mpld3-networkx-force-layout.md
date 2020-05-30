@@ -3,7 +3,7 @@ title: mpld3 networkx d3.js force layout
 date: 2016-10-02T12:41:05-06:00
 tags: python
 summary: Notes on mpld3 force layout
-keywords: python
+keywords: python, mpld3, networkx, d3.js
 slug: mpld3-networkx-d3js-force-layout
 category: blog
 ---
