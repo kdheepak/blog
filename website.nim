@@ -111,6 +111,7 @@ proc render(file: string): JsonNode =
     echo "Draft found."
     return
   var ofilename = filename
+
   if post.hasKey("slug"):
     ofilename = $(post["slug"])
     ofilename = ofilename.strip(chars = {'"', '\''})
@@ -163,7 +164,7 @@ proc render(file: string): JsonNode =
   let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {filename}{ext} -o {ofile}"
   let outp = execProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd})
   # successful render
-  if filename != "index":
+  if ofilename != "index":
     var title = $(post["title"])
     title = title.strip(chars = {'"', '\''})
     toc.add((title, &"{ofilename}.html"))
@@ -210,6 +211,7 @@ title-prefix: Dheepak Krishnamurthy
 title: Blog
 category: blog
 summary: My thoughts, notes and blogs
+slug: index
 ---
   """)
 
