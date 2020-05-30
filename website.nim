@@ -31,10 +31,9 @@ proc existsExe(exe: string): bool =
 
 var filters = ""
 
-for exe in @["pandoc-sidenote", "pandoc-eqnos", "pandoc-fignos", "pandoc-tablenos", "pandoc-citeproc"]:
+for exe in @["pandoc-eqnos", "pandoc-fignos", "pandoc-tablenos", "pandoc-citeproc"]:
   if existsExe(exe):
     filters = &"{filters} --filter={exe}"
-
 
 proc generate_sitemap(posts: seq[JsonNode]) =
     var
@@ -147,7 +146,7 @@ proc render(file: string): JsonNode =
   if name != "index" and name != "404":
     args = &"{args} -V comments"
 
-  args = &"{args} {filters}"
+  args = &"{args} --lua-filter=scripts/sidenote.lua {filters}"
 
   if fileExists("./templates/csl.csl"):
     args = &"{args} --csl ./templates/csl.csl"
