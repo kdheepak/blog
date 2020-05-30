@@ -111,10 +111,7 @@ proc render(file: string): JsonNode =
     echo "Draft found."
     return
   var ofilename = filename
-  if filename == "index":
-    let title = "My thoughts, notes and blogs"
-    args = &"{args} -M title=\"{title}\""
-  elif post.hasKey("slug"):
+  if post.hasKey("slug"):
     ofilename = $(post["slug"])
     ofilename = ofilename.strip(chars = {'"', '\''})
   elif post.hasKey("title"):
@@ -209,7 +206,7 @@ proc main() =
   let current_time = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
   write(oindex, &"""
 ---
-title: Blog
+title: My thoughts, notes and blogs
 category: blog
 ---
   """)
