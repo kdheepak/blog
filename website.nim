@@ -76,13 +76,13 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
     writeFile("build/" & "sitemap.xml", content)
 
 proc render(file: string): JsonNode =
-  var (dir, name, ext) = file.splitFile()
+  var (dir, filename, ext) = file.splitFile()
   if "drafts" in dir:
     return
   let output_dir = "build"
   createDir output_dir
-  let thtml = joinPath("templates", "template.html")
-  let tcss = @[joinPath("templates", "template.css")]
+  let thtml = absolutePath(joinPath("templates", "template.html"))
+  let tcss = @[absolutePath(joinPath("templates", "template.css"))]
 
   var args = ""
 
@@ -105,28 +105,29 @@ proc render(file: string): JsonNode =
 
   let tmd = joinPath(getTempDir(), "metadata.html")
   writeFile(tmd, "$meta-json$")
-  let (outjson, _) = execCmdEx(&"pandoc {file} --template {tmd}", {poUsePath})
+  let outjson = execProcess(&"pandoc {filename}{ext} --template={tmd}", workingDir = absolutePath(dir), options = {poUsePath, poEvalCommand})
   let post = parseJson(outjson)
   if post.hasKey("status") and $(post["status"]) == "draft":
     echo "Draft found."
     return
-  if name == "index":
+  var ofilename = filename
+  if filename == "index":
     let title = "My thoughts, notes and blogs"
     args = &"{args} -M title=\"{title}\""
   elif post.hasKey("slug"):
-    name = $(post["slug"])
-    name = name.strip(chars = {'"', '\''})
+    ofilename = $(post["slug"])
+    ofilename = ofilename.strip(chars = {'"', '\''})
   elif post.hasKey("title"):
-    name = $(post["title"])
-    name = name.strip(chars = {'"', '\''})
-    name = name.toLowerAscii().replace("-", " ")
-    name = name.split().join(" ").replace(" ", "-").replace("_", "-")
+    ofilename = $(post["title"])
+    ofilename = ofilename.strip(chars = {'"', '\''})
+    ofilename = ofilename.toLowerAscii().replace("-", " ")
+    ofilename = ofilename.split().join(" ").replace(" ", "-").replace("_", "-")
     for c in @[
       ';', '/', '?', ':', '@', '&', '=',
       '+', '$', ',', '\'', '<', '>', '#',
       '%', '"', '\\'
       ]:
-      name = name.replace($c, "")
+      ofilename = ofilename.replace($c, "")
 
   if post.hasKey("toc"):
     let toc_depth = try:
@@ -139,17 +140,14 @@ proc render(file: string): JsonNode =
     for f in post["filters"]:
       args = &"{args} -F {f}"
 
-  if existsExe("pandoc-citeproc") and post.hasKey("bibliography"):
-    let bib = joinPath(dir, $(post["bibliography"]))
-    args = &"{args} --bibliography {bib}"
-
-  if name != "index" and name != "404":
+  if ofilename != "index" and ofilename != "404":
     args = &"{args} -V comments"
 
-  args = &"{args} --lua-filter=scripts/sidenote.lua {filters}"
+  args = &"{args} --lua-filter=\"../scripts/sidenote.lua\" {filters}"
 
-  if fileExists("./templates/csl.csl"):
-    args = &"{args} --csl ./templates/csl.csl"
+  let csl = absolutePath(joinPath("templates", "csl.csl"))
+  if fileExists(csl):
+    args = &"{args} --csl {csl}"
 
   let ds = post{"date"}.getStr
   if ds != "":
@@ -159,21 +157,17 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --email-obfuscation javascript --base-header-level=2"
 
-  let ofile = joinPath(output_dir, &"{name}.html")
-  post["slug"] = %* &"{name}.html"
+  post["slug"] = %* &"{ofilename}.html"
+
+  let ofile = absolutePath(joinPath("..", output_dir, &"{ofilename}.html"))
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
-  let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {file} -o {ofile}"
-  echo cmd
-  let (outp, errC) = execCmdEx cmd
-  if errC != 0:
-    echo outp
-    raise newException(PandocIOError, outp)
-  else:
-    # successful render
-    if name != "index":
-      var title = $(post["title"])
-      title = title.strip(chars = {'"', '\''})
-      toc.add((title, &"{name}.html"))
+  let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {filename}{ext} -o {ofile}"
+  let outp = execProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd})
+  # successful render
+  if filename != "index":
+    var title = $(post["title"])
+    title = title.strip(chars = {'"', '\''})
+    toc.add((title, &"{ofilename}.html"))
 
   result = post
 
