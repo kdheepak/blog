@@ -208,6 +208,7 @@ proc main() =
 ---
 title: My thoughts, notes and blogs
 category: blog
+summary: My thoughts, notes and blogs
 ---
   """)
 
