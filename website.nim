@@ -146,7 +146,7 @@ proc render(file: string): JsonNode =
   args = &"{args} --lua-filter=\"../scripts/sidenote.lua\" {filters}"
 
   let csl = absolutePath(joinPath("templates", "csl.csl"))
-  if fileExists(csl):
+  if posts{"csl"} == "" && fileExists(csl):
     args = &"{args} --csl {csl} --metadata link-citations=true"
 
   let ds = post{"date"}.getStr
