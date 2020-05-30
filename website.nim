@@ -145,10 +145,6 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --lua-filter=\"../scripts/sidenote.lua\" {filters}"
 
-  let csl = absolutePath(joinPath("templates", "csl.csl"))
-  if fileExists(csl):
-    args = &"{args} --csl {csl}"
-
   let ds = post{"date"}.getStr
   if ds != "":
     let dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
