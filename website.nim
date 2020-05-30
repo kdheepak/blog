@@ -143,7 +143,8 @@ proc render(file: string): JsonNode =
   if ofilename != "index" and ofilename != "404":
     args = &"{args} -V comments"
 
-  args = &"{args} --lua-filter=\"../scripts/sidenote.lua\" {filters}"
+  let sidenote_filter = absolutePath(joinPath("scripts", "sidenote.lua"))
+  args = &"{args} --lua-filter={sidenote_filter} {filters}"
 
   let csl = absolutePath(joinPath("templates", "csl.csl"))
   if post{"csl"}.getStr == "" and fileExists(csl):
