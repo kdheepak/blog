@@ -47,7 +47,7 @@ proc generate_sitemap(posts: seq[JsonNode]) =
       post_dt = format(dt, "yyyy-MM-dd\'T\'HH:mm:sszzz")
       p = """
 <url>
-  <loc>$3/$1.html</loc>
+  <loc>$3/$1</loc>
   <lastmod>$2</lastmod>
   <priority>1.00</priority>
 </url>
@@ -58,10 +58,7 @@ proc generate_sitemap(posts: seq[JsonNode]) =
           ]
       seq_post.add p
 
-    var index_post = %* {
-        "content": seq_post.join("\n"),
-        "root": site_root,
-      }
+    var index_post = seq_post.join("\n")
 
     var content = &"""
 <?xml version="1.0" encoding="UTF-8"?>
