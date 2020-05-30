@@ -163,4 +163,4 @@ I'm sure there are definitely better ways to do the same thing, but this is what
 There are a few limitations in the current implementation.
 One noticeable flaw is that I cannot have one margin note and one footnote in the same paragraph. And I'm positive there are more. Hopefully I'll get a chance to work on this more to improve it in the near future.
 All the code is on [GitHub](https://github.com/kdheepak) in case you were curious and wanted to take a look at it.
-If you have thoughts on how this could be done better or would like to ask questions in general, I'm open to chatting about this.
+If you have thoughts on how this could be done better or would like to ask questions in general feel free to reach out.
