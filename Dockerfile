@@ -23,16 +23,17 @@ RUN apt-get update && \
                        gcc \
                        g++
 
-ARG PANDOC_SIDENOTE_VERSION=0.20.0
-ADD https://github.com/jez/pandoc-sidenote/releases/download/${PANDOC_SIDENOTE_VERSION}/pandoc-sidenote-${PANDOC_SIDENOTE_VERSION}.zip pandoc-sidenote.zip
-RUN unzip pandoc-sidenote.zip
-RUN mv pandoc-sidenote /usr/local/bin/pandoc-sidenote
-
 RUN pip3 install setuptools --upgrade && \
   pip3 install pandocfilters && \
   pip3 install pandoc-fignos && \
   pip3 install pandoc-eqnos && \
   pip3 install pandoc-tablenos
+
+ARG PANDOC_SIDENOTE_VERSION=0.20.0
+ADD https://github.com/jez/pandoc-sidenote/releases/download/${PANDOC_SIDENOTE_VERSION}/pandoc-sidenote-${PANDOC_SIDENOTE_VERSION}.zip pandoc-sidenote.zip
+RUN unzip pandoc-sidenote.zip
+RUN chmod +x pandoc-sidenote
+RUN mv pandoc-sidenote /usr/local/bin/pandoc-sidenote
 
 COPY ./website.nim /nim/website.nim
 WORKDIR /nim
