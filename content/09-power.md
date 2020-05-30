@@ -4,7 +4,7 @@ category: blog
 date:  2015-04-29T19:00:00-06:00
 tags: Power Systems
 keywords: what is active power, what is reactive power, what is real power, what is imaginary power, Active Power, Reactive Power, Apparent Power
-Summary: This post covers the basics of the types of Power in power systems, specifically what is active power, reactive power and apparent power. This post was generated from an iPython Notebook ...
+summary: This post covers the basics of the types of Power in power systems, specifically what is active power, reactive power and apparent power. This post was generated from an iPython Notebook ...
 ---
 
 # Introduction to basic concepts

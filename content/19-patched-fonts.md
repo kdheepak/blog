@@ -4,6 +4,7 @@ category: blog
 date: 2015-07-12T19:59:22-06:00
 tags: vim, tmux
 keywords: vim, tmux
+summary: Patched fonts on MacOSX
 ---
 
 Getting patched fonts for a powerline in the terminal can be quite an adventure. I almost gave up on it, but now that I've figured it out it seems extremely obvious.

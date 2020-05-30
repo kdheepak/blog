@@ -4,6 +4,7 @@ category: blog
 date: 2015-09-20T09:26:15-06:00
 tags: tmux
 keywords: tmux, spotify, powerline
+summary: Show current spotify track in tmux
 ---
 
 Create a file named tmux-spotify-info and place it in a directory that in your `$PATH`. Add the following snippet of code into the file and make sure it is executable.

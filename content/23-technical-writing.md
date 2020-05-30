@@ -1,9 +1,9 @@
 ---
-title: Writing Technical Papers with Markdown
+title: Writing Technical Papers with Markdown and Pandoc
 date: 2015-12-20T00:00:00-06:00
 tags: markdown, writing
-summary: Use Markdown for Academic writing
-keywords: markdown, vim, writing, academic, scholarly, technical, scientific, papers
+summary: Use Markdown and Pandoc for technical writing
+keywords: markdown, pandoc, papers, writing, academic, scholarly, technical, scientific
 slug: writing-papers-with-markdown
 category: blog
 bibliography: blog.bib

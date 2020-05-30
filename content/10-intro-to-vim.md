@@ -4,6 +4,7 @@ category: blog
 date: 2015-05-01T22:59:49-06:00
 tags: vim
 keywords: vim, beginner, tutorial
+summary: What I had wished I had known when I first started using vim
 ---
 
 When I first started using vim, I found it frustrating and difficult to get anything done. I now realize that there were a list of things I had to do to understand how to use vim. Learning vim can be an extremely gratifying experience, but it is probably unlike anything you have seen before. So having a guide to getting started may be useful.

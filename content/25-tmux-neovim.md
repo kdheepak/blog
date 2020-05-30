@@ -2,8 +2,9 @@
 title:  Neovim and Tmux
 category:  blog
 date: 2016-02-06T00:54:00-06:00
-Keywords:  neovim, tmux, vim, writing
+keywords:  neovim, tmux, vim, writing
 tags: writing, vim
+summary: Set up neovim and tmux to work with osx.
 ---
 
 These instructions are OSX specific. On Windows machines, I tend to use Sublime Text or Atom. On Linux machines, I use Vim when my local machine is OSX running tmux.
