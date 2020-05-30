@@ -2,7 +2,7 @@ ARG base_tag="edge"
 FROM pandoc/ubuntu:${base_tag}
 
 ARG PANDOC_VERSION=2.9.2.1
-ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz /pandoc.tar.gz
+ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz pandoc.tar.gz
 
 RUN tar -zxvf pandoc.tar.gz
 RUN mv pandoc-${PANDOC_VERSION}/bin/pandoc /pandoc
