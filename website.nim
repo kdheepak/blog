@@ -137,7 +137,7 @@ proc render(file: string): JsonNode =
     for f in post["filters"]:
       args = &"{args} -F {f}"
 
-  if post.hasKey("bibliography"):
+  if existsExe("pandoc-citeproc") and post.hasKey("bibliography"):
     let bib = joinPath(dir, $(post["bibliography"]))
     args = &"{args} --bibliography {bib}"
 

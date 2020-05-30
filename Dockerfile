@@ -1,4 +1,5 @@
-FROM ubuntu:20.10
+ARG base_tag="edge"
+FROM pandoc/ubuntu:${base_tag}
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -11,8 +12,6 @@ RUN apt-get update && \
                        unzip \
                        xz-utils \
                        make \
-                       pandoc \
-                       pandoc-citeproc \
                        pandoc-sidenote \
                        python3 \
                        python3-pip \
@@ -26,7 +25,6 @@ RUN pip3 install setuptools --upgrade && \
   pip3 install pandoc-tablenos
 
 RUN CHOOSENIM_CHOOSE_VERSION="1.2.0" curl https://nim-lang.org/choosenim/init.sh -sSf | bash -s -- "-y"
-
 ENV PATH=/root/.nimble/bin:$PATH
 
 ADD . /nim
