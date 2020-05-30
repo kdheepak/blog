@@ -17,6 +17,9 @@ var site_root = "https://blog.kdheepak.com"
 type
   TOCElement = tuple[title: string, url: string]
 
+type
+  PandocIOError* = object of IOError
+
 var toc: seq[TOCElement] = @[]
 
 proc existsExe(exe: string): bool =
@@ -165,6 +168,7 @@ proc render(file: string): JsonNode =
   let (outp, errC) = execCmdEx cmd
   if errC != 0:
     echo outp
+    raise newException(PandocIOError, outp)
   else:
     # successful render
     if name != "index":
