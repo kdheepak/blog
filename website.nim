@@ -147,7 +147,7 @@ proc render(file: string): JsonNode =
 
   let csl = absolutePath(joinPath("templates", "csl.csl"))
   if fileExists(csl):
-    args = &"{args} --csl {csl}"
+    args = &"{args} --csl {csl} --metadata link-citations=true"
 
   let ds = post{"date"}.getStr
   if ds != "":
