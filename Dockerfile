@@ -23,6 +23,11 @@ RUN apt-get update && \
                        gcc \
                        g++
 
+ARG PANDOC_SIDENOTE_VERSION=0.20.0
+ADD https://github.com/jez/pandoc-sidenote/releases/download/${PANDOC_SIDENOTE_VERSION}/pandoc-sidenote-${PANDOC_SIDENOTE_VERSION}.zip pandoc-sidenote.zip
+RUN unzip pandoc-sidenote.zip
+RUN mv pandoc-sidenote /usr/local/bin/pandoc-sidenote
+
 RUN pip3 install setuptools --upgrade && \
   pip3 install pandocfilters && \
   pip3 install pandoc-fignos && \
@@ -35,7 +40,8 @@ WORKDIR /nim
 RUN nim c website.nim
 
 RUN nim --version
-RUN pandoc --version
 RUN python3 --version
+RUN pandoc --version
+RUN pandoc-citeproc --version
 
 ENTRYPOINT /nim/website
