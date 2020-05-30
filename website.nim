@@ -206,7 +206,8 @@ proc main() =
   let current_time = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
   write(oindex, &"""
 ---
-title: My thoughts, notes and blogs
+title-prefix: Dheepak Krishnamurthy
+title: Blog
 category: blog
 summary: My thoughts, notes and blogs
 ---
