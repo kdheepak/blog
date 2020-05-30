@@ -16,7 +16,6 @@ RUN apt-get update && \
                        unzip \
                        xz-utils \
                        make \
-                       pandoc-sidenote \
                        python3 \
                        python3-pip \
                        nim \
