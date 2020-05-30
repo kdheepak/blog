@@ -3,6 +3,9 @@ function Header(elem)
     -- elem.t = "Span"
     -- io.stderr:write(elem.t, "\n")
     -- return pandoc.Span(elem.c[1].c, {id = '', class = 'sidenote'})
+    if elem.identifier == "bibliography" then
+        elem.level = 2
+    end
     return elem
 end
 
