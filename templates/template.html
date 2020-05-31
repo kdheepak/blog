@@ -56,13 +56,15 @@ $endfor$
 <article>
 $if(title)$
 <header>
-<h1 class="title">$title$</h1>
+<h1 class="title"><a class="home" href="/">~/</a> $title$</h1>
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
 <p class="subtitle">
 $if(source)$
- <a class="sourceurl" target="_blank" href="$source$">$date$</a>
+ <a class="sourceurl" target="_blank" href="$source$">
+    $date$
+ </a>
 $endif$
 $else$
 </p>
