@@ -60,16 +60,14 @@ $if(title)$
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
-<p class="subtitle">
 $if(source)$
+<p class="subtitle">
  <a class="sourceurl" target="_blank" href="$source$">
     $date$
  </a>
-$endif$
-$else$
 </p>
-</header>
 $endif$
+</header>
 $if(toc)$
 <nav id="$idprefix$TOC">
 $toc$
