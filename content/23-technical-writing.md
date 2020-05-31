@@ -746,11 +746,11 @@ Know that they are there when you need them.
 You can write a complete paper in Markdown and render it in PDF without any issues.
 I recommend using Markdown and Pandoc for writing over \LaTeX\ and Word because of its ease of use and its flexibility and versatility.
 And if you think Markdown is not cutting it for you, you can always convert it to a Word document or a TEX file and continue using your usual workflow.
-Check out my attempt at describing the space of complexity of document vs difficulty in implementation when using Word, \LaTeX\ and Markdown in Fig. {@fig:learningcurve}.
+Check out my attempt at describing the relationship between complexity of document and difficulty in implementing when using Word, \LaTeX\ and Markdown in Fig. {@fig:learningcurve}.
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-![My very scientific comparison of Word, \LaTeX\ and Markdown](images/learningcurve.png){#fig:learningcurve}
+![Comparing Word, \LaTeX\ and Markdown](images/learningcurve.png){#fig:learningcurve .fullwidth}
 
 <!-- END SLIDES -->
 
