@@ -144,7 +144,10 @@ proc render(file: string): JsonNode =
   let csl = absolutePath(joinPath("templates", "csl.csl"))
   if post{"csl"}.getStr == "" and fileExists(csl):
     let ref_section_level_filter = absolutePath(joinPath("scripts", "ref-section-level.lua"))
-    args = &"{args} --csl {csl} --metadata link-citations=true --metadata notes-after-punctuation=false --metadata reference-section-title=\"References\"  --lua-filter={ref_section_level_filter}"
+    args = &"{args} --csl {csl} --metadata link-citations=true --metadata notes-after-punctuation=false --metadata reference-section-title=\"References\" --lua-filter={ref_section_level_filter}"
+
+  let section_prefix_filter = absolutePath(joinPath("scripts", "section-prefix.lua"))
+  args = &"{args} --lua-filter={section_prefix_filter}"
 
   let ds = post{"date"}.getStr
   if ds != "":
