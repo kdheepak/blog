@@ -252,7 +252,7 @@ The same example as before looks like this in Markdown.
 
 <!-- END SLIDES -->
 
-Much better! It's a lot easier to read and a lot easier to write than \LaTeX.
+Much better! It's a lot easier to read and a lot easier to write than $\LaTeX$.
 Markdown, developed by John Gruber, was principally written for the web, to avoid the heavy markup of HTML.
 Tools have been developed to convert Markdown to HTML, PDF and even DOCX.
 
@@ -267,7 +267,7 @@ The main advantages of Markdown:
 
 <!-- END SLIDES -->
 
-Markdown is awesome at a set of things, and a much better alternative than Word or \LaTeX\ for those specific set of things.
+Markdown is awesome at a set of things, and a much better alternative than Word or $\LaTeX$ for those specific set of things.
 Take for example this table {@tbl:table}.
 
 <!-- BEGIN SLIDES -->
@@ -285,7 +285,7 @@ Take for example this table {@tbl:table}.
 
 <!-- BEGIN SLIDES -->
 
-This is what the same table looks like in \LaTeX.
+This is what the same table looks like in $\LaTeX$.
 
     \begin{longtable}[c]{@{}rlcl@{}}
     \caption{Demonstration of simple table syntax.}
@@ -307,17 +307,17 @@ This is what the same table looks like in \LaTeX.
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
-However, Markdown does not allow for the level of detailed customization that you can achieve using \LaTeX.
+However, Markdown does not allow for the level of detailed customization that you can achieve using $\LaTeX$.
 Even a moderately complex table such as the one below is not supported (currently) by any form of Markdown.
 
-![Tabular LaTeX example [@noauthor_wikibooks_nodate]](images/table.png)
+![Tabular $\LaTeX$ example [@noauthor_wikibooks_nodate]](images/table.png)
 
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
 
-Markdown may not be as powerful as \LaTeX, but its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing.
-It has the advantages of Word (ease of use) and \LaTeX\ (excellent typesetting) for output formats.
+Markdown may not be as powerful as $\LaTeX$, but its easy to write easy to read syntax, open standard format and a strong backing from the community make it a ideal candidate for writing.
+It has the advantages of Word (ease of use) and $\LaTeX$ (excellent typesetting) for output formats.
 Also there is the added advantage of only having to write in Markdown once, and have documents generated in a multitude of formats later - PDF, DOCX, slides, HTML etc.
 
 <!-- END SLIDES -->
@@ -356,7 +356,7 @@ Input formats:
 * mediawiki (MediaWiki markup)
 * twiki (TWiki markup)
 * haddock (Haddock markup)
-* or latex (LaTeX)
+* or latex ($\LaTeX$)
 
 Output formats:
 
@@ -371,8 +371,8 @@ Output formats:
 * rst (reStructuredText)
 * html (XHTML)
 * html5 (HTML5)
-* latex (LaTeX)
-* beamer (LaTeX beamer slide show)
+* latex ($\LaTeX$)
+* beamer ($\LaTeX$ beamer slide show)
 * context (ConTeXt)
 * man (groff man)
 * mediawiki (MediaWiki markup)
@@ -405,7 +405,7 @@ Pandoc is also constantly under development. We can use Pandoc to convert a mark
 
 First off, you will need `pandoc`. You can get the latest version from their GitHub page [noauthor_github_nodate].
 You may want `pandoc-citeproc` as well^[If you install Pandoc from a package, `pandoc-citeproc` should come pre-installed. However, if you want to use a package manager such as `brew`, you may need to install `pandoc-citeproc` separately as well. Just run `brew install pandoc pandoc-citeproc`.].
-You will also need \LaTeX.
+You will also need $\LaTeX$.
 I've found that the following python packages are useful too.
 
 - `pandoc-attributes`
@@ -612,7 +612,7 @@ With PDF files, you can specify the following additional arguments:
 
 <!-- END SLIDES -->
 
-This allows you to define a \LaTeX\ template to use. By default, `pandoc` uses a built in template.
+This allows you to define a $\LaTeX$ template to use. By default, `pandoc` uses a built in template.
 
 <!-- BEGIN SLIDES -->
 
@@ -680,14 +680,14 @@ I'll update this post with more features if I think they are relevant to writing
 
 <!-- END SLIDES -->
 
-Pandoc allows you to define \LaTeX\ blocks in a markdown file, which are passed straight through to \LaTeX\ without any change.
-\LaTeX\ then processes it and renders it correctly.
+Pandoc allows you to define $\LaTeX blocks in a markdown file, which are passed straight through to $\LaTeX$ without any change.
+$\LaTeX$ then processes it and renders it correctly.
 Which means if you want to generate a PDF, you are in luck!
-You have the entire arsenal of \LaTeX\ commands at your disposal.
+You have the entire arsenal of $\LaTeX$ commands at your disposal.
 
-However, when converting to html or docx files, pandoc will choose to remove \LaTeX\ blocks.
+However, when converting to html or docx files, pandoc will choose to remove $\LaTeX$ blocks.
 There is a workaround for equations.
-You can specify `--mathjax` and force Pandoc to attempt to render \LaTeX\ as mathjax, which works most of the time.
+You can specify `--mathjax` and force Pandoc to attempt to render $\LaTeX$ as mathjax, which works most of the time.
 This page for example was generated entirely from a markdown file, rendered to html using pandoc.
 I have found a few cases where mathjax did not work correctly for me, so there may be some experimenting involved.
 With DOCX, you can pass in the `--mathjax` flag, and Pandoc will convert it to Word's equation editor format, but this seems to work only with the certain set of the markdown equation syntax that pandoc supports.
@@ -696,9 +696,9 @@ You have to format it in the Markdown table format that pandoc supports if you w
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-The good news is that anything you do in \LaTeX, you can do in Markdown and render as a PDF.
+The good news is that anything you do in $\LaTeX$, you can do in Markdown and render as a PDF.
 This includes equations, tables, citations, references, images, lists, tikz diagrams etc.
-The bad news is that if you do decide to use \LaTeX\ syntax, you are still writing \LaTeX\ (although a lot less of it), and you have lost complete HTML and DOCX conversion capability.
+The bad news is that if you do decide to use $\LaTeX$ syntax, you are still writing $\LaTeX (although a lot less of it), and you have lost complete HTML and DOCX conversion capability.
 
 <!-- END SLIDES -->
 
@@ -727,7 +727,7 @@ I wrote a pandocfilter [@krishnamurthy_github_nodate] to embed a jupyter noteboo
 
 <!-- END SLIDES -->
 
-In theory, you can write a filter that finds a \LaTeX\ table block in Markdown, converts it to an image and renders that in Word.
+In theory, you can write a filter that finds a $\LaTeX$ table block in Markdown, converts it to an image and renders that in Word.
 Or you can write a filter that inputs other files during run time, allowing you to split your source document.
 
 My understanding is that the Python `pandocfilters` package is limited in scope.
@@ -744,13 +744,13 @@ Know that they are there when you need them.
 <!-- END SLIDES -->
 
 You can write a complete paper in Markdown and render it in PDF without any issues.
-I recommend using Markdown and Pandoc for writing over \LaTeX\ and Word because of its ease of use and its flexibility and versatility.
+I recommend using Markdown and Pandoc for writing over $\LaTeX$ and Word because of its ease of use and its flexibility and versatility.
 And if you think Markdown is not cutting it for you, you can always convert it to a Word document or a TEX file and continue using your usual workflow.
-Check out my attempt at describing the relationship between complexity of document and difficulty in implementing when using Word, \LaTeX\ and Markdown in Fig. {@fig:learningcurve}.
+Check out my attempt at describing the relationship between complexity of document and difficulty in implementing when using Word, $\LaTeX$ and Markdown in Fig. {@fig:learningcurve}.
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-![Comparing Word, \LaTeX\ and Markdown](images/learningcurve.png){#fig:learningcurve .fullwidth}
+![Comparing Word, $\LaTeX$ and Markdown](images/learningcurve.png){#fig:learningcurve .fullwidth}
 
 <!-- END SLIDES -->
 
