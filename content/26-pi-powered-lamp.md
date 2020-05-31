@@ -13,7 +13,7 @@ The instructions are very simple [@noauthor_led_nodate] and the results are pret
 I decided to make a desk lamp with a web interface[^1].
 This post will go through the steps to build your own Pi powered desk lamp.
 
-[^1]: [![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)](https://gfycat.com/CoolEvergreenArcticseal)
+[^1]: ![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)
 
 # Requirements
 
@@ -90,7 +90,7 @@ Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
     sudo pip install Flask
 
-**Note** - I've used `sudo` for all the `pip` installations. It is definitely required for `spidev`, but may not be for the others. You will need to use `sudo` to run the application, since root access is required to control GPIO pins on the Raspberry Pi.
+**Note**: I've used `sudo` for all the `pip` installations. It is definitely required for `spidev`, but may not be for the others. You will need to use `sudo` to run the application, since root access is required to control GPIO pins on the Raspberry Pi.
 
 ### BiblioPixel
 
