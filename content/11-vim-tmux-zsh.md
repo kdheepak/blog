@@ -1,5 +1,5 @@
 ---
-title: Vim, tmux and zsh - the productivity trio
+title: Vim, tmux and zsh — the productivity trio
 category: blog
 date: 2015-05-08T22:58:18-06:00
 tags: vim, tmux, zsh

@@ -1,5 +1,5 @@
 ---
-title: Emacs workflow - Using Emacs in the terminal
+title: Emacs workflow — Using Emacs in the terminal
 category: blog
 date: 2015-07-25T22:00:50-06:00
 tags: emacs, tmux

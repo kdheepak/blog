@@ -1,5 +1,5 @@
 ---
-title: Emacs Tips - Close compilation buffer
+title: Emacs Tips — Close compilation buffer
 category: blog
 date: 2015-07-19T12:43:56-06:00
 tags: Emacs, LaTeX
