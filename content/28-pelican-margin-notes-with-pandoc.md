@@ -21,7 +21,7 @@ references:
 ---
 
 __Edit - 2__: I've shifted to using just pandoc without pelican.
-I'm also using [Tufte CSS](https://github.com/jez/tufte-pandoc-css) along with [pandoc-sidenote](https://github.com/jez/pandoc-sidenote).
+I'm also using [Tufte CSS](https://github.com/jez/tufte-pandoc-css).
 I'll leave this blog post as is for reference if someone is interested.
 
 __Edit - 1__: I've made additional changes to javascript and css since the writing of this post, including an update to the filters and the use of Pelican's HTML reader to perform some additional fixes.
