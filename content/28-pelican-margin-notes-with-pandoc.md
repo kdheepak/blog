@@ -22,7 +22,7 @@ references:
 
 __Edit__: I've shifted to using just pandoc without pelican.
 I'm also using [Tufte CSS](https://github.com/jez/tufte-pandoc-css).
-I'll leave this blog post as is for reference if someone is interested.
+I'll leave this blog post up for reference if someone is interested.
 
 # Introduction
 
