@@ -4,7 +4,7 @@ category: blog
 date: 2015-06-01T20:45:00-06:00
 tags: git
 keywords: Git tips and tricks
-summary: I've competely stopped using git log and have replaced it with this custom command ...
+summary: I've stopped using git log and have replaced it with this custom command ...
 ---
 
 
