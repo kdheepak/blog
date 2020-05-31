@@ -13,7 +13,7 @@ The instructions are very simple [@noauthor_led_nodate] and the results are pret
 I decided to make a desk lamp with a web interface[^1].
 This post will go through the steps to build your own Pi powered desk lamp.
 
-[^1]: ![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)
+[^1]: _aside_: ![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)
 
 # Requirements
 
