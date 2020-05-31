@@ -118,8 +118,10 @@ They allow for additional functionality to be added by walking through the Abstr
 I chose the following syntax for implementing a `aside` tag when converting from a Markdown file to a HTML document.
 
 ```markdown
-This is an example for the syntax^[__aside__: This is a note that will appear in a tag] in Markdown.
+> This is the syntax^[_aside_: And this is the margin note] in Markdown.
 ```
+
+> This is the syntax^[_aside_: And this is the margin note] in Markdown.
 
 When run through the filter, the above will be rendered as the following html.
 
