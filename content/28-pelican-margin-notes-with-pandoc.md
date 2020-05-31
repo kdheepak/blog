@@ -43,7 +43,7 @@ exactly that. There is in fact a collection of [pelican-plugins](https://github.
 And, on the rare occasion that you can't find a plugin that does exactly what you want it to, you'll be able to (with a little bit of research) create a plugin to do exactly just that. Their documentation is pretty good too.
 If you are looking at a creating a blog I highly recommend checking out Pelican[^1].
 
-[^1]: Pelican is only one of the few static site generators in Python. There are others such as [Nikola](https://github.com/getnikola/nikola), [Lektor](https://github.com/lektor/lektor), [Cactus](https://github.com/eudicots/Cactus), [Hyde](https://github.com/hyde/hyde) and [many more](https://www.fullstackpython.com/static-site-generator.html). The main reason I chose Pelican was because it had a wide selection of [themes](https://github.com/getpelican/pelican-themes). There are also many popular ones in other languages, but I haven't researched them or used them enough or to have a strong opinion on them.].
+[^1]: _aside_: Pelican is only one of the few static site generators in Python. There are others such as [Nikola](https://github.com/getnikola/nikola), [Lektor](https://github.com/lektor/lektor), [Cactus](https://github.com/eudicots/Cactus), [Hyde](https://github.com/hyde/hyde) and [many more](https://www.fullstackpython.com/static-site-generator.html). The main reason I chose Pelican was because it had a wide selection of [themes](https://github.com/getpelican/pelican-themes). There are also many popular ones in other languages, but I haven't researched them or used them enough or to have a strong opinion on them.].
 
 That's probably not why you are reading this post though. You are probably interested in getting margin notes working on your blog too.
 I'll have to caveat the following post by saying that this is a proof of concept and by no means a final stable version that you can deploy on your site.
@@ -74,7 +74,7 @@ A list of blogs, posts, websites, web books have inspired this implementation. M
 There are a few other articles [@johnjameson;@jgruber] that talk about this.
 The CSS for this page originally and the CSS for the margin notes had been heavily inspired by [gameprogrammingpatterns.com](https://gameprogrammingpatterns.com/).
 
-[^4]: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.
+[^4]: _aside_: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.
 
 # Implementation
 
