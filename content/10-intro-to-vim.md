@@ -11,7 +11,7 @@ When I first started using vim, I found it frustrating and difficult to get anyt
 
 I haven't been using vim for very long, so I'm by no means an expert. But since I'm starting out, I figured it would be useful for beginners if I put down what I think is the order in which you should approach vim as a tutorial.
 
-1. Spend half an hour (maybe over lunch) using vimtutor.
+1. Spend half an hour (maybe over lunch) using vimtutor[^vimtutor].
     - Type `vimtutor` in a command line window and follow instructions.
 1. Learn to stay in normal mode often. If you want to make a change, enter insert mode, edit text and return to normal mode.
 1. Speed up your key repeat.
@@ -30,3 +30,5 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
     - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
       that you don't understand.
 1. Find plugins to boost your productivity (e.g. NERDTree, ), and use a plugin manager.
+
+[^vimtutor]: _aside_: ![vimtutor](videos/vimtutor.webm){ width=150% }
