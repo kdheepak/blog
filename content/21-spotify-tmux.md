@@ -53,5 +53,3 @@ set -g window-status-current-format "#[fg=colour234,bg=colour39]#[fg=colour16
 ```
 
 And your favourite song will be listed in your tmux powerline! You can change the colours by playing the values above.
-
-![tmux-spotify](/images/tmux-spotify.png)
