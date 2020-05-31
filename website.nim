@@ -159,7 +159,8 @@ proc render(file: string): JsonNode =
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
   let cmd = &"pandoc --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs --from=markdown+emoji --to=html5+smart {args} {filename}{ext} -o {ofile}"
-  let outp = execProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd})
+  let outp = execProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd, poStdErrToStdOut})
+  echo outp
   # successful render
   if ofilename != "index":
     var title = $(post["title"])
