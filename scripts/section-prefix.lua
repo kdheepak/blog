@@ -37,6 +37,6 @@ function Header(elem)
     n = elem.level
     -- table.insert(elem.content, 1, { })
     table.insert(elem.content, 1, pandoc.Str(" "))
-    table.insert(elem.content, 1, pandoc.Str(string.rep("#", n)))
+    table.insert(elem.content, 1, pandoc.Link(string.rep("#", n), "#" .. elem.attr.identifier))
     return elem
 end
