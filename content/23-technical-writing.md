@@ -458,7 +458,7 @@ And this text is in ***bold-italic***.
 
 ### ***Images***
 
-    [Caption](images/markdown.png)
+    ![Caption](images/markdown.png)
 
 **Example**
 
