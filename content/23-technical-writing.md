@@ -16,6 +16,23 @@ references:
   title: Example Citation
 ---
 
+You can view this post in the following formats, thanks to Pandoc!
+
+<figure class="fullwidth">
+
+Format      Link
+-------     -------
+IEEE-PDF    [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
+IEEE-DOCX   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
+IEEE-HTML   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
+PDF         [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
+DOCX        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
+HTML        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
+SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
+
+</figure>
+
+
 <!-- BEGIN SLIDESNOHEADER -->
 
 <!-- END SLIDES -->
@@ -739,20 +756,7 @@ Check out my attempt at describing the space of complexity of document vs diffic
 
 If you have gotten this far in the post, congratulations!
 This was a lot to take in, and I hope I shed some light on the potential for Markdown as an academic and technical writing tool.
-Let me know if you have any questions in the comments below. You can view this post in the following forms, thanks to Pandoc!
-
-Format      Link
--------     -------
-IEEE-PDF    [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
-IEEE-DOCX   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
-IEEE-HTML   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
-PDF         [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
-DOCX        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
-HTML        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
-SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
-
-Table:  Links to multiple formats
-
+Let me know if you have any questions in the comments below.
 
 <!-- BEGIN SLIDESNOHEADER -->
 
