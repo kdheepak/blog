@@ -51,9 +51,11 @@ Flash the operating system onto a memory card.
 
     sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
 
-When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`^[Both `rdisk` and `disk` will work fine, but if you are using `disk` be prepared to wait longer - it took about an hour in my case].
+When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`[^2].
 
-**Optional** - Expand the file system to use all the available space on the memory card.
+[^2]: Both `rdisk` and `disk` will work fine, but if you are using `disk` be prepared to wait longer - it took about an hour in my case.
+
+(**Optional**) Expand the file system to use all the available space on the memory card.
 
     sudo raspi-config
     -> Expand File System
@@ -90,12 +92,14 @@ Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
     sudo pip install Flask
 
-**Note**: I've used `sudo` for all the `pip` installations. It is definitely required for `spidev`, but may not be for the others. You will need to use `sudo` to run the application, since root access is required to control GPIO pins on the Raspberry Pi.
+I've used `sudo` for all the `pip` installations.
+It is definitely required for `spidev`, but may not be for the others.
+You will need to use `sudo` to run the application, since root access is required to control GPIO pins on the Raspberry Pi.
 
 ### BiblioPixel
 
 The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@noauthor_maniacallabs/bibliopixel_nodate].
-I recommend using BiblioPixel as well - if you want to use a different LED strip in the future this will make it very easy to use the same code base.
+I recommend using BiblioPixel as well — if you want to use a different LED strip in the future this will make it very easy to use the same code base.
 
 At this point, you should be able to run a few examples, and see animations on your LED strip.
 
