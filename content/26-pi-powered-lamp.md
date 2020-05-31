@@ -9,7 +9,7 @@ bibliography: blog.bib
 ---
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
-The instructions are very simple [@_led] and the results are pretty cool.
+The instructions are very simple [@noauthor_led_nodate] and the results are pretty cool.
 I decided to make a desk lamp with a web interface.
 This post will go through the steps to build your own Pi powered desk lamp.
 
@@ -94,7 +94,7 @@ Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
 ### BiblioPixel
 
-The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@_maniacallabs/bibliopixel].
+The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@noauthor_maniacallabs/bibliopixel].
 I recommend using BiblioPixel as well - if you want to use a different LED strip in the future this will make it very easy to use the same code base.
 
 At this point, you should be able to run a few examples, and see animations on your LED strip.
