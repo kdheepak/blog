@@ -403,7 +403,7 @@ Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage t
 This is the reason Pandoc is great at converting from and to a wide variety of formats, and why it is potentially easy to support new formats as well.
 Pandoc is also constantly under development. We can use Pandoc to convert a markdown file, to a PDF, HTML or DOCX file for a technical paper.
 
-First off, you will need `pandoc`. You can get the latest version from their GitHub page [noauthor_github_nodate].
+First off, you will need `pandoc`. You can get the latest version from their GitHub page [@noauthor_github_nodate].
 You may want `pandoc-citeproc` as well^[If you install Pandoc from a package, `pandoc-citeproc` should come pre-installed. However, if you want to use a package manager such as `brew`, you may need to install `pandoc-citeproc` separately as well. Just run `brew install pandoc pandoc-citeproc`.].
 You will also need $\LaTeX$.
 I've found that the following python packages are useful too.
