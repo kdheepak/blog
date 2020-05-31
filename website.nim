@@ -152,7 +152,7 @@ proc render(file: string): JsonNode =
     let d = format(dt, "ddd, MMM dd, yyyy")
     args = &"{args} --metadata date=\"{d}\""
 
-  args = &"{args} --email-obfuscation javascript --base-header-level=2"
+  args = &"{args} --email-obfuscation javascript --shift-heading-level=0"
   args = &"{args} --katex --mathjax=https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML --section-divs"
   let js = absolutePath(joinPath("templates", "template.js"))
   args = &"{args} --include-after-body={js}"
