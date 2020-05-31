@@ -127,7 +127,7 @@ To quote Raymond Hettinger:
 
 <!-- BEGIN SLIDES -->
 
-![Raymond Hettinger](../images/raymondhettinger.jpg)
+![Raymond Hettinger](images/raymondhettinger.jpg)
 
 <!-- END SLIDES -->
 
@@ -310,7 +310,7 @@ This is what the same table looks like in \LaTeX.
 However, Markdown does not allow for the level of detailed customization that you can achieve using \LaTeX.
 Even a moderately complex table such as the one below is not supported (currently) by any form of Markdown.
 
-![Tabular LaTeX example [@noauthor_wikibooks_nodate]](../images/table.png)
+![Tabular LaTeX example [@noauthor_wikibooks_nodate]](images/table.png)
 
 <!-- END SLIDES -->
 
@@ -458,11 +458,11 @@ And this text is in ***bold-italic***.
 
 ### ***Images***
 
-    [Caption](../images/markdown.png)
+    [Caption](images/markdown.png)
 
 **Example**
 
-![Caption](../images/markdown.png)
+![Caption](images/markdown.png)
 
 ### ***Lists***
 
@@ -750,7 +750,7 @@ Check out my attempt at describing the space of complexity of document vs diffic
 
 <!-- BEGIN SLIDESNOHEADER -->
 
-![My very scientific comparison of Word, \LaTeX\ and Markdown](../images/learningcurve.png){#fig:learningcurve}
+![My very scientific comparison of Word, \LaTeX\ and Markdown](images/learningcurve.png){#fig:learningcurve}
 
 <!-- END SLIDES -->
 
