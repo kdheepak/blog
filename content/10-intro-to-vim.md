@@ -31,4 +31,4 @@ I haven't been using vim for very long, so I'm by no means an expert. But since 
       that you don't understand.
 1. Find plugins to boost your productivity (e.g. NERDTree, ), and use a plugin manager.
 
-[^vimtutor]: _aside_: ![vimtutor](videos/vimtutor.webm){ width=150% }
+[^vimtutor]: _aside_: ![vimtutor](videos/vimtutor.webm){ width=125% }
