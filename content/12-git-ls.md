@@ -13,8 +13,3 @@ Add the following command to ~/.gitconfig
 
     [alias]
         ls = log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)' --all
-
-
-Here is an example of what the command output looks like.
-
-![](../../images/gitls.png)
