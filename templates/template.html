@@ -60,13 +60,12 @@ $if(title)$
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
 $endif$
-$if(date)$
-<p class="subtitle">$date$$if(author)$ &ndash; $author$$endif$</p>
+<p class="subtitle">
+$if(source)$
+ <a class="sourceurl" target="_blank" href="$source$">$date$</a>
+$endif$
 $else$
-$if(author)$
-<p class="byline">$author$</p>
-$endif$
-$endif$
+</p>
 </header>
 $endif$
 $if(toc)$

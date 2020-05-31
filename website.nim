@@ -157,6 +157,11 @@ proc render(file: string): JsonNode =
   let js = absolutePath(joinPath("templates", "template.js"))
   args = &"{args} --include-after-body={js}"
 
+  if ofilename != "index":
+    let commit = execProcess(&"git log -n 1 --pretty=format:%H -- {filename}{ext}", workingDir = dir).strip()
+    let source = &"https://github.com/kdheepak/blog/blob/{commit}/content/{filename}{ext}"
+    args = &"{args} --metadata source=\"{source}\""
+
   post["slug"] = %* &"{ofilename}.html"
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
