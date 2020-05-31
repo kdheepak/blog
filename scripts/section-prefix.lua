@@ -27,13 +27,16 @@ function serializeTable(val, name, skipnewlines, depth)
     return tmp
 end
 
+local text = require('text')
+
 function Header(elem)
     -- io.stderr:write(elem.t, "\n")
     -- elem.t = "Span"
     -- io.stderr:write(elem.t, "\n")
     -- return pandoc.Span(elem.c[1].c, {id = '', class = 'sidenote'})
-    -- io.stderr:write(serializeTable(elem), "\n")
-    -- n = elem.level
-    -- elem.content[1].text = string.rep("#", n) .. " " .. elem.content[1].text
+    n = elem.level
+    -- table.insert(elem.content, 1, { })
+    table.insert(elem.content, 1, pandoc.Str(" "))
+    table.insert(elem.content, 1, pandoc.Str(string.rep("#", n)))
     return elem
 end
