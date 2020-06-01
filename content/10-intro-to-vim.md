@@ -29,7 +29,7 @@ That said, this is in my experience the best bang for buck in priority order.
     1. `@[REG]` : Play a macro from cursor current position
     1. `@@` : Play last played macro
 1. Learn how to use and navigate buffers (`:ls<CR>`, `:buffer N`, `C-^`), jumplist (`C-O`, `C-I`), and taglist (`C-]`, `C-T`).
-1. Learn about the built-in complete sub-mode: Use `C-X` in insert mode to trigger.
+1. Learn about the built-in complete sub-mode: Use `C-X` in insert mode.
 1. "Craft your lightsaber" - Make vim your own using .vimrc.
     - Don't be afraid to customize your editor, but also don't add anything in your .vimrc
       that you don't understand.
