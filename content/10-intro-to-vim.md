@@ -20,7 +20,7 @@ That said, this is in my experience the best bang for buck in priority order.
 1. Learn to stay in normal mode often.
     - If you want to make a change, enter insert mode, edit text and return to normal mode.
 1. Break old habits while learning new features by disabling functionality you are accustomed to.
-    - For example, you can learn to use `hjkl` to navigate by disabling arrow keys.
+    - For example, you can learn to navigate using `hjkl` by disabling arrow keys.
 1. Understand how to use macros:
     1. `q` : Start a macro
     1. `[REG]` : Assign a macro to a register, e.g. `a`. Starts recording a macro
