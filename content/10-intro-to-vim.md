@@ -19,7 +19,7 @@ That said, this is in my experience the best bang for buck in priority order.
     - Type `vimtutor` in a command line window and follow instructions.
 1. Learn to stay in normal mode often.
     - If you want to make a change, enter insert mode, edit text and return to normal mode.
-1. Force yourself to use learn new ways to navigate text by disabling your previous habits.
+1. Break old habits while learning new features by disabling functionality you are accustomed to.
     - For example, you can learn to use `hjkl` to navigate by disabling arrow keys.
 1. Understand how to use macros:
     1. `q` : Start a macro
