@@ -1,18 +1,20 @@
 ---
-title: Guide to getting going with Vim
+title: Fast track to being productive in Vim
 category: blog
 date: 2015-05-01T22:59:49-06:00
+modified: 2020-05-31T19:07:40-0600
 tags: vim
 keywords: vim, beginner, tutorial
 summary: What I wish I had known when I first started using vim
 ---
 
-When I first started using vim three months ago, I found it quite difficult to get meaningful work done.
+When I first started using vim three months ago, I found it quite challenging to get meaningful work done.
 I now realize that there were a list of things I had to grok in order to be productive in vim.
 Learning vim can be extremely gratifying, but the core ideas in vim are also probably unlike anything you have seen before.
-
+I thought it would be useful to share steps on could take to maximize their productivity with vim after committing to it.
 I haven't been using vim for very long, so I'm by no means an expert.
-But since I'm starting out, I figured I would put down what I think is the order in which you should approach some of vim features.
+And I still learn new things about vim every day.
+That said, this is in my experience the best bang for buck in priority order.
 
 1. Spend half an hour (maybe over lunch) using vimtutor[^vimtutor].
     - Type `vimtutor` in a command line window and follow instructions.
