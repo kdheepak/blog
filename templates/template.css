@@ -25,3 +25,12 @@ h1 {
 h4 {
     font-size: large;
 }
+
+body > footer {
+    text-align: center;
+    color: #aaa;
+}
+
+body > footer > p {
+    font-size: 1rem;
+}
