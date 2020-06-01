@@ -11,7 +11,7 @@ summary: What I wish I had known when I first started using vim
 When I first started using vim three months ago, I found it quite challenging to get meaningful work done.
 I now realize that there were a list of things I had to grok in order to be productive in vim.
 Learning vim can be extremely gratifying, but the core ideas in vim are also probably unlike anything you have seen before.
-I thought it would be useful to share steps on could take to maximize their productivity with vim after committing to it.
+I thought it would be useful to share some steps one could take to maximize productivity with vim after committing to it.
 I haven't been using vim for very long, so I'm by no means an expert.
 And I still learn new things about vim every day.
 That said, this is in my experience the best bang for buck in priority order.
