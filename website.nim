@@ -104,8 +104,8 @@ proc render(file: string): JsonNode =
   writeFile(tmd, "$meta-json$")
   let outjson = execProcess(&"pandoc {filename}{ext} --template={tmd}", workingDir = absolutePath(dir), options = {poUsePath, poEvalCommand})
   let post = parseJson(outjson)
-  if post.hasKey("status") and $(post["status"]) == "draft":
-    echo "Draft found."
+  if post{"status"}.getStr == "draft":
+    echo &"Draft found for {filename}{ext}. Ignoring ..."
     return
   var ofilename = filename
 
