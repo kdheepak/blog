@@ -35,6 +35,6 @@ That said, this is in my experience the best bang for buck in priority order.
       that you don't understand.
 1. Change CAPSLOCK to ESC.
 1. Watch other people use vim on [vimcasts](https://vimcasts.org) and on YouTube.
-1. Find plugins to boost your productivity (e.g. NERDTree,), and use a plugin manager.
+1. Find plugins to boost your productivity, and use a plugin manager.
 
 [^vimtutor]: _aside_: ![vimtutor](videos/vimtutor.webm){ width=100% loop="true" autoplay="true" }
