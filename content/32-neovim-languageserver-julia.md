@@ -7,6 +7,12 @@ tags: neovim, languageserver, julia
 keywords: neovim, vim, languageserver, julia, lsp
 summary: Showcasing Neovim and LanguageServer.jl
 links-as-notes: true
+references:
+- id: nonjedieglot
+  title: LanguageServer.jl with emacs eglot
+  URL: https://github.com/non-Jedi/eglot-jl/
+nocite: |
+  @nonjedieglot
 ---
 
 I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://github.com/julia-vscode/LanguageServer.jl) and [Neovim's built-in Language Server Protocol (LSP) client](https://neovim.io/doc/user/lsp.html), and list the steps for this setup.
