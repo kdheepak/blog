@@ -91,3 +91,8 @@ nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 ```
+
+Once you have this, you should be able to open a `.jl` file and `LanguageServer.jl` will start up!
+It may take some time for `SymbolServer.jl` to cache the symbols the first time you run it, so be prepared to wait for a while.
+You can type `:lua print(vim.lsp.get_log_path())<CR>` in neovim to get the path to the language server log file.
+When you see `[ Info: Received new data from Julia Symbol Server.` you should be good to go.
