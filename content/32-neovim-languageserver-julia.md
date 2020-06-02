@@ -65,34 +65,27 @@ Here is a minimal `.vimrc` configuration that works with `NVIM v0.5.0-539-g91e41
 
 <figure class="fullwidth">
 ```vim
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible
+filetype off
 
 if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
   silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-"
-" Specify a directory for plugins
-" - For Neovim:
-" - Avoid using standard Vim directory names like 'plugin'
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'JuliaEditorSupport/julia-vim' | " julia support for vim
 Plug 'neovim/nvim-lsp'              | " collection of common configurations for the Nvim LSP client.
 
-" Initialize plugin system
 call plug#end()
-
-let mapleader = " "
-
-" use built in neovim lsp for autocomplete
-autocmd Filetype julia setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 lua << EOF
     require'nvim_lsp'.julials.setup{}
 EOF
+
+autocmd Filetype julia setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
