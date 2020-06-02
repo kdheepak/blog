@@ -8,7 +8,7 @@ keywords: neovim, vim, languageserver, julia, lsp
 summary: Showcasing Neovim and LanguageServer.jl
 ---
 
-I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://github.com/julia-vscode/LanguageServer.jl) and [Neovim's built-in Language Server Protocol (LSP) client](https://neovim.io/doc/user/lsp.html), and show how you can install this on your machine.
+I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://github.com/julia-vscode/LanguageServer.jl) and [Neovim's built-in Language Server Protocol (LSP) client](https://neovim.io/doc/user/lsp.html), and list the steps for this setup.
 
 # Capabilities
 
