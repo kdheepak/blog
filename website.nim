@@ -124,12 +124,8 @@ proc render(file: string): JsonNode =
       ]:
       ofilename = ofilename.replace($c, "")
 
-  if post.hasKey("toc"):
-    let toc_depth = try:
-      parseInt($post["toc"])
-    except:
-      1
-    args = &"{args} --table-of-contents --toc-depth {toc_depth}"
+  if post{"table-of-contents"}.getStr == "true":
+    args = &"{args} --toc"
 
   if post.hasKey("filters"):
     for f in post["filters"]:
