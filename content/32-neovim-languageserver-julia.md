@@ -19,7 +19,7 @@ This is a showcase of some of the capabilities of [Julia's LanguageServer.jl](ht
 
 # Capabilities
 
-The corresponding `.vimrc` code is linked in the caption of each screencapture.
+The `.vimrc` code corresponding to the capability is linked in the caption of each screencapture.
 
 ## Completion
 
