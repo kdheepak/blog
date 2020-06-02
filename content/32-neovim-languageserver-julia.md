@@ -63,7 +63,6 @@ And, at the moment neovim v0.5.0 isn't released yet. You'll have to get the late
 
 Here is a minimal `.vimrc` configuration that works with `NVIM v0.5.0-539-g91e41c857`.
 
-<figure class="fullwidth">
 ```vim
 set nocompatible
 filetype off
@@ -76,8 +75,8 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'JuliaEditorSupport/julia-vim' | " julia support for vim
-Plug 'neovim/nvim-lsp'              | " collection of common configurations for the Nvim LSP client.
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'neovim/nvim-lsp'
 
 call plug#end()
 
@@ -92,4 +91,3 @@ nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
 nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
 nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 ```
-</figure>
