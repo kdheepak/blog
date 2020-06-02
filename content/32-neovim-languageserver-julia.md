@@ -51,9 +51,9 @@ Once you have `neovim/nvim-lsp` installed with your favorite plugin manager, you
 That should download and install `LanguageServer.jl` and `SymbolServer.jl` into your global environment.
 You also may want to use [`JuliaEditorSupport/julia-vim`](https://github.com/JuliaEditorSupport/julia-vim) for syntax highlighting and other niceties.
 
-At the time of writing, you'll have to make some changes to `julials` file. The changes are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.
+At the moment you'll have to make some changes to `julials` file. The changes are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.
 
-And at the time of writing, neovim v0.5.0 isn't released yet, so you'll have to get the latest commit on `master` and build from source or download a release from the [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) tag on github.
+And, at the moment neovim v0.5.0 isn't released yet. You'll have to get the latest commit on `master` and build from source, or download a release from the [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) tag on github.
 
 Here is a minimal `.vimrc` configuration that works with `NVIM v0.5.0-539-g91e41c857`.
 
