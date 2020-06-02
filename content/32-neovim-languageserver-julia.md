@@ -23,27 +23,27 @@ The `.vimrc` code corresponding to the capability is linked in the caption of ea
 
 ## Completion
 
-![[vim.lsp.omnifunc](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L648)](images/autocomplete.mov.gif){ .fullwidth }
+![[vim.lsp.omnifunc](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L648)](images/autocomplete.mov.gif)
 
 ## Documentation
 
-![[vim.lsp.buf.hover](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L971)](images/documentation.mov.gif){ .fullwidth }
+![[vim.lsp.buf.hover](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L971)](images/documentation.mov.gif)
 
 ## Jump to definition
 
-![[vim.lsp.buf.definition](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L968)](images/jumptodefinition.mov.gif){ .fullwidth }
+![[vim.lsp.buf.definition](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L968)](images/jumptodefinition.mov.gif)
 
 ## Linting
 
-![[vim.lsp.util.show_line_diagnostics](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L992)](images/linting.mov.gif){ .fullwidth }
+![[vim.lsp.util.show_line_diagnostics](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L992)](images/linting.mov.gif)
 
 ## References
 
-![[vim.lsp.buf.references](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L983)](images/references.mov.gif){ .fullwidth }
+![[vim.lsp.buf.references](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L983)](images/references.mov.gif)
 
 ## Document symbols
 
-![[vim.lsp.buf.document\_symbol](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L986)](images/symbols.mov.gif){ .fullwidth }
+![[vim.lsp.buf.document\_symbol](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L986)](images/symbols.mov.gif)
 
 # Install
 
@@ -54,10 +54,10 @@ If you'd like to use this you will need the following:
 
 The `neovim/nvim-lsp` repository contains language server configurations for a bunch of languages.
 Once you have `neovim/nvim-lsp` installed with your favorite plugin manager, you can run `:LspInstall julials`.
-That should download and install `LanguageServer.jl` and `SymbolServer.jl` into your global environment.
-You also may want to use [`JuliaEditorSupport/julia-vim`](https://github.com/JuliaEditorSupport/julia-vim) for syntax highlighting and other niceties.
+That will download and install `LanguageServer.jl` and `SymbolServer.jl` into your global environment.
+You may also want [`JuliaEditorSupport/julia-vim`](https://github.com/JuliaEditorSupport/julia-vim) for syntax highlighting and other niceties.
 
-At the moment you'll have to make some changes to `julials` file. The changes are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.
+At the moment you'll have to make some changes to `julials` file. The changes required are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.
 
 And, at the moment neovim v0.5.0 isn't released yet. You'll have to get the latest commit on `master` and build from source, or download a release from the [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) tag on github.
 
