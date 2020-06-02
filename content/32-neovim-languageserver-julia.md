@@ -37,11 +37,11 @@ The corresponding `.vimrc` code is linked in the caption of each screencapture.
 
 ![[vim.lsp.util.show_line_diagnostics](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L992)](images/linting.mov.gif){ .fullwidth }
 
-## Show all references in quickfix window
+## References
 
 ![[vim.lsp.buf.references](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L983)](images/references.mov.gif){ .fullwidth }
 
-## Show all symbols in current document
+## Document symbols
 
 ![[vim.lsp.buf.document\_symbol](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L986)](images/symbols.mov.gif){ .fullwidth }
 
