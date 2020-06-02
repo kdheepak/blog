@@ -12,7 +12,7 @@ I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://git
 
 # Capabilities
 
-The `.vimrc` code for the capabilities show are linked below the image.
+The corresponding `.vimrc` code is linked below each image.
 
 ## Completion
 
