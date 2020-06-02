@@ -15,7 +15,7 @@ nocite: |
   @nonjedieglot
 ---
 
-I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://github.com/julia-vscode/LanguageServer.jl) and [Neovim's built-in Language Server Protocol (LSP) client](https://neovim.io/doc/user/lsp.html), and list the steps for this setup.
+This is a showcase of some of the capabilities of [Julia's LanguageServer.jl](https://github.com/julia-vscode/LanguageServer.jl) and [Neovim's built-in Language Server Protocol (LSP) client](https://neovim.io/doc/user/lsp.html), as well as the instructions to install this setup.
 
 # Capabilities
 
