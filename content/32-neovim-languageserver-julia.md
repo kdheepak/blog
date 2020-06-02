@@ -12,6 +12,8 @@ I wanted to showcase the capabilities of [Julia's LanguageServer.jl](https://git
 
 # Capabilities
 
+The `.vimrc` code for the capabilities show are linked below the image.
+
 ## Completion
 
 ![[vim.lsp.omnifunc](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L648)](images/autocomplete.mov.gif){ .fullwidth }
