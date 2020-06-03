@@ -36,12 +36,12 @@ body > footer > p {
         margin-left: 0 !important;
         width: 100%;
     }
+
     div.cell.border-box-sizing.rendered p,img {
         width: 100%;
     }
 
-    header > p.subtitle {
+    header > p.sourceurl {
         width: 100%;
     }
 }
-
