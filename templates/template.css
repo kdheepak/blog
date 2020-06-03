@@ -36,4 +36,9 @@ body > footer > p {
         width: 100%;
     }
 
+    footer img {
+        width: unset;
+    }
+
+
 }
