@@ -10,11 +10,6 @@ h4 {
     font-size: large;
 }
 
-header > p.sourceurl {
-    width: 55%;
-    text-align: right
-}
-
 body > footer {
     text-align: center;
     color: #aaa;
@@ -41,7 +36,4 @@ body > footer > p {
         width: 100%;
     }
 
-    header > p.sourceurl {
-        width: 100%;
-    }
 }
