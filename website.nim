@@ -96,7 +96,10 @@ proc render(file: string): JsonNode =
     let asset_css_dir = "css"
     createDir(joinPath("build", asset_css_dir))
     let (cdir, cname, cext) = c.splitFile
-    let ocss = joinPath(asset_css_dir, &"{cname}{cext}")
+    let ocss = if cname == "template":
+      joinPath(asset_css_dir, &"custom{cext}")
+    else:
+      joinPath(asset_css_dir, &"{cname}{cext}")
     copyFile(c, joinPath("build", ocss))
     args = &"{args} --css {ocss}"
 
