@@ -83,7 +83,7 @@ Let's say:
 $$f_1(x) = x$$
 $$f_2(x) = \frac{x \times (1 + x)}{2}$$
 
-where $f_1(x)$ and $f_2(x)$ are the number of floors that can be checked with $1$ and $2$ eggs respectively with $x$ remaining drops.
+where $f_1(x)$ and $f_2(x)$ are the number of floors that can be checked with $1$ and $2$ eggs respectively with $x$ drops.
 
 And we know that $f_2(x)$ can be written as,
 
