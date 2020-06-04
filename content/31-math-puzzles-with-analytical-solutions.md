@@ -16,11 +16,11 @@ Here is a fun puzzle:
 >
 > The question is: What strategy should you adopt to minimize the number egg drops it takes to find the solution? (And what is the worst case for the number of drops it will take?)
 
-If you have not seen or solved this problem before I urge you to give it a go before continuing further. I'm going to post the solution to this below, so this is your spoiler warning.
+**_Spoiler warning_**: If you have not seen or solved this problem before I urge you to give it a go before continuing further. I'm going to post the solution to this below, so this is your spoiler warning.
 
 # Two eggs
 
-This problem posed says we have 2 eggs to start with and a 100 storey tower to explore.
+The problem posed says we have 2 eggs to start with and a 100 storey tower to explore.
 
 Let's consider what we would have to do if we had just one egg.
 With just one egg, we could drop the egg from floor 1 and see what happens.
