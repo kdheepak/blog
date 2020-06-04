@@ -65,7 +65,9 @@ For a $N$ storey tower, we need to ensure that with $x$ throws we cover all the 
 
 $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
 
-$$\frac{x \times (1 + x)}{2}$$ >= N
+$$\sum_{k=1}^{x} k >= N$$
+
+$$\frac{x \times (1 + x)}{2} >= N$$
 
 This tells us that 14 drops guarantees that we can check a tower with 105 floors, and is the answer to the puzzle if you have just two eggs.
 
@@ -74,4 +76,21 @@ This tells us that 14 drops guarantees that we can check a tower with 105 floors
 With 1 egg, we can check $x$ floors with $x$ drops.
 We know that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ with $x$ drops.
 
-So if we have 3 eggs, we want to ensure that if the first egg breaks on the first drop, we can check $\frac{(x - 1) \times x}{2}$ floors with $x - 1$ drops.
+So if we have 3 eggs, we want to ensure that, if the first egg breaks on the first drop, we can check $\frac{(x - 1) \times x}{2}$ floors using $x - 1$ drops of the remaining eggs.
+That means we should drop the first egg from floor number:
+
+$$1 + \frac{(x - 1) \times x}{2}$$
+
+For the second drop, we want to start from floor number:
+
+$$\left(1 + \frac{(x - 1) \times x}{2}\right) + 1 + \frac{(x - 2) \times (x - 1)}{2}$$
+
+For the third drop, we want to start from floor number:
+
+$$\left(\left(1 + \frac{(x - 1) \times x}{2}\right) + 1 + \frac{(x - 2) \times (x - 1)}{2}\right) + 1 + \frac{(x - 3) \times (x - 2)}{2}$$
+
+This can be generalized to the following:
+
+$$\sum_{k=1}^{x} \left( 1 + \sum_{j=1}^{k-1} j \right) >= N$$
+
+$$\frac{x \times (x^2 + 3 x + 8)}{6} >= N$$
