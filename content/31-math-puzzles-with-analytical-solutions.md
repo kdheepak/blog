@@ -20,29 +20,30 @@ Here is a fun puzzle:
 
 # Two eggs
 
-The problem posed says we have 2 eggs to start with and a 100 storey tower to explore.
+The problem posed says we have $2$ eggs to start with and a $100$ storey tower to explore.
 
 Let's consider what we would have to do if we had just one egg.
-With just one egg, we could drop the egg from floor 1 and see what happens.
-If it breaks, we stop and can claim definitively that the solution to the problem is floor 1.
-If it doesn't break, we can proceed to floor 2 and repeat.
+With just one egg, we could drop the egg from floor $1$ and see what happens.
+If it breaks, we stop and can definitively say that for floor $1$ and above any egg would break.
+If it doesn't break, we can proceed to floor $2$ and repeat.
 
-This means that if we have a tower with 10 floors we may need up to 10 drops to definitively say at which floor the egg would break, and if we have 100 floors we may need 100 drops.
-The above strategy would guarantee that we find the solution to the problem with the _minimum_ number of drops.
-Or in other words, we can search $N$ floors with $N$ drops.
+This means that for the tower with a $100$ floors we may need up to $100$ drops to definitively say at which floor the egg would break.
+The above strategy gives us the _minimum_ number of drops to _guarantee_ that we find which floor the egg would break at.
+Or in other words, we can say that we can search $N$ floors with $N$ drops.
 
 If we have 2 eggs, what could we do?
 
 With 2 eggs, in fact we can explore the search space more efficiently.
-We can use the first egg to partition the total number of floors, and once the first egg breaks we can use the second egg to search floors in a partition.
+We can use the first egg to partition the total number of floors, and once the first egg breaks we can use the second egg to search floors within a partition.
 
-As an example, you can decide to throw the first egg from every 10 floor.
-If it doesn't break at floor 30 and breaks at floor 40, you can use the second egg to explore floors 21 - 29.
+As an example, let's say you decide to drop the first egg from every $10$th floor.
+If it doesn't break at floor $10$, $20$, $30$, $40$ or $50$ but breaks at floor $60$ you can use the second egg to explore floors $51$ - $59$.
+If it finally breaks at floor $99$, you would have used $6$ drops of the first egg and $9$ drops of the second egg to find the floor at which all eggs would break.
 
-We can do even better.
+We can do even better though.
 
 Let's assume that the minimum number of drops to guarantee finding the floor when the eggs would break for a $N$ storey tower is $x$.
-That means that if when we drop the first egg the egg breaks, we have $x - 1$ drops of the second egg to find the solution.
+If when we drop the first egg and the egg breaks, we have $x - 1$ drops of the second egg to find the solution.
 We already know that we can search at most $x - 1$ floors with the $1$ egg using $x - 1$ drops.
 If our first drop was from a floor greater than $x$, we would not be able to guarantee finding the solution to this problem.
 This means that if we have two eggs we would want to drop from first egg from floor $x$, where $x$ is the minimum number of drops that will guarantee finding the floor where the eggs break in a $N$ storey tower.
@@ -50,18 +51,19 @@ This means that if we have two eggs we would want to drop from first egg from fl
 When we drop the first egg from floor $x$, if the egg breaks, we can use the second egg to find which floor from $1$ to $x - 1$ is the solution.
 If the egg doesn't break, now we have used $1$ drop.
 Let's assume that the first egg breaks on the second drop.
-If the first egg breaks, we will use the second and last remaining egg to explore $x - 2$ floors with $x - 2$ drops find the floor where exactly the eggs would break.
+When this happens, we can use the second and last remaining egg to explore $x - 2$ floors with $x - 2$ drops find the floor where the eggs would break.
 With $x - 2$ drops, we can search from floor $x + 1$ to floor $x + (x - 2)$.
-This means that when we drop the first egg the second time, we should start from $x + (x - 2) + 1$, i.e. $x + (x - 1)$, to allow for finding the exact floor should the first egg break on the second drop.
+This means that when we drop the first egg the second time, we should start from $x + (x - 2) + 1$, i.e., $x + (x - 1)$, to allow for finding the exact floor should the first egg break on the second drop.
 
 If the egg doesn't break on the second drop, we have now used $2$ drops.
 If the egg is going to break on the third drop, we have to allow for searching $x - 3$ floors with the second egg.
-This means we should drop the first egg on our third attempt from floor number $x + (x - 1) + (x - 3) + 1$, i.e. $x + (x - 1) + (x - 2)$.
-With $3$ throws and $2$ eggs, we are guaranteed to find the floor if it is in $x + (x - 1) + (x - 2)$ floors.
+This means we should drop the first egg on our third attempt from floor number $x + (x - 1) + (x - 3) + 1$, i.e., $x + (x - 1) + (x - 2)$.
+We can also say that with $3$ throws and $2$ eggs we are guaranteed to find the floor if it is within the first $3 + (3 - 1) + (3 - 2)$ floors, i.e. $6$ floors.
 
 Seeing the pattern here?
 
 For a $N$ storey tower, we need to ensure that with $x$ throws we cover all the floors of the tower.
+That gives us this constraint.
 
 $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
 
@@ -69,33 +71,34 @@ $$\sum_{k=1}^{x} k >= N$$
 
 $$\frac{x \times (1 + x)}{2} >= N$$
 
-This tells us that 14 drops guarantees that we can check a tower with 105 floors, and is the answer to the puzzle if you have just two eggs.
+We know $N$ is $100$ in this problem.
+This tells us that with $14$ drops we can guarantee finding the floor where eggs break in a tower with up to $105$ floors.
 
 # Three eggs
 
-With 1 egg, we can check $x$ floors with $x$ drops.
-We have already previously established that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ floors with $x$ drops.
+We have already previously established the best strategy for $1$ egg and $2$ eggs.
 
 Let's say:
 
+$$f_1(x) = x$$
 $$f_2(x) = \frac{x \times (1 + x)}{2}$$
 
-where $f_2(x)$ is the number of floors that can be checked with $2$ eggs and $x$ remaining drops.
+where $f_1(x)$ and $f_2(x)$ are the number of floors that can be checked with $1$ and $2$ eggs respectively with $x$ remaining drops.
 
-And we know that this can be written as,
+And we know that $f_2(x)$ can be written as,
 
 $$f_2(x) = \sum_{k=1}^{x} k$$
 
 So if we have 3 eggs, we want to ensure that we can check $f_2(x - 1)$ floors with the remaining $x - 1$ drops, if the first egg breaks on the first drop.
-That means we should drop the first egg from floor number:
+That means we should drop the first egg from floor:
 
 $$1 + f_2(x - 1)$$
 
-For the second drop, we can start from floor number:
+For the second drop, we can start from floor:
 
 $$1 + f_2(x - 1) + 1 + f_2(x - 2)$$
 
-For the third drop, we can start from floor number:
+For the third drop, we can start from floor:
 
 $$1 + f_2(x - 1) + 1 + f_2(x - 2) + 1 + f_2(x - 3)$$
 
