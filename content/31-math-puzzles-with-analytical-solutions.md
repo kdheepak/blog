@@ -74,23 +74,37 @@ This tells us that 14 drops guarantees that we can check a tower with 105 floors
 # Three eggs
 
 With 1 egg, we can check $x$ floors with $x$ drops.
-We know that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ with $x$ drops.
+We have already previously established that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ floors with $x$ drops.
 
-So if we have 3 eggs, we want to ensure that, we can check $\frac{(x - 1) \times x}{2}$ floors using $x - 1$ drops of the remaining eggs, if the first egg breaks on the first drop.
+Let's say:
+
+$$f_2(x) = \frac{x \times (1 + x)}{2}$$
+
+where $f_2(x)$ is the number of floors that can be checked with $2$ eggs and $x$ remaining drops.
+
+And we know that this can be written as,
+
+$$f_2(x) = \sum_{k=1}^{x} k$$
+
+So if we have 3 eggs, we want to ensure that we can check $f_2(x - 1)$ floors with the remaining $x - 1$ drops, if the first egg breaks on the first drop.
 That means we should drop the first egg from floor number:
 
-$$1 + \frac{(x - 1) \times x}{2}$$
+$$1 + f_2(x - 1)$$
 
-For the second drop, we want to start from floor number:
+For the second drop, we can start from floor number:
 
-$$\left(1 + \frac{(x - 1) \times x}{2}\right) + 1 + \frac{(x - 2) \times (x - 1)}{2}$$
+$$1 + f_2(x - 1) + 1 + f_2(x - 2)$$
 
-For the third drop, we want to start from floor number:
+For the third drop, we can start from floor number:
 
-$$\left(\left(1 + \frac{(x - 1) \times x}{2}\right) + 1 + \frac{(x - 2) \times (x - 1)}{2}\right) + 1 + \frac{(x - 3) \times (x - 2)}{2}$$
+$$1 + f_2(x - 1) + 1 + f_2(x - 2) + 1 + f_2(x - 3)$$
 
 This can be generalized to the following:
 
-$$\sum_{k=1}^{x} \left( 1 + \sum_{j=1}^{k-1} j \right) >= N$$
+$$1 + \sum_{j=1}^{x-1} \left( 1 + \sum_{k=1}^{j} k \right) >= N$$
 
-$$\frac{x \times (x^2 + 3 x + 8)}{6} >= N$$
+which results in:
+
+$$\frac{x^3 + 5x}{6} >= N$$
+
+# $N$ eggs
