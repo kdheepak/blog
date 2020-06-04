@@ -102,9 +102,17 @@ For the third drop, we can start from floor:
 
 $$1 + f_2(x - 1) + 1 + f_2(x - 2) + 1 + f_2(x - 3)$$
 
-This can be generalized to the following:
+Similar to before,
+
+$$1 + f_2(x - 1) + 1 + f_2(x - 2) + 1 + f_2(x - 3) + \ldots + 1$$
+
+$$\sum_{k=1}^{x-1} \left( 1 + f_2(k) \right) + 1$$
+
+This can be rewritten as:
 
 $$1 + \sum_{j=1}^{x-1} \left( 1 + \sum_{k=1}^{j} k \right) >= N$$
+
+$$x + \sum_{j=1}^{x-1}\sum_{k=1}^{j} k >= N$$
 
 which results in:
 
@@ -130,8 +138,6 @@ $$f(x, 2) = 1 + f(x-1, 2) + f(x-1, 1)$$
 
 And, for $3$ eggs and $x$ drops, the number of floors we can check, i.e. $f(x, 2)$, is:
 
-$$f(x, 3) = 1 + \sum_{j=1}^{x-1} \left( 1 + \sum_{k=1}^{j} k \right)$$
-
 $$f(x, 3) = x + \sum_{j=1}^{x-1}\sum_{k=1}^{j} k$$
 
 $$f(x, 3) = x + \sum_{j=1}^{x-2}\sum_{k=1}^{j} k + \sum_{k=1}^{x-1} k$$
@@ -143,3 +149,63 @@ $$f(x, 3) = 1 + f(x - 1, 3) + f(x - 1, 2)$$
 We can see a pattern emerging here. The generalized equation can be written like so:
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
+
+# Implementation
+
+Let's implement this problem in julia.
+
+```julia
+julia> println(VERSION)
+1.4.0
+```
+
+We can implement the `f` as a function:
+
+```
+julia> function f(x, n)
+           (x == 0 || n == 0) && return 0
+           1 + f(x - 1, n) + f(x - 1, n - 1)
+       end
+f (generic function with 1 method)
+```
+
+We can verify that it works for $1$ egg.
+
+```julia
+julia> arr = 1:100;
+
+julia> @test f.(arr, 1) == arr
+Test Passed
+```
+
+And, we can verify that it works for $2$ egg.
+
+```julia
+julia> @test f(14, 2) == 105
+Test Passed
+
+julia> @test f(14, 2) >= 100
+Test Passed
+```
+
+<figure class="fullwidth">
+Table: Number of floors that can be checked with $x$ drops and $n$ eggs
+
+| $x$ \\ $n$ | 1  | 2   | 3   | 4    | 5    | 6    | 7     | 8     | 9     | 10    | 11    | 12    | 13    | 14    | 15    |
+| ---------- | -- | --- | --- | ---- | ---- | ---- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- | ----- |
+| **1**      | 1  | 1   | 1   | 1    | 1    | 1    | 1     | 1     | 1     | 1     | 1     | 1     | 1     | 1     | 1     |
+| **2**      | 2  | 3   | 3   | 3    | 3    | 3    | 3     | 3     | 3     | 3     | 3     | 3     | 3     | 3     | 3     |
+| **3**      | 3  | 6   | 7   | 7    | 7    | 7    | 7     | 7     | 7     | 7     | 7     | 7     | 7     | 7     | 7     |
+| **4**      | 4  | 10  | 14  | 15   | 15   | 15   | 15    | 15    | 15    | 15    | 15    | 15    | 15    | 15    | 15    |
+| **5**      | 5  | 15  | 25  | 30   | 31   | 31   | 31    | 31    | 31    | 31    | 31    | 31    | 31    | 31    | 31    |
+| **6**      | 6  | 21  | 41  | 56   | 62   | 63   | 63    | 63    | 63    | 63    | 63    | 63    | 63    | 63    | 63    |
+| **7**      | 7  | 28  | 63  | 98   | 119  | 126  | 127   | 127   | 127   | 127   | 127   | 127   | 127   | 127   | 127   |
+| **8**      | 8  | 36  | 92  | 162  | 218  | 246  | 254   | 255   | 255   | 255   | 255   | 255   | 255   | 255   | 255   |
+| **9**      | 9  | 45  | 129 | 255  | 381  | 465  | 501   | 510   | 511   | 511   | 511   | 511   | 511   | 511   | 511   |
+| **10**     | 10 | 55  | 175 | 385  | 637  | 847  | 967   | 1012  | 1022  | 1023  | 1023  | 1023  | 1023  | 1023  | 1023  |
+| **11**     | 11 | 66  | 231 | 561  | 1023 | 1485 | 1815  | 1980  | 2035  | 2046  | 2047  | 2047  | 2047  | 2047  | 2047  |
+| **12**     | 12 | 78  | 298 | 793  | 1585 | 2509 | 3301  | 3796  | 4016  | 4082  | 4094  | 4095  | 4095  | 4095  | 4095  |
+| **13**     | 13 | 91  | 377 | 1092 | 2379 | 4095 | 5811  | 7098  | 7813  | 8099  | 8177  | 8190  | 8191  | 8191  | 8191  |
+| **14**     | 14 | 105 | 469 | 1470 | 3472 | 6475 | 9907  | 12910 | 14912 | 15913 | 16277 | 16368 | 16382 | 16383 | 16383 |
+| **15**     | 15 | 120 | 575 | 1940 | 4943 | 9948 | 16383 | 22818 | 27823 | 30826 | 32191 | 32646 | 32751 | 32766 | 32767 |
+</figure class>

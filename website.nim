@@ -166,7 +166,7 @@ proc render(file: string): JsonNode =
   post["slug"] = %* &"{ofilename}.html"
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
-  let cmd = &"pandoc --from=markdown+emoji --to=html5+smart {args} {filename}{ext} -o {ofile}"
+  let cmd = &"pandoc --from=markdown+emoji+grid_tables --to=html5+smart {args} {filename}{ext} -o {ofile}"
   let outp = execProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd, poStdErrToStdOut})
   echo outp
   # successful render
