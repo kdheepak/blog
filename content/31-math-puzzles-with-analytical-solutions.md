@@ -76,7 +76,7 @@ This tells us that 14 drops guarantees that we can check a tower with 105 floors
 With 1 egg, we can check $x$ floors with $x$ drops.
 We know that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ with $x$ drops.
 
-So if we have 3 eggs, we want to ensure that, if the first egg breaks on the first drop, we can check $\frac{(x - 1) \times x}{2}$ floors using $x - 1$ drops of the remaining eggs.
+So if we have 3 eggs, we want to ensure that, we can check $\frac{(x - 1) \times x}{2}$ floors using $x - 1$ drops of the remaining eggs, if the first egg breaks on the first drop.
 That means we should drop the first egg from floor number:
 
 $$1 + \frac{(x - 1) \times x}{2}$$
