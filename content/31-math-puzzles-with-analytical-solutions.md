@@ -1,16 +1,16 @@
 ---
-title: The two egg 100 storey building puzzle
+title: The egg tower puzzle
 category: blog
 date: 2020-05-31T20:29:26-06:00
 tags: math, puzzle, julia
 keywords: math, puzzle, julia
-summary: This is a mathematical analytical solution to the two egg 100 storey building problem
+summary: This is a mathematical analytical solution to the two egg 100 storey tower problem
 status: draft
 ---
 
 Here is a fun puzzle:
 
-> You are given two eggs, and access to a 100-storey building. Both eggs are identical. The aim is to find out the highest floor from which an egg will not break when dropped out of a window from that floor. If an egg is dropped and does not break, it is undamaged and can be dropped again. However, once an egg is broken, that’s it for that egg.
+> You are given two eggs, and access to a 100-storey tower. Both eggs are identical. The aim is to find out the highest floor from which an egg will not break when dropped out of a window from that floor. If an egg is dropped and does not break, it is undamaged and can be dropped again. However, once an egg is broken, that’s it for that egg.
 >
 > If an egg breaks when dropped from a floor, then it would also have broken from any floor above that. If an egg survives a fall, then it will survive any fall shorter than that.
 >
@@ -20,14 +20,14 @@ If you have not seen or solved this problem before I urge you to give it a go. I
 
 # Two eggs
 
-This problem posed says we have 2 eggs to start with and a 100 storey building to explore.
+This problem posed says we have 2 eggs to start with and a 100 storey tower to explore.
 
 Let's consider what we would have to do if we had just one egg.
 With just one egg, we could drop the egg from floor 1 and see what happens.
 If it breaks, we stop and can claim definitively that the solution to the problem is floor 1.
 If it doesn't break, we can proceed to floor 2 and repeat.
 
-This means that if we have a building with 10 floors we may need up to 10 drops to definitively say at which floor the egg would break, and if we have 100 floors we may need 100 drops.
+This means that if we have a tower with 10 floors we may need up to 10 drops to definitively say at which floor the egg would break, and if we have 100 floors we may need 100 drops.
 The above strategy would guarantee that we find the solution to the problem with the _minimum_ number of drops.
 Or in other words, we can search $N$ floors with $N$ drops.
 
@@ -41,11 +41,11 @@ If it doesn't break at floor 30 and breaks at floor 40, you can use the second e
 
 We can do even better.
 
-Let's assume that the minimum number of drops to guarantee finding the floor when the eggs would break for a $N$ storey building is $x$.
+Let's assume that the minimum number of drops to guarantee finding the floor when the eggs would break for a $N$ storey tower is $x$.
 That means that if when we drop the first egg the egg breaks, we have $x - 1$ drops of the second egg to find the solution.
 We already know that we can search at most $x - 1$ floors with the $1$ egg using $x - 1$ drops.
 If our first drop was from a floor greater than $x$, we would not be able to guarantee finding the solution to this problem.
-This means that if we have two eggs we would want to drop from first egg from floor $x$, where $x$ is the minimum number of drops that will guarantee finding the floor where the eggs break in a $N$ storey building.
+This means that if we have two eggs we would want to drop from first egg from floor $x$, where $x$ is the minimum number of drops that will guarantee finding the floor where the eggs break in a $N$ storey tower.
 
 When we drop the first egg from floor $x$, if the egg breaks, we can use the second egg to find which floor from $1$ to $x - 1$ is the solution.
 If the egg doesn't break, now we have used $1$ drop.
@@ -61,13 +61,13 @@ With $3$ throws and $2$ eggs, we are guaranteed to find the floor if it is in $x
 
 Seeing the pattern here?
 
-For a $N$ storey building, we need to ensure that with $x$ throws we cover all the floors of the building.
+For a $N$ storey tower, we need to ensure that with $x$ throws we cover all the floors of the tower.
 
 $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
 
 $$\frac{x \times (1 + x)}{2}$$ >= N
 
-This tells us that 14 drops guarantees that we can check a building with 105 floors, and is the answer to the puzzle if you have just two eggs.
+This tells us that 14 drops guarantees that we can check a tower with 105 floors, and is the answer to the puzzle if you have just two eggs.
 
 # Three eggs
 
