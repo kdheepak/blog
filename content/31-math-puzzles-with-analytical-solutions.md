@@ -108,3 +108,35 @@ which results in:
 $$\frac{x^3 + 5x}{6} >= N$$
 
 # $N$ eggs
+
+With $1$ egg and $x$ drops, we know we can check $x$ floors. Let's define this as $f(x, 1)$.
+
+$$f(x, 1) = x$$
+
+Let's say that $f(0, n) = 0$ and $f(x, 0) = 0$.
+
+$$f(x, 1) = 1 + f(x-1, 1) + f(x-1, 0)$$
+
+For $2$ eggs and $x$ drops, the number of floors we can check, i.e. $f(x, 2)$, is:
+
+$$f(x, 2) = \sum_{k=1}^{x} k$$
+
+$$f(x, 2) = 1 + \sum_{k=1}^{x-1} k + x - 1$$
+
+$$f(x, 2) = 1 + f(x-1, 2) + f(x-1, 1)$$
+
+And, for $3$ eggs and $x$ drops, the number of floors we can check, i.e. $f(x, 2)$, is:
+
+$$f(x, 3) = 1 + \sum_{j=1}^{x-1} \left( 1 + \sum_{k=1}^{j} k \right)$$
+
+$$f(x, 3) = x + \sum_{j=1}^{x-1}\sum_{k=1}^{j} k$$
+
+$$f(x, 3) = x + \sum_{j=1}^{x-2}\sum_{k=1}^{j} k + \sum_{k=1}^{x-1} k$$
+
+$$f(x, 3) = 1 + x - 1 + \sum_{j=1}^{x-2}\sum_{k=1}^{j} k + \sum_{k=1}^{x-1} k$$
+
+$$f(x, 3) = 1 + f(x - 1, 3) + f(x - 1, 2)$$
+
+We can see a pattern emerging here:
+
+$$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
