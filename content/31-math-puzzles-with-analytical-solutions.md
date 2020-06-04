@@ -181,10 +181,10 @@ Test Passed
 And, we can verify that it works for $2$ egg.
 
 ```julia
-julia> @test f(14, 2) == 105
+julia> @test f(14, 2) >= 100
 Test Passed
 
-julia> @test f(14, 2) >= 100
+julia> @test f(14, 2) == 105
 Test Passed
 ```
 
