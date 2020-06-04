@@ -234,7 +234,7 @@ slug: index
     var dt: DateTime = parse(post{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
     var d = format(dt, "MMM, yyyy")
     var line = &"[{t}]({s})"
-    write(oindex, &"<p class=\"toclink\">{line}</p><p class=\"tocdate\">{d}</p>")
+    write(oindex, &"<h3 class=\"toclink\">{line}</h3><h3 class=\"tocdate\">{d}</h3>")
     write(oindex, "\n\n")
   write(oindex, "</div>")
   oindex.close()

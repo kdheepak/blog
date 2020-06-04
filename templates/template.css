@@ -28,10 +28,15 @@ body > footer > p {
 
 .tocwrapper {
   display: grid;
-  grid-template-columns: 41.25% 13.75%;
+  grid-template-columns: 44.4444% 22.2222%;
+}
+
+.toclink {
+  margin-right: 1rem;
 }
 
 .tocdate {
+  margin-left: 1rem;
   text-align: right;
 }
 
@@ -52,7 +57,7 @@ body > footer > p {
 
     .tocwrapper {
       display: grid;
-      grid-template-columns: 75% 25%;
+      grid-template-columns: 66.6666% 33.3333%;
     }
 
 }
