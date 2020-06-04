@@ -228,6 +228,7 @@ slug: index
     if parse(x{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz") > parse(y{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz"): 1 else: -1
 
   sort(posts, my_cmp, SortOrder.Descending)
+  write(oindex, "<div class=\"tocwrapper\">")
   for i, post in posts:
     if post["title"].getStr == "404":
         continue
@@ -236,8 +237,9 @@ slug: index
     var dt: DateTime = parse(post{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
     var d = format(dt, "MMM, yyyy")
     var line = &"[{t}]({s})"
-    write(oindex, &"{d}: {line}")
+    write(oindex, &"<p class=\"toclink\">{line}</p><p class=\"tocdate\">{d}</p>")
     write(oindex, "\n\n")
+  write(oindex, "</div>")
   oindex.close()
 
   var p = render(tindex)

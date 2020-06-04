@@ -26,6 +26,15 @@ body > footer > p {
     width: 55%;
 }
 
+.tocwrapper {
+  display: grid;
+  grid-template-columns: 44.4444% 22.2222%;
+}
+
+.tocdate {
+  text-align: right;
+}
+
 @media (max-width: 760px) {
     .utterances {
         margin-left: 0 !important;
@@ -40,5 +49,10 @@ body > footer > p {
         width: unset;
     }
 
+
+    .tocwrapper {
+      display: grid;
+      grid-template-columns: 66.6666% 33.3333%;
+    }
 
 }
