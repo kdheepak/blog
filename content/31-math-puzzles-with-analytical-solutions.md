@@ -137,6 +137,6 @@ $$f(x, 3) = 1 + x - 1 + \sum_{j=1}^{x-2}\sum_{k=1}^{j} k + \sum_{k=1}^{x-1} k$$
 
 $$f(x, 3) = 1 + f(x - 1, 3) + f(x - 1, 2)$$
 
-We can see a pattern emerging here:
+We can see a pattern emerging here. The generalized equation can be written like so:
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
