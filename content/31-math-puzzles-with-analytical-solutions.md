@@ -1,10 +1,10 @@
 ---
-title: The egg tower puzzle
+title: The two egg 100 storey building puzzle
 category: blog
 date: 2020-05-31T20:29:26-06:00
 tags: math, puzzle, julia
 keywords: math, puzzle, julia
-summary: This is a mathematical analytical solution to the two egg tower problem
+summary: This is a mathematical analytical solution to the two egg 100 storey building problem
 status: draft
 ---
 
