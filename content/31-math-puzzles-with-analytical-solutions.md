@@ -18,7 +18,7 @@ Here is a fun puzzle:
 
 If you have not seen or solved this problem before I urge you to give it a go. I'm going to post the solution to this below, so this is your spoiler warning.
 
-# Solution
+# Two eggs
 
 This problem posed says we have 2 eggs to start with and a 100 storey building to explore.
 
@@ -67,4 +67,11 @@ $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
 
 $$\frac{x \times (1 + x)}{2}$$ >= N
 
-This tells us that 14 drops guarantees that we can check a building with 105 floors, and is the answer to the puzzle.
+This tells us that 14 drops guarantees that we can check a building with 105 floors, and is the answer to the puzzle if you have just two eggs.
+
+# Three eggs
+
+With 1 egg, we can check $x$ floors with $x$ drops.
+We know that if we have 2 eggs, we can check $\frac{x \times (1 + x)}{2}$ with $x$ drops.
+
+So if we have 3 eggs, we want to ensure that if the first egg breaks on the first drop, we can check $\frac{(x - 1) \times x}{2}$ floors with $x - 1$ drops.

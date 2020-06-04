@@ -107,9 +107,6 @@ proc render(file: string): JsonNode =
   writeFile(tmd, "$meta-json$")
   let outjson = execProcess(&"pandoc {filename}{ext} --template={tmd}", workingDir = absolutePath(dir), options = {poUsePath, poEvalCommand})
   let post = parseJson(outjson)
-  if post{"status"}.getStr == "draft":
-    echo &"Draft found for {filename}{ext}. Ignoring ..."
-    return
   var ofilename = filename
 
   if post.hasKey("slug"):
@@ -230,7 +227,7 @@ slug: index
   sort(posts, my_cmp, SortOrder.Descending)
   write(oindex, "<div class=\"tocwrapper\">")
   for i, post in posts:
-    if post["title"].getStr == "404":
+    if post["title"].getStr == "404" or post{"status"}.getStr == "draft":
         continue
     var t = post["title"].getStr
     var s = post["slug"].getStr
