@@ -161,7 +161,7 @@ julia> println(VERSION)
 
 We can implement the `f` as a function:
 
-```
+```julia
 julia> function f(x, n)
            (x == 0 || n == 0) && return 0
            1 + f(x - 1, n) + f(x - 1, n - 1)
