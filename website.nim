@@ -41,6 +41,8 @@ proc generate_sitemap(posts: seq[JsonNode]) =
       p, post_dt: string
 
     for key, post in posts:
+      if post{"status"}.getStr == "draft":
+        continue
       var ds = post{"date"}.getStr
       ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
       var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
