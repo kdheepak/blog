@@ -178,7 +178,7 @@ julia> @test f.(arr, 1) == arr
 Test Passed
 ```
 
-And, we can verify that it works for $2$ egg.
+And, we can verify that it works for $2$ eggs as well.
 
 ```julia
 julia> @test f(14, 2) >= 100
