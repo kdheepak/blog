@@ -313,7 +313,7 @@ For 100 floors, it is 7 drops:
   |              V
   |              .─.
 7 |             ( 1 )
-                 `─'
+  |              `─'
 ```
 
 For any floor, if we partition it equally and explore a partition using the same strategy, that will be the most efficient way of finding the floor where the eggs break.
