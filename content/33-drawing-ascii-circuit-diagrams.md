@@ -4,7 +4,7 @@ category: blog
 date: 2020-06-05T13:54:19-06:00
 tags: ascii, blog
 keywords: ascii, svgbob, pandoc, filter, lua, circuit, diagrams
-summary: Drawing ascii circuit diagrams and rendering them to svg using svgbob, pandoc and lua filters
+summary: Drawing ascii diagrams and rendering them to svg using svgbob, pandoc and lua filters
 ---
 
 Here is a simple 3-bus circuit diagram using text / ascii.
