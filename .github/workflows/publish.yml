@@ -14,4 +14,3 @@ jobs:
         dockerfile: Dockerfile
         tags: latest
         push: ${{ github.ref == 'refs/heads/master' }}
-        cache_froms: kdheepak/blog:latest
