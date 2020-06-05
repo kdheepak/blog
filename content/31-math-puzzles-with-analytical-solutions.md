@@ -151,7 +151,7 @@ We can see a pattern emerging here. The generalized equation can be written like
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
 
 This result can be reasoned through intuition as well.
-To find the maximum floors you can check if $n$ eggs with $x$ drops, it will be $1$ plus the maximum floors you can check with $n$ eggs and $x-1$ eggs if the first egg does not break, plus the maximum floors you can check with $n-1$ eggs with $x-1$ eggs.
+To find the maximum floors you can check if $n$ eggs with $x$ drops, it will be $1$ (your first drop) plus the maximum floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
 
 # Implementation
 
