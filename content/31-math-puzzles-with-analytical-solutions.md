@@ -218,7 +218,7 @@ julia> @test f(14, 2) == 105
 Test Passed
 ```
 
-Using this, we can generate a table that explores how many floor can be check for different number of drops and eggs.
+Using this, we can generate a table that explores how many floors can be check for different number of drops and eggs.
 
 <figure class="fullwidth">
 
