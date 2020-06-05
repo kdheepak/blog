@@ -17,7 +17,7 @@ function main(X, N)
         end
     end
 
-    PyPlot.rc("font", size = 18)
+    PyPlot.rc("font", size = 15)
 
     fig = figure(figsize = (15, 15))
     ax = subplot(221)

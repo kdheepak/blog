@@ -260,7 +260,7 @@ Table: Number of floors that can be checked with $x$ drops and $n$ eggs
 You'll notice that the upper right of the table stays the same, even if you increase the number of eggs you have.
 You can see this more clearly in this visualization.
 
-![Visualizing the floor state space](./images/egg-puzzle.png){ .fullwidth }
+![The relationship of number of drops and egg and the number of floor that can be checked.](./images/egg-puzzle.png){ .fullwidth }
 
 There's a minimal number of drops required to find the floor, even if you have unlimited eggs.
 
