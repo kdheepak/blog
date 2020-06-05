@@ -58,11 +58,11 @@ This means that when we drop the first egg the second time, we should start from
 If the egg doesn't break on the second drop, we have now used $2$ drops.
 If the egg is going to break on the third drop, we have to allow for searching $x - 3$ floors with the second egg.
 This means we should drop the first egg on our third attempt from floor number $x + (x - 1) + (x - 3) + 1$, i.e., $x + (x - 1) + (x - 2)$.
-We can also say that with $3$ throws and $2$ eggs we are guaranteed to find the floor if it is within the first $3 + (3 - 1) + (3 - 2)$ floors, i.e. $6$ floors.
+We can also say that with $3$ drops and $2$ eggs we are guaranteed to find the floor if it is within the first $3 + (3 - 1) + (3 - 2)$ floors, i.e. $6$ floors.
 
 Seeing the pattern here?
 
-For a $N$ storey tower, we need to ensure that with $x$ throws we cover all the floors of the tower.
+For a $N$ storey tower, we need to ensure that with $x$ drops we cover all the floors of the tower.
 That gives us this constraint.
 
 $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
@@ -150,6 +150,9 @@ We can see a pattern emerging here. The generalized equation can be written like
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
 
+This result can be reasoned through intuition as well.
+To find the maximum floors you can check if $n$ eggs with $x$ drops, it will be $1$ plus the maximum floors you can check with $n$ eggs and $x-1$ eggs if the first egg does not break, plus the maximum floors you can check with $n-1$ eggs with $x-1$ eggs.
+
 # Implementation
 
 Let's implement this problem.
@@ -224,3 +227,44 @@ Table: Number of floors that can be checked with $x$ drops and $n$ eggs
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
 | **15 drops**| 15  | 120 | 575 | 1940 | 4943 | 9948 | 16383 | 22818 | 27823 | 30826 |
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
+
+You'll notice that the upper right of the table stays the same, even if you increase the number of eggs you have.
+You can see it more clearly in this visualization.
+
+![Visualizing the floor state space](./images/egg-puzzle.png){ .fullwidth }
+
+There's a minimal number of drops required to find the floor, even if you have unlimited eggs.
+
+If you want to check 7 floors, as long as you have more than 3 eggs, you will have to use a minimum of 3 drops to guarantee finding the floor.
+
+```bash
+            7
+           / \
+1         4   3
+           \ / \
+2           2   2
+             \ / \
+3             1   1
+```
+
+For 100 floors, it is 7 drops:
+
+```bash
+            100
+            |
+1           50
+            |
+2           25
+           / \
+3         13  12
+         / \ /
+4       7   6
+       / \ /
+5     4   3
+       \ / \
+6       2   2
+         \ / \
+7         1   1
+```
+
+For any floor, if we partition it equally and explore a partition using the same strategy, that will be the most efficient way of finding the floor where the eggs break.
