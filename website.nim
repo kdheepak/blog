@@ -139,8 +139,8 @@ proc render(file: string): JsonNode =
   let sidenote_filter = absolutePath(joinPath("scripts", "sidenote.lua"))
   args = &"{args} --lua-filter={sidenote_filter} {filters}"
 
-  let svgbob_filter = absolutePath(joinPath("scripts", "svgbob.lua"))
-  args = &"{args} --lua-filter={svgbob_filter} {filters}"
+  let render_filter = absolutePath(joinPath("scripts", "render.lua"))
+  args = &"{args} --lua-filter={render_filter} {filters}"
 
   let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
   args = &"{args} --lua-filter={inlinesvg_filter} {filters}"
