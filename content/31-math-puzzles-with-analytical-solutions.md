@@ -1,7 +1,7 @@
 ---
 title: The egg tower puzzle
 category: blog
-date: 2020-06-06T20:14:19-0600
+date: 2020-06-06T20:14:19-06:00
 tags: math, puzzle, julia
 keywords: math, puzzle, julia, egg, tower, building, marble, puzzle, problem
 summary: Analytical solution to the two egg 100 storey tower puzzle
