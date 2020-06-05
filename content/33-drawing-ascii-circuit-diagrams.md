@@ -1,5 +1,5 @@
 ---
-title: Drawing in ASCII using pandoc filters and svgbob
+title: Drawing in ASCII
 category: blog
 date: 2020-06-05T13:54:19-06:00
 tags: ascii, blog
