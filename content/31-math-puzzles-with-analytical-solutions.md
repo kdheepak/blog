@@ -261,8 +261,8 @@ Table: Number of floors that can be checked with $x$ drops and $n$ eggs
 
 </figure>
 
-You'll notice that the upper right of the table stays the same, even if you increase the number of eggs you have.
-You can see this more clearly in this visualization.
+You'll notice that the upper right corner of the table stays the same if you increase the number of eggs you have at your disposal.
+You can see this even more clearly in this visualization.
 
 ![The relationship between the number of floor that can be checked, the number of drops and number of eggs.](./images/egg-puzzle.png){ .fullwidth }
 
