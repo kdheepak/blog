@@ -46,8 +46,7 @@ text here will be passed to svgbob
 ```
 ````
 
-We can inline the text too.
-
+This is what it would look like:
 
 ```render_svgbob
            |           +-----------+           |
