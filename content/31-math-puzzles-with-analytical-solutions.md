@@ -266,57 +266,55 @@ There's a minimal number of drops required to find the floor, even if you have u
 
 If you want to check 7 floors, as long as you have more than 3 eggs, you will have to use a minimum of 3 drops to guarantee finding the floor.
 
-For 100 floors, it is 7 drops[^1].
+For 100 floors, it is 7 drops.
 
-[^1]: _aside_: Here's a graph to show the steps.
-
-    ```render_svgbob
-      |                 .─.
-      |                (100)
-      |                 `-'
-      |                  |
-      |                  |
-      |                  V
-      |                 .─.
-    1 |                (50 )
-      |                 `-'
-      |                  |
-      |                  |
-      |                  V
-      |                 .─.
-    2 |                (25 )
-      |                 `-'
-      |                 /  \
-      |                /    \
-      |               V      V
-      |             .─.      .─.
-    3 |            (13 )    (12 )
-      |             `-'      `-'
-      |             /  \     /
-      |            /    \   /
-      |           V      V V
-      |         .─.      .─.
-    4 |        ( 7 )    ( 6 )
-      |         `─'      `─'
-      |        /   \     /
-      |       /     \   /
-      |      V       V V
-      |    .─.       .─.
-    5 |   ( 4 )     ( 3 )
-      |    `─'       `─'
-      |       \      /  \
-      |        \    /    \
-      |         V  V      V
-      |          .─.      .─.
-    6 |         ( 2 )    ( 1 )
-      |          `─'      `─'
-      |            \
-      |             \
-      |              V
-      |              .─.
-    7 |             ( 1 )
-      |              `─'
-    ```
+```render_svgbob
+                    .─.
+                   (100)
+                    `-'
+                     |
+                     |
+                     V
+                    .─.
+1                  (50 )
+                    `-'
+                     |
+                     |
+                     V
+                    .─.
+2                  (25 )
+                    `-'
+                    /  \
+                   /    \
+                  V      V
+                .─.      .─.
+3              (13 )    (12 )
+                `-'      `-'
+                /  \     /
+               /    \   /
+              V      V V
+            .─.      .─.
+4          ( 7 )    ( 6 )
+            `─'      `─'
+           /   \     /
+          /     \   /
+         V       V V
+       .─.       .─.
+5     ( 4 )     ( 3 )
+       `─'       `─'
+          \      /  \
+           \    /    \
+            V  V      V
+             .─.      .─.
+6           ( 2 )    ( 1 )
+             `─'      `─'
+               \
+                \
+                 V
+                 .─.
+7               ( 1 )
+                 `─'
+```
 
 For any floor, if we partition it equally and explore a partition using the same strategy, that will be the most efficient way of finding the floor where the eggs break.
 
