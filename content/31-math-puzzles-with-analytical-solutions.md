@@ -220,6 +220,8 @@ Test Passed
 
 Using this, we can generate a table that explores how many floor can be check for different number of drops and eggs.
 
+<figure class="fullwidth">
+
 Table: Number of floors that can be checked with $x$ drops and $n$ eggs
 
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
@@ -256,6 +258,8 @@ Table: Number of floors that can be checked with $x$ drops and $n$ eggs
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
 | **15 drops**| 15  | 120 | 575 | 1940 | 4943 | 9948 | 16383 | 22818 | 27823 | 30826 |
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
+
+</figure>
 
 You'll notice that the upper right of the table stays the same, even if you increase the number of eggs you have.
 You can see this more clearly in this visualization.
