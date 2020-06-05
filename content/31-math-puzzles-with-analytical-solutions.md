@@ -177,6 +177,8 @@ We can see a pattern emerging here. The generalized equation can be written like
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$  {#eq:f_x_n}
 
+This is also known as a recurrence relation.
+
 This result can be reasoned through intuition as well.
 To find the maximum floors you can check if $n$ eggs with $x$ drops, it will be $1$ (your first drop) plus the maximum floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
 
@@ -266,11 +268,13 @@ You can see this even more clearly in this visualization.
 
 ![The relationship between the number of floor that can be checked, the number of drops and number of eggs.](./images/egg-puzzle.png){ .fullwidth }
 
-There's a minimal number of drops required to find the floor, even if you have unlimited eggs.
+There's a minimal number of drops required to guarantee that you will find the breaking floor, even if you have unlimited eggs.
 
-If you want to check 7 floors, as long as you have more than 3 eggs, you will have to use a minimum of 3 drops to guarantee finding the floor.
+If you want to check $7$ floors, as long as you have more than $3$ eggs, you can have to use a minimum of 3 drops to guarantee finding the breaking floor.
 
-For 100 floors, it is 7 drops.
+For 100 floors, it is $7$ drops.
+If you had unlimited eggs, you would use the largest partition possible.
+That means dividing the total floors by $2$.
 
 ```render_svgbob
                     .─.
@@ -320,7 +324,7 @@ For 100 floors, it is 7 drops.
                  `─'
 ```
 
-For any floor, if we partition it equally and explore a partition using the same strategy, that will be the most efficient way of finding the floor where the eggs break.
+Partitioning the floors equally or bisecting, and exploring the partition of interest using the same strategy is the most efficient way of finding the breaking floor.
 
 So there you go!
 We have solved the general case for the egg and tower puzzle.
