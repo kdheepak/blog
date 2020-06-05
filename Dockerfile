@@ -1,6 +1,6 @@
 FROM ekidd/rust-musl-builder:stable AS builder
 
-RUN cargo install --version 0.5.0.alpha.5 svgbob_cli
+RUN cargo install --version 0.5.0-alpha.5 svgbob_cli
 
 FROM ubuntu:20.10
 
