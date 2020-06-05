@@ -136,23 +136,6 @@ proc render(file: string): JsonNode =
   if ofilename != "index" and ofilename != "404":
     args = &"{args} -V comments"
 
-  let sidenote_filter = absolutePath(joinPath("scripts", "sidenote.lua"))
-  args = &"{args} --lua-filter={sidenote_filter} {filters}"
-
-  let render_filter = absolutePath(joinPath("scripts", "render.lua"))
-  args = &"{args} --lua-filter={render_filter} {filters}"
-
-  let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
-  args = &"{args} --lua-filter={inlinesvg_filter} {filters}"
-
-  let csl = absolutePath(joinPath("templates", "csl.csl"))
-  if post{"csl"}.getStr == "" and fileExists(csl):
-    let ref_section_level_filter = absolutePath(joinPath("scripts", "ref-section-level.lua"))
-    args = &"{args} --csl {csl} --metadata link-citations=true --metadata notes-after-punctuation=false --metadata reference-section-title=\"References\" --lua-filter={ref_section_level_filter}"
-
-  let section_prefix_filter = absolutePath(joinPath("scripts", "section-prefix.lua"))
-  args = &"{args} --lua-filter={section_prefix_filter}"
-
   let ds = post{"date"}.getStr
   if ds != "":
     let dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
@@ -168,6 +151,25 @@ proc render(file: string): JsonNode =
     let commit = execProcess(&"git log -n 1 --pretty=format:%H -- {filename}{ext}", workingDir = dir).strip()
     let source = &"https://github.com/kdheepak/blog/blob/{commit}/content/{filename}{ext}"
     args = &"{args} --metadata source=\"{source}\""
+
+  args = &"{args} {filters}"
+
+  let sidenote_filter = absolutePath(joinPath("scripts", "sidenote.lua"))
+  args = &"{args} --lua-filter={sidenote_filter}"
+
+  let render_filter = absolutePath(joinPath("scripts", "render.lua"))
+  args = &"{args} --lua-filter={render_filter}"
+
+  let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
+  args = &"{args} --lua-filter={inlinesvg_filter}"
+
+  let csl = absolutePath(joinPath("templates", "csl.csl"))
+  if post{"csl"}.getStr == "" and fileExists(csl):
+    let ref_section_level_filter = absolutePath(joinPath("scripts", "ref-section-level.lua"))
+    args = &"{args} --csl {csl} --metadata link-citations=true --metadata notes-after-punctuation=false --metadata reference-section-title=\"References\" --lua-filter={ref_section_level_filter}"
+
+  let section_prefix_filter = absolutePath(joinPath("scripts", "section-prefix.lua"))
+  args = &"{args} --lua-filter={section_prefix_filter}"
 
   post["slug"] = %* &"{ofilename}.html"
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
