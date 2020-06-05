@@ -1,2 +1,4 @@
 build/*
 website
+content/rendered
+rendered
