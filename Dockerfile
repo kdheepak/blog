@@ -1,4 +1,10 @@
+FROM ekidd/rust-musl-builder:stable AS builder
+
+RUN cargo install --version 0.4.2 svgbob_cli
+
 FROM ubuntu:20.10
+
+COPY --from=builder /home/rust/.cargo/bin/svgbob /rust/bin/svgbob
 
 ARG PANDOC_VERSION=2.9.1.1
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz pandoc.tar.gz
