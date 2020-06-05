@@ -176,8 +176,8 @@ proc render(file: string): JsonNode =
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
   let cmd = &"pandoc --from=markdown+emoji+grid_tables --to=html5+smart {args} {filename}{ext} -o {ofile}"
   let p = startProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd, poStdErrToStdOut})
-  doAssert waitForExit(p) == 0
   echo p.outputStream().readAll().strip()
+  doAssert waitForExit(p) == 0
   p.close()
   # successful render
   if ofilename != "index":
