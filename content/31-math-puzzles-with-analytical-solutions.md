@@ -269,13 +269,13 @@ If you want to check 7 floors, as long as you have more than 3 eggs, you will ha
 For 100 floors, it is 7 drops:
 
 ```render_svgbob
-                    .─.
-                   (100)
-                    `-'
-                     |
-                     |
-                     V
-                    .─.
+  |                 .─.
+  |                (100)
+  |                 `-'
+  |                  |
+  |                  |
+  |                  V
+  |                 .─.
 1 |                (50 )
   |                 `-'
   |                  |
