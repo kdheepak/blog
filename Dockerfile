@@ -4,7 +4,7 @@ RUN cargo install --version 0.4.2 svgbob_cli
 
 FROM ubuntu:20.10
 
-COPY --from=builder /home/rust/.cargo/bin/svgbob /rust/bin/svgbob
+COPY --from=builder /home/rust/.cargo/bin/svgbob /usr/local/bin/svgbob
 
 ARG PANDOC_VERSION=2.9.1.1
 ADD https://github.com/jgm/pandoc/releases/download/${PANDOC_VERSION}/pandoc-${PANDOC_VERSION}-linux-amd64.tar.gz pandoc.tar.gz
@@ -43,5 +43,6 @@ RUN nim --version
 RUN python3 --version
 RUN pandoc --version
 RUN pandoc-citeproc --version
+RUN svgbob --version
 
 ENTRYPOINT /nim/website
