@@ -1,9 +1,9 @@
 ---
-title: Drawing ascii circuit diagrams
+title: Drawing in ASCII using pandoc filters and svgbob
 category: blog
 date: 2020-06-05T13:54:19-06:00
 tags: ascii, blog
-keywords: ascii, svgbob, pandoc, filter, lua, circuit diagrams
+keywords: ascii, svgbob, pandoc, filter, lua, circuit, diagrams
 summary: Drawing ascii circuit diagrams and rendering them to svg using svgbob, pandoc and lua filters
 ---
 
