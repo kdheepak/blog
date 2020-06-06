@@ -21,11 +21,13 @@ Here is a fun puzzle:
 
 # Two eggs
 
-If you prefer an easy to understand solution to the $2$ egg $100$ storey tower problem in video form, check out the following video.
+Check out the following video for an easy to understand intuitive explanation to the $2$ egg $100$ storey tower problem.
 
 <figure class="iframe-wrapper">
 <iframe allowfullscreen mozallowfullscreen frameborder="0" src="//youtube.com/embed/NGtt7GJ1uiM" webkitallowfullscreen></iframe>
 </figure>
+
+We will go through the same solution mathematically below.
 
 We have $2$ eggs to start with and a $100$ storey tower to explore.
 
