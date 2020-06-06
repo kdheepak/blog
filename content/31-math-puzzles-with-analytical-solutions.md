@@ -14,6 +14,8 @@ Here is a fun puzzle:
 > If an egg breaks when dropped from a floor, then it would also have broken from any floor above that. If an egg survives a fall, then it will survive any fall shorter than that.
 >
 > The question is: What strategy should you adopt to minimize the number egg drops it takes to find the solution? (And what is the worst case for the number of drops it will take?)
+>
+> Once you solved it for two eggs, can you solve it for three eggs? Can you find a generalized solution for _N_ eggs?
 
 **_Spoiler warning_**: If you have not seen this problem before I urge you to give it a go before continuing further. I'm going to post the solution to this below, so this is your spoiler warning.
 
