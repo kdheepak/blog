@@ -197,6 +197,54 @@ proc copy_file(file: string) =
   if ext == ".css":
       static_tcss.add(normalizedPath(ofile.replace("build", "./")))
 
+proc generate_rssfeed(posts: seq[JsonNode]) =
+
+  var
+    seq_post : seq[string]
+    p, post_dt: string
+
+  for key, post in posts:
+    if post{"status"}.getStr == "draft" or post{"slug"}.getStr == "index.html" or post{"slug"}.getStr == "404.html":
+      continue
+    var ds = post{"date"}.getStr
+    ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
+    var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    post_dt = format(dt, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    p = """
+<item>
+  <title>$1</title>
+  <link>$5/$2</link>
+  <description>$3</description>
+  <pubDate>$4</pubDate>
+  <guid>$1</guid>
+</item>
+  """ % [
+        post["title"].getStr,
+        post["slug"].getStr,
+        post["summary"].getStr,
+        post_dt,
+        site_root,
+        ]
+    seq_post.add p
+
+  var index_post = seq_post.join("\n")
+  let time_now = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
+
+  var content = &"""
+  <?xml version="1.0"?>
+  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+      <channel>
+          <title>Dheepak Krishnamurthy's Blog</title>
+          <description>My thoughts, notes and blogs</description>
+          <link>https://blog.kdheepak.com/</link>
+          <lastBuildDate>{time_now}</lastBuildDate>
+          <generator>website</generator>
+
+{index_post}
+      </channel>
+  </rss>
+  """
+  writeFile("build/" & "feed.xml", content)
 
 proc main() =
   # copy all non markdown files
@@ -255,6 +303,7 @@ slug: index
   if not p.isNil: posts.add p
 
   generate_sitemap(posts)
+  generate_rssfeed(posts)
 
 when isMainModule:
     main()
