@@ -184,6 +184,21 @@ This is also known as a recurrence relation.
 This result can be reasoned through intuition as well.
 To find the total floors you can check with $n$ eggs and $x$ drops, it will be $1$ (your first drop) plus the maximum number of floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum number of floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
 
+If we wanted to, we could expand this recurrence relation:
+
+$$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
+
+$$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 2) + f(x - 2, n - 1)$$
+
+$$f(x, n) = 7 + f(x - 3, n) + 2f(x - 3, n - 1) + 3f(x - 3, n - 2) + 2f(x - 3, n - 3)$$
+
+$$f(x, n) = 15 + f(x - 4, n)  + 3f(x - 4, n - 1)  + 5f(x - 4, n - 2) + 5f(x - 4, n - 3) + 2f(x - 4, n - 4)$$
+
+$$f(x, n) = 31 + \ldots$$
+
+If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
+That is to say, if we had infinite eggs, with 5 eggs we can guarantee checking 31 floors.
+
 # Implementation
 
 Let's implement this problem.
