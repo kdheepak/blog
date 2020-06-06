@@ -15,11 +15,17 @@ Here is a fun puzzle:
 >
 > The question is: What strategy should you adopt to minimize the number egg drops it takes to find the solution? (And what is the worst case for the number of drops it will take?)
 >
-> Once you solved it for two eggs, can you solve it for three eggs? Can you find a generalized solution for $N$ eggs?
+> Once you solved it for two eggs, can you solve it for three eggs? Can you find a generalized solution for $N$ eggs? What about when you have $x$ floors?
 
 **_Spoiler warning_**: If you have not seen this problem before I urge you to give it a go before continuing further. I'm going to post the solution to this below, so this is your spoiler warning.
 
 # Two eggs
+
+If you prefer an easy to understand solution to the $2$ egg $100$ storey tower problem in video form, check out the following video.
+
+<figure class="iframe-wrapper">
+<iframe allowfullscreen mozallowfullscreen frameborder="0" src="//youtube.com/embed/NGtt7GJ1uiM" webkitallowfullscreen></iframe>
+</figure>
 
 We have $2$ eggs to start with and a $100$ storey tower to explore.
 
