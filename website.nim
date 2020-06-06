@@ -244,7 +244,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
       </channel>
   </rss>
   """
-  writeFile("build/" & "feed.xml", content)
+  writeFile("build/" & "rss.xml", content)
 
 proc main() =
   # copy all non markdown files
