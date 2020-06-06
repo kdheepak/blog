@@ -192,9 +192,9 @@ $$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 2) + f(x - 2, n - 1)$$
 
 $$f(x, n) = 7 + f(x - 3, n) + 2f(x - 3, n - 1) + 3f(x - 3, n - 2) + 2f(x - 3, n - 3)$$
 
-$$f(x, n) = 15 + f(x - 4, n)  + 3f(x - 4, n - 1)  + 5f(x - 4, n - 2) + 5f(x - 4, n - 3) + 2f(x - 4, n - 4)$$
+$$f(x, n) = 15 + f(x - 4, n) + 3f(x - 4, n - 1)  + 5f(x - 4, n - 2) + 5f(x - 4, n - 3) + 2f(x - 4, n - 4)$$
 
-$$f(x, n) = 31 + \ldots$$
+$$f(x, n) = 31 + f(x - 5, n) + \ldots$$
 
 If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
 That is to say, if we had infinite eggs, with 5 eggs we can guarantee checking 31 floors.
