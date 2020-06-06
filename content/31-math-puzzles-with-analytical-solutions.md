@@ -219,7 +219,7 @@ That is to say, if we had infinite eggs, with 4 drops we can guarantee checking 
 
 If we expanded the recurrence further, you'll see a pattern.
 
-![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg)
+![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg){ .fullwidth }
 
 With $x$ drops, we can guarantee checking $2^x - 1$ floors.
 
