@@ -200,11 +200,11 @@ If we wanted to, we could expand this recurrence relation:
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
 
-$$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 2) + f(x - 2, n - 1)$$
+$$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 1) + f(x - 2, n - 1)$$
 
-$$f(x, n) = 7 + f(x - 3, n) + 2f(x - 3, n - 1) + 3f(x - 3, n - 2) + 2f(x - 3, n - 3)$$
+$$f(x, n) = 7 + f(x - 3, n) + 2f(x - 3, n - 1) + 5f(x - 3, n - 2)$$
 
-$$f(x, n) = 15 + f(x - 4, n) + 3f(x - 4, n - 1)  + 5f(x - 4, n - 2) + 5f(x - 4, n - 3) + 2f(x - 4, n - 4)$$
+$$f(x, n) = 15 + f(x - 4, n) + 3f(x - 4, n - 1)  + 7f(x - 4, n - 2) + 5f(x - 4, n - 3)$$
 
 $$f(x, n) = 31 + f(x - 5, n) + \ldots$$
 
