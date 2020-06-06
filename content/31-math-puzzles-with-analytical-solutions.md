@@ -24,7 +24,7 @@ Here is a fun puzzle:
 Check out the following video for an easy to understand intuitive explanation to the $2$ egg $100$ storey tower problem.
 
 <figure class="iframe-wrapper">
-<iframe allowfullscreen mozallowfullscreen frameborder="0" src="//youtube.com/embed/NGtt7GJ1uiM" webkitallowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NGtt7GJ1uiM?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
 We will go through the same solution mathematically below.
