@@ -73,7 +73,11 @@ That gives us this constraint.
 
 $$x + (x - 1) + (x - 2) + (x - 3) + \ldots + 1 >= N$$
 
+Which can be rewritten as:
+
 $$\sum_{k=1}^{x} k >= N$$
+
+Or, in closed form as:
 
 $$\frac{x \times (1 + x)}{2} >= N$$
 
@@ -94,7 +98,7 @@ $$f_2(x) = \frac{x \times (1 + x)}{2}$$
 
 where $f_1(x)$ and $f_2(x)$ are the number of floors that can be checked with $1$ and $2$ eggs respectively with $x$ drops.
 
-And we know that $f_2(x)$ can be written as,
+And we know that $f_2(x)$ can be written as:
 
 $$f_2(x) = \sum_{k=1}^{x} k$$
 
@@ -135,7 +139,7 @@ Solving this, we get $9$ drops for $3$ eggs. With just $9$ drops, we can guarant
 
 Let's see if we can generalize this for $N$ eggs.
 
-With $1$ egg and $x$ drops, we know we can check $x$ floors. Let's define this as $f(x, 1)$. So:
+With $1$ egg and $x$ drops, we know we can check $x$ floors. Let's define this as $f(x, 1)$, i.e.:
 
 $$f(x, 1) = x$$ {#eq:f_x_1}
 
