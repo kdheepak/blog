@@ -182,7 +182,7 @@ $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$  {#eq:f_x_n}
 This is also known as a recurrence relation.
 
 This result can be reasoned through intuition as well.
-To find the maximum floors you can check if $n$ eggs with $x$ drops, it will be $1$ (your first drop) plus the maximum floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
+To find the total floors you can check with $n$ eggs and $x$ drops, it will be $1$ (your first drop) plus the maximum number of floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum number of floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
 
 # Implementation
 
