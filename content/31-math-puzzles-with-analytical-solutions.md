@@ -208,7 +208,7 @@ $$f(x, n) = 15 + f(x - 4, n) + 4f(x - 4, n - 1)  + 6f(x - 4, n - 2) + 4f(x - 4, 
 
 $$f(x, n) = 31 + f(x - 5, n) + 5f(x - 5, n - 1)  + 10f(x - 5, n - 2) + 10f(x - 5, n - 3) + 5f(x - 5, n - 4) + f(x - 5, n - 5)$$
 
-$$f(x, n) = 63 + f(x - 6, n) + \ldots + f(x - 5, n - 5)$$
+$$f(x, n) = 63 + f(x - 6, n) + \ldots + f(x - 6, n - 6)$$
 
 If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
 That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
