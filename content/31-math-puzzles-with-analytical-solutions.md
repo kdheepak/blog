@@ -197,7 +197,7 @@ $$f(x, n) = 15 + f(x - 4, n) + 3f(x - 4, n - 1)  + 5f(x - 4, n - 2) + 5f(x - 4, 
 $$f(x, n) = 31 + f(x - 5, n) + \ldots$$
 
 If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
-That is to say, if we had infinite eggs, with 5 eggs we can guarantee checking 31 floors.
+That is to say, if we had infinite eggs, with 5 drops we can guarantee checking 31 floors.
 
 # Implementation
 
