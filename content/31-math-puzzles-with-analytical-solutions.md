@@ -204,14 +204,23 @@ $$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 1) + f(x - 2, n - 2)$$
 
 $$f(x, n) = 7 + f(x - 3, n) + 3f(x - 3, n - 1) + 3f(x - 3, n - 2) + f(x - 3, n - 3)$$
 
+$$f(x, n) = 15 + f(x - 4, n) + \ldots + f(x - 4, n - 4)$$
+
+<!--
 $$f(x, n) = 15 + f(x - 4, n) + 4f(x - 4, n - 1)  + 6f(x - 4, n - 2) + 4f(x - 4, n - 3) + f(x - 4, n - 4)$$
 
 $$f(x, n) = 31 + f(x - 5, n) + 5f(x - 5, n - 1)  + 10f(x - 5, n - 2) + 10f(x - 5, n - 3) + 5f(x - 5, n - 4) + f(x - 5, n - 5)$$
 
 $$f(x, n) = 63 + f(x - 6, n) + \ldots + f(x - 6, n - 6)$$
+-->
 
 If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
-That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
+That is to say, if we had infinite eggs, with 4 drops we can guarantee checking 15 floors.
+
+If we expanded the recurrence further, you'll see a pattern.
+
+![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg)
+
 With $x$ drops, we can guarantee checking $2^x - 1$ floors.
 
 # Implementation
