@@ -40,6 +40,12 @@ body > footer > p {
   text-align: right;
 }
 
+.no-tufte-underline:link {
+    background: unset;
+    text-shadow: unset;
+}
+
+
 @media (max-width: 760px) {
     .utterances {
         margin-left: 0 !important;
