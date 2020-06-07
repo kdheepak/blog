@@ -240,10 +240,7 @@ julia> println(VERSION)
 We can implement equation {@eq:f_x_n} as a function:
 
 ```julia
-julia> function f(x, n)
-           (x == 0 || n == 0) && return 0
-           1 + f(x - 1, n) + f(x - 1, n - 1)
-       end
+julia> f(x, n) = x == 0 || n == 0 ? 0 : 1 + f(x - 1, n) + f(x - 1, n - 1)
 f (generic function with 1 method)
 ```
 
@@ -266,11 +263,31 @@ julia> @test f(14, 2) == 105
 Test Passed
 ```
 
-Using this, we can generate a table that explores how many floors can be check for different number of drops and eggs.
+We can implement this generally like so:
+
+```julia
+julia> function starting_floor(floors, n)
+       for x in 1:floors
+           if f(x, n) >= floors
+               return x
+           end
+       end
+       end
+starting_floor (generic function with 1 method)
+```
+
+And get the answer to the problem programmatically.
+
+```julia
+julia> starting_floor(100, 2)
+14
+```
+
+Using the function `f`, we can also generate a table that explores what is the maximum number of floors that can be check for various number of drops and eggs.
 
 <figure class="fullwidth">
 
-Table: Number of floors that can be checked with $x$ drops and $n$ eggs
+Table: Maximum number of floors that can be checked with $x$ drops and $n$ eggs
 
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
 |             | 1   | 2   | 3   | 4    | 5    | 6    | 7     | 8     | 9     | 10    |
