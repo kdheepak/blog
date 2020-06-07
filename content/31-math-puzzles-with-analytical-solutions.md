@@ -223,7 +223,7 @@ Eagle eye readers will notice a pattern.
 
 ![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg){ .fullwidth }
 
-It turns out that this expansion related to the [binomial coefficients](https://en.wikipedia.org/wiki/Binomial_coefficient).
+It turns out that this expansion is related to the [binomial coefficients](https://en.wikipedia.org/wiki/Binomial_coefficient).
 Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors.
 
 # Implementation
