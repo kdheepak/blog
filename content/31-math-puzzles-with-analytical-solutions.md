@@ -390,7 +390,7 @@ That means dividing the total floors by $2$.
                  `─'
 ```
 
-Partitioning the floors equally or bisecting, and exploring the partition of interest using the same strategy is the most efficient way of finding the breaking floor.
+Partitioning the floors equally or in other words bisecting the floors, and exploring the partition of interest using the same strategy is the most efficient way of finding the breaking floor.
 
 So there you go!
 We have solved the general case for the egg and tower puzzle.
