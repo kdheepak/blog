@@ -1,8 +1,8 @@
-local outputdir=io.open("images", "r")
+local outputdir=io.open("rendered", "r")
 if outputdir~=nil then
     io.close(outputdir)
 else
-    os.execute("mkdir images")
+    os.execute("mkdir rendered")
 end
 
 local renderer = {
@@ -36,13 +36,24 @@ local renderer = {
 
 images = {}
 
+function Cleanup(doc)
+    local pfile = io.popen('ls -a rendered/*.png rendered/*.svg 2> /dev/null')
+    for fname in pfile:lines() do
+        if not images[fname] then
+            os.remove(fname)
+        end
+    end
+    pfile:close()
+    return nil
+end
+
 
 function Render(elem, attr)
     for format, render_cmd in pairs(renderer) do
         if elem.classes[1] == format then
             local cmd, filetype = render_cmd(elem.text, elem.attributes or {})
             local mimetype = "image/" .. filetype
-            local fname = "images/" .. format .. "-" .. pandoc.sha1(cmd[1] .. table.concat(cmd[2], " ") .. cmd[3]) .. "." .. filetype
+            local fname = "rendered/" .. format .. "-" .. pandoc.sha1(cmd[1] .. table.concat(cmd[2], " ") .. cmd[3]) .. "." .. filetype
             local data = nil
 
             local f=io.open(fname,"rb")
@@ -98,4 +109,4 @@ function ModifyCode(elem, attr)
 end
 
 
-return {{CodeBlock=RenderCodeBlock, Code=RenderCode}, {CodeBlock=ModifyCode}}
+return {{CodeBlock=RenderCodeBlock, Code=RenderCode}, {CodeBlock=ModifyCode}, {Pandoc=Cleanup}}
