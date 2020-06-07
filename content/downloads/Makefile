@@ -52,7 +52,7 @@ html:
 	cd .. && pandoc --mathjax -r markdown+smart+table_captions+yaml_metadata_block -s -w html --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).html $(MARKDOWN).md --metadata link-citations=true -c https://cdn.rawgit.com/claymcleod/pandoc-academic-publication/ce07fa7a20af53cab8c8a50c5bad5ad15d726bba/assets/css/academic-pub.css
 
 slidespdf:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --filter $(SCRIPTS)/slides.py --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).slides.pdf $(MARKDOWN).md --metadata link-citations=true
+	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --filter $(SCRIPTS)/slides.py --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -t beamer -o $(OUTPUT)/$(OUTPUTFILE).slides.pdf $(MARKDOWN).md --metadata link-citations=true
 
 slideshtml:
 	pandoc -t html5 --template=default.revealjs \
