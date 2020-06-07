@@ -2,7 +2,7 @@
 %% V1.4b
 %% 2015/08/26
 %% by Michael Shell
-%% see https://www.michaelshell.org/
+%% see http://www.michaelshell.org/
 %% for current contact information.
 %% Modified by Dheepak Krishnamurthy for use with Pandoc
 %%
@@ -11,16 +11,16 @@
 %% journal paper.
 %%
 %% Support sites:
-%% https://www.michaelshell.org/tex/ieeetran/
-%% https://www.ctan.org/pkg/ieeetran
+%% http://www.michaelshell.org/tex/ieeetran/
+%% http://www.ctan.org/pkg/ieeetran
 %% and
-%% https://www.ieee.org/
+%% http://www.ieee.org/
 
 %%*************************************************************************
 %% Legal Notice:
 %% This code is offered as-is without any warranty either expressed or
 %% implied; without even the implied warranty of MERCHANTABILITY or
-%% FITNESS FOR A PARTICULAR PURPOSE! 
+%% FITNESS FOR A PARTICULAR PURPOSE!
 %% User assumes all risk.
 %% In no event shall the IEEE or any contributor to this code be liable for
 %% any damages or losses, including, but not limited to, incidental,
@@ -31,7 +31,7 @@
 %% necessarily endorsed by the IEEE.
 %%
 %% This work is distributed under the LaTeX Project Public License (LPPL)
-%% ( https://www.latex-project.org/ ) version 1.3, and may be freely used,
+%% ( http://www.latex-project.org/ ) version 1.3, and may be freely used,
 %% distributed and modified. A copy of the LPPL, version 1.3, is included
 %% in the base LaTeX documentation of all distributions of LaTeX released
 %% 2003/12/01 or later.
@@ -46,11 +46,11 @@
 % *** with production work. The IEEE's font choices and paper sizes can   ***
 % *** trigger bugs that do not appear when using other class files.       ***                          ***
 % The testflow support page is at:
-% https://www.michaelshell.org/tex/testflow/
+% http://www.michaelshell.org/tex/testflow/
 
 
 
-\documentclass[journal,10pt,final]{IEEEtran}
+\documentclass[journal,]{IEEEtran}
 %
 % If IEEEtran.cls has not been installed into the LaTeX system files,
 % manually specify the path to it like:
@@ -72,7 +72,7 @@
 %   % dvi code
 % \fi
 % The latest version of ifpdf.sty can be obtained from:
-% https://www.ctan.org/pkg/ifpdf
+% http://www.ctan.org/pkg/ifpdf
 % Also, note that IEEEtran.cls V1.7 and later provides a builtin
 % \ifCLASSINFOpdf conditional that works the same way.
 % When switching from latex to pdflatex and vice-versa, the compiler may
@@ -98,7 +98,7 @@
 % cite.sty is already installed on most LaTeX systems. Be sure and use
 % version 5.0 (2009-03-20) and later if using hyperref.sty.
 % The latest version can be obtained at:
-% https://www.ctan.org/pkg/cite
+% http://www.ctan.org/pkg/cite
 % The documentation is contained in the cite.sty file itself.
 
 
@@ -129,11 +129,11 @@
 % graphicx was written by David Carlisle and Sebastian Rahtz. It is
 % required if you want graphics, photos, etc. graphicx.sty is already
 % installed on most LaTeX systems. The latest version and documentation
-% can be obtained at: 
-% https://www.ctan.org/pkg/graphicx
+% can be obtained at:
+% http://www.ctan.org/pkg/graphicx
 % Another good source of documentation is "Using Imported Graphics in
 % LaTeX2e" by Keith Reckdahl which can be found at:
-% https://www.ctan.org/pkg/epslatex
+% http://www.ctan.org/pkg/epslatex
 %
 % latex, and pdflatex in dvi mode, support graphics in encapsulated
 % postscript (.eps) format. pdflatex in pdf mode supports graphics
@@ -144,7 +144,7 @@
 % well as large increases in file sizes.
 %
 % You can find documentation about the pdfTeX application at:
-% https://www.tug.org/applications/pdftex
+% http://www.tug.org/applications/pdftex
 
 
 
@@ -162,7 +162,7 @@
 % after loading amsmath to restore such page breaks as IEEEtran.cls normally
 % does. amsmath.sty is already installed on most LaTeX systems. The latest
 % version and documentation can be obtained at:
-% https://www.ctan.org/pkg/amsmath
+% http://www.ctan.org/pkg/amsmath
 
 
 
@@ -180,10 +180,10 @@
 % algorithm float types and packages that provide these will not provide
 % correct IEEE style captions. The latest version and documentation of
 % algorithmic.sty can be obtained at:
-% https://www.ctan.org/pkg/algorithms
+% http://www.ctan.org/pkg/algorithms
 % Also of interest may be the (relatively newer and more customizable)
 % algorithmicx.sty package by Szasz Janos:
-% https://www.ctan.org/pkg/algorithmicx
+% http://www.ctan.org/pkg/algorithmicx
 
 
 
@@ -199,7 +199,7 @@
 % advised to use an enhanced (at the very least that provided by array.sty)
 % set of table tools. array.sty is already installed on most systems. The
 % latest version and documentation can be obtained at:
-% https://www.ctan.org/pkg/array
+% http://www.ctan.org/pkg/array
 
 
 % IEEEtran contains the IEEEeqnarray family of commands that can be used to
@@ -230,7 +230,7 @@
 % on whether compsoc mode has been enabled.
 %
 % The latest version and documentation of subfig.sty can be obtained at:
-% https://www.ctan.org/pkg/subfig
+% http://www.ctan.org/pkg/subfig
 
 
 
@@ -250,7 +250,7 @@
 % be issued if an attempt is made to load fixltx2e.sty as it is no longer
 % needed.
 % The latest version and documentation can be found at:
-% https://www.ctan.org/pkg/fixltx2e
+% http://www.ctan.org/pkg/fixltx2e
 
 
 %\usepackage{stfloats}
@@ -264,7 +264,7 @@
 % which rewrites many portions of the LaTeX2e float routines. It may not work
 % with other packages that modify the LaTeX2e float routines. The latest
 % version and documentation can be obtained at:
-% https://www.ctan.org/pkg/stfloats
+% http://www.ctan.org/pkg/stfloats
 % Do not use the stfloats baselinefloat ability as the IEEE does not allow
 % \baselineskip to stretch. Authors submitting work to the IEEE should note
 % that the IEEE rarely uses double column equations and that authors should try
@@ -277,7 +277,7 @@
 %
 % \usepackage{dblfloatfix}
 % The latest version can be found at:
-% https://www.ctan.org/pkg/dblfloatfix
+% http://www.ctan.org/pkg/dblfloatfix
 
 
 
@@ -287,8 +287,8 @@
 % \let\MYoriglatexcaption\caption
 % \renewcommand{\caption}[2][\relax]{\MYoriglatexcaption[#2]{#2}}
 %\fi
-% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and 
-% Axel Sommerfeldt. This package may be useful when used in conjunction with 
+% endfloat.sty was written by James Darrell McCauley, Jeff Goldberg and
+% Axel Sommerfeldt. This package may be useful when used in conjunction with
 % IEEEtran.cls'  captionsoff option. Some IEEE journals/societies require that
 % submissions have lists of figures/tables at the end of the paper and that
 % figures/tables without any captions are placed on a page by themselves at
@@ -314,10 +314,10 @@
 % avoid the use of subfigure captions (many IEEE journals avoid them anyway)
 % and instead reference/explain all the subfigures within the main caption.
 % The latest version of endfloat.sty and its documentation can obtained at:
-% https://www.ctan.org/pkg/endfloat
+% http://www.ctan.org/pkg/endfloat
 %
 % The IEEEtran \ifCLASSOPTIONcaptionsoff conditional can also be used
-% later in the document, say, to conditionally put the References on a 
+% later in the document, say, to conditionally put the References on a
 % page by themselves.
 
 
@@ -329,7 +329,7 @@
 % url.sty was written by Donald Arseneau. It provides better support for
 % handling and breaking URLs. url.sty is already installed on most LaTeX
 % systems. The latest version and documentation can be obtained at:
-% https://www.ctan.org/pkg/url
+% http://www.ctan.org/pkg/url
 % Basically, \url{my_url_here}.
 
 
@@ -367,13 +367,32 @@
 }{}
 \usepackage{hyperref}
 \hypersetup{unicode=true,
-            pdftitle={Writing Technical Papers with Markdown},
-            pdfkeywords={markdown, vim, writing, academic, scholarly, technical, scientific,
-papers},
+            pdftitle={Writing Technical Papers with Markdown and Pandoc},
+            pdfkeywords={markdown, pandoc, papers, writing, academic,
+scholarly, technical, scientific},
             pdfborder={0 0 0},
             breaklinks=true}
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{longtable,booktabs}
+\makeatletter
+\let\oldlt\longtable
+\let\endoldlt\endlongtable
+\def\longtable{\@ifnextchar[\longtable@i \longtable@ii}
+\def\longtable@i[#1]{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt[#1]
+}
+\def\longtable@ii{\begin{figure}[t]
+\onecolumn
+\begin{minipage}{0.5\textwidth}
+\oldlt
+}
+\def\endlongtable{\endoldlt
+\end{minipage}
+\twocolumn
+\end{figure}}
+\makeatother
 \usepackage{graphicx,grffile}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -406,23 +425,64 @@ papers},
 \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
 \fi
 
+%%%% pandoc-fignos: required package
+\usepackage{caption}
+
+%% pandoc-fignos: environment to disable figure caption prefixes
+\makeatletter
+\newcounter{figno}
+\newenvironment{fignos:no-prefix-figure-caption}{
+  \caption@ifcompatibility{}{
+    \let\oldthefigure\thefigure
+    \let\oldtheHfigure\theHfigure
+    \renewcommand{\thefigure}{figno:\thefigno}
+    \renewcommand{\theHfigure}{figno:\thefigno}
+    \stepcounter{figno}
+    \captionsetup{labelformat=empty}
+  }
+}{
+  \caption@ifcompatibility{}{
+    \captionsetup{labelformat=default}
+    \let\thefigure\oldthefigure
+    \let\theHfigure\oldtheHfigure
+    \addtocounter{figure}{-1}
+  }
+}
+\makeatother
+
+%% pandoc-tablenos: environment to disable table caption prefixes
+\makeatletter
+\newcounter{tableno}
+\newenvironment{tablenos:no-prefix-table-caption}{
+  \caption@ifcompatibility{}{
+    \let\oldthetable\thetable
+    \let\oldtheHtable\theHtable
+    \renewcommand{\thetable}{tableno:\thetableno}
+    \renewcommand{\theHtable}{tableno:\thetableno}
+    \stepcounter{tableno}
+    \captionsetup{labelformat=empty}
+  }
+}{
+  \caption@ifcompatibility{}{
+    \captionsetup{labelformat=default}
+    \let\thetable\oldthetable
+    \let\theHtable\oldtheHtable
+    \addtocounter{table}{-1}
+  }
+}
+\makeatother
+
 
 \begin{document}
 
-\title{\bigskip \bigskip Writing Technical Papers with Markdown}
+\title{\bigskip \bigskip Writing Technical Papers with Markdown and
+Pandoc}
 
-\author{ Dheepak Krishnamurthy~\IEEEmembership{} \and  % <-this % stops a space
-\thanks{}% <-this % stops a space
-}
 
 % The paper headers
-
-\markboth{White paper}%
-{Published on personal website}
-
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
-% 
+%
 % *** Note that you probably will NOT want to include the author's ***
 % *** name in the headers of peer review papers.                   ***
 % You can use \ifCLASSOPTIONpeerreview for conditional compilation here if
@@ -451,9 +511,9 @@ papers},
 
 \begin{abstract}
 
-\noindent Recently, I've had several people ask me about the Markdown workflow I
-use to write papers. I figured I'd use this post to write about my
-workflow and my resources on this topic.
+\noindent Recently, I've had several people ask me about the Markdown
+workflow I use to write papers. I figured I'd use this post to write
+about my workflow and my resources on this topic.
 
 \end{abstract}
 
@@ -469,13 +529,46 @@ workflow and my resources on this topic.
 % creates the second title. It will be ignored for other modes.
 \IEEEpeerreviewmaketitle
 
+You can view this post in the following formats, thanks to Pandoc!
+
+\begin{tablenos:no-prefix-table-caption}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule
+Format & Link\tabularnewline
+\midrule
+\endhead
+IEEE-PDF &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf}{LINK}\tabularnewline
+IEEE-DOCX &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx}{LINK}\tabularnewline
+IEEE-HTML &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html}{LINK}\tabularnewline
+PDF &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf}{LINK}\tabularnewline
+DOCX &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx}{LINK}\tabularnewline
+HTML &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html}{LINK}\tabularnewline
+SLIDES-PDF &
+\href{https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf}{LINK}\tabularnewline
+\bottomrule
+\end{longtable}
+
+\end{tablenos:no-prefix-table-caption}
+
 \begin{IEEEkeywords}
 Pandoc, LaTeX, Markdown
 \end{IEEEkeywords}
 
-\section{Why Markdown}\label{why-markdown}
+I've had several people ask me about Markdown for academic writing
+recently. I figured I'd use this post to write about my workflow and my
+resources on this topic.
 
-Academic writing involves :
+\hypertarget{why-markdown}{%
+\section{Why Markdown}\label{why-markdown}}
+
+Academic writing involves:
 
 \begin{itemize}
 \tightlist
@@ -483,18 +576,19 @@ Academic writing involves :
   writing down ideas as they come along and documenting results
   (notetaking),
 \item
-  experimenting with these ideas (simulations and data analysis)
+  experimenting with these ideas (simulations and data analysis),
 \item
-  and finally presenting them effectively (scientific paper)
+  and finally presenting them effectively (scientific paper).
 \end{itemize}
 
 There's a lot to manage over the length of time this entire process
 spans. Academics require a set of tools that aid in making this process,
 i.e.~the effective communication of ideas, as seamless as possible.
 There are currently two popular options for academics seeking to write
-technical papers - Microsoft Word or \LaTeX.
+technical papers - Microsoft Word or \(\LaTeX\).
 
-\subsection{A word about Word}\label{a-word-about-word}
+\hypertarget{a-word-about-word}{%
+\subsection{A word about Word}\label{a-word-about-word}}
 
 Microsoft Word is ubiquitous when it comes to writing reports. The great
 thing about Word is that there is almost no barrier to \emph{begin}
@@ -507,19 +601,19 @@ writing itself.
 However, I've found a few fundamental problems with Microsoft Word.
 Having a WYSIWYG (What You See Is What You Get) editor is great (even
 Richard Stallman seems to think so
-{[}\protect\hyperlink{ref-stallmanux5femacs}{1}{]}). However, products
-like Word fail miserably at separating content from formatting. These
-products impose on the writer their own concept of how a document should
-be formatted, which I've found greatly hinders the writing process. Have
-you ever experienced a sudden jump in spacing? Or mismatched formatting
-after a copy and paste from one part of the document to another? Or have
-indents and bullet points misbehave haphazardly? Word applies these
-formatting changes seemingly at random! These are all typesetting and
-formatting processes and these should be applied \textbf{\emph{after}}
-the text is completed. These processes should not distract from the task
-at hand\footnote{I understand that there are \emph{correct} ways to go
-  about it, I just don't want to be thinking about all that while I'm
-  writing.} - writing!
+{[}\protect\hyperlink{ref-stallman_emacs_nodate}{1}{]}). However,
+products like Word fail miserably at separating content from formatting.
+These products impose on the writer their own concept of how a document
+should be formatted, which I've found greatly hinders the writing
+process. Have you ever experienced a sudden jump in spacing? Or
+mismatched formatting after a copy and paste from one part of the
+document to another? Or have indents and bullet points misbehave
+haphazardly? Word applies these formatting changes seemingly at random!
+These are all typesetting and formatting processes and these should be
+applied \textbf{\emph{after}} the text is completed. These processes
+should not distract from the task at hand\footnote{I understand that
+  there may be more \emph{correct} ways to go about it, I just don't
+  want to be thinking about all that while I'm writing.} - writing!
 
 There are other issues as well. Microsoft's ecosystem comes at a price,
 literally. Word is proprietary, and Word's format is a proprietary data
@@ -542,16 +636,16 @@ you can end up transferring malware through a Word document? Just think
 about that for a second. Opening what should be essentially a text file
 is a security risk for your machine. And some of these viruses (as of
 the time of this writing) do not even have patches yet
-{[}\protect\hyperlink{ref-beaumontux5fbypassux5f2015}{2}{]}. Loads of
-people have already talked about this and similar issues at some length
-{[}\protect\hyperlink{ref-steingoldux5fproprietary}{3}{]},
-{[}\protect\hyperlink{ref-cottrellux5fword}{4}{]}, and have probably
+{[}\protect\hyperlink{ref-beaumont_bypass_2015}{2}{]}. Loads of people
+have already talked about this and similar issues at some length
+{[}\protect\hyperlink{ref-steingold_proprietary_nodate}{3}{]},
+{[}\protect\hyperlink{ref-cottrell_word_nodate}{4}{]}, and have probably
 done more justice to this topic that I possibly could. With all these
 issues, it is hard to believe Word is so widely accepted as a standard.
 
 I think there is a strong case to be made about why you should consider
 dropping Word for your next paper. In addition to what has been
-discussed above :
+discussed above:
 
 \begin{itemize}
 \tightlist
@@ -587,25 +681,30 @@ store my data and information in this software, I have absolutely no way
 of retrieving it. The final presentation/report/paper, information and
 data will exist confined in this closed source proprietary software.
 Word just does not fit into an analysis or research workflow. To quote
-Raymond Hettinger :
+Raymond Hettinger:
 
-\begin{figure}[htbp]
+\begin{fignos:no-prefix-figure-caption}
+
+\begin{figure}
 \centering
-\includegraphics{../images/raymondhettinger.jpg}
+\includegraphics{images/raymondhettinger.jpg}
 \caption{Raymond Hettinger}
 \end{figure}
 
-\subsection{\texorpdfstring{\LaTeX~- lah-tekh, lah-tek or
-lay-tek}{~- lah-tekh, lah-tek or lay-tek}}\label{lah-tekh-lah-tek-or-lay-tek}
+\end{fignos:no-prefix-figure-caption}
 
-Enter \LaTeX.
+\hypertarget{latex---lah-tekh-lah-tek-or-lay-tek}{%
+\subsection{\texorpdfstring{\(\LaTeX\) - lah-tekh, lah-tek or
+lay-tek}{\textbackslash LaTeX - lah-tekh, lah-tek or lay-tek}}\label{latex---lah-tekh-lah-tek-or-lay-tek}}
+
+Enter \(\LaTeX\).
 
 \begin{quote}
-\LaTeX~is to a book what a set of blueprints is to a building.
-{[}\protect\hyperlink{ref-ux5fstackoverflow}{5}{]}
+\(\LaTeX\) is to a book what a set of blueprints is to a building.
+{[}\protect\hyperlink{ref-noauthor_stackoverflow_nodate}{5}{]}
 \end{quote}
 
-\LaTeX~is a typesetting system and is frequently used in scientific,
+\(\LaTeX\) is a typesetting system and is frequently used in scientific,
 technical and mathematical papers. It is infamous for displaying
 equations in a manner that looks great. Math is beautiful, and it
 deserves to be presented beautifully.
@@ -617,8 +716,8 @@ deserves to be presented beautifully.
   \nabla \cdot \vec{\mathbf{B}} & = 0
 \end{align}
 
-Essentially, \LaTeX~is a markup language. Content is written in plain
-text and can be annotated with commands that describe how certain
+Essentially, \(\LaTeX\) is a markup language. Content is written in
+plain text and can be annotated with commands that describe how certain
 elements should be displayed.
 
 For example, take a look at the following commands.
@@ -641,30 +740,31 @@ you to track changes and collaborate with others without any additional
 effort. This also lets you work with your favourite text editor - Vim,
 Emacs, Atom. There are even TeX specific ones, such as TeXShop and Lyx.
 
-\LaTeX~is free. Free as in beer and free as in freedom. You can have the
-confidence that your code and documents can survive possibly forever in
-its current format. The \LaTeX~community is great and are very helpful
-towards beginners. There are hundreds of packages that improve upon the
-functionality that \LaTeX~provides. There are packages like \emph{TikZ}
-that let you to create high resolution print quality detailed diagrams,
-which I've seen used even outside a \LaTeX environment.
+\(\LaTeX\) is free. Free as in beer and free as in freedom. You can have
+the confidence that your code and documents can survive possibly forever
+in its current format. The \(\LaTeX\) community is great and are very
+helpful towards beginners. There are hundreds of packages that improve
+upon the functionality that \(\LaTeX\) provides. There are packages like
+\emph{TikZ} that let you to create high resolution print quality
+detailed diagrams, which I've seen used even outside a \(\LaTeX\)
+environment.
 
 However, there is a barrier to entry which one must overcome in order to
-begin using \LaTeX. Unlike Word, you have to know which commands are
+begin using \(\LaTeX\). Unlike Word, you have to know which commands are
 used for what markup functionality, not only to know when to use them,
-but also when not to use them. The biggest problem with \LaTeX~is
+but also when not to use them. The biggest problem with \(\LaTeX\) is
 probably the error messages. Most of the time they are near useless, and
 sometimes they are even borderline cryptic.
 
-Personally, I found learning how to work with \LaTeX~extremely useful.
-It challenged me to think about the structure of a document, and how I
-could convey information effectively not just through the final
+Personally, I found learning how to work with \(\LaTeX\) extremely
+useful. It challenged me to think about the structure of a document, and
+how I could convey information effectively not just through the final
 document, but also in the source material\footnote{Having the ability to
   leave comments to myself or fellow collaborators that are filtered out
   of the final presentation can be very useful.}. I also didn't think it
 was difficult. Solutions to my initial problems were only a quick Google
 search away. Tables were frustrating at first, but you get the hang of
-them over time. Equations are a joy to type in \LaTeX. And the final
+them over time. Equations are a joy to type in \(\LaTeX\). And the final
 product looks great!
 
 That said, the markup language is a bit too heavy for notetaking, and
@@ -688,15 +788,16 @@ The following is a list in this subsection
 \end{enumerate}
 \end{verbatim}
 
-With good IDEs for \LaTeX~this isn't as bad as it looks, although they
-still hinder the writer's flow. Over time and with experience, one can
-become proficient in \LaTeX. And once you invest the time to learn
-\LaTeX~I can't think of any reason why you would go back to Word. But it
-is likely that beginners will have a hard time getting started. So, if
-you cannot afford to experiment with \LaTeX, are you resigned to Word? I
-don't think so. Markdown to the rescue!
+With good IDEs for \(\LaTeX\) this isn't as bad as it looks, although
+they still hinder the writer's flow. Over time and with experience, one
+can become proficient in \(\LaTeX\). And once you invest the time to
+learn \(\LaTeX\) I can't think of any reason why you would go back to
+Word. But it is likely that beginners will have a hard time getting
+started. So, if you cannot afford to experiment with \(\LaTeX\), are you
+resigned to Word? I don't think so. Markdown to the rescue!
 
-\subsection{Markdown}\label{markdown}
+\hypertarget{markdown}{%
+\subsection{Markdown}\label{markdown}}
 
 Markdown is a very lightweight easy-to-read easy-to-write plain text
 markup language. The same example as before looks like this in Markdown.
@@ -718,9 +819,9 @@ The following is a list in this subsection
 \end{verbatim}
 
 Much better! It's a lot easier to read and a lot easier to write than
-\LaTeX. Markdown, developed by John Gruber, was principally written for
-the web, to avoid the heavy markup of HTML. Tools have been developed to
-convert Markdown to HTML, PDF and even DOCX.
+\(\LaTeX\). Markdown, developed by John Gruber, was principally written
+for the web, to avoid the heavy markup of HTML. Tools have been
+developed to convert Markdown to HTML, PDF and even DOCX.
 
 The main advantages of Markdown:
 
@@ -738,8 +839,8 @@ The main advantages of Markdown:
 \end{itemize}
 
 Markdown is awesome at a set of things, and a much better alternative
-than Word or \LaTeX~for those specific set of things. Take for example
-this table \ref{tbl:table}.
+than Word or \(\LaTeX\) for those specific set of things. Take for
+example this table \ref{tbl:table}.
 
 \begin{verbatim}
   Right     Left     Center     Default
@@ -751,7 +852,7 @@ this table \ref{tbl:table}.
 Table:  Demonstration of simple table syntax.
 \end{verbatim}
 
-This is what the same table looks like in \LaTeX.
+This is what the same table looks like in \(\LaTeX\).
 
 \begin{verbatim}
 \begin{longtable}[c]{@{}rlcl@{}}
@@ -773,20 +874,25 @@ Right & Left & Center & Default\tabularnewline
 \end{verbatim}
 
 However, Markdown does not allow for the level of detailed customization
-that you can achieve using \LaTeX. Even a moderately complex table such
-as the one below is not supported (currently) by any form of Markdown.
+that you can achieve using \(\LaTeX\). Even a moderately complex table
+such as the one below is not supported (currently) by any form of
+Markdown.
 
-\begin{figure}[htbp]
+\begin{fignos:no-prefix-figure-caption}
+
+\begin{figure}
 \centering
-\includegraphics{../images/table.png}
-\caption{Tabular LaTeX example
-{[}\protect\hyperlink{ref-ux5fwikibooks}{6}{]}}
+\includegraphics{images/table.png}
+\caption{Tabular \(\LaTeX\) example
+{[}\protect\hyperlink{ref-noauthor_wikibooks_nodate}{6}{]}}
 \end{figure}
 
-Markdown may not be as powerful as \LaTeX, but its easy to write easy to
-read syntax, open standard format and a strong backing from the
+\end{fignos:no-prefix-figure-caption}
+
+Markdown may not be as powerful as \(\LaTeX\), but its easy to write
+easy to read syntax, open standard format and a strong backing from the
 community make it a ideal candidate for writing. It has the advantages
-of Word (ease of use) and \LaTeX~(excellent typesetting) for output
+of Word (ease of use) and \(\LaTeX\) (excellent typesetting) for output
 formats. Also there is the added advantage of only having to write in
 Markdown once, and have documents generated in a multitude of formats
 later - PDF, DOCX, slides, HTML etc.
@@ -796,14 +902,15 @@ writing. In the following sections we will look at how to convert a
 Markdown file to other formats, and what are some potential limitations
 and how you might overcome them.
 
-\section{\texorpdfstring{Pandoc - A ``swiss army
-knife''}{Pandoc - A swiss army knife}}\label{pandoc---a-swiss-army-knife}
+\hypertarget{pandoc---a-swiss-army-knife}{%
+\section{Pandoc - A ``swiss army
+knife''}\label{pandoc---a-swiss-army-knife}}
 
 Pandoc is a software tool by \href{https://johnmacfarlane.net/}{John
 Macfarlane} written in Haskell that can convert a document from just
 about any format to just about any other format. And works really well.
 
-Input formats :
+Input formats:
 
 \begin{itemize}
 \tightlist
@@ -848,10 +955,10 @@ Input formats :
 \item
   haddock (Haddock markup)
 \item
-  or latex (LaTeX)
+  or latex (\(\LaTeX\))
 \end{itemize}
 
-Output formats :
+Output formats:
 
 \begin{itemize}
 \tightlist
@@ -878,9 +985,9 @@ Output formats :
 \item
   html5 (HTML5)
 \item
-  latex (LaTeX)
+  latex (\(\LaTeX\))
 \item
-  beamer (LaTeX beamer slide show)
+  beamer (\(\LaTeX\) beamer slide show)
 \item
   context (ConTeXt)
 \item
@@ -943,14 +1050,15 @@ also constantly under development. We can use Pandoc to convert a
 markdown file, to a PDF, HTML or DOCX file for a technical paper.
 
 First off, you will need \texttt{pandoc}. You can get the latest version
-from their GitHub page {[}\protect\hyperlink{ref-ux5fgithub}{7}{]}. You
-may want \texttt{pandoc-citeproc} as well.\footnote{If you install
-  Pandoc from a package, \texttt{pandoc-citeproc} should come
-  pre-installed. However, if you want to use a package manager such as
-  \texttt{brew}, you may need to install \texttt{pandoc-citeproc}
-  separately as well. Just run
-  \texttt{brew\ install\ pandoc\ pandoc-citeproc}.} You will also need
-\LaTeX. I've found that the following python packages are useful too.
+from their GitHub page
+{[}\protect\hyperlink{ref-noauthor_github_nodate}{7}{]}. You may want
+\texttt{pandoc-citeproc} as well\footnote{If you install Pandoc from a
+  package, \texttt{pandoc-citeproc} should come pre-installed. However,
+  if you want to use a package manager such as \texttt{brew}, you may
+  need to install \texttt{pandoc-citeproc} separately as well. Just run
+  \texttt{brew\ install\ pandoc\ pandoc-citeproc}.}. You will also need
+\(\LaTeX\). I've found that the following python packages are useful
+too.
 
 \begin{itemize}
 \tightlist
@@ -970,25 +1078,27 @@ You can run
 \texttt{pip\ install\ \textless{}package-name\textgreater{}}.
 Alternatively you can create a virtual environment using \texttt{conda}
 with a suitable environment file
-{[}\protect\hyperlink{ref-krishnamurthyux5fgithub}{8}{]}, which is the
-approach I recommend
-{[}\protect\hyperlink{ref-krishnamurthyux5fusing}{9}{]}.
+{[}\protect\hyperlink{ref-krishnamurthy_github_nodate}{8}{]}, which is
+the approach I recommend
+{[}\protect\hyperlink{ref-krishnamurthy_using_nodate}{9}{]}.
 
 There are several people that have shared their complete workflow along
 with all their resources
-{[}\protect\hyperlink{ref-healyux5fplain}{10}{]}--{[}\protect\hyperlink{ref-ux5facademic}{13}{]}.
+{[}\protect\hyperlink{ref-healy_plain_nodate}{10}{]}--{[}\protect\hyperlink{ref-noauthor_academic_nodate}{13}{]}.
 Mine is available on GitHub
-{[}\protect\hyperlink{ref-krishnamurthyux5fgithub}{8}{]} as well. While
-someone else's workflow will work for you, I encourage you to start from
-scratch and craft your own. That way you will figure out why each item
-has been added into a workflow, and if that works for you. You will also
-know what to do if (when?) it breaks, and how to fix it. Feel free to go
-through other people's Makefiles to see what they have done, and how you
-can improve your own.
+{[}\protect\hyperlink{ref-krishnamurthy_github_nodate-1}{14}{]} as well.
+While someone else's workflow will work for you, I encourage you to
+start from scratch and craft your own. That way you will figure out why
+each item has been added into a workflow, and if that works for you. You
+will also know what to do if (when?) it breaks, and how to fix it. Feel
+free to go through other people's Makefiles to see what they have done,
+and how you can improve your own.
 
-\subsection{Syntax}\label{syntax}
+\hypertarget{syntax}{%
+\subsection{Syntax}\label{syntax}}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Headings}}}{Headings}}\label{headings}
+\hypertarget{headings}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Headings}}}{Headings}}\label{headings}}
 
 \begin{verbatim}
 # Section
@@ -1001,7 +1111,8 @@ can improve your own.
 I've not provided an example here to avoid messing with this document's
 headings.
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Text}}}{Text}}\label{text}
+\hypertarget{text}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Text}}}{Text}}\label{text}}
 
 \begin{verbatim}
 This text is in *italic*.
@@ -1014,7 +1125,8 @@ And this text is in ***bold-italic***
 This text is in \emph{italic}. This text is in \textbf{bold}. And this
 text is in \textbf{\emph{bold-italic}}.
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Link}}}{Link}}\label{link}
+\hypertarget{link}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Link}}}{Link}}\label{link}}
 
 \begin{verbatim}
 [Text](https://google.com)
@@ -1024,21 +1136,27 @@ text is in \textbf{\emph{bold-italic}}.
 
 \href{https://google.com}{Text}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Images}}}{Images}}\label{images}
+\hypertarget{images}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Images}}}{Images}}\label{images}}
 
 \begin{verbatim}
-[Caption](../images/markdown.png)
+![Caption](images/markdown.png)
 \end{verbatim}
 
 \textbf{Example}
 
-\begin{figure}[htbp]
+\begin{fignos:no-prefix-figure-caption}
+
+\begin{figure}
 \centering
-\includegraphics{../images/markdown.png}
+\includegraphics{images/markdown.png}
 \caption{Caption}
 \end{figure}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Lists}}}{Lists}}\label{lists}
+\end{fignos:no-prefix-figure-caption}
+
+\hypertarget{lists}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Lists}}}{Lists}}\label{lists}}
 
 \begin{verbatim}
 * item
@@ -1088,7 +1206,8 @@ text is in \textbf{\emph{bold-italic}}.
   item
 \end{enumerate}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Quotes}}}{Quotes}}\label{quotes}
+\hypertarget{quotes}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Quotes}}}{Quotes}}\label{quotes}}
 
 \begin{verbatim}
 > Research is what I'm doing
@@ -1103,7 +1222,8 @@ Research is what I'm doing when I don't know what I'm doing. - Wernher
 von Braun
 \end{quote}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Code}}}{Code}}\label{code}
+\hypertarget{code}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Code}}}{Code}}\label{code}}
 
 \begin{verbatim}
 `inline code`
@@ -1121,7 +1241,8 @@ Tab space
 for code block
 \end{verbatim}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Tables}}}{Tables}}\label{tables}
+\hypertarget{tables}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Tables}}}{Tables}}\label{tables}}
 
 \begin{verbatim}
   Right     Left     Center     Default
@@ -1136,9 +1257,9 @@ Table:  Demonstration of simple table syntax.
 
 \textbf{Example}
 
-\begin{longtable}[c]{@{}rlcl@{}}
-\caption{Demonstration of simple table
-syntax.\label{tbl:table}}\tabularnewline
+\begin{longtable}[]{@{}rlcl@{}}
+\caption{Demonstration of simple table syntax.
+\label{tbl:table}}\tabularnewline
 \toprule
 Right & Left & Center & Default\tabularnewline
 \midrule
@@ -1153,7 +1274,8 @@ Right & Left & Center & Default\tabularnewline
 \bottomrule
 \end{longtable}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Footnotes}}}{Footnotes}}\label{footnotes}
+\hypertarget{footnotes}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Footnotes}}}{Footnotes}}\label{footnotes}}
 
 \begin{verbatim}
 Example of a footnote [^0]
@@ -1161,10 +1283,10 @@ Example of a footnote [^0]
 
 \textbf{Example}
 
-Example of a footnote\footnote{Footnote! If you are viewing the web
-  version, you can continue reading by clicking here -\textgreater{}}
+Example of a footnote {[}\^{}0{]}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Citations}}}{Citations}}\label{citations}
+\hypertarget{citations}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Citations}}}{Citations}}\label{citations}}
 
 \begin{verbatim}
 This is a very important fact [@citation_example]
@@ -1173,9 +1295,10 @@ This is a very important fact [@citation_example]
 \textbf{Example}
 
 This is a very important fact
-{[}\protect\hyperlink{ref-citationux5fexample}{14}{]}
+{[}\protect\hyperlink{ref-citation_example}{15}{]}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Strikethrough}}}{Strikethrough}}\label{strikethrough}
+\hypertarget{strikethrough}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Strikethrough}}}{Strikethrough}}\label{strikethrough}}
 
 \begin{verbatim}
 ~~Strikethrough text~~
@@ -1185,7 +1308,8 @@ This is a very important fact
 
 \sout{Strikethrough text}
 
-\subsubsection{\texorpdfstring{\textbf{\emph{Equations}}}{Equations}}\label{equations}
+\hypertarget{equations}{%
+\subsubsection{\texorpdfstring{\textbf{\emph{Equations}}}{Equations}}\label{equations}}
 
 \begin{verbatim}
 Inline equations $\pi$
@@ -1207,7 +1331,8 @@ Block equations
 \pi
 \label{eq:pi}\end{equation}
 
-\subsection{Pandoc conversion}\label{pandoc-conversion}
+\hypertarget{pandoc-conversion}{%
+\subsection{Pandoc conversion}\label{pandoc-conversion}}
 
 Once you have typed all the content, you can use the \texttt{pandoc}
 command to convert the document into the format you want. Pandoc uses
@@ -1215,34 +1340,34 @@ the output filename extension to figure out what the output file format
 should be. Btw, Pandoc is a command line tool only. You will have to use
 the command line for any conversion.
 
-To generate a PDF file :
+To generate a PDF file:
 
 \begin{verbatim}
 pandoc document.md -o document.pdf
 \end{verbatim}
 
-It is as simple as that! To generate a HTML file :
+It is as simple as that! To generate a HTML file:
 
 \begin{verbatim}
 pandoc document.md -o document.html
 \end{verbatim}
 
-Check out pandoc's README {[}\protect\hyperlink{ref-ux5fpandoc}{15}{]}.
-It has loads of examples and you might be able to find what you are
-looking for by straight up picking an example or by making a minor tweak
-to it.
+Check out pandoc's README
+{[}\protect\hyperlink{ref-noauthor_pandoc_nodate}{16}{]}. It has loads
+of examples and you might be able to find what you are looking for by
+straight up picking an example or by making a minor tweak to it.
 
-With PDF files, you can specify the following additional arguments :
+With PDF files, you can specify the following additional arguments:
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{-\/-latex-engine=pdflatex} : latex engine
+  \texttt{-\/-latex-engine=pdflatex}: latex engine
 \item
-  \texttt{-\/-latex-template=latex.template} : latex template file
+  \texttt{-\/-latex-template=latex.template}: latex template file
 \end{itemize}
 
-This allows you to define a \LaTeX~template to use. By default,
+This allows you to define a \(\LaTeX\) template to use. By default,
 \texttt{pandoc} uses a built in template.
 
 With html files, you can specify the following arguments:
@@ -1250,20 +1375,20 @@ With html files, you can specify the following arguments:
 \begin{itemize}
 \tightlist
 \item
-  \texttt{-\/-template=html.template} : html template file
+  \texttt{-\/-template=html.template}: html template file
 \item
-  \texttt{-\/-css=cssfile.css} : css file
+  \texttt{-\/-css=cssfile.css}: css file
 \end{itemize}
 
 With docx files unfortunately, you cannot specify a template (at least
 not at the time of writing this post)
-{[}\protect\hyperlink{ref-ux5fgooglegroups}{16}{]}. You can however,
-specify a reference-docx :
+{[}\protect\hyperlink{ref-noauthor_googlegroups_nodate}{17}{]}. You can
+however, specify a reference-docx:
 
 \begin{itemize}
 \tightlist
 \item
-  \texttt{-\/-reference-docx=reference.docx} : docx for reference styles
+  \texttt{-\/-reference-docx=reference.docx}: docx for reference styles
 \end{itemize}
 
 These following arguments allow you to use citations when writing
@@ -1272,11 +1397,11 @@ academic papers.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{-\/-filter\ pandoc-citeproc} : filter to parse citations
+  \texttt{-\/-filter\ pandoc-citeproc}: filter to parse citations
 \item
-  \texttt{-\/-csl=CSLFILE} : define a citation style sheet e.g.~ieee.csl
+  \texttt{-\/-csl=CSLFILE}: define a citation style sheet e.g.~ieee.csl
 \item
-  \texttt{-\/-bibliography=BIBFILE} : look for citations from a
+  \texttt{-\/-bibliography=BIBFILE}: look for citations from a
   bibliography
 \end{itemize}
 
@@ -1289,22 +1414,22 @@ Also, I've found the following filters useful.
 \begin{itemize}
 \tightlist
 \item
-  \texttt{-\/-filter\ pandoc-eqnos} : equation numbers
+  \texttt{-\/-filter\ pandoc-eqnos}: equation numbers
 \item
-  \texttt{-\/-filter\ pandoc-fignos} : figure numbers
+  \texttt{-\/-filter\ pandoc-fignos}: figure numbers
 \item
-  \texttt{-\/-filter\ pandoc-tablenos} : table numbers
+  \texttt{-\/-filter\ pandoc-tablenos}: table numbers
 \end{itemize}
 
 They allow you reference a figure, equation or table. For example,
 Equation \ref{eq:pi} is an example of a block equation in Markdown.
 
-A paper may be generated using a command as shown below :
+A paper may be generated using a command as shown below:
 
 \begin{verbatim}
 pandoc -s -S --latex-engine=pdflatex \
 --template=./templates/ieee-latex.template \
---filter pandoc-fignos \ 
+--filter pandoc-fignos \
 --filter pandoc-eqnos \
 --filter pandoc-tablenos \
 --filter pandoc-citeproc \
@@ -1320,34 +1445,35 @@ the surface with what you can do with Pandoc. I'll update this post with
 more features if I think they are relevant to writing a paper using
 Markdown.
 
-\section{Downside to using Markdown?}\label{downside-to-using-markdown}
+\hypertarget{downside-to-using-markdown}{%
+\section{Downside to using Markdown?}\label{downside-to-using-markdown}}
 
-Pandoc allows you to define \LaTeX~blocks in a markdown file, which are
-passed straight through to \LaTeX~without any change. \LaTeX~then
-processes it and renders it correctly. Which means if you want to
+Pandoc allows you to define \(\LaTeX\) blocks in a markdown file, which
+are passed straight through to \(\LaTeX\) without any change. \(\LaTeX\)
+then processes it and renders it correctly. Which means if you want to
 generate a PDF, you are in luck! You have the entire arsenal of
-\LaTeX~commands at your disposal.
+\(\LaTeX\) commands at your disposal.
 
 However, when converting to html or docx files, pandoc will choose to
-remove \LaTeX~blocks. There is a workaround for equations. You can
+remove \(\LaTeX\) blocks. There is a workaround for equations. You can
 specify \texttt{-\/-mathjax} and force Pandoc to attempt to render
-\LaTeX~as mathjax, which works most of the time. This page for example
-was generated entirely from a markdown file, rendered to html using
-pandoc. I have found a few cases where mathjax did not work correctly
-for me, so there may be some experimenting involved. With DOCX, you can
-pass in the \texttt{-\/-mathjax} flag, and Pandoc will convert it to
-Word's equation editor format, but this seems to work only with the
-certain set of the markdown equation syntax that pandoc supports. In the
-case of tables, it is Markdown or bust. You have to format it in the
-Markdown table format that pandoc supports if you want a HTML or DOCX
-output.
+\(\LaTeX\) as mathjax, which works most of the time. This page for
+example was generated entirely from a markdown file, rendered to html
+using pandoc. I have found a few cases where mathjax did not work
+correctly for me, so there may be some experimenting involved. With
+DOCX, you can pass in the \texttt{-\/-mathjax} flag, and Pandoc will
+convert it to Word's equation editor format, but this seems to work only
+with the certain set of the markdown equation syntax that pandoc
+supports. In the case of tables, it is Markdown or bust. You have to
+format it in the Markdown table format that pandoc supports if you want
+a HTML or DOCX output.
 
-The good news is that anything you do in \LaTeX, you can do in Markdown
-and render as a PDF. This includes equations, tables, citations,
-references, images, lists, tikz diagrams etc. The bad news is that if
-you do decide to use \LaTeX~syntax, you are still writing
-\LaTeX~(although a lot less of it), and you have lost complete HTML and
-DOCX conversion capability.
+The good news is that anything you do in \(\LaTeX\), you can do in
+Markdown and render as a PDF. This includes equations, tables,
+citations, references, images, lists, tikz diagrams etc. The bad news is
+that if you do decide to use \(\LaTeX\) syntax, you are still writing
+\(\LaTeX\) (although a lot less of it), and you have lost complete HTML
+and DOCX conversion capability.
 
 Also, Markdown / Pandoc does not support splitting the source document
 across multiple files. This was not as much a deal breaker for me, since
@@ -1356,8 +1482,9 @@ for a technical paper. However, for large reports extending hundreds of
 pages this may be a issue. There are workarounds for this (see next
 section), however they may be a bit of a hassle.
 
+\hypertarget{bending-markdown-to-your-will}{%
 \section{Bending Markdown to your
-will}\label{bending-markdown-to-your-will}
+will}\label{bending-markdown-to-your-will}}
 
 Fortunately, some of the problems I mentioned in the previous section
 can be solved using an excellent feature of Pandoc - filters!
@@ -1367,22 +1494,24 @@ certain blocks in a custom fashion. For most people this will not be
 necessary since Pandoc is feature complete, and when a specific need
 arises\footnote{The features for references for figures, equations and
   tables are all python \texttt{pandocfilters} packages written by the
-  one person {[}\protect\hyperlink{ref-duckux5fgithub}{17}{]}. There is
-  a two year long standing discussion on cross references
-  {[}\protect\hyperlink{ref-ux5fpandoc-1}{18}{]} that the curious reader
-  is referred to.} the community has often provided a custom filter that
-does the job. But if you come across a case where pandoc does not do
-what you want it to do, you can write a filter for it.
+  one person {[}\protect\hyperlink{ref-duck_github_nodate}{18}{]}. There
+  is a two year long standing discussion on cross references
+  {[}\protect\hyperlink{ref-noauthor_pandoc_nodate-1}{19}{]} that the
+  curious reader is referred to.} the community has often provided a
+custom filter that does the job. But if you come across a case where
+pandoc does not do what you want it to do, you can write a filter for
+it.
 
 There is a python package called \texttt{pandocfilters} that allows you
 to walk the AST and parse specific formats or keys. It is very powerful,
 and can offer unique ways to expand on pandoc's functionality. I wrote a
-pandocfilter {[}\protect\hyperlink{ref-krishnamurthyux5fgithub-1}{19}{]}
-to embed a jupyter notebook using a liquid tag style syntax, which I
-currently use for this
+pandocfilter
+{[}\protect\hyperlink{ref-krishnamurthy_github_nodate}{8}{]} to embed a
+jupyter notebook using a liquid tag style syntax, which I currently use
+for this
 \href{https://kdheepak.com/blog/active-reactive-and-apparent-power.html}{post}.
 
-In theory, you can write a filter that finds a \LaTeX~table block in
+In theory, you can write a filter that finds a \(\LaTeX\) table block in
 Markdown, converts it to an image and renders that in Word. Or you can
 write a filter that inputs other files during run time, allowing you to
 split your source document.
@@ -1397,147 +1526,126 @@ section as an advanced feature. I've not had to write my own filter for
 writing a technical paper (so far). Know that they are there when you
 need them.
 
-\section{TLDR}\label{tldr}
+\hypertarget{tldr}{%
+\section{TLDR}\label{tldr}}
 
 You can write a complete paper in Markdown and render it in PDF without
 any issues. I recommend using Markdown and Pandoc for writing over
-\LaTeX~and Word because of its ease of use and its flexibility and
+\(\LaTeX\) and Word because of its ease of use and its flexibility and
 versatility. And if you think Markdown is not cutting it for you, you
 can always convert it to a Word document or a TEX file and continue
-using your usual workflow. Check out my attempt at describing the space
-of complexity of document vs difficulty in implementation when using
-Word, \LaTeX~and Markdown in Fig. \ref{fig:learningcurve}.
+using your usual workflow. Check out my attempt at describing the
+relationship between complexity of document and difficulty in
+implementing when using Word, \(\LaTeX\) and Markdown in Fig.
+\ref{fig:learningcurve}.
 
-\begin{figure}[htbp]
+\begin{figure}
+\hypertarget{fig:learningcurve}{%
 \centering
-\includegraphics{../images/learningcurve.png}
-\caption{My very scientific comparison of Word, \LaTeX~and
-Markdown\label{fig:learningcurve}}
+\includegraphics{images/learningcurve.png}
+\caption{Comparing Word, \(\LaTeX\) and
+Markdown}\label{fig:learningcurve}
+}
 \end{figure}
 
 If you have gotten this far in the post, congratulations! This was a lot
 to take in, and I hope I shed some light on the potential for Markdown
 as an academic and technical writing tool. Let me know if you have any
-questions in the comments below. You can view this post in the following
-forms, thanks to Pandoc!
-
-\begin{longtable}[c]{@{}ll@{}}
-\caption{Links to multiple formats}\tabularnewline
-\toprule
-Format & Link\tabularnewline
-\midrule
-\endfirsthead
-\toprule
-Format & Link\tabularnewline
-\midrule
-\endhead
-IEEE-PDF &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf}{LINK}\tabularnewline
-IEEE-DOCX &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx}{LINK}\tabularnewline
-IEEE-HTML &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.ieee.html}{LINK}\tabularnewline
-PDF &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.pdf}{LINK}\tabularnewline
-DOCX &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.docx}{LINK}\tabularnewline
-HTML &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.html}{LINK}\tabularnewline
-SLIDES-PDF &
-\href{https://kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf}{LINK}\tabularnewline
-\bottomrule
-\end{longtable}
-
-\section{References}\label{references}
+questions in the comments below.
 
 \hypertarget{refs}{}
-\hypertarget{ref-stallmanux5femacs}{}
-{[}1{]} R. Stallman, ``Emacs as word processor.'' {[}Online{]}.
-Available:
-\url{https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html}.
+\begin{cslreferences}
+\leavevmode\hypertarget{ref-stallman_emacs_nodate}{}%
+{[}1{]} R. Stallman, ``Emacs as word processor.'' Accessed: Jan. 07,
+2016. {[}Online{]}. Available:
+\url{http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html}.
 
-\hypertarget{ref-beaumontux5fbypassux5f2015}{}
+\leavevmode\hypertarget{ref-beaumont_bypass_2015}{}%
 {[}2{]} K. Beaumont, ``Bypass almost every Corporate security control
-with a point'n'click GUI. Medium,'' 23-Dec-2015. {[}Online{]}.
-Available:
+with a point'n'click GUI.'' Dec. 2015, Accessed: Jan. 07, 2016.
+{[}Online{]}. Available:
 \url{https://medium.com/@networksecurity/oleoutlook-bypass-almost-every-corporate-security-control-with-a-point-n-click-gui-37f4cbc107d0}.
 
-\hypertarget{ref-steingoldux5fproprietary}{}
+\leavevmode\hypertarget{ref-steingold_proprietary_nodate}{}%
 {[}3{]} S. Steingold, ``Proprietary Binary Data Formats: Just Say No!''
-{[}Online{]}. Available: \url{https://www.podval.org/~sds/data.html}.
+Accessed: Jan. 07, 2016. {[}Online{]}. Available:
+\url{http://www.podval.org/~sds/data.html}.
 
-\hypertarget{ref-cottrellux5fword}{}
+\leavevmode\hypertarget{ref-cottrell_word_nodate}{}%
 {[}4{]} A. Cottrell, ``Word Processors: Stupid and Inefficient.''
+Accessed: Jan. 07, 2016. {[}Online{]}. Available:
+\url{http://ricardo.ecn.wfu.edu/~cottrell/wp.html}.
+
+\leavevmode\hypertarget{ref-noauthor_stackoverflow_nodate}{}%
+{[}5{]} ``StackOverflow Quote.'' Accessed: Jan. 08, 2016. {[}Online{]}.
+Available: \url{http://tex.stackexchange.com/a/95078}.
+
+\leavevmode\hypertarget{ref-noauthor_wikibooks_nodate}{}%
+{[}6{]} ``Wikibooks LaTeX Tables.'' Accessed: Jan. 07, 2016.
 {[}Online{]}. Available:
-\url{https://ricardo.ecn.wfu.edu/~cottrell/wp.html}.
-
-\hypertarget{ref-ux5fstackoverflow}{}
-{[}5{]} ``StackOverflow Quote.'' {[}Online{]}. Available:
-\url{https://tex.stackexchange.com/a/95078}.
-
-\hypertarget{ref-ux5fwikibooks}{}
-{[}6{]} ``Wikibooks LaTeX Tables.'' {[}Online{]}. Available:
 \url{https://en.wikibooks.org/wiki/LaTeX/Tables}.
 
-\hypertarget{ref-ux5fgithub}{}
-{[}7{]} ``Github repository to Pandoc.'' {[}Online{]}. Available:
-\url{https://github.com/jgm/pandoc/releases}.
+\leavevmode\hypertarget{ref-noauthor_github_nodate}{}%
+{[}7{]} ``Github repository to Pandoc.'' Accessed: Jan. 06, 2016.
+{[}Online{]}. Available: \url{https://github.com/jgm/pandoc/releases}.
 
-\hypertarget{ref-krishnamurthyux5fgithub}{}
-{[}8{]} D. Krishnamurthy, ``Github repository to Pandoc Paper Template.
-GitHub.'' {[}Online{]}. Available:
-\url{https://github.com/kdheepak89/pandoc-paper}.
+\leavevmode\hypertarget{ref-krishnamurthy_github_nodate}{}%
+{[}8{]} D. Krishnamurthy, ``Github repository for jupyter notebook
+pandocfilter.'' Accessed: Jan. 08, 2016. {[}Online{]}. Available:
+\url{https://github.com/kdheepak/pandoc-ipynb}.
 
-\hypertarget{ref-krishnamurthyux5fusing}{}
-{[}9{]} D. Krishnamurthy, ``Using conda to manage packages.''
-{[}Online{]}. Available:
-\url{https://kdheepak.com/blog/using-conda-to-manage-packages.html}.
+\leavevmode\hypertarget{ref-krishnamurthy_using_nodate}{}%
+{[}9{]} D. Krishnamurthy, ``Using conda to manage packages.'' Accessed:
+Jan. 06, 2016. {[}Online{]}. Available:
+\url{http://kdheepak.com/blog/using-conda-to-manage-packages.html}.
 
-\hypertarget{ref-healyux5fplain}{}
+\leavevmode\hypertarget{ref-healy_plain_nodate}{}%
 {[}10{]} K. Healy, ``Plain Text, Papers, Pandoc.'' {[}Online{]}.
 Available:
-\url{https://kieranhealy.org/blog/archives/2014/01/23/plain-text/}.
+\url{http://kieranhealy.org/blog/archives/2014/01/23/plain-text/}.
 
-\hypertarget{ref-ux5fwriting}{}
-{[}11{]} ``Writing academic papers in plain text with Markdown and
-Jupyter notebook. Sylvain deville.'' {[}Online{]}. Available:
-\url{https://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/}.
+\leavevmode\hypertarget{ref-noauthor_writing_nodate}{}%
+{[}11{]} ``Writing academic papers in Markdown using Pandoc.'' Accessed:
+Jan. 09, 2016. {[}Online{]}. Available:
+\url{http://blog.cigrainger.com/2014/07/pandoc-markdown.html}.
 
-\hypertarget{ref-ux5fwriting-1}{}
-{[}12{]} ``Writing academic papers in Markdown using Pandoc.''
+\leavevmode\hypertarget{ref-noauthor_writing_nodate-1}{}%
+{[}12{]} ``Writing academic papers in plain text with Markdown and
+Jupyter notebook.'' Accessed: Jan. 09, 2016. {[}Online{]}. Available:
+\url{http://sylvaindeville.net/2015/07/17/writing-academic-papers-in-plain-text-with-markdown-and-jupyter-notebook/}.
+
+\leavevmode\hypertarget{ref-noauthor_academic_nodate}{}%
+{[}13{]} ``Academic Markdown and Citations.'' Accessed: Jan. 09, 2016.
 {[}Online{]}. Available:
-\url{https://blog.cigrainger.com/2014/07/pandoc-markdown.html}.
+\url{http://www.chriskrycho.com/2015/academic-markdown-and-citations.html}.
 
-\hypertarget{ref-ux5facademic}{}
-{[}13{]} ``Academic Markdown and Citations.'' {[}Online{]}. Available:
-\url{https://www.chriskrycho.com/2015/academic-markdown-and-citations.html}.
+\leavevmode\hypertarget{ref-krishnamurthy_github_nodate-1}{}%
+{[}14{]} D. Krishnamurthy, ``Github repository to Pandoc Paper
+Template.'' Accessed: Jan. 06, 2016. {[}Online{]}. Available:
+\url{https://github.com/kdheepak/pandoc-paper}.
 
-\hypertarget{ref-citationux5fexample}{}
-{[}14{]} citation, ``Example of a citation.''.
+\leavevmode\hypertarget{ref-citation_example}{}%
+{[}15{]} J. Doe, ``Example Citation.''.
 
-\hypertarget{ref-ux5fpandoc}{}
-{[}15{]} ``Pandoc README.'' {[}Online{]}. Available:
-\url{https://pandoc.org/README.html}.
-
-\hypertarget{ref-ux5fgooglegroups}{}
-{[}16{]} ``GoogleGroups.'' {[}Online{]}. Available:
-\url{https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ}.
-
-\hypertarget{ref-duckux5fgithub}{}
-{[}17{]} T. Duck, ``Github repositories of Tom Duck. GitHub.''
-{[}Online{]}. Available: \url{https://github.com/tomduck}.
-
-\hypertarget{ref-ux5fpandoc-1}{}
-{[}18{]} ``Pandoc cross references Github issue tracker.'' {[}Online{]}.
+\leavevmode\hypertarget{ref-noauthor_pandoc_nodate}{}%
+{[}16{]} ``Pandoc cross references Github issue tracker.'' {[}Online{]}.
 Available: \url{https://github.com/jgm/pandoc/issues/813}.
 
-\hypertarget{ref-krishnamurthyux5fgithub-1}{}
-{[}19{]} D. Krishnamurthy, ``Github repository for jupyter notebook
-pandocfilter. GitHub.'' {[}Online{]}. Available:
-\url{https://github.com/kdheepak89/pandoc-ipynb}.
+\leavevmode\hypertarget{ref-noauthor_googlegroups_nodate}{}%
+{[}17{]} ``GoogleGroups.'' Accessed: Jan. 08, 2016. {[}Online{]}.
+Available:
+\url{https://groups.google.com/d/msg/pandoc-discuss/_KyoGN1Zf5g/rzq367675ecJ}.
+
+\leavevmode\hypertarget{ref-duck_github_nodate}{}%
+{[}18{]} T. Duck, ``Github repositories of Tom Duck.'' Accessed: Jan.
+09, 2016. {[}Online{]}. Available: \url{https://github.com/tomduck}.
+
+\leavevmode\hypertarget{ref-noauthor_pandoc_nodate-1}{}%
+{[}19{]} ``Pandoc README.'' Accessed: Jan. 08, 2016. {[}Online{]}.
+Available: \url{http://pandoc.org/README.html}.
+\end{cslreferences}
 
 
 
 
 \end{document}
-

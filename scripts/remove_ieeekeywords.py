@@ -9,7 +9,7 @@ import sys
 def ieeekeywords(k, v, fmt, meta):
     if k == "RawBlock":
         fmt, s = v
-        if fmt == "tex" and "\begin{IEEEkeywords}" in s:
+        if fmt == "tex" and "begin{IEEEkeywords}" in s:
             return []
 
 
