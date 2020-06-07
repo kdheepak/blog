@@ -8,8 +8,6 @@ slug: writing-papers-with-markdown
 category: blog
 abstract: Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. I figured I'd use this post to write about my workflow and my resources on this topic.
 bibliography: blog.bib
-filters:
-- ../scripts/remove_ieeekeywords.py
 references:
 - id: citation_example
   author:
