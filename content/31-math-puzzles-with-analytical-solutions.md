@@ -9,6 +9,10 @@ references:
 - id: possiblywrong
   title: Light Bulb Puzzle Solution
   URL: https://possiblywrong.wordpress.com/2012/01/08/light-bulb-puzzle-solution/
+- id: mark_ovchain
+  author:
+  - family: /u/mark_ovchain
+  URL: https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/
 ---
 
 Here is a fun puzzle:
@@ -227,6 +231,8 @@ Eagle eye readers will notice a pattern.
 
 It turns out that this expansion is related to the [binomial coefficients](https://en.wikipedia.org/wiki/Binomial_coefficient).
 Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors.
+
+For an approximate calculation of the maximum number of floors that can be checked for any $x$ and $n$ see [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1).
 
 # Implementation
 
