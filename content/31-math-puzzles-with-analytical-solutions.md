@@ -332,7 +332,7 @@ Table: Maximum number of floors that can be checked with $x$ drops and $n$ eggs
 You'll notice that the upper right corner of the table stays the same if you increase the number of eggs you have at your disposal.
 You can see this even more clearly in this visualization.
 
-![The relationship between the number of floor that can be checked, the number of drops and number of eggs.](./images/egg-puzzle.png){ .fullwidth }
+![The relationship between the number of floors that can be checked, the number of drops and number of eggs.](./images/egg-puzzle.png){ .fullwidth }
 
 There's a minimal number of drops required to guarantee that you will find the breaking floor, even if you have unlimited eggs.
 
