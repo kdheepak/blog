@@ -682,7 +682,7 @@ I'll update this post with more features if I think they are relevant to writing
 
 <!-- END SLIDES -->
 
-Pandoc allows you to define $\LaTeX blocks in a markdown file, which are passed straight through to $\LaTeX$ without any change.
+Pandoc allows you to define $\LaTeX$ blocks in a markdown file, which are passed straight through to $\LaTeX$ without any change.
 $\LaTeX$ then processes it and renders it correctly.
 Which means if you want to generate a PDF, you are in luck!
 You have the entire arsenal of $\LaTeX$ commands at your disposal.
@@ -700,7 +700,7 @@ You have to format it in the Markdown table format that pandoc supports if you w
 
 The good news is that anything you do in $\LaTeX$, you can do in Markdown and render as a PDF.
 This includes equations, tables, citations, references, images, lists, tikz diagrams etc.
-The bad news is that if you do decide to use $\LaTeX$ syntax, you are still writing $\LaTeX (although a lot less of it), and you have lost complete HTML and DOCX conversion capability.
+The bad news is that if you do decide to use $\LaTeX$ syntax, you are still writing $\LaTeX$ (although a lot less of it), and you have lost complete HTML and DOCX conversion capability.
 
 <!-- END SLIDES -->
 
