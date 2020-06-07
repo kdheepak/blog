@@ -9,10 +9,6 @@ references:
 - id: possiblywrong
   title: Light Bulb Puzzle Solution
   URL: https://possiblywrong.wordpress.com/2012/01/08/light-bulb-puzzle-solution/
-- id: mark_ovchain
-  author:
-  - family: /u/mark_ovchain
-  URL: https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/
 ---
 
 Here is a fun puzzle:
