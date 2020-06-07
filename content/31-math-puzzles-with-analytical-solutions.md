@@ -5,6 +5,10 @@ date: 2020-06-06T20:14:19-06:00
 tags: math, puzzle, julia
 keywords: math, puzzle, julia, egg, tower, building, marble, puzzle, problem
 summary: Analytical solution to the two egg 100 storey tower puzzle
+references:
+- id: possiblywrong
+  title: Light Bulb Puzzle Solution
+  URL: https://possiblywrong.wordpress.com/2012/01/08/light-bulb-puzzle-solution/
 ---
 
 Here is a fun puzzle:
@@ -196,7 +200,9 @@ This is also known as a recurrence relation.
 This result can be reasoned through intuition as well.
 To find the total floors you can check with $n$ eggs and $x$ drops, it will be $1$ (your first drop) plus the maximum number of floors you can check with $n$ eggs and $x-1$ eggs (if the first egg does not break) plus the maximum number of floors you can check with $n-1$ eggs with $x-1$ eggs (if the first egg does break).
 
-If we wanted to, we could expand this recurrence relation:
+If we wanted to, we could expand this recurrence relation[^possiblywrong].
+
+[^possiblywrong]: Thanks to [/u/possiblywrong](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft5qkkh/) for pointing this out [@possiblywrong].
 
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
 
@@ -204,24 +210,21 @@ $$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 1) + f(x - 2, n - 2)$$
 
 $$f(x, n) = 7 + f(x - 3, n) + 3f(x - 3, n - 1) + 3f(x - 3, n - 2) + f(x - 3, n - 3)$$
 
-$$f(x, n) = 15 + f(x - 4, n) + \ldots + f(x - 4, n - 4)$$
+$$f(x, n) = 15 + f(x - 4, n) + 4f(x - 4, n - 1)  + 6f(x - 4, n - 2) \\ + 4f(x - 4, n - 3) + f(x - 4, n - 4)$$
 
-<!--
-$$f(x, n) = 15 + f(x - 4, n) + 4f(x - 4, n - 1)  + 6f(x - 4, n - 2) + 4f(x - 4, n - 3) + f(x - 4, n - 4)$$
+$$f(x, n) = 31 + f(x - 5, n) + 5f(x - 5, n - 1)  + 10f(x - 5, n - 2) \\ + 10f(x - 5, n - 3) + 5f(x - 5, n - 4) + f(x - 5, n - 5)$$
 
-$$f(x, n) = 31 + f(x - 5, n) + 5f(x - 5, n - 1)  + 10f(x - 5, n - 2) + 10f(x - 5, n - 3) + 5f(x - 5, n - 4) + f(x - 5, n - 5)$$
-
-$$f(x, n) = 63 + f(x - 6, n) + \ldots + f(x - 6, n - 6)$$
--->
+$$f(x, n) = 63 + f(x - 6, n) + 6f(x - 6, n - 1) + 15f(x - 6, n - 2) \\ + 20f(x - 6, n - 3) + 15f(x - 6, n - 4) + 6f(x - 6, n - 5) + f(x - 6, n - 6)$$
 
 If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
-That is to say, if we had infinite eggs, with 4 drops we can guarantee checking 15 floors.
+That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
 
-If we expanded the recurrence further, you'll see a pattern.
+Eagle eye readers will notice a pattern.
 
 ![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg){ .fullwidth }
 
-With $x$ drops, we can guarantee checking $2^x - 1$ floors.
+It turns out that this expansion related to the [binomial coefficients](https://en.wikipedia.org/wiki/Binomial_coefficient).
+Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors.
 
 # Implementation
 
