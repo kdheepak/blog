@@ -43,12 +43,8 @@ SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markd
 Pandoc, LaTeX, Markdown
 \end{IEEEkeywords}
 
-<!-- BEGIN ABSTRACTCOMMENT -->
-
 I’ve had several people ask me about Markdown for academic writing recently.
 I figured I'd use this post to write about my workflow and my resources on this topic.
-
-<!-- END ABSTRACTCOMMENT -->
 
 # Why Markdown
 
