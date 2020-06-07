@@ -204,6 +204,8 @@ If we wanted to, we could expand this recurrence relation[^possiblywrong].
 
 [^possiblywrong]: Thanks to [/u/possiblywrong](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft5qkkh/) for pointing this out [@possiblywrong].
 
+Here is the expansion increasing the depth in the direction of number of drops:
+
 $$f(x, n) = 1 + f(x - 1, n) + f(x - 1, n - 1)$$
 
 $$f(x, n) = 3 + f(x - 2, n) + 2f(x - 2, n - 1) + f(x - 2, n - 2)$$
