@@ -222,17 +222,18 @@ $$f(x, n) = 31 + f(x - 5, n) + 5f(x - 5, n - 1)  + 10f(x - 5, n - 2) \\ + 10f(x 
 
 $$f(x, n) = 63 + f(x - 6, n) + 6f(x - 6, n - 1) + 15f(x - 6, n - 2) \\ + 20f(x - 6, n - 3) + 15f(x - 6, n - 4) + 6f(x - 6, n - 5) + f(x - 6, n - 6)$$
 
-If we had infinite number of eggs, you'd see that the first term is the only contribution to $f(x, n)$.
-That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
-
 Eagle eye readers will notice a pattern.
 
 ![Binomial coefficients in Pascal's triangle](images/pascaltriangle.svg){ .fullwidth }
 
 It turns out that this expansion is related to the [binomial coefficients](https://en.wikipedia.org/wiki/Binomial_coefficient).
-Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors.
 
-For an approximate calculation of the maximum number of floors that can be checked for any $x$ and $n$ see [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1).
+If we had infinite number of eggs, you'd see that the first element is the only term that contributes to $f(x, n)$, since the others will be $0$ for $x - d$ where $d$ is the depth in the triangle.
+That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
+
+Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors[^mark_ovchain].
+
+[^mark_ovchain]: _aside_: As an aside, an approximate calculation of the maximum number of floors that can be checked for any $x$ and $n$ can be made. See [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1) for more information.
 
 # Implementation
 
