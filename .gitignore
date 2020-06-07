@@ -1,4 +1,5 @@
 build/*
 website
 content/rendered
+content/IEEEtran.cls
 rendered

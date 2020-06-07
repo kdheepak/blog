@@ -24,7 +24,10 @@ OUTPUT = ./downloads
 
 OUTPUTFILE = writing-papers-with-markdown
 
-all: ieeepdf ieeedocx ieeehtml pdf docx html slidespdf
+all: setup ieeepdf ieeedocx ieeehtml pdf docx html slidespdf
+
+setup:
+	cp IEEETran.cls $(MARKDOWNFOLDER)/
 
 ieeepdf:
 	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --template=$(OUTPUT)/ieee.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.pdf $(MARKDOWN).md --metadata link-citations=true
