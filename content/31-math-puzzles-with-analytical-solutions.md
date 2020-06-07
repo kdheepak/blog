@@ -231,9 +231,9 @@ It turns out that this expansion is related to the [binomial coefficients](https
 If we had infinite number of eggs, you'd see that the first element is the only term that contributes to $f(x, n)$, since the others will be $0$ for $x - d$ where $d$ is the depth in the triangle.
 That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 63 floors.
 
-Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors[^mark_ovchain].
+Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors if we had infinite eggs[^mark_ovchain].
 
-[^mark_ovchain]: _aside_: As an aside, an approximate calculation of the maximum number of floors that can be checked for any $x$ and $n$ can be made. See [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1) for more information.
+[^mark_ovchain]: _aside_: If we had a finite number of eggs, an approximation of this recurrence can be made. See [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1) for more information.
 
 # Implementation
 
