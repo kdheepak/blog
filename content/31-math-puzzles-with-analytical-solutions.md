@@ -229,7 +229,7 @@ That is to say, if we had infinite eggs, with 6 drops we can guarantee checking 
 
 Using this, we can say that, with $x$ drops we can guarantee checking $2^x - 1$ floors if we had infinite eggs[^mark_ovchain].
 
-[^mark_ovchain]: _aside_: If we had a finite number of eggs, an approximation of this recurrence can be made. See [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1) for more information.
+[^mark_ovchain]: If we had a finite number of eggs, an approximation of this recurrence can be made. See [/u/mark_ovchain's insightful comment on this thread](https://old.reddit.com/r/mathriddles/comments/gxnihd/the_two_egg_tower_puzzle/ft6gi6k/?context=1) for more information.
 
 # Implementation
 
