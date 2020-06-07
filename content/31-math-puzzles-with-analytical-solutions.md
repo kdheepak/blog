@@ -23,16 +23,14 @@ Here is a fun puzzle:
 
 **_Spoiler warning_**: If you have not seen this problem before I urge you to give it a go before continuing further. I'm going to post the solution to this below, so this is your spoiler warning.
 
-
 If you are interested in an easy to understand intuitive explanation to the $2$ egg $100$ storey tower problem, check out the following video:
 
 <figure class="iframe-wrapper">
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/NGtt7GJ1uiM?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </figure>
 
-We will go through the same solution below, but derive the solution mathematically.
-Then we will discuss the $3$ egg puzzle.
-Finally, we will generalize the problem with $x$ floors and $N$ eggs.
+We will go through this problem for the $2$ eggs and $3$ eggs variant, and derive the solution mathematically.
+Then, we will generalize the problem with $x$ floors and $N$ eggs.
 
 # Two eggs
 
