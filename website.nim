@@ -83,6 +83,11 @@ proc render(file: string): JsonNode =
   let thtml = absolutePath(joinPath("templates", "template.html"))
   let tcss = @[absolutePath(joinPath("templates", "template.css"))]
 
+  let tmd = joinPath(getTempDir(), "metadata.html")
+  writeFile(tmd, "$meta-json$")
+  let outjson = execProcess(&"pandoc {filename}{ext} --template={tmd}", workingDir = absolutePath(dir), options = {poUsePath, poEvalCommand})
+  let post = parseJson(outjson)
+
   var args = ""
 
   if fileExists(thtml):
@@ -91,6 +96,9 @@ proc render(file: string): JsonNode =
   args = &"{args} --standalone"
   for c in static_tcss:
     args = &"{args} --css {c}"
+  if not post{"css"}.isNil:
+    for css in post{"css"}:
+      static_tcss.add(css.getStr())
 
   for c in tcss:
     if not fileExists(c):
@@ -105,10 +113,6 @@ proc render(file: string): JsonNode =
     copyFile(c, joinPath("build", ocss))
     args = &"{args} --css {ocss}"
 
-  let tmd = joinPath(getTempDir(), "metadata.html")
-  writeFile(tmd, "$meta-json$")
-  let outjson = execProcess(&"pandoc {filename}{ext} --template={tmd}", workingDir = absolutePath(dir), options = {poUsePath, poEvalCommand})
-  let post = parseJson(outjson)
   var ofilename = filename
 
   if post.hasKey("slug"):

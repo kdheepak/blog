@@ -9,6 +9,8 @@ references:
 - id: possiblywrong
   title: Light Bulb Puzzle Solution
   URL: https://possiblywrong.wordpress.com/2012/01/08/light-bulb-puzzle-solution/
+css:
+- css/table.css
 ---
 
 Here is a fun puzzle:

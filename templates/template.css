@@ -60,7 +60,6 @@ body > footer > p {
         width: unset;
     }
 
-
     .tocwrapper {
       display: grid;
       grid-template-columns: 66.6666% 33.3333%;
