@@ -46,7 +46,7 @@ text here will be passed to svgbob
 ```
 ````
 
-This is what it would look like:
+This is what it would look like when rendered on this blog:
 
 ```render_svgbob
            |           +-----------+           |
