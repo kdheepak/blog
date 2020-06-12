@@ -22,6 +22,7 @@ RUN apt-get update && \
                        unzip \
                        xz-utils \
                        make \
+                       graphviz \
                        python3 \
                        python3-pip \
                        nim \
@@ -44,5 +45,6 @@ RUN python3 --version
 RUN pandoc --version
 RUN pandoc-citeproc --version
 RUN svgbob --version
+RUN dot -V
 
 ENTRYPOINT /nim/website
