@@ -165,11 +165,11 @@ proc render(file: string): JsonNode =
   let sidenote_filter = absolutePath(joinPath("scripts", "sidenote.lua"))
   args = &"{args} --lua-filter={sidenote_filter}"
 
-  # let render_filter = absolutePath(joinPath("scripts", "render.lua"))
-  # args = &"{args} --lua-filter={render_filter}"
+  let render_filter = absolutePath(joinPath("scripts", "render.lua"))
+  args = &"{args} --lua-filter={render_filter}"
 
-  # let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
-  # args = &"{args} --lua-filter={inlinesvg_filter}"
+  let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
+  args = &"{args} --lua-filter={inlinesvg_filter}"
 
   let csl = absolutePath(joinPath("templates", "csl.csl"))
   if post{"csl"}.getStr == "" and fileExists(csl):
