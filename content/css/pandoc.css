@@ -1,3 +1,6 @@
+.hljs {
+    background: unset;
+}
 
 /* For smart quotes */
 q { quotes: "“" "”" "‘" "’"; }
