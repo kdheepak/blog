@@ -14,7 +14,7 @@ Neovim has a few quality of life features built in to the editor. One of them is
 At the time of writing, you'll need a nightly release for this feature of neovim.
 
 ```bash
-nvim --version | head -1
+$ nvim --version | head -1
 ```
 
 ```
