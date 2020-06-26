@@ -1,7 +1,7 @@
 ---
 title: Neovim Highlight Yank Text
 category: blog
-date: 2020-06-27T09:42:32-0600
+date: 2020-06-27T09:42:32-06:00
 tags: neovim
 keywords: neovim, highlight, yank, text
 summary: Visually highlight the text in neovim when yanking it
