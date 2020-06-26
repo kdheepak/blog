@@ -142,7 +142,7 @@ proc render(file: string): JsonNode =
 
   let vim_kde_syntax = absolutePath(joinPath("scripts", "vim.xml"))
 
-  args = &"{args} --highlight-style=pygments --syntax-definition={vim_kde_syntax}"
+  args = &"{args} --no-highlight"
 
   let ds = post{"date"}.getStr
   if ds != "":
