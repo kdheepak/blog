@@ -16,6 +16,9 @@ At the time of writing, you'll need a nightly release for this feature of neovim
 
 ```bash
 $ nvim --version | head -1
+```
+
+```
 NVIM v0.5.0-556-ge78658348
 ```
 
