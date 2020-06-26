@@ -9,7 +9,7 @@ summary: Visually highlight the text in neovim when yanking it
 
 Neovim has a few quality of life features built in to the editor. One of them is neovim's feature to highlight yanked text[^1: If you want to use this feature in vim, you can do so with this plugin.].
 
-![](images/vim-highlight.mov.gif)
+![](images/vim-highlight.mov.gif){.fullwidth}
 
 At the time of writing, you'll need a nightly release for this feature of neovim.
 
