@@ -7,7 +7,7 @@ keywords: neovim, highlight, yank, text
 summary: Visually highlight the text in neovim when yanking it
 ---
 
-With the nightly version of neovim at the time of writing, when yanking text in neovim you can highlight the region before yanking it.
+Neovim has a few quality of life features built in to the editor. One of them is neovim's feature to highlight yanked text[^1: If you want to use this feature in vim, you can do so with this plugin.].
 
 ![](./images/vim-highlight.mov.gif)
 
@@ -21,7 +21,6 @@ nvim --version | head -1
 NVIM v0.5.0-556-ge78658348
 ```
 
-You can also build neovim from source.
 You can add the following in your vimrc to enable this feature:
 
 ```vim
