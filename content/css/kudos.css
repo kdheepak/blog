@@ -79,7 +79,7 @@ button, input, optgroup, select, textarea {
 	 margin: 3em 0 2em;
 }
  .kudo-container.kudoed .kudo-heart-path {
-	 fill: white;
+	 fill: black;
 }
  .kudo-container .kudo-heart {
 	 font-size: 2.5em;
@@ -89,9 +89,9 @@ button, input, optgroup, select, textarea {
 	 text-align: center;
 }
  .kudo-container .kudo-heart-path {
-	 fill: #fff;
+	 fill: #fffff8;
 	 stroke-width: 20px;
-	 stroke: white;
+	 stroke: black;
 	 transition: stroke-width 150ms;
 }
  .kudo-container .kudo-button:hover .kudo-heart-path {
