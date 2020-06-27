@@ -5,11 +5,9 @@ import strformat
 import osproc
 import json
 import re
-import ospaths
 import streams
 import times
 import algorithm
-import tables
 
 var static_tcss: seq[string] = @[]
 var site_root = "https://blog.kdheepak.com"
@@ -95,7 +93,7 @@ proc render(file: string): JsonNode =
 
   args = &"{args} --standalone"
   for c in static_tcss:
-    args = &"{args} --css {c}"
+    args = &"{args} --css /{c}"
   if not post{"css"}.isNil:
     for css in post{"css"}:
       static_tcss.add(css.getStr())
@@ -105,7 +103,7 @@ proc render(file: string): JsonNode =
       continue
     let asset_css_dir = "css"
     createDir(joinPath("build", asset_css_dir))
-    let (cdir, cname, cext) = c.splitFile
+    let (_, cname, cext) = c.splitFile
     let ocss = if cname == "template":
       joinPath(asset_css_dir, &"custom{cext}")
     else:
@@ -140,8 +138,7 @@ proc render(file: string): JsonNode =
   if ofilename != "index" and ofilename != "404":
     args = &"{args} -V comments"
 
-  let vim_kde_syntax = absolutePath(joinPath("scripts", "vim.xml"))
-
+  let _ = absolutePath(joinPath("scripts", "vim.xml"))
   args = &"{args} --no-highlight"
 
   let ds = post{"date"}.getStr
@@ -276,7 +273,7 @@ proc main() =
   let tindex = joinPath(getTempDir(), "index.md")
   var oindex = open(tindex, fmWrite)
 
-  let current_time = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
+  let _ = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
   write(oindex, &"""
 ---
 title-prefix: Dheepak Krishnamurthy
