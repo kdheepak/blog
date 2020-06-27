@@ -69,9 +69,9 @@ body > footer > p {
 
 
 .comments-button {
-    background-color: #fffff8;
+    background-color: #111;
     border: 1px solid #000;
-    color: black;
+    color: #fffff8;
     padding: 0 0 0 0;
     margin-top: 5px;
     text-align: center;
@@ -83,7 +83,7 @@ body > footer > p {
 }
 
 .comments-button:hover {
-    color: #fffff8;
-    background-color: #111;
+    background-color: #fffff8;
+    color: black;
     cursor:pointer;
 }
