@@ -74,6 +74,7 @@ button, input, optgroup, select, textarea {
  .kudo-container {
 	 display: flex;
 	 font-size: 1.4rem;
+	 justify-content: center;
 	 align-items: center;
 	 margin: 3em 0 2em;
 }
