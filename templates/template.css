@@ -66,3 +66,23 @@ body > footer > p {
     }
 
 }
+
+
+.comments-button {
+    background-color: #fffff8;
+    border: 1px solid #000;
+    color: black;
+    padding: 0 0 0 0;
+    margin-top: 5px;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+}
+
+.comments-button:hover {
+    background-color: #e2e2e2;
+    cursor:pointer;
+}

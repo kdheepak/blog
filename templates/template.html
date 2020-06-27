@@ -69,14 +69,17 @@ $body$
 </section>
 $if(comments)$
 <section>
-    <h1 id="comments"><a href="#comments">#</a> Comments</h1>
-    <script src="https://utteranc.es/client.js"
+    <opt-in-script src="https://utteranc.es/client.js"
         repo="kdheepak/blog"
         issue-term="url"
         theme="github-light"
         crossorigin="anonymous"
         async>
-    </script>
+    <button class="comments-button">Show Comments</button>
+    <p>
+    powered by <a href="https://utteranc.es">utteranc.es</a>
+    </p>
+    </opt-in-script>
 </section>
 $endif$
 </article>
@@ -85,18 +88,10 @@ $include-after$
 $endfor$
 <footer>
     <p>
-    <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    This work is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     </p>
     <p>
     This site is <a href="https://github.com/kdheepak/blog">generated</a> using <a href="https://pandoc.org/">pandoc</a> and <a href="https://github.com/jez/tufte-pandoc-css">tufte-css</a>.
-    </p>
-    <p>
-      <a class="no-tufte-underline" href="https://github.com/kdheepak">
-        <img src="/images/GitHub-Mark-32px.png" alt="">
-      </a>
-      <a class="no-tufte-underline" href="/rss.xml">
-        <img src="/images/rss.svg" alt="">
-      </a>
     </p>
 </footer>
 <script data-goatcounter="https://kdheepak.goatcounter.com/count"
@@ -107,5 +102,6 @@ $endfor$
 <script charset="UTF-8" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/nim.min.js"></script>
 <script charset="UTF-8" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/matlab.min.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
+<script src="/js/opt-in-script.js"></script>
 </body>
 </html>
