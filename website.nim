@@ -177,6 +177,8 @@ proc render(file: string): JsonNode =
   args = &"{args} --lua-filter={section_prefix_filter}"
 
   post["slug"] = %* &"{ofilename}.html"
+  args = &"{args} --metadata slug={ofilename}"
+
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
   let cmd = &"pandoc --from=markdown+emoji+grid_tables --to=html5+smart {args} {filename}{ext} -o {ofile}"
