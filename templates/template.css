@@ -46,6 +46,7 @@ body > footer > p {
 }
 
 section > .kudo-container { width: 55%; }
+pre { width: 100%; }
 
 @media (max-width: 760px) {
     section > .kudo-container { width: 100%; }

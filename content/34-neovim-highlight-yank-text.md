@@ -24,9 +24,11 @@ NVIM v0.5.0-556-ge78658348
 
 You can add the following in your vimrc to enable this feature:
 
+<figure class="fullwidth">
 ```vim
 augroup LuaHighlight
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 ```
+</figure>

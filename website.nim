@@ -139,7 +139,6 @@ proc render(file: string): JsonNode =
     args = &"{args} -V comments"
 
   let _ = absolutePath(joinPath("scripts", "vim.xml"))
-  args = &"{args} --no-highlight"
 
   let ds = post{"date"}.getStr
   if ds != "":
