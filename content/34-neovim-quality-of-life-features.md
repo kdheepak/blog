@@ -18,9 +18,11 @@ In `neovim`, you can update the document live as well as show a preview of all t
 
 Just add the following to your `vimrc` file.
 
-```
+<figure class="fullwidth">
+```vim
 set inccommand=nosplit
 ```
+</figure>
 
 # Highlight Yanked Text
 
@@ -71,9 +73,11 @@ In order to set this up you need to do 3 steps.
 
 1) Add `neovim` plugin:
 
+    <figure class="fullwidth">
     ```vim
     Plug 'neovim/nvim-lsp'
     ```
+    </figure>
 
 2) Run `:LspInstall {servername}`:
 
