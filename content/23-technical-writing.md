@@ -285,22 +285,24 @@ Take for example this table {@tbl:table}.
 
 This is what the same table looks like in $\LaTeX$.
 
-    \begin{longtable}[c]{@{}rlcl@{}}
-    \caption{Demonstration of simple table syntax.}
-    \tabularnewline
-    \toprule
-    Right & Left & Center & Default\tabularnewline
-    \midrule
-    \endfirsthead
-    \toprule
-    Right & Left & Center & Default\tabularnewline
-    \midrule
-    \endhead
-    12 & 12 & 12 & 12\tabularnewline
-    123 & 123 & 123 & 123\tabularnewline
-    1 & 1 & 1 & 1\tabularnewline
-    \bottomrule
-    \end{longtable}
+```tex
+\begin{longtable}[c]{@{}rlcl@{}}
+\caption{Demonstration of simple table syntax.}
+\tabularnewline
+\toprule
+Right & Left & Center & Default\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Right & Left & Center & Default\tabularnewline
+\midrule
+\endhead
+12 & 12 & 12 & 12\tabularnewline
+123 & 123 & 123 & 123\tabularnewline
+1 & 1 & 1 & 1\tabularnewline
+\bottomrule
+\end{longtable}
+```
 
 <!-- END SLIDES -->
 
