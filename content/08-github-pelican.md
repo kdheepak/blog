@@ -31,7 +31,7 @@ You can even use your favourite text editor. (which is obviously VIM, right?)
 
 This is what this post looks like in Markdown.
 
-![](../../images/markdown-example.png)
+![](images/markdown-example.png)
 
 It really is that simple.
 

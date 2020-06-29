@@ -34,7 +34,7 @@ First we need to set up the Raspberry Pi.
 To use SPI on the Raspberry Pi, you need to connect 4 pins.
 Adafruit has an excellent image in their tutorial that shows how you can do this, which I've also linked below.
 
-![Wiring Diagram](/images/raspberry_pi_diagram.png){.fullwidth}
+![Wiring Diagram](images/raspberry_pi_diagram.png){.fullwidth}
 
 I've used the same power source to the LED strip to power the Raspberry Pi as well.
 

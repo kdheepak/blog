@@ -9,11 +9,11 @@ summary: I've created an Emacsclient.app using AppleScript to aid with my Alfred
 
 Open Automator and go to File->New. Click on Application.
 
-![](../../images/emacsclient1.png)
+![](images/emacsclient1.png)
 
 Then search for 'Run AppleScript' and drag it to the window on the right.
 
-![](../../images/emacsclient2.png)
+![](images/emacsclient2.png)
 
 Copy paste the following gist to the window
 
