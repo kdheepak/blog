@@ -1,10 +1,10 @@
 ---
-title: Neovim built in features
+title: Neovim built-in features
 category: blog
 date: 2020-06-27T09:42:32-06:00
 tags: neovim
 keywords: neovim, versus, vim, nightly, highlight, yank, text, live, substitution, built, in, lsp, language, server, protocol, client
-summary: I want to share a few neovim built in features that can make you more productive.
+summary: I want to share a few neovim built-in features that can make you more productive.
 ---
 
 I want to share three features in `neovim` quality of life improvements that are built in to the editor.
@@ -49,9 +49,9 @@ augroup LuaHighlight
 augroup END
 ```
 
-# Built in LSP
+# Language Server Protocol
 
-`neovim` has a built in implementation of Language Server Protocol client and [default configurations for over 50 languages](https://github.com/neovim/nvim-lsp).
+`neovim` has a built-in implementation of the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) client and [default configurations for over 50 languages](https://github.com/neovim/nvim-lsp).
 
 ![](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
