@@ -65,7 +65,7 @@ $ nvim --version | head -1
 NVIM v0.5.0-556-ge78658348
 ```
 
-In order to set this up you need to do 3 steps.
+In order to set this up you need to do 3 things:
 
 1) Add `neovim` plugin:
 
