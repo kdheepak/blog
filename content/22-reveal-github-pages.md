@@ -16,13 +16,17 @@ The following steps works well for me to generate a static set of slides from a 
 * Fork reveal.js to your GitHub account.
 * Push the `master` branch into the `gh-pages` branch. This is necessary because we want to use a single reveal.js repository to link to from the GitHub pages slideshow. Alternatively, you can clone reveal.js into your repository where the slideshow / presentation exists.
 * Use the following script to convert the notebook to `index.slides.html`
+
 ```bash
 ipython nbconvert index.ipynb --to slides --reveal-prefix ../reveal.js
 ```
+
 If you did not Fork reveal.js and force update master to origin/gh-pages, and instead cloned `reveal.js` to this folder, you can add it as a submodule and use the following instead
+
 ```bash
 ipython nbconvert index.ipynb --to slides --reveal-prefix reveal.js
 ```
+
 * Rename `index.slides.html` to `index.html`
 * Push your changes to a repository
 
