@@ -12,13 +12,15 @@ I want to share three features in `neovim` quality of life improvements over `vi
 # Live Substition
 
 By default, `vim`’s `:substitute` command only modifies the document when you execute the command by pressing `Enter` (`<CR>`).
-In `neovim`, you can change the document live as well as show a preview of all the changes you are going to make by setting the following option.
-
-```
-:set inccommand=nosplit
-```
+In `neovim`, you can update the document live as well as show a preview of all the changes you are going to make by setting the following option.
 
 ![](images/nvim-live-substitution.mov.gif){.fullwidth}
+
+Just add the following to your `vimrc` file.
+
+```
+set inccommand=nosplit
+```
 
 # Highlight Yanked Text
 
