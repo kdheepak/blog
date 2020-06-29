@@ -118,13 +118,12 @@ proc render(file: string): JsonNode =
     ofilename = ofilename.strip(chars = {'"', '\''})
   elif post.hasKey("title"):
     ofilename = $(post["title"])
+    ofilename = ofilename.replace("<code>", "").replace("</code>", "")
     ofilename = ofilename.strip(chars = {'"', '\''})
     ofilename = ofilename.toLowerAscii().replace("-", " ")
     ofilename = ofilename.split().join(" ").replace(" ", "-").replace("_", "-")
     for c in @[
-      ';', '/', '?', ':', '@', '&', '=',
-      '+', '$', ',', '\'', '<', '>', '#',
-      '%', '"', '\\'
+      ';', '/', '?', ':', '@', '&', '=', '+', '$', ',', '\'', '<', '>', '#', '%', '`', '\'', '"', '\\'
       ]:
       ofilename = ofilename.replace($c, "")
 
