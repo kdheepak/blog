@@ -69,41 +69,41 @@ Setting it up requires three steps.
 
 1) Adding the configurations repository as a `neovim` plugin:
 
-```
-Plug 'neovim/nvim-lsp'
-```
+    ```
+    Plug 'neovim/nvim-lsp'
+    ```
 
 2) Running `:LspInstall {servername}`:
 
-```vim
-:LspInstall sumneko_lua
-:LspInstall julials
-:LspInstall nimls
-:LspInstall rust_analyzer
-:LspInstall vimls
-:LspInstall pyls
-```
+    ```vim
+    :LspInstall sumneko_lua
+    :LspInstall julials
+    :LspInstall nimls
+    :LspInstall rust_analyzer
+    :LspInstall vimls
+    :LspInstall pyls
+    ```
 
 3) Setting up the configurations with all the options you want in your vimrc:
 
-<figure class="fullwidth">
-```lua
-lua <<EOF
-    local nvim_lsp = require'nvim_lsp'
-    nvim_lsp.sumneko_lua.setup()
-    nvim_lsp.julials.setup()
-    nvim_lsp.nimls.setup()
-    nvim_lsp.vimls.setup()
-    nvim_lsp.pyls.setup{
-        settings = {
-            pyls = {
-                configurationSources = {
-                    pycodestyle,
-                    flake8
+    <figure class="fullwidth">
+    ```lua
+    lua <<EOF
+        local nvim_lsp = require'nvim_lsp'
+        nvim_lsp.sumneko_lua.setup()
+        nvim_lsp.julials.setup()
+        nvim_lsp.nimls.setup()
+        nvim_lsp.vimls.setup()
+        nvim_lsp.pyls.setup{
+            settings = {
+                pyls = {
+                    configurationSources = {
+                        pycodestyle,
+                        flake8
+                    }
                 }
             }
         }
-    }
-EOF
-```
-</figure>
+    EOF
+    ```
+    </figure>
