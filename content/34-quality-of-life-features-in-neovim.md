@@ -49,9 +49,9 @@ augroup END
 
 # Built in LSP
 
-`neovim` has a builtin implementation of Language Server Protocol client and [default configurations for over 50 languages](https://github.com/neovim/nvim-lsp).
+`neovim` has a built in implementation of Language Server Protocol client and [default configurations for over 50 languages](https://github.com/neovim/nvim-lsp).
 
-![](images/nvim-builtin-lsp.mov.gif){.fullwidth}
+![](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
 At the time of writing, you'll need a nightly release for this feature of `neovim`.
 
