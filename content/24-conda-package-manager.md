@@ -23,49 +23,67 @@ Conda also uses hard linking, so it is inexpensive to create multiple copies of 
 
 One simple way to start is to first specify a `environment.yml` file
 
-    # environment.yml
-    name: psst-env
-    dependencies:
-    - python
-    - nose
-    - numpy
-    - pandas
-    - pip:
-        - pyomo
+```yaml
+# environment.yml
+name: psst-env
+dependencies:
+- python
+- nose
+- numpy
+- pandas
+- pip:
+    - pyomo
+```
 
 The name of the environment can be changed. Activate the environment by using the following.
 
-    source activate psst-env
+```bash
+source activate psst-env
+```
 
 Then you can create the environment by
 
-    conda env create
+```bash
+conda env create
+```
 
 You can update the environment after adding a package to `environment.yml` by using the following
 
-    conda env update
+```bash
+conda env update
+```
 
 Alternatively, you can create a new empty environment by using either one of the following
 
-    conda create -n pelican-env python=2
-    conda create --name pelican-env python=2
+```bash
+conda create -n pelican-env python=2
+conda create --name pelican-env python=2
+```
 
 In this case, `pelican-env` is the name of the environment.
 You can follow the name of the environment with all the packages you want separated by spaces.
-You must have atleast one package to create a environment.
+You must have at least one package to create a environment.
 
 After the environment is created, you can source the environment :
 
-    source activate pelican-env
+```bash
+source activate pelican-env
+```
 
 You can install packages here using one of the following :
 
-    conda install <PACKAGE-NAME>
+```bash
+conda install <PACKAGE-NAME>
+```
 
 When you have set up the environment and would like to share it, you can run the following to generate a .yml file
 
-    conda env export
+```bash
+conda env export
+```
 
 I like to update by `environment.yml` by running the following
 
-    conda env export > environment.yml
+```bash
+conda env export > environment.yml
+```
