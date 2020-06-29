@@ -3,7 +3,7 @@ title: Quality of life features in neovim
 category: blog
 date: 2020-06-27T09:42:32-06:00
 tags: neovim
-keywords: neovim, versus, vim, nightly, highlight, yank, text
+keywords: neovim, versus, vim, nightly, highlight, yank, text, live, substitution, built, in, lsp, language, server, protocol, client
 summary: Three features in neovim that can make you more productive
 ---
 
