@@ -232,19 +232,21 @@ Markdown to the rescue!
 Markdown is a very lightweight easy-to-read easy-to-write plain text markup language.
 The same example as before looks like this in Markdown.
 
-    # Section Name
+```markdown
+# Section Name
 
-    This is text in the section
+This is text in the section
 
-    ## Sub Section Name
+## Sub Section Name
 
-    The following is a list in this subsection
+The following is a list in this subsection
 
-    * The first **bold** item
-        - Nested item 1
-        - Nested item 2
-    * The second *italicized* item
-    * The third etc ...
+* The first **bold** item
+    - Nested item 1
+    - Nested item 2
+* The second *italicized* item
+* The third etc ...
+```
 
 <!-- END SLIDES -->
 
