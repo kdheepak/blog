@@ -12,6 +12,7 @@ jobs:
         cache_froms: kdheepak/blog:latest
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
+        always_pull: true
         dockerfile: Dockerfile
         tags: latest
         push: ${{ github.ref == 'refs/heads/master' }}
