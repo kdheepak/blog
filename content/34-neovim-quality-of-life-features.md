@@ -13,7 +13,7 @@ They are **_live substitution_**, **_highlight yanked text_**, and the built in 
 # Live Substitution
 
 By default, `vim`’s `:substitute` command only modifies the document when you execute the command by pressing `Enter` (`<CR>`).
-In `neovim`, you can update the document interactively. You can also have a preview of all the changes you are going to make.
+In `neovim`, you can update the document interactively. `neovim` also shows you a preview window of all the changes you are going to make in the document.
 
 ![](images/nvim-live-substitution.mov.gif){.fullwidth}
 
