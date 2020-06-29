@@ -22,11 +22,13 @@ In `neovim`, you can change the document live as well as show a preview of all t
 
 # Highlight Yanked Text
 
-The next is the ability to highlight yanked text^[If you want to use this feature in `neovim` v0.4.x or in `vim` 8, you can do so with this plugin: <https://github.com/machakann/vim-highlightedyank>.].
+The next feature is the ability to highlight yanked text[^1].
+
+[^1] _aside_: If you want to use this feature in `neovim` v0.4.x or in `vim` 8, you can do so with this plugin: <https://github.com/machakann/vim-highlightedyank>.
 
 ![](images/nvim-highlight-yank.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a nightly release for this feature of `neovim`.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
 
 ```bash
 $ nvim --version | head -1
@@ -53,7 +55,7 @@ augroup END
 
 ![](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a nightly release for this feature of `neovim`.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
 
 ```bash
 $ nvim --version | head -1
@@ -67,43 +69,43 @@ Setting it up requires three steps.
 
 1) Adding the configurations repository as a `neovim` plugin:
 
-```
-Plug 'neovim/nvim-lsp'
-```
+    ```
+    Plug 'neovim/nvim-lsp'
+    ```
 
 2) Running `:LspInstall {servername}`:
 
-```vim
-:LspInstall sumneko_lua
-:LspInstall julials
-:LspInstall nimls
-:LspInstall rust_analyzer
-:LspInstall vimls
-:LspInstall pyls
-```
-
-This will install the language server protocol for `lua`, `julia`, `nim`, `rust`, `vim` and `python`.
+    <figure class="fullwidth">
+    ```vim
+    :LspInstall sumneko_lua
+    :LspInstall julials
+    :LspInstall nimls
+    :LspInstall rust_analyzer
+    :LspInstall vimls
+    :LspInstall pyls
+    ```
+    </figure>
 
 3) Setting up the configurations with all the options you want in your vimrc:
 
-<figure class="fullwidth">
-```
-lua <<EOF
-    local nvim_lsp = require'nvim_lsp'
-    nvim_lsp.sumneko_lua.setup()
-    nvim_lsp.julials.setup()
-    nvim_lsp.nimls.setup()
-    nvim_lsp.vimls.setup()
-    nvim_lsp.pyls.setup{
-        settings = {
-            pyls = {
-                configurationSources = {
-                    pycodestyle,
-                    flake8
+    <figure class="fullwidth">
+    ```lua
+    lua <<EOF
+        local nvim_lsp = require'nvim_lsp'
+        nvim_lsp.sumneko_lua.setup()
+        nvim_lsp.julials.setup()
+        nvim_lsp.nimls.setup()
+        nvim_lsp.vimls.setup()
+        nvim_lsp.pyls.setup{
+            settings = {
+                pyls = {
+                    configurationSources = {
+                        pycodestyle,
+                        flake8
+                    }
                 }
             }
         }
-    }
-EOF
-```
-</figure>
+    EOF
+    ```
+    </figure>
