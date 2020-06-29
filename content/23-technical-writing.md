@@ -428,9 +428,11 @@ Feel free to go through other people's Makefiles to see what they have done, and
 
 ### ***Headings***
 
-    # Section
-    ## Sub Section
-    ### Sub Sub Section
+```markdown
+# Section
+## Sub Section
+### Sub Sub Section
+```
 
 **Example**
 
@@ -438,9 +440,11 @@ I've not provided an example here to avoid messing with this document's headings
 
 ### ***Text***
 
-    This text is in *italic*.
-    This text is in **bold**.
-    And this text is in ***bold-italic***
+```markdown
+This text is in *italic*.
+This text is in **bold**.
+And this text is in ***bold-italic***
+```
 
 **Example**
 
@@ -450,7 +454,9 @@ And this text is in ***bold-italic***.
 
 ### ***Link***
 
-    [Text](https://google.com)
+```markdown
+[Text](https://google.com)
+```
 
 **Example**
 
@@ -458,7 +464,9 @@ And this text is in ***bold-italic***.
 
 ### ***Images***
 
-    ![Caption](images/markdown.png)
+```markdown
+![Caption](images/markdown.png)
+```
 
 **Example**
 
@@ -466,15 +474,17 @@ And this text is in ***bold-italic***.
 
 ### ***Lists***
 
+```markdown
+* item
+* item
     * item
-    * item
-        * item
-    * item
+* item
 
+1. item
+1. item
     1. item
-    1. item
-        1. item
-    1. item
+1. item
+```
 
 **Example**
 
@@ -490,9 +500,11 @@ And this text is in ***bold-italic***.
 
 ### ***Quotes***
 
-    > Research is what I'm doing
-    when I don't know what I'm doing.
-    - Wernher von Braun
+```markdown
+> Research is what I'm doing
+when I don't know what I'm doing.
+- Wernher von Braun
+```
 
 **Example**
 
@@ -502,10 +514,12 @@ when I don't know what I'm doing.
 
 ### ***Code***
 
-    `inline code`
+```markdown
+`inline code`
 
-        Tab space
-        for code block
+    Tab space
+    for code block
+```
 
 **Example**
 
@@ -516,14 +530,16 @@ when I don't know what I'm doing.
 
 ### ***Tables***
 
-      Right     Left     Center     Default
-    -------     ------ ----------   -------
-         12     12        12            12
-        123     123       123          123
-          1     1          1             1
+```markdown
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+     12     12        12            12
+    123     123       123          123
+      1     1          1             1
+```
 
-    Table:  Demonstration of simple table syntax.
-    {#tbl:table}
+Table:  Demonstration of simple table syntax.
+{#tbl:table}
 
 **Example**
 
@@ -537,7 +553,9 @@ Table:  Demonstration of simple table syntax. {#tbl:table}
 
 ### ***Footnotes***
 
-    Example of a footnote [^0]
+```markdown
+Example of a footnote [^0]
+```
 
 **Example**
 
@@ -545,7 +563,9 @@ Example of a footnote [^0]
 
 ### ***Citations***
 
-    This is a very important fact [@citation_example]
+```markdown
+This is a very important fact [@citation_example]
+```
 
 **Example**
 
@@ -554,7 +574,9 @@ This is a very important fact [@citation_example]
 
 ### ***Strikethrough***
 
-    ~~Strikethrough text~~
+```markdown
+~~Strikethrough text~~
+```
 
 **Example**
 
@@ -562,13 +584,15 @@ This is a very important fact [@citation_example]
 
 ### ***Equations***
 
-    Inline equations $\pi$
+```markdown
+Inline equations $\pi$
 
-    Block equations
+Block equations
 
-    $$
-    \pi
-    $$ {#eq:pi}
+$$
+\pi
+$$ {#eq:pi}
+```
 
 **Example**
 
@@ -592,11 +616,15 @@ You will have to use the command line for any conversion.
 
 To generate a PDF file:
 
-    pandoc document.md -o document.pdf
+```bash
+pandoc document.md -o document.pdf
+```
 
 It is as simple as that! To generate a HTML file:
 
-    pandoc document.md -o document.html
+```bash
+pandoc document.md -o document.html
+```
 
 <!-- END SLIDES -->
 
@@ -658,16 +686,17 @@ They allow you reference a figure, equation or table. For example, Equation {@eq
 
 A paper may be generated using a command as shown below:
 
-    pandoc -s -S --latex-engine=pdflatex \
-    --template=./templates/ieee-latex.template \
-    --filter pandoc-fignos \
-    --filter pandoc-eqnos \
-    --filter pandoc-tablenos \
-    --filter pandoc-citeproc \
-    --csl=./styles/ieee.csl \
-    --bibliography=./bib/research.bib \
-    -o ieee-paper.pdf paper.md
-
+```bash
+pandoc -s -S --latex-engine=pdflatex \
+--template=./templates/ieee-latex.template \
+--filter pandoc-fignos \
+--filter pandoc-eqnos \
+--filter pandoc-tablenos \
+--filter pandoc-citeproc \
+--csl=./styles/ieee.csl \
+--bibliography=./bib/research.bib \
+-o ieee-paper.pdf paper.md
+```
 
 As you can see, there are a lot of arguments that can be passed to Pandoc.
 I've found using Makefiles for recording your past commands and documenting these instructions extremely useful.
