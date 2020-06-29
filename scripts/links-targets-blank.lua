@@ -7,8 +7,6 @@ local function add_target_blank (link)
     return link
 end
 
--- remove lines 4 and 6 to add target="_blank" to all links, not just http(s)
-
 return {
     { Link = add_target_blank }
 }
