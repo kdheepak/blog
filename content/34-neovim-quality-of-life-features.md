@@ -71,7 +71,7 @@ In order to set this up you need to do 3 steps.
 
 1) Add `neovim` plugin:
 
-    ```
+    ```vim
     Plug 'neovim/nvim-lsp'
     ```
 
