@@ -57,15 +57,19 @@ I choose Pelican because it was Python based, and it seemed to have a good selec
 
 # Install required packages #
 
-    pip install pelican
-    pip install markdown
-    pip install ghp-import
+```bash
+pip install pelican
+pip install markdown
+pip install ghp-import
+```
 
 ghp-import is a cli that allows you to easily push your changes to your github repository
 
 These are optional packages to install that may come in handy later
 
-    pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
+```bash
+pip install Pillow beautifulsoup4 cssmin cssprefixer cssutils pretty six smartypants typogrify webassets
+```
 
 # Create a Github account and a User or Project page #
 
@@ -77,12 +81,16 @@ The rest of this blog assumes you want to create a User page.
 
 Assuming `$GHUSERNAME` is your github username, run the following commands. You can rename the 'website' folder to anything you want.
 
-    git clone https://github.com/$GHUSERNAME/$GHUSERNAME.github.io/ website
-    cd website
+```bash
+git clone https://github.com/$GHUSERNAME/$GHUSERNAME.github.io/ website
+cd website
+```
 
 # Run Pelican quickstart #
 
-    pelican-quickstart
+```bash
+pelican-quickstart
+```
 
 This is what you might get. Answer all the questions
 
@@ -121,7 +129,9 @@ This is what you might get. Answer all the questions
 
 Create an sample post.
 
-    vim content/example.md
+```bash
+vim content/example.md
+```
 
 Type in the following and save it.
 
@@ -133,11 +143,15 @@ Type in the following and save it.
 
 Type the following to convert all your markdown or ReST posts to HTML.
 
-    make html
+```bash
+make html
+```
 
 You can also type the following to serve a local version of your site to view the output of your hardwork
 
-    make serve
+```bash
+make serve
+```
 
 This will be visible at localhost:8000 by default.
 
@@ -146,7 +160,8 @@ This will be visible at localhost:8000 by default.
 If you installed everything correctly, you can type the following to push your website to your Github repository.
 You need to have ghp-import installed for this to work.
 
-    make github
-
+```bash
+make github
+```
 
 You are done! If you have any questions regarding any of this, you can shoot me questions in the comments below.
