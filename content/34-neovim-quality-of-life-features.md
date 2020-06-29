@@ -67,7 +67,7 @@ NVIM v0.5.0-556-ge78658348
 
 In order to set this up you need to do 3 things:
 
-1) Add `neovim` plugin:
+1) Add the `neovim/nvim-lsp` plugin:
 
     ```vim
     Plug 'neovim/nvim-lsp'
