@@ -8,7 +8,7 @@ summary: I want to share a few neovim built-in features that can make you more p
 ---
 
 I want to share three built-in `neovim` features that are quality of life improvements for me.
-They are _live substitution_, _highlight yanked text_, and the _built in language server protocol client_.
+They are **live substitution**, **highlight yanked text**, and the **built in language server protocol client**.
 
 # Live Substitution
 
