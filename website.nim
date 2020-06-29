@@ -166,6 +166,9 @@ proc render(file: string): JsonNode =
   let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
   args = &"{args} --lua-filter={inlinesvg_filter}"
 
+  let linkstargetblank_filter = absolutePath(joinPath("scripts", "links-targets-blank.lua"))
+  args = &"{args} --lua-filter={linkstargetblank_filter}"
+
   let csl = absolutePath(joinPath("templates", "csl.csl"))
   if post{"csl"}.getStr == "" and fileExists(csl):
     let ref_section_level_filter = absolutePath(joinPath("scripts", "ref-section-level.lua"))
