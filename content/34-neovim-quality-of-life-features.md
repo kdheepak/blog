@@ -1,5 +1,5 @@
 ---
-title: Neovim built-in features
+title: Three built-in `neovim` features
 category: blog
 date: 2020-06-27T09:42:32-06:00
 tags: neovim
