@@ -95,9 +95,9 @@ Here is a footnote reference,[^1] and another.[^longnote]
     line.  In this way, multi-paragraph footnotes work like
     multi-paragraph list items.
 
+
 This paragraph won't be part of the note, because it
 isn't indented.
-
 ```
 
 The following is an example of inline footnotes in Pandoc Markdown.
