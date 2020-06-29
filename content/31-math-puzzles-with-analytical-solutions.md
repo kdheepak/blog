@@ -397,3 +397,10 @@ Partitioning the floors equally or in other words bisecting the floors, and expl
 
 So there you go!
 We have solved the general case for the egg and tower puzzle.
+
+<script>
+MathJax.Hub.Config({
+    jax: ["input/TeX","output/HTML-CSS"],
+    displayAlign: "left"
+});
+</script>

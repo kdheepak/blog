@@ -17,10 +17,3 @@ for (var i = 0; i < figures.length; i++) {
   }
 }
 </script>
-
-<script>
-MathJax.Hub.Config({
-    jax: ["input/TeX","output/HTML-CSS"],
-    displayAlign: "left"
-});
-</script>
