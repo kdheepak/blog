@@ -24,7 +24,7 @@ set inccommand=nosplit
 
 # Highlight Yanked Text
 
-The next feature is the ability to highlight yanked text[^1].
+With the latest version of neovim, you have the ability to highlight yanked text without using any plugins[^1].
 
 [^1]: _aside_: If you want to use this feature in `neovim` v0.4.x or in `vim` 8, you can do so with this plugin: <https://github.com/machakann/vim-highlightedyank>.
 
