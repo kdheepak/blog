@@ -9,7 +9,7 @@ summary: I want to share a few neovim built-in features that can make you more p
 
 I want to share three features in `neovim` quality of life improvements that are built in to the editor.
 
-# Live Substition
+# Live Substitution
 
 By default, `vim`’s `:substitute` command only modifies the document when you execute the command by pressing `Enter` (`<CR>`).
 In `neovim`, you can update the document live as well as show a preview of all the changes you are going to make by setting the following option.
