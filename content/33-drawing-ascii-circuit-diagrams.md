@@ -9,7 +9,7 @@ summary: Drawing ascii diagrams and rendering them to svg using svgbob, pandoc a
 
 Here is a simple 3-bus circuit diagram using text / ascii.
 
-```ascii
+```plaintext
            |           +-----------+           |
            +-----------+           +-----------+
            |           +-----------+           |
