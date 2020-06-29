@@ -7,7 +7,7 @@ keywords: neovim, nvim, neovim vs vim, nightly, highlight, yank, text, live, sub
 summary: I want to share a few neovim built-in features that can make you more productive.
 ---
 
-I want to share three built-in `neovim` features that are quality of life improvements for me.
+I want to share three built-in `neovim` features that I think are under the category of "quality of life improvements".
 They are **_live substitution_**, **_highlight yanked text_**, and the **_built in language server protocol client_**.
 
 # Live Substitution
