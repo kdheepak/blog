@@ -7,7 +7,7 @@ keywords: neovim, versus, vim, nightly, highlight, yank, text, live, substitutio
 summary: I want to share a few neovim built-in features that can make you more productive.
 ---
 
-I want to share three features in `neovim` quality of life improvements that are built in to the editor.
+I want to share three built-in `neovim` features that are quality of life improvements for me.
 
 # Live Substitution
 
