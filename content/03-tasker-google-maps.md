@@ -7,7 +7,7 @@ summary: Tasker in combination with Python with SL4A can be used to calculate in
 ---
 
 
-### Android Projects
+# Android Projects
 
 I've shared this on
 [UnleashThePhones](https://unleashthephones.com/2013/06/03/tasker-tutorial-integrating-google-calendar-and-google-directions-using-transit/)
