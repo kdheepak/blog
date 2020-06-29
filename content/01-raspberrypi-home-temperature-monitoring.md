@@ -6,10 +6,7 @@ tags: Raspberry Pi
 summary: I made some plots using HighCharts from my temperature monitoring system based on a Raspberry Pi ...
 ---
 
-# Example
-
 Monitoring temperature using Raspberry Pi
-
 
 <div id="containerTextF">
 The current ambient room temperature is: 75.76 °F
