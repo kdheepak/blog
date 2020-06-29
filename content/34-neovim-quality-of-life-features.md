@@ -30,7 +30,7 @@ With the latest version of neovim, you have the ability to highlight yanked text
 
 ![](images/nvim-highlight-yank.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` for this feature.
 
 ```bash
 $ nvim --version | head -1
@@ -55,7 +55,7 @@ augroup END
 
 ![Completion, diagnostics and jump to references in lua.](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` for this feature.
 
 ```bash
 $ nvim --version | head -1
