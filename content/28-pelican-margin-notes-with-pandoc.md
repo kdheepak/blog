@@ -87,7 +87,7 @@ Here is a footnote reference,[^1] and another.[^longnote]
 [^longnote]: Here's one with multiple blocks.
 
     Subsequent paragraphs are indented to show that they
-belong to the previous footnote.
+    belong to the previous footnote.
 
         { some.code }
 
