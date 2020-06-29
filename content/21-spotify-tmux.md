@@ -9,7 +9,7 @@ summary: Show current spotify track in tmux
 
 Create a file named tmux-spotify-info and place it in a directory that in your `$PATH`. Add the following snippet of code into the file and make sure it is executable.
 
-```
+```bash
 #!/usr/bin/env osascript
 # Returns the current playing song in Spotify for OSX
 
@@ -27,7 +27,7 @@ end tell
 
 Add this to the end of ~/.tmux.conf
 
-```
+```tmux
 # Bad Wolf by Steve Losh
 # Modified by Dheepak Krishnamurthy
 # =====================
