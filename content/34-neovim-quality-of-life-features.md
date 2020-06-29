@@ -18,11 +18,9 @@ In `neovim`, you can update the document live as well as show a preview of all t
 
 Just add the following to your `vimrc` file.
 
-<figure class="fullwidth">
 ```vim
 set inccommand=nosplit
 ```
-</figure>
 
 # Highlight Yanked Text
 
@@ -44,14 +42,12 @@ NVIM v0.5.0-556-ge78658348
 
 You can add the following in your vimrc to enable this feature:
 
-<figure class="fullwidth">
 ```vim
 augroup LuaHighlight
   autocmd!
   autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank()
 augroup END
 ```
-</figure>
 
 # Built in LSP
 
@@ -73,15 +69,12 @@ In order to set this up you need to do 3 steps.
 
 1) Add `neovim` plugin:
 
-    <figure class="fullwidth">
     ```vim
     Plug 'neovim/nvim-lsp'
     ```
-    </figure>
 
 2) Run `:LspInstall {servername}`:
 
-    <figure class="fullwidth">
     ```vim
     :LspInstall sumneko_lua
     :LspInstall julials
@@ -90,11 +83,9 @@ In order to set this up you need to do 3 steps.
     :LspInstall vimls
     :LspInstall pyls
     ```
-    </figure>
 
 3) Set up configurations with options in your `vimrc`:
 
-    <figure class="fullwidth">
     ```lua
     lua <<EOF
         local nvim_lsp = require'nvim_lsp'
@@ -114,4 +105,3 @@ In order to set this up you need to do 3 steps.
         }
     EOF
     ```
-    </figure>
