@@ -1,5 +1,5 @@
 ---
-title: Quality of life features in neovim
+title: Neovim quality of life features
 category: blog
 date: 2020-06-27T09:42:32-06:00
 tags: neovim
@@ -7,7 +7,7 @@ keywords: neovim, versus, vim, nightly, highlight, yank, text, live, substitutio
 summary: Three features in neovim that can make you more productive
 ---
 
-I want to share three features in `neovim` quality of life improvements over `vim`, that are built in to the editor.
+I want to share three features in `neovim` quality of life improvements over `vim` that are built in to the editor.
 
 # Live Substition
 
