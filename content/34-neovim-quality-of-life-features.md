@@ -3,7 +3,7 @@ title: Three built-in `neovim` features
 category: blog
 date: 2020-06-27T09:42:32-06:00
 tags: neovim
-keywords: neovim, versus, vim, nightly, highlight, yank, text, live, substitution, built, in, lsp, language, server, protocol, client
+keywords: neovim, nvim, neovim vs vim, nightly, highlight, yank, text, live, substitution, built-in lsp, language server protocol
 summary: I want to share a few neovim built-in features that can make you more productive.
 ---
 
