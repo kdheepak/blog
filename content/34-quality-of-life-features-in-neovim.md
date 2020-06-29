@@ -28,7 +28,7 @@ The next feature is the ability to highlight yanked text[^1].
 
 ![](images/nvim-highlight-yank.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a nightly release for this feature of `neovim`.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
 
 ```bash
 $ nvim --version | head -1
@@ -55,7 +55,7 @@ augroup END
 
 ![](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
-At the time of writing, you'll need a nightly release for this feature of `neovim`.
+At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
 
 ```bash
 $ nvim --version | head -1
