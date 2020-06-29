@@ -53,7 +53,7 @@ augroup END
 
 `neovim` has a built-in implementation of the [Language Server Protocol](https://microsoft.github.io/language-server-protocol/) client and [default configurations for over 50 languages](https://github.com/neovim/nvim-lsp).
 
-![](images/nvim-built-in-lsp.mov.gif){.fullwidth}
+![Completion, diagnostics and jump to references in lua.](images/nvim-built-in-lsp.mov.gif){.fullwidth}
 
 At the time of writing, you'll need a `v0.5.0` or [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) release of `neovim` to this feature.
 
