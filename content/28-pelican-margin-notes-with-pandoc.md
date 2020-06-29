@@ -70,7 +70,7 @@ A list of blogs, posts, websites, web books have inspired this implementation. M
 There are a few other articles [@johnjameson;@jgruber] that talk about this.
 The CSS for this page originally and the CSS for the margin notes had been heavily inspired by [gameprogrammingpatterns.com](https://gameprogrammingpatterns.com/).
 
-[^4]: _aside_: I highly recommend reading the web book freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and/or producing more.
+[^4]: _aside_: I highly recommend reading Butterick's web book. It is freely available at Practical Typography. It's challenged me to think critically about every aspect of a presentation. I also encourage buying his book or his fonts to aid Butterick in maintaining this content and producing more like this.
 
 # Implementation
 
