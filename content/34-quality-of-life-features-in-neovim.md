@@ -18,7 +18,7 @@ In `neovim`, you can change the document live as well as show a preview of all t
 :set inccommand=nosplit
 ```
 
-![](images/nvim-live-substitition.mov.gif){.fullwidth}
+![](images/nvim-live-substitution.mov.gif){.fullwidth}
 
 # Highlight Yanked Text
 
