@@ -84,12 +84,10 @@ Plug 'neovim/nvim-lsp'
 :LspInstall pyls
 ```
 
-This will install the language server protocol for `lua`, `julia`, `nim`, `rust`, `vim` and `python`.
-
 3) Setting up the configurations with all the options you want in your vimrc:
 
 <figure class="fullwidth">
-```
+```lua
 lua <<EOF
     local nvim_lsp = require'nvim_lsp'
     nvim_lsp.sumneko_lua.setup()
