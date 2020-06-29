@@ -5,10 +5,13 @@ category: blog
 summary: Installing gdb and fixing the certificate issue
 ---
 
-    brew tap homebrew/dupes
-    brew install gdb
-
+```bash
+brew tap homebrew/dupes
+brew install gdb
+```
 
 Certificate issue can be resolved by the following steps
 
-    sudo security add-trust -d -r trustRoot -p basic -p codeSign -k /Library/Keychains/System.keychain ~/Desktop/gdb-cert.cer
+```bash
+sudo security add-trust -d -r trustRoot -p basic -p codeSign -k /Library/Keychains/System.keychain ~/Desktop/gdb-cert.cer
+```
