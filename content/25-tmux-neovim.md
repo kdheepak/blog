@@ -15,23 +15,33 @@ I wanted to save here some of the commands required to set up Neovim and tmux.
 First update brew.
 If you don't have brew, you can install it from [here](https://brew.sh/).
 
-    brew update
+```bash
+brew update
+```
 
 After updating brew, you can install Neovim from HEAD using the following.
 
-    # https://github.com/neovim/homebrew-neovim/blob/master/README.md
-    brew install --HEAD neovim
-    brew reinstall --HEAD neovim
+```bash
+# https://github.com/neovim/homebrew-neovim/blob/master/README.md
+brew install --HEAD neovim
+brew reinstall --HEAD neovim
+```
 
 Install tmux using the following
 
-    brew install tmux
+```bash
+brew install tmux
+```
 
 The following allows you to use copy paste instead tmux on OSX.
 
-    brew install reattach-to-user-namespace
+```bash
+brew install reattach-to-user-namespace
+```
 
 This changes the cursor inside vim in the terminal when you change from NORMAL to INSERT and back.
 
-    infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
-    tic $TERM.ti
+```bash
+infocmp $TERM | sed 's/kbs=^[hH]/kbs=\\177/' > $TERM.ti
+tic $TERM.ti
+```
