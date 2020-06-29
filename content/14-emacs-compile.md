@@ -29,5 +29,5 @@ compilation was successful. [StackOverflow](https://emacs.stackexchange.com/a/33
         (message "No Compilation Errors!")))))
 ```
 
-Insert the above code into your .emacs file. You can change the time you wish
+Insert the above code into your `.emacs` file. You can change the time you wish
 the buffer to be available by changing the "1 sec" in the above code
