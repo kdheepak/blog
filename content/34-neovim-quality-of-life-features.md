@@ -67,15 +67,15 @@ $ nvim --version | head -1
 NVIM v0.5.0-556-ge78658348
 ```
 
-Setting it up requires three steps.
+In order to set this up you need to do 3 steps.
 
-1) Adding the configurations repository as a `neovim` plugin:
+1) Add `neovim` plugin:
 
     ```
     Plug 'neovim/nvim-lsp'
     ```
 
-2) Running `:LspInstall {servername}`:
+2) Run `:LspInstall {servername}`:
 
     <figure class="fullwidth">
     ```vim
@@ -88,7 +88,7 @@ Setting it up requires three steps.
     ```
     </figure>
 
-3) Setting up the configurations with all the options you want in your vimrc:
+3) Set up configurations with options in your `vimrc`:
 
     <figure class="fullwidth">
     ```lua
