@@ -26,7 +26,7 @@ set inccommand=nosplit
 
 The next feature is the ability to highlight yanked text[^1].
 
-[^1] _aside_: If you want to use this feature in `neovim` v0.4.x or in `vim` 8, you can do so with this plugin: <https://github.com/machakann/vim-highlightedyank>.
+[^1]: _aside_: If you want to use this feature in `neovim` v0.4.x or in `vim` 8, you can do so with this plugin: <https://github.com/machakann/vim-highlightedyank>.
 
 ![](images/nvim-highlight-yank.mov.gif){.fullwidth}
 
