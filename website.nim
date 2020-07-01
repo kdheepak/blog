@@ -232,7 +232,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
   <guid>$1</guid>
 </item>
   """ % [
-        post["title"].getStr,
+        post["title"].getStr().replace("<code>", "").replace("</code>", ""),
         post["slug"].getStr,
         post["summary"].getStr,
         post_dt,
