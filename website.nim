@@ -252,6 +252,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     <link>https://blog.kdheepak.com/</link>
     <lastBuildDate>{time_now}</lastBuildDate>
     <generator>website</generator>
+
 {index_post}
   </channel>
 </rss>
