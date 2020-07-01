@@ -66,6 +66,10 @@ $ nvim --version | head -1
 NVIM v0.5.0-556-ge78658348
 ```
 
+While technically you can configure the LSP client is built-in to `neovim` straight from your vimrc, there's a number of steps for that.
+Fortunately, the `neovim` developers have built a [`neovim/nvim-lsp`](https://github.com/neovim/nvim-lsp) repository that houses configurations for various languages.
+And you can install the configuration repository as a `neovim` plugin.
+
 In order to set this up you need to do 3 things:
 
 1) Add the `neovim/nvim-lsp` plugin:
