@@ -244,18 +244,17 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
   let time_now = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
 
   var content = &"""
-  <?xml version="1.0"?>
-  <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-      <channel>
-          <title>Dheepak Krishnamurthy's Blog</title>
-          <description>My thoughts, notes and blogs</description>
-          <link>https://blog.kdheepak.com/</link>
-          <lastBuildDate>{time_now}</lastBuildDate>
-          <generator>website</generator>
-
+<?xml version="1.0"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dheepak Krishnamurthy's Blog</title>
+    <description>My thoughts, notes and blogs</description>
+    <link>https://blog.kdheepak.com/</link>
+    <lastBuildDate>{time_now}</lastBuildDate>
+    <generator>website</generator>
 {index_post}
-      </channel>
-  </rss>
+  </channel>
+</rss>
   """
   writeFile("build/" & "rss.xml", content)
 
