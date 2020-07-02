@@ -227,7 +227,8 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 <item>
   <title>$1</title>
   <link>$5/$2</link>
-  <guid>$5/$2</guid>
+  <guid isPermaLink="true">$5/$2</guid>
+  <atom:link href="$5/$2" rel="standout"></atom:link>
   <pubDate>$4</pubDate>
   <description>$3</description>
 </item>
@@ -251,6 +252,10 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     <description>My thoughts, notes and blogs</description>
     <link>https://blog.kdheepak.com/</link>
     <lastBuildDate>{time_now}</lastBuildDate>
+    <pubDate>{time_now}</pubDate>
+    <language>en-us</language>
+    <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
+    <atom:link href="https://blog.kdheepak.com/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     <generator>website</generator>
 
 {index_post}
