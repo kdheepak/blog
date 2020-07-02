@@ -248,6 +248,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 
   var content = &"""
 <?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/styles/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dheepak Krishnamurthy's Blog</title>
