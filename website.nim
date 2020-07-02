@@ -234,7 +234,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
   """ % [
         post["title"].getStr().replace("<code>", "").replace("</code>", ""),
         post["slug"].getStr,
-        post["summary"].getStr().replace("<code>", "").replace("</code>", ""),,
+        post["summary"].getStr().replace("<code>", "").replace("</code>", ""),
         post_dt,
         site_root,
         ]
