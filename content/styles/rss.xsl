@@ -18,6 +18,8 @@
 <link rel="stylesheet" href="css/custom.css"/>
 </head>
 <body>
+<article>
+<header>
 <h1>
     <abbr title="Really Simple Syndication">RSS</abbr> feed for
     <a>
@@ -27,6 +29,8 @@
         <xsl:value-of select="rss/channel/title"/>
     </a>
 </h1>
+</header>
+<section>
 <p>To subscribe, copy the address below and paste it when your feed reader asks for it. It will be updated periodically in your reader. New to feeds? <a href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds" title="Search on the web to learn more">Learn more</a>.</p>
 <p>
 <label for="address">RSS address:</label>
@@ -42,6 +46,8 @@
 <xsl:for-each select="rss/channel/item">
     <p><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a></p>
 </xsl:for-each>
+</section>
+</article>
 </body>
 </html>
 </xsl:template>
