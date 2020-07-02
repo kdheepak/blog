@@ -161,7 +161,7 @@ proc render(file: string): JsonNode =
   args = &"{args} --lua-filter={sidenote_filter}"
 
   let render_filter = absolutePath(joinPath("scripts", "render.lua"))
-  args = &"{args} --lua-filter={render_filter}"
+  # args = &"{args} --lua-filter={render_filter}"
 
   let inlinesvg_filter = absolutePath(joinPath("scripts", "inline-svg.lua"))
   args = &"{args} --lua-filter={inlinesvg_filter}"
@@ -185,7 +185,7 @@ proc render(file: string): JsonNode =
   if ofilename == "index":
     args = &"{args} --variable root=https://kdheepak.com"
   else:
-    args = &"{args} --variable root=/"
+    args = &"{args} --variable root=https://kdheepak.com --variable blogroot=/"
 
   let cmd = &"pandoc --from=markdown+emoji+grid_tables+fenced_code_blocks --to=html5+smart {args} {filename}{ext} -o {ofile}"
   let p = startProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd, poStdErrToStdOut})
@@ -222,7 +222,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     var ds = post{"date"}.getStr
     ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
     var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
-    post_dt = format(dt, "%a, %d %b %Y %H:%M:%S GMT")
+    post_dt = format(dt, "ddd, dd MMM yyyy HH:mm:ss \'GMT\'")
     p = """
 <item>
   <title>$1</title>
@@ -242,7 +242,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     seq_post.add p
 
   var index_post = seq_post.join("\n")
-  let time_now = format(now(), "%a, %d %b %Y %H:%M:%S GMT")
+  let time_now = format(now(), "ddd, dd MMM yyyy HH:mm:ss \'GMT\'")
 
   var content = &"""
 <?xml version="1.0"?>
@@ -290,7 +290,7 @@ proc main() =
   write(oindex, &"""
 ---
 title-prefix: Dheepak Krishnamurthy
-title: Blog
+title: blog
 category: blog
 summary: My thoughts, notes and blogs
 slug: index

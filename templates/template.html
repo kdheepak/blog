@@ -48,7 +48,13 @@ $endfor$
 <article>
 <header>
 $if(title)$
-<h1 class="title"><a class="home" href="$root$">~/</a> $title$</h1>
+<h1 class="title">
+    <a style="color: gainsboro" class="home" href="$root$">/</a>
+    $if(blogroot)$
+    <a style="color: gainsboro" class="bloghome" href="$blogroot$">b</a> /
+    $endif$
+    $title$
+</h1>
 $endif$
 $if(subtitle)$
 <p class="subtitle">$subtitle$</p>
