@@ -222,7 +222,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     var ds = post{"date"}.getStr
     ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
     var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
-    post_dt = format(dt, "dd MMM yy HH:mm z")
+    post_dt = format(dt, "%a, %d %b %Y %H:%M:%S GMT")
     p = """
 <item>
   <title>$1</title>
@@ -241,7 +241,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     seq_post.add p
 
   var index_post = seq_post.join("\n")
-  let time_now = format(now(), "yyyy-MM-dd\'T\'HH:mm:sszzz")
+  let time_now = format(now(), "%a, %d %b %Y %H:%M:%S GMT")
 
   var content = &"""
 <?xml version="1.0"?>
