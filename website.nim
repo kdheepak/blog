@@ -230,7 +230,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
   <title>$1</title>
   <link>$5/$2</link>
   <guid isPermaLink="true">$5/$2</guid>
-  <atom:link href="$5/$2" rel="standout"></atom:link>
+  <atom:link href="$5/$2" rel="self"></atom:link>
   <pubDate>$4</pubDate>
   <description>$3</description>
 </item>
