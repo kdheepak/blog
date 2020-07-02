@@ -227,9 +227,9 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 <item>
   <title>$1</title>
   <link>$5/$2</link>
-  <description>$3</description>
+  <guid>$5/$2</guid>
   <pubDate>$4</pubDate>
-  <guid>$1</guid>
+  <description>$3</description>
 </item>
   """ % [
         post["title"].getStr().replace("<code>", "").replace("</code>", ""),
