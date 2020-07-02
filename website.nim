@@ -222,7 +222,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
     var ds = post{"date"}.getStr
     ds = if ds != "": ds else: "1970-01-01T00:00:00-00:00"
     var dt: DateTime = parse(ds, "yyyy-MM-dd\'T\'HH:mm:sszzz")
-    post_dt = format(dt, "yyyy-MM-dd\'T\'HH:mm:sszzz")
+    post_dt = format(dt, "dd MMM yy HH:mm z")
     p = """
 <item>
   <title>$1</title>
