@@ -38,7 +38,7 @@
     </xsl:attribute>
 </input>
 </p>
-<p>Recent blogs:</p>
+<h3>Recent blogs:</h3>
 <xsl:for-each select="rss/channel/item">
     <p><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a></p>
 </xsl:for-each>
