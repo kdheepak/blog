@@ -154,6 +154,8 @@ proc render(file: string): JsonNode =
     let commit = execProcess(&"git log -n 1 --pretty=format:%H -- {filename}{ext}", workingDir = dir).strip()
     let source = &"https://github.com/kdheepak/blog/blob/{commit}/content/{filename}{ext}"
     args = &"{args} --metadata source=\"{source}\""
+  else:
+    args = &"{args} --metadata source=\"https://github.com/kdheepak/blog/\""
 
   args = &"{args} {filters}"
 
@@ -294,6 +296,7 @@ title: blog
 category: blog
 summary: My thoughts, notes and blogs
 slug: index
+date: {now()}
 ---
   """)
 
@@ -312,7 +315,7 @@ slug: index
     var dt: DateTime = parse(post{"date"}.getStr, "yyyy-MM-dd\'T\'HH:mm:sszzz")
     var d = format(dt, "MMM, yyyy")
     var line = &"[{t}]({s})"
-    write(oindex, &"<h3 class=\"toclink\">{line}</h3><h3 class=\"tocdate\">{d}</h3>")
+    write(oindex, &"<span class=\"toclink\">{line}</span><span class=\"tocdate\">{d}</span>")
     write(oindex, "\n\n")
   write(oindex, "</div>")
   oindex.close()

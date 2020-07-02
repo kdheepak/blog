@@ -26,7 +26,7 @@ body > footer > p {
     width: 55%;
 }
 
-.tocwrapper {
+.tocwrapper > p {
   display: grid;
   grid-template-columns: 44.4444% 22.2222%;
 }
@@ -64,7 +64,7 @@ pre { width: 100%; }
         width: unset;
     }
 
-    .tocwrapper {
+    .tocwrapper > p {
       display: grid;
       grid-template-columns: 66.6666% 33.3333%;
     }
