@@ -20,7 +20,7 @@ In `neovim`, you can update the document interactively. `neovim` also shows you 
 Just add the following option to your `vimrc` file.
 
 ```vim
-set inccommand=nosplit
+set inccommand=split
 ```
 
 # Highlight Yanked Text
