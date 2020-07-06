@@ -57,13 +57,12 @@ Once you have `neovim/nvim-lsp` installed with your favorite plugin manager, you
 That will download and install `LanguageServer.jl` and `SymbolServer.jl` into your global environment.
 You may also want [`JuliaEditorSupport/julia-vim`](https://github.com/JuliaEditorSupport/julia-vim) for syntax highlighting and other niceties.
 
-At the moment you'll have to make some changes to `julials` file. The changes required are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.
+~At the moment you'll have to make some changes to `julials` file. The changes required are in this PR: <https://github.com/neovim/nvim-lsp/pull/258>.~
 
-And, at the moment neovim v0.5.0 isn't released yet. You'll have to get the latest commit on `master` and build from source, or download a release from the [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) tag on github.
+And, at the moment neovim v0.5.0 isn't released yet.
+You'll have to get the latest commit on `master` and build from source, or download a release from the [`nightly`](https://github.com/neovim/neovim/releases/tag/nightly) tag on github.
 This also means that the lsp client is not stable yet.
-And there may be bugs[^nvim_lsp_bug].
-
-[^nvim_lsp_bug]: _aside_: One such bug that I ran into is that LanguageServer.jl does not support `textDocument/declaration` and `textDocument/typeDeclaration`, but the neovim LSP client still sends the request if the user makes that request call. This causes LanguageServer.jl to crash, and this looks like a silent failure from the user perspective. This is resolved in this PR: <https://github.com/neovim/neovim/pull/12421>.
+If you run into any issues, open an issue on <https://github.com/neovim/neovim/issues>.
 
 Here is a minimal `.vimrc` configuration that works with `NVIM v0.5.0-539-g91e41c857`.
 
