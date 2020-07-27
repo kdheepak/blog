@@ -66,7 +66,7 @@ from subprocess import check_call
 import shlex
 
 # Create post develop command class for hooking into the python setup process
-# This command will run after dev dependencies are installed
+# This command will run after dependencies are installed
 class PostDevelopCommand(develop):
     def run(self):
         try:
@@ -75,10 +75,10 @@ class PostDevelopCommand(develop):
             logger.warning("Unable to run 'pre-commit install'")
         develop.run(self)
 
-install_requires = ["install_dependency1", "install_dependency2"]
-test_requires = ["test_dependency1"]
-extra_requires = ["optional_dependency1"]
-dev_requires = ["pre-commit"]
+install_requires = ["networkx"] # alternatively, read from `requirements.txt`
+extra_requires = ["pandas"]     # optional dependencies
+test_requires = ["pytest"]      # test dependencies
+dev_requires = ["pre-commit"]   # dev dependencies
 
 setup(
     name="packagename",
