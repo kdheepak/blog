@@ -13,7 +13,7 @@ nocite: |
   @ljvmiranda921
 ---
 
-### Using `pre-commit`
+## Using `pre-commit`
 
 Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
@@ -55,7 +55,7 @@ Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hoo
    ```
 4) Run `pre-commit install` inside the `.git` directory.
 
-### Using `setup.py` to install `pre-commit` hooks
+## Using `setup.py` to install `pre-commit` hooks
 
 Add a `PostDevelopCommand` hook to run `pre-commit install` when setting up a python package using `setup.py`.
 
@@ -107,7 +107,7 @@ This will also run `pre-commit install` in the git repository, which will add th
 
 If you don't want to automatically run `pre-commit install`, remove the `cmdclass={"develop": PostDevelopCommand}` line in the `setup(...)` function arguments.
 
-### Using `pre-commit-hooks` for all git repositories on your machine
+## Using `pre-commit-hooks` for all git repositories on your machine
 
 If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder that is used as a `templatedir` when you run `git init`.
 
@@ -116,7 +116,7 @@ Add the following to your `.gitconfig` file [^gitconfig].
 [^gitconfig]:
     On Linux and MacOS, this file is located at `~/.gitconfig`.
     On Windows, it should be located at `C:\Users\USERNAME\.gitconfig`.
-    
+
     `git` will not create this file unless you ask for it.
     You can create it by running `git config --global --edit`.
 
@@ -149,7 +149,7 @@ pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 You can place the `.pre-commit-config.yaml` anywhere. I have mine in my `dotfiles` repository.
 If you have done all this and set it up correctly, then the next time you run `git init`, this pre-commit hook will automatically be added to your git repository.
 
-### `git commit --no-verify`
+## `git commit --no-verify`
 
 Finally, if you want to bypass the `pre-commit` hooks occasionally in special circumstances, you can add the `--no-verify` flag to your `git commit` command.
 
