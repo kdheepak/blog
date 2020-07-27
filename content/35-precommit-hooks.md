@@ -16,8 +16,9 @@ nocite: |
 # Using `pre-commit`
 
 1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
-2) Add the hooks you want in that file. Example below:
+2) Add the hooks you want in that file:
    ```yaml
+   # /path/to/gitrepos/reponame/.pre-commit-hooks.yaml
    repos:
    - repo: https://github.com/pre-commit/pre-commit-hooks
      rev: v3.1.0
