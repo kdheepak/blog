@@ -111,11 +111,10 @@ If you don't want to automatically run `pre-commit install`, remove the `cmdclas
 
 If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder that is used as a `templatedir` when you run `git init`.
 
-Add the following to your `.gitconfig` file [^gitconfig].
+Add the following to your `~/.gitconfig` file [^gitconfig].
 
 [^gitconfig]:
-    On Linux and MacOS, this file is located at `~/.gitconfig`.
-    On Windows, it should be located at `C:\Users\USERNAME\.gitconfig`.
+    On Windows, the file is located at `C:\Users\USERNAME\.gitconfig`.
     Also, `git` will not create this file unless you ask for it.
     You can create it by running `git config --global --edit`.
 
