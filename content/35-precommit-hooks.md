@@ -62,7 +62,9 @@ Using `pre-commit` requires adding a `.pre-commit-hooks.yaml` file to the git re
 
 # Using `setup.py` to install `pre-commit` hooks
 
-Add a `PostDevelopCommand` hook to run `pre-commit install` when setting up a python package using `setup.py`.
+You can have `setup.py` automatically run `precommit install` when setting up a developer environment.
+
+To do this, add a `PostDevelopCommand` hook to `setup.py`. Here's a minimal example:
 
 ```python
 import os
@@ -101,7 +103,7 @@ setup(
 )
 ```
 
-Then run the following the first time you want to start working on the project:
+Then, during the first time you want to start working on the project you can run the following to setup your development environment:
 
 ```bash
 pip install -e ".[dev]"
