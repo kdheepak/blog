@@ -156,7 +156,7 @@ If you have set it up correctly, the next time you run `git init` the pre-commit
 
 # `git commit --no-verify`
 
-Finally, if you want to bypass the `pre-commit` hooks occasionally in special circumstances, you can add the `--no-verify` flag to your `git commit` command.
+Finally, if you want to bypass the `pre-commit` hooks in special circumstances, you can add the `--no-verify` flag to your `git commit` command.
 
 ```bash
 git commit --no-verify
