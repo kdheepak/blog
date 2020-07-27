@@ -13,7 +13,7 @@ nocite: |
   @ljvmiranda921
 ---
 
-![](images/pre-commit-hooks.png)
+![Running `git commit` with `pre-commit` hooks](images/pre-commit-hooks.png){.fullwidth}
 
 # Setting up `pre-commit` for a git repo
 
