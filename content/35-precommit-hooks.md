@@ -146,7 +146,6 @@ Here is what my [`git-templates/hooks/pre-commit`](https://github.com/kdheepak/d
 
 ```bash
 #!/bin/sh
-
 pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 ```
 
