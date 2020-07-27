@@ -13,6 +13,8 @@ nocite: |
   @ljvmiranda921
 ---
 
+![](images/pre-commit-hooks.png)
+
 # Using `pre-commit`
 
 Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
