@@ -15,7 +15,7 @@ nocite: |
 
 ![](images/pre-commit-hooks.png)
 
-# Using `pre-commit`
+# Setting up `pre-commit` for a git repo
 
 Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
@@ -109,7 +109,7 @@ This will also run `pre-commit install` in the git repository, which will add th
 
 If you don't want to automatically run `pre-commit install`, remove the `cmdclass={"develop": PostDevelopCommand}` line in the `setup(...)` function arguments.
 
-# Using `pre-commit-hooks` for all git repositories on your machine
+# Using `pre-commit-hooks` for all git repos
 
 If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder that is used as a `templatedir` when you run `git init`.
 
