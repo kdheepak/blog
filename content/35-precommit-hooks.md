@@ -143,8 +143,9 @@ Here is what my `git-templates/hooks/pre-commit` file looks like:
 pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 ```
 
-You can place the `.pre-commit-config.yaml` anywhere. I have mine in my `dotfiles` repository.
-If you have done all this and set it up correctly, then the next time you run `git init`, this pre-commit hook will automatically be added to your git repository.
+You can place the `.pre-commit-config.yaml` wherever you like.
+I have mine in my `~/gitrepos/dotfiles` repository.
+If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository.
 
 ## `git commit --no-verify`
 
