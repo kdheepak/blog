@@ -20,7 +20,7 @@ nocite: |
 Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
 1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
-2) Add the hooks you want in that file:
+2) Add the hooks you want in that file. This is my [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
    ```yaml
    # cat /path/to/gitrepos/reponame/.pre-commit-hooks.yaml
    repos:
@@ -113,7 +113,7 @@ If you don't want to automatically run `pre-commit install`, remove the `cmdclas
 
 If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder that is used as a `templatedir` when you run `git init`.
 
-Add the following to your `~/.gitconfig` file [^gitconfig].
+Add the following to your [`~/.gitconfig`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/gitconfig#L176-L177) file [^gitconfig].
 
 [^gitconfig]:
     On Windows, the file is located at `C:\Users\USERNAME\.gitconfig`.
@@ -137,7 +137,7 @@ git-templates
 You can create a text file and make it executable by running `chmod +x pre-commit`.
 In that file, you can run `pre-commit` and point it to the `.pre-commit-config.yaml` that you wish to use.
 
-Here is what my `git-templates/hooks/pre-commit` file looks like:
+Here is what my [`git-templates/hooks/pre-commit`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/git-templates/hooks/pre-commit) file looks like:
 
 ```bash
 #!/bin/sh
@@ -146,7 +146,7 @@ pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 ```
 
 You can place the `.pre-commit-config.yaml` wherever you like.
-I have mine in my `~/gitrepos/dotfiles` repository.
+I have mine in my [`~/gitrepos/dotfiles`](https://github.com/kdheepak/dotfiles/) repository.
 If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository.
 
 # `git commit --no-verify`
