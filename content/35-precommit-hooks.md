@@ -19,7 +19,7 @@ nocite: |
 
 Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
-1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
+1) Add a file called `.pre-commit-hooks.yaml` to the root of your git repository.
 2) Add the hooks you want in that file. This is my [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
    ```yaml
    # cat /path/to/gitrepos/reponame/.pre-commit-hooks.yaml
@@ -51,11 +51,11 @@ Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hoo
          - id: black
            args: [--line-length=150, --safe]
    ```
-3) Install `pre-commit`.
+3) Install `pre-commit` and run `pre-commit install`.
    ```bash
    pip install pre-commit
+   pre-commit install
    ```
-4) Run `pre-commit install` inside the `.git` directory.
 
 # Using `setup.py` to install `pre-commit` hooks
 
