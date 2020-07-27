@@ -134,7 +134,7 @@ git-templates
    └── pre-commit*
 ```
 
-The `pre-commit` file is an executable shell script.
+The `pre-commit` file must be an executable shell script.
 You can create a text file and make it executable by running `chmod +x pre-commit`.
 In that file, you can run `pre-commit` and point it to the `.pre-commit-config.yaml` that you wish to use.
 
@@ -148,3 +148,13 @@ pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 
 You can place the `.pre-commit-config.yaml` anywhere. I have mine in my `dotfiles` repository.
 If you have done all this and set it up correctly, then the next time you run `git init`, this pre-commit hook will automatically be added to your git repository.
+
+### `git commit --no-verify`
+
+Finally, if you want to bypass the `pre-commit` hooks occasionally in special circumstances, you can add the `--no-verify` flag to your `git commit` command.
+
+```bash
+git commit --no-verify
+```
+
+This will run `git commit` without any `pre-commit` hooks.
