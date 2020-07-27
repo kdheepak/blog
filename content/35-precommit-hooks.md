@@ -138,10 +138,9 @@ The `pre-commit` file is an executable shell script.
 You can create a text file and make it executable by running `chmod +x pre-commit`.
 In that file, you can run `pre-commit` and point it to the `.pre-commit-config.yaml` that you wish to use.
 
-Here is what mine looks like:
+Here is what my `git-templates/hooks/pre-commit` file looks like:
 
 ```bash
-$ cat git-templates/hooks/pre-commit
 #!/bin/sh
 
 pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
