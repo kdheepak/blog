@@ -132,7 +132,6 @@ git-templates
    └── pre-commit*
 ```
 
-The `pre-commit` file must be an executable shell script.
 You can create a text file and make it executable by running `chmod +x pre-commit`.
 In that file, you can run `pre-commit` and point it to the `.pre-commit-config.yaml` that you wish to use.
 
