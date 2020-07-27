@@ -1,10 +1,10 @@
 ---
-title: Better git workflows using pre-commit hooks
+title: Using pre-commit hooks
 category: blog
 date: 2020-07-27T10:58:11-06:00
 tags: git, python
 keywords: git, python, pre-commit, pre-commit hooks
-summary: In this post, I will summarize through how to automate git workflows with pre-commit hooks
+summary: In this post, I will summarize making your git workflow better with pre-commit hooks
 references:
 - id: ljvmiranda921
   title: "Automate Python workflow using pre-commits: black and flake8"
