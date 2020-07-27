@@ -104,6 +104,7 @@ pip install -e ".[dev]"
 
 This will install `install_requires`, `test_requires`, `extra_requires` and `dev_requires`.
 This will also run `pre-commit install` in the git repository, which will add the hooks from the `.pre-commit-hooks.yaml` file.
+
 If you don't want to automatically run `pre-commit install`, remove the `cmdclass={"develop": PostDevelopCommand}` line in the `setup` function call.
 
 # Using `pre-commit-hooks` for all git repositories on your machine
