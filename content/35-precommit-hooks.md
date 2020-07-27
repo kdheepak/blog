@@ -13,7 +13,7 @@ nocite: |
   @ljvmiranda921
 ---
 
-# Using [`pre-commit`](https://pre-commit.com/)
+# Using `pre-commit`
 
 1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
 2) Add the hooks you want in that file. Example below:
@@ -51,6 +51,8 @@ nocite: |
    pip install pre-commit
    ```
 4) Run `pre-commit install` inside the `.git` directory.
+
+Check out [the pre-commit website](https://pre-commit.com/) for more information.
 
 # Using `setup.py` to install pre-commit hooks
 
