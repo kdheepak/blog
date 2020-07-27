@@ -15,6 +15,8 @@ nocite: |
 
 # Using `pre-commit`
 
+Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
+
 1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
 2) Add the hooks you want in that file:
    ```yaml
@@ -53,11 +55,9 @@ nocite: |
    ```
 4) Run `pre-commit install` inside the `.git` directory.
 
-Check out [the pre-commit website](https://pre-commit.com/) for more information.
-
 # Using `setup.py` to install `pre-commit` hooks
 
-You can add the `pre-commit install` install step to `setup.py` like so:
+Add a `PostDevelopCommand` hook to run `pre-commit install` when setting up a python package using `setup.py`.
 
 ```python
 import os
@@ -108,19 +108,17 @@ If you don't want to automatically run `pre-commit install`, remove the `cmdclas
 
 # Using `pre-commit-hooks` for all git repositories on your machine
 
-If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder.
+If you want to use `pre-commit-hooks` for all git repositories on your machine, you can set up a `git-templates` folder that is used as a `templatedir` when you run `git init`.
 
 Add the following to your `.gitconfig` file [^gitconfig].
 
-[^gitconfig]: On Linux and MacOS, this file is located at `~/.gitconfig`. On Windows, it should be located at `C:\Users\USERNAME\.gitconfig`.
-
-`git` will not create this file unless you ask for it.
-
-```
-$ git config --global --edit
-```
-
-
+[^gitconfig]:
+    On Linux and MacOS, this file is located at `~/.gitconfig`.
+    On Windows, it should be located at `C:\Users\USERNAME\.gitconfig`.
+    `git` will not create this file unless you ask for it.
+    ```
+    $ git config --global --edit
+    ```
 
 ```gitconfig
 [init]
