@@ -116,8 +116,7 @@ Add the following to your `.gitconfig` file [^gitconfig].
 [^gitconfig]:
     On Linux and MacOS, this file is located at `~/.gitconfig`.
     On Windows, it should be located at `C:\Users\USERNAME\.gitconfig`.
-
-    `git` will not create this file unless you ask for it.
+    Also, `git` will not create this file unless you ask for it.
     You can create it by running `git config --global --edit`.
 
 ```gitconfig
