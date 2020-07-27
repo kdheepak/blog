@@ -4,7 +4,7 @@ category: blog
 date: 2020-07-27T10:58:11-06:00
 tags: git, python
 keywords: git, python, pre-commit, pre-commit hooks
-summary: In this post, I will walk through how to automate git workflows with pre-commit hooks
+summary: In this post, I will summarize through how to automate git workflows with pre-commit hooks
 references:
 - id: ljvmiranda921
   title: "Automate Python workflow using pre-commits: black and flake8"
@@ -13,7 +13,7 @@ nocite: |
   @ljvmiranda921
 ---
 
-# TLDR
+# Using [`pre-commit`](https://pre-commit.com/)
 
 1) Add a file called `.pre-commit-hooks.yaml` to your git repository.
 2) Add the hooks you want in that file. Example below:
