@@ -55,7 +55,7 @@ nocite: |
 
 Check out [the pre-commit website](https://pre-commit.com/) for more information.
 
-# Using `setup.py` to install pre-commit hooks
+# Using `setup.py` to install `pre-commit` hooks
 
 You can add the `pre-commit install` install step to `setup.py` like so:
 
