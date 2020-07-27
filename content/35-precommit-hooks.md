@@ -130,7 +130,7 @@ Add the following to your [`~/.gitconfig`](https://github.com/kdheepak/dotfiles/
   templatedir = ~/gitrepos/git-templates
 ```
 
-You will also need to create a `~/gitrepos/dotfiles/git-templates` folder with a single folder inside it called `hooks`, and with a single executable file inside the `hooks` folder called `pre-commit`.
+Now create a `~/gitrepos/dotfiles/git-templates` folder with a single folder inside it called `hooks`, and with a single executable file inside the `hooks` folder called `pre-commit`.
 
 ```bash
 $ tree git-templates
@@ -140,7 +140,9 @@ git-templates
 ```
 
 You can create a text file and make it executable by running `chmod +x pre-commit`.
-In that file, you can run `pre-commit` and point it to the `.pre-commit-config.yaml` that you wish to use.
+In that file, you can make `pre-commit` point to a `.pre-commit-config.yaml` file of your choosing.
+
+This will make `git init` use the `templatedir` as a template when you create a new git repository.
 
 Here is what my [`git-templates/hooks/pre-commit`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/git-templates/hooks/pre-commit) file looks like:
 
@@ -151,7 +153,7 @@ pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 
 You can place the `.pre-commit-config.yaml` wherever you like.
 I have mine in my [`~/gitrepos/dotfiles`](https://github.com/kdheepak/dotfiles/) repository.
-If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository.
+If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository based on the `.pre-commit-hooks.yaml` file you set up.
 
 # `git commit --no-verify`
 
