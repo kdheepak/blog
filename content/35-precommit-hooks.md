@@ -9,15 +9,18 @@ references:
 - id: ljvmiranda921
   title: "Automate Python workflow using pre-commits: black and flake8"
   URL: https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
-nocite: |
-  @ljvmiranda921
 ---
 
 ![Running `git commit` with `pre-commit` hooks](images/pre-commit-hooks.png){.fullwidth}
 
 # Setting up `pre-commit` for a git repo
 
-Using [`pre-commit`](https://pre-commit.com/) requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
+You can run scripts before creating a commit in a git repo, i.e. `pre-commit` hooks, to verify that the files you are checking in meet a predefined standard.
+[`pre-commit`](https://pre-commit.com/) is a Python package that let's you manage and run `pre-commit` hooks in any git repository.
+
+![Pre-commit pipeline with `black` and `flake8` [@ljvmiranda921]](https://ljvmiranda921.github.io/assets/png/tuts/precommit_pipeline.png){.fullwidth}
+
+Using `pre-commit` requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
 1) Add a file called `.pre-commit-hooks.yaml` to the root of your git repository.
 2) Add the hooks you want in that file. This is my [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
