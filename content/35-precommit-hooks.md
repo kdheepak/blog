@@ -96,7 +96,7 @@ setup(
 )
 ```
 
-Ask developers to run:
+Then run the following the first time you want to start working on the project:
 
 ```bash
 pip install -e ".[dev]"
