@@ -123,7 +123,7 @@ Add the following to your `~/.gitconfig` file [^gitconfig].
   templatedir = ~/gitrepos/git-templates
 ```
 
-You will also need to create a `~/gitrepos/dotfiles/git-templates` folder, with a single folder inside it called `hooks`, with a single file inside it called `pre-commit`.
+You will also need to create a `~/gitrepos/dotfiles/git-templates` folder with a single folder inside it called `hooks`, and with a single executable file inside the `hooks` folder called `pre-commit`.
 
 ```bash
 $ tree git-templates
