@@ -109,7 +109,7 @@ Then, during the first time you want to start working on the project you can run
 pip install -e ".[dev]"
 ```
 
-This will install `install_requires`, `test_requires`, `extra_requires` and `dev_requires`.
+This will install `install_requires`, `test_requires`, `extra_requires` and `dev_requires` dependencies.
 This will also run `pre-commit install` in the git repository, which will add the hooks from the `.pre-commit-hooks.yaml` file.
 
 If you don't want to automatically run `pre-commit install`, remove the `cmdclass={"develop": PostDevelopCommand}` line in the `setup(...)` function arguments.
