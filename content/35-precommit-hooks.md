@@ -22,8 +22,7 @@ You can run scripts before creating a commit in a git repo, i.e. `pre-commit` ho
 
 Using `pre-commit` requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
 
-1) Add a file called `.pre-commit-hooks.yaml` to the root of your git repository.
-2) Add the hooks you want in that file. This is my [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
+1) Add a file called `.pre-commit-hooks.yaml` to the root of your git repository, and add the hooks you want in that file. This is an example of a [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
    ```yaml
    # cat /path/to/gitrepos/reponame/.pre-commit-hooks.yaml
    repos:
