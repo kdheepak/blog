@@ -174,5 +174,5 @@ This will run `git commit` without any `pre-commit` hooks.
 You can update the `.git/hooks/pre-commit` file if something goes wrong, to suit your configuration.
 For example, you may have to configure it to point to a specific version of Python on your machine if it doesn't point to the correct version by default.
 
-You also can change the flake8 errors and warnings that you'd like to ignore by changing the arguments to `flake8`.
-You can read about all the different flake8 errors and warning over here: <https://www.flake8rules.com/>.
+You also can change the `flake8` errors and warnings that you'd like to ignore by changing the arguments to `flake8`.
+You can read about all the different `flake8` errors and warning over here: <https://www.flake8rules.com/>.
