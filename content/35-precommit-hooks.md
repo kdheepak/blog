@@ -20,9 +20,9 @@ You can run scripts before creating a commit in a git repo, i.e. `pre-commit` ho
 
 ![Pre-commit pipeline with `black` and `flake8` [@ljvmiranda921]](images/precommit_pipeline.png){.fullwidth}
 
-Using `pre-commit` requires adding a `.pre-commit-hooks.yaml` file to the git repository, and running `pre-commit install`.
+Using `pre-commit` requires adding a `.pre-commit-config.yaml` file to the git repository, and running `pre-commit install`.
 
-1) Add a file called `.pre-commit-hooks.yaml` to the root of your git repository, and add the hooks you want in that file. This is an example of a [`.pre-commit-hooks.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
+1) Add a file called `.pre-commit-config.yaml` to the root of your git repository, and add the hooks you want in that file. This is an example of a [`.pre-commit-config.yaml`](https://github.com/kdheepak/dotfiles/blob/48567f59c346c00318a670269e3e52172d469f75/.pre-commit-config.yaml) file:
    ```yaml
    # cat /path/to/gitrepos/reponame/.pre-commit-hooks.yaml
    repos:
@@ -109,7 +109,7 @@ pip install -e ".[dev]"
 ```
 
 This will install `install_requires`, `test_requires`, `extra_requires` and `dev_requires` dependencies.
-This will also run `pre-commit install` in the git repository, which will add the hooks from the `.pre-commit-hooks.yaml` file.
+This will also run `pre-commit install` in the git repository, which will add the hooks from the `.pre-commit-config.yaml` file.
 
 If you don't want to automatically run `pre-commit install`, remove the `cmdclass={"develop": PostDevelopCommand}` line in the `setup(...)` function arguments.
 
@@ -152,7 +152,7 @@ pre-commit run --config ~/gitrepos/dotfiles/.pre-commit-config.yaml
 
 You can place the `.pre-commit-config.yaml` wherever you like.
 I have mine in my [`~/gitrepos/dotfiles`](https://github.com/kdheepak/dotfiles/) repository.
-If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository based on the `.pre-commit-hooks.yaml` file you set up.
+If you have set it up correctly, the next time you run `git init` the pre-commit hooks will be set up in your git repository based on the `.pre-commit-config.yaml` file you set up.
 
 # `git commit --no-verify`
 
@@ -163,3 +163,24 @@ git commit --no-verify
 ```
 
 This will run `git commit` without any `pre-commit` hooks.
+
+# Troubleshooting
+
+You can update the `.git/hooks/pre-commit` file if something goes wrong, so suit your configuration.
+For example, you may have to configure it to point to the correct version of Python on your machine if it doesn't point to the right version by default.
+
+You can also update your `flake8` configuration file limit what checks you want to run. For example, I have the following in my `~/.config/flake8` file:
+
+```
+[flake8]
+ignore = D203,E501,E731,W391,E261,W503,F401,E203
+exclude =
+    test.py
+    .git,
+    __pycache__,
+    docs/source/conf.py,
+    build,
+    dist
+```
+
+You can read about all the different flake8 errors and warning over here: <https://www.flake8rules.com/>.
