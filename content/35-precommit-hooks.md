@@ -43,10 +43,15 @@ Using `pre-commit` requires adding a `.pre-commit-config.yaml` file to the git r
          - id: mixed-line-ending
          - id: pretty-format-json
            args: [--autofix]
-   - repo: https://gitlab.com/pycqa/flake8
-     rev: 3.8.3
-     hooks:
-         - id: flake8
+    - repo: https://gitlab.com/pycqa/flake8
+      rev: 3.8.3
+      hooks:
+          - id: flake8
+          args: [
+            --max-line-length=150,
+            --ignore=E203,E402,E501,E800,W503,W391,E261,
+            --select=B,C,E,F,W,T4,B9,
+          ]
    - repo: https://github.com/ambv/black
      rev: 19.10b0
      hooks:
@@ -173,7 +178,7 @@ You can also update your `flake8` configuration file limit what checks you want 
 
 ```
 [flake8]
-ignore = D203,E501,E731,W391,E261,W503,F401,E203
+ignore = D203,E501,W391,E261,W503,F401,E203
 exclude =
     test.py
     .git,
