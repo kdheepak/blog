@@ -66,6 +66,34 @@ First some basics:
    Out[5]: b'\xff\xfe\x00\x00\t\xf4\x01\x00'
    ```
 
+   ASCII can only encode 256 codepoints. Python throws an `UnicodeEncodeError` if we try to encode 🐉 into ASCII.
+
+   ```python
+   In [6]: s.encode('ascii')
+   ---------------------------------------------------------------------------
+   UnicodeEncodeError                        Traceback (most recent call last)
+   <ipython-input-2-532f2946fbcf> in <module>
+   ----> 1 s.encode('ascii')
+
+   UnicodeEncodeError: 'ascii' codec can't encode character '\U0001f409' in position 0: ordinal not in range(128)
+   ```
+
+   The bytes that represent an ASCII and an UTF-8 encoded string are the same for the first 256 characters in ASCII.
+   Python prints the bytes as human readable characters if they are valid ASCII characters.
+
+   ```python
+   In [7]: s = 'hello world'
+
+   In [7]: s.encode('ascii')
+   Out[7]: b'hello world'
+
+   In [8]: s.encode('utf-8')
+   Out[8]: b'hello world'
+
+   In [9]: s.encode('utf-16')
+   Out[9]: b'\xff\xfeh\x00e\x00l\x00l\x00o\x00 \x00w\x00o\x00r\x00l\x00d\x00'
+   ```
+
 1. When receiving or reading data, you **must** know the encoding used to interpret it correctly.
    A Unicode encoding is not guaranteed to contain any information about the encoding.
    Different encodings exist for efficiency, performance and backward compatibility, and data in one encoding may work  in another but is not strictly always going to work.
