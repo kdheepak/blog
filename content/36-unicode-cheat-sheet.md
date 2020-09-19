@@ -30,11 +30,11 @@ First some basics:
 
   In vim in insert mode, you can type `Ctrl+V` followed by
 
-  - a decimal number: `Ctrl-v255`: ÿ
-  - `o` and then an octal number: `Ctrl-vo377`: ÿ
-  - `x` and then a hex number: `Ctrl-vxff`: ÿ
-  - `u` and then a 4-hexchar Unicode sequence: `Ctrl-vu03C0`: π
-  - `U` and then an 8-hexchar Unicode sequence: `Ctrl-vU1F409`: 🐉
+  - a decimal number. `Ctrl-v255` will insert `ÿ`.
+  - `o` and then an octal number. `Ctrl-vo377` will insert `ÿ`.
+  - `x` and then a hex number. `Ctrl-vxff` will insert `ÿ`.
+  - `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
+  - `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
 
   [^1]: _aside_: Check out `:help i_CTRL-V_digit` for more information. Also check out <https://github.com/chrisbra/unicode.vim>.
 
