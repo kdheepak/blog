@@ -189,7 +189,7 @@ proc render(file: string): JsonNode =
   else:
     args = &"{args} --variable root=https://kdheepak.com --variable blogroot=/"
 
-  let cmd = &"pandoc --from=markdown+emoji+grid_tables+fenced_code_blocks --to=html5+smart {args} {filename}{ext} -o {ofile}"
+  let cmd = &"pandoc --from=markdown+gfm_auto_identifiers+emoji --to=html5+smart {args} {filename}{ext} -o {ofile}"
   let p = startProcess(cmd, workingDir = dir, options = {poUsePath, poEvalCommand, poEchoCmd, poStdErrToStdOut})
   echo p.outputStream().readAll().strip()
   doAssert waitForExit(p) == 0
