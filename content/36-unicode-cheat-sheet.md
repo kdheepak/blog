@@ -40,6 +40,10 @@ First some basics:
    The idea for a 🐉 can be encoded into UTF-8, UTF16, UTF32 etc.
 
    ```python
+   Python 3.7.6 (default, Jan  8 2020, 13:42:34)
+   Type 'copyright', 'credits' or 'license' for more information
+   IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+
    In [1]: s = '🐉'
 
    In [2]: s.encode('utf-8')
