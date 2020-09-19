@@ -19,7 +19,7 @@ I wanted to make a cheat sheet for myself that contains some of the different th
 First some basics:
 
 1. Unicode codepoints are unique numbers to express an abstract character, concept or graphical representation.
-   These graphical representations may look visually similar.
+   These graphical representations may look similar visually but represent different "ideas".
    For example: A, Α, А, Ａ are all different unicode code points.
 
    - 'A' U+0041 LATIN CAPITAL LETTER A
