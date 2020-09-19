@@ -23,18 +23,18 @@ First some basics:
   These graphical representations may look visually similar.
   For example: A, Α, А, Ａ are all different unicode code points.
 
-  - 'A' U+0041 Dec:65 LATIN CAPITAL LETTER A &#x41; /\%u41 "\u0041"
-  - 'Α' U+0391 Dec:913 GREEK CAPITAL LETTER ALPHA (A*) &Alpha; /\%u391 "\u0391"
-  - 'А' U+0410 Dec:1040 CYRILLIC CAPITAL LETTER A (A=) &Acy; /\%u410 "\u0410"
-  - 'Ａ' U+FF21 Dec:65313 FULLWIDTH LATIN CAPITAL LETTER A &#xFF21; /\%uff21 "\uff21"
+  - 'A' U+0041 LATIN CAPITAL LETTER A
+  - 'Α' U+0391 GREEK CAPITAL LETTER ALPHA
+  - 'А' U+0410 CYRILLIC CAPITAL LETTER A
+  - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
   In vim in insert mode, you can type `Ctrl+V` followed by
 
-  a decimal number: `Ctrl-v255`: ÿ
-  `o` and then an octal number: `Ctrl-vo377`: ÿ
-  `x` and then a hex number: `Ctrl-vxff`: ÿ
-  `u` and then a 4-hexchar Unicode sequence: `Ctrl-vu03C0`: π
-  `U` and then an 8-hexchar Unicode sequence: `Ctrl-vU1F409`: 🐉
+  - a decimal number: `Ctrl-v255`: ÿ
+  - `o` and then an octal number: `Ctrl-vo377`: ÿ
+  - `x` and then a hex number: `Ctrl-vxff`: ÿ
+  - `u` and then a 4-hexchar Unicode sequence: `Ctrl-vu03C0`: π
+  - `U` and then an 8-hexchar Unicode sequence: `Ctrl-vU1F409`: 🐉
 
   [^1]: _aside_: Check out `:help i_CTRL-V_digit` for more information. Also check out <https://github.com/chrisbra/unicode.vim>.
 
