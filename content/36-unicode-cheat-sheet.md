@@ -42,17 +42,17 @@ First some basics:
    ```python
    In [1]: s = '🐉'
 
-   In [2]: s.encode('utf-8')
+   In [3]: s.encode('utf-8')
+   Out[3]: b'\xf0\x9f\x90\x89'
+
+   In [2]: s.encode() # Python3 uses 'utf-8' by default
    Out[2]: b'\xf0\x9f\x90\x89'
 
-   In [3]: s.encode('utf-16')
-   Out[3]: b'\xff\xfe=\xd8\t\xdc'
+   In [4]: s.encode('utf-16')
+   Out[4]: b'\xff\xfe=\xd8\t\xdc'
 
-   In [4]: s.encode('utf-32')
-   Out[4]: b'\xff\xfe\x00\x00\t\xf4\x01\x00'
-
-   In [5]: s.encode()
-   Out[5]: b'\xf0\x9f\x90\x89'
+   In [5]: s.encode('utf-32')
+   Out[5]: b'\xff\xfe\x00\x00\t\xf4\x01\x00'
    ```
 
 1. When receiving or reading data, you **must** know the encoding used to interpret it correctly.
