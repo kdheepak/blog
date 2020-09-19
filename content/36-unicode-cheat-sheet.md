@@ -9,17 +9,16 @@ references:
 - id: joelonsoftware
   title: "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
   URL: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
-- id: fasterthanlime
-  title: "Working with strings in Rust"
-  URL: https://fasterthanli.me/articles/working-with-strings-in-rust
 - id: hsivonen
   title: "It’s Not Wrong that \"🤦🏼‍♂️\".length == 7"
   URL: https://hsivonen.fi/string-length/
+- id: fasterthanlime
+  title: "Working with strings in Rust"
+  URL: https://fasterthanli.me/articles/working-with-strings-in-rust
 nocite: |
   @fasterthanlime
-  @joelonsoftware
   @hsivonen
-
+  @joelonsoftware
 ---
 
 I wanted to make a cheat sheet for myself that contains some of the different things I use when it comes to unicode.
