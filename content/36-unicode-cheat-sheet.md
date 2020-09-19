@@ -29,11 +29,11 @@ First some basics:
 
    In vim in insert mode, you can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information. Also check out <https://github.com/chrisbra/unicode.vim>.] followed by
 
-   - a decimal number. `Ctrl-v255` will insert `ÿ`.
-   - `o` and then an octal number. `Ctrl-vo377` will insert `ÿ`.
-   - `x` and then a hex number. `Ctrl-vxff` will insert `ÿ`.
-   - `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
-   - `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
+   - a decimal number [0-255]. `Ctrl-v255` will insert `ÿ`.
+   - the letter `o` and then an octal number [0-377]. `Ctrl-vo377` will insert `ÿ`.
+   - the letter `x` and then a hex number [00-ff]. `Ctrl-vxff` will insert `ÿ`.
+   - the letter `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
+   - the letter `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
 
 1. The same "idea", i.e. codepoint can be _encoded_ into different bits when represented on a machine depending on the encoding chosen.
    An encoding is a map or transformation of a codepoint into bits or bytes.
