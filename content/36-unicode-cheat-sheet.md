@@ -42,11 +42,11 @@ First some basics:
    ```python
    In [1]: s = '🐉'
 
-   In [3]: s.encode('utf-8')
-   Out[3]: b'\xf0\x9f\x90\x89'
-
-   In [2]: s.encode() # Python3 uses 'utf-8' by default
+   In [2]: s.encode('utf-8')
    Out[2]: b'\xf0\x9f\x90\x89'
+
+   In [3]: s.encode() # Python3 uses 'utf-8' by default
+   Out[3]: b'\xf0\x9f\x90\x89'
 
    In [4]: s.encode('utf-16')
    Out[4]: b'\xff\xfe=\xd8\t\xdc'
