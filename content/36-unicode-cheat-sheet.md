@@ -12,6 +12,14 @@ references:
 - id: fasterthanlime
   title: "Working with strings in Rust"
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
+- id: hsivonen
+  title: "It’s Not Wrong that \"🤦🏼‍♂️\".length == 7"
+  URL: https://hsivonen.fi/string-length/
+nocite: |
+  @fasterthanlime
+  @joelonsoftware
+  @hsivonen
+
 ---
 
 I wanted to make a cheat sheet for myself that contains some of the different things I use when it comes to unicode.
