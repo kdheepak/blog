@@ -1,10 +1,10 @@
 ---
-title: Cheat sheet for working with unicode
+title: My cheat sheet for working with unicode
 category: blog
 date: 2020-09-19T02:29:49-06:00
-tags: programming, unicode, python, julia, vim
+tags: programming, unicode, vim
 keywords: python, julia, vim, unicode
-summary: Comparing unicode and string interfaces in various programming languages
+summary: References for various things associated with unicode
 references:
 - id: joelonsoftware
   title: "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
@@ -28,15 +28,15 @@ First some basics:
   - 'А' U+0410 CYRILLIC CAPITAL LETTER A
   - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-  In vim in insert mode, you can type `Ctrl+V`[^1] followed by
+  In vim in insert mode, you can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information. Also check out <https://github.com/chrisbra/unicode.vim>.] followed by
+
+
 
   - a decimal number. `Ctrl-v255` will insert `ÿ`.
   - `o` and then an octal number. `Ctrl-vo377` will insert `ÿ`.
   - `x` and then a hex number. `Ctrl-vxff` will insert `ÿ`.
   - `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
   - `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
-
-  [^1]: _aside_: Check out `:help i_CTRL-V_digit` for more information. Also check out <https://github.com/chrisbra/unicode.vim>.
 
 1. The same "idea", i.e. codepoint can be _encoded_ into different bits when represented on a machine depending on the encoding chosen.
   An encoding is a map or transformation of a codepoint into bits or bytes.
