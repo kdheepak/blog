@@ -28,7 +28,7 @@ First some basics:
   - 'А' U+0410 CYRILLIC CAPITAL LETTER A
   - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-  In vim in insert mode, you can type `Ctrl+V` followed by
+  In vim in insert mode, you can type `Ctrl+V`[^1] followed by
 
   - a decimal number. `Ctrl-v255` will insert `ÿ`.
   - `o` and then an octal number. `Ctrl-vo377` will insert `ÿ`.
