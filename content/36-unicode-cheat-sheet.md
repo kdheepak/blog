@@ -14,8 +14,7 @@ references:
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
 ---
 
-I wanted to make a cheat sheet for myself about the various ways different programming languages handle strings,
-and the different functions associated with them.
+I wanted to make a cheat sheet for myself that contains some of the different things I use when it comes to unicode.
 
 First some basics:
 
