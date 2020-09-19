@@ -44,7 +44,7 @@ First some basics:
 
 1. The same "idea", i.e. codepoint can be _encoded_ into different bits when represented on a machine depending on the encoding chosen.
    An encoding is a map or transformation of a codepoint into bits or bytes.
-   The idea for a 🐉 can be encoded into UTF-8, UTF16, UTF32 etc.
+   The codepoint for a 🐉 can be encoded into UTF-8, UTF16, UTF32 etc.
 
    ```python
    Python 3.7.6 (default, Jan  8 2020, 13:42:34)
