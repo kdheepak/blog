@@ -1,7 +1,7 @@
 ---
 title: Cheat sheet for working with unicode
 category: blog
-date: 2020-07-27T10:58:11-06:00
+date: 2020-09-19T02:29:49-06:00
 tags: programming, unicode, python, julia, vim
 keywords: python, julia, vim, unicode
 summary: Comparing unicode and string interfaces in various programming languages
