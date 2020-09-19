@@ -78,7 +78,7 @@ First some basics:
    UnicodeEncodeError: 'ascii' codec can't encode character '\U0001f409' in position 0: ordinal not in range(128)
    ```
 
-   The bytes that represent an ASCII and an UTF-8 encoded string are the same for the first 256 characters in ASCII.
+   Valid ASCII byte strings are also valid UTF-8 byte strings.
    Python prints the bytes as human readable characters if they are valid ASCII characters.
 
    ```python
