@@ -234,7 +234,7 @@ UInt8
 Printing the length of the string in Julia returns `5`.
 As we saw earlier, this is the number of codepoints in the unicode string.
 
-Julia String literals are encoded using the UTF-8 encoding.
+Julia `String` literals are encoded using the UTF-8 encoding.
 In Python, the indexing into a string would return the codepoint at the string.
 In Julia, indexing into a string refers to code units, and for the default `String` this returns the byte as a `Char` type.
 
