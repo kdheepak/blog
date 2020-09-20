@@ -16,8 +16,8 @@ references:
   title: "Working with strings in Rust"
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
 nocite: |
-  @fasterthanlime
   @hsivonen
+  @fasterthanlime
   @joelonsoftware
 ---
 
