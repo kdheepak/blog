@@ -185,7 +185,7 @@ IndexError                                Traceback (most recent call last)
 IndexError: string index out of range
 ```
 
-In Python, if you are interested in the number of graphemes, you can use the `grapheme` package.
+In Python, if we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
 
 ```
 Python 3.7.6 (default, Jan  8 2020, 13:42:34)
@@ -198,4 +198,194 @@ In [2]: s = "🤦🏼‍♂️"
 
 In [3]: grapheme.length(s)
 Out[3]: 1
+```
+
+# Julia
+
+Let's take a look at how Julia handles strings.
+
+```julia
+               _
+   _       _ _(_)_     |  Documentation: https://docs.julialang.org
+  (_)     | (_) (_)    |
+   _ _   _| |_  __ _   |  Type "?" for help, "]?" for Pkg help.
+  | | | | | | |/ _` |  |
+  | | |_| | | | (_| |  |  Version 1.5.0 (2020-08-01)
+ _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
+|__/                   |
+
+
+julia> s = "🤦🏼‍♂️"
+"🤦🏼\u200d♂️"
+
+julia> println(s)
+🤦🏼‍♂️
+
+julia> length(s)
+5
+
+julia> ncodeunits(s)
+17
+
+julia> codeunit(s)
+UInt8
+```
+
+Printing the length of the string in Julia returns `5`.
+As we saw earlier, this is the number of codepoints in the unicode string.
+
+Julia String literals are encoded using the UTF-8 encoding.
+In Python, the indexing into a string would return the codepoint at the string.
+In Julia, indexing into a string refers to code units, and for the default `String` this returns the byte as a `Char` type.
+
+```julia
+julia> s[1]
+'🤦': Unicode U+1F926 (category So: Symbol, other)
+
+julia> typeof(s[1])
+Char
+
+julia> s[2]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 2)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[12]:1
+
+julia> s[3]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 3)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[13]:1
+
+julia> s[4]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 4)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[14]:1
+
+julia> s[5]
+'🏼': Unicode U+1F3FC (category Sk: Symbol, modifier)
+
+julia> s[6]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 6)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[16]:1
+
+julia> s[7]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 7)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[17]:1
+
+julia> s[8]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 8)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[18]:1
+
+julia> s[9]
+'\u200d': Unicode U+200D (category Cf: Other, format)
+
+julia> s[10]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 10)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[20]:1
+
+julia> s[11]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 11)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[21]:1
+
+julia> s[12]
+'♂': Unicode U+2642 (category So: Symbol, other)
+
+julia> s[13]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 13)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[23]:1
+
+julia> s[14]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 14)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[24]:1
+
+julia> s[15]
+'️': Unicode U+FE0F (category Mn: Mark, nonspacing)
+
+julia> s[16]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 16)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[26]:1
+
+julia> s[17]
+ERROR: StringIndexError("🤦🏼\u200d♂️", 17)
+Stacktrace:
+ [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
+ [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:213
+ [4] top-level scope at REPL[27]:1
+
+julia> s[18]
+ERROR: BoundsError: attempt to access String
+  at index [18]
+Stacktrace:
+ [1] checkbounds at ./strings/basic.jl:214 [inlined]
+ [2] codeunit at ./strings/string.jl:89 [inlined]
+ [3] getindex(::String, ::Int64) at ./strings/string.jl:210
+ [4] top-level scope at REPL[28]:1
+```
+
+If you do want each codepoint in a Julia `String`, you can use `eachindex`[^julia].
+
+[^julia]: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
+
+```julia
+julia> [s[x] for x in eachindex(s)]
+5-element Array{Char,1}:
+ '🤦': Unicode U+1F926 (category So: Symbol, other)
+ '🏼': Unicode U+1F3FC (category Sk: Symbol, modifier)
+ '\u200d': Unicode U+200D (category Cf: Other, format)
+ '♂': Unicode U+2642 (category So: Symbol, other)
+ '️': Unicode U+FE0F (category Mn: Mark, nonspacing)
+```
+
+And finally, we can use the `Unicode` module that is built in to the standard library to get the number of graphemes.
+
+```julia
+
+julia> using Unicode
+
+julia> graphemes(s)
+length-1 GraphemeIterator{String} for "🤦🏼‍♂️"
+
+julia> length(graphemes(s))
+1
 ```
