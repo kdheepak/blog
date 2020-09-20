@@ -389,3 +389,29 @@ length-1 GraphemeIterator{String} for "🤦🏼‍♂️"
 julia> length(graphemes(s))
 1
 ```
+
+If you wish to encode a Julia string as UTF-8[^julia-trancode], we can use the following:
+
+[^julia-transcode]: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
+
+```
+julia> transcode(UInt8, s)
+17-element Base.CodeUnits{UInt8,String}:
+ 0xf0
+ 0x9f
+ 0xa4
+ 0xa6
+ 0xf0
+ 0x9f
+ 0x8f
+ 0xbc
+ 0xe2
+ 0x80
+ 0x8d
+ 0xe2
+ 0x99
+ 0x82
+ 0xef
+ 0xb8
+ 0x8f
+```
