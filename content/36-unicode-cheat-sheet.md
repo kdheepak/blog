@@ -120,7 +120,7 @@ First some basics:
 Since Python >=3.3 [^pep0393], the Unicode string type supports multiple internal representations depending on the character with the largest Unicode ordinal (1, 2, or 4 bytes).
 In Python, the `length` of a Unicode string is defined as the number of code points in the string.
 
-[^pep0393: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>]
+[^pep0393]: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>
 
 In the case of "🤦🏼‍♂️"
 we have 5 codepoints.
