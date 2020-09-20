@@ -114,3 +114,73 @@ First some basics:
 
    UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x43 in position 2: truncated data
    ```
+
+## Python
+
+Since Python >=3.3 [^pep0393], the Unicode string type supports multiple internal representations depending on the character with the largest Unicode ordinal (1, 2, or 4 bytes).
+In Python, the `length` of a Unicode string is defined as the number of code points in the string.
+
+[^pep0393: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>]
+
+In the case of "🤦🏼‍♂️"
+we have 5 codepoints.
+
+- 🤦 : U+1F926 FACE PALM
+- 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
+- ‍ : U+200D ZERO WIDTH JOINER
+- ♂ : U+2642 MALE SIGN (Ml)
+- ️: U+FE0F Dec:65039 VARIATION SELECTOR-16
+
+```python
+Python 3.7.6 (default, Jan  8 2020, 13:42:34)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: s = "🤦🏼‍♂️"
+
+In [2]: s
+Out[2]: '🤦🏼\u200d♂️'
+
+In [3]: print(s)
+🤦🏼‍♂️
+
+In [4]: len(s)
+Out[4]: 5
+
+In [5]: s.encode('utf-8')
+Out[5]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
+
+In [6]: len(s.encode('utf-8'))
+Out[6]: 17
+
+In [7]: s[0]
+Out[7]: '🤦'
+
+In [8]: s[1]
+Out[8]: '🏼'
+
+In [9]: s[2]
+Out[9]: '\u200d'
+
+In [10]: s[3]
+Out[10]: '♂'
+
+In [11]: s[4]
+Out[11]: '️'
+
+In [12]: # this may look like an empty byte string but it is not.
+
+In [13]: s[4].encode('utf-8')
+Out[13]: b'\xef\xb8\x8f'
+
+In [14]: ''.encode('utf-8')
+Out[14]: b''
+
+In [15]: s[5]
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+<ipython-input-42-b5dece75d686> in <module>
+----> 1 s[5]
+
+IndexError: string index out of range
+```
