@@ -357,9 +357,9 @@ julia> length(graphemes(s))
 1
 ```
 
-If you wish to encode a Julia string as UTF-8[^julia-trancode], we can use the following:
+If you wish to encode a Julia string as UTF-8[^juliatrancode], we can use the following:
 
-[^julia-transcode]: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
+[^juliatranscode]: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
 
 ```
 julia> transcode(UInt8, s)
