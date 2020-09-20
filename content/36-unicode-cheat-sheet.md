@@ -259,18 +259,12 @@ Stacktrace:
 julia> s[3]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 3)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[13]:1
+[...]
 
 julia> s[4]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 4)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[14]:1
+[...]
 
 julia> s[5]
 '🏼': Unicode U+1F3FC (category Sk: Symbol, modifier)
@@ -278,26 +272,17 @@ julia> s[5]
 julia> s[6]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 6)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[16]:1
+[...]
 
 julia> s[7]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 7)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[17]:1
+[...]
 
 julia> s[8]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 8)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[18]:1
+[...]
 
 julia> s[9]
 '\u200d': Unicode U+200D (category Cf: Other, format)
@@ -305,18 +290,12 @@ julia> s[9]
 julia> s[10]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 10)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[20]:1
+[...]
 
 julia> s[11]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 11)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[21]:1
+[...]
 
 julia> s[12]
 '♂': Unicode U+2642 (category So: Symbol, other)
@@ -324,18 +303,12 @@ julia> s[12]
 julia> s[13]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 13)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[23]:1
+[...]
 
 julia> s[14]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 14)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[24]:1
+[...]
 
 julia> s[15]
 '️': Unicode U+FE0F (category Mn: Mark, nonspacing)
@@ -343,27 +316,18 @@ julia> s[15]
 julia> s[16]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 16)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[26]:1
+[...]
 
 julia> s[17]
 ERROR: StringIndexError("🤦🏼\u200d♂️", 17)
 Stacktrace:
- [1] string_index_err(::String, ::Int64) at ./strings/string.jl:12
- [2] getindex_continued(::String, ::Int64, ::UInt32) at ./strings/string.jl:220
- [3] getindex(::String, ::Int64) at ./strings/string.jl:213
- [4] top-level scope at REPL[27]:1
+[...]
 
 julia> s[18]
 ERROR: BoundsError: attempt to access String
   at index [18]
 Stacktrace:
- [1] checkbounds at ./strings/basic.jl:214 [inlined]
- [2] codeunit at ./strings/string.jl:89 [inlined]
- [3] getindex(::String, ::Int64) at ./strings/string.jl:210
- [4] top-level scope at REPL[28]:1
+[...]
 ```
 
 If you do want each codepoint in a Julia `String`, you can use `eachindex`[^julia].
