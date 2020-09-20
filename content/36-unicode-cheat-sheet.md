@@ -204,7 +204,7 @@ Out[3]: 1
 
 Let's take a look at how Julia handles strings.
 
-```julia
+```bash
                _
    _       _ _(_)_     |  Documentation: https://docs.julialang.org
   (_)     | (_) (_)    |
