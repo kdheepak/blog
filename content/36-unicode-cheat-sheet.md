@@ -97,7 +97,7 @@ First some basics:
 1. When receiving or reading data, you **must** know the encoding used to interpret it correctly.
    A Unicode encoding is not guaranteed to contain any information about the encoding.
    Different encodings exist for efficiency, performance and backward compatibility, and data in one encoding may work  in another but is not strictly always going to work.
-   For example, in the following binary data `01000001_01000010_01000011` can be decoded using `ascii` or `utf-8`, but naturally does not have a transformation when using a `utf-16` decoder.
+   For example, in the following binary data `01000001_01000010_01000011` or hexadecimal data `41_42_43` can be decoded using `ascii` or `utf-8`, but naturally does not have a transformation when using a `utf-16` decoder.
 
    ```python
    In [1]: b'\x41\x42\x43'.decode('ascii')
