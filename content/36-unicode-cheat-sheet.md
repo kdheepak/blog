@@ -184,3 +184,18 @@ IndexError                                Traceback (most recent call last)
 
 IndexError: string index out of range
 ```
+
+In Python, if you are interested in the number of graphemes, you can use the `grapheme` package.
+
+```
+Python 3.7.6 (default, Jan  8 2020, 13:42:34)
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+
+In [1]: import grapheme
+
+In [2]: s = "🤦🏼‍♂️"
+
+In [3]: grapheme.length(s)
+Out[3]: 1
+```
