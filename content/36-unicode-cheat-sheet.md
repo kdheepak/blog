@@ -214,7 +214,10 @@ Let's take a look at how Julia handles strings.
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
+```
 
+
+```julia
 julia> s = "🤦🏼‍♂️"
 "🤦🏼\u200d♂️"
 
