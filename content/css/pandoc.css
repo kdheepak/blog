@@ -72,7 +72,7 @@ section > ul > li > div.sourceCode,
 section > ul > li > pre:not(.sourceCode),
 section > ol > li > div.sourceCode,
 section > ol > li > pre:not(.sourceCode) {
-  width: 181%;
+  width: 163.6363%;
 }
 
 @media (max-width: 760px) {
