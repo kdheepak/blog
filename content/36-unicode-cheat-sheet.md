@@ -35,7 +35,7 @@ I wanted to make a cheat sheet for myself containing a reference of things I use
 
 First some basics:
 
-1. Unicode Code Points^[See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
+1. Unicode Code Points^[_aside_: See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
    integers to an abstract character, concept or graphical representation.
    These graphical representations may look visually similar but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
@@ -45,7 +45,7 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-   The Unicode consortium defines a Grapheme^[See <https://unicode.org/glossary/#grapheme>.] as a "What a user thinks of as a character".
+   The Unicode consortium defines a Grapheme^[_aside_: See <https://unicode.org/glossary/#grapheme>.] as a "What a user thinks of as a character".
    Multiple codepoints may be used to represent a grapheme.
    For example, my name in Devangari and Tamil can be written as 3 graphemes in each, but consist of 4 and 5 codepoints in Devangari and Tamil respectively:
 
@@ -137,7 +137,7 @@ Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:Uni
 Since Python >=3.3 [^pep0393], the Unicode string type supports a "flexible string representation".
 This means that any one of multiple internal representations may be used depending on the largest Unicode ordinal (1, 2, or 4 bytes) in a Unicode string.
 
-[^pep0393]: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>.
+[^pep0393]: _aside_: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>.
 
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
 If non Basic Multilingual Plane characters are using in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
@@ -442,7 +442,7 @@ Stacktrace:
 
 If we want each code point in a Julia `String`, we can use `eachindex`[^julia].
 
-[^julia]: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
+[^julia]: _aside_: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
 
 ```julia
 julia> [s[x] for x in eachindex(s)]
@@ -469,7 +469,7 @@ julia> length(graphemes(s))
 
 If we wish to encode a Julia string as UTF-8[^juliatrancode], we can use the following:
 
-[^juliatranscode]: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
+[^juliatranscode]: _aside_: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
 
 ```
 julia> transcode(UInt8, s)
