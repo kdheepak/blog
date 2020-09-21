@@ -1,5 +1,5 @@
 ---
-title: My cheat sheet for working with Unicode
+title: My Unicode cheat sheet
 category: blog
 date: 2020-09-19T02:29:49-06:00
 tags: programming, unicode, vim
