@@ -140,7 +140,7 @@ This means that any one of multiple internal representations may be used dependi
 [^pep0393]: _aside_: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>.
 
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
-If non Basic Multilingual Plane characters are using in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
+If non Basic Multilingual Plane characters are used in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
 
 In each of these cases, the internal representation uses the same number of bytes for each code point.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
