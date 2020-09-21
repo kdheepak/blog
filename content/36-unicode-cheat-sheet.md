@@ -25,8 +25,8 @@ I wanted to make a cheat sheet for myself that contains some of the different th
 
 First some basics:
 
-1. Unicode codepoints are unique numbers to express an abstract character, concept or graphical representation.
-   These graphical representations may look similar visually but represent different "ideas".
+1. Unicode codepoints are unique mappings from numbers to an abstract character, concept or graphical representation.
+   These graphical representations may look similar visually but can represent different "ideas".
    For example: A, Α, А, Ａ are all different unicode codepoints.
 
    - 'A' U+0041 LATIN CAPITAL LETTER A
