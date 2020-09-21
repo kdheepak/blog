@@ -53,7 +53,7 @@ First some basics:
 
    The Unicode consortium defines a Grapheme^[<https://unicode.org/glossary/#grapheme>] as a "What a user thinks of as a character".
    Multiple codepoints may be used to represent a grapheme.
-   For example, my name in Devangari and Tamil can be written as 3 graphemes in each, but consist of 4 and 5 codepoints in Devangari and Tamil respectively:
+   For example, my name in Devangari and Tamil can be written as 3 graphemes, but it consists of 4 and 5 code points respectively in these languages:
 
    - DEVANGARI: दीपक
        - 'द' U+0926 DEVANAGARI LETTER DA
