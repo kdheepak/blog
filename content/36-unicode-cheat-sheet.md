@@ -15,6 +15,9 @@ references:
 - id: fasterthanlime
   title: "Working with strings in Rust"
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
+- id: python3unicodedocs
+  title: "Unicode HOWTO - Comparing strings"
+  URL: https://docs.python.org/3/howto/unicode.html#comparing-strings
 nocite: |
   @hsivonen
   @fasterthanlime
@@ -216,6 +219,34 @@ Out[23]: '🤦🏼\u200d♂️'
 
 In [24]: grapheme.slice(s, 2)
 Out[24]: 'Why is Unicode so complicated?'
+```
+
+For historical reasons, Unicode allows the same set of characters to be represented by different sequences of code points.
+
+```python
+In [33]: single_char = 'ê'
+    ...: multiple_chars = '\N{LATIN SMALL LETTER E}\N{COMBINING CIRCUMFLEX ACCENT}'
+
+In [34]: single_char
+Out[34]: 'ê'
+
+In [35]: multiple_chars
+Out[35]: 'ê'
+
+In [36]: len(single_char)
+Out[36]: 1
+
+In [37]: len(multiple_chars)
+Out[37]: 2
+```
+
+We can use the built in standard library `unicodedata` to normalize Unicode strings [@python3unicodedocs].
+
+```python
+In [45]: import unicodedata
+
+In [45]: len(unicodedata.normalize("NFD", single_char))
+Out[45]: 2
 ```
 
 # Julia
