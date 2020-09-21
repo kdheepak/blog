@@ -212,10 +212,10 @@ Out[10]: '♂'
 In [11]: s[4] # this may look like an empty string but it is not.
 Out[11]: '️'
 
-In [12]: s[4].encode('utf-8')
+In [12]: s[4].encode("utf-8")
 Out[12]: b'\xef\xb8\x8f'
 
-In [13]: ''.encode('utf-8')
+In [13]: "".encode("utf-8")
 Out[13]: b''
 
 In [14]: s[5]
@@ -252,13 +252,13 @@ Out[17]: 5
 In [18]: type(s)
 Out[18]: str
 
-In [19]: s.encode('utf-8')
+In [19]: s.encode("utf-8")
 Out[19]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
 
-In [20]: len(s.encode('utf-8'))
+In [20]: len(s.encode("utf-8"))
 Out[20]: 17
 
-In [21]: type(s.encode('utf-8'))
+In [21]: type(s.encode("utf-8"))
 Out[21]: bytes
 ```
 
