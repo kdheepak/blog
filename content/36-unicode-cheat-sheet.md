@@ -150,12 +150,21 @@ In [3]: print(s)
 
 In [4]: len(s)
 Out[4]: 5
+```
 
+When encoding a Python Unicode string using an encoding, we get a Python byte string.
+
+```
 In [5]: s.encode('utf-8')
 Out[5]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
 
 In [6]: len(s.encode('utf-8'))
 Out[6]: 17
+```
+
+Indexing into a Python Unicode string gives us the codepoint at that location.
+
+```python
 
 In [7]: s[0]
 Out[7]: '🤦'
