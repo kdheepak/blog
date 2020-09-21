@@ -151,18 +151,16 @@ Out[7]: '\u200d'
 In [8]: s[3]
 Out[8]: '♂'
 
-In [9]: s[4]
+In [9]: s[4] # this may look like an empty string but it is not.
 Out[9]: '️'
 
-In [10]: # this may look like an empty byte string but it is not.
+In [10]: s[4].encode('utf-8')
+Out[10]: b'\xef\xb8\x8f'
 
-In [11]: s[4].encode('utf-8')
-Out[11]: b'\xef\xb8\x8f'
+In [11]: ''.encode('utf-8')
+Out[11]: b''
 
-In [12]: ''.encode('utf-8')
-Out[12]: b''
-
-In [13]: s[5]
+In [12]: s[5]
 ---------------------------------------------------------------------------
 IndexError                                Traceback (most recent call last)
 <ipython-input-42-b5dece75d686> in <module>
@@ -176,21 +174,21 @@ interested in indexing into the graphemes.
 
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
-```
-In [14]: s.encode('utf-8')
-Out[14]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
+```python
+In [13]: s.encode('utf-8')
+Out[13]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
 
-In [15]: len(s.encode('utf-8'))
-Out[15]: 17
+In [14]: len(s.encode('utf-8'))
+Out[14]: 17
 ```
 
 If we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
 
-```
-In [16]: import grapheme
+```python
+In [15]: import grapheme
 
-In [17]: grapheme.length(s)
-Out[17]: 1
+In [16]: grapheme.length(s)
+Out[16]: 1
 ```
 
 # Julia
