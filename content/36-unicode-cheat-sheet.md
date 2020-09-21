@@ -108,7 +108,10 @@ If non Basic Multilingual Plane characters are using in a Python Unicode string,
 In each of these cases, the internal representation uses the same number of bytes for each codepoint.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
 valid codepoint and not a grapheme.
+The Unicode consortium defines a grapheme[^grapheme] as a "What a user thinks of as a character".
 In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of codepoints in the string.
+
+[^grapheme]: See https://unicode.org/glossary/#grapheme.
 
 However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
