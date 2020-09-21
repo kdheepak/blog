@@ -21,6 +21,9 @@ references:
 - id: manishearth
   title: "Let’s Stop Ascribing Meaning to Code Points"
   URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
+- id: eevee
+  title: "Dark corners of Unicode"
+  URL: https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
 nocite: |
   @hsivonen
   @fasterthanlime
