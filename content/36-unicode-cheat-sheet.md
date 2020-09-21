@@ -169,26 +169,53 @@ IndexError                                Traceback (most recent call last)
 IndexError: string index out of range
 ```
 
+Iterating over a Python string gives us the codepoints as well.
+
+```python
+In [13]: [c for c in s]
+Out[13]: ['🤦', '🏼', '\u200d', '♂', '️']
+```
+
 Indexing into the codepoints may not be useful in practice. More often, we are interested in indexing into the byte string representation or
 interested in indexing into the graphemes.
 
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
 ```python
-In [13]: s.encode('utf-8')
-Out[13]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
+In [14]: s
+Out[14]: '🤦🏼\u200d♂️'
 
-In [14]: len(s.encode('utf-8'))
-Out[14]: 17
+In [15]: len(s)
+Out[15]: 5
+
+In [16]: type(s)
+Out[16]: str
+
+In [17]: s.encode('utf-8')
+Out[17]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
+
+In [18]: len(s.encode('utf-8'))
+Out[18]: 17
+
+In [19]: type(s.encode('utf-8'))
+Out[19]: bytes
 ```
 
 If we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
 
 ```python
-In [15]: import grapheme
+In [20]: import grapheme
 
-In [16]: grapheme.length(s)
-Out[16]: 1
+In [21]: grapheme.length(s)
+Out[21]: 1
+
+In [22]: s = s + " Why is Unicode so complicated?"
+
+In [23]: grapheme.slice(s, 0, 1)
+Out[23]: '🤦🏼\u200d♂️'
+
+In [24]: grapheme.slice(s, 2)
+Out[24]: 'Why is Unicode so complicated?'
 ```
 
 # Julia
