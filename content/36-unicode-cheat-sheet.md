@@ -21,7 +21,7 @@ nocite: |
   @joelonsoftware
 ---
 
-I wanted to make a cheat sheet for myself that contains some of the different things I use when it comes to unicode.
+I wanted to make a cheat sheet for myself containing a reference of things I use when it comes to Unicode.
 
 First some basics:
 
