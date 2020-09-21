@@ -18,9 +18,13 @@ references:
 - id: python3unicodedocs
   title: "Unicode HOWTO - Comparing strings"
   URL: https://docs.python.org/3/howto/unicode.html#comparing-strings
+- id: manishearth
+  title: "Let’s Stop Ascribing Meaning to Code Points"
+  URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
 nocite: |
   @hsivonen
   @fasterthanlime
+  @manishearth
   @joelonsoftware
 ---
 
