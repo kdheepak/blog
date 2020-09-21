@@ -61,7 +61,7 @@ First some basics:
    - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
    And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
-   See the code point at U+FDFD: ﷽
+   See the code point at U+FDFD:
 
    - '﷽' U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
