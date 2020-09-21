@@ -15,20 +15,22 @@ references:
 - id: fasterthanlime
   title: "Working with strings in Rust"
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
-- id: python3unicodedocs
-  title: "Unicode HOWTO - Comparing strings"
-  URL: https://docs.python.org/3/howto/unicode.html#comparing-strings
 - id: manishearth
   title: "Let’s Stop Ascribing Meaning to Code Points"
   URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
 - id: eevee
   title: "Dark corners of Unicode"
   URL: https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
+- id: blist
+  title: "How Python does Unicode"
+  URL: https://www.b-list.org/weblog/2017/sep/05/how-python-does-unicode/
 nocite: |
   @hsivonen
   @fasterthanlime
   @manishearth
   @joelonsoftware
+  @eevee
+  @blist
 ---
 
 I wanted to make a cheat sheet for myself containing a reference of things I use when it comes to Unicode.
@@ -292,7 +294,7 @@ In [31]: len(multiple_chars)
 Out[31]: 2
 ```
 
-We can use the built in standard library `unicodedata` to normalize Unicode strings [@python3unicodedocs].
+We can use the built in standard library `unicodedata` to normalize [Python Unicode strings](https://docs.python.org/3/howto/unicode.html#comparing-strings).
 
 ```python
 In [32]: import unicodedata
