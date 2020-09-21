@@ -209,11 +209,11 @@ Out[9]: '♂'
 In [10]: s[4] # this may look like an empty string but it is not.
 Out[10]: '️'
 
-In [11]: s[4].encode("utf-8")
-Out[11]: b'\xef\xb8\x8f'
+In [11]: len(s[4]), s[4].encode("utf-8")
+Out[11]: (1, b'\xef\xb8\x8f')
 
-In [12]: ''.encode("utf-8")
-Out[12]: b''
+In [12]: len(''), ''.encode("utf-8")
+Out[12]: (0, b'')
 
 In [13]: s[5]
 ---------------------------------------------------------------------------
