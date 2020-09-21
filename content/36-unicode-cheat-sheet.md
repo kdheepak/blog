@@ -28,7 +28,8 @@ I wanted to make a cheat sheet for myself containing a reference of things I use
 
 First some basics:
 
-1. Unicode Code Points[^codepoint: See <https://unicode.org/glossary/#code_point>.] are unique mappings from numbers to an abstract character, concept or graphical representation.
+1. Unicode Code Points[^codepoint: See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
+   integers to an abstract character, concept or graphical representation.
    These graphical representations may look similar visually but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
 
