@@ -28,7 +28,7 @@ I wanted to make a cheat sheet for myself containing a reference of things I use
 
 First some basics:
 
-1. Unicode Code Points[^codepoint: See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
+1. Unicode Code Points^[See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
    integers to an abstract character, concept or graphical representation.
    These graphical representations may look visually similar but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
@@ -38,7 +38,7 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-   Multiple codepoints may be used to represent a Grapheme[^grapheme: See <https://unicode.org/glossary/#grapheme>.].
+   Multiple codepoints may be used to represent a Grapheme^[See <https://unicode.org/glossary/#grapheme>.].
    For example, in Devangari the grapheme
    दी
    is formed by combining the following two codepoints:
