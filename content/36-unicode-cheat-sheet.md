@@ -64,6 +64,7 @@ First some basics:
 
    Python prints the bytes as human readable characters if they are valid ASCII characters.
    Valid ASCII byte strings are also valid UTF-8 byte strings.
+   ASCII defined 128 characters, half of the 256 possible bytes in an 8-bit computer system.
 
    ```python
    In [7]: s = 'hello world'
