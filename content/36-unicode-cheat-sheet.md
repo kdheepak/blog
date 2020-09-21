@@ -34,9 +34,10 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-1. The same "idea", i.e. codepoint can be _encoded_ into different bits when represented on a machine depending on the encoding chosen.
+1. The same "idea", i.e. codepoint can be _encoded_ into different bits when it is required to be represented on a machine.
+   The bits used to represent the idea depend on the encoding chosen.
    An encoding is a map or transformation of a codepoint into bits or bytes.
-   The codepoint for a 🐉 can be encoded into UTF-8, UTF16, UTF32 etc.
+   For example, the codepoint for a 🐉 can be encoded into UTF-8, UTF16, UTF32 in Python as follows.
 
    ```python
    Python 3.7.6 (default, Jan  8 2020, 13:42:34)
