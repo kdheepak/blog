@@ -114,7 +114,7 @@ This emoji actually consists of 5 codepoints.
 - 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
 - ‍ : U+200D ZERO WIDTH JOINER
 - ♂ : U+2642 MALE SIGN (Ml)
-- ️: U+FE0F Dec:65039 VARIATION SELECTOR-16
+- ️: U+FE0F VARIATION SELECTOR-16
 
 Let's take an example of a Python string that contains just this emoji.
 
