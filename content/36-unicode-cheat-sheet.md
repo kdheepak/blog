@@ -447,7 +447,7 @@ If we want each code point in a Julia `String`, we can use `eachindex`[^julia].
 [^julia]: _aside_: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
 
 ```julia
-julia> [s[x] for x in eachindex(s)]
+julia> [s[i] for i in eachindex(s)]
 5-element Array{Char,1}:
  '🤦': Unicode U+1F926 (category So: Symbol, other)
  '🏼': Unicode U+1F3FC (category Sk: Symbol, modifier)
