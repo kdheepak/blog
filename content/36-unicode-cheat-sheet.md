@@ -82,6 +82,7 @@ First some basics:
 1. When receiving or reading data, we **_must_** know the encoding used to interpret it correctly.
    A Unicode encoding is not guaranteed to contain any information about the encoding.
    Different encodings exist for efficiency, performance and backward compatibility.
+   UTF-8 is a good pick for an encoding in the general case.
 
 # Vim
 
