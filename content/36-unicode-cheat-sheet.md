@@ -28,19 +28,19 @@ I wanted to make a cheat sheet for myself containing a reference of things I use
 
 First some basics:
 
-1. Unicode codepoints are unique mappings from numbers to an abstract character, concept or graphical representation.
+1. Unicode Code Points[^codepoint: See <https://unicode.org/glossary/#code_point>.] are unique mappings from numbers to an abstract character, concept or graphical representation.
    These graphical representations may look similar visually but can represent different "ideas".
-   For example: A, Α, А, Ａ are all different unicode codepoints.
+   For example: A, Α, А, Ａ are all different Unicode code points.
 
    - 'A' U+0041 LATIN CAPITAL LETTER A
    - 'Α' U+0391 GREEK CAPITAL LETTER ALPHA
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-1. The same "idea", i.e. codepoint can be _encoded_ into different bits when it is required to be represented on a machine.
+1. The same "idea", i.e. code point can be _encoded_ into different bits when it is required to be represented on a machine.
    The bits used to represent the idea depend on the encoding chosen.
-   An encoding is a map or transformation of a codepoint into bits or bytes.
-   For example, the codepoint for a 🐉 can be encoded into UTF-8, UTF16, UTF32 in Python as follows.
+   An encoding is a map or transformation of a code point into bits or bytes.
+   For example, the code point for a 🐉 can be encoded into UTF-8, UTF16, UTF32 in Python as follows.
 
    ```python
    Python 3.7.6 (default, Jan  8 2020, 13:42:34)
@@ -94,7 +94,7 @@ In vim in insert mode, we can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_
 - the letter `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
 - the letter `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
 
-Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:UnicodeName` to get the Unicode number of the codepoint under the cursor.
+Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:UnicodeName` to get the Unicode number of the code point under the cursor.
 
 # Python
 
@@ -106,17 +106,17 @@ This means that any one of multiple internal representations may be used dependi
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
 If non Basic Multilingual Plane characters are using in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
 
-In each of these cases, the internal representation uses the same number of bytes for each codepoint.
+In each of these cases, the internal representation uses the same number of bytes for each code point.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
-valid codepoint and not a grapheme.
+valid code point and not a grapheme.
 The Unicode consortium defines a grapheme[^grapheme] as a "What a user thinks of as a character".
-In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of codepoints in the string.
+In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of code points in the string.
 
 [^grapheme]: See <https://unicode.org/glossary/#grapheme>.
 
 However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
-This emoji actually consists of 5 codepoints.
+This emoji actually consists of 5 code points.
 
 - 🤦 : U+1F926 FACE PALM
 - 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
@@ -155,7 +155,7 @@ In [7]: print(s)
 🤦🏼‍♂️
 ```
 
-As mentioned earlier, indexing into a Python Unicode string gives us the codepoint at that location.
+As mentioned earlier, indexing into a Python Unicode string gives us the code point at that location.
 
 ```python
 
@@ -189,14 +189,14 @@ IndexError                                Traceback (most recent call last)
 IndexError: string index out of range
 ```
 
-Iterating over a Python string gives us the codepoints as well.
+Iterating over a Python string gives us the code points as well.
 
 ```python
 In [15]: [c for c in s]
 Out[15]: ['🤦', '🏼', '\u200d', '♂', '️']
 ```
 
-Indexing into the codepoints may not be useful in practice. More often, we are interested in indexing into the byte string representation or
+Indexing into the code points may not be useful in practice. More often, we are interested in indexing into the byte string representation or
 interested in indexing into the graphemes.
 
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
@@ -312,10 +312,10 @@ UInt8
 ```
 
 Printing the length of the string in Julia returns `5`.
-As we saw earlier, this is the number of codepoints in the unicode string.
+As we saw earlier, this is the number of code points in the unicode string.
 
 Julia `String` literals are encoded using the UTF-8 encoding.
-In Python, the indexing into a string would return the codepoint at the string.
+In Python, the indexing into a string would return the code point at the string.
 In Julia, indexing into a string refers to code units, and for the default `String` this returns the byte as a `Char` type.
 
 ```julia
@@ -407,7 +407,7 @@ Stacktrace:
 [...]
 ```
 
-If we want each codepoint in a Julia `String`, we can use `eachindex`[^julia].
+If we want each code point in a Julia `String`, we can use `eachindex`[^julia].
 
 [^julia]: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
 
