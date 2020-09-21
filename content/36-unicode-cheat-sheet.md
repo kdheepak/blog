@@ -181,15 +181,12 @@ In [4]: len(s)
 Out[4]: 5
 ```
 
-If we want to keep a Python file pure ascii but want to use Unicode in string literals, we can use the `\U` escape sequence.
+If we want to keep a Python file pure ASCII but want to use Unicode in string literals, we can use the `\U` escape sequence.
 
 ```python
 In [5]: s = '\U0001F926\U0001F3FC\u200D\u2642\uFE0F'
 
-In [6]: s
-Out[6]: '🤦🏼\u200d♂️'
-
-In [7]: print(s)
+In [6]: print(s)
 🤦🏼‍♂️
 ```
 
@@ -197,28 +194,28 @@ As mentioned earlier, indexing into a Python Unicode string gives us the code po
 
 ```python
 
-In [7]: s[0]
-Out[7]: '🤦'
+In [6]: s[0]
+Out[6]: '🤦'
 
-In [8]: s[1]
-Out[8]: '🏼'
+In [7]: s[1]
+Out[7]: '🏼'
 
-In [9]: s[2]
-Out[9]: '\u200d'
+In [8]: s[2]
+Out[8]: '\u200d'
 
-In [10]: s[3]
-Out[10]: '♂'
+In [9]: s[3]
+Out[9]: '♂'
 
-In [11]: s[4] # this may look like an empty string but it is not.
-Out[11]: '️'
+In [10]: s[4] # this may look like an empty string but it is not.
+Out[10]: '️'
 
-In [12]: s[4].encode("utf-8")
-Out[12]: b'\xef\xb8\x8f'
+In [11]: s[4].encode("utf-8")
+Out[11]: b'\xef\xb8\x8f'
 
-In [13]: "".encode("utf-8")
-Out[13]: b''
+In [12]: "".encode("utf-8")
+Out[12]: b''
 
-In [14]: s[5]
+In [13]: s[5]
 ---------------------------------------------------------------------------
 IndexError                                Traceback (most recent call last)
 <ipython-input-42-b5dece75d686> in <module>
@@ -230,8 +227,8 @@ IndexError: string index out of range
 Iterating over a Python string gives us the code points as well.
 
 ```python
-In [15]: [c for c in s]
-Out[15]: ['🤦', '🏼', '\u200d', '♂', '️']
+In [14]: [c for c in s]
+Out[14]: ['🤦', '🏼', '\u200d', '♂', '️']
 ```
 
 However, in practice, indexing into a string may not be what we want or may not be useful in practice.
@@ -243,68 +240,68 @@ More often, we are either interested in:
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
 ```python
-In [16]: s
-Out[16]: '🤦🏼\u200d♂️'
+In [15]: s
+Out[15]: '🤦🏼\u200d♂️'
 
-In [17]: len(s)
-Out[17]: 5
+In [16]: len(s)
+Out[16]: 5
 
-In [18]: type(s)
-Out[18]: str
+In [17]: type(s)
+Out[17]: str
 
-In [19]: s.encode("utf-8")
-Out[19]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
+In [18]: s.encode("utf-8")
+Out[18]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
 
-In [20]: len(s.encode("utf-8"))
-Out[20]: 17
+In [19]: len(s.encode("utf-8"))
+Out[19]: 17
 
-In [21]: type(s.encode("utf-8"))
-Out[21]: bytes
+In [20]: type(s.encode("utf-8"))
+Out[20]: bytes
 ```
 
 If we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
 
 ```python
-In [22]: import grapheme
+In [21]: import grapheme
 
-In [23]: grapheme.length(s)
-Out[23]: 1
+In [22]: grapheme.length(s)
+Out[22]: 1
 
-In [24]: s = s + " Why is Unicode so complicated?"
+In [23]: s = s + " Why is Unicode so complicated?"
 
-In [25]: grapheme.slice(s, 0, 1)
-Out[25]: '🤦🏼\u200d♂️'
+In [24]: grapheme.slice(s, 0, 1)
+Out[24]: '🤦🏼\u200d♂️'
 
-In [26]: grapheme.slice(s, 2)
-Out[26]: 'Why is Unicode so complicated?'
+In [25]: grapheme.slice(s, 2)
+Out[25]: 'Why is Unicode so complicated?'
 ```
 
 For historical reasons, Unicode allows the same set of characters to be represented by different sequences of code points.
 
 ```python
-In [27]: single_char = 'ê'
+In [26]: single_char = 'ê'
     ...: multiple_chars = '\N{LATIN SMALL LETTER E}\N{COMBINING CIRCUMFLEX ACCENT}'
 
-In [28]: single_char
-Out[28]: 'ê'
+In [27]: single_char
+Out[27]: 'ê'
 
-In [29]: multiple_chars
-Out[29]: 'ê'
+In [28]: multiple_chars
+Out[28]: 'ê'
 
-In [30]: len(single_char)
-Out[30]: 1
+In [29]: len(single_char)
+Out[29]: 1
 
-In [31]: len(multiple_chars)
-Out[31]: 2
+In [30]: len(multiple_chars)
+Out[30]: 2
 ```
 
 We can use the built in standard library `unicodedata` to normalize [Python Unicode strings](https://docs.python.org/3/howto/unicode.html#comparing-strings).
 
 ```python
-In [32]: import unicodedata
+In [31]: import unicodedata
 
-In [33]: len(unicodedata.normalize("NFD", single_char))
-Out[33]: 2
+In [32]: len(unicodedata.normalize("NFD", single_char))
+Out[32]: 2
 ```
 
 It is best practice to add the following lines to the top of your Python file that you expect to run as scripts.
