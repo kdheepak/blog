@@ -53,6 +53,16 @@ First some basics:
 
    - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
+   And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
+   Take the following code point, at U+FDFD: ﷽
+
+   - '﷽' U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
+
+   My name in Devangiri and Tamil are below:
+
+   - DEVANGARI: दीपक
+   - TAMIL: தீபக்
+
 1. The same "idea", i.e. code point can be _encoded_ into different bits when it is required to be represented on a machine.
    The bits used to represent the idea depend on the encoding chosen.
    An encoding is a map or transformation of a code point into bits or bytes.
