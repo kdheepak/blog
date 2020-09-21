@@ -15,9 +15,12 @@ references:
 - id: fasterthanlime
   title: "Working with strings in Rust"
   URL: https://fasterthanli.me/articles/working-with-strings-in-rust
-- id: manishearth
+- id: manishearth1
   title: "Let’s Stop Ascribing Meaning to Code Points"
   URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
+- id: manishearth2
+  title: "Breaking Our Latin-1 Assumptions"
+  URL: https://manishearth.github.io/blog/2017/01/15/breaking-our-latin-1-assumptions/
 - id: eevee
   title: "Dark corners of Unicode"
   URL: https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
@@ -27,7 +30,8 @@ references:
 nocite: |
   @hsivonen
   @fasterthanlime
-  @manishearth
+  @manishearth1
+  @manishearth2
   @joelonsoftware
   @eevee
   @blist
