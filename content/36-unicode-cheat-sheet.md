@@ -77,24 +77,7 @@ First some basics:
 
 1. When receiving or reading data, you **_must_** know the encoding used to interpret it correctly.
    A Unicode encoding is not guaranteed to contain any information about the encoding.
-   Different encodings exist for efficiency, performance and backward compatibility, and data in one encoding may work  in another but is not strictly always going to work.
-   For example, in the following binary data `01000001_01000010_01000011` or hexadecimal data `41_42_43` can be decoded using `ascii` or `utf-8`, but naturally does not have a valid transformation when using a `utf-16` decoder.
-
-   ```python
-   In [1]: b'\x41\x42\x43'.decode('ascii')
-   Out[1]: 'ABC'
-
-   In [2]: b'\x41\x42\x43'.decode('utf-8')
-   Out[2]: 'ABC'
-
-   In [3]: b'\x41\x42\x43'.decode('utf-16')
-   ---------------------------------------------------------------------------
-   UnicodeDecodeError                        Traceback (most recent call last)
-   <ipython-input-23-d64cb3406699> in <module>
-   ----> 1 b'\x41\x42\x43'.decode('utf-16')
-
-   UnicodeDecodeError: 'utf-16-le' codec can't decode byte 0x43 in position 2: truncated data
-   ```
+   Different encodings exist for efficiency, performance and backward compatibility.
 
 # Vim
 
