@@ -145,7 +145,7 @@ If non Basic Multilingual Plane characters are used in a Python Unicode string, 
 In each of these cases, the internal representation uses the same number of bytes for each code point.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
 valid code point and not a grapheme.
-In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of code points in the string.
+The `length` of a Unicode string is defined as the number of code points in the string.
 
 However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
