@@ -38,6 +38,21 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
+   Multiple codepoints may be used to represent a Grapheme[^grapheme: See <https://unicode.org/glossary/#grapheme>.].
+   For example, in Devangari the grapheme
+   दी
+   is formed by combining the following two codepoints:
+
+   - 'द' U+0926 DEVANAGARI LETTER DA
+   - ' ी' U+0940 DEVANAGARI VOWEL SIGN II
+
+   Additionally, multiple "ideas" may be defined as a single code point.
+   For example, the following grapheme
+   ﷺ
+   translates to "peace be upon him" and is encoded as a single codepoint:
+
+   - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
+
 1. The same "idea", i.e. code point can be _encoded_ into different bits when it is required to be represented on a machine.
    The bits used to represent the idea depend on the encoding chosen.
    An encoding is a map or transformation of a code point into bits or bytes.
@@ -110,10 +125,8 @@ If non Basic Multilingual Plane characters are using in a Python Unicode string,
 In each of these cases, the internal representation uses the same number of bytes for each code point.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
 valid code point and not a grapheme.
-The Unicode consortium defines a grapheme[^grapheme] as a "What a user thinks of as a character".
+The Unicode consortium defines a grapheme as a "What a user thinks of as a character".
 In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of code points in the string.
-
-[^grapheme]: See <https://unicode.org/glossary/#grapheme>.
 
 However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
