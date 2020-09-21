@@ -59,20 +59,8 @@ First some basics:
    Out[5]: b'\xff\xfe\x00\x00\t\xf4\x01\x00'
    ```
 
-   The ASCII encoding is defined for just 127 codepoints. Python throws an `UnicodeEncodeError` if we try to encode 🐉 into ASCII.
-
-   ```python
-   In [6]: s.encode('ascii')
-   ---------------------------------------------------------------------------
-   UnicodeEncodeError                        Traceback (most recent call last)
-   <ipython-input-2-532f2946fbcf> in <module>
-   ----> 1 s.encode('ascii')
-
-   UnicodeEncodeError: 'ascii' codec can't encode character '\U0001f409' in position 0: ordinal not in range(128)
-   ```
-
-   Valid ASCII byte strings are also valid UTF-8 byte strings.
    Python prints the bytes as human readable characters if they are valid ASCII characters.
+   Valid ASCII byte strings are also valid UTF-8 byte strings.
 
    ```python
    In [7]: s = 'hello world'
