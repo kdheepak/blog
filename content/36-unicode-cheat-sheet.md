@@ -108,8 +108,7 @@ In such an implementation it makes sense that the `length` of a Unicode string i
 
 However, in practice, indexing into a string may not be what you want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
-🤦🏼‍♂️
-actually consists of 5 codepoints.
+This emoji actually consists of 5 codepoints.
 
 - 🤦 : U+1F926 FACE PALM
 - 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
