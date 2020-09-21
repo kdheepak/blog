@@ -38,7 +38,8 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-   Multiple codepoints may be used to represent a Grapheme^[See <https://unicode.org/glossary/#grapheme>.].
+   The Unicode consortium defines a Grapheme^[See <https://unicode.org/glossary/#grapheme>.] as a "What a user thinks of as a character".
+   Multiple codepoints may be used to represent a grapheme.
    For example, my name in Devangari and Tamil can be written as 3 graphemes in each, but consist of 4 and 5 codepoints in Devangari and Tamil respectively:
 
    - DEVANGARI: दीपक
@@ -137,7 +138,6 @@ If non Basic Multilingual Plane characters are using in a Python Unicode string,
 In each of these cases, the internal representation uses the same number of bytes for each code point.
 This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
 valid code point and not a grapheme.
-The Unicode consortium defines a grapheme as a "What a user thinks of as a character".
 In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of code points in the string.
 
 However, in practice, indexing into a string may not be what we want.
