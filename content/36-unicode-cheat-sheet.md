@@ -140,10 +140,8 @@ Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:Uni
 
 # Python
 
-Since Python >=3.3 [^pep0393], the Unicode string type supports a "flexible string representation".
+Since Python >=3.3, the Unicode string type supports a ["flexible string representation"](https://www.python.org/dev/peps/pep-0393/).
 This means that any one of multiple internal representations may be used depending on the largest Unicode ordinal (1, 2, or 4 bytes) in a Unicode string.
-
-[^pep0393]: _aside_: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>.
 
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
 If non Basic Multilingual Plane characters are used in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
