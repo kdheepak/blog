@@ -101,7 +101,7 @@ Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:Uni
 Since Python >=3.3 [^pep0393], the Unicode string type supports a "flexible string representation".
 This means that any one of multiple internal representations may be used depending on the largest Unicode ordinal (1, 2, or 4 bytes) in a Unicode string.
 
-[^pep0393]: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>
+[^pep0393]: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>.
 
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
 If non Basic Multilingual Plane characters are using in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
@@ -112,7 +112,7 @@ valid codepoint and not a grapheme.
 The Unicode consortium defines a grapheme[^grapheme] as a "What a user thinks of as a character".
 In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of codepoints in the string.
 
-[^grapheme]: See https://unicode.org/glossary/#grapheme.
+[^grapheme]: See <https://unicode.org/glossary/#grapheme>.
 
 However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
