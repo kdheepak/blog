@@ -212,7 +212,7 @@ Out[10]: '️'
 In [11]: s[4].encode("utf-8")
 Out[11]: b'\xef\xb8\x8f'
 
-In [12]: "".encode("utf-8")
+In [12]: ''.encode("utf-8")
 Out[12]: b''
 
 In [13]: s[5]
