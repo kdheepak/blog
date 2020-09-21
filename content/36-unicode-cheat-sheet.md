@@ -27,7 +27,7 @@ First some basics:
 
 1. Unicode codepoints are unique numbers to express an abstract character, concept or graphical representation.
    These graphical representations may look similar visually but represent different "ideas".
-   For example: A, Α, А, Ａ are all different unicode code points.
+   For example: A, Α, А, Ａ are all different unicode codepoints.
 
    - 'A' U+0041 LATIN CAPITAL LETTER A
    - 'Α' U+0391 GREEK CAPITAL LETTER ALPHA
@@ -121,19 +121,31 @@ Also check out <https://github.com/chrisbra/unicode.vim>.] followed by either:
 
 # Python
 
-Since Python >=3.3 [^pep0393], the Unicode string type supports multiple internal representations depending on the character with the largest Unicode ordinal (1, 2, or 4 bytes).
-In Python, the `length` of a Unicode string is defined as the number of code points in the string.
+Since Python >=3.3 [^pep0393], the Unicode string type supports a "flexible string representation".
+This means that any one of multiple internal representations may be used depending on the largest Unicode ordinal (1, 2, or 4 bytes) in a Unicode string.
 
 [^pep0393]: See PEP0393 for more information: <https://www.python.org/dev/peps/pep-0393/>
 
-In the case of "🤦🏼‍♂️"
-we have 5 codepoints.
+For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.
+If non Basic Multilingual Plane characters are using in a Python Unicode string, the internal representation may be stored as UCS2 or UCS4.
+
+In each of these cases, the internal representation uses the same number of bytes for each codepoint.
+This allows efficient indexing into a Python Unicode string, but indexing into a Python Unicode string will only return a
+valid codepoint and not a grapheme.
+In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of codepoints in the string.
+
+However, in practice, indexing into a string may not be what you want.
+As an example, let's take this emoji: 🤦🏼‍♂️.
+🤦🏼‍♂️
+actually consists of 5 codepoints.
 
 - 🤦 : U+1F926 FACE PALM
 - 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
 - ‍ : U+200D ZERO WIDTH JOINER
 - ♂ : U+2642 MALE SIGN (Ml)
 - ️: U+FE0F Dec:65039 VARIATION SELECTOR-16
+
+Let's take an example of a Python string that contains just this emoji.
 
 ```python
 Python 3.7.6 (default, Jan  8 2020, 13:42:34)
@@ -152,44 +164,34 @@ In [4]: len(s)
 Out[4]: 5
 ```
 
-When encoding a Python Unicode string using an encoding, we get a Python byte string.
-
-```
-In [5]: s.encode('utf-8')
-Out[5]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
-
-In [6]: len(s.encode('utf-8'))
-Out[6]: 17
-```
-
-Indexing into a Python Unicode string gives us the codepoint at that location.
+As mentioned earlier, indexing into a Python Unicode string gives us the codepoint at that location.
 
 ```python
 
-In [7]: s[0]
-Out[7]: '🤦'
+In [5]: s[0]
+Out[5]: '🤦'
 
-In [8]: s[1]
-Out[8]: '🏼'
+In [6]: s[1]
+Out[6]: '🏼'
 
-In [9]: s[2]
-Out[9]: '\u200d'
+In [7]: s[2]
+Out[7]: '\u200d'
 
-In [10]: s[3]
-Out[10]: '♂'
+In [8]: s[3]
+Out[8]: '♂'
 
-In [11]: s[4]
-Out[11]: '️'
+In [9]: s[4]
+Out[9]: '️'
 
-In [12]: # this may look like an empty byte string but it is not.
+In [10]: # this may look like an empty byte string but it is not.
 
-In [13]: s[4].encode('utf-8')
-Out[13]: b'\xef\xb8\x8f'
+In [11]: s[4].encode('utf-8')
+Out[11]: b'\xef\xb8\x8f'
 
-In [14]: ''.encode('utf-8')
-Out[14]: b''
+In [12]: ''.encode('utf-8')
+Out[12]: b''
 
-In [15]: s[5]
+In [13]: s[5]
 ---------------------------------------------------------------------------
 IndexError                                Traceback (most recent call last)
 <ipython-input-42-b5dece75d686> in <module>
@@ -198,19 +200,26 @@ IndexError                                Traceback (most recent call last)
 IndexError: string index out of range
 ```
 
-In Python, if we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
+Indexing into the codepoints may not be useful in practice. More often, we are interested in indexing into the byte string representation or
+interested in indexing into the graphemes.
+
+We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
 ```
-Python 3.7.6 (default, Jan  8 2020, 13:42:34)
-Type 'copyright', 'credits' or 'license' for more information
-IPython 7.16.1 -- An enhanced Interactive Python. Type '?' for help.
+In [14]: s.encode('utf-8')
+Out[14]: b'\xf0\x9f\xa4\xa6\xf0\x9f\x8f\xbc\xe2\x80\x8d\xe2\x99\x82\xef\xb8\x8f'
 
-In [1]: import grapheme
+In [15]: len(s.encode('utf-8'))
+Out[15]: 17
+```
 
-In [2]: s = "🤦🏼‍♂️"
+If we are interested in the number of graphemes, we can use the [`grapheme`](https://pypi.org/project/grapheme/) package.
 
-In [3]: grapheme.length(s)
-Out[3]: 1
+```
+In [16]: import grapheme
+
+In [17]: grapheme.length(s)
+Out[17]: 1
 ```
 
 # Julia
