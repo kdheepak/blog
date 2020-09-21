@@ -39,12 +39,19 @@ First some basics:
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
    Multiple codepoints may be used to represent a Grapheme^[See <https://unicode.org/glossary/#grapheme>.].
-   For example, in Devangari the grapheme
-   दी
-   is formed by combining the following two codepoints:
+   For example, my name in Devangari and Tamil can be written as 3 graphemes in each, but consist of 4 and 5 codepoints in Devangari and Tamil respectively:
 
-   - 'द' U+0926 DEVANAGARI LETTER DA
-   - ' ी' U+0940 DEVANAGARI VOWEL SIGN II
+   - DEVANGARI: दीपक
+       - 'द' U+0926 DEVANAGARI LETTER DA
+       - 'ी' U+0940 DEVANAGARI VOWEL SIGN II
+       - 'प' U+092A DEVANAGARI LETTER PA
+       - 'क' U+0915 Dec:2325 DEVANAGARI LETTER KA
+   - TAMIL: தீபக்
+       - 'த' U+0BA4 TAMIL LETTER TA
+       - 'ீ' U+0BC0 TAMIL VOWEL SIGN II
+       - 'ப' U+0BAA TAMIL LETTER PA
+       - 'க' U+0B95 TAMIL LETTER KA
+       - '்' U+0BCD TAMIL SIGN VIRAMA
 
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
@@ -54,14 +61,9 @@ First some basics:
    - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
    And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
-   Take the following code point, at U+FDFD: ﷽
+   See the code point at U+FDFD: ﷽
 
    - '﷽' U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
-
-   My name in Devangiri and Tamil are below:
-
-   - DEVANGARI: दीपक
-   - TAMIL: தீபக்
 
 1. The same "idea", i.e. code point can be _encoded_ into different bits when it is required to be represented on a machine.
    The bits used to represent the idea depend on the encoding chosen.
