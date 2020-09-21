@@ -84,8 +84,7 @@ First some basics:
 
 # Vim
 
-In vim in insert mode, we can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information.
-Also check out <https://github.com/chrisbra/unicode.vim>.] followed by either:
+In vim in insert mode, we can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information.] followed by either:
 
 - a decimal number [0-255]. `Ctrl-v255` will insert `ÿ`.
 - the letter `o` and then an octal number [0-377]. `Ctrl-vo377` will insert `ÿ`.
@@ -93,6 +92,7 @@ Also check out <https://github.com/chrisbra/unicode.vim>.] followed by either:
 - the letter `u` and then a 4-hexchar Unicode sequence. `Ctrl-vu03C0` will insert `π`.
 - the letter `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
 
+Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:UnicodeName` to get the Unicode number of the codepoint under the cursor.
 
 # Python
 
