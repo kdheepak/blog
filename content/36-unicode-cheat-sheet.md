@@ -75,13 +75,13 @@ First some basics:
    Out[9]: b'\xff\xfeh\x00e\x00l\x00l\x00o\x00 \x00w\x00o\x00r\x00l\x00d\x00'
    ```
 
-1. When receiving or reading data, you **_must_** know the encoding used to interpret it correctly.
+1. When receiving or reading data, we **_must_** know the encoding used to interpret it correctly.
    A Unicode encoding is not guaranteed to contain any information about the encoding.
    Different encodings exist for efficiency, performance and backward compatibility.
 
 # Vim
 
-In vim in insert mode, you can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information.
+In vim in insert mode, we can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_digit` for more information.
 Also check out <https://github.com/chrisbra/unicode.vim>.] followed by either:
 
 - a decimal number [0-255]. `Ctrl-v255` will insert `ÿ`.
@@ -106,7 +106,7 @@ This allows efficient indexing into a Python Unicode string, but indexing into a
 valid codepoint and not a grapheme.
 In such an implementation it makes sense that the `length` of a Unicode string is defined as the number of codepoints in the string.
 
-However, in practice, indexing into a string may not be what you want.
+However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
 This emoji actually consists of 5 codepoints.
 
@@ -348,7 +348,7 @@ Stacktrace:
 [...]
 ```
 
-If you do want each codepoint in a Julia `String`, you can use `eachindex`[^julia].
+If we want each codepoint in a Julia `String`, we can use `eachindex`[^julia].
 
 [^julia]: See the Julia manual strings documentation for more information: <https://docs.julialang.org/en/v1/manual/strings/>
 
@@ -375,7 +375,7 @@ julia> length(graphemes(s))
 1
 ```
 
-If you wish to encode a Julia string as UTF-8[^juliatrancode], we can use the following:
+If we wish to encode a Julia string as UTF-8[^juliatrancode], we can use the following:
 
 [^juliatranscode]: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: https://docs.julialang.org/en/v1/base/strings/#Base.transcode
 
