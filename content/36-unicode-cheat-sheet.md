@@ -52,7 +52,7 @@ First some basics:
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
    The Unicode consortium defines a Grapheme^[<https://unicode.org/glossary/#grapheme>] as a "What a user thinks of as a character".
-   Multiple codepoints may be used to represent a grapheme.
+   Multiple code points may be used to represent a grapheme.
    For example, my name in Devangari and Tamil can be written as 3 graphemes, but it consists of 4 and 5 code points respectively in these languages:
 
    - DEVANGARI: दीपक
@@ -70,7 +70,7 @@ First some basics:
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
    ﷺ
-   translates to "peace be upon him" and is encoded as a single codepoint:
+   translates to "peace be upon him" and is encoded as a single code point:
 
    - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
