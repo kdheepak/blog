@@ -30,7 +30,7 @@ First some basics:
 
 1. Unicode Code Points[^codepoint: See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
    integers to an abstract character, concept or graphical representation.
-   These graphical representations may look similar visually but can represent different "ideas".
+   These graphical representations may look visually similar but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
 
    - 'A' U+0041 LATIN CAPITAL LETTER A
