@@ -41,7 +41,7 @@ I wanted to make a cheat sheet for myself containing a reference of things I use
 
 First some basics:
 
-1. Unicode Code Points^[_aside_: See <https://unicode.org/glossary/#code_point>.] are unique mappings from hexadecimal
+1. Unicode Code Points^[<https://unicode.org/glossary/#code_point>] are unique mappings from hexadecimal
    integers to an abstract character, concept or graphical representation.
    These graphical representations may look visually similar but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
@@ -51,7 +51,7 @@ First some basics:
    - 'А' U+0410 CYRILLIC CAPITAL LETTER A
    - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
-   The Unicode consortium defines a Grapheme^[_aside_: See <https://unicode.org/glossary/#grapheme>.] as a "What a user thinks of as a character".
+   The Unicode consortium defines a Grapheme^[<https://unicode.org/glossary/#grapheme>] as a "What a user thinks of as a character".
    Multiple codepoints may be used to represent a grapheme.
    For example, my name in Devangari and Tamil can be written as 3 graphemes in each, but consist of 4 and 5 codepoints in Devangari and Tamil respectively:
 
