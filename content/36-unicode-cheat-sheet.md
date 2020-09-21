@@ -157,7 +157,7 @@ This emoji actually consists of 5 code points.
 - ♂ : U+2642 MALE SIGN (Ml)
 - ️: U+FE0F VARIATION SELECTOR-16
 
-Let's take an example of a Python string that contains just this emoji.
+In Python, a string that contains just this emoji has length equal to 5.
 
 ```python
 Python 3.7.6 (default, Jan  8 2020, 13:42:34)
