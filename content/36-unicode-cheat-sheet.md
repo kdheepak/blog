@@ -147,7 +147,6 @@ This allows efficient indexing into a Python Unicode string, but indexing into a
 valid code point and not a grapheme.
 The `length` of a Unicode string is defined as the number of code points in the string.
 
-However, in practice, indexing into a string may not be what we want.
 As an example, let's take this emoji: 🤦🏼‍♂️.
 This emoji actually consists of 5 code points.
 
@@ -229,8 +228,11 @@ In [15]: [c for c in s]
 Out[15]: ['🤦', '🏼', '\u200d', '♂', '️']
 ```
 
-Indexing into the code points may not be useful in practice. More often, we are interested in indexing into the byte string representation or
-interested in indexing into the graphemes.
+However, in practice, indexing into a string may not be what we want or may not be useful in practice.
+More often, we are either interested in:
+
+1) indexing into the byte string representation or
+2) indexing into the graphemes.
 
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
