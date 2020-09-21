@@ -59,7 +59,7 @@ First some basics:
    Out[5]: b'\xff\xfe\x00\x00\t\xf4\x01\x00'
    ```
 
-   ASCII can only encode 256 codepoints. Python throws an `UnicodeEncodeError` if we try to encode 🐉 into ASCII.
+   The ASCII encoding is defined for just 127 codepoints. Python throws an `UnicodeEncodeError` if we try to encode 🐉 into ASCII.
 
    ```python
    In [6]: s.encode('ascii')
