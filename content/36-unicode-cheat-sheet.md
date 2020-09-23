@@ -46,38 +46,38 @@ First some basics:
    These graphical representations may look visually similar but can represent different "ideas".
    For example: A, Α, А, Ａ are all different Unicode code points.
 
-   - 'A' U+0041 LATIN CAPITAL LETTER A
-   - 'Α' U+0391 GREEK CAPITAL LETTER ALPHA
-   - 'А' U+0410 CYRILLIC CAPITAL LETTER A
-   - 'Ａ' U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
+   - A : U+0041 LATIN CAPITAL LETTER A
+   - Α : U+0391 GREEK CAPITAL LETTER ALPHA
+   - А : U+0410 CYRILLIC CAPITAL LETTER A
+   - Ａ : U+FF21 FULLWIDTH LATIN CAPITAL LETTER A
 
    The Unicode consortium defines a Grapheme^[<https://unicode.org/glossary/#grapheme>] as a "What a user thinks of as a character".
    Multiple code points may be used to represent a grapheme.
    For example, my name in Devangari and Tamil can be written as 3 graphemes, but it consists of 4 and 5 code points respectively in these languages:
 
    - DEVANGARI: दीपक
-       -   द   U+0926 DEVANAGARI LETTER DA
-       -   ी   U+0940 DEVANAGARI VOWEL SIGN II
-       -   प   U+092A DEVANAGARI LETTER PA
-       -   क   U+0915 Dec:2325 DEVANAGARI LETTER KA
+       - <span>द</span>      : U+0926 DEVANAGARI LETTER DA
+       - <span>  ी   </span> : U+0940 DEVANAGARI VOWEL SIGN II
+       - <span>प</span>      : U+092A DEVANAGARI LETTER PA
+       - <span>क</span>      : U+0915 Dec:2325 DEVANAGARI LETTER KA
    - TAMIL: தீபக்
-       -   த   U+0BA4 TAMIL LETTER TA
-       -    ீ   U+0BC0 TAMIL VOWEL SIGN II
-       -   ப   U+0BAA TAMIL LETTER PA
-       -   க   U+0B95 TAMIL LETTER KA
-       -    ்   U+0BCD TAMIL SIGN VIRAMA
+       - <span>த</span>    : U+0BA4 TAMIL LETTER TA
+       - <span>  ீ  </span> : U+0BC0 TAMIL VOWEL SIGN II
+       - <span>ப</span>    : U+0BAA TAMIL LETTER PA
+       - <span>க</span>    : U+0B95 TAMIL LETTER KA
+       - <span>  ்  </span> : U+0BCD TAMIL SIGN VIRAMA
 
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
    ﷺ
    translates to "peace be upon him" and is defined as the code point at U+FDFA:
 
-   -  ﷺ  U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
+   -  ﷺ  : U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
    And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
    See the code point at U+FDFD:
 
-   -  ﷽  U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
+   -  ﷽   : U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
    Code points can be of different categories, Normal, Pictographic, Spacer, Zero Width Joiners, Controls etc.
 
@@ -161,9 +161,9 @@ This emoji actually consists of 5 code points[^uniview]:
 
 - 🤦 : U+1F926 FACE PALM
 - 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
-- ‍ : U+200D ZERO WIDTH JOINER
+- <span>‍</span>: U+200D ZERO WIDTH JOINER
 - ♂ : U+2642 MALE SIGN (Ml)
-- ️: U+FE0F VARIATION SELECTOR-16
+- <span> ️</span>: U+FE0F VARIATION SELECTOR-16
 
 In Python, a string that contains just this emoji has length equal to 5.
 
