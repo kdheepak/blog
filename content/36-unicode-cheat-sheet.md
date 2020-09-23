@@ -357,7 +357,7 @@ As we saw earlier, this is the number of code points in the unicode string.
 
 Julia `String` literals are encoded using the UTF-8 encoding.
 In Python, the indexing into a string would return the code point at the string.
-In Julia, indexing into a string refers to code units, and for the default `String` this returns the byte as a `Char` type.
+In Julia, indexing into a string refers to code units^[<https://unicode.org/glossary/#code_unit>], and for the default `String` this returns the byte as a `Char` type.
 
 ```julia
 julia> s[1]
