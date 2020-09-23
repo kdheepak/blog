@@ -79,6 +79,8 @@ First some basics:
 
    - '﷽' U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
+   Code points can be of different categories, Normal, Pictographic, Spacer, Zero Width Joiners, Controls etc.
+
 1. The same "idea", i.e. code point can be _encoded_ into different bits when it is required to be represented on a machine.
    The bits used to represent the idea depend on the encoding chosen.
    An encoding is a map or transformation of a code point into bits or bytes.
