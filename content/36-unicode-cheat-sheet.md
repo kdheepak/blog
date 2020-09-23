@@ -57,15 +57,15 @@ First some basics:
 
    - DEVANGARI: दीपक
        - <span>द</span>      : U+0926 DEVANAGARI LETTER DA
-       - <span>  ी   </span> : U+0940 DEVANAGARI VOWEL SIGN II
+       - <span> ी</span>     : U+0940 DEVANAGARI VOWEL SIGN II
        - <span>प</span>      : U+092A DEVANAGARI LETTER PA
        - <span>क</span>      : U+0915 Dec:2325 DEVANAGARI LETTER KA
    - TAMIL: தீபக்
        - <span>த</span>    : U+0BA4 TAMIL LETTER TA
-       - <span>  ீ  </span> : U+0BC0 TAMIL VOWEL SIGN II
+       - <span> ீ</span>    : U+0BC0 TAMIL VOWEL SIGN II
        - <span>ப</span>    : U+0BAA TAMIL LETTER PA
        - <span>க</span>    : U+0B95 TAMIL LETTER KA
-       - <span>  ்  </span> : U+0BCD TAMIL SIGN VIRAMA
+       - <span> ்</span>    : U+0BCD TAMIL SIGN VIRAMA
 
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
@@ -160,7 +160,7 @@ This emoji actually consists of 5 code points[^uniview]:
 [^uniview]: _aside_: We can view this breakdown using [uniview](https://r12a.github.io/uniview/?charlist=%F0%9F%A4%A6%F0%9F%8F%BC%E2%80%8D%E2%99%82%EF%B8%8F). In `vim`, we can use `:UnicodeName`.
 
 - 🤦 : U+1F926 FACE PALM
-- 🏼 : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
+- <span>🏼</span> : U+1F3FC EMOJI MODIFIER FITZPATRICK TYPE-3
 - <span>‍</span>: U+200D ZERO WIDTH JOINER
 - ♂ : U+2642 MALE SIGN (Ml)
 - <span> ️</span>: U+FE0F VARIATION SELECTOR-16
