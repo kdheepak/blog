@@ -56,28 +56,28 @@ First some basics:
    For example, my name in Devangari and Tamil can be written as 3 graphemes, but it consists of 4 and 5 code points respectively in these languages:
 
    - DEVANGARI: दीपक
-       - ' द ' U+0926 DEVANAGARI LETTER DA
-       - ' ी ' U+0940 DEVANAGARI VOWEL SIGN II
-       - ' प ' U+092A DEVANAGARI LETTER PA
-       - ' क ' U+0915 Dec:2325 DEVANAGARI LETTER KA
+       -   द   U+0926 DEVANAGARI LETTER DA
+       -   ी   U+0940 DEVANAGARI VOWEL SIGN II
+       -   प   U+092A DEVANAGARI LETTER PA
+       -   क   U+0915 Dec:2325 DEVANAGARI LETTER KA
    - TAMIL: தீபக்
-       - ' த ' U+0BA4 TAMIL LETTER TA
-       - '  ீ ' U+0BC0 TAMIL VOWEL SIGN II
-       - ' ப ' U+0BAA TAMIL LETTER PA
-       - ' க ' U+0B95 TAMIL LETTER KA
-       - '  ் ' U+0BCD TAMIL SIGN VIRAMA
+       -   த   U+0BA4 TAMIL LETTER TA
+       -    ீ   U+0BC0 TAMIL VOWEL SIGN II
+       -   ப   U+0BAA TAMIL LETTER PA
+       -   க   U+0B95 TAMIL LETTER KA
+       -    ்   U+0BCD TAMIL SIGN VIRAMA
 
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
    ﷺ
    translates to "peace be upon him" and is defined as the code point at U+FDFA:
 
-   - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
+   -  ﷺ  U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
    And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
    See the code point at U+FDFD:
 
-   - '﷽' U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
+   -  ﷽  U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
    Code points can be of different categories, Normal, Pictographic, Spacer, Zero Width Joiners, Controls etc.
 
