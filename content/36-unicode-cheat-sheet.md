@@ -70,7 +70,7 @@ First some basics:
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
    ﷺ
-   translates to "peace be upon him" and is encoded as a single code point:
+   translates to "peace be upon him" and is defined as the code point at U+FDFA:
 
    - 'ﷺ' U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
