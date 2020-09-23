@@ -139,6 +139,7 @@ In vim in insert mode, we can type `Ctrl+V`^[_aside_: Check out `:help i_CTRL-V_
 - the letter `U` and then an 8-hexchar Unicode sequence. `Ctrl-vU0001F409` will insert `🐉`.
 
 Using [`unicode.vim`](https://github.com/chrisbra/unicode.vim), we can use `:UnicodeName` to get the Unicode number of the code point under the cursor.
+With `unicode.vim` and `fzf` installed, you can even fuzzy find Unicode symbols.
 
 # Python
 
