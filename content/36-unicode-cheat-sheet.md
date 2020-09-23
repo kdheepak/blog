@@ -154,7 +154,9 @@ This allows efficient indexing into a Python Unicode string, but indexing into a
 valid code point and not a grapheme.
 The `length` of a Unicode string is defined as the number of code points in the string.
 
-As an example, let's take this emoji: 🤦🏼‍♂️.
+As an example, let's take this emoji:
+🤦🏼‍♂️
+[@hsivonen].
 This emoji actually consists of 5 code points[^uniview]:
 
 [^uniview]: _aside_: We can view this breakdown using [uniview](https://r12a.github.io/uniview/?charlist=%F0%9F%A4%A6%F0%9F%8F%BC%E2%80%8D%E2%99%82%EF%B8%8F). In `vim`, we can use `:UnicodeName`.
