@@ -502,3 +502,68 @@ julia> transcode(UInt8, s)
  0xb8
  0x8f
 ```
+
+# Rust
+
+Let's also take a look at rust. We can create a simple `main.rs` file:
+
+```rust
+// main.rs
+
+fn main() {
+
+    let s = "🤦🏼‍♂️";
+
+    println!("{}", s);
+
+    println!("{:?}", s);
+
+    dbg!(s);
+
+    dbg!(s.len());
+
+    for (i, b) in s.bytes().enumerate() {
+        println!("s.bytes()[{}] = {:#x}", i, b);
+    }
+
+    dbg!(s.chars().count());
+
+    for (i, c) in s.chars().enumerate() {
+        println!("s.chars()[{}] = {:?}", i, c);
+    }
+
+}
+```
+
+And compile and run it like so:
+
+```bash
+$ rustc main.rs && ./main
+🤦🏼‍♂️
+"🤦🏼\u{200d}♂\u{fe0f}"
+[main.rs:11] s = "🤦🏼\u{200d}♂\u{fe0f}"
+[main.rs:13] s.len() = 17
+s.bytes()[0] = 0xf0
+s.bytes()[1] = 0x9f
+s.bytes()[2] = 0xa4
+s.bytes()[3] = 0xa6
+s.bytes()[4] = 0xf0
+s.bytes()[5] = 0x9f
+s.bytes()[6] = 0x8f
+s.bytes()[7] = 0xbc
+s.bytes()[8] = 0xe2
+s.bytes()[9] = 0x80
+s.bytes()[10] = 0x8d
+s.bytes()[11] = 0xe2
+s.bytes()[12] = 0x99
+s.bytes()[13] = 0x82
+s.bytes()[14] = 0xef
+s.bytes()[15] = 0xb8
+s.bytes()[16] = 0x8f
+[main.rs:19] s.chars().count() = 5
+s.chars()[0] = '🤦'
+s.chars()[1] = '🏼'
+s.chars()[2] = '\u{200d}'
+s.chars()[3] = '♂'
+s.chars()[4] = '\u{fe0f}'
+```
