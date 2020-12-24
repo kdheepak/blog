@@ -19,7 +19,7 @@ Copy paste the following gist to the window
 
 <script src="https://gist.github.com/kdheepak/9e287b937edb2509eab9.js"></script>
 
-Save the application in /Applications or /Users/$USER/Applications. Now you can
+Save the application in `/Applications` or `/Users/$USER/Applications`. Now you can
 quickly open emacsclient from Alfred.
 
 Also check out Alfred workflows in the link below
