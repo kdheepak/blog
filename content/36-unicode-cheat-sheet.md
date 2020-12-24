@@ -236,7 +236,7 @@ In [14]: [c for c in s]
 Out[14]: ['🤦', '🏼', '\u200d', '♂', '️']
 ```
 
-However, in practice, indexing into a string may not be what we want or may not be useful in practice.
+However, in practice, indexing into a string may not be what we want or may not be useful.
 More often, we are either interested in:
 
 1) indexing into the byte string representation or
