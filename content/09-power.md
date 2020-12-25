@@ -190,7 +190,7 @@ $\sin(\theta) =  - \sin(-\theta)$
 
 Hence,
 
-$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta $
+$p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) + \frac{V_{max}I_{max}}{2} \sin 2\omega t \sin \theta$
 
 We see that the sign of the first term remains unaffected by the sign of $\theta$
 
