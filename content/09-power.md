@@ -11,7 +11,7 @@ summary: This post covers the basics of the types of Power in power systems, spe
 
 $V$ and $I$ are used to indicate phasor representations of sinusoidal voltages and currents. $E$ is used to represent generated voltage or electromotive force (emf). $V$ is often used to measure a potential difference between two points. $v$ is used to represent the instantaneous voltage between two points.
 
-Let voltage be defined as the following :
+Let voltage be defined as the following:
 
 $v = 155.563491861 \cos(\omega t + \phi)$
 
@@ -54,7 +54,7 @@ def rms(x):
 
 ```
 
-We can calculate the maximum, minimum and the RMS value as follows
+We can calculate the maximum, minimum and the RMS value as follows:
 
 
 ```python
@@ -85,11 +85,11 @@ $|V|$ is used to represent magnitude of the phasors.
 
 $|V| = 110 = \frac{155.5634}{\sqrt{2}}$
 
-The RMS value of $v$ is what is read by a voltmeter
+The RMS value of $v$ is what is read by a voltmeter.
 
 # Expression for power
 
-Let voltage and current be expressed by
+Let voltage and current be expressed by:
 
 $v_{an} = V_{max} \cos(\omega t + \theta)$
 
@@ -162,7 +162,6 @@ We know that,
 
 $2\cos \theta \cos \varphi = {{\cos(\theta - \varphi) + \cos(\theta + \varphi)}}$
 
-
 $p = V_{max}I_{max} \cos(\omega t + \theta) \cos\omega t$
 
 $p = \frac{V_{max}I_{max}}{2}({{\cos(\omega t + \theta - \omega t) + \cos(\omega t + \theta + \omega t)}})$
@@ -174,7 +173,6 @@ The second $\cos$ term is of the following form,
 $\cos(\alpha \pm \beta) = \cos \alpha \cos \beta \mp \sin \alpha \sin \beta\,$
 
 $p = \frac{V_{max}I_{max}}{2}({{\cos\theta + \cos 2\omega t \cos \theta - \sin 2\omega t \sin \theta}})$
-
 
 $p = \frac{V_{max}I_{max}}{2}({{\cos\theta (1 + \cos 2\omega t)  - \sin 2\omega t \sin \theta}})$
 
@@ -195,7 +193,6 @@ $p = \frac{V_{max}I_{max}}{2} \cos\theta (1 + \cos 2\omega t) + \frac{V_{max}I_{
 We see that the sign of the first term remains unaffected by the sign of $\theta$
 
 Let us plot the two parts of this equation.
-
 
 ```python
 # <!-- collapse=True -->
@@ -248,7 +245,6 @@ ax2.legend(loc='lower left')
 ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
-
 
 ![](images/power_16_0.png)
 
