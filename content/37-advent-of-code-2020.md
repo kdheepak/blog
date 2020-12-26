@@ -62,9 +62,9 @@ However, a more idiomatic solution can be expressed using the `combinations` fun
 ```julia
 using Combinatorics
 
-readInput() = parse.(Int, split(strip(read(joinpath("src/day01/input.txt"), String))))
+readInput() = sort(parse.(Int, split(strip(read(joinpath("src/day01/input.txt"), String)))))
 
-expense_report(data, n) = only(prod(items) for items in combinations(sort(data), n) if sum(items) == 2020)
+expense_report(data, n) = only(prod(items) for items in combinations(data, n) if sum(items) == 2020)
 
 part1(data = readInput()) = expense_report(data, 2)
 part2(data = readInput()) = expense_report(data, 3)
