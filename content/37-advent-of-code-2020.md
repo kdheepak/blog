@@ -55,7 +55,9 @@ Below I'll be discussing solutions from solving this year's Advent of Code, whic
 
 ## [Day 1](https://adventofcode.com/2020/day/1)
 
-This solution can be concisely represented using the `combinations` function from the [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl):
+Day 1 of advent of code basically is intended to check that you have a programming language installed, and you know how to simple features it in (e.g. `for` loops).
+
+However, a more idiomatic solution can be expressed using the `combinations` function from the [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl):
 
 ```julia
 using Combinatorics
@@ -72,7 +74,9 @@ Python has a similar function in the standard library: <https://docs.python.org/
 
 ## [Day 2](https://adventofcode.com/2020/day/2)
 
-Julia supports infix operators for xor: ⊻. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
+Day 2 is a simple case of parsing, counting characters in a string and knowing that "exactly one" can be expressed using `xor`.
+
+Julia supports infix operators for `xor`: `⊻`. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
 ```julia
 readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
@@ -104,7 +108,9 @@ In Julia, you can use the `only` function to get the one and only element in a c
 ## [Day 3](https://adventofcode.com/2020/day/3)
 
 A lot of advent of code problems have the puzzle input as text that represents a grid.
-Having a one liner to convert that to a `Matrix` is very useful.
+Day 3 is our first introduction to a grid of trees.
+
+Having a one liner to convert the text input to a `Matrix` can be very useful.
 This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
 
 ```julia
@@ -183,12 +189,67 @@ end
 
 ## [Day 6](https://adventofcode.com/2020/day/6)
 
-Julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
-Also, you can use the unicode symbols of mathematical operations for union and intersection of sets.
+Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be represented using union and intersection.
+
+In Julia, you can use the unicode symbols of mathematical operations for union and intersection of sets.
+Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 
 ```julia
 readInput() = split.(split(read("src/day06/input.txt", String), "\n\n"))
 
 part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
 part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
+```
+
+Julia has support for broadcasting using the `f.(c)` syntax,
+which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
+
+
+## [Day 7](https://adventofcode.com/2020/day/7)
+
+Day 7 is the first introduction to graphs this year.
+While it is possible to find solutions to both parts of this puzzle using recursion,
+the problem can be well represented as a graph.
+This code is based on Ali Hamed Moosavian's and [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/07/day07.jl) solutions:
+
+```julia
+using LightGraphs
+using SimpleWeightedGraphs
+
+readInput() = build_graph(split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
+
+function build_graph(data)
+    edges = []
+    for line in data
+        outer_bag, inner_bags = split(line, " contain ")
+        occursin("no other bags", inner_bags) && continue
+        for bag in split(inner_bags, ", ")
+            counter, name = parse(Int, first(bag)), strip(bag[3:end], '.')
+            e = String(rstrip(outer_bag, 's')), String(rstrip(name, 's')), counter
+            push!(edges, e)
+        end
+    end
+
+    nodes = collect(Set(src for (src, _, _) in edges) ∪ Set(dst for (_, dst, _) in edges))
+    mapping = Dict(n => i for (i,n) in enumerate(nodes))
+
+    g = SimpleWeightedDiGraph(length(nodes))
+    for (src, dst, counter) in edges
+        add_edge!(g, mapping[src], mapping[dst], counter)
+    end
+    g, mapping, nodes
+end
+
+part1(data = readInput()) = part1(data[1], data[2])
+part1(g, mapping) = count(!=(0), bfs_parents(g, mapping["shiny gold bag"], dir = :in)) - 1
+
+function total_bags(g, v)
+    isempty(neighbors(g, v)) && return 1
+    1 + sum(neighbors(g, v)) do nb
+        Int(g.weights[nb, v]) * total_bags(g, nb)
+    end
+end
+
+part2(data = readInput()) = part2(data[1], data[2])
+part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 ```
