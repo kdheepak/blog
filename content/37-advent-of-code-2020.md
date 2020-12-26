@@ -341,7 +341,7 @@ using Combinatorics
 
 function bad_number(nums, k)
   for i in (k + 1):length(nums)
-    if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[(i - k):(i - 1)], 2))
+    if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[i-k:i-1], 2))
       return (i, nums[i])
     end
   end
@@ -349,8 +349,7 @@ end
 
 function rectify(nums, k)
   v = bad_number(nums, k)
-  i = 1
-  j = 1
+  i = j = 1
   while (s = sum(nums[i:j])) != v
     s < v ? j += 1 : i += 1
   end
