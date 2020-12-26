@@ -126,13 +126,7 @@ function solve(trees, slope)
 end
 
 part1(data = readInput()) = solve(data, (x = 3, y = 1))
-part2(data = readInput()) = prod(solve(data, s) for s in [
-    (x = 1, y = 1),
-    (x = 5, y = 1),
-    (x = 3, y = 1),
-    (x = 7, y = 1),
-    (x = 1, y = 2),
-  ])
+part2(data = readInput()) = prod(solve.(Ref(data), [(x=1,y=1),(x=5,y=1),(x=3,y=1),(x=7,y=1),(x=1,y=2)]))
 ```
 
 Julia has `mod1` for 1 based mod, which is useful for indexing in these type of situations.
