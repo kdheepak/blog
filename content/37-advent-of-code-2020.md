@@ -417,7 +417,8 @@ part2(data = readInput()) = prod(binomial.(length.(split(data, '3', keepempty=fa
 
 Alternatively, because the steps needed are one, two or three, you can calculate all possible steps by using a tribonacci sum.
 The tribonacci sum gives us all ways to traverse a set of ones, i.e. `11111...` by hopping from `1` to `1` in steps of size 1, 2 or 3.
-Thanks to [Sukera](https://github.com/Seelengrab/AdventOfCode) for their code and insight into solving this puzzle.
+
+Thanks to [Sukera](https://github.com/Seelengrab/AdventOfCode) and [Andrey Oskin](https://github.com/Arkoniak/advent_of_code/blob/master/2020/10/day10.jl) for their code and insight into solving this puzzle.
 
 ```julia
 function readInput()
@@ -433,4 +434,13 @@ function tribonacci(n)
 end
 
 part2(data = readInput()) = prod(tribonacci.(length.(data)))
+```
+
+Finally, this [tribonacci sequence can be generalized](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers):
+
+```julia
+const a1 = (19 + 3*sqrt(33))^(1/3)
+const a2 = (19 - 3*sqrt(33))^(1/3)
+const b = (586 + 102*sqrt(33))^(1/3)
+tribonacci(n) = round(Int, (3.0b*((1/3*(a1 + a2 + 1.0))^(n+1)))/(b^2.0 - 2.0b + 4.0))
 ```
