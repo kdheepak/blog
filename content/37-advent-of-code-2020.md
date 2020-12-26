@@ -72,7 +72,7 @@ Python has a similar function in the standard library: <https://docs.python.org/
 
 ## [Day 2](https://adventofcode.com/2020/day/2)
 
-Julia supports infix operators for xor: ⊻. Solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
+Julia supports infix operators for xor: ⊻. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
 ```julia
 readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
