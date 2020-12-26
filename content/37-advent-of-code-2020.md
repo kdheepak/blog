@@ -189,6 +189,6 @@ Also, you can use the unicode symbols of mathematical operations for union and i
 ```julia
 readInput() = split.(split(read("src/day06/input.txt", String), "\n\n"))
 
-part1(data = readInput()) = sum(q->length(∪(Set.(q)...)), data)
-part2(data = readInput()) = sum(q->length(∩(Set.(q)...)), data)
+part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
+part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 ```
