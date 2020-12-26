@@ -204,7 +204,6 @@ part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 Julia has support for broadcasting using the `f.(c)` syntax,
 which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
 
-
 ## [Day 7](https://adventofcode.com/2020/day/7)
 
 Day 7 is the first introduction to graphs this year.
@@ -252,4 +251,136 @@ end
 
 part2(data = readInput()) = part2(data[1], data[2])
 part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
+```
+
+## [Day 8](https://adventofcode.com/2020/day/8)
+
+Day 8 was a straightforward op code interpreter.
+
+```julia
+readInput() = strip(read(joinpath(@__DIR__, "./input.txt"), String))
+
+part1(data = readInput()) = boot(split(data, '\n'))
+
+part2(data = readInput()) = corrupt(split(data, '\n'))
+
+function boot(instructions)
+    acc = 0
+    i = 1
+    s = Set()
+    while true
+        i ∈ s ? break : push!(s, i)
+        inst, n = split(instructions[i])
+        n = parse(Int, n)
+        if inst == "acc"
+            i += 1
+            acc += n
+        elseif inst == "jmp"
+            i += n
+        elseif inst == "nop"
+            i += 1
+        end
+    end
+    acc
+end
+
+function corrupt(original_instructions)
+    for j in 1:length(original_instructions)
+        boot_loop_detected = false
+        acc = 0
+        i = 1
+        s = Set()
+        instructions = copy(original_instructions)
+        if occursin("jmp", instructions[j])
+            instructions[j] = replace(instructions[j], "jmp" => "nop")
+        elseif occursin("nop", instructions[j])
+            instructions[j] = replace(instructions[j], "nop" => "jmp")
+        end
+        while true
+            if i ∈ s
+                boot_loop_detected = true
+                break
+            else
+                push!(s, i)
+            end
+            i > length(instructions) && break
+            inst, n = split(instructions[i])
+            n = parse(Int, n)
+            if inst == "acc"
+                i += 1
+                acc += n
+            elseif inst == "jmp"
+                i += n
+            elseif inst == "nop"
+                i += 1
+            end
+        end
+        if !boot_loop_detected
+            return acc
+        end
+    end
+end
+```
+
+## [Day 9](https://adventofcode.com/2020/day/9)
+
+Day 9 was also straightforward.
+
+In Julia, you can combine multiple `for` loops iteration expressions into a single line.
+You can even use the variable from the outer loop as the index in the inner loop, like you'd expect.
+This can reduce the nesting level of your inner expressions.
+
+```julia
+readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
+
+function check(numbers, n)
+    for i in numbers, j in numbers
+        i + j == n && return true
+    end
+    false
+end
+
+function part1(numbers)
+    preamble = 25
+    for i in (preamble + 1):length(numbers)
+        check(numbers[i-preamble:i-1], numbers[i]) && continue
+        return i, numbers[i]
+    end
+end
+
+function part2(numbers)
+    idx, num = part1(numbers)
+    for i in eachindex(numbers), j in i:lastindex(numbers)
+        sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
+    end
+end
+```
+
+Teo ShaoWei's solution using [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
+
+```julia
+using Combinatorics
+
+function bad_number(nums, k)
+    for i in (k + 1):length(nums)
+        if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[(i - k):(i - 1)], 2))
+            return (i, nums[i])
+        end
+    end
+end
+
+function rectify(nums, k)
+    v = bad_number(nums, k)
+    i = 1
+    j = 1
+    while (s = sum(nums[i:j])) != v
+        s < v ? j += 1 : i += 1
+    end
+
+    return minimum(nums[i:j]) + maximum(nums[i:j])
+end
+
+input = parse_input("input_puzzle.txt")
+part1 = bad_number(input, 25)
+part2 = rectify(input, 25)
 ```
