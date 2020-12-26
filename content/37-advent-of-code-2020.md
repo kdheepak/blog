@@ -173,7 +173,7 @@ part1() = mapreduce(seatid, max, eachline("src/day05/input.txt"))
 
 function part2()
   seats = sort(seatid.(eachline("src/day05/input.txt")))
-  prev = seats[1]
+  prev = first(seats)
   for seat in seats
     (seat - prev == 2) && return prev + 1
     prev = seat
@@ -436,7 +436,7 @@ end
 part2(data = readInput()) = prod(tribonacci.(length.(data)))
 ```
 
-Finally, this [tribonacci sequence can be generalized](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers):
+The tribonacci sequence can also be generalized:
 
 ```julia
 const a1 = (19 + 3*sqrt(33))^(1/3)
@@ -444,3 +444,5 @@ const a2 = (19 - 3*sqrt(33))^(1/3)
 const b = (586 + 102*sqrt(33))^(1/3)
 tribonacci(n) = round(Int, (3.0b*((1/3*(a1 + a2 + 1.0))^(n+1)))/(b^2.0 - 2.0b + 4.0))
 ```
+
+See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers) article for more information.
