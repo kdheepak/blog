@@ -14,7 +14,7 @@ I participated in [Advent of Code 2020](https://adventofcode.com/2020/) this yea
 
 I did all the puzzles in [Julia](https://julialang.org/) this year, and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
 
-# Why you should participate in Advent of Code
+# Why Advent of Code
 
 Advent of Code is a lot of fun.
 I think there's a few reasons I find it quite enjoyable.
