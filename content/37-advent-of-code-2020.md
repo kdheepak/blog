@@ -312,7 +312,7 @@ function check(numbers, n)
   false
 end
 
-function part1(numbers)
+function part1(numbers = readInput())
   preamble = 25
   for i in (preamble + 1):length(numbers)
     check(numbers[i-preamble:i-1], numbers[i]) && continue
@@ -320,7 +320,7 @@ function part1(numbers)
   end
 end
 
-function part2(numbers)
+function part2(numbers = readInput())
   idx, num = part1(numbers)
   for i in eachindex(numbers), j in i:lastindex(numbers)
     sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
@@ -332,6 +332,8 @@ Teo ShaoWei's solution using [`Combinatorics.jl`](https://github.com/JuliaMath/C
 
 ```julia
 using Combinatorics
+
+readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
 
 function bad_number(nums, k)
   for i in (k + 1):length(nums)
@@ -351,7 +353,7 @@ function rectify(nums, k)
   return minimum(nums[i:j]) + maximum(nums[i:j])
 end
 
-input = parse_input("input_puzzle.txt")
+input = readInput()
 part1 = bad_number(input, 25)
 part2 = rectify(input, 25)
 ```
