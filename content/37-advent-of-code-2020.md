@@ -130,10 +130,10 @@ Julia also has ceiling division (`cld`) and floor division (`fld`) which happen 
 # [Day 4](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
-For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/master/2020/04/Day4.jl):
+For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/main/2020/04/Day4.jl):
 
 ```julia
-readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String))
+readInput() = split(read("src/day04/input.txt", String), "\n\n")
 
 const fields1 = (r"byr", r"iyr", r"eyr", r"hgt", r"hcl", r"ecl", r"pid")
 const fields2 = (
@@ -181,7 +181,9 @@ end
 Julia has methods on functions like `sum` that accept a function as the first argument.
 Also, you can use the unicode symbols of mathematical operations for union and intersection of sets.
 
-```
-part1(d) = sum(q->length(∪(Set.(q)...)),split.(split(d,"\n\n")))
-part2(d) = sum(q->length(∩(Set.(q)...)),split.(split(d,"\n\n")))
+```julia
+readInput() = split.(split(read("src/day06/input.txt", String), "\n\n"))
+
+part1(data = readInput()) = sum(q->length(∪(Set.(q)...)), data)
+part2(data = readInput()) = sum(q->length(∩(Set.(q)...)), data)
 ```
