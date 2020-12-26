@@ -135,7 +135,7 @@ Julia also has ceiling division (`cld`) and floor division (`fld`) which happen 
 ## [Day 4](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
-For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
+For example, check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
 
 ```julia
 readInput() = split(read("src/day04/input.txt", String), "\n\n")
