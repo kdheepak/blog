@@ -183,7 +183,7 @@ end
 
 ## [Day 6](https://adventofcode.com/2020/day/6)
 
-Julia has methods on functions like `sum` that accept a function as the first argument.
+Julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 Also, you can use the unicode symbols of mathematical operations for union and intersection of sets.
 
 ```julia
