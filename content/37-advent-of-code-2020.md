@@ -43,7 +43,10 @@ Almost all the problems require parsing text input of various formats.
 And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussions about the tips and tricks in your favourite programming language that you could use to express the problem more elegantly.
 Even after having used Python and Julia for years now, I still learn new things about these programming languages when I read other people's solutions.
 
-Another thing I really enjoy is all the neat visualizations that come out of Advent of Code by the community that solves them.
+And finally, the community.
+
+The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia Zulip and Slack channel have been a joy to visit every day after solving the puzzles.
+I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
 Below I'll be discussing solutions from solving this year's Advent of Code, which will contain spoilers.
