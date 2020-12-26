@@ -185,7 +185,7 @@ end
 
 Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be represented using union and intersection.
 
-In Julia, you can use the unicode symbols of mathematical operations for union and intersection of sets.
+In Julia, you can use the unicode symbols of mathematical operations for union (`∪`) and intersection (`∩`) of sets.
 Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 
 ```julia
@@ -197,6 +197,7 @@ part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 
 Julia has support for broadcasting using the `f.(c)` syntax,
 which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
+This tends to be very handy in Advent of Code.
 
 ## [Day 7](https://adventofcode.com/2020/day/7)
 
