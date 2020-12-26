@@ -155,7 +155,7 @@ part1(data = readInput()) = count(p -> all(t -> contains(p, t), fields1), data)
 part2(data = readInput()) = count(p -> all(t -> contains(p, t), fields2), data)
 ```
 
-There were a lot of puzzles this year where I would have been able to more easily parse the input by knowing just a little bit more regex.
+There were a lot of puzzles this year where I would have been able to parse the input more easily by knowing just a little bit more regex.
 
 ## [Day 5](https://adventofcode.com/2020/day/5)
 
