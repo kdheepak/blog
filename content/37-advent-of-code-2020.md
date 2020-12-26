@@ -100,7 +100,7 @@ In Julia, you can use the `only` function to get the one and only element in a c
 
 A lot of advent of code problems have the puzzle input as text that represents a grid.
 Having a one liner to convert that to a `Matrix` is very useful.
-This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/master/2020/03/puzzle.jl).
+This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
 
 ```julia
 readInput() = permutedims(reduce(hcat, collect.(readlines("src/day03/input.txt"))))
@@ -130,7 +130,7 @@ Julia also has ceiling division (`cld`) and floor division (`fld`) which happen 
 # [Day 4](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
-For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/main/2020/04/Day4.jl):
+For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
 
 ```julia
 readInput() = split(read("src/day04/input.txt", String), "\n\n")
@@ -157,7 +157,7 @@ There were a lot of puzzles this year where I would have been able to more easil
 Sometimes having a little insight into what the problem is asking can go a long way.
 For example, in this puzzle, the seat ID is just a binary representation of the input.
 So you can calculate the seat ID using binary shifting or by parsing the input as a binary number directly.
-This solution is based on [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/master/2020/05/day05.jl):
+This solution is based on [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/05/day05.jl):
 
 ```julia
 seatid(s) = reduce((x, y) -> (x << 1) | ((y == 'R') | (y == 'B')), s; init = 0)
