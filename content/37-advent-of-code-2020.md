@@ -25,7 +25,7 @@ A single puzzle unlocks every night at midnight Eastern Time, and your time when
 There's a global leaderboard that highlights the top 100 fastest times.
 And you also have the ability to make a private leaderboard that you can share with anyone you like, and you can use that to track your time and challenge your friends / peers.
 For straightforward puzzles, it is a lot of fun to see who can read, grok and type out a bug-free working program the fastest.
-There are a bunch of people that upload recordings of their attempts and it is humbling to see how fast they can churn out a correct solution to a problem.
+A bunch of people also upload recordings of their attempts, and it is humbling to see how fast they can churn out a correct solution to a problem.
 
 Secondly, unlike most other competitive programming challenges, the puzzles are mainly designed to be a teaching / learning experience.
 
