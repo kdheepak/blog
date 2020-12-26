@@ -204,7 +204,7 @@ This tends to be very handy in Advent of Code.
 Day 7 is the first introduction to graphs this year.
 While it is possible to find solutions to both parts of this puzzle using recursion,
 the problem can be well represented as a graph.
-This code is based on Ali Hamed Moosavian's and [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/07/day07.jl) solutions:
+This code is based on [Ali Hamed Moosavian's](https://github.com/CNOT) and [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/07/day07.jl) solutions:
 
 ```julia
 using LightGraphs
