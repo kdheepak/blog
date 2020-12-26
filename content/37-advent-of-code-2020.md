@@ -357,3 +357,80 @@ input = readInput()
 part1 = bad_number(input, 25)
 part2 = rectify(input, 25)
 ```
+
+## [Day 10](https://adventofcode.com/2020/day/10)
+
+Part 2 on this day asks to find the number of distinct ways to arrange the Jolt adapters to connect the charging outlet to the device.
+
+This problem can be formulated as a dynamic programming problem.
+This is most straightforward to solve using recursion and memoization.
+Here's [Tom Kwong's](https://github.com/tk3369/AdventOfCode2020/blob/1273e4a086832c5c159fe460f533016fedb33ab2/day10.jl) solution:
+
+```julia
+function readInput()
+  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+  vcat(0, data, data[end]+3)
+end
+
+part1(data = readInput()) = count(==(1), diff(data)) * count(==(3), diff(data))
+
+function part2(data = readInput())
+    len = length(data)
+    dct = Dict{Int,Int}()
+    function helper(v, i)
+        haskey(dct, i) && return dct[i]
+        i == len && return 1
+        n1 =               v[i+1] - v[i] <= 3 ? helper(v, i+1) : 0
+        n2 = i+2 <= len && v[i+2] - v[i] <= 3 ? helper(v, i+2) : 0
+        n3 = i+3 <= len && v[i+3] - v[i] <= 3 ? helper(v, i+3) : 0
+        val = n1 + n2 + n3
+        dct[i] = val
+        return val
+    end
+    helper(data, 1)
+end
+```
+
+One key insight here is that the data doesn't contain jolt adapters that are only 1 or 3 apart.
+
+```julia
+julia> StatsBase.countmap(diff(readInput()))
+Dict{Int64, Int64} with 2 entries:
+  3 => 32
+  1 => 71
+```
+
+Since any adapter that is 3 away can't be removed, the number of distinct ways is just the product of all the different ways you can choose two adapters from the set of adapters that are in between the 3 away adapters.
+Here's a solution based on [Jonnie Diegelman's](https://github.com/jonniedie/Advent2020/blob/dd722991120aa79cf4e0ec028612fb0c48d7d54c/scripts/Day10/code.jl) that takes advantage of that:
+
+```julia
+function readInput()
+  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+  data = vcat(0, data, data[end]+3)
+  join(string.(diff(data)))
+end
+
+part1(data = readInput()) = count(==('1'), data) * count(==('3'), data)
+
+part2(data = readInput()) = prod(binomial.(length.(split(data, '3', keepempty=false)), 2) .+ 1)
+```
+
+Alternatively, because the steps needed are one, two or three, you can calculate all possible steps by using a tribonacci sum.
+The tribonacci sum gives us all ways to traverse a set of ones, i.e. `11111...` by hopping from `1` to `1` in steps of size 1, 2 or 3.
+Thanks to [Sukera](https://github.com/Seelengrab/AdventOfCode) for their code and insight into solving this puzzle.
+
+```julia
+function readInput()
+  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+  data = vcat(0, data, data[end]+3)
+  split(join(string.(diff(data))), '3', keepempty = false)
+end
+
+function tribonacci(n)
+  n <= 1 && return 1
+  n == 2 && return 2
+  tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3)
+end
+
+part2(data = readInput()) = prod(tribonacci.(length.(data)))
+```
