@@ -215,7 +215,7 @@ This code is based on Ali Hamed Moosavian's and [Andrey Oskin's](https://github.
 using LightGraphs
 using SimpleWeightedGraphs
 
-readInput() = build_graph(split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
+readInput() = build_graph(split(strip(read("src/day07/input.txt", String)), '\n'))
 
 function build_graph(data)
     edges = []
@@ -258,7 +258,7 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 Day 8 was a straightforward op code interpreter.
 
 ```julia
-readInput() = strip(read(joinpath(@__DIR__, "./input.txt"), String))
+readInput() = strip(read("src/day08/input.txt", String))
 
 part1(data = readInput()) = boot(split(data, '\n'))
 
