@@ -401,7 +401,7 @@ Dict{Int64, Int64} with 2 entries:
   1 => 71
 ```
 
-Since any adapter that is 3 away can't be removed, the number of distinct ways is just the product of all the different ways you can choose two adapters from the set of adapters that are in between the 3 away adapters.
+Since any adapter that is 3 away can't be removed, the number of distinct ways is just the product of all the different ways you can choose two adapters from the set of 1 away adapters that are in between the 3 away adapters.
 Here's a solution based on [Jonnie Diegelman's](https://github.com/jonniedie/Advent2020/blob/dd722991120aa79cf4e0ec028612fb0c48d7d54c/scripts/Day10/code.jl) that takes advantage of that:
 
 ```julia
