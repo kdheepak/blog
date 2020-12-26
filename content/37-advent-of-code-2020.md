@@ -175,3 +175,13 @@ function part2()
   end
 end
 ```
+
+# [Day 6](https://adventofcode.com/2020/day/6)
+
+Julia has methods on functions like `sum` that accept a function as the first argument.
+Also, you can use the unicode symbols of mathematical operations for union and intersection of sets.
+
+```
+part1(d) = sum(q->length(∪(Set.(q)...)),split.(split(d,"\n\n")))
+part2(d) = sum(q->length(∩(Set.(q)...)),split.(split(d,"\n\n")))
+```
