@@ -82,24 +82,24 @@ Julia supports infix operators for `xor`: `⊻`. The solution below is based on 
 readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
 
 function parseInput(data)
-    d = split.(data, ": ")
-    map(d) do (policy,password)
-        rule, letter = split(policy, ' ')
-        low, high = parse.(Int, split(rule, '-'))
-        (low, high, only(letter), strip(password))
-    end
+  d = split.(data, ": ")
+  map(d) do (policy,password)
+    rule, letter = split(policy, ' ')
+    low, high = parse.(Int, split(rule, '-'))
+    (low, high, only(letter), strip(password))
+  end
 end
 
 function part1(data = readInput())
-    count(parseInput(data)) do (low, high, letter, password)
-        low <= count(==(letter), password) <= high
-    end
+  count(parseInput(data)) do (low, high, letter, password)
+    low <= count(==(letter), password) <= high
+  end
 end
 
 function part2(data = readInput())
-    count(parseInput(data)) do (low, high, letter, password)
-        (password[low] == letter) ⊻ (password[high] == letter)
-    end
+  count(parseInput(data)) do (low, high, letter, password)
+    (password[low] == letter) ⊻ (password[high] == letter)
+  end
 end
 ```
 
@@ -117,12 +117,12 @@ This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/adve
 readInput() = permutedims(reduce(hcat, collect.(readlines("src/day03/input.txt"))))
 
 function solve(trees, slope)
-    n = cld(size(trees, 1), slope.y)
-    rs = range(1, step=slope.y, length=n)
-    cs = range(1, step=slope.x, length=n)
-    cs = map(c -> mod1(c, size(trees, 2)), cs)
-    idxs = CartesianIndex.(rs, cs)
-    count(t -> t == '#', trees[idxs])
+  n = cld(size(trees, 1), slope.y)
+  rs = range(1, step=slope.y, length=n)
+  cs = range(1, step=slope.x, length=n)
+  cs = map(c -> mod1(c, size(trees, 2)), cs)
+  idxs = CartesianIndex.(rs, cs)
+  count(t -> t == '#', trees[idxs])
 end
 
 part1(data = readInput()) = solve(data, (x = 3, y = 1))
@@ -148,13 +148,13 @@ readInput() = split(read("src/day04/input.txt", String), "\n\n")
 
 const fields1 = (r"byr", r"iyr", r"eyr", r"hgt", r"hcl", r"ecl", r"pid")
 const fields2 = (
-    r"byr:(19[2-9][0-9]|200[0-2])\b",
-    r"iyr:20(1[0-9]|20)\b",
-    r"eyr:20(2[0-9]|30)\b",
-    r"hgt:(1([5-8][0-9]|9[0-3])cm|(59|6[0-9]|7[0-6])in)\b",
-    r"hcl:#[0-9a-f]{6}\b",
-    r"ecl:(amb|blu|brn|gry|grn|hzl|oth)\b",
-    r"pid:\d{9}\b"
+  r"byr:(19[2-9][0-9]|200[0-2])\b",
+  r"iyr:20(1[0-9]|20)\b",
+  r"eyr:20(2[0-9]|30)\b",
+  r"hgt:(1([5-8][0-9]|9[0-3])cm|(59|6[0-9]|7[0-6])in)\b",
+  r"hcl:#[0-9a-f]{6}\b",
+  r"ecl:(amb|blu|brn|gry|grn|hzl|oth)\b",
+  r"pid:\d{9}\b"
 )
 
 part1(data = readInput()) = count(p -> all(t -> contains(p, t), fields1), data)
@@ -218,35 +218,35 @@ using SimpleWeightedGraphs
 readInput() = build_graph(split(strip(read("src/day07/input.txt", String)), '\n'))
 
 function build_graph(data)
-    edges = []
-    for line in data
-        outer_bag, inner_bags = split(line, " contain ")
-        occursin("no other bags", inner_bags) && continue
-        for bag in split(inner_bags, ", ")
-            counter, name = parse(Int, first(bag)), strip(bag[3:end], '.')
-            e = String(rstrip(outer_bag, 's')), String(rstrip(name, 's')), counter
-            push!(edges, e)
-        end
+  edges = []
+  for line in data
+    outer_bag, inner_bags = split(line, " contain ")
+    occursin("no other bags", inner_bags) && continue
+    for bag in split(inner_bags, ", ")
+      counter, name = parse(Int, first(bag)), strip(bag[3:end], '.')
+      e = String(rstrip(outer_bag, 's')), String(rstrip(name, 's')), counter
+      push!(edges, e)
     end
+  end
 
-    nodes = collect(Set(src for (src, _, _) in edges) ∪ Set(dst for (_, dst, _) in edges))
-    mapping = Dict(n => i for (i,n) in enumerate(nodes))
+  nodes = collect(Set(src for (src, _, _) in edges) ∪ Set(dst for (_, dst, _) in edges))
+  mapping = Dict(n => i for (i,n) in enumerate(nodes))
 
-    g = SimpleWeightedDiGraph(length(nodes))
-    for (src, dst, counter) in edges
-        add_edge!(g, mapping[src], mapping[dst], counter)
-    end
-    g, mapping, nodes
+  g = SimpleWeightedDiGraph(length(nodes))
+  for (src, dst, counter) in edges
+    add_edge!(g, mapping[src], mapping[dst], counter)
+  end
+  g, mapping, nodes
 end
 
 part1(data = readInput()) = part1(data[1], data[2])
 part1(g, mapping) = count(!=(0), bfs_parents(g, mapping["shiny gold bag"], dir = :in)) - 1
 
 function total_bags(g, v)
-    isempty(neighbors(g, v)) && return 1
-    1 + sum(neighbors(g, v)) do nb
-        Int(g.weights[nb, v]) * total_bags(g, nb)
-    end
+  isempty(neighbors(g, v)) && return 1
+  1 + sum(neighbors(g, v)) do nb
+    Int(g.weights[nb, v]) * total_bags(g, nb)
+  end
 end
 
 part2(data = readInput()) = part2(data[1], data[2])
@@ -261,64 +261,42 @@ Day 8 was a straightforward op code interpreter.
 readInput() = strip(read("src/day08/input.txt", String))
 
 part1(data = readInput()) = boot(split(data, '\n'))
-
 part2(data = readInput()) = corrupt(split(data, '\n'))
 
 function boot(instructions)
-    acc = 0
-    i = 1
-    s = Set()
-    while true
-        i ∈ s ? break : push!(s, i)
-        inst, n = split(instructions[i])
-        n = parse(Int, n)
-        if inst == "acc"
-            i += 1
-            acc += n
-        elseif inst == "jmp"
-            i += n
-        elseif inst == "nop"
-            i += 1
-        end
-    end
-    acc
+  acc, i, s = 0, 1, Set{Int}()
+  while true
+    i ∈ s ? break : push!(s, i)
+    inst, n = split(instructions[i])
+    n = parse(Int, n)
+    inst == "acc" && ( i += 1; acc += n )
+    inst == "jmp" && ( i += n )
+    inst == "nop" && ( i += 1 )
+  end
+  acc
 end
 
 function corrupt(original_instructions)
-    for j in 1:length(original_instructions)
-        boot_loop_detected = false
-        acc = 0
-        i = 1
-        s = Set()
-        instructions = copy(original_instructions)
-        if occursin("jmp", instructions[j])
-            instructions[j] = replace(instructions[j], "jmp" => "nop")
-        elseif occursin("nop", instructions[j])
-            instructions[j] = replace(instructions[j], "nop" => "jmp")
-        end
-        while true
-            if i ∈ s
-                boot_loop_detected = true
-                break
-            else
-                push!(s, i)
-            end
-            i > length(instructions) && break
-            inst, n = split(instructions[i])
-            n = parse(Int, n)
-            if inst == "acc"
-                i += 1
-                acc += n
-            elseif inst == "jmp"
-                i += n
-            elseif inst == "nop"
-                i += 1
-            end
-        end
-        if !boot_loop_detected
-            return acc
-        end
+  for j in 1:length(original_instructions)
+    boot_loop_detected = false
+    acc, i, s = 0, 1, Set{Int}()
+    instructions = copy(original_instructions)
+    if occursin("jmp", instructions[j])
+      instructions[j] = replace(instructions[j], "jmp" => "nop")
+    elseif occursin("nop", instructions[j])
+      instructions[j] = replace(instructions[j], "nop" => "jmp")
     end
+    while true
+      i ∈ s ? ( boot_loop_detected = true; break ) : push!(s, i)
+      i > length(instructions) && break
+      inst, n = split(instructions[i])
+      n = parse(Int, n)
+      inst == "acc" && ( i += 1; acc += n )
+      inst == "jmp" && ( i += n )
+      inst == "nop" && ( i += 1 )
+    end
+    !boot_loop_detected && return acc
+  end
 end
 ```
 
@@ -334,25 +312,25 @@ This can reduce the nesting level of your inner expressions.
 readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
 
 function check(numbers, n)
-    for i in numbers, j in numbers
-        i + j == n && return true
-    end
-    false
+  for i in numbers, j in numbers
+    i + j == n && return true
+  end
+  false
 end
 
 function part1(numbers)
-    preamble = 25
-    for i in (preamble + 1):length(numbers)
-        check(numbers[i-preamble:i-1], numbers[i]) && continue
-        return i, numbers[i]
-    end
+  preamble = 25
+  for i in (preamble + 1):length(numbers)
+    check(numbers[i-preamble:i-1], numbers[i]) && continue
+    return i, numbers[i]
+  end
 end
 
 function part2(numbers)
-    idx, num = part1(numbers)
-    for i in eachindex(numbers), j in i:lastindex(numbers)
-        sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
-    end
+  idx, num = part1(numbers)
+  for i in eachindex(numbers), j in i:lastindex(numbers)
+    sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
+  end
 end
 ```
 
@@ -362,22 +340,22 @@ Teo ShaoWei's solution using [`Combinatorics.jl`](https://github.com/JuliaMath/C
 using Combinatorics
 
 function bad_number(nums, k)
-    for i in (k + 1):length(nums)
-        if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[(i - k):(i - 1)], 2))
-            return (i, nums[i])
-        end
+  for i in (k + 1):length(nums)
+    if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[(i - k):(i - 1)], 2))
+      return (i, nums[i])
     end
+  end
 end
 
 function rectify(nums, k)
-    v = bad_number(nums, k)
-    i = 1
-    j = 1
-    while (s = sum(nums[i:j])) != v
-        s < v ? j += 1 : i += 1
-    end
+  v = bad_number(nums, k)
+  i = 1
+  j = 1
+  while (s = sum(nums[i:j])) != v
+    s < v ? j += 1 : i += 1
+  end
 
-    return minimum(nums[i:j]) + maximum(nums[i:j])
+  return minimum(nums[i:j]) + maximum(nums[i:j])
 end
 
 input = parse_input("input_puzzle.txt")
