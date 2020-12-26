@@ -7,12 +7,12 @@ keywords: adventofcode, julia
 summary:
 ---
 
-It is Christmas night, and it is the first time this month that I haven't planned had to plan schedule for the evening around a programming puzzle contest.
-I participated in [Advent of Code 2020](https://adventofcode.com/2020/) this year, and I managed to collect all fifty stars!
+It is Christmas night, and it is the first time this month that I haven't had to plan my schedule for the evening around a programming puzzle contest.
+For the last 25 days this month, I participated in [Advent of Code 2020](https://adventofcode.com/2020/), and I managed to collect all 50 stars!
 
 ![](images/advent-of-code-2020-stars.png)
 
-I did all the puzzles in [Julia](https://julialang.org/) this year, and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
+I did all the puzzles in [Julia](https://julialang.org/), and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
 
 # Why Advent of Code
 
