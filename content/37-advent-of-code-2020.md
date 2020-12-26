@@ -48,7 +48,9 @@ Another thing I really enjoy is all the neat visualizations that come out of Adv
 If you've never heard of Advent of Code, I highly recommend you try it out.
 Below I'll be discussing solutions from solving this year's Advent of Code, which will contain spoilers.
 
-# [Day 1](https://adventofcode.com/2020/day/1)
+# Solutions
+
+## [Day 1](https://adventofcode.com/2020/day/1)
 
 This solution can be concisely represented using the `combinations` function from the [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl):
 
@@ -65,7 +67,7 @@ part2(data = readInput()) = expense_report(data, 3)
 
 Python has a similar function in the standard library: <https://docs.python.org/3/library/itertools.html#itertools.combinations>
 
-# [Day 2](https://adventofcode.com/2020/day/2)
+## [Day 2](https://adventofcode.com/2020/day/2)
 
 Julia supports infix operators for xor: ⊻. Solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
@@ -96,7 +98,7 @@ end
 
 In Julia, you can use the `only` function to get the one and only element in a collection.
 
-# [Day 3](https://adventofcode.com/2020/day/3)
+## [Day 3](https://adventofcode.com/2020/day/3)
 
 A lot of advent of code problems have the puzzle input as text that represents a grid.
 Having a one liner to convert that to a `Matrix` is very useful.
@@ -127,7 +129,7 @@ part2(data = readInput()) = prod(solve(data, s) for s in [
 Julia has `mod1` for 1 based mod, which is useful for indexing in these type of situations.
 Julia also has ceiling division (`cld`) and floor division (`fld`) which happen to be handy here.
 
-# [Day 4](https://adventofcode.com/2020/day/4)
+## [Day 4](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
 For example, check out this terse solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
@@ -152,7 +154,7 @@ part2(data = readInput()) = count(p -> all(t -> contains(p, t), fields2), data)
 
 There were a lot of puzzles this year where I would have been able to more easily parse the input by knowing just a little bit more regex.
 
-# [Day 5](https://adventofcode.com/2020/day/5)
+## [Day 5](https://adventofcode.com/2020/day/5)
 
 Sometimes having a little insight into what the problem is asking can go a long way.
 For example, in this puzzle, the seat ID is just a binary representation of the input.
@@ -176,7 +178,7 @@ function part2()
 end
 ```
 
-# [Day 6](https://adventofcode.com/2020/day/6)
+## [Day 6](https://adventofcode.com/2020/day/6)
 
 Julia has methods on functions like `sum` that accept a function as the first argument.
 Also, you can use the unicode symbols of mathematical operations for union and intersection of sets.
