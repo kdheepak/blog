@@ -439,10 +439,10 @@ part2(data = readInput()) = prod(tribonacci.(length.(data)))
 The tribonacci sequence can also be generalized:
 
 ```julia
-const a1 = (19 + 3*sqrt(33))^(1/3)
-const a2 = (19 - 3*sqrt(33))^(1/3)
-const b = (586 + 102*sqrt(33))^(1/3)
-tribonacci(n) = round(Int, (3.0b*((1/3*(a1 + a2 + 1.0))^(n+1)))/(b^2.0 - 2.0b + 4.0))
+const a1 = (19 + 3sqrt(33))^(1/3)
+const a2 = (19 - 3sqrt(33))^(1/3)
+const b = (586 + 102sqrt(33))^(1/3)
+tribonacci(n) = round(Int, (3b * (1/3 * (a1 + a2 + 1))^(n + 1))/(b^2 - 2b + 4))
 ```
 
 See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers) article for more information.
