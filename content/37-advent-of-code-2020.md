@@ -334,7 +334,7 @@ function part2(numbers = readInput())
 end
 ```
 
-Teo ShaoWei's solution using [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
+[Teo ShaoWei](https://github.com/Teo-ShaoWei)'s solution using [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
 
 ```julia
 using Combinatorics
@@ -1302,7 +1302,7 @@ Julia allows using unicode symbols as part of variable names.
 
 ## [Day 23](https://adventofcode.com/2020/day/23)
 
-Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei's](https://github.com/Teo-ShaoWei):
+Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei):
 
 ```julia
 readInput() = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
