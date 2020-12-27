@@ -62,8 +62,9 @@ This will contain spoilers for all days in Advent of Code 2020.
 
 ## [Day 1: Report Repair](https://adventofcode.com/2020/day/1)
 
-Day 1 of advent of code basically is intended to check that you have a programming language installed, and you know how to use simple features it in (e.g. `for` loops).
+Day 1 of advent of code is basically intended to check that you have a programming language installed, and you know how to use simple features it in (e.g. `for` loops).
 
+You can solve the first day with just multiple `for` loops.
 However, a more idiomatic solution can be expressed using the `combinations` function from the [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl)[^python]:
 
 [^python]: _aside_: Python has a similar function in the standard library: <https://docs.python.org/3/library/itertools.html#itertools.combinations>
