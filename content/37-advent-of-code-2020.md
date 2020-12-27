@@ -580,7 +580,7 @@ end
 
 Here's another solution from [Doug](http://github.com/dgkf) that finds the cycles using `lcm` much more elegantly than how I ended up doing it.
 The key bit of insight here is that the `lcm(previous_bus_schedules, new_bus_schedule)` will be the cycle at which the pattern repeats.
-Using this, you can break the problem down by iteratively calculating these cycles.
+Using this, you can break the problem down by iteratively and calculate the next cycle.
 
 ```julia
 function readInput()
