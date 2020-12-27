@@ -41,7 +41,7 @@ Some problems have a mathematics tilt to it, which can make finding those soluti
 But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to stumble your way into solving it if you persevere.
 Reading other people's one liners after you hacked it together is quite enlightening.
 
-Almost all the problems require parsing text input of various formats.
+Almost all the problems require parsing text input of various formats, and placing the data in an appropriate data structure.
 And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussion about the tips and tricks you can use in your favourite programming language to express the problem more elegantly.
 Even after having used Python and Julia for years now, I still learn new things when I read other people's solutions.
 
