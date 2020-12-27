@@ -706,3 +706,36 @@ julia> @btime part2();
 julia> @btime part2a();
   2.865 ms (37 allocations: 5.67 MiB)
 ```
+
+## [Day 15](https://adventofcode.com/2020/day/15)
+
+This puzzle seemed to mainly focus on choosing the right data structure for the `history`.
+Here's a solution by [Sukera](https://github.com/Seelengrab/):
+
+```julia
+readInput() = parse.(Int, split(readline("src/day15/input.txt"), ','))
+
+makeArr() = Int[]
+
+function solve(input, goal=2020)
+    history = Dict{Int, Vector{Int}}()
+    for (idx, num) in enumerate(input)
+        history[num] = [idx]
+    end
+    turn = length(input) + 1
+    num = 0
+    for t in turn:goal-1
+        arr = get!(history, num, makeArr())
+        push!(arr, t)
+        if isone(length(arr))
+            num = 0
+        else
+            num = abs(arr[end-1] - arr[end])
+        end
+    end
+    num
+end
+
+part1(data = readInput()) = solve(data)
+part2(data = readInput()) = solve(data, 30000000)
+```
