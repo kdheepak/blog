@@ -447,3 +447,101 @@ tribonacci(n) = round(Int, (3b * (1/3 * (a1 + a2 + 1))^(n + 1))/(b^2 - 2b + 4))
 ```
 
 See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers) article for more information.
+
+## [Day 11](https://adventofcode.com/2020/day/11)
+
+This is the first tribute to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) this year.
+
+```julia
+readInput() = permutedims(reduce(hcat, collect.(split(strip(read("src/day11/input.txt", String)), '\n'))))
+
+part1(data = readInput()) = simulate(data, 0, 1)
+
+part2(data = readInput()) = simulate(data, 1, size(data, 1) * 2)
+
+function simulate(grid, company, sight)
+    while true
+        old_grid = deepcopy(grid)
+        tick(grid, company, sight)
+        grid == old_grid && break
+    end
+    count(x -> x == '#', grid)
+end
+
+function tick(grid, company, sight)
+    rows, cols = size(grid)
+    old_grid = deepcopy(grid)
+    for r in 1:rows, c in 1:cols
+        A = adjacent_seats(old_grid, r, c, sight)
+        grid[r, c] == 'L' && count(x -> x == '#', A) == 0 && ( grid[r, c] = '#' )
+        grid[r, c] == '#' && count(x -> x == '#', A) >= 4 + company && ( grid[r, c] = 'L' )
+    end
+end
+
+function adjacent_seats(grid, i, j, sight)
+    A = []
+    for direction in CartesianIndex.([(-1,-1), (-1,+1), (+1,-1), (+1, +1), (-1,0), (+1,0), (0,-1), (0,+1)])
+        xy = CartesianIndex(i, j) + direction
+        counter = 1
+        while checkbounds(Bool, grid, xy) && grid[xy] == '.' && counter < sight
+            xy += direction
+            counter += 1
+        end
+        checkbounds(Bool, grid, xy) && push!(A, grid[xy])
+    end
+    A
+end
+```
+
+Julia's `CartesianIndex` makes it easier to deal with multi-dimensional indexing.
+
+## [Day 12](https://adventofcode.com/2020/day/12)
+
+This was one of my better performances on the Julia leaderboard.
+Using complex numbers makes it quite straightforward to deal with problems involving rotation.
+
+```julia
+readInput() = split(strip(read("src/day12/input.txt", String)), '\n')
+
+function part1(data = readInput())
+    data = map(data) do d
+        d[1], parse(Int, d[2:end])
+    end
+    current = 0 + 0im
+    direction = 1 + 0im
+    for (action, move) in data
+        if     action == 'N' current += move * im
+        elseif action == 'S' current -= move * im
+        elseif action == 'E' current += move
+        elseif action == 'W' current -= move
+        elseif action == 'F' current += direction * move
+        elseif action == 'L' direction *= im^(move ÷ 90)
+        elseif action == 'R' direction *= (-im)^(move ÷ 90)
+        else   error("Unrecognized $action, $move") end
+    end
+    abs(current.re) + abs(current.im)
+end
+
+function part2(data = readInput())
+    data = map(data) do d
+        d[1], parse(Int, d[2:end])
+    end
+    waypoint = 10 + 1im
+    current = 0 + 0im
+    direction = 1 + 0im
+    for (action, move) in data
+        if     action == 'N' waypoint += move * im
+        elseif action == 'S' waypoint -= move * im
+        elseif action == 'E' waypoint += move
+        elseif action == 'W' waypoint -= move
+        elseif action == 'F' current += waypoint * move
+        elseif action == 'L' waypoint *= im^(move ÷ 90)
+        elseif action == 'R' waypoint *= (-im)^(move ÷ 90)
+        else   error("Unrecognized $action, $move") end
+    end
+    abs(current.re) + abs(current.im)
+end
+```
+
+Thanks to [Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day12.jl) for suggesting using `if ... elseif ... end` for minor performance improvements.
+Check out his other solutions for more optimized takes on the problems.
