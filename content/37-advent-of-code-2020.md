@@ -48,7 +48,7 @@ Even after having used Python and Julia for years now, I still learn new things 
 And finally, that brings me to the community.
 
 The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
-I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
+I've particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 That's the really neat thing about Advent of Code.
 The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, and usually very puzzle just tackles one concept or idea.
