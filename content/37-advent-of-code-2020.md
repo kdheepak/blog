@@ -1399,8 +1399,7 @@ function flip_tiles!(A, steps=1)
     for step in 1:steps
         C = get_neighbor_counts(A)
         for i in CartesianIndices(C)
-            if (A[i] && C[i] ∉ (1,2)) ||
-                (!A[i] && C[i] == 2)
+            if (A[i] && C[i] ∉ (1,2)) || (!A[i] && C[i] == 2)
                 A[i] ⊻= 1
             end
         end
