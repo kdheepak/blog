@@ -655,6 +655,7 @@ end
 ## [Day 14: Docking Data](https://adventofcode.com/2020/day/14)
 
 This puzzle requires dealing with bit shifting and masking of bits.
+
 Here's [Pablo Zubieta's](https://github.com/pabloferz/AoC/) solution:
 
 ```julia
@@ -725,6 +726,16 @@ julia> @btime part1();
 
 julia> @btime part2();
   5.218 ms (4426 allocations: 5.96 MiB)
+```
+
+For comparison, these were the times from my original solution:
+
+```julia
+julia> @btime part1();
+  2.860 ms (75635 allocations: 4.77 MiB)
+
+julia> @btime part2();
+  287.836 ms (6234948 allocations: 319.65 MiB)
 ```
 
 There are more optimized solutions though, for example here are the timings for [the solution posted by Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day14.jl):
