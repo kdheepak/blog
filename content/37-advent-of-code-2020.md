@@ -260,7 +260,11 @@ function build_graph(data)
     end
     g, mapping, nodes
 end
+```
 
+Now that we have built a graph, we can find the solution by just traversing the graph.
+
+```
 part1(data = readInput()) = part1(data[1], data[2])
 part1(g, mapping) = count(!=(0), bfs_parents(g, mapping["shiny gold bag"], dir = :in)) - 1
 
