@@ -744,7 +744,7 @@ part2(data = readInput()) = solve(data, 30000000)
 
 ```julia
 function readInput()
-  data = strip(read(joinpath(@__DIR__, "./input.txt"), String))
+  data = strip(read("src/day16/input.txt", String))
   rules, your_ticket, nearby_tickets = split(data, "\n\n")
   rules = Dict(map(split(rules, '\n')) do rule
     m = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
@@ -767,7 +767,7 @@ function part1(data = readInput())
 end
 
 function part2(data = readInput())
-  rules, your_ticket, nearby_tickets = split(data, "\n\n")
+  rules, your_ticket, nearby_tickets = data
 
   invalid_tickets = Int[]
   for (i, ticket) in enumerate(nearby_tickets), field in ticket
