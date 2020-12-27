@@ -485,7 +485,7 @@ See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_n
 
 ## [Day 11: Seating System](https://adventofcode.com/2020/day/11)
 
-This is the first tribute to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) this year.
+This is the first tribute in Advent of Code 2020 to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) who passed away earlier this year.
 
 ```julia
 readInput() = permutedims(reduce(hcat, collect.(split(strip(read("src/day11/input.txt", String)), '\n'))))
