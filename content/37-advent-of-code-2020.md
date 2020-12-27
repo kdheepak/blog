@@ -45,16 +45,16 @@ Even after having used Python and Julia for years now, I still learn new things 
 
 And finally, the community.
 
-The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia Zulip and Slack channel have been a joy to visit every day after solving the puzzles.
+The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
 I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
-Below I'll be discussing solutions in Julia that were shared on Zulip, Slack and Reddit.
+Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
 This will contain spoilers for all days in Advent of Code 2020.
 
 # Solutions
 
-## [Day 1](https://adventofcode.com/2020/day/1)
+## [Day 1: Report Repair](https://adventofcode.com/2020/day/1)
 
 Day 1 of advent of code basically is intended to check that you have a programming language installed, and you know how to simple features it in (e.g. `for` loops).
 
@@ -73,7 +73,7 @@ part1(data = readInput()) = expense_report(data, 2)
 part2(data = readInput()) = expense_report(data, 3)
 ```
 
-## [Day 2](https://adventofcode.com/2020/day/2)
+## [Day 2: Password Philosophy](https://adventofcode.com/2020/day/2)
 
 Day 2 is a simple case of parsing, counting characters in a string and knowing that "exactly one" can be expressed using `xor`.
 
@@ -106,7 +106,7 @@ end
 
 In Julia, you can use the `only` function to get the one and only element in a collection.
 
-## [Day 3](https://adventofcode.com/2020/day/3)
+## [Day 3: Toboggan Trajectory](https://adventofcode.com/2020/day/3)
 
 A lot of advent of code problems have the puzzle input as text that represents a grid.
 Day 3 is our first introduction to a grid of trees.
@@ -136,7 +136,7 @@ part2(data = readInput()) = prod(solve.(Ref(data), [(x=1,y=1),(x=5,y=1),(x=3,y=1
 Julia has `mod1` for 1 based mod, which is useful for indexing in these type of situations.
 Julia also has ceiling division (`cld`) and floor division (`fld`) which happen to be handy here.
 
-## [Day 4](https://adventofcode.com/2020/day/4)
+## [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
 For example, check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
@@ -161,7 +161,7 @@ part2(data = readInput()) = count(p -> all(t -> contains(p, t), fields2), data)
 
 There were a lot of puzzles this year where I would have been able to parse the input more easily by knowing just a little bit more regex.
 
-## [Day 5](https://adventofcode.com/2020/day/5)
+## [Day 5: Binary Boarding](https://adventofcode.com/2020/day/5)
 
 Sometimes having a little insight into what the problem is asking can go a long way.
 For example, in this puzzle, the seat ID is just a binary representation of the input.
@@ -185,7 +185,7 @@ function part2()
 end
 ```
 
-## [Day 6](https://adventofcode.com/2020/day/6)
+## [Day 6: Custom Customs](https://adventofcode.com/2020/day/6)
 
 Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be represented using union and intersection.
 
@@ -203,7 +203,7 @@ Julia has support for broadcasting using the `f.(c)` syntax,
 which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
 This tends to be very handy in Advent of Code.
 
-## [Day 7](https://adventofcode.com/2020/day/7)
+## [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)
 
 Day 7 is the first introduction to graphs this year.
 While it is possible to find solutions to both parts of this puzzle using recursion,
@@ -255,7 +255,7 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 ![part1](images/adventofcode-day07-part1.png){ width=45% } ![part2](images/adventofcode-day07-part2.png){ width=45% }
 
 
-## [Day 8](https://adventofcode.com/2020/day/8)
+## [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)
 
 Day 8 appears to be a straightforward op code interpreter.
 
@@ -304,7 +304,7 @@ end
 
 I believe this problem can also be represented as a graph and solved using memoized depth first search.
 
-## [Day 9](https://adventofcode.com/2020/day/9)
+## [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)
 
 Day 9 was also straightforward.
 
@@ -363,7 +363,7 @@ part1 = bad_number(input, 25)
 part2 = rectify(input, 25)
 ```
 
-## [Day 10](https://adventofcode.com/2020/day/10)
+## [Day 10: Adapter Array](https://adventofcode.com/2020/day/10)
 
 Part 2 on this day asks to find the number of distinct ways to arrange the Jolt adapters to connect the charging outlet to the device.
 
@@ -453,7 +453,7 @@ tribonacci(n) = round(Int, (3b * (1/3 * (a1 + a2 + 1))^(n + 1))/(b^2 - 2b + 4))
 
 See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_numbers#Tribonacci_numbers) article for more information.
 
-## [Day 11](https://adventofcode.com/2020/day/11)
+## [Day 11: Seating System](https://adventofcode.com/2020/day/11)
 
 This is the first tribute to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) this year.
 
@@ -499,7 +499,7 @@ end
 
 Julia's `CartesianIndex` makes it easier to deal with multi-dimensional indexing.
 
-## [Day 12](https://adventofcode.com/2020/day/12)
+## [Day 12: Rain Risk](https://adventofcode.com/2020/day/12)
 
 This was one of my better performances on the Julia leaderboard.
 Using complex numbers makes it quite straightforward to deal with problems involving rotation.
@@ -554,7 +554,7 @@ Check out his other solutions for more optimized takes on the problems.
 
 ![part1](images/adventofcode-day12-part1.png){ width=45% } ![part2](images/adventofcode-day12-part2.png){ width=45% }
 
-## [Day 13](https://adventofcode.com/2020/day/13)
+## [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)
 
 This was one of the harder days for me.
 I had never heard of Chinese Remainder Theorem (CRT).
@@ -617,7 +617,7 @@ function part2(data = readInput())
 end
 ```
 
-## [Day 14](https://adventofcode.com/2020/day/14)
+## [Day 14: Docking Data](https://adventofcode.com/2020/day/14)
 
 This puzzle requires dealing with bit shifting and masking of bits.
 Here's [Pablo Zubieta's](https://github.com/pabloferz/AoC/) solution:
@@ -705,7 +705,7 @@ julia> @btime part2a();
   2.865 ms (37 allocations: 5.67 MiB)
 ```
 
-## [Day 15](https://adventofcode.com/2020/day/15)
+## [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15)
 
 This puzzle seemed to mainly focus on choosing the right data structure for the `history` of the memory game.
 Here's a solution by [Sukera](https://github.com/Seelengrab/):
@@ -738,7 +738,7 @@ part1(data = readInput()) = solve(data)
 part2(data = readInput()) = solve(data, 30000000)
 ```
 
-## [Day 16](https://adventofcode.com/2020/day/16)
+## [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)
 
 Calculating which fields were invalid for part 1 was rather straightforward.
 
@@ -834,7 +834,7 @@ end
 You can even use the variable from the outer loop as the index in the inner loop, like you'd expect.
 This can help reduce the nesting level of your inner expressions.
 
-## [Day 17](https://adventofcode.com/2020/day/17)
+## [Day 17: Conway Cubes](https://adventofcode.com/2020/day/17)
 
 Another homage to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), this time in multiple dimensions.
 Cellular automata puzzles are always fun, and make for some neat visualizations.
@@ -873,7 +873,7 @@ And here are a couple of multi dimensional visualizations by [Tom Kwong](https:/
 
 ![<https://twitter.com/tomkwong/status/1339735696194457600>](https://user-images.githubusercontent.com/1813121/103164897-39978b00-47ce-11eb-8c36-d9477cb839d1.gif)
 
-## [Day 18](https://adventofcode.com/2020/day/18)
+## [Day 18: Operation Order](https://adventofcode.com/2020/day/18)
 
 Here is [Doug's](https://github.com/dgkf) that managed to get him a spot on the global leaderboard.
 
@@ -889,7 +889,7 @@ part2(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(replace(l, "*" 
 
 Without hacking the operators and taking advantage of a language's operator precedence, the problem can be solved using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
-## [Day 19](https://adventofcode.com/2020/day/19)
+## [Day 19: Monster Messages](https://adventofcode.com/2020/day/19)
 
 This was another hard day for me.
 First, I tried to implement a recursive algorithm.
@@ -930,7 +930,7 @@ function part2(data = readInput())
 end
 ```
 
-## [Day 20](https://adventofcode.com/2020/day/20)
+## [Day 20: Jurassic Jigsaw](https://adventofcode.com/2020/day/20)
 
 This puzzle was really fun to solve but also tedious to type out everything that you needed to type out.
 While I was able to solve the problem, I hard-coded many things in my solution.
@@ -1171,7 +1171,7 @@ The key functions I found that others were using were `rotl90`, `rotr90` and `ro
 
 [Mark Kittisopikul](https://github.com/mkitti/advent_of_code_2020/blob/0e5a84d180fd7d80c8dfe506b262113a944c7234/aoc_20/aoc_20.jl) also used [ImageFiltering.jl](https://github.com/JuliaImages/ImageFiltering.jl).
 
-## [Day 21](https://adventofcode.com/2020/day/21)
+## [Day 21: Allergen Assessment](https://adventofcode.com/2020/day/21)
 
 This puzzle is another graph problem that can be solved quite elegantly using maximum flow algorithms to find the maximum matching.
 Here's the solution of the test case using [LightGraphs.jl](https://github.com/JuliaGraphs/LightGraphs.jl) and [LightGraphFlows.jl](https://github.com/JuliaGraphs/LightGraphsFlows.jl), as well as a visualization using [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl) and [Plots.jl](https://github.com/JuliaPlots/Plots.jl):
@@ -1253,7 +1253,7 @@ Here is the original input data is on the left and the maximum flow solution is 
 
 ![Original input data](images/adventofcode-day21-part1-1.png){ width=45% } ![Maximum flow solution](images/adventofcode-day21-part1-2.png){ width=45% }
 
-## [Day 22](https://adventofcode.com/2020/day/22)
+## [Day 22: Crab Combat](https://adventofcode.com/2020/day/22)
 
 This puzzle was mostly straightforward.
 Here's a solution by
@@ -1302,7 +1302,7 @@ part2() = day22()[2]
 
 Julia allows using unicode symbols as part of variable names.
 
-## [Day 23](https://adventofcode.com/2020/day/23)
+## [Day 23: Crab Cups](https://adventofcode.com/2020/day/23)
 
 Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei):
 
@@ -1351,7 +1351,7 @@ part2(cups = readInput()) = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000),
 The key idea is here to manage the ordering in a separate data structure.
 Using a linked list for example is a common solution to this problem.
 
-## [Day 24](https://adventofcode.com/2020/day/24)
+## [Day 24: Lobby Layout](https://adventofcode.com/2020/day/24)
 
 In another tribute to John Conway, now you must model hexagon grids.
 Having never done this before, I reached for complex numbers again, which turned out to be a bad idea.
@@ -1416,7 +1416,7 @@ And another neat visualization by [Tom Kwong](https://github.com/tk3369/AdventOf
 
 ![<https://twitter.com/tomkwong/status/1342661344424652801>](https://user-images.githubusercontent.com/1813121/103164912-71063780-47ce-11eb-839a-c0608ca36b70.gif)
 
-## [Day 25](https://adventofcode.com/2020/day/25)
+## [Day 25: Combo Breaker](https://adventofcode.com/2020/day/25)
 
 And finally, for the last day:
 
@@ -1444,7 +1444,7 @@ Julia also has a function called `powermod` in the standard library, which can b
 
 # Final words
 
-Thanks to everyone in the Julia community who participated on Zulip, Slack and Reddit.
+Thanks to everyone in the Julia community who participated on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
 I learnt a lot by reading your solutions and discussing with you all.
 
 Thanks to the mods on [/r/adventofcode](https://reddit.com/r/adventofcode) to making it such a vibrant community to frequent.
