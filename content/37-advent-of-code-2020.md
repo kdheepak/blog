@@ -302,10 +302,6 @@ end
 
 Day 9 was also straightforward.
 
-In Julia, you can combine multiple `for` loops iteration expressions into a single line.
-You can even use the variable from the outer loop as the index in the inner loop, like you'd expect.
-This can reduce the nesting level of your inner expressions.
-
 ```julia
 readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
 
@@ -804,7 +800,7 @@ function part2(data = readInput())
 end
 ```
 
-My learning from this day was that you can refactor the following code:
+My learning from this day was that in Julia you can refactor the following code:
 
 ```julia
 for ticket in valid_tickets
@@ -825,3 +821,17 @@ for ticket in valid_tickets, (i, field) in enumerate(ticket), (j, rule) in enume
     !(field ∈ rule1 || field ∈ rule2) && ( valid[i, j] = false )
 end
 ```
+
+This allows for combining multiple `for` loops iteration expressions into a single line.
+You can even use the variable from the outer loop as the index in the inner loop, like you'd expect.
+This can reduce the nesting level of your inner expressions.
+
+## [Day 17](https://adventofcode.com/2020/day/17)
+
+![<https://twitter.com/tomkwong/status/1339468003608387586>](https://user-images.githubusercontent.com/1813121/103164882-1371eb00-47ce-11eb-92d7-624ebf54c0f9.gif)
+
+![<https://twitter.com/tomkwong/status/1339735696194457600>](https://user-images.githubusercontent.com/1813121/103164897-39978b00-47ce-11eb-8c36-d9477cb839d1.gif)
+
+## [Day 24](https://adventofcode.com/2020/day/24)
+
+![<https://twitter.com/tomkwong/status/1342661344424652801>](https://user-images.githubusercontent.com/1813121/103164912-71063780-47ce-11eb-839a-c0608ca36b70.gif)
