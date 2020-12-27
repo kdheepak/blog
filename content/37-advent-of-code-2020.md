@@ -1439,10 +1439,10 @@ transformation(subject_number, loop_size) = subject_number ^ loop_size % 2020122
 
 # Final words
 
-Thanks to everyone in the Julia community who shared their solutions on Zulip, Slack and on Reddit.
-I learnt a lot by reading and discussing with you all.
+Thanks to everyone in the Julia community who participated on Zulip, Slack and Reddit.
+I learnt a lot by reading your solutions and discussing with you all.
 
-Thanks to the mods on [/r/adventofcode](https://reddit.com/r/adventofcode) to making it such a fun community to frequent.
+Thanks to the mods on [/r/adventofcode](https://reddit.com/r/adventofcode) to making it such a vibrant community to frequent.
 
 And finally, thanks to [Eric Wastl](https://twitter.com/ericwastl) for making such a fun event.
 
