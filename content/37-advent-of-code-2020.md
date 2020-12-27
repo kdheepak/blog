@@ -885,7 +885,7 @@ part1(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(l, "*" => "⨦"
 part2(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(replace(l, "*" => "⨦"), "+" => "⨱"))), data))
 ```
 
-Without hacking the operators, the problem can be solved using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+Without hacking the operators and taking advantage of a language's operator precedence, the problem can be solved using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
 ## [Day 19](https://adventofcode.com/2020/day/19)
 
