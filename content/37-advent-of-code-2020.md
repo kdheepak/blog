@@ -497,6 +497,7 @@ Julia's `CartesianIndex` makes it easier to deal with multi-dimensional indexing
 ## [Day 12](https://adventofcode.com/2020/day/12)
 
 This was one of my better performances on the Julia leaderboard.
+Using complex numbers makes it quite straightforward to deal with problems involving rotation.
 
 ```julia
 readInput() = split(strip(read("src/day12/input.txt", String)), '\n')
@@ -540,8 +541,6 @@ function part2(data = readInput())
     abs(current.re) + abs(current.im)
 end
 ```
-
-Using complex numbers makes it quite straightforward to deal with problems involving rotation.
 
 Thanks to [Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day12.jl) for suggesting using `if ... elseif ... end` for minor performance improvements.
 Check out his other solutions for more optimized takes on the problems.
