@@ -800,7 +800,7 @@ function part2(data = readInput())
 end
 ```
 
-My learning from this day was that in Julia you can refactor the following code:
+My learning from this day was that in Julia you can refactor the code with multiple nested `for` loops:
 
 ```julia
 for ticket in valid_tickets
@@ -813,7 +813,7 @@ for ticket in valid_tickets
 end
 ```
 
-into:
+into a single line like so:
 
 ```julia
 for ticket in valid_tickets, (i, field) in enumerate(ticket), (j, rule) in enumerate(rules)
@@ -822,9 +822,8 @@ for ticket in valid_tickets, (i, field) in enumerate(ticket), (j, rule) in enume
 end
 ```
 
-This allows for combining multiple `for` loops iteration expressions into a single line.
 You can even use the variable from the outer loop as the index in the inner loop, like you'd expect.
-This can reduce the nesting level of your inner expressions.
+This can help reduce the nesting level of your inner expressions.
 
 ## [Day 17](https://adventofcode.com/2020/day/17)
 
