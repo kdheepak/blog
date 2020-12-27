@@ -1168,12 +1168,281 @@ The key functions I found that others were using were `rotl90`, `rotr90` and `ro
 
 ## [Day 21](https://adventofcode.com/2020/day/21)
 
+This puzzle is another graph problem that can be solved quite elegantly using maximum flow algorithms to find the maximum matching.
+Here's the solution of the test case using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl) and [`LightGraphFlows.jl`](https://github.com/JuliaGraphs/LightGraphsFlows.jl), as well as a visualization using [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl) and [Plots.jl](https://github.com/JuliaPlots/Plots.jl):
+
+```julia
+using LightGraphs
+using LightGraphsFlows
+using GraphRecipes, Plots
+
+readInput() = strip(read(joinpath(@__DIR__, "./input.txt"), String))
+
+function m()
+    data = split(strip(readInput()), '\n')
+    data = map(data) do line
+        ingredients, allergens = match(r"^(.*) \(contains (.*)\)$", line).captures
+        String.(split(ingredients)), String.(split(allergens, ", "))
+    end
+
+    all_ingredients, all_allergens = Set{String}(), Set{String}()
+    for (ingredients, allergens) in data
+        all_ingredients = all_ingredients ∪ Set(ingredients)
+        all_allergens = all_allergens ∪ Set(allergens)
+    end
+    all_ingredients, all_allergens = collect(all_ingredients), collect(all_allergens)
+
+    d = Dict()
+    for (ingredients, allergens) in data, allergen in allergens
+        allergen ∉ keys(d) && ( d[allergen] = Set(ingredients) )
+        d[allergen] = d[allergen] ∩ Set(ingredients)
+    end
+
+    MAX_NODES = length(all_ingredients) + length(all_allergens) + 2
+    g = SimpleDiGraph(MAX_NODES)
+    for i in all_ingredients
+        i = 1 + findfirst(==(i), all_ingredients)
+        add_edge!(g, 1, i)
+    end
+    for a in all_allergens
+        a = length(all_ingredients) + 1 + findfirst(==(a), all_allergens)
+        add_edge!(g, a, MAX_NODES)
+    end
+    for (allergen, ingredients) in d, ingredient in ingredients
+        i = 1 + findfirst(==(ingredient), all_ingredients)
+        a = 1 + length(all_ingredients) + findfirst(==(allergen), all_allergens)
+        add_edge!(g, i, a)
+    end
+
+    graphplot(g,
+        names = 1:MAX_NODES,
+        x = vcat([[1]; [2 for _ in 1:length(all_ingredients)]; [3 for _ in 1:length(all_allergens)]; [4]]),
+        y = vcat(
+                 [
+                  [1];
+                  [i - length(all_ingredients) ÷ 2 for i in 1:length(all_ingredients)];
+                  [a - length(all_allergens) ÷ 2 for a in 1:length(all_allergens)];
+                  [1]
+                 ]
+                ),
+        markercolor = vcat([
+                            [colorant"white"];
+                            [colorant"blue" for _ in 1:length(all_ingredients)];
+                            [colorant"green" for _ in 1:length(all_allergens)];
+                            [colorant"white"]
+                      ]),
+        markersize = 1)
+
+    _, F = maximum_flow(g, 1, MAX_NODES)
+
+    no_allergen_ingredients = all_ingredients[[i - 1 for i in 1:MAX_NODES if count(==(0), F[i, :]) == MAX_NODES]]
+
+    no_allergen_ingredients
+    sum(map(data) do (ingredients, _)
+        count(i ∈ ingredients for i in no_allergen_ingredients)
+    end)
+end
+```
+
+Here is the original input data is on the left and the maximum flow solution is on the right.
+
+![Original input data](images/adventofcode-day21-part1-1.png){ width=45% } ![Maximum flow solution](images/adventofcode-day21-part1-2.png){ width=45% }
+
 ## [Day 22](https://adventofcode.com/2020/day/22)
+
+This puzzle was mostly straightforward.
+Here's a solution by
+[Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/22/puzzle.jl).
+
+```julia
+function play(p₁, p₂, part₂)
+  seen = Set{Tuple{Array,Array}}([])
+
+  while !any(isempty.((p₁, p₂)))
+    (p₁, p₂) ∈ seen && return 1, p₁  # infinite-game-prevention rule
+    push!(seen, copy.((p₁, p₂)))
+
+    c₁, c₂ = popfirst!.((p₁, p₂))  # both players draw their top card
+
+    if part₂ && all(length.((p₁, p₂)) .>= (c₁, c₂))
+      w, _ = play(copy.((p₁[1:c₁], p₂[1:c₂]))..., part₂)
+    elseif c₁ > c₂  w = 1
+    elseif c₂ > c₁  w = 2
+    else @error "Unexpected case: c₁ == c₂" end
+
+    w == 1 && push!(p₁, c₁, c₂)  # player 1 wins
+    w == 2 && push!(p₂, c₂, c₁)  # player 2 wins
+  end
+
+  !isempty(p₁) ? (1, p₁) : (2, p₂)
+end
+
+function day22()
+  input = "src/day22/input.txt"
+  p₁, p₂ = split(read(input, String), "\n\n") .|>
+           x -> parse.(Int, split(x, '\n', keepempty=false)[2:end])
+
+  result₁, result₂ = map([false, true]) do part₂
+    _, deck = play(copy.((p₁, p₂))..., part₂)
+    multipliers = length(deck):-1:1
+    sum(deck .* multipliers)
+  end
+
+  result₁, result₂
+end
+
+part1() = day22()[1]
+part2() = day22()[2]
+```
+
+Julia allows using unicode symbols as part of variable names.
 
 ## [Day 23](https://adventofcode.com/2020/day/23)
 
+Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei's](https://github.com/Teo-ShaoWei):
+
+```julia
+cups = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
+
+function peek(next, at, n; result=similar(next,n))
+  for i in 1:n
+    result[i] = next[at]
+    at = next[at]
+  end
+  result
+end
+
+function run(cups, steps=1)
+  N = length(cups)
+  prealloc = similar(cups, 3)
+
+  next = similar(cups)
+  for i in 1:N
+    next[cups[i]] = cups[mod1(i+1,N)]
+  end
+
+  current = cups[1]
+  for i in 1:steps
+    pickups = peek(next, current, 3, result=prealloc)
+
+    dst = mod1(current-1, N)
+    while dst in pickups
+      dst = mod1(dst-1, N)
+    end
+
+    next[current] = next[pickups[end]]
+    next[pickups[end]] = next[dst]
+    next[dst] = pickups[1]
+    current = next[current]
+  end
+
+  return next
+end
+
+part1() = join(peek(run(cups, 100), 1, 8))
+part2() = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000), 1, 2))
+```
+
+The key idea is here to manage the ordering in a separate data structure.
+Using a linked list for example is a common solution to this problem.
+
 ## [Day 24](https://adventofcode.com/2020/day/24)
+
+In another tribute to John Conway, now you must model hexagon grids.
+Having never done this before, I reached for complex numbers again, which turned out to be a bad idea.
+I was indexing a dictionary with the real and imaginary components of the complex number and since was making sure the grid was uniform, the values were floating point numbers.
+This caused all sorts of indexing issues.
+
+I could have sorted this out by using only integer values or by using the coordinate system described in this resource: <https://www.redblobgames.com/grids/hexagons/#coordinates-cube>.
+
+Here's another elegant solution by [Nicolas Viennot](https://github.com/nviennot).
+
+```julia
+using OffsetArrays
+
+parse_path(line) = getproperty.(eachmatch(r"(e|se|sw|w|nw|ne)", line), :match)
+readInput() = parse_path.(readlines("src/day24/input.txt"))
+
+hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
+  "e"  => ( 1,  0),
+  "se" => ( 1, -1),
+  "sw" => ( 0, -1),
+  "w"  => (-1,  0),
+  "nw" => (-1,  1),
+  "ne" => ( 0,  1)
+])
+
+N = 200
+
+get_destination(path) = mapreduce(x->hex_dirs[x], +, path)
+
+function init_tiles(paths)
+  A = OffsetArray(falses(N,N),-N÷2-1,-N÷2-1)
+  foreach(dst -> A[dst] ⊻= 1, get_destination.(paths))
+  A
+end
+
+part1(data = readInput()) = count(init_tiles(data))
+
+function get_neighbor_counts(A)
+  C = OffsetArray(zeros(Int, N-2,N-2),-N÷2,-N÷2)
+  for i in CartesianIndices(C)
+    C[i] = sum(A[i+dir] for dir in values(hex_dirs))
+  end
+  C
+end
+
+function flip_tiles!(A, steps=1)
+  for step in 1:steps
+    C = get_neighbor_counts(A)
+    for i in CartesianIndices(C)
+      if (A[i] && C[i] ∉ (1,2)) ||
+        (!A[i] && C[i] == 2)
+        A[i] ⊻= 1
+      end
+    end
+  end
+  A
+end
+
+part2(data = readInput()) = count(flip_tiles!(init_tiles(data), 100))
+```
+
+And another neat visualization by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
 
 ![<https://twitter.com/tomkwong/status/1342661344424652801>](https://user-images.githubusercontent.com/1813121/103164912-71063780-47ce-11eb-839a-c0608ca36b70.gif)
 
 ## [Day 25](https://adventofcode.com/2020/day/25)
+
+And finally, for the last day:
+
+```julia
+readInput() = parse.(Int, split(strip(read("src/day25/input.txt", String)), '\n'))
+
+function part1(data = readInput())
+  card_public_key, door_public_key)
+  value = 1
+  subject_number = 7
+  card_loop_size = 0
+  while true
+    value *= subject_number
+    value = value % 20201227
+    card_loop_size += 1
+    value == card_public_key && break
+  end
+  transformation(door_public_key, card_loop_size)
+end
+
+transformation(subject_number, loop_size) = subject_number ^ loop_size % 20201227
+```
+
+# Final words
+
+Thanks to everyone in the Julia community who shared their solutions on Zulip, Slack and on Reddit.
+I learnt a lot by reading and discussing with you all.
+
+Thanks to the mods on [/r/adventofcode](https://reddit.com/r/adventofcode) to making it such a fun community to frequent.
+
+And finally, thanks to [Eric Wastl](https://twitter.com/ericwastl) for making such a fun event.
+
+Happy holidays everyone!
