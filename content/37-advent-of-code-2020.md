@@ -257,7 +257,7 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 
 ## [Day 8](https://adventofcode.com/2020/day/8)
 
-Day 8 was a straightforward op code interpreter.
+Day 8 appears to be a straightforward op code interpreter.
 
 ```julia
 readInput() = strip(read("src/day08/input.txt", String))
@@ -301,6 +301,8 @@ function corrupt(original_instructions)
     end
 end
 ```
+
+I believe this problem can also be represented as a graph and solved using memoized depth first search.
 
 ## [Day 9](https://adventofcode.com/2020/day/9)
 
