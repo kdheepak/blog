@@ -628,9 +628,7 @@ function parse_mask_ops(line)
     return mask, instructions
 end
 
-function readInput()
-    return parse_mask_ops.(split(read("src/day14/input.txt", String), r"mask = "; keepempty = false))
-end
+readInput() = parse_mask_ops.(split(read("src/day14/input.txt", String), r"mask = "; keepempty = false))
 
 struct Part1 end
 struct Part2 end
