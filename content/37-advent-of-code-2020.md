@@ -12,7 +12,7 @@ For the last 25 days this month, I participated in [Advent of Code 2020](https:/
 
 ![](images/advent-of-code-2020-stars.png)
 
-I did all the puzzles in [Julia](https://julialang.org/), and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
+I did all the puzzles in the [Julia](https://julialang.org/) programming language, and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
 
 # Why Advent of Code
 
