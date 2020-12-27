@@ -619,7 +619,8 @@ end
 
 ## [Day 14](https://adventofcode.com/2020/day/14)
 
-
+This puzzle requires dealing with bit shifting and masking of bits.
+Here's [Pablo Zubieta's](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl) solution:
 
 ```julia
 function parse_mask_ops(line)
@@ -693,7 +694,7 @@ julia> @btime part2();
   5.218 ms (4426 allocations: 5.96 MiB)
 ```
 
-There are more optimized solutions, for example on [this one by Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day14.jl).
+There are more optimized solutions though, for example here are the timings for [the solution posted by Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day14.jl):
 
 ```julia
 julia> @btime part1();
