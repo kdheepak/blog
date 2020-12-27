@@ -58,7 +58,7 @@ This will contain spoilers for all days in Advent of Code 2020.
 
 Day 1 of advent of code basically is intended to check that you have a programming language installed, and you know how to simple features it in (e.g. `for` loops).
 
-However, a more idiomatic solution can be expressed using the `combinations` function from the [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl):
+However, a more idiomatic solution can be expressed using the `combinations` function from the [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl):
 
 ```julia
 using Combinatorics
@@ -329,7 +329,7 @@ function part2(numbers = readInput())
 end
 ```
 
-Teo ShaoWei's solution using [`Combinatorics.jl`](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
+Teo ShaoWei's solution using [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
 
 ```julia
 using Combinatorics
@@ -551,7 +551,7 @@ Check out his other solutions for more optimized takes on the problems.
 
 This was one of the harder days for me.
 I had never heard of Chinese Remainder Theorem (CRT).
-Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src/commit/e65eccac7e3825d5d9706b18e1fe244958f5f1e8/2020/src/day_13.jl) that uses the `CRT` function from [`Mods.jl`](https://github.com/scheinerman/Mods.jl) package.
+Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src/commit/e65eccac7e3825d5d9706b18e1fe244958f5f1e8/2020/src/day_13.jl) that uses the `CRT` function from [Mods.jl](https://github.com/scheinerman/Mods.jl) package.
 
 ```julia
 using Mods
@@ -761,7 +761,7 @@ end
 
 I believe part 2 is better expressed as a graph where you solve the max flow problem to find the maximum matching.
 However, this is not how I solved it below.
-I'm hoping to re-solve this problem using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl).
+I'm hoping to re-solve this problem using [LightGraphs.jl](https://github.com/JuliaGraphs/LightGraphs.jl).
 
 ```julia
 function part2(data = readInput())
@@ -1167,7 +1167,7 @@ The key functions I found that others were using were `rotl90`, `rotr90` and `ro
 ## [Day 21](https://adventofcode.com/2020/day/21)
 
 This puzzle is another graph problem that can be solved quite elegantly using maximum flow algorithms to find the maximum matching.
-Here's the solution of the test case using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl) and [`LightGraphFlows.jl`](https://github.com/JuliaGraphs/LightGraphsFlows.jl), as well as a visualization using [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl) and [Plots.jl](https://github.com/JuliaPlots/Plots.jl):
+Here's the solution of the test case using [LightGraphs.jl](https://github.com/JuliaGraphs/LightGraphs.jl) and [LightGraphFlows.jl](https://github.com/JuliaGraphs/LightGraphsFlows.jl), as well as a visualization using [GraphRecipes.jl](https://github.com/JuliaPlots/GraphRecipes.jl) and [Plots.jl](https://github.com/JuliaPlots/Plots.jl):
 
 ```julia
 using LightGraphs
