@@ -738,13 +738,14 @@ part2(data = readInput()) = solve(data, 30000000)
 
 ## [Day 16](https://adventofcode.com/2020/day/16)
 
+Calculating which fields were invalid for part 1 was rather straightforward.
+
 ```julia
 function readInput()
   data = strip(read("src/day16/input.txt", String))
   rules, your_ticket, nearby_tickets = split(data, "\n\n")
   rules = Dict(map(split(rules, '\n')) do rule
-    m = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
-    rule, r1start, r1end, r2start, r2end = m[1], m[2], m[3], m[4], m[5]
+    rule, r1start, r1end, r2start, r2end = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
     r1start, r1end, r2start, r2end = parse.(Int, [r1start, r1end, r2start, r2end])
     rule => (r1start:r1end, r2start:r2end)
   end)
@@ -761,7 +762,13 @@ function part1(data = readInput())
   end
   sum(invalid_fields)
 end
+```
 
+I believe part 2 is better expressed as a graph where you solve the max flow problem to find the maximum matching.
+This is not how I solved it below.
+I'm hoping to resolve this problem using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl).
+
+```julia
 function part2(data = readInput())
   rules, your_ticket, nearby_tickets = data
 
