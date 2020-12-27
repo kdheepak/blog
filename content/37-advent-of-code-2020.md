@@ -83,24 +83,24 @@ Julia supports infix operators for `xor`: `⊻`. The solution below is based on 
 readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
 
 function parseInput(data)
-  d = split.(data, ": ")
-  map(d) do (policy,password)
-    rule, letter = split(policy, ' ')
-    low, high = parse.(Int, split(rule, '-'))
-    (low, high, only(letter), strip(password))
-  end
+    d = split.(data, ": ")
+    map(d) do (policy,password)
+        rule, letter = split(policy, ' ')
+        low, high = parse.(Int, split(rule, '-'))
+        (low, high, only(letter), strip(password))
+    end
 end
 
 function part1(data = readInput())
-  count(parseInput(data)) do (low, high, letter, password)
-    low <= count(==(letter), password) <= high
-  end
+    count(parseInput(data)) do (low, high, letter, password)
+        low <= count(==(letter), password) <= high
+    end
 end
 
 function part2(data = readInput())
-  count(parseInput(data)) do (low, high, letter, password)
-    (password[low] == letter) ⊻ (password[high] == letter)
-  end
+    count(parseInput(data)) do (low, high, letter, password)
+        (password[low] == letter) ⊻ (password[high] == letter)
+    end
 end
 ```
 
@@ -118,12 +118,12 @@ This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/adve
 readInput() = permutedims(reduce(hcat, collect.(readlines("src/day03/input.txt"))))
 
 function solve(trees, slope)
-  n = cld(size(trees, 1), slope.y)
-  rs = range(1, step=slope.y, length=n)
-  cs = range(1, step=slope.x, length=n)
-  cs = map(c -> mod1(c, size(trees, 2)), cs)
-  idxs = CartesianIndex.(rs, cs)
-  count(t -> t == '#', trees[idxs])
+    n = cld(size(trees, 1), slope.y)
+    rs = range(1, step=slope.y, length=n)
+    cs = range(1, step=slope.x, length=n)
+    cs = map(c -> mod1(c, size(trees, 2)), cs)
+    idxs = CartesianIndex.(rs, cs)
+    count(t -> t == '#', trees[idxs])
 end
 
 part1(data = readInput()) = solve(data, (x = 3, y = 1))
@@ -143,13 +143,13 @@ readInput() = split(read("src/day04/input.txt", String), "\n\n")
 
 const fields1 = (r"byr", r"iyr", r"eyr", r"hgt", r"hcl", r"ecl", r"pid")
 const fields2 = (
-  r"byr:(19[2-9][0-9]|200[0-2])\b",
-  r"iyr:20(1[0-9]|20)\b",
-  r"eyr:20(2[0-9]|30)\b",
-  r"hgt:(1([5-8][0-9]|9[0-3])cm|(59|6[0-9]|7[0-6])in)\b",
-  r"hcl:#[0-9a-f]{6}\b",
-  r"ecl:(amb|blu|brn|gry|grn|hzl|oth)\b",
-  r"pid:\d{9}\b"
+    r"byr:(19[2-9][0-9]|200[0-2])\b",
+    r"iyr:20(1[0-9]|20)\b",
+    r"eyr:20(2[0-9]|30)\b",
+    r"hgt:(1([5-8][0-9]|9[0-3])cm|(59|6[0-9]|7[0-6])in)\b",
+    r"hcl:#[0-9a-f]{6}\b",
+    r"ecl:(amb|blu|brn|gry|grn|hzl|oth)\b",
+    r"pid:\d{9}\b"
 )
 
 part1(data = readInput()) = count(p -> all(t -> contains(p, t), fields1), data)
@@ -173,12 +173,12 @@ seatid(s) = parse(Int, map(c -> c ∈ ('R', 'B') ? '1' : '0', s), base = 2)
 part1() = mapreduce(seatid, max, eachline("src/day05/input.txt"))
 
 function part2()
-  seats = sort(seatid.(eachline("src/day05/input.txt")))
-  prev = first(seats)
-  for seat in seats
-    (seat - prev == 2) && return prev + 1
-    prev = seat
-  end
+    seats = sort(seatid.(eachline("src/day05/input.txt")))
+    prev = first(seats)
+    for seat in seats
+        (seat - prev == 2) && return prev + 1
+        prev = seat
+    end
 end
 ```
 
@@ -214,35 +214,35 @@ using SimpleWeightedGraphs
 readInput() = build_graph(split(strip(read("src/day07/input.txt", String)), '\n'))
 
 function build_graph(data)
-  edges = []
-  for line in data
-    outer_bag, inner_bags = split(line, " contain ")
-    occursin("no other bags", inner_bags) && continue
-    for bag in split(inner_bags, ", ")
-      counter, name = parse(Int, first(bag)), strip(bag[3:end], '.')
-      e = String(rstrip(outer_bag, 's')), String(rstrip(name, 's')), counter
-      push!(edges, e)
+    edges = []
+    for line in data
+        outer_bag, inner_bags = split(line, " contain ")
+        occursin("no other bags", inner_bags) && continue
+        for bag in split(inner_bags, ", ")
+            counter, name = parse(Int, first(bag)), strip(bag[3:end], '.')
+            e = String(rstrip(outer_bag, 's')), String(rstrip(name, 's')), counter
+            push!(edges, e)
+        end
     end
-  end
 
-  nodes = collect(Set(src for (src, _, _) in edges) ∪ Set(dst for (_, dst, _) in edges))
-  mapping = Dict(n => i for (i,n) in enumerate(nodes))
+    nodes = collect(Set(src for (src, _, _) in edges) ∪ Set(dst for (_, dst, _) in edges))
+    mapping = Dict(n => i for (i,n) in enumerate(nodes))
 
-  g = SimpleWeightedDiGraph(length(nodes))
-  for (src, dst, counter) in edges
-    add_edge!(g, mapping[src], mapping[dst], counter)
-  end
-  g, mapping, nodes
+    g = SimpleWeightedDiGraph(length(nodes))
+    for (src, dst, counter) in edges
+        add_edge!(g, mapping[src], mapping[dst], counter)
+    end
+    g, mapping, nodes
 end
 
 part1(data = readInput()) = part1(data[1], data[2])
 part1(g, mapping) = count(!=(0), bfs_parents(g, mapping["shiny gold bag"], dir = :in)) - 1
 
 function total_bags(g, v)
-  isempty(neighbors(g, v)) && return 1
-  1 + sum(neighbors(g, v)) do nb
-    Int(g.weights[nb, v]) * total_bags(g, nb)
-  end
+    isempty(neighbors(g, v)) && return 1
+    1 + sum(neighbors(g, v)) do nb
+        Int(g.weights[nb, v]) * total_bags(g, nb)
+    end
 end
 
 part2(data = readInput()) = part2(data[1], data[2])
@@ -263,39 +263,39 @@ part1(data = readInput()) = boot(split(data, '\n'))
 part2(data = readInput()) = corrupt(split(data, '\n'))
 
 function boot(instructions)
-  acc, i, s = 0, 1, Set{Int}()
-  while true
-    i ∈ s ? break : push!(s, i)
-    inst, n = split(instructions[i])
-    n = parse(Int, n)
-    inst == "acc" && ( i += 1; acc += n )
-    inst == "jmp" && ( i += n )
-    inst == "nop" && ( i += 1 )
-  end
-  acc
+    acc, i, s = 0, 1, Set{Int}()
+    while true
+        i ∈ s ? break : push!(s, i)
+        inst, n = split(instructions[i])
+        n = parse(Int, n)
+        inst == "acc" && ( i += 1; acc += n )
+        inst == "jmp" && ( i += n )
+        inst == "nop" && ( i += 1 )
+    end
+    acc
 end
 
 function corrupt(original_instructions)
-  for j in 1:length(original_instructions)
-    boot_loop_detected = false
-    acc, i, s = 0, 1, Set{Int}()
-    instructions = copy(original_instructions)
-    if occursin("jmp", instructions[j])
-      instructions[j] = replace(instructions[j], "jmp" => "nop")
-    elseif occursin("nop", instructions[j])
-      instructions[j] = replace(instructions[j], "nop" => "jmp")
+    for j in 1:length(original_instructions)
+        boot_loop_detected = false
+        acc, i, s = 0, 1, Set{Int}()
+        instructions = copy(original_instructions)
+        if occursin("jmp", instructions[j])
+            instructions[j] = replace(instructions[j], "jmp" => "nop")
+        elseif occursin("nop", instructions[j])
+            instructions[j] = replace(instructions[j], "nop" => "jmp")
+        end
+        while true
+            i ∈ s ? ( boot_loop_detected = true; break ) : push!(s, i)
+            i > length(instructions) && break
+            inst, n = split(instructions[i])
+            n = parse(Int, n)
+            inst == "acc" && ( i += 1; acc += n )
+            inst == "jmp" && ( i += n )
+            inst == "nop" && ( i += 1 )
+        end
+        !boot_loop_detected && return acc
     end
-    while true
-      i ∈ s ? ( boot_loop_detected = true; break ) : push!(s, i)
-      i > length(instructions) && break
-      inst, n = split(instructions[i])
-      n = parse(Int, n)
-      inst == "acc" && ( i += 1; acc += n )
-      inst == "jmp" && ( i += n )
-      inst == "nop" && ( i += 1 )
-    end
-    !boot_loop_detected && return acc
-  end
 end
 ```
 
@@ -307,25 +307,25 @@ Day 9 was also straightforward.
 readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
 
 function check(numbers, n)
-  for i in numbers, j in numbers
-    i + j == n && return true
-  end
-  false
+    for i in numbers, j in numbers
+        i + j == n && return true
+    end
+    false
 end
 
 function part1(numbers = readInput())
-  preamble = 25
-  for i in (preamble + 1):length(numbers)
-    check(numbers[i-preamble:i-1], numbers[i]) && continue
-    return i, numbers[i]
-  end
+    preamble = 25
+    for i in (preamble + 1):length(numbers)
+        check(numbers[i-preamble:i-1], numbers[i]) && continue
+        return i, numbers[i]
+    end
 end
 
 function part2(numbers = readInput())
-  idx, num = part1(numbers)
-  for i in eachindex(numbers), j in i:lastindex(numbers)
-    sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
-  end
+    idx, num = part1(numbers)
+    for i in eachindex(numbers), j in i:lastindex(numbers)
+        sum(numbers[i:j]) == num && return sum(extrema(numbers[i:j]))
+    end
 end
 ```
 
@@ -337,21 +337,20 @@ using Combinatorics
 readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
 
 function bad_number(nums, k)
-  for i in (k + 1):length(nums)
-    if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[i-k:i-1], 2))
-      return (i, nums[i])
+    for i in (k + 1):length(nums)
+        if !any(num1 + num2 == nums[i] for (num1, num2) in combinations(nums[i-k:i-1], 2))
+            return (i, nums[i])
+        end
     end
-  end
 end
 
 function rectify(nums, k)
-  v = bad_number(nums, k)
-  i = j = 1
-  while (s = sum(nums[i:j])) != v
-    s < v ? j += 1 : i += 1
-  end
-
-  return minimum(nums[i:j]) + maximum(nums[i:j])
+    v = bad_number(nums, k)
+    i = j = 1
+    while (s = sum(nums[i:j])) != v
+        s < v ? j += 1 : i += 1
+    end
+    return minimum(nums[i:j]) + maximum(nums[i:j])
 end
 
 input = readInput()
@@ -369,8 +368,8 @@ Here's [Tom Kwong's](https://github.com/tk3369/AdventOfCode2020/blob/1273e4a0868
 
 ```julia
 function readInput()
-  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
-  vcat(0, data, data[end]+3)
+    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    vcat(0, data, data[end]+3)
 end
 
 part1(data = readInput()) = count(==(1), diff(data)) * count(==(3), diff(data))
@@ -406,13 +405,12 @@ Here's a solution based on [Jonnie Diegelman's](https://github.com/jonniedie/Adv
 
 ```julia
 function readInput()
-  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
-  data = vcat(0, data, data[end]+3)
-  join(string.(diff(data)))
+    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    data = vcat(0, data, data[end]+3)
+    join(string.(diff(data)))
 end
 
 part1(data = readInput()) = count(==('1'), data) * count(==('3'), data)
-
 part2(data = readInput()) = prod(binomial.(length.(split(data, '3', keepempty=false)), 2) .+ 1)
 ```
 
@@ -423,15 +421,15 @@ Thanks to [Sukera](https://github.com/Seelengrab/AdventOfCode) and [Andrey Oskin
 
 ```julia
 function readInput()
-  data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
-  data = vcat(0, data, data[end]+3)
-  split(join(string.(diff(data))), '3', keepempty = false)
+    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    data = vcat(0, data, data[end]+3)
+    split(join(string.(diff(data))), '3', keepempty = false)
 end
 
 function tribonacci(n)
-  n <= 1 && return 1
-  n == 2 && return 2
-  tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3)
+    n <= 1 && return 1
+    n == 2 && return 2
+    tribonacci(n-1) + tribonacci(n-2) + tribonacci(n-3)
 end
 
 part2(data = readInput()) = prod(tribonacci.(length.(data)))
@@ -456,7 +454,6 @@ This is the first tribute to [John Conway](https://en.wikipedia.org/wiki/John_Ho
 readInput() = permutedims(reduce(hcat, collect.(split(strip(read("src/day11/input.txt", String)), '\n'))))
 
 part1(data = readInput()) = simulate(data, 0, 1)
-
 part2(data = readInput()) = simulate(data, 1, size(data, 1) * 2)
 
 function simulate(grid, company, sight)
@@ -560,22 +557,22 @@ Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src
 using Mods
 
 function readInput()
-  t_str, buses_str = readlines("src/day13/input.txt")
-  time = parse(Int, t_str)
-  buses = map(x->x=="x" ? nothing : parse(Int, x), split(buses_str, ','))
-  time, buses
+    t_str, buses_str = readlines("src/day13/input.txt")
+    time = parse(Int, t_str)
+    buses = map(x->x=="x" ? nothing : parse(Int, x), split(buses_str, ','))
+    time, buses
 end
 
 function part1(data = readInput())
-  time, buses = data
-  wait, bus = min(map(x->(x*ceil(time / x), x), filter(!isnothing, buses))...)
-  (wait - time) * bus
+    time, buses = data
+    wait, bus = min(map(x->(x*ceil(time / x), x), filter(!isnothing, buses))...)
+    (wait - time) * bus
 end
 
 function part2(data = readInput())
-  _, buses = data
-  mods = map(k->Mod{buses[k]}(-(k-1)), filter(k->!isnothing(buses[k]), keys(buses)))
-  CRT(mods...).val
+    _, buses = data
+    mods = map(k->Mod{buses[k]}(-(k-1)), filter(k->!isnothing(buses[k]), keys(buses)))
+    CRT(mods...).val
 end
 ```
 
@@ -585,31 +582,31 @@ Using this, you can break the problem down by iteratively and calculate the next
 
 ```julia
 function readInput()
-  input = readlines("src/day13/input.txt")
-  n = parse(Int, input[1])
-  schedule = parse.(Int, replace(split(input[2], ","), "x" => "-1"))
-  bus_n = filter(!=(-1), schedule)
-  bus_dt = (1:length(schedule))[schedule .!= -1] .- 1
-  bus_n, bus_dt, n
+    input = readlines("src/day13/input.txt")
+    n = parse(Int, input[1])
+    schedule = parse.(Int, replace(split(input[2], ","), "x" => "-1"))
+    bus_n = filter(!=(-1), schedule)
+    bus_dt = (1:length(schedule))[schedule .!= -1] .- 1
+    bus_n, bus_dt, n
 end
 
 function part1(data = readInput())
-  bus_n, bus_dt, n = data
-  min_rem, min_rem_i = findmin(bus_n .- n .% bus_n)
-  bus_n[min_rem_i] * min_rem
+    bus_n, bus_dt, n = data
+    min_rem, min_rem_i = findmin(bus_n .- n .% bus_n)
+    bus_n[min_rem_i] * min_rem
 end
 
 function part2(data = readInput())
-  bus_n, bus_dt, n = data
-  inc = bus_n[1]
-  n = 0
-  for (i, offset) in zip(bus_n[2:end], bus_dt[2:end])
-    while (n + offset) % i != 0
-        n += inc
+    bus_n, bus_dt, n = data
+    inc = bus_n[1]
+    n = 0
+    for (i, offset) in zip(bus_n[2:end], bus_dt[2:end])
+        while (n + offset) % i != 0
+            n += inc
+        end
+        inc = lcm(inc, i)
     end
-    inc = lcm(inc, i)
-  end
-  return n
+    return n
 end
 ```
 
@@ -740,25 +737,25 @@ Calculating which fields were invalid for part 1 was rather straightforward.
 
 ```julia
 function readInput()
-  data = strip(read("src/day16/input.txt", String))
-  rules, your_ticket, nearby_tickets = split(data, "\n\n")
-  rules = Dict(map(split(rules, '\n')) do rule
-    rule, r1start, r1end, r2start, r2end = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
-    r1start, r1end, r2start, r2end = parse.(Int, [r1start, r1end, r2start, r2end])
-    rule => (r1start:r1end, r2start:r2end)
-  end)
-  your_ticket = parse.(Int, split(split(your_ticket, '\n')[2], ','))
-  nearby_tickets = [parse.(Int, ticket) for ticket in split.(split(nearby_tickets, '\n')[2:end], ',')]
-  rules, your_ticket, nearby_tickets
+    data = strip(read("src/day16/input.txt", String))
+    rules, your_ticket, nearby_tickets = split(data, "\n\n")
+    rules = Dict(map(split(rules, '\n')) do rule
+        rule, r1start, r1end, r2start, r2end = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
+        r1start, r1end, r2start, r2end = parse.(Int, [r1start, r1end, r2start, r2end])
+        rule => (r1start:r1end, r2start:r2end)
+    end)
+    your_ticket = parse.(Int, split(split(your_ticket, '\n')[2], ','))
+    nearby_tickets = [parse.(Int, ticket) for ticket in split.(split(nearby_tickets, '\n')[2:end], ',')]
+    rules, your_ticket, nearby_tickets
 end
 
 function part1(data = readInput())
-  rules, your_ticket, nearby_tickets = data
-  invalid_fields = Int[]
-  for ticket in nearby_tickets, field in ticket
-    !any([field ∈ rule for rule in Iterators.flatten(values(rules))]) && push!(invalid_fields, field)
-  end
-  sum(invalid_fields)
+    rules, your_ticket, nearby_tickets = data
+    invalid_fields = Int[]
+    for ticket in nearby_tickets, field in ticket
+        !any([field ∈ rule for rule in Iterators.flatten(values(rules))]) && push!(invalid_fields, field)
+    end
+    sum(invalid_fields)
 end
 ```
 
@@ -768,40 +765,40 @@ I'm hoping to re-solve this problem using [`LightGraphs.jl`](https://github.com/
 
 ```julia
 function part2(data = readInput())
-  rules, your_ticket, nearby_tickets = data
+    rules, your_ticket, nearby_tickets = data
 
-  invalid_tickets = Int[]
-  for (i, ticket) in enumerate(nearby_tickets), field in ticket
-    !any([field ∈ rule for rule in Iterators.flatten(values(rules))]) && push!(invalid_tickets, i)
-  end
-  valid_tickets = deleteat!(nearby_tickets, invalid_tickets)
-
-  valid = ones(Bool, length(first(valid_tickets)), length(rules))
-  for ticket in valid_tickets, (i, field) in enumerate(ticket), (j, rule) in enumerate(rules)
-    _, (rule1, rule2) = rule
-    !(field ∈ rule1 || field ∈ rule2) && ( valid[i, j] = false )
-  end
-
-  final = [0 for _ in 1:length(rules)]
-  accounted_for = Set{Int}()
-  while length(accounted_for) != length(rules)
-    for i in 1:length(first(valid_tickets))
-      valid_rules = [j for j in 1:length(rules) if valid[i, j] && j ∉ accounted_for]
-      if length(valid_rules) == 1
-        final[i] = only(valid_rules)
-        push!(accounted_for, only(valid_rules))
-      end
+    invalid_tickets = Int[]
+    for (i, ticket) in enumerate(nearby_tickets), field in ticket
+        !any([field ∈ rule for rule in Iterators.flatten(values(rules))]) && push!(invalid_tickets, i)
     end
-  end
+    valid_tickets = deleteat!(nearby_tickets, invalid_tickets)
 
-  answer = 1
-  for (interest, k) in enumerate(keys(rules))
-    !startswith(k, "departure") && continue
-    for (i, index) in enumerate(final)
-      index == interest && ( answer *= your_ticket[i] )
+    valid = ones(Bool, length(first(valid_tickets)), length(rules))
+    for ticket in valid_tickets, (i, field) in enumerate(ticket), (j, rule) in enumerate(rules)
+        _, (rule1, rule2) = rule
+        !(field ∈ rule1 || field ∈ rule2) && ( valid[i, j] = false )
     end
-  end
-  answer
+
+    final = [0 for _ in 1:length(rules)]
+    accounted_for = Set{Int}()
+    while length(accounted_for) != length(rules)
+        for i in 1:length(first(valid_tickets))
+            valid_rules = [j for j in 1:length(rules) if valid[i, j] && j ∉ accounted_for]
+            if length(valid_rules) == 1
+                final[i] = only(valid_rules)
+                push!(accounted_for, only(valid_rules))
+            end
+        end
+    end
+
+    answer = 1
+    for (interest, k) in enumerate(keys(rules))
+        !startswith(k, "departure") && continue
+        for (i, index) in enumerate(final)
+            index == interest && ( answer *= your_ticket[i] )
+        end
+    end
+    answer
 end
 ```
 
@@ -914,15 +911,15 @@ function resolve(rule, rules)
 end
 
 function part1(data = readInput())
-  rules, messages = data
-  count(contains(Regex("^$(resolve(rules["0"], rules))\$")), messages)
+    rules, messages = data
+    count(contains(Regex("^$(resolve(rules["0"], rules))\$")), messages)
 end
 
 function part2(data = readInput())
-  rules, messages = data
-  rule42 = resolve(rules["42"], rules)
-  rule31 = resolve(rules["31"], rules)
-  count(contains(Regex("^$rule42+($rule42(?1)?$rule31)\$")), messages)
+    rules, messages = data
+    rule42 = resolve(rules["42"], rules)
+    rule31 = resolve(rules["31"], rules)
+    count(contains(Regex("^$rule42+($rule42(?1)?$rule31)\$")), messages)
 end
 ```
 
@@ -1306,38 +1303,38 @@ Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exc
 readInput() = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
 
 function peek(next, at, n; result=similar(next,n))
-  for i in 1:n
-    result[i] = next[at]
-    at = next[at]
-  end
-  result
+    for i in 1:n
+        result[i] = next[at]
+        at = next[at]
+    end
+    result
 end
 
 function run(cups, steps=1)
-  N = length(cups)
-  prealloc = similar(cups, 3)
+    N = length(cups)
+    prealloc = similar(cups, 3)
 
-  next = similar(cups)
-  for i in 1:N
-    next[cups[i]] = cups[mod1(i+1,N)]
-  end
-
-  current = cups[1]
-  for i in 1:steps
-    pickups = peek(next, current, 3, result=prealloc)
-
-    dst = mod1(current-1, N)
-    while dst in pickups
-      dst = mod1(dst-1, N)
+    next = similar(cups)
+    for i in 1:N
+        next[cups[i]] = cups[mod1(i+1,N)]
     end
 
-    next[current] = next[pickups[end]]
-    next[pickups[end]] = next[dst]
-    next[dst] = pickups[1]
-    current = next[current]
-  end
+    current = cups[1]
+    for i in 1:steps
+        pickups = peek(next, current, 3, result=prealloc)
 
-  return next
+        dst = mod1(current-1, N)
+        while dst in pickups
+          dst = mod1(dst-1, N)
+        end
+
+        next[current] = next[pickups[end]]
+        next[pickups[end]] = next[dst]
+        next[dst] = pickups[1]
+        current = next[current]
+    end
+
+    return next
 end
 
 part1(cups = readInput()) = join(peek(run(cups, 100), 1, 8))
@@ -1365,12 +1362,12 @@ parse_path(line) = getproperty.(eachmatch(r"(e|se|sw|w|nw|ne)", line), :match)
 readInput() = parse_path.(readlines("src/day24/input.txt"))
 
 hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
-  "e"  => ( 1,  0),
-  "se" => ( 1, -1),
-  "sw" => ( 0, -1),
-  "w"  => (-1,  0),
-  "nw" => (-1,  1),
-  "ne" => ( 0,  1)
+    "e"  => ( 1,  0),
+    "se" => ( 1, -1),
+    "sw" => ( 0, -1),
+    "w"  => (-1,  0),
+    "nw" => (-1,  1),
+    "ne" => ( 0,  1)
 ])
 
 N = 200
@@ -1378,32 +1375,32 @@ N = 200
 get_destination(path) = mapreduce(x->hex_dirs[x], +, path)
 
 function init_tiles(paths)
-  A = OffsetArray(falses(N,N),-N÷2-1,-N÷2-1)
-  foreach(dst -> A[dst] ⊻= 1, get_destination.(paths))
-  A
+    A = OffsetArray(falses(N,N),-N÷2-1,-N÷2-1)
+    foreach(dst -> A[dst] ⊻= 1, get_destination.(paths))
+    A
 end
 
 part1(data = readInput()) = count(init_tiles(data))
 
 function get_neighbor_counts(A)
-  C = OffsetArray(zeros(Int, N-2,N-2),-N÷2,-N÷2)
-  for i in CartesianIndices(C)
-    C[i] = sum(A[i+dir] for dir in values(hex_dirs))
-  end
-  C
+    C = OffsetArray(zeros(Int, N-2,N-2),-N÷2,-N÷2)
+    for i in CartesianIndices(C)
+        C[i] = sum(A[i+dir] for dir in values(hex_dirs))
+    end
+    C
 end
 
 function flip_tiles!(A, steps=1)
-  for step in 1:steps
-    C = get_neighbor_counts(A)
-    for i in CartesianIndices(C)
-      if (A[i] && C[i] ∉ (1,2)) ||
-        (!A[i] && C[i] == 2)
-        A[i] ⊻= 1
-      end
+    for step in 1:steps
+        C = get_neighbor_counts(A)
+        for i in CartesianIndices(C)
+            if (A[i] && C[i] ∉ (1,2)) ||
+                (!A[i] && C[i] == 2)
+                A[i] ⊻= 1
+            end
+        end
     end
-  end
-  A
+    A
 end
 
 part2(data = readInput()) = count(flip_tiles!(init_tiles(data), 100))
@@ -1421,17 +1418,17 @@ And finally, for the last day:
 readInput() = parse.(Int, split(strip(read("src/day25/input.txt", String)), '\n'))
 
 function part1(data = readInput())
-  card_public_key, door_public_key)
-  value = 1
-  subject_number = 7
-  card_loop_size = 0
-  while true
-    value *= subject_number
-    value = value % 20201227
-    card_loop_size += 1
-    value == card_public_key && break
-  end
-  transformation(door_public_key, card_loop_size)
+    card_public_key, door_public_key)
+    value = 1
+    subject_number = 7
+    card_loop_size = 0
+    while true
+        value *= subject_number
+        value = value % 20201227
+        card_loop_size += 1
+        value == card_public_key && break
+    end
+    transformation(door_public_key, card_loop_size)
 end
 
 transformation(subject_number, loop_size) = subject_number ^ loop_size % 20201227
