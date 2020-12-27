@@ -705,7 +705,7 @@ julia> @btime part2a();
 
 ## [Day 15](https://adventofcode.com/2020/day/15)
 
-This puzzle seemed to mainly focus on choosing the right data structure for the `history`.
+This puzzle seemed to mainly focus on choosing the right data structure for the `history` of the memory game.
 Here's a solution by [Sukera](https://github.com/Seelengrab/):
 
 ```julia
