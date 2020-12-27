@@ -862,7 +862,7 @@ part1(data = readInput()) = startup(data, 6, 3)
 part2(data = readInput()) = startup(data, 6, 4)
 ```
 
-And here are a multi dimensional visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
+And here are a couple of multi dimensional visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
 
 ![<https://twitter.com/tomkwong/status/1339468003608387586>](https://user-images.githubusercontent.com/1813121/103164882-1371eb00-47ce-11eb-92d7-624ebf54c0f9.gif)
 
