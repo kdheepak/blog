@@ -762,8 +762,8 @@ end
 ```
 
 I believe part 2 is better expressed as a graph where you solve the max flow problem to find the maximum matching.
-This is not how I solved it below.
-I'm hoping to resolve this problem using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl).
+However, this is not how I solved it below.
+I'm hoping to re-solve this problem using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl).
 
 ```julia
 function part2(data = readInput())
