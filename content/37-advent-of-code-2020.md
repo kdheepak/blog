@@ -60,6 +60,32 @@ This will contain spoilers for all days in Advent of Code 2020.
 
 # Solutions
 
+1. [Report Repair](#day-1-report-repair)
+1. [Password Philosophy](#day-2-password-philosophy)
+1. [Toboggan Trajectory](#day-3-toboggan-trajectory)
+1. [Passport Processing](#day-4-passport-processing)
+1. [Binary Boarding](#day-5-binary-boarding)
+1. [Custom Customs](#day-6-custom-customs)
+1. [Handy Haversacks](#day-7-handy-haversacks)
+1. [Handheld Halting](#day-8-handheld-halting)
+1. [Encoding Error](#day-9-encoding-error)
+1. [Adapter Array](#day-10-adapter-array)
+1. [Seating System](#day-11-seating-system)
+1. [Rain Risk](#day-12-rain-risk)
+1. [Shuttle Search](#day-13-shuttle-search)
+1. [Docking Data](#day-14-docking-data)
+1. [Rambunctious Recitation](#day-15-rambunctious-recitation)
+1. [Ticket Translation](#day-16-ticket-translation)
+1. [Conway Cubes](#day-17-conway-cubes)
+1. [Operation Order](#day-18-operation-order)
+1. [Monster Messages](#day-19-monster-messages)
+1. [Jurassic Jigsaw](#day-20-jurassic-jigsaw)
+1. [Allergen Assessment](#day-21-allergen-assessment)
+1. [Crab Combat](#day-22-crab-combat)
+1. [Crab Cups](#day-23-crab-cups)
+1. [Lobby Layout](#day-24-lobby-layout)
+1. [Combo Breaker](#day-25-combo-breaker)
+
 ## [Day 1: Report Repair](https://adventofcode.com/2020/day/1)
 
 Day 1 of advent of code is basically intended to check that you have a programming language installed, and you know how to use simple features it in (e.g. `for` loops).
