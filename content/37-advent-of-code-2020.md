@@ -38,8 +38,8 @@ There are a lot of "ah ha" moments when you figure what you should use and when,
 
 Most problems are based on standard computer science programming concepts, but are never presented as such.
 Some problems have a mathematics tilt to it, which can make finding those solutions quite rewarding.
-But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to solve it.
-And when you do, reading other people's one liners is quite enlightening.
+But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to stumble your way into solving it, if you persevere.
+Reading other people's one liners after you hacked it together is quite enlightening.
 
 Almost all the problems require parsing text input of various formats.
 And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussion about the tips and tricks you can use in your favourite programming language to express the problem more elegantly.
@@ -49,6 +49,10 @@ And finally, the community.
 
 The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
 I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
+
+That's the really neat thing about Advent of Code.
+The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, and usually very puzzle just tackles one concept or idea.
+And since there is a large enough community around it, a lot of people tend to share their solutions, and you get to see a number of different ways to approach the same problem.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
 Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
