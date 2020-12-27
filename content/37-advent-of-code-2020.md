@@ -45,7 +45,7 @@ Almost all the problems require parsing text input of various formats, and placi
 And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussion about the tips and tricks you can use in your favourite programming language to express the problem more elegantly.
 Even after having used Python and Julia for years now, I still learn new things when I read other people's solutions.
 
-And finally, the community.
+And finally, that brings me to the community.
 
 The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
 I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
