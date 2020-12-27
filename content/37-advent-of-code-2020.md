@@ -828,6 +828,37 @@ This can reduce the nesting level of your inner expressions.
 
 ## [Day 17](https://adventofcode.com/2020/day/17)
 
+Another homage to John Conway, this time in multiple dimensions. Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution:
+
+```julia
+function parsefield(lines, n, dims)
+    field = falses(fill(n, dims)...)
+    for (i,line) in enumerate(lines), (j, char) in enumerate(line)
+        char == '#' && (field[i + n÷2, j + n÷2, fill(n÷2, dims-2)...] = true)
+    end
+    field
+end
+
+function startup(lines, rounds, dims)
+    field = parsefield(lines, 2*(length(lines) + rounds + 2), dims)
+    newfield = copy(field)
+    for n in 1:rounds
+        for ind in CartesianIndices(field)[fill(2+rounds-n:size(field, 1)-rounds-1+n, dims)...]
+            counter = sum(field[((-1:1) .+ i for i in Tuple(ind))...]) - field[ind]
+            newfield[ind] = field[ind] ? counter in (2,3) : counter == 3
+        end
+        field .= newfield
+    end
+    sum(field)
+end
+
+readInput() = readlines("src/day17/input.txt")
+part1(data = readInput()) = startup(data, 6, 3)
+part2(data = readInput()) = startup(data, 6, 4)
+```
+
+And here are a couple of visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
+
 ![<https://twitter.com/tomkwong/status/1339468003608387586>](https://user-images.githubusercontent.com/1813121/103164882-1371eb00-47ce-11eb-92d7-624ebf54c0f9.gif)
 
 ![<https://twitter.com/tomkwong/status/1339735696194457600>](https://user-images.githubusercontent.com/1813121/103164897-39978b00-47ce-11eb-8c36-d9477cb839d1.gif)
