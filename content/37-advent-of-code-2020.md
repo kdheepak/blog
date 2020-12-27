@@ -3,7 +3,7 @@ title: Advent of Code 2020 Retrospective
 category: blog
 date: 2020-12-25T00:00:00-07:00
 tags: adventofcode, julia
-keywords: adventofcode, julia
+keywords: adventofcode, 2020, julia
 summary:
 ---
 
