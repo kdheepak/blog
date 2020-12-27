@@ -204,7 +204,7 @@ This tends to be very handy in Advent of Code.
 Day 7 is the first introduction to graphs this year.
 While it is possible to find solutions to both parts of this puzzle using recursion,
 the problem can be well represented as a graph.
-This code is based on [Ali Hamed Moosavian's](https://github.com/CNOT) and [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/07/day07.jl) solutions:
+This code is based on [Ali Hamed Moosavian's](https://github.com/CNOT) and [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/07/day07.jl) solutions and visualizations:
 
 ```julia
 using LightGraphs
@@ -247,6 +247,9 @@ end
 part2(data = readInput()) = part2(data[1], data[2])
 part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 ```
+
+![part1](images/adventofcode-day07-part1.png){ width=45% } ![part2](images/adventofcode-day07-part2.png){ width=45% }
+
 
 ## [Day 8](https://adventofcode.com/2020/day/8)
 
@@ -498,7 +501,6 @@ Julia's `CartesianIndex` makes it easier to deal with multi-dimensional indexing
 ## [Day 12](https://adventofcode.com/2020/day/12)
 
 This was one of my better performances on the Julia leaderboard.
-Using complex numbers makes it quite straightforward to deal with problems involving rotation.
 
 ```julia
 readInput() = split(strip(read("src/day12/input.txt", String)), '\n')
@@ -543,5 +545,13 @@ function part2(data = readInput())
 end
 ```
 
+Using complex numbers makes it quite straightforward to deal with problems involving rotation.
+
 Thanks to [Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day12.jl) for suggesting using `if ... elseif ... end` for minor performance improvements.
 Check out his other solutions for more optimized takes on the problems.
+
+[Michael Krabbe Borregaard](https://github.com/mkborregaard) had some neat visualizations for this day.
+
+![part1](images/adventofcode-day12-part1.png){ width=45% } ![part2](images/adventofcode-day12-part2.png){ width=45% }
+
+## [Day 13](https://adventofcode.com/2020/day/13)
