@@ -32,10 +32,12 @@ Secondly, unlike most other competitive programming challenges, the puzzles are 
 Every puzzle has two parts, where the first part introduces a prompt, and requires you to solve it before viewing the second part.
 The first part tends to set up an idea or check that you are on the right track, and the second part tends to extend the idea or subvert an obvious decision you made in the first part.
 
-There are a lot of "ah ha" moments when you figure something out.
+The puzzle inputs are designed to hedge against certain naive solutions.
+Some puzzle inputs will only work with certain data structures or certain algorithms.
+There are a lot of "ah ha" moments when you figure what you should use and when, which makes for a very satisfying solve.
 
 Most problems are based on standard computer science programming concepts, but are never presented as such.
-Some problems have a mathematics tilt to it, which can make finding such solutions very satisfying.
+Some problems have a mathematics tilt to it, which can make finding such solutions quite rewarding.
 But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to solve it.
 And when you do, reading other people's one liners is quite enlightening.
 
