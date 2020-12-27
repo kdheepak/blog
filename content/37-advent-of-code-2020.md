@@ -644,7 +644,7 @@ function part2(data = readInput())
 end
 ```
 
-Here's another solution from [Doug](http://github.com/dgkf) that finds the cycles using `lcm` much more elegantly than how I ended up doing it.
+Here's another solution from [Doug](https://github.com/dgkf/advent-of-code/blob/98ee142a61b453a766331c65ece372978041935e/2020/13/13.jl) that finds the cycles using `lcm` much more elegantly than how I ended up doing it.
 The key bit of insight here is that the `lcm(previous_bus_schedules, new_bus_schedule)` will be the cycle at which the pattern repeats.
 Using this, you can break the problem down by iteratively and calculate the next cycle.
 
