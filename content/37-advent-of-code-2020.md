@@ -1439,6 +1439,8 @@ end
 transformation(subject_number, loop_size) = subject_number ^ loop_size % 20201227
 ```
 
+Julia also has a function called `powermod` in the standard library, which can be used for this.
+
 # Final words
 
 Thanks to everyone in the Julia community who participated on Zulip, Slack and Reddit.
