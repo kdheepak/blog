@@ -873,7 +873,7 @@ And here are a couple of multi dimensional visualizations by [Tom Kwong](https:/
 
 ## [Day 18](https://adventofcode.com/2020/day/18)
 
-Here's [Doug's](https://github.com/dgkf) that managed to get him a spot on the global leaderboard.
+Here is [Doug's](https://github.com/dgkf) that managed to get him a spot on the global leaderboard.
 
 ```julia
 readInput() = readlines("src/day18/input.txt")
