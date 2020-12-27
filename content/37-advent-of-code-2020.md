@@ -179,7 +179,19 @@ There were a lot of puzzles this year where I would have been able to parse the 
 
 Sometimes having a little insight into what the problem is asking can go a long way.
 For example, in this puzzle, the seat ID is just a binary representation of the input.
-So you can calculate the seat ID using binary shifting or by parsing the input as a binary number directly.
+
+```plaintext
+FBFBBFFRLR
+    |
+    v
+0101100101
+    |
+    v
+   357
+```
+
+So you can calculate the seat ID using binary shifting or by converting the input to `1`s and `0`s and parsing the input as a binary number directly.
+
 This solution is based on [Andrey Oskin's](https://github.com/Arkoniak/advent_of_code/blob/c692bc20147362cfb373e1483cf73588489a597b/2020/05/day05.jl):
 
 ```julia
