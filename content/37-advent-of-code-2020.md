@@ -144,7 +144,7 @@ Julia has `mod1` for 1 based mod, which is useful for indexing in these type of 
 Julia also has ceiling division (`cld`) and floor division (`fld`) which happen to be handy here.
 
 Julia has support for broadcasting using the `f.(c)` syntax,
-which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
+which allows for the element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
 This tends to be very handy in Advent of Code.
 
 Additionally, you can use `Ref(data)` to tell Julia that it is a singleton that shouldn't be broadcast over.
