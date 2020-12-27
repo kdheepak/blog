@@ -1353,8 +1353,8 @@ Using a linked list for example is a common solution to this problem.
 
 In another tribute to John Conway, now you must model hexagon grids.
 Having never done this before, I reached for complex numbers again, which turned out to be a bad idea.
-I was indexing a dictionary with the real and imaginary components of the complex number and since was making sure the grid was uniform, the values were floating point numbers.
-This caused all sorts of indexing issues.
+I was indexing a dictionary with the real and imaginary components of the complex number which were floating point numbers.
+This caused all sorts of indexing problems due to rounding issues.
 
 I could have sorted this out by using only integer values or by using the coordinate system described in this resource: <https://www.redblobgames.com/grids/hexagons/#coordinates-cube>.
 
