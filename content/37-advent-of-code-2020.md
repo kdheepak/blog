@@ -555,3 +555,64 @@ Check out his other solutions for more optimized takes on the problems.
 ![part1](images/adventofcode-day12-part1.png){ width=45% } ![part2](images/adventofcode-day12-part2.png){ width=45% }
 
 ## [Day 13](https://adventofcode.com/2020/day/13)
+
+This was one of the harder days for me.
+I had never heard of Chinese Remainder Theorem (CRT).
+Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src/commit/e65eccac7e3825d5d9706b18e1fe244958f5f1e8/2020/src/day_13.jl) that uses the `CRT` function from [`Mods.jl`](https://github.com/scheinerman/Mods.jl) package.
+
+```julia
+using Mods
+
+function readInput()
+  t_str, buses_str = readlines("src/day13/input.txt")
+  time = parse(Int, t_str)
+  buses = map(x->x=="x" ? nothing : parse(Int, x), split(buses_str, ','))
+  time, buses
+end
+
+function part1(data = readInput())
+  time, buses = data
+  wait, bus = min(map(x->(x*ceil(time / x), x), filter(!isnothing, buses))...)
+  (wait - time) * bus
+end
+
+function part2(data = readInput())
+  _, buses = data
+  mods = map(k->Mod{buses[k]}(-(k-1)), filter(k->!isnothing(buses[k]), keys(buses)))
+  CRT(mods...).val
+end
+```
+
+Here's another solution from [Doug](http://github.com/dgkf) that finds the cycles using `lcm`.
+The key bit of insight here is that the `lcm(previous_bus_schedules, new_bus_schedule)` will be the cycle at which the pattern repeats.
+You can break the problem down by iteratively calculating these cycles.
+
+```julia
+function readInput()
+  input = readlines("src/day13/input.txt")
+  n = parse(Int, input[1])
+  schedule = parse.(Int, replace(split(input[2], ","), "x" => "-1"))
+  bus_n = filter(!=(-1), schedule)
+  bus_dt = (1:length(schedule))[schedule .!= -1] .- 1
+  bus_n, bus_dt, n
+end
+
+function part1(data = readInput())
+  bus_n, bus_dt, n = data
+  min_rem, min_rem_i = findmin(bus_n .- n .% bus_n)
+  bus_n[min_rem_i] * min_rem
+end
+
+function part2(data = readInput())
+  bus_n, bus_dt, n = data
+  inc = bus_n[1]
+  n = 0
+  for (i, offset) in zip(bus_n[2:end], bus_dt[2:end])
+    while (n + offset) % i != 0
+        n += inc
+    end
+    inc = lcm(inc, i)
+  end
+  return n
+end
+```
