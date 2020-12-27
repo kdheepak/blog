@@ -58,7 +58,9 @@ This will contain spoilers for all days in Advent of Code 2020.
 
 Day 1 of advent of code basically is intended to check that you have a programming language installed, and you know how to simple features it in (e.g. `for` loops).
 
-However, a more idiomatic solution can be expressed using the `combinations` function from the [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl):
+However, a more idiomatic solution can be expressed using the `combinations` function from the [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl)[^python]:
+
+[^python]: _aside_: Python has a similar function in the standard library: <https://docs.python.org/3/library/itertools.html#itertools.combinations>
 
 ```julia
 using Combinatorics
@@ -70,8 +72,6 @@ expense_report(data, n) = only(prod(items) for items in combinations(data, n) if
 part1(data = readInput()) = expense_report(data, 2)
 part2(data = readInput()) = expense_report(data, 3)
 ```
-
-Python has a similar function in the standard library: <https://docs.python.org/3/library/itertools.html#itertools.combinations>
 
 ## [Day 2](https://adventofcode.com/2020/day/2)
 
