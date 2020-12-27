@@ -828,7 +828,9 @@ This can reduce the nesting level of your inner expressions.
 
 ## [Day 17](https://adventofcode.com/2020/day/17)
 
-Another homage to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), this time in multiple dimensions. Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution:
+Another homage to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), this time in multiple dimensions.
+Cellular automata puzzles are always fun, and make for some neat visualizations.
+Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution that takes advantage of `CartesianIndices`:
 
 ```julia
 function parsefield(lines, n, dims)
@@ -857,7 +859,7 @@ part1(data = readInput()) = startup(data, 6, 3)
 part2(data = readInput()) = startup(data, 6, 4)
 ```
 
-And here are a couple of visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
+And here are a multi dimensional visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
 
 ![<https://twitter.com/tomkwong/status/1339468003608387586>](https://user-images.githubusercontent.com/1813121/103164882-1371eb00-47ce-11eb-92d7-624ebf54c0f9.gif)
 
