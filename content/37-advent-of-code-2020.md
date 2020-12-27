@@ -754,6 +754,9 @@ julia> @btime part2a();
 ## [Day 15: Rambunctious Recitation](https://adventofcode.com/2020/day/15)
 
 This puzzle seemed to mainly focus on choosing the right data structure for the `history` of the memory game.
+Storing it as a mapping of number to list of indices works well for both parts.
+A mapping of indices to number will cause the code to be slow, and will make solving part 2 impractical.
+
 Here's a solution by [Sukera](https://github.com/Seelengrab/):
 
 ```julia
@@ -883,7 +886,7 @@ This can help reduce the nesting level of your inner expressions.
 ## [Day 17: Conway Cubes](https://adventofcode.com/2020/day/17)
 
 Another homage to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), this time in multiple dimensions.
-Cellular automata puzzles are always fun, and make for some neat visualizations.
+
 Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution that takes advantage of `CartesianIndices`:
 
 ```julia
@@ -913,7 +916,8 @@ part1(data = readInput()) = startup(data, 6, 3)
 part2(data = readInput()) = startup(data, 6, 4)
 ```
 
-And here are a couple of multi dimensional visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
+Cellular automata puzzles are always fun, and make for some neat visualizations.
+Here are a couple of multi dimensional visualizations by [Tom Kwong](https://github.com/tk3369/AdventOfCode2020/):
 
 ![<https://twitter.com/tomkwong/status/1339468003608387586>](https://user-images.githubusercontent.com/1813121/103164882-1371eb00-47ce-11eb-92d7-624ebf54c0f9.gif)
 
@@ -921,30 +925,42 @@ And here are a couple of multi dimensional visualizations by [Tom Kwong](https:/
 
 ## [Day 18: Operation Order](https://adventofcode.com/2020/day/18)
 
-Here is [Doug's](https://github.com/dgkf) that managed to get him a spot on the global leaderboard.
+The intended way to solve such problems is using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+
+However, you can hacking the operator precedence in your programming language of choice and take advantage of the built in parser.
+
+Here is [Doug's](https://github.com/dgkf/advent-of-code/blob/98ee142a61b453a766331c65ece372978041935e/2020/18/18.jl) that managed to get him a spot on the global leaderboard.
 
 ```julia
 readInput() = readlines("src/day18/input.txt")
 
 ⨦(a,b) = a * b  # define "multiplication" with same precedence as "+"
-part1(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(l, "*" => "⨦"))), data))
+part1(data = readInput()) = sum(l -> eval(Meta.parse(replace(l, "*" => "⨦"))), data)
 
 ⨱(a,b) = a + b  # define "addition" with precedence of "*"
-part2(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(replace(l, "*" => "⨦"), "+" => "⨱"))), data))
+part2(data = readInput()) = sum(l -> eval(Meta.parse(replace(replace(l, "*" => "⨦"), "+" => "⨱"))), data)
 ```
 
-Without hacking the operators and taking advantage of a language's operator precedence, the problem can be solved using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+Finding the right operators in your programming language that have the precedence required as per the prompt is key.
 
 ## [Day 19: Monster Messages](https://adventofcode.com/2020/day/19)
 
 This was another hard day for me.
 First, I tried to implement a recursive algorithm.
-After failing to figure this out, I picked it up again the next day with a clean slate.
-I tried to build a regex that would match various messages.
+After failing to figure this out, I picked it up again on the next day with a clean slate, and I tried to build a regex that would match various messages.
 This worked for part 1 but I kept running out of memory for part 2.
 Finally, after changing some of the rules hard-coding them by hand I was able to solve part 2.
 
-Here's a solution by [Doug](https://github.com/dgkf) that does the same thing elegantly and programmatically.
+Specifically, I hard coded rules `"8"` and `"11"` to the following.
+
+```julia
+rules["8"] = "(42)+"
+rules["11"] = "42 31 | 42 ( 42 31 | 42 ( 42 31 | 42 ( 42 31 | 42 ( 42 31 ) 31 ) 31 ) 31 ) 31"
+```
+
+This limits the depth of rule `"11"`. One more step however and I was getting PCRE memory errors.
+
+Here's a solution by [Doug](https://github.com/dgkf/advent-of-code/blob/98ee142a61b453a766331c65ece372978041935e/2020/19/19.jl) that does the same thing elegantly and programmatically.
 
 ```julia
 function readInput()
@@ -978,9 +994,11 @@ end
 
 ## [Day 20: Jurassic Jigsaw](https://adventofcode.com/2020/day/20)
 
-This puzzle was really fun to solve but also tedious to type out everything that you needed to type out.
+This puzzle was really fun to figure out but also tedious to type out everything that you needed to type out.
 While I was able to solve the problem, I hard-coded many things in my solution.
 My code doesn't even work for the test cases.
+This is just one of those puzzles that is easier to solve on paper than to write an actual working implementation.
+
 Here's a working solution by [Alisdair Sullivan](https://github.com/talentdeficit/aoc2020/blob/1bdc06f7428c8e8c59a2748fbd1c2fa0e04e67c5/bin/twenty/run.jl):
 
 ```julia
@@ -1295,13 +1313,15 @@ function m()
 end
 ```
 
-Here is the original input data is on the left and the maximum flow solution is on the right.
+Here are a couple of visualizations of the test data is on the left, with the maximum flow solution on the right.
 
-![Original input data](images/adventofcode-day21-part1-1.png){ width=45% } ![Maximum flow solution](images/adventofcode-day21-part1-2.png){ width=45% }
+![Input data](images/adventofcode-day21-part1-1.png){ width=45% } ![Maximum flow solution](images/adventofcode-day21-part1-2.png){ width=45% }
 
 ## [Day 22: Crab Combat](https://adventofcode.com/2020/day/22)
 
-This puzzle was mostly straightforward.
+This puzzle was mostly straightforward too.
+The key here seems to be to implement the stopping conditions correctly, and take advantage of the stack based behavior of recursion in most programming languages.
+
 Here's a solution by
 [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/22/puzzle.jl).
 
@@ -1346,11 +1366,18 @@ part1() = day22()[1]
 part2() = day22()[2]
 ```
 
-Julia allows using unicode symbols as part of variable names.
+Julia allows using unicode symbols as part of variable names which can make for some pretty looking code.
 
 ## [Day 23: Crab Cups](https://adventofcode.com/2020/day/23)
 
-Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei):
+This puzzle took me a while to figure out.
+I went way to long looking for patterns in each state.
+Thanks to some helpful tips from fellow Julia solvers, I re-wrote it from scratch using a Linked List.
+
+The key idea is here to manage the ordering in a separate data structure.
+Using a linked list for example is a common solution to this problem.
+
+Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei) that manages to do that quite elegantly:
 
 ```julia
 readInput() = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
@@ -1394,13 +1421,11 @@ part1(cups = readInput()) = join(peek(run(cups, 100), 1, 8))
 part2(cups = readInput()) = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000), 1, 2))
 ```
 
-The key idea is here to manage the ordering in a separate data structure.
-Using a linked list for example is a common solution to this problem.
-
 ## [Day 24: Lobby Layout](https://adventofcode.com/2020/day/24)
 
 In another tribute to John Conway, now you must model hexagon grids.
-Having never done this before, I reached for complex numbers again, which turned out to be a bad idea.
+
+Having never worked with hexagon grid this before, I reached for complex numbers again, which turned out to be a bad idea.
 I was indexing a dictionary with the real and imaginary components of the complex number which were floating point numbers.
 This caused all sorts of indexing problems due to rounding issues.
 
@@ -1464,7 +1489,9 @@ And another neat visualization by [Tom Kwong](https://github.com/tk3369/AdventOf
 
 ## [Day 25: Combo Breaker](https://adventofcode.com/2020/day/25)
 
-And finally, for the last day:
+And finally, for the last day, we have a cryptography based puzzle.
+
+The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
 ```julia
 readInput() = parse.(Int, split(strip(read("src/day25/input.txt", String)), '\n'))
@@ -1487,6 +1514,8 @@ transformation(subject_number, loop_size) = subject_number ^ loop_size % 2020122
 ```
 
 Julia also has a function called `powermod` in the standard library, which can be used for this.
+
+If you've made it all this way, part 2 of day 25 should be a cinch 😉.
 
 # Final words
 
