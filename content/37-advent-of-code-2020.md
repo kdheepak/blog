@@ -591,7 +591,8 @@ Check out his other solutions for more optimized takes on the problems.
 ## [Day 13: Shuttle Search](https://adventofcode.com/2020/day/13)
 
 This was one of the harder days for me.
-I had never heard of Chinese Remainder Theorem (CRT).
+I had never heard of [Chinese Remainder Theorem](https://en.wikipedia.org/wiki/Chinese_remainder_theorem) (CRT).
+
 Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src/commit/e65eccac7e3825d5d9706b18e1fe244958f5f1e8/2020/src/day_13.jl) that uses the `CRT` function from [Mods.jl](https://github.com/scheinerman/Mods.jl) package.
 
 ```julia
