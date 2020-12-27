@@ -22,8 +22,8 @@ I think there's a few reasons I find it quite enjoyable.
 Firstly, there's the competitive aspect of it.
 
 A single puzzle unlocks every night at midnight Eastern Time, and your time when you submit a solution is recorded.
-There's a global leaderboard that highlights the top 100 fastest times.
-And you also have the ability to make a private leaderboard that you can share with anyone you like, and you can use that to track your time and challenge your friends / peers.
+There's a global leaderboard that highlights the top 100 fastest times but you also have the ability to make a private leaderboard that you can share with anyone you like, and you can use that to track your time and challenge your friends / peers.
+
 For straightforward puzzles, it is a lot of fun to see who can read, grok and type out a bug-free working program the fastest.
 A bunch of people also upload recordings of their attempts, and it is humbling to see how fast they can whip out a correct solution to a problem.
 
@@ -32,16 +32,16 @@ Secondly, unlike most other competitive programming challenges, the puzzles are 
 Every puzzle has two parts, where the first part introduces a prompt, and requires you to solve it before viewing the second part.
 The first part tends to set up an idea or check that you are on the right track, and the second part tends to extend the idea or subvert an obvious decision you made in the first part.
 
-There's a lot of "ah ha" moments when you figure something out.
+There are a lot of "ah ha" moments when you figure something out.
 
-Most problems are standard computer science programming problems, but are never presented as such.
+Most problems are based on standard computer science programming concepts, but are never presented as such.
 Some problems have a mathematics tilt to it, which can make finding such solutions very satisfying.
 But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to solve it.
 And when you do, reading other people's one liners is quite enlightening.
 
 Almost all the problems require parsing text input of various formats.
-And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussions about the tips and tricks in your favourite programming language that you could use to express the problem more elegantly.
-Even after having used Python and Julia for years now, I still learn new things about these programming languages when I read other people's solutions.
+And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussion about the tips and tricks you can use in your favourite programming language to express the problem more elegantly.
+Even after having used Python and Julia for years now, I still learn new things when I read other people's solutions.
 
 And finally, the community.
 
@@ -49,7 +49,7 @@ The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia Zulip a
 I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
-Below I'll be discussing solutions in Julia from the Julia community that were solving this year's Advent of Code.
+Below I'll be discussing solutions in Julia that were shared on Zulip, Slack and Reddit.
 This will contain spoilers for all days in Advent of Code 2020.
 
 # Solutions
