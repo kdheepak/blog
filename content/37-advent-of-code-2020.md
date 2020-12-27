@@ -419,6 +419,8 @@ part1(data = readInput()) = count(==('1'), data) * count(==('3'), data)
 part2(data = readInput()) = prod(binomial.(length.(split(data, '3', keepempty=false)), 2) .+ 1)
 ```
 
+This only works however when the set of 1 away adapters is not longer than 5 elements, which is the case in our puzzle inputs.
+
 Alternatively, because the steps needed are one, two or three, you can calculate all possible steps by using a tribonacci sum.
 The tribonacci sum gives us all ways to traverse a set of ones, i.e. `11111...` by hopping from `1` to `1` in steps of size 1, 2 or 3.
 
