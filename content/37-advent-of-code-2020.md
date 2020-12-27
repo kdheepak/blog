@@ -112,11 +112,14 @@ A lot of advent of code problems have the puzzle input as text that represents a
 Day 3 is our first introduction to a grid of trees.
 
 Having a one liner to convert the text input to a `Matrix` can be very useful.
-This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
 
 ```julia
 readInput() = permutedims(reduce(hcat, collect.(readlines("src/day03/input.txt"))))
+```
 
+This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
+
+```julia
 function solve(trees, slope)
     n = cld(size(trees, 1), slope.y)
     rs = range(1, step=slope.y, length=n)
