@@ -362,6 +362,8 @@ function part2(numbers = readInput())
 end
 ```
 
+Julia has a function called `extrema` that computes the minimum and maximum element in a single pass.
+
 [Teo ShaoWei](https://github.com/Teo-ShaoWei)'s solution using [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
 
 ```julia
