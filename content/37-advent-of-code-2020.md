@@ -615,7 +615,7 @@ end
 ## [Day 14](https://adventofcode.com/2020/day/14)
 
 This puzzle requires dealing with bit shifting and masking of bits.
-Here's [Pablo Zubieta's](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl) solution:
+Here's [Pablo Zubieta's](https://github.com/pabloferz/AoC/) solution:
 
 ```julia
 function parse_mask_ops(line)
@@ -868,6 +868,312 @@ And here are a couple of multi dimensional visualizations by [Tom Kwong](https:/
 
 ![<https://twitter.com/tomkwong/status/1339735696194457600>](https://user-images.githubusercontent.com/1813121/103164897-39978b00-47ce-11eb-8c36-d9477cb839d1.gif)
 
+## [Day 18](https://adventofcode.com/2020/day/18)
+
+Here's [Doug's](https://github.com/dgkf) that managed to get him a spot on the global leaderboard.
+
+```julia
+readInput() = readlines("src/day18/input.txt")
+
+⨦(a,b) = a * b  # define "multiplication" with same precedence as "+"
+part1(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(l, "*" => "⨦"))), data))
+
+⨱(a,b) = a + b  # define "addition" with precedence of "*"
+part2(data = readInput()) = sum(map(l -> eval(Meta.parse(replace(replace(l, "*" => "⨦"), "+" => "⨱"))), data))
+```
+
+Without hacking the operators, the problem can be solved using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+
+## [Day 19](https://adventofcode.com/2020/day/19)
+
+This was another hard day for me.
+First, I tried to implement a recursive algorithm.
+After failing to figure this out, I picked it up again the next day with a clean slate.
+I tried to build a regex that would match various messages.
+This worked for part 1 but I kept running out of memory for part 2.
+Finally, after changing some of the rules hard-coding them by hand I was able to solve part 2.
+
+Here's a solution by [Doug](https://github.com/dgkf) that does the same thing elegantly and programmatically.
+
+```julia
+function readInput()
+  rules, messages = split.(split(strip(read("src/day19/input.txt", String)), "\n\n"), '\n')
+  rules = Dict(map(rules) do line
+      m = match(r"^(\d+): (\"(\w+)\"|([^|]+)|(.+))$", line)
+      String(m[1]) => m[3] isa Nothing ? (m[4] isa Nothing ? "(?:$(m[5]))" : String(m[4])) : String(m[3])
+  end)
+  rules, messages
+end
+
+function resolve(rule, rules)
+    ns = [nsi.match for nsi = eachmatch(r"\b\d+\b", rule)]
+    n_res = [Regex("\\b$nsi\\b") for nsi = ns]
+    n_rep = [resolve(rules[nsi], rules) for nsi=ns]
+    replace(reduce(replace, n_res .=> n_rep, init = rule), " " => "")
+end
+
+function part1(data = readInput())
+  rules, messages = data
+  count(contains(Regex("^$(resolve(rules["0"], rules))\$")), messages)
+end
+
+function part2(data = readInput())
+  rules, messages = data
+  rule42 = resolve(rules["42"], rules)
+  rule31 = resolve(rules["31"], rules)
+  count(contains(Regex("^$rule42+($rule42(?1)?$rule31)\$")), messages)
+end
+```
+
+## [Day 20](https://adventofcode.com/2020/day/20)
+
+This puzzle was really fun to solve but also tedious to type out everything that you needed to type out.
+While I was able to solve the problem, I hard-coded many things in my solution.
+My code doesn't even work for the test cases.
+Here's a working solution by [Alisdair Sullivan](https://github.com/talentdeficit/aoc2020/blob/1bdc06f7428c8e8c59a2748fbd1c2fa0e04e67c5/bin/twenty/run.jl):
+
+```julia
+readInput() = map(t -> split(t, "\n"), split(strip(read("src/day20/input.txt", String)), "\n\n"))
+
+mutable struct Tile
+    id::Int
+    raw::Array{Char, 2}
+end
+
+function copy(tile::Tile)
+    new = copy(tile.raw)
+    return Tile(tile.id, new)
+end
+
+t = Tile(1, ['a' 'b' 'c'; 'd' 'e' 'f'])
+
+function size(tile::Tile)
+    return Base.size(tile.raw)
+end
+
+function top(tile::Tile)
+    (y, x) = size(tile)
+    return tile.raw[range(1, length=x, step=y)]
+end
+
+function right(tile::Tile)
+    (y, x) = size(tile)
+    return tile.raw[range((x * y) - y + 1, length=y, step=1)]
+end
+
+function bottom(tile::Tile)
+    (y, x) = size(tile)
+    return tile.raw[range(y, length=x, step=y)]
+end
+
+function left(tile::Tile)
+    (y, x) = size(tile)
+    return tile.raw[range(1, length=y, step=1)]
+end
+
+function flip!(tile)
+    new = tile.raw[:,end:-1:1]
+    tile.raw = new
+end
+
+function rotate!(tile)
+    new = rotr90(tile.raw)
+    tile.raw = new
+end
+
+function parse_tiles(tiles)
+    return map(tile -> parse_tile(tile), tiles)
+end
+
+function parse_tile(tile)
+    m = match(r"(\d+)", first(tile))
+    id = parse(Int, m.captures[1])
+    raw = reduce(vcat, permutedims.(collect.(tile[2:end])))
+    return Tile(id, raw)
+end
+
+function find_edges(tile)
+    edges = []
+    push!(edges, top(tile))
+    push!(edges, right(tile))
+    push!(edges, bottom(tile))
+    push!(edges, left(tile))
+    push!(edges, reverse(top(tile)))
+    push!(edges, reverse(right(tile)))
+    push!(edges, reverse(bottom(tile)))
+    push!(edges, reverse(left(tile)))
+    return edges
+end
+
+function orient!(tile, matches)
+    for flipped in (false, true), i in 1:4
+        matches(tile) && return
+        flipped && flip!(tile)
+        flipped && matches(tile) && return
+        flipped && flip!(tile)
+        rotate!(tile)
+    end
+end
+
+function find_corners(tiles)
+    corners = []
+    ec = count_edges(tiles)
+
+    for tile in tiles
+        c = sum([length(ec[top(tile)]), length(ec[bottom(tile)]), length(ec[left(tile)]), length(ec[right(tile)])])
+        c == 6 && push!(corners, tile)
+    end
+    return corners
+end
+
+function count_edges(tiles)
+    acc = Dict{Vector{Char}, Vector{Int}}()
+    for tile in tiles
+        edges = find_edges(tile)
+        for edge in edges
+            haskey(acc, edge) ? acc[edge] = append!(acc[edge], tile.id) : acc[edge] = [tile.id]
+        end
+    end
+    return acc
+end
+
+function find_origin(tiles)
+    edges = count_edges(tiles)
+    corner = first(find_corners(tiles))
+    for _ in 1:4
+        t = edges[top(corner)]
+        l = edges[left(corner)]
+        length(t) == 1 && length(l) == 1 && return corner
+        rotate!(corner)
+    end
+end
+
+function trim(tile)
+    raw = tile.raw
+    (x, y) = size(tile)
+    return raw[2:(x - 1),2:(y - 1)]
+end
+
+function assemble(tiles)
+    origin = find_origin(deepcopy(tiles))
+    edges = count_edges(deepcopy(tiles))
+
+    rows = []
+    row = [origin]
+
+    rowstart = origin
+    current = origin
+
+    while !isnothing(current)
+        match = edges[right(current)]
+        if length(match) == 2
+            next_id = only(filter(id -> id != current.id, match))
+            next_idx = findfirst(t -> t.id == next_id, tiles)
+            next = tiles[next_idx]
+            matcher = (t) -> left(t) == right(current)
+            orient!(next, matcher)
+            push!(row, next)
+            current = next
+        else
+            push!(rows, row)
+            match = edges[bottom(rowstart)]
+            if length(match) == 2
+                next_id = only(filter(id -> id != rowstart.id, match))
+                next_idx = findfirst(t -> t.id == next_id, tiles)
+                next = tiles[next_idx]
+                orient!(next, (t) -> top(t) == bottom(rowstart))
+                current = next
+                rowstart = current
+                row = [rowstart]
+            else
+                current = nothing
+            end
+        end
+    end
+
+    return vcat(map(row -> hcat(map(tile -> trim(tile), row)...), rows)...)
+end
+
+function find_seamonsters(assembled)
+    # seamonster pattern
+    indices = [
+        CartesianIndex(19, 1),
+        CartesianIndex(1, 2),
+        CartesianIndex(6, 2),
+        CartesianIndex(7, 2),
+        CartesianIndex(12, 2),
+        CartesianIndex(13, 2),
+        CartesianIndex(18, 2),
+        CartesianIndex(19, 2),
+        CartesianIndex(20, 2),
+        CartesianIndex(2, 3),
+        CartesianIndex(5, 3),
+        CartesianIndex(8, 3),
+        CartesianIndex(11, 3),
+        CartesianIndex(14, 3),
+        CartesianIndex(17, 3)
+    ]
+
+    (xr, yr) = Base.size(assembled) .- (20, 3)
+
+    counts = []
+
+    for flipped in (false, true), i in 1:4
+        flipped ? assembled = assembled[end:-1:1,:] : nothing
+        count = 0
+        idx = CartesianIndex(0,0)
+        for j in 1:yr
+            (x, y) = Tuple(idx)
+            idx = CartesianIndex(0, y + 1)
+            for i in 1:xr
+                idx += CartesianIndex(1, 0)
+                all(i -> assembled[idx + i] == '#', indices) ? count += 1 : nothing
+            end
+        end
+        push!(counts, count)
+        flipped ? assembled = assembled[end:-1:1,:] : nothing
+        assembled = rotr90(assembled)
+    end
+    return counts
+end
+
+function check(puzzle)
+    acc = 0
+    for i in eachindex(puzzle)
+        puzzle[i] == '#' ? acc += 1 : nothing
+    end
+    return acc
+end
+
+function part1(tiles = readInput())
+  tiles = parse_tiles(tiles)
+  corners = find_corners(tiles)
+  prod(map(tile -> tile.id, corners))
+end
+
+function part2(tiles = readInput())
+  tiles = parse_tiles(tiles)
+  corners = find_corners(tiles)
+
+  assembled = assemble(tiles)
+  counts = find_seamonsters(assembled)
+
+  check(assembled) - (maximum(counts) * 15)
+end
+```
+
+The key functions I found that others were using were `rotl90`, `rotr90` and `rot180` from the Julia standard library.
+
+[Mark Kittisopikul](https://github.com/mkitti/advent_of_code_2020/blob/0e5a84d180fd7d80c8dfe506b262113a944c7234/aoc_20/aoc_20.jl) also used [ImageFiltering.jl](https://github.com/JuliaImages/ImageFiltering.jl)
+
+## [Day 21](https://adventofcode.com/2020/day/21)
+
+## [Day 22](https://adventofcode.com/2020/day/22)
+
+## [Day 23](https://adventofcode.com/2020/day/23)
+
 ## [Day 24](https://adventofcode.com/2020/day/24)
 
 ![<https://twitter.com/tomkwong/status/1342661344424652801>](https://user-images.githubusercontent.com/1813121/103164912-71063780-47ce-11eb-839a-c0608ca36b70.gif)
+
+## [Day 25](https://adventofcode.com/2020/day/25)
