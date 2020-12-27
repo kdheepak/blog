@@ -136,6 +136,13 @@ part2(data = readInput()) = prod(solve.(Ref(data), [(x=1,y=1),(x=5,y=1),(x=3,y=1
 Julia has `mod1` for 1 based mod, which is useful for indexing in these type of situations.
 Julia also has ceiling division (`cld`) and floor division (`fld`) which happen to be handy here.
 
+Julia has support for broadcasting using the `f.(c)` syntax,
+which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
+This tends to be very handy in Advent of Code.
+
+Additionally, you can use `Ref(data)` to tell Julia that it is a singleton that shouldn't be broadcast over.
+Alternatively, you can use `(data,)` to get the same behavior.
+
 ## [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)
 
 Learning how to use regex in your programming language of choice that make solutions concise and terse.
@@ -198,10 +205,6 @@ readInput() = split.(split(read("src/day06/input.txt", String), "\n\n"))
 part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
 part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 ```
-
-Julia has support for broadcasting using the `f.(c)` syntax,
-which allows for element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
-This tends to be very handy in Advent of Code.
 
 ## [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)
 
