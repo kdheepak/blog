@@ -38,7 +38,7 @@ There are a lot of "ah ha" moments when you figure what you should use and when,
 
 Most problems are based on standard computer science programming concepts, but are never presented as such.
 Some problems have a mathematics tilt to it, which can make finding those solutions quite rewarding.
-But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to stumble your way into solving it, if you persevere.
+But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to stumble your way into solving it if you persevere.
 Reading other people's one liners after you hacked it together is quite enlightening.
 
 Almost all the problems require parsing text input of various formats.
