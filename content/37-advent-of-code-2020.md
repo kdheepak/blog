@@ -49,7 +49,8 @@ The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia Zulip a
 I particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
-Below I'll be discussing solutions from solving this year's Advent of Code, which will contain spoilers.
+Below I'll be discussing solutions in Julia from the Julia community that were solving this year's Advent of Code.
+This will contain spoilers for all days in Advent of Code 2020.
 
 # Solutions
 
