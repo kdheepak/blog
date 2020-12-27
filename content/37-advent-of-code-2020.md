@@ -1303,7 +1303,7 @@ Julia allows using unicode symbols as part of variable names.
 Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei's](https://github.com/Teo-ShaoWei):
 
 ```julia
-cups = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
+readInput() = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
 
 function peek(next, at, n; result=similar(next,n))
   for i in 1:n
@@ -1340,8 +1340,8 @@ function run(cups, steps=1)
   return next
 end
 
-part1() = join(peek(run(cups, 100), 1, 8))
-part2() = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000), 1, 2))
+part1(cups = readInput()) = join(peek(run(cups, 100), 1, 8))
+part2(cups = readInput()) = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000), 1, 2))
 ```
 
 The key idea is here to manage the ordering in a separate data structure.
