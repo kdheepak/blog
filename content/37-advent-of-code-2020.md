@@ -616,3 +616,92 @@ function part2(data = readInput())
   return n
 end
 ```
+
+## [Day 14](https://adventofcode.com/2020/day/14)
+
+
+
+```julia
+function parse_mask_ops(line)
+    mask, list = split(line, r"\n"; limit = 2, keepempty = false)
+    instructions = Tuple{Int,Int}[]
+    for m in eachmatch(r"mem.(\d+). = (\d+)", list)
+        address, n = m.captures
+        push!(instructions, (parse(Int, address), parse(Int, n)))
+    end
+    return mask, instructions
+end
+
+function readInput()
+    return parse_mask_ops.(split(read("src/day14/input.txt", String), r"mask = "; keepempty = false))
+end
+
+struct Part1 end
+struct Part2 end
+
+function write!(::Part1, memory, mask, addr, n)
+    for (i, bit) in enumerate(mask)
+        if bit != 'X'
+            m = 1 << (36 - i)
+            n = (bit == '1') ? (n | m) : (n & ~m)
+        end
+    end
+    memory[addr] = n
+end
+
+function write!(::Part2, memory, mask, addr, n)
+    inds = Int8[]
+    for (i, bit) in enumerate(mask)
+        if bit == '1'
+            addr |= (1 << (36 - i))
+        elseif bit == 'X'
+            push!(inds, i)
+        end
+    end
+    l = length(inds)
+    for p in 0:(2^l - 1)
+        for (k, i) in enumerate(inds)
+            m = 1 << (36 - i)
+            b = (p >> (l - k)) & 1
+            addr = b != 0 ? (addr | m) : (addr & ~m)
+        end
+        memory[addr] = n
+    end
+end
+
+function solve(p::Union{Part1,Part2}, input)
+    memory = Dict{Int,Int}()
+    for (mask, list) in input
+        for (address, n) in list
+            write!(p, memory, mask, address, n)
+        end
+    end
+    return sum(values(memory))
+end
+
+part1(data = readInput()) = solve(Part1(), data)
+part2(data = readInput()) = solve(Part2(), data)
+```
+
+I liked this solution because it was clean _and_ fast:
+
+```julia
+julia> @btime part1();
+  392.104 μs (2987 allocations: 251.47 KiB)
+
+julia> @btime part2();
+  5.218 ms (4426 allocations: 5.96 MiB)
+```
+
+There are more optimized solutions, for example on [this one by Colin Caine](https://github.com/cmcaine/advent2020/blob/aae90d873af5a7ce870a1e0bb0355b598ee389fe/src/day14.jl).
+
+```julia
+julia> @btime part1();
+  25.614 μs (14 allocations: 23.98 KiB)
+
+julia> @btime part2();
+  3.354 ms (41 allocations: 5.67 MiB)
+
+julia> @btime part2a();
+  2.865 ms (37 allocations: 5.67 MiB)
+```
