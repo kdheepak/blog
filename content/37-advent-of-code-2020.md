@@ -330,6 +330,7 @@ end
 ```
 
 I believe this problem can also be represented as a graph and solved using memoized depth first search.
+I would like to re-write this solution using [`LightGraphs.jl`](https://github.com/JuliaGraphs/LightGraphs.jl).
 
 ## [Day 9: Encoding Error](https://adventofcode.com/2020/day/9)
 
