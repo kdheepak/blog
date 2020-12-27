@@ -528,7 +528,10 @@ function adjacent_seats(grid, i, j, sight)
 end
 ```
 
+The key thing to remember when implementing cellular automata is to copy the grid at each tick.
+
 Julia's `CartesianIndex` makes it easier to deal with multi-dimensional indexing.
+Additionally, I found the `checkbounds` function quite handy for this problem.
 
 ## [Day 12: Rain Risk](https://adventofcode.com/2020/day/12)
 
