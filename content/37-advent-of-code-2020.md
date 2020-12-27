@@ -828,7 +828,7 @@ This can reduce the nesting level of your inner expressions.
 
 ## [Day 17](https://adventofcode.com/2020/day/17)
 
-Another homage to John Conway, this time in multiple dimensions. Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution:
+Another homage to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), this time in multiple dimensions. Here's [Michael Krabbe Borregaard's](https://github.com/mkborregaard) succinct solution:
 
 ```julia
 function parsefield(lines, n, dims)
