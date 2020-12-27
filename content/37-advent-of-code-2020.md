@@ -51,8 +51,8 @@ The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip]
 I've particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 That's the really neat thing about Advent of Code.
-The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, and usually very puzzle just tackles one concept or idea.
-And since there is a large enough community around it, a lot of people tend to share their solutions, and you get to see a number of different ways to approach the same problem.
+The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, usually very puzzle just tackles one concept or idea, and there is a large enough community around it.
+Consequently, a lot of people tend to share their solutions, and you get to see a number of different ways to approach the same problem.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
 Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
