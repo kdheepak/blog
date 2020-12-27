@@ -84,7 +84,7 @@ part2(data = readInput()) = expense_report(data, 3)
 
 Day 2 is a simple case of parsing, counting characters in a string and knowing that "exactly one" can be expressed using the `xor` operation.
 
-Julia supports infix operators for `xor`: `⊻`. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
+Julia supports an infix operator for `xor`: `⊻`. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
 ```julia
 readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
