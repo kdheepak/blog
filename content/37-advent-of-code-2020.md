@@ -306,13 +306,11 @@ readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n")
 This is what the first 5 passports look like:
 
 ```julia
-julia> readInput() |> x -> first(x, 5)
+julia> readInput() |> x -> first(x, 3)
 5-element Vector{SubString{String}}:
  "hgt:159cm\npid:561068005 eyr:2025 iyr:2017 cid:139 ecl:blu hcl:#ceb3a1\nbyr:1940"
  "iyr:2014\nbyr:1986 pid:960679613 eyr:2025 ecl:hzl"
  "cid:211 ecl:blu hcl:#7d3b0c iyr:2011 pid:006632702\nbyr:1982 eyr:2023 hgt:68in"
- "hcl:#341e13 hgt:192 iyr:2028\necl:utc\neyr:2027 byr:1979 pid:653515689"
- "eyr:2026 hgt:161cm ecl:#1850b8\npid:298779494 hcl:b2114e iyr:1953"
 ```
 
 Julia allows piping the results of one function into another using `|>`.
