@@ -1576,9 +1576,9 @@ I spent way too long looking for patterns in each state.
 Thanks to some helpful tips from fellow Julia advent-of-coders, I re-wrote it from scratch using a Linked List.
 
 The key idea is here to manage the ordering in a separate data structure.
-Using a linked list for example is a common solution to this problem.
+Using a linked list is just one way to handle this.
 
-Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei) that manages to do that quite elegantly:
+Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei) that manages to do that quite elegantly using another array to manage indices:
 
 ```julia
 readInput() = parse.(Int32, collect(strip(read(joinpath(@__DIR__, "./input.txt"), String))))
