@@ -1111,7 +1111,7 @@ Here are a couple of multi dimensional visualizations by [Tom Kwong](https://git
 
 ## [Day 18: Operation Order](https://adventofcode.com/2020/day/18)
 
-The intended way to solve such problems is using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
+The intended way to solve such problems is by implementing the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
 However, you can hack the operator precedence in your programming language of choice and take advantage of the built in parser.
 
