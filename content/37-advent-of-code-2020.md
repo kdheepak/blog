@@ -49,7 +49,7 @@ Even after having used Python and Julia for years now, I still learn new things 
 
 And finally, that brings me to the community.
 
-The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
+The [/r/adventofcode](https://reddit.com/r/adventofcode) subreddit and the Julia [Zulip](https://julialang.zulipchat.com) and [Slack](https://julialang.slack.com/) channel have been a joy to visit every day after solving the puzzles.
 I've particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 That's the really neat thing about Advent of Code.
@@ -57,7 +57,7 @@ The problems are short enough to be solved in less than an hour, the solutions a
 Consequently, a lot of people tend to share their solutions, and you get to see a lot of discussion around each puzzle, including a number of different ways to approach the same problem.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
-Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
+Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and [Reddit](https://reddit.com/r/adventofcode).
 This will contain spoilers for all days in Advent of Code 2020.
 
 # Solutions
@@ -1721,7 +1721,7 @@ If you've made it all this way, part 2 of day 25 should be a cinch 😉.
 
 # Final words
 
-Thanks to everyone in the Julia community who participated on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
+Thanks to everyone in the Julia community who participated on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and [Reddit](https://reddit.com/r/adventofcode).
 I learnt a lot by reading your solutions and discussing with you all.
 
 Thanks to the mods on [/r/adventofcode](https://reddit.com/r/adventofcode) to making it such a vibrant community to frequent.
