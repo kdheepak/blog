@@ -1113,7 +1113,7 @@ Here are a couple of multi dimensional visualizations by [Tom Kwong](https://git
 
 The intended way to solve such problems is using the [Shunting-yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm).
 
-However, you can hacking the operator precedence in your programming language of choice and take advantage of the built in parser.
+However, you can hack the operator precedence in your programming language of choice and take advantage of the built in parser.
 
 Here is [Doug's](https://github.com/dgkf/advent-of-code/blob/98ee142a61b453a766331c65ece372978041935e/2020/18/18.jl) that managed to get him a spot on the global leaderboard.
 
