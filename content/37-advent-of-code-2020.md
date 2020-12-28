@@ -297,7 +297,7 @@ Alternatively, you can use `(data,)` to get the same behavior.
 
 ## [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)
 
-Since the input has passports separated by an empty line, we can split each passport into an element of a `Vector`.
+Since the input has passports separated by an empty line, we can split on `"\n\n"` to get each passport into an element of a `Vector`.
 
 ```julia
 readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n")
