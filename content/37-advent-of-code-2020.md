@@ -98,7 +98,7 @@ However, a more idiomatic solution can be expressed using the `combinations` fun
 ```julia
 using Combinatorics
 
-readInput() = sort(parse.(Int, split(strip(read(joinpath("src/day01/input.txt"), String)))))
+readInput() = sort(parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)))))
 
 expense_report(data, n) = only(prod(items) for items in combinations(data, n) if sum(items) == 2020)
 
@@ -113,7 +113,7 @@ Day 2 is a simple case of parsing, counting characters in a string and knowing t
 Julia supports an infix operator for `xor`: `⊻`. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
 ```julia
-readInput() = split(strip(read("src/day02/input.txt", String)), '\n')
+readInput() = split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')
 
 function parseInput(data)
     d = split.(data, ": ")
@@ -147,7 +147,7 @@ Day 3 is our first introduction to a grid of trees.
 Having a one liner to convert the text input to a `Matrix` can be very useful.
 
 ```julia
-readInput() = permutedims(reduce(hcat, collect.(readlines("src/day03/input.txt"))))
+readInput() = permutedims(reduce(hcat, collect.(readlines(joinpath(@__DIR__, "./input.txt")))))
 ```
 
 This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
@@ -182,7 +182,7 @@ Learning how to use regex in your programming language of choice that make solut
 For example, check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
 
 ```julia
-readInput() = split(read("src/day04/input.txt", String), "\n\n")
+readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n")
 
 const fields1 = (r"byr", r"iyr", r"eyr", r"hgt", r"hcl", r"ecl", r"pid")
 const fields2 = (
@@ -229,10 +229,10 @@ seatid(s) = reduce((x, y) -> (x << 1) | ((y == 'R') | (y == 'B')), s; init = 0)
 # OR
 seatid(s) = parse(Int, map(c -> c ∈ ('R', 'B') ? '1' : '0', s), base = 2)
 
-part1() = mapreduce(seatid, max, eachline("src/day05/input.txt"))
+part1() = mapreduce(seatid, max, eachline(joinpath(@__DIR__, "./input.txt")))
 
 function part2()
-    seats = sort(seatid.(eachline("src/day05/input.txt")))
+    seats = sort(seatid.(eachline(joinpath(@__DIR__, "./input.txt"))))
     prev = first(seats)
     for seat in seats
         (seat - prev == 2) && return prev + 1
@@ -249,7 +249,7 @@ In Julia, you can use the unicode symbols of mathematical operations for `union`
 Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 
 ```julia
-readInput() = split.(split(read("src/day06/input.txt", String), "\n\n"))
+readInput() = split.(split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n"))
 
 part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
 part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
@@ -267,7 +267,7 @@ This code is based on [Ali Hamed Moosavian's](https://github.com/CNOT) and [Andr
 using LightGraphs
 using SimpleWeightedGraphs
 
-readInput() = build_graph(split(strip(read("src/day07/input.txt", String)), '\n'))
+readInput() = build_graph(split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function build_graph(data)
     edges = []
@@ -317,7 +317,7 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 Day 8 appears to be a straightforward op code interpreter.
 
 ```julia
-readInput() = strip(read("src/day08/input.txt", String))
+readInput() = strip(read(joinpath(@__DIR__, "./input.txt"), String))
 
 part1(data = readInput()) = boot(split(data, '\n'))
 part2(data = readInput()) = corrupt(split(data, '\n'))
@@ -367,7 +367,7 @@ I would like to re-write this solution using [`LightGraphs.jl`](https://github.c
 Day 9 was also straightforward.
 
 ```julia
-readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
+readInput() = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function check(numbers, n)
     for i in numbers, j in numbers
@@ -399,7 +399,7 @@ Julia has a function called `extrema` that computes the minimum and maximum elem
 ```julia
 using Combinatorics
 
-readInput() = parse.(Int, split(strip(read("src/day09/input.txt", String)), '\n'))
+readInput() = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function bad_number(nums, k)
     for i in (k + 1):length(nums)
@@ -433,7 +433,7 @@ Here's [Tom Kwong's](https://github.com/tk3369/AdventOfCode2020/blob/1273e4a0868
 
 ```julia
 function readInput()
-    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    data = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')) |> sort
     vcat(0, data, data[end]+3)
 end
 
@@ -470,7 +470,7 @@ Here's a solution based on [Jonnie Diegelman's](https://github.com/jonniedie/Adv
 
 ```julia
 function readInput()
-    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    data = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')) |> sort
     data = vcat(0, data, data[end]+3)
     join(string.(diff(data)))
 end
@@ -488,7 +488,7 @@ Thanks to [Sukera](https://github.com/Seelengrab/AdventOfCode) and [Andrey Oskin
 
 ```julia
 function readInput()
-    data = parse.(Int, split(strip(read("src/day10/input.txt", String)), '\n')) |> sort
+    data = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')) |> sort
     data = vcat(0, data, data[end]+3)
     split(join(string.(diff(data))), '3', keepempty = false)
 end
@@ -519,7 +519,7 @@ This is the first tribute in Advent of Code 2020 to [John Conway](https://en.wik
 John Conway was an English mathematician, most notably famous for the invention of the cellular automation called the [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ```julia
-readInput() = permutedims(reduce(hcat, collect.(split(strip(read("src/day11/input.txt", String)), '\n'))))
+readInput() = permutedims(reduce(hcat, collect.(split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))))
 
 part1(data = readInput()) = simulate(data, 0, 1)
 part2(data = readInput()) = simulate(data, 1, size(data, 1) * 2)
@@ -569,7 +569,7 @@ This was one of my better performances on the Julia leaderboard.
 Using complex numbers makes it quite straightforward to deal with problems involving rotation.
 
 ```julia
-readInput() = split(strip(read("src/day12/input.txt", String)), '\n')
+readInput() = split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')
 
 function part1(data = readInput())
     data = map(data) do d
@@ -629,7 +629,7 @@ Here's a solution by [Micah Halter](https://git.mehalter.com/mehalter/AOC.jl/src
 using Mods
 
 function readInput()
-    t_str, buses_str = readlines("src/day13/input.txt")
+    t_str, buses_str = readlines(joinpath(@__DIR__, "./input.txt"))
     time = parse(Int, t_str)
     buses = map(x->x=="x" ? nothing : parse(Int, x), split(buses_str, ','))
     time, buses
@@ -654,7 +654,7 @@ Using this, you can break the problem down by iteratively and calculate the next
 
 ```julia
 function readInput()
-    input = readlines("src/day13/input.txt")
+    input = readlines(joinpath(@__DIR__, "./input.txt"))
     n = parse(Int, input[1])
     schedule = parse.(Int, replace(split(input[2], ","), "x" => "-1"))
     bus_n = filter(!=(-1), schedule)
@@ -699,7 +699,7 @@ function parse_mask_ops(line)
     return mask, instructions
 end
 
-readInput() = parse_mask_ops.(split(read("src/day14/input.txt", String), r"mask = "; keepempty = false))
+readInput() = parse_mask_ops.(split(read(joinpath(@__DIR__, "./input.txt"), String), r"mask = "; keepempty = false))
 
 struct Part1 end
 struct Part2 end
@@ -790,7 +790,7 @@ A mapping of indices to number will cause the code to be slow, and will make sol
 Here's a solution by [Sukera](https://github.com/Seelengrab/):
 
 ```julia
-readInput() = parse.(Int, split(readline("src/day15/input.txt"), ','))
+readInput() = parse.(Int, split(readline(joinpath(@__DIR__, "./input.txt")), ','))
 
 makeArr() = Int[]
 
@@ -823,7 +823,7 @@ Calculating which fields were invalid for part 1 was rather straightforward.
 
 ```julia
 function readInput()
-    data = strip(read("src/day16/input.txt", String))
+    data = strip(read(joinpath(@__DIR__, "./input.txt"), String))
     rules, your_ticket, nearby_tickets = split(data, "\n\n")
     rules = Dict(map(split(rules, '\n')) do rule
         rule, r1start, r1end, r2start, r2end = match(r"([\w ]+): (\d+)-(\d+) or (\d+)-(\d+)", rule)
@@ -941,7 +941,7 @@ function startup(lines, rounds, dims)
     sum(field)
 end
 
-readInput() = readlines("src/day17/input.txt")
+readInput() = readlines(joinpath(@__DIR__, "./input.txt"))
 part1(data = readInput()) = startup(data, 6, 3)
 part2(data = readInput()) = startup(data, 6, 4)
 ```
@@ -962,7 +962,7 @@ However, you can hacking the operator precedence in your programming language of
 Here is [Doug's](https://github.com/dgkf/advent-of-code/blob/98ee142a61b453a766331c65ece372978041935e/2020/18/18.jl) that managed to get him a spot on the global leaderboard.
 
 ```julia
-readInput() = readlines("src/day18/input.txt")
+readInput() = readlines(joinpath(@__DIR__, "./input.txt"))
 
 ⨦(a,b) = a * b  # define "multiplication" with same precedence as "+"
 part1(data = readInput()) = sum(l -> eval(Meta.parse(replace(l, "*" => "⨦"))), data)
@@ -994,7 +994,7 @@ Here's a solution by [Doug](https://github.com/dgkf/advent-of-code/blob/98ee142a
 
 ```julia
 function readInput()
-  rules, messages = split.(split(strip(read("src/day19/input.txt", String)), "\n\n"), '\n')
+  rules, messages = split.(split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), "\n\n"), '\n')
   rules = Dict(map(rules) do line
       m = match(r"^(\d+): (\"(\w+)\"|([^|]+)|(.+))$", line)
       String(m[1]) => m[3] isa Nothing ? (m[4] isa Nothing ? "(?:$(m[5]))" : String(m[4])) : String(m[3])
@@ -1032,7 +1032,7 @@ This is just one of those puzzles that is easier to solve on paper than to write
 Here's a working solution by [Alisdair Sullivan](https://github.com/talentdeficit/aoc2020/blob/1bdc06f7428c8e8c59a2748fbd1c2fa0e04e67c5/bin/twenty/run.jl):
 
 ```julia
-readInput() = map(t -> split(t, "\n"), split(strip(read("src/day20/input.txt", String)), "\n\n"))
+readInput() = map(t -> split(t, "\n"), split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), "\n\n"))
 
 mutable struct Tile
     id::Int
@@ -1379,8 +1379,7 @@ function play(p₁, p₂, part₂)
 end
 
 function day22()
-  input = "src/day22/input.txt"
-  p₁, p₂ = split(read(input, String), "\n\n") .|>
+  p₁, p₂ = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n") .|>
            x -> parse.(Int, split(x, '\n', keepempty=false)[2:end])
 
   result₁, result₂ = map([false, true]) do part₂
@@ -1410,7 +1409,7 @@ Using a linked list for example is a common solution to this problem.
 Here's a solution by [Nicolas Viennot](https://github.com/nviennot) based on exchanging ideas with [Teo ShaoWei](https://github.com/Teo-ShaoWei) that manages to do that quite elegantly:
 
 ```julia
-readInput() = parse.(Int32, collect(strip(read("src/day23/input.txt", String))))
+readInput() = parse.(Int32, collect(strip(read(joinpath(@__DIR__, "./input.txt"), String))))
 
 function peek(next, at, n; result=similar(next,n))
     for i in 1:n
@@ -1484,7 +1483,7 @@ Here's another elegant solution by [Nicolas Viennot](https://github.com/nviennot
 using OffsetArrays
 
 parse_path(line) = getproperty.(eachmatch(r"(e|se|sw|w|nw|ne)", line), :match)
-readInput() = parse_path.(readlines("src/day24/input.txt"))
+readInput() = parse_path.(readlines(joinpath(@__DIR__, "./input.txt")))
 
 hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
     "e"  => ( 1,  0),
@@ -1541,7 +1540,7 @@ And finally, for the last day, we have a cryptography based puzzle.
 The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
 ```julia
-readInput() = parse.(Int, split(strip(read("src/day25/input.txt", String)), '\n'))
+readInput() = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function part1(data = readInput())
     card_public_key, door_public_key)
