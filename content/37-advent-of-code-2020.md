@@ -537,6 +537,11 @@ end
 
 Julia has a function called `extrema` that computes the minimum and maximum element in a single pass.
 
+```julia
+julia> extrema([1,2,3,4,5])
+(1, 5)
+```
+
 [Teo ShaoWei](https://github.com/Teo-ShaoWei)'s solution using [Combinatorics.jl](https://github.com/JuliaMath/Combinatorics.jl) is also quite elegant.
 
 ```julia
