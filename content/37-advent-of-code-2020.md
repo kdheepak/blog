@@ -205,7 +205,7 @@ julia> A = readInput();
 julia> size(A)
 (323, 31)
 
-julia> xy = findall(isone, A .== '#');
+julia> xy = findall(==('#'), A);
 
 julia> using SparseArrays; sparse([p.I[1] for p in xy], [p.I[2] for p in xy], [1 for _ in xy])
 323×31 SparseMatrixCSC{Int64, Int64} with 2611 stored entries:
@@ -256,11 +256,21 @@ function solve(trees, slope)
     cs = range(1, step=slope.x, length=n)
     cs = map(c -> mod1(c, size(trees, 2)), cs)
     idxs = CartesianIndex.(rs, cs)
-    count(t -> t == '#', trees[idxs])
+    count(==('#'), trees[idxs])
 end
 
 part1(data = readInput()) = solve(data, (x = 3, y = 1))
 part2(data = readInput()) = prod(solve.(Ref(data), [(x=1,y=1),(x=5,y=1),(x=3,y=1),(x=7,y=1),(x=1,y=2)]))
+```
+
+In Julia, you `==(e)` returns a "fixed" function which partially applies over the value of `e` and accepts one argument which is uses to compare
+
+```
+julia> ==('#')('#')
+true
+
+julia> ==('#')('.')
+false
 ```
 
 Julia has `mod1` for 1 based mod, which is useful for indexing in these type of situations.
