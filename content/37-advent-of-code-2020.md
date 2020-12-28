@@ -108,6 +108,16 @@ part1(data = readInput()) = expense_report(data, 2)
 part2(data = readInput()) = expense_report(data, 3)
 ```
 
+In Julia, small functions are usually made into their single line form.
+
+```julia
+function part1(data = readInput())
+    expense_report(data, 2)
+end
+```
+
+Functions also implicitly return the last expression evaluated as part of the function body.
+
 ## [Day 2: Password Philosophy](https://adventofcode.com/2020/day/2)
 
 Day 2 is a simple case of parsing, counting characters in a string and knowing that "exactly one" can be expressed using the `xor` operation.
@@ -139,7 +149,35 @@ function part2(data = readInput())
 end
 ```
 
+If a function `f` takes another function as the first argument, you can use the `f(c) do ... end` map over every element in the collection `c` and apply the anonymous function defined by the `do ... end`, the result of which is processed by `f`.
+
+For example, the following can be used interchangeably.
+
+```julia
+julia> is_a(letter) = letter == "a"
+
+julia> count(is_a, ["a", "b", "c"])
+1
+
+julia> count(["a", "b", "c"]) do letter
+    letter == "a"
+end
+1
+```
+
+You can also pass in an anonymous function as the first argument by using the thin arrow `->`:
+
+```julia
+julia> count(letter -> letter == "a", ["a", "b", "c"])
+1
+```
+
 In Julia, you can use the `only` function to get the one and only element in a collection.
+
+```julia
+julia> only("h")
+'h': ASCII/Unicode U+0068 (category Ll: Letter, lowercase)
+```
 
 ## [Day 3: Toboggan Trajectory](https://adventofcode.com/2020/day/3)
 
@@ -150,6 +188,56 @@ Having a one liner to convert the text input to a `Matrix` can be very useful.
 
 ```julia
 readInput() = permutedims(reduce(hcat, collect.(readlines(joinpath(@__DIR__, "./input.txt")))))
+```
+
+Here's what the input for this particular day looks like:
+
+```julia
+julia> A = readInput()
+
+julia> size(A)
+(323, 31)
+
+julia> xy = findall(isone, A .== '#');
+
+julia> sparse([p.I[1] for p in xy], [p.I[2] for p in xy], [1 for _ in xy])
+323×31 SparseMatrixCSC{Int64, Int64} with 2611 stored entries:
+⠟⣿⡿⡯⣮⣿⡇
+⡗⣿⣿⢿⢝⣽⡇
+⡞⡾⣟⢏⣭⢯⡂
+⣷⣿⣿⢽⣟⣻⠇
+⢺⣯⣗⠽⣟⣿⡂
+⡬⡻⡯⡿⣯⣵⡇
+⠾⣟⣿⡺⣽⣫⠅
+⣿⡿⡏⣯⡈⣻⠅
+⢫⢯⣿⣻⡻⡏⡁
+⠭⡟⣻⡿⢽⣿⠇
+⣝⣽⣷⡑⣟⢽⠇
+⢗⣛⣱⣝⠯⡟⡇
+⣌⣷⡛⢯⣿⡗⠇
+⢷⠿⡍⢶⡯⣟⡅
+⡝⣿⡻⣿⣿⢿⡂
+⢜⠽⢯⣿⣻⣇⠁
+⠹⢿⢻⡯⡟⡛⡅
+⣷⣮⣽⣿⡿⡻⡃
+⣻⡯⣞⣷⣿⡏⠆
+⣮⡗⣟⢫⣵⣿⡆
+⣌⣶⣾⣢⣿⣷⡅
+⣜⡷⡿⠷⣿⣛⡁
+⣶⣽⣮⣾⣏⡋⡅
+⣭⣽⣃⣧⣾⣳⡃
+⣟⣿⡿⣯⣿⡽⡀
+⣼⣪⣗⣯⡖⡿⡃
+⣯⢿⡹⣻⣯⣇⡇
+⣵⣟⡝⢾⢽⣳⠅
+⡿⣯⡿⣻⣿⣿⡃
+⣇⣿⣟⣶⣿⣦⡇
+⡺⣝⣷⣎⢟⣛⡅
+⣻⢏⣯⣟⣎⣓⡅
+⡕⣿⣿⣵⣕⢽⡇
+⡿⣟⣿⣮⣯⣷⡃
+⣟⡃⣇⡻⣿⣯⡇
+⣠⣧⣾⣟⣞⢿⠀
 ```
 
 This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
@@ -180,12 +268,30 @@ Alternatively, you can use `(data,)` to get the same behavior.
 
 ## [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)
 
-Learning how to use regex in your programming language of choice that make solutions concise and terse.
-For example, check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
+Since the input has passports separated by an empty line, we can split each passport into an element of a `Vector`.
 
 ```julia
 readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n")
+```
 
+This is what the first 5 passports look like:
+
+```julia
+julia> readInput() |> x -> first(x, 5)
+5-element Vector{SubString{String}}:
+ "hgt:159cm\npid:561068005 eyr:2025 iyr:2017 cid:139 ecl:blu hcl:#ceb3a1\nbyr:1940"
+ "iyr:2014\nbyr:1986 pid:960679613 eyr:2025 ecl:hzl"
+ "cid:211 ecl:blu hcl:#7d3b0c iyr:2011 pid:006632702\nbyr:1982 eyr:2023 hgt:68in"
+ "hcl:#341e13 hgt:192 iyr:2028\necl:utc\neyr:2027 byr:1979 pid:653515689"
+ "eyr:2026 hgt:161cm ecl:#1850b8\npid:298779494 hcl:b2114e iyr:1953"
+```
+
+Julia allows piping the results of one function into another using `|>`.
+
+Learning how to use regex in your programming language of choice that make solutions concise and terse.
+Check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
+
+```julia
 const fields1 = (r"byr", r"iyr", r"eyr", r"hgt", r"hcl", r"ecl", r"pid")
 const fields2 = (
     r"byr:(19[2-9][0-9]|200[0-2])\b",
@@ -255,6 +361,18 @@ readInput() = split.(split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\
 
 part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
 part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
+```
+
+The `...` can be used to splat elements from a collection into arguments of a function.
+
+```julia
+julia> f(a, b, c) = @show a, b, c
+f (generic function with 1 method)
+
+julia> x = [1, 2, 3];
+
+julia> f(x...);
+(a, b, c) = (1, 2, 3)
 ```
 
 ## [Day 7: Handy Haversacks](https://adventofcode.com/2020/day/7)
