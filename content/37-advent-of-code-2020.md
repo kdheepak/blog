@@ -1572,7 +1572,7 @@ Julia allows using unicode symbols as part of variable names which can make for 
 ## [Day 23: Crab Cups](https://adventofcode.com/2020/day/23)
 
 This puzzle took me a while to figure out.
-I spent way to long looking for patterns in each state.
+I spent way too long looking for patterns in each state.
 Thanks to some helpful tips from fellow Julia solvers, I re-wrote it from scratch using a Linked List.
 
 The key idea is here to manage the ordering in a separate data structure.
