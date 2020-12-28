@@ -305,7 +305,7 @@ julia> readInput() |> x -> first(x, 5)
 
 Julia allows piping the results of one function into another using `|>`.
 
-Learning how to use regex in your programming language of choice that make solutions concise and terse.
+Learning how to use regex well in your programming language of choice can make solutions concise and terse.
 Check out this solution by [Pablo Zubieta](https://github.com/pabloferz/AoC/blob/e64841e31d9dc9391be73b041a2e01795dafa1b6/2020/04/Day4.jl):
 
 ```julia
