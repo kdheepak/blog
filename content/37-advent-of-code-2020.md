@@ -172,7 +172,7 @@ end
 1
 ```
 
-You can also pass in an anonymous function as the first argument by using the thin arrow `->`:
+Alternatively, you can pass in an anonymous function as the first argument by using the thin arrow `->`:
 
 ```julia
 julia> count(letter -> letter == "a", ["a", "b", "c"])
