@@ -206,13 +206,17 @@ There were a lot of puzzles this year where I would have been able to parse the 
 Sometimes having a little insight into what the problem is asking can go a long way.
 For example, in this puzzle, the seat ID is just a binary representation of the input.
 
-```plaintext
+```render_svgbob
 FBFBBFFRLR
+
     |
     v
+
 0101100101
+
     |
     v
+
    357
 ```
 
@@ -1456,6 +1460,23 @@ I was indexing a dictionary with the real and imaginary components of the comple
 This caused all sorts of indexing problems due to rounding issues.
 
 I could have sorted this out by using only integer values or by using the coordinate system described in this resource: <https://www.redblobgames.com/grids/hexagons/#coordinates-cube>.
+
+
+```render_svgbob
+           +----+
+          /0   -1\
+    +----+        +----+
+   /-1   0\  +1  /+1  -1\
+  +        +----+        +
+   \  +1  /x    z\   0  /
+    +----+        +----+
+   /-1  +1\   y  /+1   0\
+  +        +----+        +
+   \   0  /0   +1\  -1  /
+    '----+        +----+
+          \  -1  /
+           '----'
+```
 
 Here's another elegant solution by [Nicolas Viennot](https://github.com/nviennot).
 
