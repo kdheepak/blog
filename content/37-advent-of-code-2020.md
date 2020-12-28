@@ -1127,7 +1127,7 @@ part1(data = readInput()) = sum(l -> eval(Meta.parse(replace(l, "*" => "⨦"))),
 part2(data = readInput()) = sum(l -> eval(Meta.parse(replace(replace(l, "*" => "⨦"), "+" => "⨱"))), data)
 ```
 
-Finding the right operators in your programming language that have the precedence required as per the prompt is key.
+The key is to find the right operators in your programming language that have the precedence required as per the prompt.
 
 ## [Day 19: Monster Messages](https://adventofcode.com/2020/day/19)
 
