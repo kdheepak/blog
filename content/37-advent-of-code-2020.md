@@ -1464,15 +1464,15 @@ I could have sorted this out by using only integer values or by using the coordi
 
 ```render_svgbob
            +----+
-          /0   -1\
+          / 0 -1 \
     +----+        +----+
-   /-1   0\  +1  /+1  -1\
+   / -1 0 \  +1  / 1 -1 \
   +        +----+        +
-   \  +1  /x    z\   0  /
+   \   1  / x  z \   0  /
     +----+        +----+
-   /-1  +1\   y  /+1   0\
+   / -1 1 \   y  / 1  0 \
   +        +----+        +
-   \   0  /0   +1\  -1  /
+   \   0  / 0  1 \  -1  /
     '----+        +----+
           \  -1  /
            '----'
