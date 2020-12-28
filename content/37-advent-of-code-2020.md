@@ -434,7 +434,7 @@ end
 
 Now that we have built a graph, we can find the solution by just traversing the graph.
 
-```
+```julia
 part1(data = readInput()) = part1(data[1], data[2])
 part1(g, mapping) = count(!=(0), bfs_parents(g, mapping["shiny gold bag"], dir = :in)) - 1
 
@@ -450,6 +450,9 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 ```
 
 ![part1](images/adventofcode-day07-part1.png){ width=45% } ![part2](images/adventofcode-day07-part2.png){ width=45% }
+
+Julia allows for [multiple dispatch](https://docs.julialang.org/en/v1/manual/methods/) based on the number of arguments and the type of each argument.
+This lets you define multiple methods of a function.
 
 
 ## [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)
