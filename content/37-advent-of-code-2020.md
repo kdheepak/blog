@@ -202,6 +202,9 @@ Here's what the input for this particular day looks like:
 ```julia
 julia> A = readInput();
 
+julia> typeof(A)
+Matrix{Char} (alias for Array{Char, 2})
+
 julia> size(A)
 (323, 31)
 
