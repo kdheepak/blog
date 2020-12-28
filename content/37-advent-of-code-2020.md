@@ -200,7 +200,7 @@ readInput() = permutedims(reduce(hcat, collect.(readlines(joinpath(@__DIR__, "./
 Here's what the input for this particular day looks like:
 
 ```julia
-julia> A = readInput()
+julia> A = readInput();
 
 julia> size(A)
 (323, 31)
