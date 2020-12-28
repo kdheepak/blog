@@ -745,7 +745,7 @@ readInput() = split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'
 
 function part1(data = readInput())
     data = map(data) do d
-        d[1], parse(Int, d[2:end])
+        first(d), parse(Int, d[begin+1:end])
     end
     current = 0 + 0im
     direction = 1 + 0im
@@ -764,7 +764,7 @@ end
 
 function part2(data = readInput())
     data = map(data) do d
-        d[1], parse(Int, d[2:end])
+        first(d), parse(Int, d[begin+1:end])
     end
     waypoint = 10 + 1im
     current = 0 + 0im
