@@ -53,7 +53,7 @@ The [/r/adventofcode](reddit.com/r/adventofcode) subreddit and the Julia [Zulip]
 I've particularly enjoyed seeing all the neat visualizations that come out of Advent of Code by the community.
 
 That's the really neat thing about Advent of Code.
-The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, usually very puzzle just tackles one concept or idea, and there is a large enough community around it.
+The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, puzzles tend to tackle just one concept or idea, and there is a large enough community around it.
 Consequently, a lot of people tend to share their solutions, and you get to see a lot of discussion around the puzzle, including a number of different ways to approach the same problem.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
