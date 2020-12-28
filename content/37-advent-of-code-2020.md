@@ -702,7 +702,7 @@ function simulate(grid, company, sight)
         tick(grid, company, sight)
         grid == old_grid && break
     end
-    count(x -> x == '#', grid)
+    count(==('#'), grid)
 end
 
 function tick(grid, company, sight)
@@ -710,8 +710,8 @@ function tick(grid, company, sight)
     old_grid = deepcopy(grid)
     for r in 1:rows, c in 1:cols
         A = adjacent_seats(old_grid, r, c, sight)
-        grid[r, c] == 'L' && count(x -> x == '#', A) == 0 && ( grid[r, c] = '#' )
-        grid[r, c] == '#' && count(x -> x == '#', A) >= 4 + company && ( grid[r, c] = 'L' )
+        grid[r, c] == 'L' && count(==('#'), A) == 0 && ( grid[r, c] = '#' )
+        grid[r, c] == '#' && count(==('#'), A) >= 4 + company && ( grid[r, c] = 'L' )
     end
 end
 
