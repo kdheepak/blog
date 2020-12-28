@@ -1573,7 +1573,7 @@ Julia allows using unicode symbols as part of variable names which can make for 
 
 This puzzle took me a while to figure out.
 I spent way too long looking for patterns in each state.
-Thanks to some helpful tips from fellow Julia solvers, I re-wrote it from scratch using a Linked List.
+Thanks to some helpful tips from fellow Julia advent-of-coders, I re-wrote it from scratch using a Linked List.
 
 The key idea is here to manage the ordering in a separate data structure.
 Using a linked list for example is a common solution to this problem.
