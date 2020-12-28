@@ -109,6 +109,7 @@ part2(data = readInput()) = expense_report(data, 3)
 ```
 
 In Julia, small functions are usually made into their single line form.
+Here's how you would write it if you would like to do it in the multi-line form.
 
 ```julia
 function part1(data = readInput())
@@ -116,7 +117,7 @@ function part1(data = readInput())
 end
 ```
 
-Functions also implicitly return the last expression evaluated as part of the function body.
+Functions also implicitly return the last expression evaluated as part of the function body, if an explicit `return` is not present.
 
 ## [Day 2: Password Philosophy](https://adventofcode.com/2020/day/2)
 
