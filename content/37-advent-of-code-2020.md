@@ -671,7 +671,7 @@ See the [Wikipedia](https://en.wikipedia.org/wiki/Generalizations_of_Fibonacci_n
 
 ## [Day 11: Seating System](https://adventofcode.com/2020/day/11)
 
-This is the first tribute in Advent of Code 2020 to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway) who passed away earlier this year.
+This is the first tribute in Advent of Code 2020 to [John Conway](https://en.wikipedia.org/wiki/John_Horton_Conway), who passed away earlier this year.
 John Conway was an English mathematician, most notably famous for the invention of the cellular automation called the [Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 ```julia
