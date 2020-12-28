@@ -297,7 +297,7 @@ Alternatively, you can use `(data,)` to get the same behavior.
 
 ## [Day 4: Passport Processing](https://adventofcode.com/2020/day/4)
 
-Since the input has passports separated by an empty line, we can split on `"\n\n"` to get each passport into an element of a `Vector`.
+Since the input has passports separated by an empty line, you can split on `"\n\n"` to get each passport into an element of a `Vector`.
 
 ```julia
 readInput() = split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n")
@@ -456,7 +456,7 @@ function build_graph(data)
 end
 ```
 
-Now that we have built a graph, we can find the solution by just traversing the graph.
+Now that you have built a graph, you can find the solution by just traversing the graph.
 
 ```julia
 part1(data = readInput()) = part1(data[1], data[2])
@@ -1707,7 +1707,7 @@ And another neat visualization by [Tom Kwong](https://github.com/tk3369/AdventOf
 
 ## [Day 25: Combo Breaker](https://adventofcode.com/2020/day/25)
 
-And finally, for the last day, we have a cryptography based puzzle.
+And finally, for the last day, it is a cryptography based puzzle.
 
 The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
