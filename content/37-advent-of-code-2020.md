@@ -989,6 +989,10 @@ part1(data = readInput()) = solve(data)
 part2(data = readInput()) = solve(data, 30000000)
 ```
 
+This video is worth checking out too:
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/etMJxB-igrc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 ## [Day 16: Ticket Translation](https://adventofcode.com/2020/day/16)
 
 Calculating which fields were invalid for part 1 was rather straightforward.
