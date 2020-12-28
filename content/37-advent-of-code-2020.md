@@ -408,7 +408,7 @@ intersect (generic function with 19 methods)
 Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 
 
-The `...` can be used to splat elements from a collection into arguments of a function.
+The `...` operator can be used to splat elements from a collection into arguments of a function.
 
 ```julia
 julia> f(a, b, c) = @show a, b, c;
