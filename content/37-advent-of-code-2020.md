@@ -54,7 +54,7 @@ I've particularly enjoyed seeing all the neat visualizations that come out of Ad
 
 That's the really neat thing about Advent of Code.
 The problems are short enough to be solved in less than an hour, the solutions are small enough to be written in just one file, puzzles tend to tackle just one concept or idea, and there is a large enough community around it.
-Consequently, a lot of people tend to share their solutions, and you get to see a lot of discussion around the puzzle, including a number of different ways to approach the same problem.
+Consequently, a lot of people tend to share their solutions, and you get to see a lot of discussion around each puzzle, including a number of different ways to approach the same problem.
 
 If you've never heard of Advent of Code, I highly recommend you try it out.
 Below I'll be discussing solutions in Julia that were shared on [Zulip](https://julialang.zulipchat.com), [Slack](https://julialang.slack.com/) and Reddit.
