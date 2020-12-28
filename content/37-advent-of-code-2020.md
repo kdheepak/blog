@@ -1194,7 +1194,7 @@ function part2(data = readInput())
 end
 ```
 
-As noted by [/u/furiousleep[^lukashimbert] on /r/adventofcode (along with other valuable comments on this post)](https://reddit.com/r/adventofcode/comments/klmlx2/2020_days_125_idiomatic_solutions_in_julia_with/gh9xhrk/), the intended solution for this would use the [CYK algorithm](https://en.wikipedia.org/wiki/CYK_algorithm).
+As noted by [/u/furiousleep on /r/adventofcode (along with other valuable comments on this post)](https://reddit.com/r/adventofcode/comments/klmlx2/2020_days_125_idiomatic_solutions_in_julia_with/gh9xhrk/)[^lukashimbert], the intended solution for this would use the [CYK algorithm](https://en.wikipedia.org/wiki/CYK_algorithm).
 
 [^lukashimbert]: _aside_: See [their repository](https://git.sr.ht/~quf/advent-of-code-2020/) for Haskell, Rust and Julia solutions with commentary.
 
