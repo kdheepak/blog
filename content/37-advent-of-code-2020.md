@@ -14,6 +14,8 @@ For the last 25 days this month, I participated in [Advent of Code 2020](https:/
 
 I did all the puzzles in the [Julia](https://julialang.org/) programming language, and my solutions are available [here](https://github.com/kdheepak/adventofcode/tree/master/2020/julia/src).
 
+In this post, I wanted to share why I think you should do Advent of Code and idiomatic solutions to all 25 days in the Julia programming language.
+
 # Why Advent of Code
 
 Advent of Code is a lot of fun.
