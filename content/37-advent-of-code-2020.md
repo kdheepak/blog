@@ -268,7 +268,7 @@ part2(data = readInput()) = prod(solve.(Ref(data), [(x=1,y=1),(x=5,y=1),(x=3,y=1
 
 In Julia, you `==(e)` returns a "fixed" function which partially applies over the value of `e` and accepts one argument which you can use to test equality.
 
-```
+```julia
 julia> ==('#')('#')
 true
 
