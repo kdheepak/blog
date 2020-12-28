@@ -240,7 +240,7 @@ julia> sparse([p.I[1] for p in xy], [p.I[2] for p in xy], [1 for _ in xy])
 ⣠⣧⣾⣟⣞⢿⠀
 ```
 
-This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl).
+This solution is based on [Henrique Ferrolho's](https://github.com/ferrolho/advent-of-code/blob/b34dbe9ee5eef7a36fbf77044c83acc75fbe54cf/2020/03/puzzle.jl) solution.
 
 ```julia
 function solve(trees, slope)
