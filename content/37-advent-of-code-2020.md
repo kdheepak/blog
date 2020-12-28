@@ -123,7 +123,7 @@ Functions also implicitly return the last expression evaluated as part of the fu
 
 Day 2 is a simple case of parsing, counting characters in a string and knowing that "exactly one" can be expressed using the `xor` operation.
 
-Julia supports an infix operator for `xor`: `⊻`. The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
+The solution below is based on [Sukera's](https://github.com/Seelengrab/AdventOfCode).
 
 ```julia
 readInput() = split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n')
@@ -149,6 +149,8 @@ function part2(data = readInput())
     end
 end
 ```
+
+Julia supports an infix operator for `xor`: `⊻`.
 
 If a function `f` takes another function as the first argument, you can use the `f(c) do ... end` map over every element in the collection `c` and apply the anonymous function defined by the `do ... end`, the result of which is processed by `f`.
 
