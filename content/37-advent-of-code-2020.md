@@ -1610,7 +1610,7 @@ part2(cups = readInput()) = prod(peek(run(vcat(cups, 10:1_000_000), 10_000_000),
 
 In another tribute to John Conway, now you must model hexagon grids.
 
-Having never worked with hexagon grid this before, I reached for complex numbers again, which turned out to be a bad idea.
+Having never worked with hexagon grid before, I reached for complex numbers again, which turned out to be a bad idea.
 I was indexing a dictionary with the real and imaginary components of the complex number which were floating point numbers.
 This caused all sorts of indexing problems due to rounding issues.
 
