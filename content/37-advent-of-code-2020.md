@@ -280,6 +280,15 @@ Julia has support for broadcasting using the `f.(c)` syntax,
 which allows for the element by element application of the method `f` on every element in the collection `c`, i.e. `f(e) for e in c`.
 This tends to be very handy in Advent of Code.
 
+```julia
+julia> c = [1, 2, 3, 4, 5];
+
+julia> f(x::Int) = x + 1;
+
+julia> println(f.(c))
+[2, 3, 4, 5, 6]
+```
+
 Additionally, you can use `Ref(data)` to tell Julia that it is a singleton that shouldn't be broadcast over.
 Alternatively, you can use `(data,)` to get the same behavior.
 
@@ -386,8 +395,7 @@ part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 The `...` can be used to splat elements from a collection into arguments of a function.
 
 ```julia
-julia> f(a, b, c) = @show a, b, c
-f (generic function with 1 method)
+julia> f(a, b, c) = @show a, b, c;
 
 julia> x = [1, 2, 3];
 
