@@ -383,15 +383,30 @@ It iteratively reads from a stream or IO.
 
 Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be expressed using `union` and `intersect`.
 
-In Julia, you can use the unicode symbols of mathematical operations for `union` (`∪`) and `intersect` (`∩`) of sets.
-Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
-
 ```julia
 readInput() = split.(split(read(joinpath(@__DIR__, "./input.txt"), String), "\n\n"))
 
 part1(data = readInput()) = sum(q -> length(∪(Set.(q)...)), data)
 part2(data = readInput()) = sum(q -> length(∩(Set.(q)...)), data)
 ```
+
+In Julia, you can use the unicode symbols of mathematical operations for `union` and `intersect` of sets, namely `∪` and `∩` respectively.
+In the Julia REPL or text editors with Julia plugins, you can use the \LaTeX name and tab complete to get the unicode symbol.
+
+```julia
+julia> \cup<TAB>
+
+julia> ∪
+union (generic function with 5 methods)
+
+julia> \cap<TAB>
+
+julia> ∩
+intersect (generic function with 19 methods)
+```
+
+Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
+
 
 The `...` can be used to splat elements from a collection into arguments of a function.
 
