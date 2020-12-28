@@ -152,16 +152,20 @@ end
 
 Julia supports an infix operator for `xor`: `⊻`.
 
-If a function `f` takes another function as the first argument, you can use the `f(c) do ... end` map over every element in the collection `c` and apply the anonymous function defined by the `do ... end`, the result of which is processed by `f`.
+If a function `f` takes another function as the first argument, you can use the `f(c) do ... end` block syntax to map over every element in the collection `c` and apply the anonymous function defined by the `do ... end` block, the result of which is processed by the function `f`.
 
-For example, the following can be used interchangeably.
+For example, if you would like to do the following:
 
 ```julia
 julia> is_a(letter) = letter == "a"
 
 julia> count(is_a, ["a", "b", "c"])
 1
+```
 
+you can express it like so instead:
+
+```julia
 julia> count(["a", "b", "c"]) do letter
     letter == "a"
 end
