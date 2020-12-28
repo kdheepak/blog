@@ -1435,7 +1435,7 @@ end
 
 The key functions I found that others were using were `rotl90`, `rotr90` and `rot180` from the Julia standard library.
 
-[Mark Kittisopikul](https://github.com/mkitti/advent_of_code_2020/blob/0e5a84d180fd7d80c8dfe506b262113a944c7234/aoc_20/aoc_20.jl) also used [ImageFiltering.jl](https://github.com/JuliaImages/ImageFiltering.jl).
+[Mark Kittisopikul](https://github.com/mkitti/advent_of_code_2020/blob/0e5a84d180fd7d80c8dfe506b262113a944c7234/aoc_20/aoc_20.jl) also used `imfilter` from [ImageFiltering.jl](https://github.com/JuliaImages/ImageFiltering.jl) to find the monsters, which I thought was pretty neat.
 
 ## [Day 21: Allergen Assessment](https://adventofcode.com/2020/day/21)
 
