@@ -1722,7 +1722,7 @@ The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https:/
 readInput() = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function part1(data = readInput())
-    card_public_key, door_public_key)
+    card_public_key, door_public_key = data
     value = 1
     subject_number = 7
     card_loop_size = 0
