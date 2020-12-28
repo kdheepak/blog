@@ -207,7 +207,7 @@ julia> size(A)
 
 julia> xy = findall(isone, A .== '#');
 
-julia> sparse([p.I[1] for p in xy], [p.I[2] for p in xy], [1 for _ in xy])
+julia> using SparseArrays; sparse([p.I[1] for p in xy], [p.I[2] for p in xy], [1 for _ in xy])
 323×31 SparseMatrixCSC{Int64, Int64} with 2611 stored entries:
 ⠟⣿⡿⡯⣮⣿⡇
 ⡗⣿⣿⢿⢝⣽⡇
