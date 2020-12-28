@@ -23,7 +23,7 @@ I think there's a few reasons I find it quite enjoyable.
 
 Firstly, there's the competitive aspect of it.
 
-A single puzzle unlocks every night at midnight Eastern Time, and your time when you submit a solution is recorded.
+A single puzzle unlocks every night at midnight Eastern Time, and the time when you submit a solution is recorded.
 There's a global leaderboard that highlights the top 100 fastest times but you also have the ability to make a private leaderboard that you can share with anyone you like, and you can use that to track your time and challenge your friends or peers.
 
 For straightforward puzzles, it is a lot of fun to see who can read, grok and type out a bug-free working program the fastest.
