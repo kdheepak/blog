@@ -381,7 +381,7 @@ It iteratively reads from a stream or IO.
 
 ## [Day 6: Custom Customs](https://adventofcode.com/2020/day/6)
 
-Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be represented using `union` and `intersect`.
+Day 6 introduces set operations with the prompt asking you to identify "any" and "every" question, which can be expressed using `union` and `intersect`.
 
 In Julia, you can use the unicode symbols of mathematical operations for `union` (`∪`) and `intersect` (`∩`) of sets.
 Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
