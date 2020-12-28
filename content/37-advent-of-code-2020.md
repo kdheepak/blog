@@ -1664,7 +1664,7 @@ using OffsetArrays
 parse_path(line) = getproperty.(eachmatch(r"(e|se|sw|w|nw|ne)", line), :match)
 readInput() = parse_path.(readlines(joinpath(@__DIR__, "./input.txt")))
 
-hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
+const hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
     "e"  => ( 1,  0),
     "se" => ( 1, -1),
     "sw" => ( 0, -1),
@@ -1673,7 +1673,7 @@ hex_dirs = Dict(k => CartesianIndex(v) for (k,v) in [
     "ne" => ( 0,  1)
 ])
 
-N = 200
+const N = 200
 
 get_destination(path) = mapreduce(x->hex_dirs[x], +, path)
 
