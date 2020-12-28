@@ -34,6 +34,7 @@ Secondly, unlike most other competitive programming challenges, the puzzles are 
 Every puzzle has two parts, where the first part introduces a prompt, and requires you to solve it before viewing the second part.
 The first part tends to set up an idea or check that you are on the right track, and the second part tends to extend the idea or subvert an obvious decision you made in the first part.
 
+Almost all the problems require parsing text input of various formats.
 In some of the latter puzzles, the puzzle inputs may be designed to hedge against certain naive solutions.
 Some puzzle inputs will only work with certain data structures or certain algorithms.
 There are a lot of "ah ha" moments when you figure what you should use and when, which makes for a very satisfying solve.
@@ -43,7 +44,6 @@ Some problems have a mathematics tilt to it, which can make finding those soluti
 But also, every problem is designed such that even if you don't know the "theory" behind it you'll be able to stumble your way into solving it if you persevere.
 Reading other people's one liners after you hacked it together is quite enlightening.
 
-Almost all the problems require parsing text input of various formats, and placing the data in an appropriate data structure.
 And since various programming language communities discuss their solutions in dedicated forums, there tends to be a lot of discussion about the tips and tricks you can use in your favourite programming language to express the problem more elegantly.
 Even after having used Python and Julia for years now, I still learn new things when I read other people's solutions.
 
