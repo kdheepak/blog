@@ -1522,7 +1522,7 @@ function m()
 end
 ```
 
-Here are a couple of visualizations of the test data is on the left, with the maximum flow solution on the right.
+Here are a couple of visualizations, the test data visualized as a graph is on the left and the maximum flow solution on the right.
 
 ![Input data](images/adventofcode-day21-part1-1.png){ width=45% } ![Maximum flow solution](images/adventofcode-day21-part1-2.png){ width=45% }
 
