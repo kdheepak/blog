@@ -1718,7 +1718,6 @@ And finally, for the last day, it is a cryptography based puzzle.
 
 The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
-
 Julia also has a function called `powermod` in the standard library, which can be used for this.
 Here's a solution by [Nicolas Viennot](https://github.com/nviennot):
 
