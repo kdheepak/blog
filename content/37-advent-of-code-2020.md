@@ -1718,27 +1718,21 @@ And finally, for the last day, it is a cryptography based puzzle.
 
 The puzzle's key idea here is based on the [Diffie-Hellman key exchange](https://en.wikipedia.org/wiki/Diffie%E2%80%93Hellman_key_exchange).
 
+
+Julia also has a function called `powermod` in the standard library, which can be used for this.
+Here's a solution by [Nicolas Viennot](https://github.com/nviennot):
+
 ```julia
 readInput() = parse.(Int, split(strip(read(joinpath(@__DIR__, "./input.txt"), String)), '\n'))
 
 function part1(data = readInput())
+    N = 20201227
+    e = 7
     card_public_key, door_public_key = data
-    value = 1
-    subject_number = 7
-    card_loop_size = 0
-    while true
-        value *= subject_number
-        value = value % 20201227
-        card_loop_size += 1
-        value == card_public_key && break
-    end
-    transformation(door_public_key, card_loop_size)
+    privkey1 = findfirst(i -> powermod(e, i, N) == card_public_key, 1:N)
+    solution = powermod(door_public_key, privkey1, N)
 end
-
-transformation(subject_number, loop_size) = subject_number ^ loop_size % 20201227
 ```
-
-Julia also has a function called `powermod` in the standard library, which can be used for this.
 
 If you've made it all this way, part 2 of day 25 should be a cinch 😉.
 
