@@ -1440,7 +1440,7 @@ function part2(tiles = readInput())
 end
 ```
 
-The key functions I found that others were using were `rotl90`, `rotr90` and `rot180` from the Julia standard library.
+The key functions I found that others were using were `rotl90`, `rotr90` and `rot180` from the Julia standard library, like in [Pablo Zubieta's solution](https://github.com/pabloferz/AoC/blob/5475590e2ac3b08c4800aac59b5ad96e287a8c6a/2020/20/Day20.jl).
 
 [Mark Kittisopikul](https://github.com/mkitti/advent_of_code_2020/blob/27a3886fd71a40a4b745037780cbeacacc770d78/aoc_20/aoc_20.jl) also used `imfilter` from [ImageFiltering.jl](https://github.com/JuliaImages/ImageFiltering.jl) to find the monsters, which I thought was pretty neat.
 
