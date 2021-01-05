@@ -31,7 +31,7 @@
 </h1>
 </header>
 <section>
-<p>To subscribe, copy the address below and paste it when your feed reader asks for it. It will be updated periodically in your reader. New to feeds? <a href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds" title="Search on the web to learn more">Learn more</a>.</p>
+<p>To subscribe, copy the address below and paste it when your feed reader asks for it. It will be updated periodically in your reader. </p>
 <p>
 <label for="address">RSS address:</label>
 <input>
@@ -41,6 +41,9 @@
         <xsl:value-of select="rss/channel/atom:link[@rel='self']/@href"/>
     </xsl:attribute>
 </input>
+</p>
+<p>
+New to feeds? <a href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds" title="Search on the web to learn more">Learn more</a>.
 </p>
 <h3>Recent blogs:</h3>
 <xsl:for-each select="rss/channel/item">
