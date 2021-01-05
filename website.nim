@@ -1,6 +1,7 @@
 #!/usr/bin/env nimcr
 import os
 import strutils
+import sequtils
 import strformat
 import osproc
 import json
@@ -216,6 +217,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 
   var
     seq_post : seq[string]
+    julia_seq_post : seq[string]
     p, post_dt: string
 
   for key, post in posts:
@@ -242,6 +244,8 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
         site_root,
         ]
     seq_post.add p
+    if "julia" in post{"tags"}.getStr().split(",").mapIt(it.strip()):
+      julia_seq_post.add p
 
   var index_post = seq_post.join("\n")
   let time_now = format(now(), "ddd, dd MMM yyyy HH:mm:ss \'GMT\'")
@@ -266,6 +270,29 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 </rss>
   """
   writeFile("build/" & "rss.xml", content)
+
+  var julia_index_post = julia_seq_post.join("\n")
+  var julia_content = &"""
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/styles/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dheepak Krishnamurthy's Blog</title>
+    <description>My thoughts, notes and blogs</description>
+    <link>https://blog.kdheepak.com/</link>
+    <lastBuildDate>{time_now}</lastBuildDate>
+    <pubDate>{time_now}</pubDate>
+    <language>en-us</language>
+    <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
+    <atom:link href="https://blog.kdheepak.com/tags/julia/rss.xml" rel="self" type="application/rss+xml"></atom:link>
+    <generator>website</generator>
+
+{julia_index_post}
+  </channel>
+</rss>
+  """
+  createDir("build/tags/julia/")
+  writeFile("build/tags/julia/rss.xml", julia_content)
 
 proc main() =
   # copy all non markdown files
