@@ -7,15 +7,15 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width"/>
 <title><xsl:value-of select="rss/channel/title"/> (RSS)</title>
-<link rel="stylesheet" href="css/github.css"/>
-<link rel="stylesheet" href="css/table.css"/>
-<link rel="stylesheet" href="css/latex.css"/>
-<link rel="stylesheet" href="css/kudos.css"/>
-<link rel="stylesheet" href="css/tufte-extra.css"/>
-<link rel="stylesheet" href="css/tufte.css"/>
-<link rel="stylesheet" href="css/pandoc.css"/>
-<link rel="stylesheet" href="css/table.css"/>
-<link rel="stylesheet" href="css/custom.css"/>
+<link rel="stylesheet" href="/css/github.css"/>
+<link rel="stylesheet" href="/css/table.css"/>
+<link rel="stylesheet" href="/css/latex.css"/>
+<link rel="stylesheet" href="/css/kudos.css"/>
+<link rel="stylesheet" href="/css/tufte-extra.css"/>
+<link rel="stylesheet" href="/css/tufte.css"/>
+<link rel="stylesheet" href="/css/pandoc.css"/>
+<link rel="stylesheet" href="/css/table.css"/>
+<link rel="stylesheet" href="/css/custom.css"/>
 </head>
 <body>
 <article>
