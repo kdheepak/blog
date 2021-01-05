@@ -277,7 +277,7 @@ proc generate_rssfeed(posts: seq[JsonNode]) =
 <?xml-stylesheet type="text/xsl" media="screen" href="/styles/rss.xsl"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dheepak Krishnamurthy's blog posts tagged with `julia`</title>
+    <title>blogs tagged with `julia`</title>
     <description>My thoughts, notes and blogs</description>
     <link>https://blog.kdheepak.com/</link>
     <lastBuildDate>{time_now}</lastBuildDate>
