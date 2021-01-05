@@ -3,8 +3,8 @@ title: My Unicode cheat sheet
 category: blog
 date: 2020-09-19T02:29:49-06:00
 tags: programming, unicode, vim, python, julia, rust
-keywords: python, julia, vim, unicode
-summary: References for various things associated with unicode
+keywords: python, julia, vim, rust, unicode
+summary: References for various things associated with unicode in Vim, Python, Julia and Rust
 references:
 - id: joelonsoftware
   title: "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
@@ -37,7 +37,7 @@ nocite: |
   @blist
 ---
 
-I wanted to make a cheat sheet for myself containing a reference of things I use when it comes to Unicode.
+I wanted to make a cheat sheet for myself containing a reference of things I use when it comes to Unicode and when using Unicode in Vim, Python, Julia and Rust.
 
 First some basics:
 
