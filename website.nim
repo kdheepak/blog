@@ -110,7 +110,7 @@ proc render(file: string): JsonNode =
     else:
       joinPath(asset_css_dir, &"{cname}{cext}")
     copyFile(c, joinPath("build", ocss))
-    args = &"{args} --css {ocss}"
+    args = &"{args} --css /{ocss}"
 
   var ofilename = filename
 
