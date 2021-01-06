@@ -17,6 +17,10 @@ $endif$
 $if(summary)$
   <meta name="description" content="$summary$">
 $endif$
+  <meta property="og:url" content="$url$" />
+  <meta property="og:title" content="$title$" />
+  <meta property="og:description" content="$summary$" />
+  <meta property="og:published_time" content="$date-meta$" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.kdheepak.com/rss.xml"/>
   <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>

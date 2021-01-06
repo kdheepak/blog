@@ -4,7 +4,7 @@ category: blog
 date: 2020-12-25T00:00:00-07:00
 tags: adventofcode, julia
 keywords: adventofcode, 2020, julia
-summary:
+summary: Solutions to all 25 days in the Julia programming language.
 ---
 
 It is Christmas night, and it is the first time this month that I haven't had to plan my schedule for the evening around a programming puzzle contest.
