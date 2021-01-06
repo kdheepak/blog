@@ -184,6 +184,9 @@ proc render(file: string): JsonNode =
   args = &"{args} --metadata slug={ofilename}"
 
   let ofile = absolutePath(joinPath(output_dir, &"{ofilename}.html"))
+
+  args = &"{args} --metadata url=https://blog.kdheepak.com/{ofilename}.html"
+
   # markdown+escaped_line_breaks+all_symbols_escapable+strikeout+superscript+subscript+tex_math_dollars+link_attributes+footnotes+inline_notes
   if ofilename == "index":
     args = &"{args} --variable root=https://kdheepak.com"
