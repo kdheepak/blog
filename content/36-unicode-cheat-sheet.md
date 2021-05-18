@@ -567,3 +567,65 @@ s.chars()[2] = '\u{200d}'
 s.chars()[3] = '♂'
 s.chars()[4] = '\u{fe0f}'
 ```
+
+There are also additional crates such as [`unicode-width`](https://github.com/unicode-rs/unicode-width/) and [`unicode-segmentation`](https://unicode-rs.github.io/unicode-segmentation/unicode_segmentation/index.html).
+
+`unicode-width` helps determine how many column widths a grapheme will occupy based on the [Unicode Standard Annex #11 rules](http://www.unicode.org/reports/tr11/).
+For example `abc` occupies 3 columns but `写作业` occupies 6 columns but they are both 3 codepoints and 3 graphemes each.
+
+```rust
+// main.rs
+use unicode_width::UnicodeWidthStr;
+use unicode_segmentation::UnicodeSegmentation;
+
+fn main() {
+  let s = "abc";
+  dbg!(s);
+  dbg!(s.len());
+  dbg!(s.graphemes(true).count());
+  dbg!(s.width());
+
+  println!("");
+
+  let s = "写作业";
+  dbg!(s);
+  dbg!(s.len());
+  dbg!(s.graphemes(true).count());
+  dbg!(s.width());
+}
+```
+
+```bash
+$ rustc main.rs && ./main
+[src/main.rs:7] s = "abc"
+[src/main.rs:8] s.len() = 3
+[src/main.rs:9] s.graphemes(true).count() = 3
+[src/main.rs:10] s.width() = 3
+
+[src/main.rs:15] s = "写作业"
+[src/main.rs:16] s.len() = 9
+[src/main.rs:17] s.graphemes(true).count() = 3
+[src/main.rs:18] s.width() = 6
+```
+
+`unicode-segmentation` helps with determining the number of graphemes in a string.
+
+```rust
+// main.rs
+use unicode_segmentation::UnicodeSegmentation;
+
+fn main() {
+
+    let s = "🤦🏼‍♂️";
+
+    dbg!(s.len());
+    dbg!(s.graphemes(true).count());
+
+}
+```
+
+```bash
+$ rustc main.rs && ./main
+[src/main.rs:8] s.len() = 17
+[src/main.rs:9] s.graphemes(true).count() = 1
+```
