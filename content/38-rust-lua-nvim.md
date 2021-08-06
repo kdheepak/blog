@@ -93,7 +93,7 @@ int luaopen_mymodule (lua_State *L) {
 
 This is not unlike how `Python` loads C shared libraries as `Python` modules.
 
-This means any shared library that exposes the C ABI that lua expects is a valid lua module.
+This means any shared library that exposes the C ABI that lua expects is also a valid lua module.
 This also means you can create a lua module that can be imported in neovim's built in lua interpreter from any programming language that allows you to create shared libraries.
 
 Enter rust.
