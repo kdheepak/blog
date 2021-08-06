@@ -172,16 +172,15 @@ rustflags = [
 
 We need to do this because we need to tell the rust linker that the symbols used in the shared library may not be defined at link time, and will only be available when the shared library is loaded.
 
-Finally, we can create an instance of the shared library using `cargo build --release`:
-
-```bash
-$ cargo build --release && mv target/release/libmoonshine.dylib lua/moonshine.so
-```
-
+Finally, we can create an instance of the shared library using `cargo build --release`.
 Neovim adds the lua folder of plugins to the `runtimepath`.
 So to follow convention, we can move `libmoonshine.dylib` to the lua folder.
 Lua looks for `.so` files even on a Mac, so we have to rename the file.
 Notice rust compiles the library to `libmoonshine.dylib`, but the lua module need to be `moonshine.so`.
+
+```bash
+$ cargo build --release && mv target/release/libmoonshine.dylib lua/moonshine.so
+```
 
 Here is a tree view of the folder structure.
 
