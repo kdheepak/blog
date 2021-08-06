@@ -32,7 +32,7 @@ Neovim also uses lua 5.1, since that is the latest version of lua that works wit
 And this means some of the improvements in lua 5.2 and lua 5.3 are not available to neovim users.
 
 Admittedly, these are quite minor gripes in the language.
-And there are lots of awesome packages from [LuaRocks](https://luarocks.org/) that more than make up for the lack of a batteries included standard library.
+And there are lots of awesome packages from [LuaRocks](https://luarocks.org/) that more than make up for the lack of a batteries included standard library in lua.
 
 Additionally, there are programming languages like [Fennel](https://fennel-lang.org/) (a language that uses lisp syntax and provides a macro system), that compile _to_ lua.
 And naturally, the neovim community have built excellent tools like [Aniseed](https://github.com/Olical/aniseed) and [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim) to make it possible to write your entire configuration in fennel instead of lua.
