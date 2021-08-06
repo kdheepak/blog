@@ -15,7 +15,7 @@ TLDR: You can use rust with a library like [`mlua`](https://github.com/khvzak/ml
 
 # Motivation
 
-[Neovim v0.5.0 is out](https://github.com/neovim/neovim/releases/tag/v0.5.0) and has good support for using lua as an alternative to `vimscript`.
+[Neovim v0.5.0 is out](https://github.com/neovim/neovim/releases/tag/v0.5.0) and has good support for using lua as an alternative to vimscript.
 You can now even use a `init.lua` file instead of a `.vimrc`.
 There are a bunch of really awesome plugins that written in pure lua. You can find a curated list [here](https://github.com/rockerBOO/awesome-neovim) and [here](http://neovimcraft.com/).
 
