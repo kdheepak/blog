@@ -11,7 +11,7 @@ I was curious if it would be possible to write a lua plugin with rust. It turns 
 
 ![](https://user-images.githubusercontent.com/1813121/128466216-52621bfd-30cb-4d4c-babb-297c99cb79eb.png)
 
-The TLDR version of this blog post is that you can use rust with a library like [`mlua`](https://github.com/khvzak/mlua) to compile a cdylib shared library that is also a valid lua module that can be loaded by neovim. The link to the git tree for all the code in this blog post is [here](https://github.com/kdheepak/moonshine.nvim/tree/d5b3893b7813e3a46a079d074ef1360c885a5e39).
+TLDR: You can use rust with a library like [`mlua`](https://github.com/khvzak/mlua) to compile a cdylib shared library that is also a valid lua module that can be loaded by neovim. The link to the git tree for all the code in this blog post is [here](https://github.com/kdheepak/moonshine.nvim/tree/d5b3893b7813e3a46a079d074ef1360c885a5e39).
 
 # Motivation
 
