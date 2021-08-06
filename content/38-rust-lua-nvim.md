@@ -180,8 +180,8 @@ $ cargo build --release && mv target/release/libmoonshine.dylib lua/moonshine.so
 
 Neovim adds the lua folder of plugins to the `runtimepath`.
 So to follow convention, we can move `libmoonshine.dylib` to the lua folder.
-Lua looks for `.so` files even on a Mac, so I had to rename the file.
-Notice rust compiles the library to `libmoonshine.dylib` but the lua module need to be `moonshine.so`.
+Lua looks for `.so` files even on a Mac, so we have to rename the file.
+Notice rust compiles the library to `libmoonshine.dylib`, but the lua module need to be `moonshine.so`.
 
 Here is a tree view of the folder structure.
 
