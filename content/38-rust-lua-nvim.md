@@ -36,7 +36,8 @@ And there are lots of awesome packages from [LuaRocks](https://luarocks.org/) th
 
 Additionally, there are programming languages like [Fennel](https://fennel-lang.org/) (a language that uses lisp syntax and provides a macro system), that compile _to_ lua.
 And naturally, the neovim community have built excellent tools like [Aniseed](https://github.com/Olical/aniseed) and [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim) to make it possible to write your entire configuration in fennel instead of lua.
-There's even a [TypeScript to lua transpiler](https://github.com/TypeScriptToLua/TypeScriptToLua) for those inclined.
+Using fennel and the macro support provided by the language can make your configuration of your neovim settings concise and clean.
+Alternatively, there's even a [TypeScript to lua transpiler](https://github.com/TypeScriptToLua/TypeScriptToLua), for those so inclined.
 
 I figured it would be nice to write a lua plugin in pure rust.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
