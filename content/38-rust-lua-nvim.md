@@ -42,7 +42,9 @@ I figured it would be nice to write a lua plugin in pure rust.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
 And more importantly, I like writing code in rust.
 
-I was curious to see what it would take to make it happen and this blog post is a summary of my experiments.
+Traditionally, writing a neovim plugin in rust can be achieved by neovim's rpc mechanism[^https://github.com/killthemule/nvim-rs].
+However I was just curious to see what it would take to make it happen using a native lua module.
+This blog post is a summary of my experiments.
 
 # How it works
 
@@ -235,6 +237,6 @@ Tada!
 
 # Why is this useful
 
-Rust has well established libraries for parsing datetime, dealing with unicode, for concurrency and parallelism.
+Rust has well established libraries for parsing datetime, dealing with unicode, for concurrency and parallelism, and much much more. This can be useful in developing a lua plugin for neovim that wants to expose features available in a rust package.
 
 A similar approach can be used to write a lua plugin in [`nim` using `nimLUA`](https://github.com/jangko/nimLUA) or in [`Go` using `gopher-lua`](https://github.com/yuin/gopher-lua) or in any language of your choice that can compile to a shared library.
