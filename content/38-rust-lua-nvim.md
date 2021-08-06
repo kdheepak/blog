@@ -144,7 +144,7 @@ This is equivalent to the following lua code:
 ```lua
 local M = {}
 
-local function hello(name)
+function M.hello(name)
   print("hello, " .. name)
   return { name = name }
 end
