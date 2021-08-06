@@ -100,7 +100,7 @@ Enter rust.
 Rust can compile into a shared library exposing a C ABI.
 All one would have to do is expose the functions required for a valid lua module.
 However, without any third party support however, this will involve lots of `unsafe` code.
-Fortunately, there's a actively maintained project called [`mlua`](https://github.com/khvzak/mlua/) that lets you create a lua module from a rust library (among other features supported by `mlua`).
+Fortunately, there's a actively maintained project called [`mlua`](https://github.com/khvzak/mlua/) that lets you create a lua module from a rust library (among other features supported by `mlua`) using rust's metaprogramming constructs.
 
 First, you will need the following in your Cargo.toml:
 
