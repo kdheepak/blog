@@ -175,7 +175,7 @@ Notice rust compiles the library to `libmoonshine.dylib` but the lua module need
 
 Here is a tree view of the folder structure.
 
-```
+```bash
 $ tree -a
 .
 ├── .cargo
