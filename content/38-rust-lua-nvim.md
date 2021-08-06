@@ -229,7 +229,7 @@ packer.startup({
 
 Now in neovim, after a `PackerInstall` and `PackerCompiler` you can run `:lua print(vim.inspect(require'moonshine`.hello("rust")))`:
 
-![rust-lua-nvim mov](https://user-images.githubusercontent.com/1813121/128464855-5da25f9e-5d6d-42e0-b970-adadd8254dc0.gif)
+![](https://user-images.githubusercontent.com/1813121/128464855-5da25f9e-5d6d-42e0-b970-adadd8254dc0.gif)
 
 Tada!
 
