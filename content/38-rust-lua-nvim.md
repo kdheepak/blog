@@ -170,7 +170,7 @@ rustflags = [
 ]
 ```
 
-We need to do this because we need to tell the rust linker that the symbols used in the shared library that we are creating may not be defined at link time, and will only be available when the shared library is loaded.
+We need to do this because we need to tell the rust linker that the symbols used in the shared library may not be defined at link time, and will only be available when the shared library is loaded.
 
 Finally, we can create an instance of the shared library using `cargo build --release`:
 
