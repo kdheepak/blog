@@ -178,7 +178,7 @@ Finally, we can create an instance of the shared library using `cargo build --re
 $ cargo build --release && mv target/release/libmoonshine.dylib lua/moonshine.so
 ```
 
-neovim adds the lua folder of plugins to the `runtimepath`.
+Neovim adds the lua folder of plugins to the `runtimepath`.
 So to follow convention, we can move `libmoonshine.dylib` to the lua folder.
 Lua looks for `.so` files even on a Mac, so I had to rename the file.
 Notice rust compiles the library to `libmoonshine.dylib` but the lua module need to be `moonshine.so`.
