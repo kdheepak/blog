@@ -41,6 +41,7 @@ There's even a [TypeScript to lua transpiler](https://github.com/TypeScriptToLua
 I figured it would be nice to write a lua plugin in pure rust.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
 And more importantly, I like writing code in rust.
+
 I was curious to see what it would take to make it happen and this blog post is a summary of my experiments.
 
 # How it works
