@@ -1,7 +1,7 @@
 ---
 title: Loading a `rust` library as a `lua` module in Neovim
 category: blog
-date: Thu Aug  5 23:17:49 MDT 2021
+date: 2021-08-06T00:35:00-07:00
 tags: rust, neovim, lua
 keywords: rust, nvim, neovim, lua, mlua
 summary: Using mlua to load a rust cdylib shared library crate as a lua module
