@@ -19,7 +19,7 @@ TLDR: You can use rust with a library like [`mlua`](https://github.com/khvzak/ml
 You can now even use a `init.lua` file instead of a `.vimrc`.
 There are also now a bunch of really awesome plugins written in pure lua[^curated].
 
-[^curated]: _aside_: You can find good curated lists [here](https://github.com/rockerBOO/awesome-neovim) and [here](http://neovimcraft.com/)].
+[^curated]: _aside_: You can find curated lists of neovim plugins and related projects [here](https://github.com/rockerBOO/awesome-neovim) and [here](http://neovimcraft.com/)].
 
 One reason I think there's a lot of neat neovim plugins is that Lua is a pretty neat language: it is small, portable and fast when using `luajit`, which neovim supports.
 Lua is a clean simple language, and has support for some nice metaprogramming constructs and syntactic sugar that make code easy to read and write.
