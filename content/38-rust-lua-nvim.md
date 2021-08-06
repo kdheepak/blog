@@ -21,7 +21,7 @@ There are also now a bunch of really awesome plugins written in pure lua[^curate
 
 [^curated]: _aside_: You can find curated lists of neovim plugins and related projects [here](https://github.com/rockerBOO/awesome-neovim) and [here](http://neovimcraft.com/)].
 
-One reason I think there's a lot of neat neovim plugins is that Lua is a pretty neat language: it is small, portable and fast when using `luajit`, which neovim supports.
+One reason I think there's a lot of neat neovim plugins is that lua is a pretty neat language: it is small, portable and fast when using `luajit`, which neovim supports.
 Lua is a clean simple language, and has support for some nice metaprogramming constructs and syntactic sugar that make code easy to read and write.
 
 However, there are a few things that can be quite odd or annoying.
