@@ -24,7 +24,7 @@ There are also now a bunch of really awesome plugins written in pure lua[^curate
 One reason I think there's a lot of neat neovim plugins is that lua is a pretty neat language: it is small, portable and fast when using `luajit`, which neovim supports.
 Lua is a clean simple language, and has support for some nice metaprogramming constructs and syntactic sugar that make code easy to read and write.
 
-However, there are a few things that can be quite odd or annoying.
+However, there are a few things that can be quite odd or annoying when writing code in lua.
 There is no support for `continue` statements (although there is an acceptable workaround using `repeat break until true`).
 The standard library for string handling and manipulation quite bare bones, and users have to heavily rely on using `string:gsub` with regex patterns.
 And as far as I can tell, there's no Unicode support in the language.
