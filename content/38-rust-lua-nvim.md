@@ -189,6 +189,8 @@ $ tree -a
 .
 ├── .cargo
 │  └── config
+├── .git
+│  └── ...
 ├── .gitignore
 ├── Cargo.lock
 ├── Cargo.toml
