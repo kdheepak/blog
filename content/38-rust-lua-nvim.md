@@ -1,5 +1,5 @@
 ---
-title: Loading a rust library as a lua module in Neovim
+title: Loading a Rust library as a Lua module in Neovim
 category: blog
 date: 2021-08-06T00:35:00-07:00
 tags: rust, neovim, lua
