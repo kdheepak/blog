@@ -239,3 +239,7 @@ Tada!
 Rust has well established libraries for parsing datetime, dealing with unicode, for concurrency and parallelism, and much much more. This can be useful in developing a lua plugin for neovim that wants to expose features available in a rust package.
 
 A similar approach can probably be used to write a lua plugin in [`nim` using `nimLUA`](https://github.com/jangko/nimLUA) or in [`Go` using `gopher-lua`](https://github.com/yuin/gopher-lua) or in any language of your choice that can compile to a shared library.
+
+This approach does have some downsides though. If you happen to segfault, whether it is due to an incorrect usage of the Lua C API or any other library or reason, you will take neovim down with you.
+And you will still have to learn the Lua C API to interact with tables and functions in Lua to access the neovim API for anything moderately complex.
+In theory, the performance of this approach to be better than using the RPC approach, however in practice it wouldn't make any difference for most if not all real world use cases.
