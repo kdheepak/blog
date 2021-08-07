@@ -123,12 +123,12 @@ use mlua::prelude::*;
 
 fn hello(lua: &Lua, name: String) -> LuaResult<LuaTable> {
     let t = lua.create_table()?;
+    t.set("name", name.clone())?;
     let _globals = lua.globals();
     lua.load(chunk! {
         print("hello, " .. $name)
     })
     .exec()?;
-    t.set("hello", name)?;
     Ok(t)
 }
 
@@ -146,8 +146,9 @@ This is equivalent to the following lua code in a file called `moonshine.lua`:
 local M = {}
 
 function M.hello(name)
+  t = {name = name}
   print("hello, " .. name)
-  return { name = name }
+  return t
 end
 
 return M
