@@ -43,7 +43,7 @@ I figured it would be nice to write a lua plugin in pure rust.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
 And more importantly, I like writing code in rust.
 
-Traditionally, writing a neovim plugin in rust can be achieved by neovim's rpc mechanism[^https://github.com/killthemule/nvim-rs].
+Traditionally, writing a neovim plugin in rust can be achieved by neovim's rpc mechanism^[<https://github.com/killthemule/nvim-rs>].
 However I was just curious to see what it would take to make it happen using a native lua module.
 This blog post is a summary of the scaffolding required to get a hello world lua plugin written rust set up.
 
