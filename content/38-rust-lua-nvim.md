@@ -7,7 +7,7 @@ keywords: rust, nvim, neovim, lua, mlua
 summary: Using mlua to load a rust cdylib shared library crate as a lua module
 ---
 
-I was curious if it would be possible to write a lua plugin with rust. It turns out this is quite straightforward.
+I was curious if it would be possible to write a lua plugin in pure rust. It turns out this is quite straightforward.
 
 ![](https://user-images.githubusercontent.com/1813121/128466216-52621bfd-30cb-4d4c-babb-297c99cb79eb.png){.fullwidth}
 
@@ -17,16 +17,16 @@ TLDR: You can use rust with a library like [`mlua`](https://github.com/khvzak/ml
 
 [Neovim v0.5.0 is out](https://github.com/neovim/neovim/releases/tag/v0.5.0) and has good support for using lua as an alternative to vimscript.
 You can now use a `init.lua` file instead of a `.vimrc`.
-There are also now a bunch of really awesome plugins written in pure lua[^curated].
+There are now a bunch of really awesome plugins written in pure lua[^curated].
 
 [^curated]: You can find curated lists of neovim plugins and related projects [here](https://github.com/rockerBOO/awesome-neovim) and [here](http://neovimcraft.com/).
 
-One reason I think there's a lot of neat neovim plugins is that lua is a pretty neat language: it is small, portable and fast when using luajit, which neovim supports.
-Lua is a clean and simple language, and has support for some nice metaprogramming constructs and syntactic sugar that make code easy to read and write.
+One reason I think there's a lot of neat neovim plugins is that lua is a neat language: it is small and fast when using luajit, which neovim supports.
+Lua is also a clean and simple language, and has support for nice metaprogramming constructs and syntactic sugar that make code easy to read and write.
 
 However, there are a few things that can be quite odd or annoying when writing code in lua.
 There is no support for `continue` statements (although there is an acceptable workaround using `repeat break until true`).
-The standard library for string handling and manipulation quite bare bones, and users have to heavily rely on using `string:gsub` with regex patterns.
+The standard library for string handling and manipulation is quite bare bones, and you have to heavily rely on using `string:gsub` with regex patterns.
 And as far as I can tell, there's no Unicode support in the language.
 Neovim also uses lua 5.1, since that is the latest version of lua that works with luajit.
 And this means some of the improvements in lua 5.2 and lua 5.3 are not available to neovim users.
@@ -35,16 +35,16 @@ Admittedly, these are quite minor gripes in the language.
 And there are lots of awesome packages from [LuaRocks](https://luarocks.org/) that more than make up for the lack of a batteries included standard library in lua.
 
 Additionally, there are programming languages like [Fennel](https://fennel-lang.org/) (a language that uses lisp syntax and provides a macro system), that compile _to_ lua.
-And naturally, the neovim community have built excellent tools like [Aniseed](https://github.com/Olical/aniseed) and [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim) to make it possible to write your entire configuration in fennel instead of lua.
 Using fennel and the macro support provided by the language can make the configuration of your neovim settings concise and clean.
+Naturally, the neovim community have built excellent tools like [Aniseed](https://github.com/Olical/aniseed) and [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim) to make it possible to write your entire configuration in fennel instead of lua.
 Alternatively, there's even a [TypeScript to lua transpiler](https://github.com/TypeScriptToLua/TypeScriptToLua), for those so inclined.
 
 I figured it would be nice to write a lua plugin in pure rust.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
 And more importantly, I like writing code in rust.
 
-Traditionally, writing a neovim plugin in rust can be achieved by neovim's rpc mechanism^[<https://github.com/KillTheMule/nvim-rs>].
-However I was just curious to see what it would take to make it happen using a native lua module.
+Traditionally, writing a neovim plugin in rust can be achieved by neovim's RPC mechanism^[<https://github.com/KillTheMule/nvim-rs>].
+However I was curious to see what it would take to make it happen using a native lua module.
 This blog post is a summary of the scaffolding required to get a hello world lua plugin written in rust set up.
 
 # How it works
