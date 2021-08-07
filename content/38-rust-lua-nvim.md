@@ -72,9 +72,7 @@ E5108: Error executing lua [string ":lua"]:1: module 'mymodule' not found:
         no file '/Users/USER/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/mymodule.so'
 ```
 
-If a `mymodule.so` file exists, lua checks if it can call `luaopen_mymodule` as a function using the C ABI: <https://www.lua.org/pil/26.2.html>
-
-From the link above, this is the template one would follow to write a lua module in C:
+If a `mymodule.so` file exists, lua checks if it can call `luaopen_mymodule` as a function using the C ABI^[ <https://www.lua.org/pil/26.2.html>]. This is the template one would follow to write a lua module in C:
 
 ```c
 static int l_dir (lua_State *L) {
