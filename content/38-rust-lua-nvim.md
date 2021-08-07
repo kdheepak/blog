@@ -140,7 +140,7 @@ fn moonshine(lua: &Lua) -> LuaResult<LuaTable> {
 }
 ```
 
-This is equivalent to the following lua code:
+This is equivalent to the following lua code in a file called `moonshine.lua`:
 
 ```lua
 local M = {}
