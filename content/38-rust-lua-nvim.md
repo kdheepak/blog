@@ -39,7 +39,7 @@ Using fennel and the macro support provided by the language can make the configu
 Naturally, the neovim community have built excellent tools like [Aniseed](https://github.com/Olical/aniseed) and [hotpot.nvim](https://github.com/rktjmp/hotpot.nvim) to make it possible to write your entire configuration in fennel instead of lua.
 Alternatively, there's even a [TypeScript to lua transpiler](https://github.com/TypeScriptToLua/TypeScriptToLua), for those so inclined.
 
-I figured it would be nice to write a lua plugin in pure rust.
+I figured it would be nice to write a lua plugin in pure rust and I wanted to explore how to go about doing that.
 Rust has metaprogramming features like macros, has a batteries included standard library and a thriving package ecosystem to boot.
 And more importantly, I like writing code in rust.
 
