@@ -26,7 +26,7 @@ Lua is also a clean and simple language, and has support for nice metaprogrammin
 
 However, there are a few things that can be quite odd or annoying when writing code in lua.
 There is no support for `continue` statements (although there is an acceptable workaround using `repeat break until true`).
-The standard library for string handling and manipulation is quite bare bones, and you have to heavily rely on using `string:gsub` with regex patterns.
+The standard library for string handling and manipulation is quite bare bones, and you have to heavily rely on using `string:gsub` with pattern matching.
 And as far as I can tell, there's no Unicode support in the language.
 Neovim also uses lua 5.1, since that is the latest version of lua that works with luajit.
 And this means some of the improvements in lua 5.2 and lua 5.3 are not available to neovim users.
