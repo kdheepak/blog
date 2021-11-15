@@ -51,11 +51,9 @@ body > footer > p {
     text-shadow: unset;
 }
 
-section > .kudo-container { width: 55%; }
 pre { width: 100%; }
 
 @media (max-width: 760px) {
-    section > .kudo-container { width: 100%; }
 
     .utterances {
         margin-left: 0 !important;
