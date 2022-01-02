@@ -1,42 +1,86 @@
-import { mdsvex } from 'mdsvex';
-import mdsvexConfig from './mdsvex.config.js';
-import adapter from '@sveltejs/adapter-auto';
-import preprocess from 'svelte-preprocess';
+import svelteMd from 'vite-plugin-svelte-md'
+import adapter from '@sveltejs/adapter-static'
+import preprocess from 'svelte-preprocess'
+import child_process from 'child_process'
+import path from 'path'
+
+function buffer2string(bufferString) {
+  const hex = bufferString.match(/\s[0-9a-fA-F]+/g).map((x) => x.trim())
+  return Buffer.from(hex.join(''), 'hex').toString()
+}
+
+function pandoc(input, ...args) {
+  const option = [
+    '-t',
+    'html',
+    '--lua-filter',
+    './scripts/svelte-math.lua',
+    '--filter',
+    'pandoc-eqnos',
+    '--filter',
+    'pandoc-fignos',
+    '--filter',
+    'pandoc-tablenos',
+    '--citeproc',
+  ].concat(args)
+  let pandoc
+  input = Buffer.from(input)
+  try {
+    pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
+  } catch (err) {
+    // console.error(option, input, err)
+  }
+  if (pandoc.stderr && pandoc.stderr.length) {
+    // console.log(option, input, Error(pandoc.output[2].toString()))
+  }
+  var content = pandoc.stdout.toString()
+
+  input = Buffer.from(input)
+  try {
+    pandoc = child_process.spawnSync('pandoc', ['--template', './scripts/meta-json.tpl'], {
+      input,
+      timeout: 20000,
+    })
+  } catch (err) {
+    // console.error(option, input, err)
+  }
+  if (pandoc.stderr && pandoc.stderr.length) {
+    // console.log(option, input, Error(pandoc.output[2].toString()))
+  }
+  var metadata = pandoc.stdout.toString()
+  content = `${content}
+
+    <script context="module">
+        export function getMetadata() {
+            return ${metadata}
+        }
+    </script>`
+  return content
+}
+
+function pandoc2svelte() {
+  return {
+    markup({ content, filename }) {
+      if (!path.extname(filename).startsWith('.md')) return
+      let c = pandoc(content)
+      return { code: c }
+    },
+  }
+}
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	extensions: ['.svelte', ...mdsvexConfig.extensions],
-	extensions: ['.svelte', ...mdsvexConfig.extensions],
+  extensions: ['.svelte', '.md'],
 
-	// Consult https://github.com/sveltejs/svelte-preprocess
-	// for more information about preprocessors
-	preprocess: [
-		preprocess({
-			postcss: true,
+  // Consult https://github.com/sveltejs/svelte-preprocess
+  // for more information about preprocessors
+  preprocess: [pandoc2svelte(), preprocess({ preserve: ['module'] })],
 
-			scss: {
-				prependData: '@import "src/variables.scss";'
-			}
-		}),
-		mdsvex(mdsvexConfig)
-	],
+  kit: {
+    adapter: adapter(),
+    // hydrate the <div id="svelte"> element in src/app.html
+    target: '#svelte',
+  },
+}
 
-	kit: {
-		adapter: adapter(),
-
-		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
-
-		vite: {
-			css: {
-				preprocessorOptions: {
-					scss: {
-						additionalData: '@import "src/variables.scss";'
-					}
-				}
-			}
-		}
-	}
-};
-
-export default config;
+export default config

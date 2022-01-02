@@ -1,0 +1,2422 @@
+diff --git a/node_modules/svelte/compiler.js b/node_modules/svelte/compiler.js
+index 742b4f0..66b7bee 100644
+--- a/node_modules/svelte/compiler.js
++++ b/node_modules/svelte/compiler.js
+@@ -6363,9 +6363,9 @@
+ 	const join = (nodes, separator) => {
+ 		if (nodes.length === 0) return [];
+
+-		const joined = [...nodes[0]];
++		/* PATCHED const joined */ let joined = [...nodes[0]];
+ 		for (let i = 1; i < nodes.length; i += 1) {
+-			joined.push(separator, ...nodes[i]);
++			joined /* PATCHED */ = [...joined, separator, ...nodes[i]];
+ 		}
+ 		return joined;
+ 	};
+@@ -6408,10 +6408,10 @@
+ 	 * @param {State} state
+ 	 */
+ 	const handle_body = (nodes, state) => {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+-		const body = nodes.map(statement => {
+-			const chunks = handle(statement, {
++		/* PATCHED const body */ let body = nodes.map(statement => {
++			/* PATCHED const chunks */ let chunks = handle(statement, {
+ 				...state,
+ 				indent: state.indent
+ 			});
+@@ -6443,9 +6443,9 @@
+ 				);
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				...body[i]
+-			);
++			];
+
+ 			needed_padding = needs_padding;
+ 		}
+@@ -6458,7 +6458,7 @@
+ 	 * @param {State} state
+ 	 */
+ 	const handle_var_declaration = (node, state) => {
+-		const chunks = [c(`${node.kind} `)];
++		/* PATCHED const chunks */ let chunks = [c(`${node.kind} `)];
+
+ 		const declarators = node.declarations.map(d => handle(d, {
+ 			...state,
+@@ -6473,11 +6473,11 @@
+ 		const separator = c(multiple_lines ? `,\n${state.indent}\t` : ', ');
+
+ 		if (multiple_lines) {
+-			chunks.push(...join(declarators, separator));
++			chunks /* PATCHED */ = [...chunks, ...join(declarators, separator)];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				...join(declarators, separator)
+-			);
++			];
+ 		}
+
+ 		return chunks;
+@@ -6525,7 +6525,7 @@
+ 		},
+
+ 		IfStatement(node, state) {
+-			const chunks = [
++			/* PATCHED const chunks */ let chunks = [
+ 				c('if ('),
+ 				...handle(node.test, state),
+ 				c(') '),
+@@ -6533,10 +6533,10 @@
+ 			];
+
+ 			if (node.alternate) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(' else '),
+ 					...handle(node.alternate, state)
+-				);
++				];
+ 			}
+
+ 			return chunks;
+@@ -6572,7 +6572,7 @@
+ 		},
+
+ 		SwitchStatement(/** @type {SwitchStatement} */ node, state) {
+-			const chunks = [
++			/* PATCHED const chunks */ let chunks = [
+ 				c('switch ('),
+ 				...handle(node.discriminant, state),
+ 				c(') {')
+@@ -6580,20 +6580,20 @@
+
+ 			node.cases.forEach(block => {
+ 				if (block.test) {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(`\n${state.indent}\tcase `),
+ 						...handle(block.test, { ...state, indent: `${state.indent}\t` }),
+ 						c(':')
+-					);
++					];
+ 				} else {
+ 					chunks.push(c(`\n${state.indent}\tdefault:`));
+ 				}
+
+ 				block.consequent.forEach(statement => {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(`\n${state.indent}\t\t`),
+ 						...handle(statement, { ...state, indent: `${state.indent}\t\t` })
+-					);
++					];
+ 				});
+ 			});
+
+@@ -6624,27 +6624,27 @@
+ 		},
+
+ 		TryStatement(node, state) {
+-			const chunks = [
++			/* PATCHED const chunks */ let chunks = [
+ 				c('try '),
+ 				...handle(node.block, state)
+ 			];
+
+ 			if (node.handler) {
+ 				if (node.handler.param) {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(' catch('),
+ 						...handle(node.handler.param, state),
+ 						c(') ')
+-					);
++					];
+ 				} else {
+ 					chunks.push(c(' catch '));
+ 				}
+
+-				chunks.push(...handle(node.handler.body, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.handler.body, state)];
+ 			}
+
+ 			if (node.finalizer) {
+-				chunks.push(c(' finally '), ...handle(node.finalizer, state));
++				chunks /* PATCHED */ = [...chunks, c(' finally '), ...handle(node.finalizer, state)];
+ 			}
+
+ 			return chunks;
+@@ -6670,46 +6670,46 @@
+ 		},
+
+ 		ForStatement: scoped((node, state) => {
+-			const chunks = [c('for (')];
++			/* PATCHED const chunks */ let chunks = [c('for (')];
+
+ 			if (node.init) {
+ 				if (node.init.type === 'VariableDeclaration') {
+-					chunks.push(...handle_var_declaration(node.init, state));
++					chunks /* PATCHED */ = [...chunks, ...handle_var_declaration(node.init, state)];
+ 				} else {
+-					chunks.push(...handle(node.init, state));
++					chunks /* PATCHED */ = [...chunks, ...handle(node.init, state)];
+ 				}
+ 			}
+
+ 			chunks.push(c('; '));
+-			if (node.test) chunks.push(...handle(node.test, state));
++			if (node.test) chunks /* PATCHED */ = [...chunks, ...handle(node.test, state)];
+ 			chunks.push(c('; '));
+-			if (node.update) chunks.push(...handle(node.update, state));
++			if (node.update) chunks /* PATCHED */ = [...chunks, ...handle(node.update, state)];
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(') '),
+ 				...handle(node.body, state)
+-			);
++			];
+
+ 			return chunks;
+ 		}),
+
+ 		ForInStatement: scoped((node, state) => {
+-			const chunks = [
++			/* PATCHED const chunks */ let chunks = [
+ 				c(`for ${node.await ? 'await ' : ''}(`)
+ 			];
+
+ 			if (node.left.type === 'VariableDeclaration') {
+-				chunks.push(...handle_var_declaration(node.left, state));
++				chunks /* PATCHED */ = [...chunks, ...handle_var_declaration(node.left, state)];
+ 			} else {
+-				chunks.push(...handle(node.left, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.left, state)];
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(node.type === 'ForInStatement' ? ` in ` : ` of `),
+ 				...handle(node.right, state),
+ 				c(') '),
+ 				...handle(node.body, state)
+-			);
++			];
+
+ 			return chunks;
+ 		}),
+@@ -6719,11 +6719,11 @@
+ 		},
+
+ 		FunctionDeclaration: scoped((/** @type {FunctionDeclaration} */ node, state) => {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (node.async) chunks.push(c('async '));
+ 			chunks.push(c(node.generator ? 'function* ' : 'function '));
+-			if (node.id) chunks.push(...handle(node.id, state));
++			if (node.id) chunks /* PATCHED */ = [...chunks, ...handle(node.id, state)];
+ 			chunks.push(c('('));
+
+ 			const params = node.params.map(p => handle(p, {
+@@ -6739,21 +6739,21 @@
+ 			const separator = c(multiple_lines ? `,\n${state.indent}` : ', ');
+
+ 			if (multiple_lines) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`\n${state.indent}\t`),
+ 					...join(params, separator),
+ 					c(`\n${state.indent}`)
+-				);
++				];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					...join(params, separator)
+-				);
++				];
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(') '),
+ 				...handle(node.body, state)
+-			);
++			];
+
+ 			return chunks;
+ 		}),
+@@ -6775,25 +6775,25 @@
+ 		},
+
+ 		ClassDeclaration(node, state) {
+-			const chunks = [c('class ')];
++			/* PATCHED const chunks */ let chunks = [c('class ')];
+
+-			if (node.id) chunks.push(...handle(node.id, state), c(' '));
++			if (node.id) chunks /* PATCHED */ = [...chunks, ...handle(node.id, state), c(' ')];
+
+ 			if (node.superClass) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('extends '),
+ 					...handle(node.superClass, state),
+ 					c(' ')
+-				);
++				];
+ 			}
+
+-			chunks.push(...handle(node.body, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.body, state)];
+
+ 			return chunks;
+ 		},
+
+ 		ImportDeclaration(/** @type {ImportDeclaration} */ node, state) {
+-			const chunks = [c('import ')];
++			/* PATCHED const chunks */ let chunks = [c('import ')];
+
+ 			const { length } = node.specifiers;
+ 			const source = handle(node.source, state);
+@@ -6835,27 +6835,27 @@
+ 					const width = get_length(chunks) + specifiers.map(get_length).reduce(sum, 0) + (2 * specifiers.length) + 6 + get_length(source);
+
+ 					if (width > 80) {
+-						chunks.push(
++						chunks /* PATCHED */ = [...chunks,
+ 							c(`{\n\t`),
+ 							...join(specifiers, c(',\n\t')),
+ 							c('\n}')
+-						);
++						];
+ 					} else {
+-						chunks.push(
++						chunks /* PATCHED */ = [...chunks,
+ 							c(`{ `),
+ 							...join(specifiers, c(', ')),
+ 							c(' }')
+-						);
++						];
+ 					}
+ 				}
+
+ 				chunks.push(c(' from '));
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				...source,
+ 				c(';')
+-			);
++			];
+
+ 			return chunks;
+ 		},
+@@ -6865,7 +6865,7 @@
+ 		},
+
+ 		ExportDefaultDeclaration(node, state) {
+-			const chunks = [
++			/* PATCHED const chunks */ let chunks = [
+ 				c(`export default `),
+ 				...handle(node.declaration, state)
+ 			];
+@@ -6878,10 +6878,10 @@
+ 		},
+
+ 		ExportNamedDeclaration(node, state) {
+-			const chunks = [c('export ')];
++			/* PATCHED const chunks */ let chunks = [c('export ')];
+
+ 			if (node.declaration) {
+-				chunks.push(...handle(node.declaration, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.declaration, state)];
+ 			} else {
+ 				const specifiers = node.specifiers.map((/** @type {ExportSpecifier} */ specifier) => {
+ 					const name = handle(specifier.local, state)[0];
+@@ -6897,24 +6897,24 @@
+ 				const width = 7 + specifiers.map(get_length).reduce(sum, 0) + 2 * specifiers.length;
+
+ 				if (width > 80) {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c('{\n\t'),
+ 						...join(specifiers, c(',\n\t')),
+ 						c('\n}')
+-					);
++					];
+ 				} else {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c('{ '),
+ 						...join(specifiers, c(', ')),
+ 						c(' }')
+-					);
++					];
+ 				}
+
+ 				if (node.source) {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(' from '),
+ 						...handle(node.source, state)
+-					);
++					];
+ 				}
+ 			}
+
+@@ -6932,7 +6932,7 @@
+ 		},
+
+ 		MethodDefinition(node, state) {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (node.static) {
+ 				chunks.push(c('static '));
+@@ -6952,61 +6952,61 @@
+ 			}
+
+ 			if (node.computed) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('['),
+ 					...handle(node.key, state),
+ 					c(']')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.key, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.key, state)];
+ 			}
+
+ 			chunks.push(c('('));
+
+ 			const { params } = node.value;
+ 			for (let i = 0; i < params.length; i += 1) {
+-				chunks.push(...handle(params[i], state));
++				chunks /* PATCHED */ = [...chunks, ...handle(params[i], state)];
+ 				if (i < params.length - 1) chunks.push(c(', '));
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(') '),
+ 				...handle(node.value.body, state)
+-			);
++			];
+
+ 			return chunks;
+ 		},
+
+ 		ArrowFunctionExpression: scoped((/** @type {ArrowFunctionExpression} */ node, state) => {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (node.async) chunks.push(c('async '));
+
+ 			if (node.params.length === 1 && node.params[0].type === 'Identifier') {
+-				chunks.push(...handle(node.params[0], state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.params[0], state)];
+ 			} else {
+ 				const params = node.params.map(param => handle(param, {
+ 					...state,
+ 					indent: state.indent + '\t'
+ 				}));
+
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...join(params, c(', ')),
+ 					c(')')
+-				);
++				];
+ 			}
+
+ 			chunks.push(c(' => '));
+
+ 			if (node.body.type === 'ObjectExpression') {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.body, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.body, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.body, state)];
+ 			}
+
+ 			return chunks;
+@@ -7047,17 +7047,17 @@
+ 		},
+
+ 		TemplateLiteral(node, state) {
+-			const chunks = [c('`')];
++			/* PATCHED const chunks */ let chunks = [c('`')];
+
+ 			const { quasis, expressions } = node;
+
+ 			for (let i = 0; i < expressions.length; i++) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(quasis[i].value.raw),
+ 					c('${'),
+ 					...handle(expressions[i], state),
+ 					c('}')
+-				);
++				];
+ 			}
+
+ 			chunks.push(
+@@ -7073,7 +7073,7 @@
+ 		},
+
+ 		ArrayExpression(node, state) {
+-			const chunks = [c('[')];
++			/* PATCHED const chunks */ let chunks = [c('[')];
+
+ 			/** @type {Chunk[][]} */
+ 			const elements = [];
+@@ -7101,14 +7101,14 @@
+ 			);
+
+ 			if (multiple_lines) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`\n${state.indent}\t`),
+ 					...join(elements, c(`,\n${state.indent}\t`)),
+ 					c(`\n${state.indent}`),
+ 					...sparse_commas
+-				);
++				];
+ 			} else {
+-				chunks.push(...join(elements, c(', ')), ...sparse_commas);
++				chunks /* PATCHED */ = [...chunks, ...join(elements, c(', ')), ...sparse_commas];
+ 			}
+
+ 			chunks.push(c(']'));
+@@ -7124,14 +7124,14 @@
+ 			let has_inline_comment = false;
+
+ 			/** @type {Chunk[]} */
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+ 			const separator = c(', ');
+
+ 			node.properties.forEach((p, i) => {
+-				chunks.push(...handle(p, {
++				chunks /* PATCHED */ = [...chunks, ...handle(p, {
+ 					...state,
+ 					indent: state.indent + '\t'
+-				}));
++				})];
+
+ 				if (state.comments.length) {
+ 					// TODO generalise this, so it works with ArrayExpressions and other things.
+@@ -7205,7 +7205,7 @@
+ 					scope: state.scope_map.get(node.value)
+ 				};
+
+-				const chunks = node.kind !== 'init'
++				/* PATCHED const chunks */ let chunks = node.kind !== 'init'
+ 					? [c(`${node.kind} `)]
+ 					: [];
+
+@@ -7216,13 +7216,13 @@
+ 					chunks.push(c('*'));
+ 				}
+
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					...(node.computed ? [c('['), ...key, c(']')] : key),
+ 					c('('),
+ 					...join(node.value.params.map((/** @type {Pattern} */ param) => handle(param, state)), c(', ')),
+ 					c(') '),
+ 					...handle(node.value.body, state)
+-				);
++				];
+
+ 				return chunks;
+ 			}
+@@ -7244,10 +7244,10 @@
+ 		},
+
+ 		ObjectPattern(node, state) {
+-			const chunks = [c('{ ')];
++			/* PATCHED const chunks */ let chunks = [c('{ ')];
+
+ 			for (let i = 0; i < node.properties.length; i += 1) {
+-				chunks.push(...handle(node.properties[i], state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.properties[i], state)];
+ 				if (i < node.properties.length - 1) chunks.push(c(', '));
+ 			}
+
+@@ -7267,7 +7267,7 @@
+ 		},
+
+ 		UnaryExpression(node, state) {
+-			const chunks = [c(node.operator)];
++			/* PATCHED const chunks */ let chunks = [c(node.operator)];
+
+ 			if (node.operator.length > 1) {
+ 				chunks.push(c(' '));
+@@ -7277,13 +7277,13 @@
+ 				EXPRESSIONS_PRECEDENCE[node.argument.type] <
+ 				EXPRESSIONS_PRECEDENCE.UnaryExpression
+ 			) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.argument, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.argument, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.argument, state)];
+ 			}
+
+ 			return chunks;
+@@ -7304,7 +7304,7 @@
+ 		},
+
+ 		BinaryExpression(node, state) {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			// TODO
+ 			// const is_in = node.operator === 'in';
+@@ -7314,44 +7314,44 @@
+ 			// }
+
+ 			if (needs_parens(node.left, node, false)) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.left, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.left, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.left, state)];
+ 			}
+
+ 			chunks.push(c(` ${node.operator} `));
+
+ 			if (needs_parens(node.right, node, true)) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.right, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.right, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.right, state)];
+ 			}
+
+ 			return chunks;
+ 		},
+
+ 		ConditionalExpression(node, state) {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (
+ 				EXPRESSIONS_PRECEDENCE[node.test.type] >
+ 				EXPRESSIONS_PRECEDENCE.ConditionalExpression
+ 			) {
+-				chunks.push(...handle(node.test, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.test, state)];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.test, state),
+ 					c(')')
+-				);
++				];
+ 			}
+
+ 			const child_state = { ...state, indent: state.indent + '\t' };
+@@ -7365,38 +7365,38 @@
+ 			);
+
+ 			if (multiple_lines) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`\n${state.indent}? `),
+ 					...consequent,
+ 					c(`\n${state.indent}: `),
+ 					...alternate
+-				);
++				];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(` ? `),
+ 					...consequent,
+ 					c(` : `),
+ 					...alternate
+-				);
++				];
+ 			}
+
+ 			return chunks;
+ 		},
+
+ 		NewExpression(/** @type {NewExpression} */ node, state) {
+-			const chunks = [c('new ')];
++			/* PATCHED const chunks */ let chunks = [c('new ')];
+
+ 			if (
+ 				EXPRESSIONS_PRECEDENCE[node.callee.type] <
+ 				EXPRESSIONS_PRECEDENCE.CallExpression || has_call_expression(node.callee)
+ 			) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.callee, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.callee, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.callee, state)];
+ 			}
+
+ 			// TODO this is copied from CallExpression — DRY it out
+@@ -7409,11 +7409,11 @@
+ 				? c(',\n' + state.indent)
+ 				: c(', ');
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...join(args, separator),
+ 				c(')')
+-			);
++			];
+
+ 			return chunks;
+ 		},
+@@ -7423,19 +7423,19 @@
+ 		},
+
+ 		CallExpression(/** @type {CallExpression} */ node, state) {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (
+ 				EXPRESSIONS_PRECEDENCE[node.callee.type] <
+ 				EXPRESSIONS_PRECEDENCE.CallExpression
+ 			) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.callee, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.callee, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.callee, state)];
+ 			}
+
+ 			if (/** @type {SimpleCallExpression} */ (node).optional) {
+@@ -7453,49 +7453,49 @@
+ 					indent: `${state.indent}\t`
+ 				}));
+
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`(\n${state.indent}\t`),
+ 					...join(args, c(`,\n${state.indent}\t`)),
+ 					c(`\n${state.indent})`)
+-				);
++				];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...join(args, c(', ')),
+ 					c(')')
+-				);
++				];
+ 			}
+
+ 			return chunks;
+ 		},
+
+ 		MemberExpression(node, state) {
+-			const chunks = [];
++			/* PATCHED const chunks */ let chunks = [];
+
+ 			if (EXPRESSIONS_PRECEDENCE[node.object.type] < EXPRESSIONS_PRECEDENCE.MemberExpression) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('('),
+ 					...handle(node.object, state),
+ 					c(')')
+-				);
++				];
+ 			} else {
+-				chunks.push(...handle(node.object, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.object, state)];
+ 			}
+
+ 			if (node.computed) {
+ 				if (node.optional) {
+ 					chunks.push(c('?.'));
+ 				}
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('['),
+ 					...handle(node.property, state),
+ 					c(']')
+-				);
++				];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(node.optional ? '?.' : '.'),
+ 					...handle(node.property, state)
+-				);
++				];
+ 			}
+
+ 			return chunks;
+@@ -7727,7 +7727,7 @@
+ 		let { map: scope_map, scope } = analyze(node);
+ 		const deconflicted = new WeakMap();
+
+-		const chunks = handle(node, {
++		/* PATCHED const chunks */ let chunks = handle(node, {
+ 			indent: '',
+ 			getName,
+ 			scope,
+@@ -17118,7 +17118,7 @@
+ 	            chunks.push(current_chunk);
+ 	        }
+ 	    }
+-	    const chunks = [];
++	    /* PATCHED const chunks */ let chunks = [];
+ 	    while (parser.index < parser.template.length) {
+ 	        const index = parser.index;
+ 	        if (done()) {
+@@ -18164,7 +18164,7 @@
+ 			d: ${properties.destroy}
+ 		}`;
+ 	        const block = dev && this.get_unique_name('block');
+-	        const body = b `
++	        /* PATCHED const body */ let body = b `
+ 			${this.chunks.declarations}
+
+ 			${Array.from(this.variables.values()).map(({ id, init }) => {
+@@ -18475,7 +18475,7 @@
+ 	        if (has_transitions) {
+ 	            block.chunks.intro.push(b `@transition_in(${info}.block);`);
+ 	        }
+-	        const dependencies = this.node.expression.dynamic_dependencies();
++	        /* PATCHED const dependencies */ let dependencies = this.node.expression.dynamic_dependencies();
+ 	        const update_await_block_branch = b `@update_await_block_branch(${info}, #ctx, #dirty)`;
+ 	        if (dependencies.length > 0) {
+ 	            const condition = x `
+@@ -18685,7 +18685,7 @@
+ 	                name: 'log',
+ 	                loc
+ 	            };
+-	            const dependencies = new Set();
++	            /* PATCHED const dependencies */ let dependencies = new Set();
+ 	            this.node.expressions.forEach(expression => {
+ 	                add_to_set(dependencies, expression.dependencies);
+ 	            });
+@@ -19342,7 +19342,7 @@
+ 	                ? '@xlink_attr'
+ 	                : '@attr';
+ 	        const is_legacy_input_type = element.renderer.component.compile_options.legacy && name === 'type' && this.parent.node.name === 'input';
+-	        const dependencies = this.get_dependencies();
++	        /* PATCHED const dependencies */ let dependencies = this.get_dependencies();
+ 	        const value = this.get_value(block);
+ 	        let updater;
+ 	        const init = this.get_init(block, value);
+@@ -19429,7 +19429,7 @@
+ 	    }
+ 	    get_dependencies() {
+ 	        const node_dependencies = this.node.get_dependencies();
+-	        const dependencies = new Set(node_dependencies);
++	        /* PATCHED const dependencies */ let dependencies = new Set(node_dependencies);
+ 	        node_dependencies.forEach((prop) => {
+ 	            const indirect_dependencies = this.parent.renderer.component.indirect_dependencies.get(prop);
+ 	            if (indirect_dependencies) {
+@@ -19844,7 +19844,7 @@
+ 	        this.needs_lock = this.node.name === 'currentTime'; // TODO others?
+ 	    }
+ 	    get_dependencies() {
+-	        const dependencies = new Set(this.node.expression.dependencies);
++	        /* PATCHED const dependencies */ let dependencies = new Set(this.node.expression.dependencies);
+ 	        this.node.expression.dependencies.forEach((prop) => {
+ 	            const indirect_dependencies = this.parent.renderer.component.indirect_dependencies.get(prop);
+ 	            if (indirect_dependencies) {
+@@ -20146,8 +20146,8 @@
+ 	    block.renderer.add_to_context(fn.name);
+ 	    const callee = block.renderer.reference(fn.name);
+ 	    const { contextual_dependencies, mutation } = binding.handler;
+-	    const dependencies = binding.get_dependencies();
+-	    const body = b `
++	    /* PATCHED const dependencies */ let dependencies = binding.get_dependencies();
++	    /* PATCHED const body */ let body = b `
+ 		${mutation}
+ 		${Array.from(dependencies)
+         .filter(dep => dep[0] !== '$')
+@@ -20974,7 +20974,7 @@
+ 	                    const names = new Set(extract_names(assignee));
+ 	                    const traced = new Set();
+ 	                    names.forEach(name => {
+-	                        const dependencies = template_scope.dependencies_for_name.get(name);
++	                        /* PATCHED const dependencies */ let dependencies = template_scope.dependencies_for_name.get(name);
+ 	                        if (dependencies) {
+ 	                            dependencies.forEach(name => traced.add(name));
+ 	                        }
+@@ -21049,7 +21049,7 @@
+ 	        return this.node.expression.contextual_dependencies.size === 0 && this.node.expression.dynamic_dependencies().length === 0;
+ 	    }
+ 	    rename_this_method(block, update) {
+-	        const dependencies = this.node.expression.dynamic_dependencies();
++	        /* PATCHED const dependencies */ let dependencies = this.node.expression.dynamic_dependencies();
+ 	        let snippet = this.node.expression.manipulate(block);
+ 	        const value = this.node.should_cache && block.get_unique_name(`${this.var.name}_value`);
+ 	        const content = this.node.should_cache ? value : snippet;
+@@ -21454,7 +21454,7 @@
+ 	        renderer.add_to_context(handler.name);
+ 	        // TODO figure out how to handle locks
+ 	        const needs_lock = binding_group.bindings.some(binding => binding.needs_lock);
+-	        const dependencies = new Set();
++	        /* PATCHED const dependencies */ let dependencies = new Set();
+ 	        const contextual_dependencies = new Set();
+ 	        binding_group.bindings.forEach(binding => {
+ 	            // TODO this is a mess
+@@ -21554,8 +21554,8 @@
+ 	        // Get all the class dependencies first
+ 	        this.attributes.forEach((attribute) => {
+ 	            if (attribute.node.name === 'class') {
+-	                const dependencies = attribute.node.get_dependencies();
+-	                this.class_dependencies.push(...dependencies);
++	                /* PATCHED const dependencies */ let dependencies = attribute.node.get_dependencies();
++	                this.class_dependencies /* PATCHED */ = [...this.class_dependencies, ...dependencies];
+ 	            }
+ 	        });
+ 	        if (this.node.attributes.some(attr => attr.is_spread)) {
+@@ -21573,7 +21573,7 @@
+ 	        const updates = [];
+ 	        this.attributes
+ 	            .forEach(attr => {
+-	            const dependencies = attr.node.get_dependencies();
++	            /* PATCHED const dependencies */ let dependencies = attr.node.get_dependencies();
+ 	            const condition = dependencies.length > 0
+ 	                ? block.renderer.dirty(dependencies)
+ 	                : null;
+@@ -21606,7 +21606,7 @@
+ 		`);
+ 	        // handle edge cases for elements
+ 	        if (this.node.name === 'select') {
+-	            const dependencies = new Set();
++	            /* PATCHED const dependencies */ let dependencies = new Set();
+ 	            for (const attr of this.attributes) {
+ 	                for (const dep of attr.node.dependencies) {
+ 	                    dependencies.add(dep);
+@@ -21995,7 +21995,7 @@
+ 	            block.has_intro_method = has_intros;
+ 	            block.has_outro_method = has_outros;
+ 	        });
+-	        renderer.blocks.push(...blocks);
++	        renderer.blocks /* PATCHED */ = [...renderer.blocks, ...blocks];
+ 	    }
+ 	    render(block, parent_node, parent_nodes) {
+ 	        const name = this.var;
+@@ -22389,7 +22389,7 @@
+ 	        }
+ 	        block.chunks.mount.push(b `${this.var}.m(${parent_node || '#target'}, ${parent_node ? 'null' : '#anchor'});`);
+ 	        const anchor = this.get_or_create_anchor(block, parent_node, parent_nodes);
+-	        const body = b `
++	        /* PATCHED const body */ let body = b `
+ 			${has_transitions
+             ? b `
+ 						@group_outros();
+@@ -22909,7 +22909,7 @@
+ 	            }
+ 	            else {
+ 	                dynamic_attributes.forEach((attribute) => {
+-	                    const dependencies = attribute.get_dependencies();
++	                    /* PATCHED const dependencies */ let dependencies = attribute.get_dependencies();
+ 	                    if (dependencies.length > 0) {
+ 	                        const condition = renderer.dirty(dependencies);
+ 	                        updates.push(b `
+@@ -22948,7 +22948,7 @@
+ 				}
+ 			`);
+ 	            const contextual_dependencies = Array.from(binding.expression.contextual_dependencies);
+-	            const dependencies = Array.from(binding.expression.dependencies);
++	            /* PATCHED const dependencies */ let dependencies = Array.from(binding.expression.dependencies);
+ 	            let lhs = binding.raw_expression;
+ 	            if (binding.is_contextual && binding.expression.node.type === 'Identifier') {
+ 	                // bind:x={y} — we can't just do `y = x`, we need to
+@@ -22987,7 +22987,7 @@
+ 					}
+ 				`;
+ 	            }
+-	            const body = b `
++	            /* PATCHED const body */ let body = b `
+ 				function ${id}(${params}) {
+ 					${invalidate_binding}
+ 				}
+@@ -23089,7 +23089,7 @@
+ 	                block.chunks.create.push(b `${css_custom_properties_wrapper} = @element("div");`);
+ 	                block.chunks.hydrate.push(b `@set_style(${css_custom_properties_wrapper}, "display", "contents");`);
+ 	                this.node.css_custom_properties.forEach(attr => {
+-	                    const dependencies = attr.get_dependencies();
++	                    /* PATCHED const dependencies */ let dependencies = attr.get_dependencies();
+ 	                    const should_cache = attr.should_cache();
+ 	                    const last = should_cache && block.get_unique_name(`${attr.name.replace(/[^a-zA-Z_$]/g, '_')}_last`);
+ 	                    if (should_cache)
+@@ -23395,7 +23395,7 @@
+ 	            block.chunks.init.push(b `@_document.title = ${init};`);
+ 	            const updater = b `@_document.title = ${this.node.should_cache ? last : value};`;
+ 	            if (all_dependencies.size) {
+-	                const dependencies = Array.from(all_dependencies);
++	                /* PATCHED const dependencies */ let dependencies = Array.from(all_dependencies);
+ 	                let condition = block.renderer.dirty(dependencies);
+ 	                if (block.has_outros) {
+ 	                    condition = x `!#current || ${condition}`;
+@@ -24229,7 +24229,7 @@
+ 	    // the base's filename before joining. We also know that input does not have a
+ 	    // leading slash, and that the stripped base will have a trailing slash if
+ 	    // there are any directories (or it'll be empty).
+-	    const joined = stripPathFilename(base) + input;
++	    /* PATCHED const joined */ let joined = stripPathFilename(base) + input;
+ 	    // If base is an absolute path, then input will be relative to it.
+ 	    if (base.startsWith('/'))
+ 	        return '/' + normalizeSimplePath(joined);
+@@ -24957,7 +24957,7 @@
+ 	    // prevent fragment being created twice (#1063)
+ 	    if (options.customElement)
+ 	        block.chunks.create.push(b `this.c = @noop;`);
+-	    const body = [];
++	    /* PATCHED const body */ let body = [];
+ 	    if (renderer.file_var) {
+ 	        const file = component.file ? x `"${component.file}"` : x `undefined`;
+ 	        body.push(b `const ${renderer.file_var} = ${file};`);
+@@ -24987,13 +24987,13 @@
+ 	    // fix order
+ 	    // TODO the deconflicted names of blocks are reversed... should set them here
+ 	    const blocks = renderer.blocks.slice().reverse();
+-	    body.push(...blocks.map(block => {
++	    body /* PATCHED */ = [...body, ...blocks.map(block => {
+ 	        // TODO this is a horrible mess — renderer.blocks
+ 	        // contains a mixture of Blocks and Nodes
+ 	        if (block.render)
+ 	            return block.render();
+ 	        return block;
+-	    }));
++	    })];
+ 	    if (options.dev && !options.hydratable) {
+ 	        block.chunks.claim.push(b `throw new @_Error("options.hydrate only works if the component was compiled with the \`hydratable: true\` option");`);
+ 	    }
+@@ -25261,7 +25261,7 @@
+ 	        const reactive_declarations = [];
+ 	        const fixed_reactive_declarations = []; // not really 'reactive' but whatever
+ 	        component.reactive_declarations.forEach(d => {
+-	            const dependencies = Array.from(d.dependencies);
++	            /* PATCHED const dependencies */ let dependencies = Array.from(d.dependencies);
+ 	            const uses_rest_or_props = !!dependencies.find(n => n === '$$props' || n === '$$restProps');
+ 	            const writable = dependencies.filter(n => {
+ 	                const variable = component.var_lookup.get(n);
+@@ -25408,7 +25408,7 @@
+ 				}`
+ 	            });
+ 	        }
+-	        declaration.body.body.push(...accessors);
++	        declaration.body.body /* PATCHED */ = [...declaration.body.body, ...accessors];
+ 	        body.push(declaration);
+ 	        if (component.tag != null) {
+ 	            body.push(b `
+@@ -25442,7 +25442,7 @@
+ 				}
+ 			}
+ 		`[0];
+-	        declaration.body.body.push(...accessors);
++	        declaration.body.body /* PATCHED */ = [...declaration.body.body, ...accessors];
+ 	        body.push(declaration);
+ 	    }
+ 	    return { js: flatten$1(body), css };
+@@ -26169,7 +26169,7 @@
+ 	        });
+ 	        if (this.index) {
+ 	            // index can only change if this is a keyed each block
+-	            const dependencies = info.key ? this.expression.dependencies : new Set([]);
++	            /* PATCHED const dependencies */ let dependencies = info.key ? this.expression.dependencies : new Set([]);
+ 	            this.scope.add(this.index, dependencies, this);
+ 	        }
+ 	        this.key = info.key
+@@ -26224,7 +26224,7 @@
+ 	    get_dependencies() {
+ 	        if (this.is_spread)
+ 	            return this.expression.dynamic_dependencies();
+-	        const dependencies = new Set();
++	        /* PATCHED const dependencies */ let dependencies = new Set();
+ 	        this.chunks.forEach(chunk => {
+ 	            if (chunk.type === 'Expression') {
+ 	                add_to_set(dependencies, chunk.dynamic_dependencies());
+@@ -26614,7 +26614,7 @@
+ 	                case 'Let': {
+ 	                    const l = new Let(component, this, scope, node);
+ 	                    this.lets.push(l);
+-	                    const dependencies = new Set([l.name.name]);
++	                    /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+ 	                    l.names.forEach(name => {
+ 	                        scope.add(name, dependencies, this);
+ 	                    });
+@@ -27188,7 +27188,7 @@
+ 	        if (this.lets.length > 0) {
+ 	            this.scope = scope.child();
+ 	            this.lets.forEach(l => {
+-	                const dependencies = new Set([l.name.name]);
++	                /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+ 	                l.names.forEach(name => {
+ 	                    this.scope.add(name, dependencies, this);
+ 	                });
+@@ -27438,7 +27438,7 @@
+ 	        if (use_ignores)
+ 	            component.pop_ignores(), ignores = [];
+ 	        if (node.type === 'Comment' && node.ignores.length) {
+-	            ignores.push(...node.ignores);
++	            ignores /* PATCHED */ = [...ignores, ...node.ignores];
+ 	        }
+ 	        if (last)
+ 	            last.next = node;
+@@ -27463,7 +27463,7 @@
+ 	                case 'Let': {
+ 	                    const l = new Let(component, this, scope, node);
+ 	                    this.lets.push(l);
+-	                    const dependencies = new Set([l.name.name]);
++	                    /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+ 	                    l.names.forEach((name) => {
+ 	                        scope.add(name, dependencies, this);
+ 	                    });
+@@ -27737,7 +27737,7 @@
+ 	        return variable.injected;
+ 	    });
+ 	    const reactive_declarations = component.reactive_declarations.map(d => {
+-	        const body = d.node.body;
++	        /* PATCHED const body */ let body = d.node.body;
+ 	        let statement = b `${body}`;
+ 	        if (!d.declaration) { // TODO do not add label if it's not referenced
+ 	            statement = b `$: { ${statement} }`;
+@@ -29807,7 +29807,7 @@
+ 	                            const at_rule_declarations = node.block.children
+ 	                                .filter(node => node.type === 'Declaration')
+ 	                                .map(node => new Declaration$1(node));
+-	                            atrule.declarations.push(...at_rule_declarations);
++	                            atrule.declarations /* PATCHED */ = [...atrule.declarations, ...at_rule_declarations];
+ 	                        }
+ 	                        current_atrule = atrule;
+ 	                    }
+@@ -29889,7 +29889,7 @@
+ 	        });
+ 	    }
+ 	    warn_on_unused_selectors(component) {
+-	        const ignores = !this.ast.css ? [] : extract_ignores_above_position(this.ast.css.start, this.ast.html.children);
++	        /* PATCHED const ignores */ let ignores = !this.ast.css ? [] : extract_ignores_above_position(this.ast.css.start, this.ast.html.children);
+ 	        component.push_ignores(ignores);
+ 	        this.children.forEach(child => {
+ 	            child.warn_on_unused_selector((selector) => {
+@@ -30338,7 +30338,7 @@
+ 	        this.imports.push(node);
+ 	    }
+ 	    extract_exports(node, module_script = false) {
+-	        const ignores = extract_svelte_ignore_from_comments(node);
++	        /* PATCHED const ignores */ let ignores = extract_svelte_ignore_from_comments(node);
+ 	        if (ignores.length)
+ 	            this.push_ignores(ignores);
+ 	        const result = this._extract_exports(node, module_script);
+@@ -31010,14 +31010,14 @@
+ 	        const component = this;
+ 	        const unsorted_reactive_declarations = [];
+ 	        this.ast.instance.content.body.forEach(node => {
+-	            const ignores = extract_svelte_ignore_from_comments(node);
++	            /* PATCHED const ignores */ let ignores = extract_svelte_ignore_from_comments(node);
+ 	            if (ignores.length)
+ 	                this.push_ignores(ignores);
+ 	            if (node.type === 'LabeledStatement' && node.label.name === '$') {
+ 	                this.reactive_declaration_nodes.add(node);
+ 	                const assignees = new Set();
+ 	                const assignee_nodes = new Set();
+-	                const dependencies = new Set();
++	                /* PATCHED const dependencies */ let dependencies = new Set();
+ 	                const module_dependencies = new Set();
+ 	                let scope = this.instance_scope;
+ 	                const map = this.instance_scope_map;
+@@ -31411,11 +31411,11 @@
+ 	        result_line.push([mapping.generatedColumn]);
+ 	        result_segment = result_line[result_line.length - 1];
+ 	        if (mapping.source != null) {
+-	            result_segment.push(...[
++	            result_segment /* PATCHED */ = [...result_segment, ...[
+ 	                source_idx[mapping.source],
+ 	                mapping.originalLine - 1,
+ 	                mapping.originalColumn
+-	            ]);
++	            ]];
+ 	            if (mapping.name != null) {
+ 	                result_segment.push(name_idx[mapping.name]);
+ 	            }
+@@ -31509,7 +31509,7 @@
+ 	            this.sourcemap_list.unshift(map);
+ 	        }
+ 	        if (dependencies) {
+-	            this.dependencies.push(...dependencies);
++	            this.dependencies /* PATCHED */ = [...this.dependencies, ...dependencies];
+ 	        }
+ 	    }
+ 	    to_processed() {
+@@ -31582,7 +31582,7 @@
+ 	    const tag_regex = tag_name === 'style'
+ 	        ? /<!--[^]*?-->|<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gi
+ 	        : /<!--[^]*?-->|<script(\s[^]*?)?(?:>([^]*?)<\/script>|\/>)/gi;
+-	    const dependencies = [];
++	    /* PATCHED const dependencies */ let dependencies = [];
+ 	    async function process_single_tag(tag_with_content, attributes = '', content = '', tag_offset) {
+ 	        const no_change = () => MappedCode.from_source(slice_source(tag_with_content, tag_offset, source));
+ 	        if (!attributes && !content)
+@@ -31596,7 +31596,7 @@
+ 	        if (!processed)
+ 	            return no_change();
+ 	        if (processed.dependencies)
+-	            dependencies.push(...processed.dependencies);
++	            dependencies /* PATCHED */ = [...dependencies, ...processed.dependencies];
+ 	        if (!processed.map && processed.code === content)
+ 	            return no_change();
+ 	        return processed_tag_to_code(processed, tag_name, attributes, slice_source(content, tag_offset, source));
+diff --git a/node_modules/svelte/compiler.mjs b/node_modules/svelte/compiler.mjs
+index a0741e1..f19b0ef 100644
+--- a/node_modules/svelte/compiler.mjs
++++ b/node_modules/svelte/compiler.mjs
+@@ -6357,9 +6357,9 @@ const sum = (a, b) => a + b;
+ const join = (nodes, separator) => {
+ 	if (nodes.length === 0) return [];
+
+-	const joined = [...nodes[0]];
++	/* PATCHED const joined */ let joined = [...nodes[0]];
+ 	for (let i = 1; i < nodes.length; i += 1) {
+-		joined.push(separator, ...nodes[i]);
++		joined /* PATCHED */ = [...joined, separator, ...nodes[i]];
+ 	}
+ 	return joined;
+ };
+@@ -6402,10 +6402,10 @@ const deconflict = (name, names) => {
+  * @param {State} state
+  */
+ const handle_body = (nodes, state) => {
+-	const chunks = [];
++	/* PATCHED const chunks */ let chunks = [];
+
+-	const body = nodes.map(statement => {
+-		const chunks = handle(statement, {
++	/* PATCHED const body */ let body = nodes.map(statement => {
++		/* PATCHED const chunks */ let chunks = handle(statement, {
+ 			...state,
+ 			indent: state.indent
+ 		});
+@@ -6437,9 +6437,9 @@ const handle_body = (nodes, state) => {
+ 			);
+ 		}
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			...body[i]
+-		);
++		];
+
+ 		needed_padding = needs_padding;
+ 	}
+@@ -6452,7 +6452,7 @@ const handle_body = (nodes, state) => {
+  * @param {State} state
+  */
+ const handle_var_declaration = (node, state) => {
+-	const chunks = [c(`${node.kind} `)];
++	/* PATCHED const chunks */ let chunks = [c(`${node.kind} `)];
+
+ 	const declarators = node.declarations.map(d => handle(d, {
+ 		...state,
+@@ -6467,11 +6467,11 @@ const handle_var_declaration = (node, state) => {
+ 	const separator = c(multiple_lines ? `,\n${state.indent}\t` : ', ');
+
+ 	if (multiple_lines) {
+-		chunks.push(...join(declarators, separator));
++		chunks /* PATCHED */ = [...chunks, ...join(declarators, separator)];
+ 	} else {
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			...join(declarators, separator)
+-		);
++		];
+ 	}
+
+ 	return chunks;
+@@ -6519,7 +6519,7 @@ const handlers = {
+ 	},
+
+ 	IfStatement(node, state) {
+-		const chunks = [
++		/* PATCHED const chunks */ let chunks = [
+ 			c('if ('),
+ 			...handle(node.test, state),
+ 			c(') '),
+@@ -6527,10 +6527,10 @@ const handlers = {
+ 		];
+
+ 		if (node.alternate) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(' else '),
+ 				...handle(node.alternate, state)
+-			);
++			];
+ 		}
+
+ 		return chunks;
+@@ -6566,7 +6566,7 @@ const handlers = {
+ 	},
+
+ 	SwitchStatement(/** @type {SwitchStatement} */ node, state) {
+-		const chunks = [
++		/* PATCHED const chunks */ let chunks = [
+ 			c('switch ('),
+ 			...handle(node.discriminant, state),
+ 			c(') {')
+@@ -6574,20 +6574,20 @@ const handlers = {
+
+ 		node.cases.forEach(block => {
+ 			if (block.test) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`\n${state.indent}\tcase `),
+ 					...handle(block.test, { ...state, indent: `${state.indent}\t` }),
+ 					c(':')
+-				);
++				];
+ 			} else {
+ 				chunks.push(c(`\n${state.indent}\tdefault:`));
+ 			}
+
+ 			block.consequent.forEach(statement => {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(`\n${state.indent}\t\t`),
+ 					...handle(statement, { ...state, indent: `${state.indent}\t\t` })
+-				);
++				];
+ 			});
+ 		});
+
+@@ -6618,27 +6618,27 @@ const handlers = {
+ 	},
+
+ 	TryStatement(node, state) {
+-		const chunks = [
++		/* PATCHED const chunks */ let chunks = [
+ 			c('try '),
+ 			...handle(node.block, state)
+ 		];
+
+ 		if (node.handler) {
+ 			if (node.handler.param) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(' catch('),
+ 					...handle(node.handler.param, state),
+ 					c(') ')
+-				);
++				];
+ 			} else {
+ 				chunks.push(c(' catch '));
+ 			}
+
+-			chunks.push(...handle(node.handler.body, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.handler.body, state)];
+ 		}
+
+ 		if (node.finalizer) {
+-			chunks.push(c(' finally '), ...handle(node.finalizer, state));
++			chunks /* PATCHED */ = [...chunks, c(' finally '), ...handle(node.finalizer, state)];
+ 		}
+
+ 		return chunks;
+@@ -6664,46 +6664,46 @@ const handlers = {
+ 	},
+
+ 	ForStatement: scoped((node, state) => {
+-		const chunks = [c('for (')];
++		/* PATCHED const chunks */ let chunks = [c('for (')];
+
+ 		if (node.init) {
+ 			if (node.init.type === 'VariableDeclaration') {
+-				chunks.push(...handle_var_declaration(node.init, state));
++				chunks /* PATCHED */ = [...chunks, ...handle_var_declaration(node.init, state)];
+ 			} else {
+-				chunks.push(...handle(node.init, state));
++				chunks /* PATCHED */ = [...chunks, ...handle(node.init, state)];
+ 			}
+ 		}
+
+ 		chunks.push(c('; '));
+-		if (node.test) chunks.push(...handle(node.test, state));
++		if (node.test) chunks /* PATCHED */ = [...chunks, ...handle(node.test, state)];
+ 		chunks.push(c('; '));
+-		if (node.update) chunks.push(...handle(node.update, state));
++		if (node.update) chunks /* PATCHED */ = [...chunks, ...handle(node.update, state)];
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			c(') '),
+ 			...handle(node.body, state)
+-		);
++		];
+
+ 		return chunks;
+ 	}),
+
+ 	ForInStatement: scoped((node, state) => {
+-		const chunks = [
++		/* PATCHED const chunks */ let chunks = [
+ 			c(`for ${node.await ? 'await ' : ''}(`)
+ 		];
+
+ 		if (node.left.type === 'VariableDeclaration') {
+-			chunks.push(...handle_var_declaration(node.left, state));
++			chunks /* PATCHED */ = [...chunks, ...handle_var_declaration(node.left, state)];
+ 		} else {
+-			chunks.push(...handle(node.left, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.left, state)];
+ 		}
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			c(node.type === 'ForInStatement' ? ` in ` : ` of `),
+ 			...handle(node.right, state),
+ 			c(') '),
+ 			...handle(node.body, state)
+-		);
++		];
+
+ 		return chunks;
+ 	}),
+@@ -6713,11 +6713,11 @@ const handlers = {
+ 	},
+
+ 	FunctionDeclaration: scoped((/** @type {FunctionDeclaration} */ node, state) => {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (node.async) chunks.push(c('async '));
+ 		chunks.push(c(node.generator ? 'function* ' : 'function '));
+-		if (node.id) chunks.push(...handle(node.id, state));
++		if (node.id) chunks /* PATCHED */ = [...chunks, ...handle(node.id, state)];
+ 		chunks.push(c('('));
+
+ 		const params = node.params.map(p => handle(p, {
+@@ -6733,21 +6733,21 @@ const handlers = {
+ 		const separator = c(multiple_lines ? `,\n${state.indent}` : ', ');
+
+ 		if (multiple_lines) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(`\n${state.indent}\t`),
+ 				...join(params, separator),
+ 				c(`\n${state.indent}`)
+-			);
++			];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				...join(params, separator)
+-			);
++			];
+ 		}
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			c(') '),
+ 			...handle(node.body, state)
+-		);
++		];
+
+ 		return chunks;
+ 	}),
+@@ -6769,25 +6769,25 @@ const handlers = {
+ 	},
+
+ 	ClassDeclaration(node, state) {
+-		const chunks = [c('class ')];
++		/* PATCHED const chunks */ let chunks = [c('class ')];
+
+-		if (node.id) chunks.push(...handle(node.id, state), c(' '));
++		if (node.id) chunks /* PATCHED */ = [...chunks, ...handle(node.id, state), c(' ')];
+
+ 		if (node.superClass) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('extends '),
+ 				...handle(node.superClass, state),
+ 				c(' ')
+-			);
++			];
+ 		}
+
+-		chunks.push(...handle(node.body, state));
++		chunks /* PATCHED */ = [...chunks, ...handle(node.body, state)];
+
+ 		return chunks;
+ 	},
+
+ 	ImportDeclaration(/** @type {ImportDeclaration} */ node, state) {
+-		const chunks = [c('import ')];
++		/* PATCHED const chunks */ let chunks = [c('import ')];
+
+ 		const { length } = node.specifiers;
+ 		const source = handle(node.source, state);
+@@ -6829,27 +6829,27 @@ const handlers = {
+ 				const width = get_length(chunks) + specifiers.map(get_length).reduce(sum, 0) + (2 * specifiers.length) + 6 + get_length(source);
+
+ 				if (width > 80) {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(`{\n\t`),
+ 						...join(specifiers, c(',\n\t')),
+ 						c('\n}')
+-					);
++					];
+ 				} else {
+-					chunks.push(
++					chunks /* PATCHED */ = [...chunks,
+ 						c(`{ `),
+ 						...join(specifiers, c(', ')),
+ 						c(' }')
+-					);
++					];
+ 				}
+ 			}
+
+ 			chunks.push(c(' from '));
+ 		}
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			...source,
+ 			c(';')
+-		);
++		];
+
+ 		return chunks;
+ 	},
+@@ -6859,7 +6859,7 @@ const handlers = {
+ 	},
+
+ 	ExportDefaultDeclaration(node, state) {
+-		const chunks = [
++		/* PATCHED const chunks */ let chunks = [
+ 			c(`export default `),
+ 			...handle(node.declaration, state)
+ 		];
+@@ -6872,10 +6872,10 @@ const handlers = {
+ 	},
+
+ 	ExportNamedDeclaration(node, state) {
+-		const chunks = [c('export ')];
++		/* PATCHED const chunks */ let chunks = [c('export ')];
+
+ 		if (node.declaration) {
+-			chunks.push(...handle(node.declaration, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.declaration, state)];
+ 		} else {
+ 			const specifiers = node.specifiers.map((/** @type {ExportSpecifier} */ specifier) => {
+ 				const name = handle(specifier.local, state)[0];
+@@ -6891,24 +6891,24 @@ const handlers = {
+ 			const width = 7 + specifiers.map(get_length).reduce(sum, 0) + 2 * specifiers.length;
+
+ 			if (width > 80) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('{\n\t'),
+ 					...join(specifiers, c(',\n\t')),
+ 					c('\n}')
+-				);
++				];
+ 			} else {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c('{ '),
+ 					...join(specifiers, c(', ')),
+ 					c(' }')
+-				);
++				];
+ 			}
+
+ 			if (node.source) {
+-				chunks.push(
++				chunks /* PATCHED */ = [...chunks,
+ 					c(' from '),
+ 					...handle(node.source, state)
+-				);
++				];
+ 			}
+ 		}
+
+@@ -6926,7 +6926,7 @@ const handlers = {
+ 	},
+
+ 	MethodDefinition(node, state) {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (node.static) {
+ 			chunks.push(c('static '));
+@@ -6946,61 +6946,61 @@ const handlers = {
+ 		}
+
+ 		if (node.computed) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('['),
+ 				...handle(node.key, state),
+ 				c(']')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.key, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.key, state)];
+ 		}
+
+ 		chunks.push(c('('));
+
+ 		const { params } = node.value;
+ 		for (let i = 0; i < params.length; i += 1) {
+-			chunks.push(...handle(params[i], state));
++			chunks /* PATCHED */ = [...chunks, ...handle(params[i], state)];
+ 			if (i < params.length - 1) chunks.push(c(', '));
+ 		}
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			c(') '),
+ 			...handle(node.value.body, state)
+-		);
++		];
+
+ 		return chunks;
+ 	},
+
+ 	ArrowFunctionExpression: scoped((/** @type {ArrowFunctionExpression} */ node, state) => {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (node.async) chunks.push(c('async '));
+
+ 		if (node.params.length === 1 && node.params[0].type === 'Identifier') {
+-			chunks.push(...handle(node.params[0], state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.params[0], state)];
+ 		} else {
+ 			const params = node.params.map(param => handle(param, {
+ 				...state,
+ 				indent: state.indent + '\t'
+ 			}));
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...join(params, c(', ')),
+ 				c(')')
+-			);
++			];
+ 		}
+
+ 		chunks.push(c(' => '));
+
+ 		if (node.body.type === 'ObjectExpression') {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.body, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.body, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.body, state)];
+ 		}
+
+ 		return chunks;
+@@ -7041,17 +7041,17 @@ const handlers = {
+ 	},
+
+ 	TemplateLiteral(node, state) {
+-		const chunks = [c('`')];
++		/* PATCHED const chunks */ let chunks = [c('`')];
+
+ 		const { quasis, expressions } = node;
+
+ 		for (let i = 0; i < expressions.length; i++) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(quasis[i].value.raw),
+ 				c('${'),
+ 				...handle(expressions[i], state),
+ 				c('}')
+-			);
++			];
+ 		}
+
+ 		chunks.push(
+@@ -7067,7 +7067,7 @@ const handlers = {
+ 	},
+
+ 	ArrayExpression(node, state) {
+-		const chunks = [c('[')];
++		/* PATCHED const chunks */ let chunks = [c('[')];
+
+ 		/** @type {Chunk[][]} */
+ 		const elements = [];
+@@ -7095,14 +7095,14 @@ const handlers = {
+ 		);
+
+ 		if (multiple_lines) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(`\n${state.indent}\t`),
+ 				...join(elements, c(`,\n${state.indent}\t`)),
+ 				c(`\n${state.indent}`),
+ 				...sparse_commas
+-			);
++			];
+ 		} else {
+-			chunks.push(...join(elements, c(', ')), ...sparse_commas);
++			chunks /* PATCHED */ = [...chunks, ...join(elements, c(', ')), ...sparse_commas];
+ 		}
+
+ 		chunks.push(c(']'));
+@@ -7118,14 +7118,14 @@ const handlers = {
+ 		let has_inline_comment = false;
+
+ 		/** @type {Chunk[]} */
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+ 		const separator = c(', ');
+
+ 		node.properties.forEach((p, i) => {
+-			chunks.push(...handle(p, {
++			chunks /* PATCHED */ = [...chunks, ...handle(p, {
+ 				...state,
+ 				indent: state.indent + '\t'
+-			}));
++			})];
+
+ 			if (state.comments.length) {
+ 				// TODO generalise this, so it works with ArrayExpressions and other things.
+@@ -7199,7 +7199,7 @@ const handlers = {
+ 				scope: state.scope_map.get(node.value)
+ 			};
+
+-			const chunks = node.kind !== 'init'
++			/* PATCHED const chunks */ let chunks = node.kind !== 'init'
+ 				? [c(`${node.kind} `)]
+ 				: [];
+
+@@ -7210,13 +7210,13 @@ const handlers = {
+ 				chunks.push(c('*'));
+ 			}
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				...(node.computed ? [c('['), ...key, c(']')] : key),
+ 				c('('),
+ 				...join(node.value.params.map((/** @type {Pattern} */ param) => handle(param, state)), c(', ')),
+ 				c(') '),
+ 				...handle(node.value.body, state)
+-			);
++			];
+
+ 			return chunks;
+ 		}
+@@ -7238,10 +7238,10 @@ const handlers = {
+ 	},
+
+ 	ObjectPattern(node, state) {
+-		const chunks = [c('{ ')];
++		/* PATCHED const chunks */ let chunks = [c('{ ')];
+
+ 		for (let i = 0; i < node.properties.length; i += 1) {
+-			chunks.push(...handle(node.properties[i], state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.properties[i], state)];
+ 			if (i < node.properties.length - 1) chunks.push(c(', '));
+ 		}
+
+@@ -7261,7 +7261,7 @@ const handlers = {
+ 	},
+
+ 	UnaryExpression(node, state) {
+-		const chunks = [c(node.operator)];
++		/* PATCHED const chunks */ let chunks = [c(node.operator)];
+
+ 		if (node.operator.length > 1) {
+ 			chunks.push(c(' '));
+@@ -7271,13 +7271,13 @@ const handlers = {
+ 			EXPRESSIONS_PRECEDENCE[node.argument.type] <
+ 			EXPRESSIONS_PRECEDENCE.UnaryExpression
+ 		) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.argument, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.argument, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.argument, state)];
+ 		}
+
+ 		return chunks;
+@@ -7298,7 +7298,7 @@ const handlers = {
+ 	},
+
+ 	BinaryExpression(node, state) {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		// TODO
+ 		// const is_in = node.operator === 'in';
+@@ -7308,44 +7308,44 @@ const handlers = {
+ 		// }
+
+ 		if (needs_parens(node.left, node, false)) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.left, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.left, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.left, state)];
+ 		}
+
+ 		chunks.push(c(` ${node.operator} `));
+
+ 		if (needs_parens(node.right, node, true)) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.right, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.right, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.right, state)];
+ 		}
+
+ 		return chunks;
+ 	},
+
+ 	ConditionalExpression(node, state) {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (
+ 			EXPRESSIONS_PRECEDENCE[node.test.type] >
+ 			EXPRESSIONS_PRECEDENCE.ConditionalExpression
+ 		) {
+-			chunks.push(...handle(node.test, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.test, state)];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.test, state),
+ 				c(')')
+-			);
++			];
+ 		}
+
+ 		const child_state = { ...state, indent: state.indent + '\t' };
+@@ -7359,38 +7359,38 @@ const handlers = {
+ 		);
+
+ 		if (multiple_lines) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(`\n${state.indent}? `),
+ 				...consequent,
+ 				c(`\n${state.indent}: `),
+ 				...alternate
+-			);
++			];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(` ? `),
+ 				...consequent,
+ 				c(` : `),
+ 				...alternate
+-			);
++			];
+ 		}
+
+ 		return chunks;
+ 	},
+
+ 	NewExpression(/** @type {NewExpression} */ node, state) {
+-		const chunks = [c('new ')];
++		/* PATCHED const chunks */ let chunks = [c('new ')];
+
+ 		if (
+ 			EXPRESSIONS_PRECEDENCE[node.callee.type] <
+ 			EXPRESSIONS_PRECEDENCE.CallExpression || has_call_expression(node.callee)
+ 		) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.callee, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.callee, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.callee, state)];
+ 		}
+
+ 		// TODO this is copied from CallExpression — DRY it out
+@@ -7403,11 +7403,11 @@ const handlers = {
+ 			? c(',\n' + state.indent)
+ 			: c(', ');
+
+-		chunks.push(
++		chunks /* PATCHED */ = [...chunks,
+ 			c('('),
+ 			...join(args, separator),
+ 			c(')')
+-		);
++		];
+
+ 		return chunks;
+ 	},
+@@ -7417,19 +7417,19 @@ const handlers = {
+ 	},
+
+ 	CallExpression(/** @type {CallExpression} */ node, state) {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (
+ 			EXPRESSIONS_PRECEDENCE[node.callee.type] <
+ 			EXPRESSIONS_PRECEDENCE.CallExpression
+ 		) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.callee, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.callee, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.callee, state)];
+ 		}
+
+ 		if (/** @type {SimpleCallExpression} */ (node).optional) {
+@@ -7447,49 +7447,49 @@ const handlers = {
+ 				indent: `${state.indent}\t`
+ 			}));
+
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(`(\n${state.indent}\t`),
+ 				...join(args, c(`,\n${state.indent}\t`)),
+ 				c(`\n${state.indent})`)
+-			);
++			];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...join(args, c(', ')),
+ 				c(')')
+-			);
++			];
+ 		}
+
+ 		return chunks;
+ 	},
+
+ 	MemberExpression(node, state) {
+-		const chunks = [];
++		/* PATCHED const chunks */ let chunks = [];
+
+ 		if (EXPRESSIONS_PRECEDENCE[node.object.type] < EXPRESSIONS_PRECEDENCE.MemberExpression) {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('('),
+ 				...handle(node.object, state),
+ 				c(')')
+-			);
++			];
+ 		} else {
+-			chunks.push(...handle(node.object, state));
++			chunks /* PATCHED */ = [...chunks, ...handle(node.object, state)];
+ 		}
+
+ 		if (node.computed) {
+ 			if (node.optional) {
+ 				chunks.push(c('?.'));
+ 			}
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c('['),
+ 				...handle(node.property, state),
+ 				c(']')
+-			);
++			];
+ 		} else {
+-			chunks.push(
++			chunks /* PATCHED */ = [...chunks,
+ 				c(node.optional ? '?.' : '.'),
+ 				...handle(node.property, state)
+-			);
++			];
+ 		}
+
+ 		return chunks;
+@@ -7721,7 +7721,7 @@ function print(node, opts = {}) {
+ 	let { map: scope_map, scope } = analyze(node);
+ 	const deconflicted = new WeakMap();
+
+-	const chunks = handle(node, {
++	/* PATCHED const chunks */ let chunks = handle(node, {
+ 		indent: '',
+ 		getName,
+ 		scope,
+@@ -17112,7 +17112,7 @@ function read_sequence(parser, done) {
+             chunks.push(current_chunk);
+         }
+     }
+-    const chunks = [];
++    /* PATCHED const chunks */ let chunks = [];
+     while (parser.index < parser.template.length) {
+         const index = parser.index;
+         if (done()) {
+@@ -18158,7 +18158,7 @@ class Block$1 {
+ 			d: ${properties.destroy}
+ 		}`;
+         const block = dev && this.get_unique_name('block');
+-        const body = b `
++        /* PATCHED const body */ let body = b `
+ 			${this.chunks.declarations}
+
+ 			${Array.from(this.variables.values()).map(({ id, init }) => {
+@@ -18469,7 +18469,7 @@ class AwaitBlockWrapper extends Wrapper {
+         if (has_transitions) {
+             block.chunks.intro.push(b `@transition_in(${info}.block);`);
+         }
+-        const dependencies = this.node.expression.dynamic_dependencies();
++        /* PATCHED const dependencies */ let dependencies = this.node.expression.dynamic_dependencies();
+         const update_await_block_branch = b `@update_await_block_branch(${info}, #ctx, #dirty)`;
+         if (dependencies.length > 0) {
+             const condition = x `
+@@ -18679,7 +18679,7 @@ class DebugTagWrapper extends Wrapper {
+                 name: 'log',
+                 loc
+             };
+-            const dependencies = new Set();
++            /* PATCHED const dependencies */ let dependencies = new Set();
+             this.node.expressions.forEach(expression => {
+                 add_to_set(dependencies, expression.dependencies);
+             });
+@@ -19336,7 +19336,7 @@ class AttributeWrapper extends BaseAttributeWrapper {
+                 ? '@xlink_attr'
+                 : '@attr';
+         const is_legacy_input_type = element.renderer.component.compile_options.legacy && name === 'type' && this.parent.node.name === 'input';
+-        const dependencies = this.get_dependencies();
++        /* PATCHED const dependencies */ let dependencies = this.get_dependencies();
+         const value = this.get_value(block);
+         let updater;
+         const init = this.get_init(block, value);
+@@ -19423,7 +19423,7 @@ class AttributeWrapper extends BaseAttributeWrapper {
+     }
+     get_dependencies() {
+         const node_dependencies = this.node.get_dependencies();
+-        const dependencies = new Set(node_dependencies);
++        /* PATCHED const dependencies */ let dependencies = new Set(node_dependencies);
+         node_dependencies.forEach((prop) => {
+             const indirect_dependencies = this.parent.renderer.component.indirect_dependencies.get(prop);
+             if (indirect_dependencies) {
+@@ -19838,7 +19838,7 @@ class BindingWrapper {
+         this.needs_lock = this.node.name === 'currentTime'; // TODO others?
+     }
+     get_dependencies() {
+-        const dependencies = new Set(this.node.expression.dependencies);
++        /* PATCHED const dependencies */ let dependencies = new Set(this.node.expression.dependencies);
+         this.node.expression.dependencies.forEach((prop) => {
+             const indirect_dependencies = this.parent.renderer.component.indirect_dependencies.get(prop);
+             if (indirect_dependencies) {
+@@ -20140,8 +20140,8 @@ function bind_this(component, block, binding, variable) {
+     block.renderer.add_to_context(fn.name);
+     const callee = block.renderer.reference(fn.name);
+     const { contextual_dependencies, mutation } = binding.handler;
+-    const dependencies = binding.get_dependencies();
+-    const body = b `
++    /* PATCHED const dependencies */ let dependencies = binding.get_dependencies();
++    /* PATCHED const body */ let body = b `
+ 		${mutation}
+ 		${Array.from(dependencies)
+         .filter(dep => dep[0] !== '$')
+@@ -20968,7 +20968,7 @@ class Expression {
+                     const names = new Set(extract_names(assignee));
+                     const traced = new Set();
+                     names.forEach(name => {
+-                        const dependencies = template_scope.dependencies_for_name.get(name);
++                        /* PATCHED const dependencies */ let dependencies = template_scope.dependencies_for_name.get(name);
+                         if (dependencies) {
+                             dependencies.forEach(name => traced.add(name));
+                         }
+@@ -21043,7 +21043,7 @@ class Tag extends Wrapper {
+         return this.node.expression.contextual_dependencies.size === 0 && this.node.expression.dynamic_dependencies().length === 0;
+     }
+     rename_this_method(block, update) {
+-        const dependencies = this.node.expression.dynamic_dependencies();
++        /* PATCHED const dependencies */ let dependencies = this.node.expression.dynamic_dependencies();
+         let snippet = this.node.expression.manipulate(block);
+         const value = this.node.should_cache && block.get_unique_name(`${this.var.name}_value`);
+         const content = this.node.should_cache ? value : snippet;
+@@ -21448,7 +21448,7 @@ class ElementWrapper extends Wrapper {
+         renderer.add_to_context(handler.name);
+         // TODO figure out how to handle locks
+         const needs_lock = binding_group.bindings.some(binding => binding.needs_lock);
+-        const dependencies = new Set();
++        /* PATCHED const dependencies */ let dependencies = new Set();
+         const contextual_dependencies = new Set();
+         binding_group.bindings.forEach(binding => {
+             // TODO this is a mess
+@@ -21548,8 +21548,8 @@ class ElementWrapper extends Wrapper {
+         // Get all the class dependencies first
+         this.attributes.forEach((attribute) => {
+             if (attribute.node.name === 'class') {
+-                const dependencies = attribute.node.get_dependencies();
+-                this.class_dependencies.push(...dependencies);
++                /* PATCHED const dependencies */ let dependencies = attribute.node.get_dependencies();
++                this.class_dependencies /* PATCHED */ = [...this.class_dependencies, ...dependencies];
+             }
+         });
+         if (this.node.attributes.some(attr => attr.is_spread)) {
+@@ -21567,7 +21567,7 @@ class ElementWrapper extends Wrapper {
+         const updates = [];
+         this.attributes
+             .forEach(attr => {
+-            const dependencies = attr.node.get_dependencies();
++            /* PATCHED const dependencies */ let dependencies = attr.node.get_dependencies();
+             const condition = dependencies.length > 0
+                 ? block.renderer.dirty(dependencies)
+                 : null;
+@@ -21600,7 +21600,7 @@ class ElementWrapper extends Wrapper {
+ 		`);
+         // handle edge cases for elements
+         if (this.node.name === 'select') {
+-            const dependencies = new Set();
++            /* PATCHED const dependencies */ let dependencies = new Set();
+             for (const attr of this.attributes) {
+                 for (const dep of attr.node.dependencies) {
+                     dependencies.add(dep);
+@@ -21989,7 +21989,7 @@ class IfBlockWrapper extends Wrapper {
+             block.has_intro_method = has_intros;
+             block.has_outro_method = has_outros;
+         });
+-        renderer.blocks.push(...blocks);
++        renderer.blocks /* PATCHED */ = [...renderer.blocks, ...blocks];
+     }
+     render(block, parent_node, parent_nodes) {
+         const name = this.var;
+@@ -22383,7 +22383,7 @@ class KeyBlockWrapper extends Wrapper {
+         }
+         block.chunks.mount.push(b `${this.var}.m(${parent_node || '#target'}, ${parent_node ? 'null' : '#anchor'});`);
+         const anchor = this.get_or_create_anchor(block, parent_node, parent_nodes);
+-        const body = b `
++        /* PATCHED const body */ let body = b `
+ 			${has_transitions
+             ? b `
+ 						@group_outros();
+@@ -22903,7 +22903,7 @@ class InlineComponentWrapper extends Wrapper {
+             }
+             else {
+                 dynamic_attributes.forEach((attribute) => {
+-                    const dependencies = attribute.get_dependencies();
++                    /* PATCHED const dependencies */ let dependencies = attribute.get_dependencies();
+                     if (dependencies.length > 0) {
+                         const condition = renderer.dirty(dependencies);
+                         updates.push(b `
+@@ -22942,7 +22942,7 @@ class InlineComponentWrapper extends Wrapper {
+ 				}
+ 			`);
+             const contextual_dependencies = Array.from(binding.expression.contextual_dependencies);
+-            const dependencies = Array.from(binding.expression.dependencies);
++            /* PATCHED const dependencies */ let dependencies = Array.from(binding.expression.dependencies);
+             let lhs = binding.raw_expression;
+             if (binding.is_contextual && binding.expression.node.type === 'Identifier') {
+                 // bind:x={y} — we can't just do `y = x`, we need to
+@@ -22981,7 +22981,7 @@ class InlineComponentWrapper extends Wrapper {
+ 					}
+ 				`;
+             }
+-            const body = b `
++            /* PATCHED const body */ let body = b `
+ 				function ${id}(${params}) {
+ 					${invalidate_binding}
+ 				}
+@@ -23083,7 +23083,7 @@ class InlineComponentWrapper extends Wrapper {
+                 block.chunks.create.push(b `${css_custom_properties_wrapper} = @element("div");`);
+                 block.chunks.hydrate.push(b `@set_style(${css_custom_properties_wrapper}, "display", "contents");`);
+                 this.node.css_custom_properties.forEach(attr => {
+-                    const dependencies = attr.get_dependencies();
++                    /* PATCHED const dependencies */ let dependencies = attr.get_dependencies();
+                     const should_cache = attr.should_cache();
+                     const last = should_cache && block.get_unique_name(`${attr.name.replace(/[^a-zA-Z_$]/g, '_')}_last`);
+                     if (should_cache)
+@@ -23389,7 +23389,7 @@ class TitleWrapper extends Wrapper {
+             block.chunks.init.push(b `@_document.title = ${init};`);
+             const updater = b `@_document.title = ${this.node.should_cache ? last : value};`;
+             if (all_dependencies.size) {
+-                const dependencies = Array.from(all_dependencies);
++                /* PATCHED const dependencies */ let dependencies = Array.from(all_dependencies);
+                 let condition = block.renderer.dirty(dependencies);
+                 if (block.has_outros) {
+                     condition = x `!#current || ${condition}`;
+@@ -24223,7 +24223,7 @@ function resolve(input, base) {
+     // the base's filename before joining. We also know that input does not have a
+     // leading slash, and that the stripped base will have a trailing slash if
+     // there are any directories (or it'll be empty).
+-    const joined = stripPathFilename(base) + input;
++    /* PATCHED const joined */ let joined = stripPathFilename(base) + input;
+     // If base is an absolute path, then input will be relative to it.
+     if (base.startsWith('/'))
+         return '/' + normalizeSimplePath(joined);
+@@ -24951,7 +24951,7 @@ function dom(component, options) {
+     // prevent fragment being created twice (#1063)
+     if (options.customElement)
+         block.chunks.create.push(b `this.c = @noop;`);
+-    const body = [];
++    /* PATCHED const body */ let body = [];
+     if (renderer.file_var) {
+         const file = component.file ? x `"${component.file}"` : x `undefined`;
+         body.push(b `const ${renderer.file_var} = ${file};`);
+@@ -24981,13 +24981,13 @@ function dom(component, options) {
+     // fix order
+     // TODO the deconflicted names of blocks are reversed... should set them here
+     const blocks = renderer.blocks.slice().reverse();
+-    body.push(...blocks.map(block => {
++    body /* PATCHED */ = [...body, ...blocks.map(block => {
+         // TODO this is a horrible mess — renderer.blocks
+         // contains a mixture of Blocks and Nodes
+         if (block.render)
+             return block.render();
+         return block;
+-    }));
++    })];
+     if (options.dev && !options.hydratable) {
+         block.chunks.claim.push(b `throw new @_Error("options.hydrate only works if the component was compiled with the \`hydratable: true\` option");`);
+     }
+@@ -25255,7 +25255,7 @@ function dom(component, options) {
+         const reactive_declarations = [];
+         const fixed_reactive_declarations = []; // not really 'reactive' but whatever
+         component.reactive_declarations.forEach(d => {
+-            const dependencies = Array.from(d.dependencies);
++            /* PATCHED const dependencies */ let dependencies = Array.from(d.dependencies);
+             const uses_rest_or_props = !!dependencies.find(n => n === '$$props' || n === '$$restProps');
+             const writable = dependencies.filter(n => {
+                 const variable = component.var_lookup.get(n);
+@@ -25402,7 +25402,7 @@ function dom(component, options) {
+ 				}`
+             });
+         }
+-        declaration.body.body.push(...accessors);
++        declaration.body.body /* PATCHED */ = [...declaration.body.body, ...accessors];
+         body.push(declaration);
+         if (component.tag != null) {
+             body.push(b `
+@@ -25436,7 +25436,7 @@ function dom(component, options) {
+ 				}
+ 			}
+ 		`[0];
+-        declaration.body.body.push(...accessors);
++        declaration.body.body /* PATCHED */ = [...declaration.body.body, ...accessors];
+         body.push(declaration);
+     }
+     return { js: flatten$1(body), css };
+@@ -26163,7 +26163,7 @@ class EachBlock$1 extends AbstractBlock {
+         });
+         if (this.index) {
+             // index can only change if this is a keyed each block
+-            const dependencies = info.key ? this.expression.dependencies : new Set([]);
++            /* PATCHED const dependencies */ let dependencies = info.key ? this.expression.dependencies : new Set([]);
+             this.scope.add(this.index, dependencies, this);
+         }
+         this.key = info.key
+@@ -26218,7 +26218,7 @@ class Attribute extends Node$1 {
+     get_dependencies() {
+         if (this.is_spread)
+             return this.expression.dynamic_dependencies();
+-        const dependencies = new Set();
++        /* PATCHED const dependencies */ let dependencies = new Set();
+         this.chunks.forEach(chunk => {
+             if (chunk.type === 'Expression') {
+                 add_to_set(dependencies, chunk.dynamic_dependencies());
+@@ -26608,7 +26608,7 @@ class Element$1 extends Node$1 {
+                 case 'Let': {
+                     const l = new Let(component, this, scope, node);
+                     this.lets.push(l);
+-                    const dependencies = new Set([l.name.name]);
++                    /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+                     l.names.forEach(name => {
+                         scope.add(name, dependencies, this);
+                     });
+@@ -27182,7 +27182,7 @@ class InlineComponent$1 extends Node$1 {
+         if (this.lets.length > 0) {
+             this.scope = scope.child();
+             this.lets.forEach(l => {
+-                const dependencies = new Set([l.name.name]);
++                /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+                 l.names.forEach(name => {
+                     this.scope.add(name, dependencies, this);
+                 });
+@@ -27432,7 +27432,7 @@ function map_children(component, parent, scope, children) {
+         if (use_ignores)
+             component.pop_ignores(), ignores = [];
+         if (node.type === 'Comment' && node.ignores.length) {
+-            ignores.push(...node.ignores);
++            ignores /* PATCHED */ = [...ignores, ...node.ignores];
+         }
+         if (last)
+             last.next = node;
+@@ -27457,7 +27457,7 @@ class SlotTemplate extends Node$1 {
+                 case 'Let': {
+                     const l = new Let(component, this, scope, node);
+                     this.lets.push(l);
+-                    const dependencies = new Set([l.name.name]);
++                    /* PATCHED const dependencies */ let dependencies = new Set([l.name.name]);
+                     l.names.forEach((name) => {
+                         scope.add(name, dependencies, this);
+                     });
+@@ -27731,7 +27731,7 @@ function ssr(component, options) {
+         return variable.injected;
+     });
+     const reactive_declarations = component.reactive_declarations.map(d => {
+-        const body = d.node.body;
++        /* PATCHED const body */ let body = d.node.body;
+         let statement = b `${body}`;
+         if (!d.declaration) { // TODO do not add label if it's not referenced
+             statement = b `$: { ${statement} }`;
+@@ -29801,7 +29801,7 @@ class Stylesheet {
+                             const at_rule_declarations = node.block.children
+                                 .filter(node => node.type === 'Declaration')
+                                 .map(node => new Declaration$1(node));
+-                            atrule.declarations.push(...at_rule_declarations);
++                            atrule.declarations /* PATCHED */ = [...atrule.declarations, ...at_rule_declarations];
+                         }
+                         current_atrule = atrule;
+                     }
+@@ -29883,7 +29883,7 @@ class Stylesheet {
+         });
+     }
+     warn_on_unused_selectors(component) {
+-        const ignores = !this.ast.css ? [] : extract_ignores_above_position(this.ast.css.start, this.ast.html.children);
++        /* PATCHED const ignores */ let ignores = !this.ast.css ? [] : extract_ignores_above_position(this.ast.css.start, this.ast.html.children);
+         component.push_ignores(ignores);
+         this.children.forEach(child => {
+             child.warn_on_unused_selector((selector) => {
+@@ -30332,7 +30332,7 @@ class Component {
+         this.imports.push(node);
+     }
+     extract_exports(node, module_script = false) {
+-        const ignores = extract_svelte_ignore_from_comments(node);
++        /* PATCHED const ignores */ let ignores = extract_svelte_ignore_from_comments(node);
+         if (ignores.length)
+             this.push_ignores(ignores);
+         const result = this._extract_exports(node, module_script);
+@@ -31004,14 +31004,14 @@ class Component {
+         const component = this;
+         const unsorted_reactive_declarations = [];
+         this.ast.instance.content.body.forEach(node => {
+-            const ignores = extract_svelte_ignore_from_comments(node);
++            /* PATCHED const ignores */ let ignores = extract_svelte_ignore_from_comments(node);
+             if (ignores.length)
+                 this.push_ignores(ignores);
+             if (node.type === 'LabeledStatement' && node.label.name === '$') {
+                 this.reactive_declaration_nodes.add(node);
+                 const assignees = new Set();
+                 const assignee_nodes = new Set();
+-                const dependencies = new Set();
++                /* PATCHED const dependencies */ let dependencies = new Set();
+                 const module_dependencies = new Set();
+                 let scope = this.instance_scope;
+                 const map = this.instance_scope_map;
+@@ -31405,11 +31405,11 @@ function decoded_sourcemap_from_generator(generator) {
+         result_line.push([mapping.generatedColumn]);
+         result_segment = result_line[result_line.length - 1];
+         if (mapping.source != null) {
+-            result_segment.push(...[
++            result_segment /* PATCHED */ = [...result_segment, ...[
+                 source_idx[mapping.source],
+                 mapping.originalLine - 1,
+                 mapping.originalColumn
+-            ]);
++            ]];
+             if (mapping.name != null) {
+                 result_segment.push(name_idx[mapping.name]);
+             }
+@@ -31503,7 +31503,7 @@ class PreprocessResult {
+             this.sourcemap_list.unshift(map);
+         }
+         if (dependencies) {
+-            this.dependencies.push(...dependencies);
++            this.dependencies /* PATCHED */ = [...this.dependencies, ...dependencies];
+         }
+     }
+     to_processed() {
+@@ -31576,7 +31576,7 @@ async function process_tag(tag_name, preprocessor, source) {
+     const tag_regex = tag_name === 'style'
+         ? /<!--[^]*?-->|<style(\s[^]*?)?(?:>([^]*?)<\/style>|\/>)/gi
+         : /<!--[^]*?-->|<script(\s[^]*?)?(?:>([^]*?)<\/script>|\/>)/gi;
+-    const dependencies = [];
++    /* PATCHED const dependencies */ let dependencies = [];
+     async function process_single_tag(tag_with_content, attributes = '', content = '', tag_offset) {
+         const no_change = () => MappedCode.from_source(slice_source(tag_with_content, tag_offset, source));
+         if (!attributes && !content)
+@@ -31590,7 +31590,7 @@ async function process_tag(tag_name, preprocessor, source) {
+         if (!processed)
+             return no_change();
+         if (processed.dependencies)
+-            dependencies.push(...processed.dependencies);
++            dependencies /* PATCHED */ = [...dependencies, ...processed.dependencies];
+         if (!processed.map && processed.code === content)
+             return no_change();
+         return processed_tag_to_code(processed, tag_name, attributes, slice_source(content, tag_offset, source));
