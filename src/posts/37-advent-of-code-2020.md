@@ -407,7 +407,6 @@ intersect (generic function with 19 methods)
 
 Also, julia has methods on functions like `sum` that accept a function as the first argument, which is useful for mapping over every element in a collection.
 
-
 The `...` operator can be used to splat elements from a collection into arguments of a function.
 
 ```julia
@@ -477,7 +476,6 @@ part2(g, mapping) = total_bags(g, mapping["shiny gold bag"]) - 1
 
 Julia allows for [multiple dispatch](https://docs.julialang.org/en/v1/manual/methods/) based on the number of arguments and the type of each argument.
 This lets you define multiple methods of a function.
-
 
 ## [Day 8: Handheld Halting](https://adventofcode.com/2020/day/8)
 
@@ -1638,7 +1636,6 @@ I was indexing a dictionary with the real and imaginary components of the comple
 This caused all sorts of indexing problems due to rounding issues.
 
 I could have sorted this out by using only integer values or by using the coordinate system described in this resource: <https://www.redblobgames.com/grids/hexagons/#coordinates-cube>.
-
 
 ```render_svgbob
            +----+
