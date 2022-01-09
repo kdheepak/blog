@@ -43,7 +43,7 @@ ax.legend();
 
 ```
 
-![](src/posts/images/power_3_0.png)
+![](images/power_3_0.png)
 
 ```python
 # <!-- collapse=True -->
@@ -138,7 +138,7 @@ ax2.axis([0, 1/f0, -120, 120]);
 
 ```
 
-![](src/posts/images/power_11_0.png)
+![](images/power_11_0.png)
 
 We can decompose the instantaneous power following the steps below.
 
@@ -240,7 +240,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-![](src/posts/images/power_16_0.png)
+![](images/power_16_0.png)
 
 The blue line (active power) is always positve and has an average value of $\frac{V_{max}I_{max}}{2}\cos\theta$. If we use RMS values, we get
 
@@ -279,7 +279,7 @@ d.draw()
 
 ```
 
-![](src/posts/images/power_19_0.png)
+![](images/power_19_0.png)
 
 ```python
 # <!-- collapse=True -->
@@ -302,7 +302,7 @@ ax.text(0.25, 1, r'$\theta$')
 ax.axis('off');
 ```
 
-![](src/posts/images/power_20_0.png)
+![](images/power_20_0.png)
 
 We know that $\theta$ is the phase difference between the Voltage and Current.
 
@@ -390,7 +390,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-![](src/posts/images/power_26_0.png)
+![](images/power_26_0.png)
 
 The Instantaneous power in the phase is equal to the active power.
 
@@ -450,7 +450,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-![](src/posts/images/power_30_0.png)
+![](images/power_30_0.png)
 
 The Instantaneous power in the phase is equal to the reactive power. The power oscillates between the source and the inductive circuit.
 
@@ -510,7 +510,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-![](src/posts/images/power_34_0.png)
+![](images/power_34_0.png)
 
 In a purely capacitive circuit, power oscillates between the source and electric field associated with the capacitor.
 

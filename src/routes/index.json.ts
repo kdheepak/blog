@@ -40,9 +40,8 @@ async function fromDir(startPath, filter) {
     .reverse()
 }
 
-const posts = await fromDir('src/posts/', '.md')
-
 export async function get() {
+  const posts = await fromDir('src/posts/', '.md')
   return {
     body: JSON.stringify({ posts }),
   }

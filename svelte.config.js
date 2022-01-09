@@ -7,6 +7,7 @@ function pandoc(input, ...args) {
   const option = [
     '-t',
     'html',
+    '--mathml',
     '--filter',
     'pandoc-eqnos',
     '--filter',
@@ -20,7 +21,7 @@ function pandoc(input, ...args) {
   try {
     pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
   } catch (err) {
-    // console.error(option, input, err)
+    console.error(option, input, err)
   }
   if (pandoc.stderr && pandoc.stderr.length) {
     // console.log(option, input, Error(pandoc.output[2].toString()))

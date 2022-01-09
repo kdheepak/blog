@@ -13,6 +13,8 @@ function pandoc(input, ...args) {
     '-t',
     'html',
     '--mathml',
+    '--lua-filter',
+    'scripts/fix-image-links.lua',
     '--filter',
     'pandoc-eqnos',
     '--filter',
@@ -25,8 +27,11 @@ function pandoc(input, ...args) {
   input = Buffer.from(input)
   try {
     pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
-  } catch (err) {}
+  } catch (err) {
+    console.error(option, input, err)
+  }
   if (pandoc.stderr && pandoc.stderr.length) {
+    console.log(option, input, Error(pandoc.output[2].toString()))
   }
   var content = pandoc.stdout.toString()
   return { content }
