@@ -1,47 +1,62 @@
 <script context="module">
   export const prerender = true
-  const allPosts = import.meta.globEager(`../posts/*.md`)
+  import { browser, dev } from '$app/env'
+  import { base, assets } from '$app/paths';
+  export const hydrate = dev
+  export const router = browser
 
-  const posts = []
-  for (let path in allPosts) {
-    let post = allPosts[path]
-    let { getMetadata } = allPosts[path]
-    let metadata = getMetadata()
-    if (metadata.slug) {
-      let slug = metadata.slug
-      posts.push({ post, slug })
-    } else {
-      let title = metadata.title
-      var slug = title
-        .toLowerCase()
-        .replace(/<code>/, '')
-        .replace(/<\/code>/g, '')
-        .replace(/[^\w ]+/g, '')
-        .replace(/ +/g, '-')
-      posts.push({ post, slug })
+  export async function load({ params, fetch }) {
+    const url = `/${params.slug}.json`
+    const res = await fetch(url)
+    if (res.ok) {
+      const {html, metadata} = await res.json()
+      return { props: { html, metadata } }
     }
-  }
-
-  export function load({ params }) {
-    const { slug } = params
-    // Find the post with the slug
-    const filteredPost = posts.find((p) => {
-      return (
-        p.slug.toLowerCase() === slug.toLowerCase() ||
-        p.slug.toLowerCase() === slug.toLowerCase() + '.html' ||
-        p.slug.toLowerCase() + '.html' === slug.toLowerCase()
-      )
-    })
     return {
-      props: {
-        page: filteredPost.post.default,
-      },
+      status: res.status,
+      error: new Error(`Could not load ${url}`)
     }
   }
 </script>
 
 <script>
-  export let page
+  export let html
+  export let metadata
+  const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
+  const formatDate = (dateString) => {
+    const options = { year: "numeric", month: "short", day: "numeric" }
+    return new Date(dateString).toLocaleDateString(undefined, options)
+  }
+  $: metadata.humanDate = formatDate(metadata.date)
 </script>
 
-<svelte:component this={page} />
+<svelte:head>
+  <title>{metadata.title}</title>
+  <link rel="canonical" href="https://blog.kdheepak.com/{slug}" />
+  <meta name="description" content={metadata.description} />
+  <meta property="og:url" content="https://blog.kdheepak.com/{slug}/" />
+  <meta property="og:title" content={metadata.title} />
+  <meta property="og:description" content={metadata.description} />
+  <meta property="og:published_time" content="{metadata.date}"/>
+{#if metadata.summary}
+  <meta name="description" content="{metadata.summary}">
+{/if}
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="https://blog.kdheepak.com/rss.xml"/>
+</svelte:head>
+
+<article>
+  <h1 class="title">
+    <a class="home" href="$root$">~</a> / <a class="bloghome" href="{base}/">blog</a> / {metadata.title}
+  </h1>
+  <p>
+   <a target="_blank" href="{metadata.source}">
+     {metadata.humanDate}
+   </a>
+</p>
+
+  {@html html}
+</article>
+
+<style>
+</style>
