@@ -1,4 +1,3 @@
-import svelteMd from 'vite-plugin-svelte-md'
 import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 import child_process from 'child_process'
