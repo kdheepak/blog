@@ -1,7 +1,13 @@
+@tailwind base;
+
 code {
-  white-space: pre;
+	white-space: pre;
 }
 
 q {
-  quotes: "“" "”" "‘" "’";
+	quotes: '“' '”' '‘' '’';
 }
+
+@tailwind components;
+
+@tailwind utilities;

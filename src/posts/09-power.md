@@ -1,7 +1,7 @@
 ---
-title:  Active, Reactive and Apparent Power
+title: Active, Reactive and Apparent Power
 category: blog
-date:  2015-04-29T19:00:00-06:00
+date: 2015-04-29T19:00:00-06:00
 tags: Power Systems
 keywords: what is active power, what is reactive power, what is real power, what is imaginary power, Active Power, Reactive Power, Apparent Power
 summary: This post covers the basics of the types of Power in power systems, specifically what is active power, reactive power and apparent power. This post was generated from an iPython Notebook ...
@@ -43,8 +43,7 @@ ax.legend();
 
 ```
 
-![](images/power_3_0.png)
-
+![](src/posts/images/power_3_0.png)
 
 ```python
 # <!-- collapse=True -->
@@ -55,7 +54,6 @@ def rms(x):
 ```
 
 We can calculate the maximum, minimum and the RMS value as follows:
-
 
 ```python
 # <!-- collapse=True -->
@@ -80,7 +78,6 @@ else:
     Ratio max/rms 1.41421356237
     Maximum value = √2 x RMS value
 
-
 $|V|$ is used to represent magnitude of the phasors.
 
 $|V| = 110 = \frac{155.5634}{\sqrt{2}}$
@@ -97,7 +94,6 @@ $i_{an} = I_{max} \cos\omega t$
 
 Instantaneous power is calculated by $p_{a} = v_{an} \times i_{an}$.
 If we plot the above equations, assuming $\theta = -\frac{\pi}{6}$, we get the following.
-
 
 ```python
 
@@ -142,9 +138,7 @@ ax2.axis([0, 1/f0, -120, 120]);
 
 ```
 
-
-![](images/power_11_0.png)
-
+![](src/posts/images/power_11_0.png)
 
 We can decompose the instantaneous power following the steps below.
 
@@ -246,8 +240,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-![](images/power_16_0.png)
-
+![](src/posts/images/power_16_0.png)
 
 The blue line (active power) is always positve and has an average value of $\frac{V_{max}I_{max}}{2}\cos\theta$. If we use RMS values, we get
 
@@ -263,9 +256,7 @@ Or,
 
 $Q = |V||I|\sin\theta$
 
-
 # So why is it called real power?
-
 
 ```python
 # <!-- collapse=True -->
@@ -288,10 +279,7 @@ d.draw()
 
 ```
 
-
-![](images/power_19_0.png)
-
-
+![](src/posts/images/power_19_0.png)
 
 ```python
 # <!-- collapse=True -->
@@ -314,9 +302,7 @@ ax.text(0.25, 1, r'$\theta$')
 ax.axis('off');
 ```
 
-
-![](images/power_20_0.png)
-
+![](src/posts/images/power_20_0.png)
 
 We know that $\theta$ is the phase difference between the Voltage and Current.
 
@@ -334,7 +320,6 @@ Similarly the second term can be rewritten as
 
 $V_{max}\cos \omega t \times I_{max}\sin \omega t \sin\theta$
 
-
 From the above figure we can see that power can be written as
 
 $p_{active} = v_{a} \times i_{R}$
@@ -351,7 +336,6 @@ Let's look at three cases
 ### Case 1 : $\theta$ is zero
 
 When we assume $\theta$ is zero, the load is purely resistive
-
 
 ```python
 # <!-- collapse=True -->
@@ -406,9 +390,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-
-![](images/power_26_0.png)
-
+![](src/posts/images/power_26_0.png)
 
 The Instantaneous power in the phase is equal to the active power.
 
@@ -416,7 +398,6 @@ The Instantaneous power in the phase is equal to the active power.
 
 When $\theta$ is 90, the load is purely inductive
 
-
 ```python
 # <!-- collapse=True -->
 
@@ -469,18 +450,14 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-
-![](images/power_30_0.png)
-
+![](src/posts/images/power_30_0.png)
 
 The Instantaneous power in the phase is equal to the reactive power. The power oscillates between the source and the inductive circuit.
-
 
 ### Case 3 : $\theta$ is -90
 
 When $\theta$ is -90, the load is purely capacitive
 
-
 ```python
 # <!-- collapse=True -->
 
@@ -533,8 +510,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 ```
 
-
-![](images/power_34_0.png)
+![](src/posts/images/power_34_0.png)
 
 In a purely capacitive circuit, power oscillates between the source and electric field associated with the capacitor.
 
