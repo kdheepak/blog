@@ -7,6 +7,7 @@ function pandoc(input, ...args) {
   const option = [
     '-t',
     'html',
+    '--no-highlight',
     '--mathml',
     '--filter',
     'pandoc-eqnos',
@@ -25,8 +26,8 @@ function pandoc(input, ...args) {
     './scripts/links-target-blank.lua',
     '--lua-filter',
     './scripts/section-prefix.lua',
-    '--lua-filter',
-    './scripts/sidenote.lua',
+    // '--lua-filter',
+    // './scripts/sidenote.lua',
     '--lua-filter',
     './scripts/svelte.lua',
   ].concat(args)

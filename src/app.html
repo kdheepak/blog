@@ -1,27 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-  <style>
-    .comments-button {
-      background-color: #111;
-      border: 1px solid #000;
-      color: #fffff8;
-      padding: 0 0 0 0;
-      margin-top: 5px;
-      text-align: center;
-      height: 50px;
-      width: 200px;
-      font-size: 1.4rem;
-      box-sizing: border-box;
-      font-family: et-book, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua',
-        Georgia, serif;
-    }
-
-    .comments-button:hover {
-      background-color: #fffff8;
-      color: black;
-      cursor: pointer;
-    }
-  </style>
   <head>
     <meta charset="utf-8" />
     <meta name="description" content="" />
@@ -29,9 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %svelte.head%
   </head>
+  <div class="paper container">
   <body>
     <div id="svelte">%svelte.body%</div>
   </body>
+  </div>
   <script>
     document.querySelectorAll('opt-in-script').forEach((ois) =>
       (ois.querySelector('button') || ois).addEventListener('click', (_) => {

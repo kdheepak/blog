@@ -44,7 +44,7 @@
   />
 </svelte:head>
 
-<article>
+<article class="prose lg:prose-xl">
   <h1 class="title">
     <a class="home" href="https://kdheepak.com">~</a> / blog
   </h1>
