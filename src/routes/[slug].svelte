@@ -67,6 +67,25 @@
   </p>
 
   <svelte:component this={component} />
+
+  <section>
+    <opt-in-script
+      src="https://giscus.app/client.js"
+      data-repo="kdheepak/blog"
+      data-repo-id="MDEwOlJlcG9zaXRvcnk1MTE5NDQ4OA=="
+      data-category="Comments"
+      data-category-id="DIC_kwDOAw0qeM4B_3gQ"
+      data-mapping="url"
+      data-reactions-enabled="1"
+      data-emit-metadata="0"
+      data-theme="light"
+      data-lang="en"
+      crossorigin="anonymous"
+      async
+    >
+      <button class="comments-button">Show Comments</button>
+    </opt-in-script>
+  </section>
 </article>
 
 <style>
