@@ -8,7 +8,10 @@ end
 
 function Image(elem)
 	if startswith(elem.src, "images/") then
-		elem.src = "src/posts/" .. elem.src
+		elem.src = "/src/posts/" .. elem.src
+	end
+	if startswith(elem.src, "rendered/") then
+		elem.src = "/src/posts/" .. elem.src
 	end
 	return elem
 end

@@ -77,11 +77,10 @@ export async function get({ params }) {
   const slugs = await fromDir('src/posts/', '.md')
   const s = slug.replace(path.parse(slug).ext, '')
   if (slugs[s] !== undefined) {
-    const { metadata, content } = slugs[s]
-    const { content: html } = pandoc(content)
+    const { metadata } = slugs[s]
 
     return {
-      body: JSON.stringify({ html, metadata }),
+      body: JSON.stringify({ metadata }),
     }
   }
 }

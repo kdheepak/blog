@@ -17,6 +17,10 @@ function pandoc(input, ...args) {
     '--citeproc',
     '--lua-filter',
     './scripts/fix-image-links.lua',
+    '--lua-filter',
+    './scripts/render-svgbob.lua',
+    '--lua-filter',
+    './scripts/svelte.lua',
   ].concat(args)
   let pandoc
   input = Buffer.from(input)
@@ -26,7 +30,7 @@ function pandoc(input, ...args) {
     console.error(option, input, err)
   }
   if (pandoc.stderr && pandoc.stderr.length) {
-    // console.log(option, input, Error(pandoc.output[2].toString()))
+    console.log(option, input, Error(pandoc.output[2].toString()))
   }
   var content = pandoc.stdout
     .toString()
@@ -39,7 +43,9 @@ function pandoc(input, ...args) {
 function pandoc2svelte() {
   return {
     markup({ content, filename }) {
-      if (!path.extname(filename).startsWith('.md')) return
+      if (!path.extname(filename).startsWith('.md')) {
+        return
+      }
       let c = pandoc(content)
       return { code: c }
     },
