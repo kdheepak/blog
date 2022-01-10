@@ -6,7 +6,10 @@ summary: Notes on mpld3 force layout
 keywords: python, mpld3, networkx, d3.js
 slug: mpld3-networkx-d3js-force-layout
 category: blog
-bibliography: blog.bib
+references:
+- id: svg
+  title: SVG Semantic Zooming
+  URL: http://bl.ocks.org/mbostock/3680957
 ---
 
 [mpld3](https://mpld3.github.io/) is a matplotlib to d3 library.
@@ -49,7 +52,7 @@ This can be turned off by passing an argument to the plugin.
 The reason it is called a sticky version is because dragging a node to a new position will fix it at that location.
 You can double click the node to release it.
 
-These blocks were used as a reference[@noauthor_svg_nodate].
+These blocks were used as a reference[@svg].
 
 I'll run through an explanation of the code briefly.
 

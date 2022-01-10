@@ -5,15 +5,21 @@ date: 2016-03-27T19:17:58-06:00
 keywords: raspberry, pi, led, flask
 tags: raspberry-pi, flask, led
 summary: Use your Raspberry Pi to control a desk lamp
-bibliography: blog.bib
+references:
+- id: led
+  title: LED strip and RGB - LED software Raspberry Pi LED Spectrum Analyzer - Adafruit Learning System
+  URL: https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software
+- id: maniacallabs/bibliopixel
+  title: BiblioPixel - A pure Python 2 library for programming light animation
+  URL: https://github.com/ManiacalLabs/BiblioPixel
 ---
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
-The instructions are very simple [@noauthor_led_nodate] and the results are pretty cool.
-I decided to make a desk lamp with a web interface[^1].
+The instructions are very simple [@led] and the results are pretty cool.
+I decided to make a desk lamp with a web interface.
 This post will go through the steps to build your own Pi powered desk lamp.
 
-[^1]: _aside_: ![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)
+![Raspberry Pi Powered LED Desk Lamp](images/raspberrypilamp.gif)
 
 # Requirements
 
@@ -98,7 +104,7 @@ You will need to use `sudo` to run the application, since root access is require
 
 ### BiblioPixel
 
-The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@noauthor_maniacallabs/bibliopixel_nodate].
+The tutorial on Adafruit's page links to a library for their LED strip, which the author has deprecated in favour of the excellent BiblioPixel [@maniacallabs/bibliopixel].
 I recommend using BiblioPixel as well — if you want to use a different LED strip in the future this will make it very easy to use the same code base.
 
 At this point, you should be able to run a few examples, and see animations on your LED strip.

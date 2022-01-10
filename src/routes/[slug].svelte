@@ -57,11 +57,11 @@
 
 <article>
   <header>
-  <h1>
+  <h1 class="title">
     <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a>
     / {metadata.title}
   </h1>
-  <p>
+  <p class="subtitle sourceurl">
     <a target="_blank" href={metadata.source}>
       {metadata.humanDate}
     </a>

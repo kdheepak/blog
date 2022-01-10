@@ -45,20 +45,19 @@
 </svelte:head>
 
 <article>
-  <h1>
+  <h1 class="title">
     <a href="https://kdheepak.com">~</a> / blog
   </h1>
-  <p>
+  <p class="subtitle sourceurl">
     <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
   </p>
   <div class="tocwrapper">
     <br />
-    <p>
       {#each posts as post}
+    <p>
         {#if post.date}
-          <div class="flex justify-items-end">
             <span class="toclink">
               <a href={post.slug}>
                 {post.title}
@@ -67,11 +66,10 @@
             <span class="tocdate">
               {formatDate(post.date)}
             </span>
-          </div>
           <br />
         {/if}
-      {/each}
     </p>
+      {/each}
   </div>
 </article>
 

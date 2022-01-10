@@ -7,13 +7,15 @@ keywords: markdown, pandoc, papers, writing, academic, scholarly, technical, sci
 slug: writing-papers-with-markdown
 category: blog
 abstract: Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. I figured I'd use this post to write about my workflow and my resources on this topic.
-bibliography: blog.bib
 references:
 - id: citation_example
   author:
   - family: Doe
     given: J
   title: Example Citation
+- id: stallman_emacs
+  title: Emacs as a word processors
+  URL: http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html
 ---
 
 You can view this post in the following formats, thanks to Pandoc!
@@ -66,7 +68,7 @@ The great thing about Word is that there is almost no barrier to *begin* writing
 You can incrementally build your skill in using this tool as and when you are using it.
 This is useful since it makes it immediately accessible, thereby decreasing the time and effort spent on learning how to use a software for writing and allowing you to concentrate on the writing itself.
 
-However, I've found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so [@stallman_emacs_nodate]).
+However, I've found a few fundamental problems with Microsoft Word. Having a WYSIWYG (What You See Is What You Get) editor is great (even Richard Stallman seems to think so [@stallman_emacs]).
 However, products like Word fail miserably at separating content from formatting.
 These products impose on the writer their own concept of how a document should be formatted, which I've found greatly hinders the writing process.
 Have you ever experienced a sudden jump in spacing?

@@ -7,12 +7,15 @@ keywords: python, acaconda, conda, environment, pip, conda vs pip
 slug: using-conda-to-manage-packages
 category: blog
 alias: /blog/using-conda-to-manage-packages
-bibliography: blog.bib
+references:
+- id: conda/conda
+  title: conda/conda
+  URL: https://github.com/conda/conda
 ---
 
 # Why use conda
 
-The following quote is from Conda's github page [@noauthor_conda/conda_nodate]
+The following quote is from Conda's github page [@conda/conda]
 
 > Conda is a cross-platform, Python-agnostic binary package manager. It is the package manager used by Anaconda installations, but it may be used for other systems as well. Conda makes environments first-class citizens, making it easy to create independent environments even for C libraries. Conda is written entirely in Python, and is BSD licensed open source.
 

@@ -11,6 +11,7 @@ function pandoc(input, ...args) {
     './templates/tufte.html5',
     '--no-highlight',
     '--mathml',
+    '--section-divs',
     '--filter',
     'pandoc-eqnos',
     '--filter',
