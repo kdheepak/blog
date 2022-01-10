@@ -1,11 +1,14 @@
 <script>
 import { onMount } from 'svelte';
 
-  import '../app.css'
-  import '/node_modules/papercss/dist/paper.min.css'
+  import '../css/app.css'
+  import '../css/tufte.css'
+  import '../css/tufte-extra.css'
+  import '../css/latex.css'
+  import '../css/pandoc.css'
+  import '../css/prism.css'
 
-  import '../prism.css'
-  import '../prism.js'
+  import '$lib/prism.js'
 
   onMount(() => Prism.highlightAll())
 

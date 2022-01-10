@@ -44,11 +44,11 @@
   />
 </svelte:head>
 
-<article class="article">
-  <h2 class="article-title">
-    <a class="home" href="https://kdheepak.com">~</a> / blog
-  </h2>
-  <p class="article-meta">
+<article>
+  <h1>
+    <a href="https://kdheepak.com">~</a> / blog
+  </h1>
+  <p>
     <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
@@ -58,7 +58,7 @@
     <p>
       {#each posts as post}
         {#if post.date}
-          <div class="row flex-edges justify-between">
+          <div class="flex justify-items-end">
             <span class="toclink">
               <a href={post.slug}>
                 {post.title}
