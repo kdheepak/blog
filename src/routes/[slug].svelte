@@ -55,16 +55,16 @@
   />
 </svelte:head>
 
-<article>
-  <h2 class="title">
+<article class="article">
+  <h2 class="article-title">
     <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a>
     / {metadata.title}
   </h2>
-  <h3 class="subtitle sourceurl">
-    <a class="sourceurl" target="_blank" href={metadata.source}>
+  <p class="article-meta">
+    <a target="_blank" href={metadata.source}>
       {metadata.humanDate}
     </a>
-  </h3>
+  </p>
 
   <svelte:component this={component} />
 

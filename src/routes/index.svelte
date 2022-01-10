@@ -44,15 +44,15 @@
   />
 </svelte:head>
 
-<article class="prose lg:prose-xl">
-  <h2 class="title">
+<article class="article">
+  <h2 class="article-title">
     <a class="home" href="https://kdheepak.com">~</a> / blog
   </h2>
-  <h4>
+  <p class="article-meta">
     <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
-  </h4>
+  </p>
   <div class="tocwrapper">
     <br />
     <p>
