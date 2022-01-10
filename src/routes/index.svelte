@@ -45,20 +45,20 @@
 </svelte:head>
 
 <article class="prose lg:prose-xl">
-  <h1 class="title">
+  <h2 class="title">
     <a class="home" href="https://kdheepak.com">~</a> / blog
-  </h1>
-  <p class="subtitle sourceurl">
-    <a class="sourceurl" target="_blank" href="https://github.com/kdheepak/blog">
+  </h2>
+  <h4>
+    <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
-  </p>
+  </h4>
   <div class="tocwrapper">
     <br />
     <p>
       {#each posts as post}
         {#if post.date}
-          <div class="flex justify-between">
+          <div class="row flex-edges justify-between">
             <span class="toclink">
               <a href={post.slug}>
                 {post.title}

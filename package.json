@@ -43,6 +43,7 @@
   "type": "module",
   "dependencies": {
     "papercss": "^1.8.3",
-    "prismjs": "^1.26.0"
+    "prismjs": "^1.26.0",
+    "svelte-prism-action": "^1.0.7"
   }
 }

@@ -40,5 +40,6 @@ function Header(elem)
 	-- table.insert(elem.content, 1, { })
 	table.insert(elem.content, 1, pandoc.Str(" "))
 	table.insert(elem.content, 1, pandoc.Link(string.rep("#", 1), "#" .. elem.attr.identifier))
+	elem.level = n + 1
 	return elem
 end

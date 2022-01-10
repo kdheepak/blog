@@ -29,6 +29,8 @@ function pandoc(input, ...args) {
     // '--lua-filter',
     // './scripts/sidenote.lua',
     '--lua-filter',
+    './scripts/standard-code.lua',
+    '--lua-filter',
     './scripts/svelte.lua',
   ].concat(args)
   let pandoc
