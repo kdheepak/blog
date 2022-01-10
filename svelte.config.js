@@ -20,6 +20,14 @@ function pandoc(input, ...args) {
     '--lua-filter',
     './scripts/render-svgbob.lua',
     '--lua-filter',
+    './scripts/ref-section-level.lua',
+    '--lua-filter',
+    './scripts/links-target-blank.lua',
+    '--lua-filter',
+    './scripts/section-prefix.lua',
+    '--lua-filter',
+    './scripts/sidenote.lua',
+    '--lua-filter',
     './scripts/svelte.lua',
   ].concat(args)
   let pandoc
