@@ -15,6 +15,8 @@ function pandoc(input, ...args) {
     '--filter',
     'pandoc-tablenos',
     '--citeproc',
+    '--lua-filter',
+    './scripts/fix-image-links.lua',
   ].concat(args)
   let pandoc
   input = Buffer.from(input)
@@ -26,7 +28,11 @@ function pandoc(input, ...args) {
   if (pandoc.stderr && pandoc.stderr.length) {
     // console.log(option, input, Error(pandoc.output[2].toString()))
   }
-  var content = pandoc.stdout.toString()
+  var content = pandoc.stdout
+    .toString()
+    .replace(/\{/g, '&lbrace;')
+    .replace(/\}/g, '&rbrace;')
+    .replace(/\$/g, '&dollar;')
   return content
 }
 

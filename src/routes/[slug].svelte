@@ -4,6 +4,8 @@
   import { browser, dev } from '$app/env'
   import { base, assets } from '$app/paths'
   import { onMount } from 'svelte'
+
+  const allPosts = import.meta.glob('/src/posts/*.md')
   export const hydrate = dev
   export const router = browser
 
@@ -11,8 +13,9 @@
     const url = `/${params.slug}.json`
     const res = await fetch(url)
     if (res.ok) {
-      const { html, metadata } = await res.json()
-      return { props: { html, metadata } }
+      const { metadata } = await res.json()
+      const component = (await allPosts[`/${metadata.path}`]()).default
+      return { props: { component, metadata } }
     }
     return {
       status: res.status,
@@ -22,7 +25,7 @@
 </script>
 
 <script>
-  export let html
+  export let component
   export let metadata
   const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
   const formatDate = (dateString) => {
@@ -63,7 +66,7 @@
     </a>
   </p>
 
-  {@html html}
+  <svelte:component this={component} />
 </article>
 
 <style>
