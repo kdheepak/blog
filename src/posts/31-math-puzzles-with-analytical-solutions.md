@@ -273,11 +273,11 @@ We can implement this generally like so:
 
 ```julia
 julia> function starting_floor(floors, n)
-       for x in 1:floors
-           if f(x, n) >= floors
-               return x
-           end
-       end
+         for x in 1:floors
+             if f(x, n) >= floors
+                 return x
+             end
+         end
        end
 starting_floor (generic function with 1 method)
 ```
