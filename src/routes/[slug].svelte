@@ -68,7 +68,9 @@
   </p>
   </header>
 
-  <svelte:component this={component} />
+  <section>
+    <svelte:component this={component} />
+  </section>
 
   <section>
     <opt-in-script

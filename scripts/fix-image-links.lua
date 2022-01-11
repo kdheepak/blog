@@ -13,6 +13,9 @@ function Image(elem)
 	if startswith(elem.src, "rendered/") then
 		elem.src = "/src/posts/" .. elem.src
 	end
+	if startswith(elem.src, "videos/") then
+		elem.src = "/src/posts/" .. elem.src
+	end
 	return elem
 end
 

@@ -53,24 +53,26 @@
       {humanDate}
     </a>
   </p>
-  <div class="tocwrapper">
-    <br />
-      {#each posts as post}
-    <p>
-        {#if post.date}
-            <span class="toclink">
-              <a href={post.slug}>
-                {post.title}
-              </a>
-            </span>
-            <span class="tocdate">
-              {formatDate(post.date)}
-            </span>
-          <br />
-        {/if}
-    </p>
-      {/each}
-  </div>
+  <section>
+    <div class="tocwrapper">
+      <br />
+        {#each posts as post}
+      <p>
+          {#if post.date}
+              <span class="toclink">
+                <a href={post.slug}>
+                  {post.title}
+                </a>
+              </span>
+              <span class="tocdate">
+                {formatDate(post.date)}
+              </span>
+            <br />
+          {/if}
+      </p>
+        {/each}
+    </div>
+  </section>
 </article>
 
 <style>

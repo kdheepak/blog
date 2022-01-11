@@ -262,8 +262,9 @@ local function getCodeClass(classes)
 	-- programming language name. If it does, it gets removed from classes and a valid
 	-- HTML class attribute string (with space at beginning) is returned.
 
-	if languages[classes[1]] then
-		return ' class="language-' .. table.remove(classes, 1) .. '"'
+	local lang = table.remove(classes, 1)
+	if lang then
+		return ' class="language-' .. lang .. '"'
 	else
 		return ""
 	end
