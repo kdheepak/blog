@@ -5,16 +5,10 @@ import path from 'path'
 
 import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
-import rehypeRaw from 'rehype-raw'
-import rehypeRemark from 'rehype-remark'
-import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
 import rehypePrism from '@mapbox/rehype-prism'
 import rehypePresetMinify from 'rehype-preset-minify'
-import inlineSVG from '@jsdevtools/rehype-inline-svg'
 
 import julia from 'highlight.js/lib/languages/julia'
 import juliaRepl from 'highlight.js/lib/languages/julia-repl'
@@ -31,21 +25,7 @@ import gams from 'highlight.js/lib/languages/gams'
 
 import { visit } from 'unist-util-visit'
 
-import { parse as tokenizeWords } from 'space-separated-tokens'
-
-import xtend from 'xtend'
-import toHTML from '@starptech/prettyhtml-hast-to-html'
 import { findAndReplace } from 'hast-util-find-and-replace'
-
-function prettyHtmlStringify (config) {
-  var settings = xtend(config, this.data('settings'))
-
-  this.Compiler = compiler
-
-  function compiler (tree) {
-    return toHTML(tree, settings)
-  }
-}
 
 function copyFrontmatter () {
   return function transformer (tree, file) {
@@ -187,15 +167,7 @@ function pandocRemarkPreprocess() {
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(mathJaxSetup)
-          .use(rehypeMathjaxSvg, {tex: {
-            inlineMath: [              // start/end delimiter pairs for in-line math
-              ['\\(', '\\)']
-            ],
-            displayMath: [             // start/end delimiter pairs for display math
-              ['$$', '$$'],
-              ['\\[', '\\]']
-            ],
-          }})
+          .use(rehypeMathjaxSvg)
           .use(rehypePrism, {ignoreMissing: true})
           .use(fullWidthFigures)
           .use(escapeCurlies)
