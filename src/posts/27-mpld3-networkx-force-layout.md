@@ -124,15 +124,17 @@ for node, data in G.nodes(data=True):
 for n, data in G.nodes(data=True):
     data['size'] = len(G.neighbors(n))
 
-mpld3.plugins.connect(fig,  NetworkXD3ForceLayout(G,
-                                                  pos,
-                                                  ax,
-                                                  gravity=.5,
-                                                  link_distance=20,
-                                                  charge=-600,
-                                                  friction=1
-                                                 )
-                     )
+mpld3.plugins.connect(fig,
+    NetworkXD3ForceLayout(
+        G,
+        pos,
+        ax,
+        gravity=.5,
+        link_distance=20,
+        charge=-600,
+        friction=1
+    )
+)
 ```
 
 <div id="fig_el8173445058185128276242074"></div>
