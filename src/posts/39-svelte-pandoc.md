@@ -14,8 +14,6 @@ import Counter from "$lib/components/Counter.svelte"
 
 ```javascript
 function () {
-  console.log("hello to you ")
+  console.log("hello world")
 }
 ```
-
-![](https://user-images.githubusercontent.com/1813121/128466216-52621bfd-30cb-4d4c-babb-297c99cb79eb.png){.fullwidth}
