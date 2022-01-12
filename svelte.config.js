@@ -166,7 +166,7 @@ function pandocRemarkPreprocess() {
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(rehypeKatex)
-          .use(rehypePrism)
+          .use(rehypePrism, {ignoreMissing: true})
           .use(fullWidthFigures)
           .use(escapeCurlies)
           .use(customComponent)

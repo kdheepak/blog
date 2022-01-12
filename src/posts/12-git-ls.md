@@ -8,8 +8,10 @@ summary: I've stopped using git log and have replaced it with this custom comman
 ---
 
 
-Add the following command to ~/.gitconfig
+Add the following command to `~/.gitconfig`:
 
 
-    [alias]
-        ls = log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)' --all
+```toml
+[alias]
+    ls = log --graph --abbrev-commit --decorate --color=always --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) - %C(dim red)%an%C(reset)%C(bold yellow)%d%C(reset)' --all
+```

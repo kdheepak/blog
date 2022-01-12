@@ -37,3 +37,13 @@ section > ol > li > pre:not(.sourceCode) {
     width: 100%;
   }
 }
+
+.maxwidth {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
