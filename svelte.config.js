@@ -167,22 +167,6 @@ function pandocRemarkPreprocess() {
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(rehypeKatex)
           .use(rehypePrism)
-          // .use(rehypeHighlight, {
-          //   languages: {
-          //     julia,
-          //     matlab,
-          //     cmake,
-          //     gams,
-          //     nim,
-          //     wasm,
-          //     vim,
-          //     diff,
-          //     latex,
-          //     dockerfile,
-          //     llvm,
-          //     'julia-repl': juliaRepl
-          //   }
-          // })
           .use(fullWidthFigures)
           .use(escapeCurlies)
           .use(customComponent)
