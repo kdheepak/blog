@@ -4,8 +4,6 @@
     <meta charset="utf-8" />
     <meta name="description" content="" />
     <link rel="icon" href="/favicon.png" />
-    <link rel="stylesheet"
-      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %svelte.head%
   </head>
@@ -32,10 +30,23 @@
     async
     src="//gc.zgo.at/count.js"
   ></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/vim.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/julia.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/nim.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/latex.min.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/languages/matlab.min.js"></script>
+  <script>
+    var figures =
+      Array.prototype.slice.call(document.getElementsByClassName("figure"),0)
+      .concat(
+        Array.prototype.slice.call(document.getElementsByTagName("figure"),0));
+
+    for (var i = 0; i < figures.length; i++) {
+      var figure = figures[i];
+      var imgs = figure.getElementsByTagName("img");
+      if (imgs.length > 0) {
+        classes = imgs[0].classList;
+        for (var j = 0; j < classes.length; j++) {
+            if (classes[j] === "fullwidth") {
+                figure.classList.add(classes[j]);
+            }
+        }
+      }
+    }
+  </script>
 </html>
