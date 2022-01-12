@@ -33,6 +33,7 @@
     "prettier-plugin-svelte": "^2.4.0",
     "prettier-plugin-tailwind": "^2.2.12",
     "rehype-katex": "^6.0.2",
+    "rehype-prism-plus": "^1.3.1",
     "rehype-raw": "^6.1.1",
     "rehype-remark": "^9.1.2",
     "rehype-sanitize": "^5.0.1",

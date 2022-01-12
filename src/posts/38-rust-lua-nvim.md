@@ -158,7 +158,7 @@ The name of the function that is annotated with the `#[mlua::lua_module]` must b
 
 For MacOS, we also have to add the following to `.cargo/config`:
 
-```config
+```toml
 [target.x86_64-apple-darwin]
 rustflags = [
   "-C", "link-arg=-undefined",

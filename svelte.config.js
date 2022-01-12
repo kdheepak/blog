@@ -12,6 +12,7 @@ import rehypeStringify from 'rehype-stringify'
 import remarkMath from 'remark-math'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
+import rehypePrism from 'rehype-prism-plus'
 
 import { visit } from 'unist-util-visit'
 
@@ -49,10 +50,23 @@ function customComponent () {
   }
 }
 
+const entites = [
+  [/{/g, "{'{'}"],
+  [/}/g, "{'}'}"],
+];
+
+const escape_entities = (node) => {
+    for (let i = 0; i < entites.length; i += 1) {
+        node.value = node.value.replace(entites[i][0], entites[i][1]);
+    }
+    console.log(node)
+}
+
 function escapeCurlies () {
-  return function transformer (tree) {
+  return function (tree) {
     visit(tree, function (node) {
       if (node.type === 'element' && (node.tagName === 'code' || node.tagName === 'math')) {
+        console.log(node)
         findAndReplace(node, {
           '&': '&#38;',
           '{': '&#123;',
@@ -132,14 +146,24 @@ function pandocRemarkPreprocess() {
         }
         let c = pandoc(content)
         const markdown2svelte = unified()
-          .use(rehypeRaw)
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
-          .use(customComponent)
+          .use(rehypePrism)
           .use(escapeCurlies)
-          .use(rehypeStringify, {allowDangerousHtml: true})
+          .use(customComponent)
+          .use(rehypeStringify, {allowDangerousHtml: false})
         const result = await markdown2svelte()
           .process(c)
         const html = result.toString()
+                      .replace(/&#x26;#34;/g,  '&#34;')
+                      .replace(/&#x26;#38;/g,  '&#38;')
+                      .replace(/&#x26;#123;/g, '&#123;')
+                      .replace(/&#x26;#125;/g, '&#125;')
+                      .replace(/&#x26;#34;/g,  '&#34;')
+                      .replace(/&#x26;#39;/g,  '&#39;')
+                      .replace(/&#x26;#60;/g,  '&#60;')
+                      .replace(/&#x26;#62;/g,  '&#62;')
+                      .replace(/&#x26;#96;/g,  '&#96;')
+        console.log(html)
         return {
           code: `${html}`,
           map: ''

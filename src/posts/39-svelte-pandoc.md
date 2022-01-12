@@ -11,3 +11,9 @@ import Counter from "$lib/components/Counter.svelte"
 </script>
 
 <Counter/>
+
+```javascript
+function () {
+  console.log("hello to you ")
+}
+```
