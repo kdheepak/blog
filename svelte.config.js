@@ -66,7 +66,6 @@ function escapeCurlies () {
   return function (tree) {
     visit(tree, function (node) {
       if (node.type === 'element' && (node.tagName === 'code' || node.tagName === 'math')) {
-        console.log(node)
         findAndReplace(node, {
           '&': '&#38;',
           '{': '&#123;',
