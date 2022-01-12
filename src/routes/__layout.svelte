@@ -6,6 +6,7 @@ import { onMount } from 'svelte';
   import '../css/tufte-extra.css'
   import '../css/latex.css'
   import '../css/pandoc.css'
+  import '../css/prism.css'
 
   onMount(() => {
     Prism.highlightAll()
