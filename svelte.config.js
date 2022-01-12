@@ -9,7 +9,7 @@ import rehypeRaw from 'rehype-raw'
 import rehypeRemark from 'rehype-remark'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
-import rehypeKatex from 'rehype-katex'
+import rehypeMathjaxSvg from 'rehype-mathjax'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypePrism from '@mapbox/rehype-prism'
@@ -81,6 +81,27 @@ function fullWidthFigures () {
   }
 }
 
+function mathJaxSetup() {
+  return (tree) => {
+    visit(tree, 'element', (node) => {
+      if (node.tagName == "span" && node.properties["className"] !== undefined && node.properties["className"].includes('math')) {
+        if (node.properties["className"].includes("display")) {
+          node.properties["className"].push("math-display")
+          for (const child of node.children) {
+            child.value = child.value.replace("\\[", "").replace("\\]", "")
+          }
+        }
+        if (node.properties["className"].includes("inline")) {
+          node.properties["className"].push("math-inline")
+          for (const child of node.children) {
+            child.value = child.value.replace("\\(", "").replace("\\)", "")
+          }
+        }
+      }
+    })
+  }
+}
+
 function escapeCurlies () {
   return function (tree) {
     visit(tree, 'element', function (node) {
@@ -107,9 +128,9 @@ function pandoc(input, ...args) {
     '-t',
     'html',
     '--email-obfuscation', 'javascript', '--shift-heading-level=0',
-    '--mathjax',
     '--no-highlight',
     '--section-divs',
+    '--mathjax',
     '--filter',
     'pandoc-eqnos',
     '--filter',
@@ -165,7 +186,16 @@ function pandocRemarkPreprocess() {
         let c = pandoc(content)
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
-          .use(rehypeKatex)
+          .use(mathJaxSetup)
+          .use(rehypeMathjaxSvg, {tex: {
+            inlineMath: [              // start/end delimiter pairs for in-line math
+              ['\\(', '\\)']
+            ],
+            displayMath: [             // start/end delimiter pairs for display math
+              ['$$', '$$'],
+              ['\\[', '\\]']
+            ],
+          }})
           .use(rehypePrism, {ignoreMissing: true})
           .use(fullWidthFigures)
           .use(escapeCurlies)
