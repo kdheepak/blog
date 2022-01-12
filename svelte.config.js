@@ -12,7 +12,7 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeKatex from 'rehype-katex'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
-import rehypeHighlight from 'rehype-highlight'
+import rehypePrism from '@mapbox/rehype-prism'
 import rehypePresetMinify from 'rehype-preset-minify'
 import inlineSVG from '@jsdevtools/rehype-inline-svg'
 
@@ -166,27 +166,26 @@ function pandocRemarkPreprocess() {
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(rehypeKatex)
-          .use(rehypeHighlight, {
-            languages: {
-              julia,
-              matlab,
-              cmake,
-              gams,
-              nim,
-              wasm,
-              vim,
-              diff,
-              latex,
-              dockerfile,
-              llvm,
-              'julia-repl': juliaRepl
-            }
-          })
-          .use(inlineSVG)
+          .use(rehypePrism)
+          // .use(rehypeHighlight, {
+          //   languages: {
+          //     julia,
+          //     matlab,
+          //     cmake,
+          //     gams,
+          //     nim,
+          //     wasm,
+          //     vim,
+          //     diff,
+          //     latex,
+          //     dockerfile,
+          //     llvm,
+          //     'julia-repl': juliaRepl
+          //   }
+          // })
           .use(fullWidthFigures)
           .use(escapeCurlies)
           .use(customComponent)
-          .use(rehypePresetMinify)
           .use(rehypeStringify, {allowDangerousHtml: false})
         const result = await markdown2svelte()
           .process(c)

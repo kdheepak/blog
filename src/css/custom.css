@@ -5,15 +5,11 @@ section > ol > li > pre:not(.sourceCode) {
   width: 163.6363%;
 }
 
-pre > code {
-  width: 80%;
-}
-
 div.sourceCode,
 pre:not(.sourceCode) {
   padding: 1.4rem;
   margin: -0.7rem -1.4rem;
-  width: 100%;
+  width: 80%;
   font-size: 0.9rem;
   overflow-x: auto;
 }

@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@jsdevtools/rehype-inline-svg": "^1.1.4",
+    "@mapbox/rehype-prism": "^0.8.0",
     "@snlab/sveltex-unified": "^0.0.16",
     "@starptech/prettyhtml-hast-to-html": "^0.10.0",
     "@sveltejs/adapter-static": "^1.0.0-next.24",

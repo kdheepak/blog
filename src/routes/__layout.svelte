@@ -6,9 +6,8 @@ import { onMount } from 'svelte';
   import '../css/tufte-extra.css'
   import '../css/latex.css'
   import '../css/pandoc.css'
+  import '../css/prism.css'
   import '../css/custom.css'
-
-  import 'highlight.js/styles/default.css';
 
   onMount(() => {
     let script = document.createElement('script');
