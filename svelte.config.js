@@ -9,11 +9,25 @@ import rehypeRaw from 'rehype-raw'
 import rehypeRemark from 'rehype-remark'
 import rehypeSanitize from 'rehype-sanitize'
 import rehypeStringify from 'rehype-stringify'
-import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 import remarkParse from 'remark-parse'
 import remarkRehype from 'remark-rehype'
 import rehypeHighlight from 'rehype-highlight'
+import rehypePresetMinify from 'rehype-preset-minify'
+import inlineSVG from '@jsdevtools/rehype-inline-svg'
+
 import julia from 'highlight.js/lib/languages/julia'
+import juliaRepl from 'highlight.js/lib/languages/julia-repl'
+import vim from 'highlight.js/lib/languages/vim'
+import diff from 'highlight.js/lib/languages/diff'
+import latex from 'highlight.js/lib/languages/latex'
+import wasm from 'highlight.js/lib/languages/wasm'
+import llvm from 'highlight.js/lib/languages/llvm'
+import dockerfile from 'highlight.js/lib/languages/dockerfile'
+import nim from 'highlight.js/lib/languages/nim'
+import matlab from 'highlight.js/lib/languages/matlab'
+import cmake from 'highlight.js/lib/languages/cmake'
+import gams from 'highlight.js/lib/languages/gams'
 
 import { visit } from 'unist-util-visit'
 
@@ -70,7 +84,7 @@ function fullWidthFigures () {
 function escapeCurlies () {
   return function (tree) {
     visit(tree, 'element', function (node) {
-      if ((node.tagName === 'code' || node.tagName === 'math')) {
+      if (node.tagName === 'code' || node.tagName === 'math' || (node.tagName == "span" && node.properties["className"] !== undefined && node.properties["className"].includes('math'))) {
         findAndReplace(node, {
           '&': '&#38;',
           '{': '&#123;',
@@ -151,10 +165,28 @@ function pandocRemarkPreprocess() {
         let c = pandoc(content)
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
-          .use(rehypeHighlight, {languages: {julia}})
+          .use(rehypeKatex)
+          .use(rehypeHighlight, {
+            languages: {
+              julia,
+              matlab,
+              cmake,
+              gams,
+              nim,
+              wasm,
+              vim,
+              diff,
+              latex,
+              dockerfile,
+              llvm,
+              'julia-repl': juliaRepl
+            }
+          })
+          .use(inlineSVG)
           .use(fullWidthFigures)
           .use(escapeCurlies)
           .use(customComponent)
+          .use(rehypePresetMinify)
           .use(rehypeStringify, {allowDangerousHtml: false})
         const result = await markdown2svelte()
           .process(c)

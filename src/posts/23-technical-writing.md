@@ -287,7 +287,7 @@ Take for example this table {@tbl:table}.
 
 This is what the same table looks like in $\LaTeX$.
 
-```tex
+```latex
 \begin{longtable}[c]{@{}rlcl@{}}
 \caption{Demonstration of simple table syntax.}
 \tabularnewline
@@ -538,10 +538,9 @@ when I don't know what I'm doing.
      12     12        12            12
     123     123       123          123
       1     1          1             1
-```
 
-Table:  Demonstration of simple table syntax.
-{#tbl:table}
+Table:  Demonstration of simple table syntax. {#tbl:table}
+```
 
 **Example**
 

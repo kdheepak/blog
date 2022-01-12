@@ -129,7 +129,7 @@ Add the following to your [`~/.gitconfig`](https://github.com/kdheepak/dotfiles/
     Also, `git` will not create this file unless you ask for it.
     You can create it by running `git config --global --edit`.
 
-```gitconfig
+```toml
 [init]
   templatedir = ~/gitrepos/git-templates
 ```
