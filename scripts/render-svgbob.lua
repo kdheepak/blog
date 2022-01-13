@@ -51,7 +51,13 @@ function Render(elem, attr)
 		if elem.classes[1] == format then
 			local cmd, filetype = render_cmd(elem.text, elem.attributes or {})
 			local mimetype = "image/" .. filetype
-			local fname = "src/posts/rendered/"
+			local fname = "./rendered/"
+				.. format
+				.. "-"
+				.. pandoc.sha1(cmd[1] .. table.concat(cmd[2], " ") .. cmd[3])
+				.. "."
+				.. filetype
+			local fpath = "src/posts/rendered/"
 				.. format
 				.. "-"
 				.. pandoc.sha1(cmd[1] .. table.concat(cmd[2], " ") .. cmd[3])
@@ -59,7 +65,7 @@ function Render(elem, attr)
 				.. filetype
 			local data = nil
 
-			local f = io.open(fname, "rb")
+			local f = io.open(fpath, "rb")
 			if f ~= nil then
 				-- io.stderr:write("cached " .. format .. " found\n")
 				data = f:read("*all")
@@ -67,12 +73,12 @@ function Render(elem, attr)
 			else
 				-- io.stderr:write("call " .. format .. "\n")
 				data = pandoc.pipe(cmd[1], cmd[2], cmd[3])
-				local f = io.open(fname, "wb")
+				local f = io.open(fpath, "wb")
 				f:write(data)
 				f:close()
 			end
-			images[fname] = true
-			pandoc.mediabag.insert(fname, mimetype, data)
+			images[fpath] = true
+			pandoc.mediabag.insert(fpath, mimetype, data)
 			return fname
 		end
 	end

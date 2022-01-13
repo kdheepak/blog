@@ -8,19 +8,11 @@ import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
 import rehypePrism from '@mapbox/rehype-prism'
-import rehypePresetMinify from 'rehype-preset-minify'
+import importAssets from 'svelte-preprocess-import-assets'
 
 import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
-
-function copyFrontmatter () {
-  return function transformer (tree, file) {
-    visit(tree, 'yaml', function (node) {
-      file.data.frontmatter = node.data.parsedValue
-    })
-  }
-}
 
 function customComponent () {
   return function transformer (tree) {
@@ -188,7 +180,7 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess()],
+  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets()],
 
   kit: {
     adapter: adapter(),
