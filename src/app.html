@@ -7,27 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     %svelte.head%
   </head>
-  <div class="paper container">
   <body>
     <div id="svelte">%svelte.body%</div>
   </body>
-  </div>
-  <script>
-    document.querySelectorAll('opt-in-script').forEach((ois) =>
-      (ois.querySelector('button') || ois).addEventListener('click', (_) => {
-        let commentheader = document.createElement('h1')
-        commentheader.id = 'comments'
-        commentheader.innerHTML = '<a href="#comments">#</a> Comments'
-        let script = document.createElement('script')
-        Array.from(ois.attributes).forEach((attr) => script.setAttribute(attr.name, attr.value))
-        ois.parentNode.prepend(commentheader)
-        ois.parentNode.replaceChild(script, ois)
-      }),
-    )
-  </script>
-  <script
-    data-goatcounter="https://kdheepak.goatcounter.com/count"
-    async
-    src="//gc.zgo.at/count.js"
-  ></script>
 </html>
