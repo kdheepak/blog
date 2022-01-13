@@ -188,16 +188,12 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess({ preserve: ['module'] })],
+  preprocess: [ pandocRemarkPreprocess(), preprocess()],
 
   kit: {
     adapter: adapter(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
-    vite: {
-      optimizeDeps: {
-      },
-    },
   },
 }
 

@@ -1,8 +1,5 @@
 <script context="module">
-  import { browser, dev } from '$app/env'
-  import { base, assets } from '$app/paths'
-  export const hydrate = dev
-  export const router = browser
+  export const prerender = true;
 
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   let humanDate = new Date().toLocaleDateString(undefined, options)

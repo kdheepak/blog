@@ -1,11 +1,8 @@
 <script context="module">
-  import { browser, dev } from '$app/env'
-  import { base, assets } from '$app/paths'
+  import { base } from '$app/paths'
   import { onMount } from 'svelte'
 
   const allPosts = import.meta.glob('/src/posts/*.md')
-  export const hydrate = dev
-  export const router = browser
 
   export async function load({ params, fetch }) {
     const url = `/${params.slug}.json`
