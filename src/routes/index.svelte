@@ -28,7 +28,6 @@
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
-  import Counter from "$lib/components/Counter.svelte"
 </script>
 
 <svelte:head>
@@ -53,7 +52,6 @@
       {humanDate}
     </a>
   </p>
-  <Counter/>
   <section>
     <div class="tocwrapper">
       <br />
