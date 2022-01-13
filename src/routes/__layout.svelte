@@ -8,6 +8,8 @@
   import '../css/custom.css'
 
   import '$lib/prism'
+
+  export const hydrate = true
 </script>
 
 <main class="line-numbers match-braces rainbow-braces">
