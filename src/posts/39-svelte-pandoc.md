@@ -39,3 +39,48 @@ Take for example this table {@tbl:table}.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax. {#tbl:table}
+
+```css
+.example-gradient {
+	background: -webkit-linear-gradient(left,     #cb60b3 0%, #c146a1 50%, #a80077 51%, #db36a4 100%); /* Chrome10+, Safari5.1+ */
+	background:    -moz-linear-gradient(left,     #cb60b3 0%, #c146a1 50%, #a80077 51%, #db36a4 100%); /* FF3.6+ */
+	background:     -ms-linear-gradient(left,     #cb60b3 0%, #c146a1 50%, #a80077 51%, #db36a4 100%); /* IE10+ */
+	background:      -o-linear-gradient(left,     #cb60b3 0%, #c146a1 50%, #a80077 51%, #db36a4 100%); /* Opera 11.10+ */
+	background:         linear-gradient(to right, #cb60b3 0%, #c146a1 50%, #a80077 51%, #db36a4 100%); /* W3C */
+}
+.example-angle {
+	transform: rotate(10deg);
+}
+.example-color {
+	color: rgba(255, 0, 0, 0.2);
+	background: purple;
+	border: 1px solid hsl(100, 70%, 40%);
+}
+.example-easing {
+	transition-timing-function: linear;
+}
+.example-time {
+	transition-duration: 3s;
+}
+```
+
+``` {.diff-rust .diff-highlight}
+@@ -111,6 +114,9 @@
+         nasty_btree_map.insert(i, MyLeafNode(i));
+     }
+
++    let mut zst_btree_map: BTreeMap<(), ()> = BTreeMap::new();
++    zst_btree_map.insert((), ());
++
+     // VecDeque
+     let mut vec_deque = VecDeque::new();
+     vec_deque.push_back(5);
+```
+
+Hello
+
+~~~~ {#mycode .haskell .numberLines startFrom="100"}
+qsort []     = []
+qsort (x:xs) = qsort (filter (< x) xs) ++ [x] ++
+               qsort (filter (>= x) xs)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

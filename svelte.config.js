@@ -10,19 +10,6 @@ import rehypeMathjaxSvg from 'rehype-mathjax'
 import rehypePrism from '@mapbox/rehype-prism'
 import rehypePresetMinify from 'rehype-preset-minify'
 
-import julia from 'highlight.js/lib/languages/julia'
-import juliaRepl from 'highlight.js/lib/languages/julia-repl'
-import vim from 'highlight.js/lib/languages/vim'
-import diff from 'highlight.js/lib/languages/diff'
-import latex from 'highlight.js/lib/languages/latex'
-import wasm from 'highlight.js/lib/languages/wasm'
-import llvm from 'highlight.js/lib/languages/llvm'
-import dockerfile from 'highlight.js/lib/languages/dockerfile'
-import nim from 'highlight.js/lib/languages/nim'
-import matlab from 'highlight.js/lib/languages/matlab'
-import cmake from 'highlight.js/lib/languages/cmake'
-import gams from 'highlight.js/lib/languages/gams'
-
 import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
@@ -209,7 +196,6 @@ const config = {
     target: '#svelte',
     vite: {
       optimizeDeps: {
-        include: ['highlight.js/lib/core'],
       },
     },
   },

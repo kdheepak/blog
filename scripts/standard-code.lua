@@ -257,14 +257,17 @@ local function escape(s)
 	end)
 end
 
+function startswith(text, prefix)
+	return text:find(prefix, 1, true) == 1
+end
+
 local function getCodeClass(classes)
 	-- Check if the first element of classes (pandoc.CodeBlock.classes) matches a
 	-- programming language name. If it does, it gets removed from classes and a valid
 	-- HTML class attribute string (with space at beginning) is returned.
 
-	local lang = table.remove(classes, 1)
-	if lang then
-		return ' class="language-' .. lang .. '"'
+	if startswith(classes[1], "diff-") or languages[classes[1]] then
+		return ' class="language-' .. table.remove(classes, 1) .. '"'
 	else
 		return ""
 	end

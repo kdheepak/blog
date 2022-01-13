@@ -18,6 +18,6 @@ import { onMount } from 'svelte';
 
 </script>
 
-<main>
+<main class="line-numbers match-braces rainbow-braces">
   <slot />
 </main>
