@@ -31,7 +31,7 @@
   <title>Dheepak Krishnamurthy - Blog</title>
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
-  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href="../../static/favicon.svg" />
   <link
     rel="alternate"
     type="application/rss+xml"
