@@ -1,6 +1,4 @@
 <script context="module">
-  export const prerender = true
-
   import { browser, dev } from '$app/env'
   import { base, assets } from '$app/paths'
   import { onMount } from 'svelte'

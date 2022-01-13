@@ -1,5 +1,5 @@
 <script>
-import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
   import '../css/app.css'
   import '../css/tufte.css'
@@ -14,8 +14,6 @@ import { onMount } from 'svelte';
   onMount(() => {
     Prism.highlightAll()
   })
-
-
 </script>
 
 <main class="line-numbers match-braces rainbow-braces">
