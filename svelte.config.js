@@ -95,8 +95,6 @@ function pandoc(input, ...args) {
     '--filter',
     'pandoc-secnos',
     '--filter',
-    'pandoc-latex-extensions',
-    '--filter',
     'pandoc-eqnos',
     '--filter',
     'pandoc-fignos',
@@ -113,8 +111,6 @@ function pandoc(input, ...args) {
     '--metadata',
     'reference-section-title=References',
     '--lua-filter',
-    './scripts/fix-image-links.lua',
-    '--lua-filter',
     './scripts/render-svgbob.lua',
     '--lua-filter',
     './scripts/ref-section-level.lua',
@@ -126,9 +122,12 @@ function pandoc(input, ...args) {
     './scripts/sidenote.lua',
     '--lua-filter',
     './scripts/standard-code.lua',
+    '--lua-filter',
+    './scripts/fix-image-links.lua',
   ].concat(args)
   let pandoc
   input = Buffer.from(input)
+  console.log(option.join(" "))
   try {
     pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
   } catch (err) {
