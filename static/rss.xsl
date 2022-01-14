@@ -29,24 +29,24 @@
 </h1>
 </header>
 <section>
-    <p>You are viewing an <acronym title="Really Simple Syndication">RSS</acronym> feed.
-    You can find out more about the RSS file format at <a href="http://en.wikipedia.org/wiki/RSS_(file_format)">Wikipedia's RSS entry</a>.</p>
-<p>You may use the <acronym title="Uniform Resource Locater">URL</acronym> of this document or copy the address below and paste it for any RSS purposes.</p>
-<p>
-<label for="address">RSS address:</label>
-<input>
-    <xsl:attribute name="id">address</xsl:attribute>
-    <xsl:attribute name="spellcheck">false</xsl:attribute>
-    <xsl:attribute name="value">https://blog.kdheepak.com/rss.xml</xsl:attribute>
-</input>
-</p>
-<p>
-New to feeds? <a href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds" title="Search on the web to learn more">Learn more</a>.
-</p>
-<h3>Recent blogs:</h3>
-<xsl:for-each select="rss/channel/item">
-    <p><a><xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/></a></p>
-</xsl:for-each>
+    <p>You may use the <acronym title="Uniform Resource Locater">URL</acronym> of this document or copy the address below and paste it for any RSS purposes.
+    <br/>
+    <label for="address">RSS address: </label>
+    <input style="width:250px">
+        <xsl:attribute name="id">address</xsl:attribute>
+        <xsl:attribute name="spellcheck">false</xsl:attribute>
+        <xsl:attribute name="value">https://blog.kdheepak.com/rss.xml</xsl:attribute>
+    </input>
+    </p>
+    <p>New to feeds? You can find out more about the RSS file format at <a href="http://en.wikipedia.org/wiki/RSS_(file_format)">Wikipedia's RSS entry</a> or by clicking <a target="_blank" href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds">here</a> to search on the web to learn more.</p>
+    <h3>Recent blogs:</h3>
+    <xsl:for-each select="rss/channel/item">
+        <p>
+            <a>
+                <xsl:attribute name="href"><xsl:value-of select="link"/></xsl:attribute><xsl:value-of select="title"/>
+            </a>
+        </p>
+    </xsl:for-each>
 </section>
 </article>
 </body>
