@@ -44,13 +44,6 @@
   {#if metadata.summary}
     <meta name="description" content={metadata.summary} />
   {/if}
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="RSS"
-    href="https://blog.kdheepak.com/rss.xml"
-  />
 </svelte:head>
 
 <article>
