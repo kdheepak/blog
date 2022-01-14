@@ -44,7 +44,7 @@
   {#if metadata.summary}
     <meta name="description" content={metadata.summary} />
   {/if}
-  <link rel="icon" type="image/svg+xml" href="../../static/favicon.ico" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
   <link
     rel="alternate"
     type="application/rss+xml"
