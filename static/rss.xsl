@@ -7,14 +7,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width"/>
 <title><xsl:value-of select="rss/channel/title"/> (RSS)</title>
-<link rel="stylesheet" href="/css/github.css"/>
-<link rel="stylesheet" href="/css/table.css"/>
-<link rel="stylesheet" href="/css/latex.css"/>
-<link rel="stylesheet" href="/css/tufte-extra.css"/>
-<link rel="stylesheet" href="/css/tufte.css"/>
-<link rel="stylesheet" href="/css/pandoc.css"/>
-<link rel="stylesheet" href="/css/table.css"/>
-<link rel="stylesheet" href="/css/custom.css"/>
+<link rel="stylesheet" href="/src/css/latex.css"/>
+<link rel="stylesheet" href="/src/css/tufte-extra.css"/>
+<link rel="stylesheet" href="/src/css/tufte.css"/>
+<link rel="stylesheet" href="/src/css/pandoc.css"/>
+<link rel="stylesheet" href="/src/css/custom.css"/>
+<link rel="stylesheet" href="/src/css/prism.css"/>
+<link rel="stylesheet" href="/src/css/app.css"/>
 </head>
 <body>
 <article>
@@ -30,15 +29,15 @@
 </h1>
 </header>
 <section>
-<p>To subscribe, copy the address below and paste it when your feed reader asks for it. It will be updated periodically in your reader. </p>
+    <p>You are viewing an <acronym title="Really Simple Syndication">RSS</acronym> feed.
+    You can find out more about the RSS file format at <a href="http://en.wikipedia.org/wiki/RSS_(file_format)">Wikipedia's RSS entry</a>.</p>
+<p>You may use the <acronym title="Uniform Resource Locater">URL</acronym> of this document or copy the address below and paste it for any RSS purposes.</p>
 <p>
 <label for="address">RSS address:</label>
 <input>
     <xsl:attribute name="id">address</xsl:attribute>
     <xsl:attribute name="spellcheck">false</xsl:attribute>
-    <xsl:attribute name="value">
-        <xsl:value-of select="rss/channel/atom:link[@rel='self']/@href"/>
-    </xsl:attribute>
+    <xsl:attribute name="value">https://blog.kdheepak.com/rss.xml</xsl:attribute>
 </input>
 </p>
 <p>

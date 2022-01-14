@@ -1,6 +1,7 @@
 import fs from 'fs'
 import matter from 'gray-matter'
 import path from 'path'
+import { encode } from 'html-entities'
 
 export async function getPostsMetadata(startPath: string) {
   const posts = []
@@ -22,6 +23,9 @@ export async function getPostsMetadata(startPath: string) {
           .replace(/[^\w ]+/g, '')
           .replace(/ +/g, '-')
       }
+      metadata.slug = encode(metadata.slug)
+      metadata.title = encode(metadata.title)
+      metadata.summary = encode(metadata.summary)
       if (metadata.date) {
         posts.push(metadata)
       }
