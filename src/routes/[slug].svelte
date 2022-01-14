@@ -3,6 +3,7 @@
   import { onMount } from 'svelte'
 
   const allPosts = import.meta.glob('/src/posts/*.md')
+  export const prerender = true
 
   export async function load({ params, fetch }) {
     const url = `/${params.slug}.json`
