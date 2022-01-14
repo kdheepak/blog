@@ -222,10 +222,7 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets({
-      urlFilter: (url) => /\.(png|jpg|gif|webp|webm)$/.test(url),
-    })
-  ],
+  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
 
   kit: {
     adapter: adapter(),
