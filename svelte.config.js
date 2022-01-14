@@ -127,7 +127,6 @@ function pandoc(input, ...args) {
   ].concat(args)
   let pandoc
   input = Buffer.from(input)
-  console.log(option.join(" "))
   try {
     pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
   } catch (err) {

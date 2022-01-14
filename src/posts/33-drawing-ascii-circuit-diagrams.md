@@ -9,8 +9,8 @@ summary: Drawing ascii diagrams and rendering them to svg using svgbob, pandoc a
 
 Here is a simple 3-bus circuit diagram using text / ascii.
 
-```
-           |           +-----------+           |
+```markup
+ㅤ           |           +-----------+           |
            +-----------+           +-----------+
            |           +-----------+           |
      +-----+1               y12               2+------+
