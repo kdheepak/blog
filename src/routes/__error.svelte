@@ -16,7 +16,6 @@
 
 <svelte:head>
   <title>{title}</title>
-  <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
   <link
     rel="alternate"
     type="application/rss+xml"
