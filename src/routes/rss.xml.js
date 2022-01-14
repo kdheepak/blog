@@ -8,8 +8,8 @@ function xml(posts) {
     <title>Dheepak Krishnamurthy's Blog</title>
     <description>My thoughts, notes and blogs</description>
     <link>https://blog.kdheepak.com/</link>
-    <lastBuildDate>Fri, 17 Dec 2021 03:49:09 GMT</lastBuildDate>
-    <pubDate>Fri, 17 Dec 2021 03:49:09 GMT</pubDate>
+    <lastBuildDate>${new Date()}</lastBuildDate>
+    <pubDate>${new Date()}</pubDate>
     <language>en-us</language>
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/rss.xml" rel="self" type="application/rss+xml"></atom:link>
