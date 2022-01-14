@@ -3,40 +3,6 @@ import matter from 'gray-matter'
 import path from 'path'
 import child_process from 'child_process'
 
-function buffer2string(bufferString) {
-  const hex = bufferString.match(/\s[0-9a-fA-F]+/g).map((x) => x.trim())
-  return Buffer.from(hex.join(''), 'hex').toString()
-}
-
-function pandoc(input, ...args) {
-  const option = [
-    '-t',
-    'html',
-    '--mathml',
-    '--lua-filter',
-    'scripts/fix-image-links.lua',
-    '--filter',
-    'pandoc-eqnos',
-    '--filter',
-    'pandoc-fignos',
-    '--filter',
-    'pandoc-tablenos',
-    '--citeproc',
-  ].concat(args)
-  let pandoc
-  input = Buffer.from(input)
-  try {
-    pandoc = child_process.spawnSync('pandoc', option, { input, timeout: 20000 })
-  } catch (err) {
-    console.error(option, input, err)
-  }
-  if (pandoc.stderr && pandoc.stderr.length) {
-    console.log(option, input, Error(pandoc.output[2].toString()))
-  }
-  var content = pandoc.stdout.toString()
-  return { content }
-}
-
 async function fromDir(startPath, filter) {
   const slugs = {}
   var files = fs.readdirSync(startPath)
@@ -46,7 +12,6 @@ async function fromDir(startPath, filter) {
     if (stat.isDirectory()) {
       continue
     } else if (filename.indexOf(filter) >= 0) {
-      // markdown file
       const doc = await fs.promises.readFile(filename, 'utf8')
       const { data: metadata, content } = matter(doc)
       const commit = child_process

@@ -2,6 +2,8 @@ import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 import child_process from 'child_process'
 import path from 'path'
+import fs from 'fs'
+import matter from 'gray-matter'
 
 import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
@@ -174,6 +176,46 @@ function pandocRemarkPreprocess() {
     }
 }
 
+function fromDir(startPath, filter) {
+  const slugs = []
+  var files = fs.readdirSync(startPath)
+  for (var i = 0; i < files.length; i++) {
+    var filename = path.join(startPath, files[i])
+    var stat = fs.lstatSync(filename)
+    if (stat.isDirectory()) {
+      continue
+    } else if (filename.indexOf(filter) >= 0) {
+      const doc = fs.readFileSync(filename, 'utf8')
+      const { data: metadata, content } = matter(doc)
+      metadata.path = filename
+      if (metadata.slug) {
+        slugs.push(metadata.slug)
+      } else {
+        slugs.push(
+          metadata.title
+            .toString()
+            .toLowerCase()
+            .replace(/<code>/, '')
+            .replace(/<\/code>/g, '')
+            .replace(/[^\w ]+/g, '')
+            .replace(/ +/g, '-')
+        )
+      }
+    }
+  }
+  return slugs
+}
+
+
+function getPages() {
+  let pages = ['*']
+  const slugs = fromDir('src/posts/', '.md')
+  for (const p of slugs) {
+    pages.push(`/${p}`)
+  }
+  return pages
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.md'],
@@ -189,6 +231,11 @@ const config = {
     adapter: adapter(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
+    prerender: {
+        crawl: true,
+        enabled: true,
+        entries: getPages(),
+    },
   },
 }
 
