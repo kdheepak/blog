@@ -51,7 +51,7 @@ function Render(elem, attr)
 		if elem.classes[1] == format then
 			local cmd, filetype = render_cmd(elem.text, elem.attributes or {})
 			local mimetype = "image/" .. filetype
-			local fname = "./rendered/"
+			local fname = "rendered/"
 				.. format
 				.. "-"
 				.. pandoc.sha1(cmd[1] .. table.concat(cmd[2], " ") .. cmd[3])
