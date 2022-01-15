@@ -147,6 +147,7 @@ function pandocRemarkPreprocess() {
           return
         }
         let c = pandoc(content)
+        c = c.replaceAll(/<\!--separator-->/g, " ")
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(mathJaxSetup)
@@ -211,6 +212,7 @@ function fromDir(startPath, filter) {
 function debugPreprocess() {
   return {
       markup: async ({ content, filename }) => {
+        console.log(content)
         return {
           code: content,
           map: ''
@@ -237,7 +239,7 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets(),  ],
+  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
 
   kit: {
     adapter: adapter(),
