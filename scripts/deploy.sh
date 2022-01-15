@@ -1,8 +1,6 @@
 #!/usr/bin/env sh
 # abort on errors
 set -e
-# build
-rm -rf build
 NODE_ENV=production npm run build
 cd build
 git init
