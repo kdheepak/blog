@@ -31,7 +31,7 @@ This theme is called [pelican-smoothie](https://github.com/kdheepak/pelican-smoo
 As you may have guessed from the name, this is a theme for [Pelican](https://github.com/getpelican/pelican), a static site generator powered by Python.
 Pelican allows you to write posts in Markdown or RestructuredText, and convert them into structured and beautiful websites.
 There are a few advantages of using a static site generator instead of a Content Management System (CMS) like WordPress,
-and I have covered it briefly in [this post](/how-to-set-up-a-pelican-blog-with-github-pages.html).
+and I have covered it briefly in [this post](./08-github-pelican.md).
 Since Pelican is an open source project, it is inherently pretty customization.
 I can almost guarantee if you think of a feature that you'd like, you'll be able to search for a plugin that does
 exactly that. There is in fact a collection of [pelican-plugins](https://github.com/getpelican/pelican-plugins). Their maintainer **\@justinmayer** is also very responsive to feature requests and pull requests.
@@ -48,7 +48,7 @@ This approach worked for me, and the reason I went down this path was because I 
 # Setup
 
 Firstly, I'm not using Pelican's built in reader for Markdown files, but instead am using Pandoc. I wrote a pretty long post on using
-[Pandoc for academic writing](/writing-papers-with-markdown.html); I think it's safe to say that I'm a fan of Pandoc.
+[Pandoc for academic writing](./23-technical-writing.md); I think it's safe to say that I'm a fan of Pandoc.
 Pelican has better built-in support for RestructuredText compared to Markdown, but plugins allow you to do pretty much everything you want with Markdown as your source file format.
 However the number of plugins required to get everything you want working quickly adds up.[^3]
 I've used Pandoc for other projects before and wanted to see if I could get it working in my blogging workflow.
