@@ -208,6 +208,19 @@ function fromDir(startPath, filter) {
   return slugs
 }
 
+function debugPreprocess() {
+  return {
+      markup: async ({ content, filename }) => {
+        return {
+          code: content,
+          map: ''
+        }
+      },
+      script: () => {},
+      style: () => {}
+    }
+}
+
 
 function getPages() {
   let pages = ['*']
