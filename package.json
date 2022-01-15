@@ -4,6 +4,7 @@
   "scripts": {
     "test": "node test.cjs",
     "dev": "svelte-kit dev",
+    "deploy": "sh scripts/deploy.sh",
     "build": "svelte-kit build",
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
