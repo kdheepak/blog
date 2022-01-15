@@ -237,7 +237,7 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
+  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets(),  ],
 
   kit: {
     adapter: adapter(),
