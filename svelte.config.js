@@ -12,6 +12,9 @@ import rehypeMathjaxSvg from 'rehype-mathjax'
 import rehypePrism from '@mapbox/rehype-prism'
 import importAssets from 'svelte-preprocess-import-assets'
 
+const dev = process.env.NODE_ENV === 'development'; // TODO: use import.meta.env.MODE?
+const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE;
+
 import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
@@ -245,6 +248,9 @@ const config = {
     adapter: adapter(),
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte',
+    paths: {
+      base: pathsBase
+    },
     prerender: {
         crawl: true,
         enabled: true,
