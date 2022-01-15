@@ -1,4 +1,4 @@
-local inspect = require("scripts.inspect")
+-- local inspect = require("scripts.inspect")
 local stringify = (require("pandoc.utils")).stringify
 local utils = require("pandoc.utils")
 
