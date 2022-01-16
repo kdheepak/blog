@@ -11,7 +11,6 @@
                 <link rel="stylesheet" href="/src/css/tufte-extra.css"/>
                 <link rel="stylesheet" href="/src/css/tufte.css"/>
                 <link rel="stylesheet" href="/src/css/pandoc.css"/>
-                <link rel="stylesheet" href="/src/css/prism.css"/>
                 <link rel="stylesheet" href="/src/css/app.css"/>
             </head>
             <body>

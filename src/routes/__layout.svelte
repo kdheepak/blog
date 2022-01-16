@@ -3,7 +3,6 @@
   import '../css/tufte-extra.css'
   import '../css/latex.css'
   import '../css/pandoc.css'
-  import '../css/prism.css'
   import '../css/app.css'
 </script>
 
