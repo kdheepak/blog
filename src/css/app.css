@@ -138,6 +138,7 @@ section {
 
 .code-toolbar {
   grid-column: full;
+  margin-top: 1.5em;
 }
 
 
