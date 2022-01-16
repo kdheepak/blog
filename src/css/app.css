@@ -159,3 +159,7 @@ div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .
     font-size: 18px;
     padding: 2px 12px 0px;
 }
+
+.token.operator {
+    background: none;
+}
