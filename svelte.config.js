@@ -251,11 +251,6 @@ const config = {
     paths: {
       base: pathsBase
     },
-    prerender: {
-        crawl: true,
-        enabled: true,
-        entries: getPages(),
-    },
   },
 }
 

@@ -1,6 +1,4 @@
 <script context="module">
-  export const prerender = true;
-
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   let humanDate = new Date().toLocaleDateString(undefined, options)
 
