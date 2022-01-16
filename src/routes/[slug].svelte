@@ -28,8 +28,6 @@
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
   $: metadata.humanDate = formatDate(metadata.date)
-
-  onMount(() => Prism.highlightAll())
 </script>
 
 <svelte:head>
