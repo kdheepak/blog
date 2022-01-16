@@ -9,6 +9,7 @@
 
 <script>
   import {onMount} from 'svelte'
+  import '$lib/prism'
   onMount(() => Prism.highlightAll())
 </script>
 
