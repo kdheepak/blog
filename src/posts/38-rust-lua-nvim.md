@@ -154,7 +154,7 @@ end
 return M
 ```
 
-The name of the function that is annotated with the `#[mlua::lua_module]` must be the name of the lua module you intend to build. In my case, I called the function `moonshine`. This will allow me to use `require'moonshine` in lua.
+The name of the function that is annotated with the `#[mlua::lua_module]` must be the name of the lua module you intend to build. In my case, I called the function `moonshine`. This will allow me to use `require'moonshine'` in lua.
 
 For MacOS, we also have to add the following to `.cargo/config`:
 
