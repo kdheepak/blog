@@ -151,7 +151,7 @@ div.code-toolbar > .toolbar {
 }
 
 div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {
-    background: #F3F0EE;
+    background: #f5f2f0;
     box-shadow: 0 0 0 0 rgba(0,0,0,0);
     border-radius: .5em;
     border-radius: 8px 8px 0px 0px;

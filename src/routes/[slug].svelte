@@ -29,7 +29,23 @@
   $: metadata.humanDate = formatDate(metadata.date)
 
   import {onMount} from 'svelte'
-  onMount(() => Prism.highlightAll())
+  onMount(() => {
+    Prism.highlightAll()
+    document.querySelectorAll("opt-in-script").forEach(ois =>
+      (ois.querySelector("button") || ois).addEventListener("click", _ => {
+        let commentheader = document.createElement("h1");
+        commentheader.id = "comments";
+        commentheader.innerHTML = '<a href="#comments">#</a> Comments';
+        let script = document.createElement("script")
+        Array.from(ois.attributes).forEach(attr =>
+          script.setAttribute(attr.name, attr.value))
+        ois.parentNode.prepend(commentheader)
+        ois.parentNode.replaceChild(script, ois)
+      })
+    )
+  })
+
+
 </script>
 
 <svelte:head>
