@@ -118,3 +118,43 @@ pre {
 pre > code {
     z-index: auto;
 }
+
+article {
+    display: grid;
+    grid-template-columns:
+      [full-start] minmax(1em, 1fr)
+      [main-start] minmax(0, 1440px) [main-end]
+      minmax(1em, 1fr) [full-end];
+}
+
+article > * {
+    grid-column: main;
+}
+
+section {
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+.code-toolbar {
+  grid-column: full;
+}
+
+
+div.code-toolbar > .toolbar {
+  width: 100%;
+  opacity: 1;
+  right: 0em;
+  display: flex;
+  top: -0.7em;
+  justify-content: space-between;
+}
+
+div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .toolbar-item > button, div.code-toolbar > .toolbar > .toolbar-item > span {
+    background: #F3F0EE;
+    box-shadow: 0 0 0 0 rgba(0,0,0,0);
+    border-radius: .5em;
+    border-radius: 8px 8px 0px 0px;
+    font-size: 18px;
+    padding: 2px 12px 0px;
+}

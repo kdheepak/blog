@@ -52,7 +52,7 @@ This blog post is a summary of the scaffolding required to get a hello world lua
 When a `require 'mymodule'` expression is encountered in lua, the lua interpreter searches for `mymodule.lua` and `mymodule.so` files in a bunch of predefined locations.
 This is the output of typing `:lua require'mymodule'` in neovim:
 
-```txt
+```markup
 E5108: Error executing lua [string ":lua"]:1: module 'mymodule' not found:
         no field package.preload['mymodule']
         no file './mymodule.lua'
