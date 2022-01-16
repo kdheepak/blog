@@ -1,6 +1,5 @@
 <script context="module">
   import { base } from '$app/paths'
-  import { onMount } from 'svelte'
 
   const allPosts = import.meta.glob('/src/posts/*.md')
 
@@ -20,6 +19,8 @@
 </script>
 
 <script>
+  import '$lib/prism'
+
   export let component
   export let metadata
   const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
@@ -28,6 +29,9 @@
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
   $: metadata.humanDate = formatDate(metadata.date)
+
+  import {onMount} from 'svelte'
+  onMount(() => Prism.highlightAll())
 </script>
 
 <svelte:head>

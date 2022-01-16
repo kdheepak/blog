@@ -7,12 +7,6 @@
   import '../css/app.css'
 </script>
 
-<script>
-  import {onMount} from 'svelte'
-  import '$lib/prism'
-  onMount(() => Prism.highlightAll())
-</script>
-
 <main class="line-numbers match-braces rainbow-braces">
   <slot />
 </main>
