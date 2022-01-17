@@ -99,10 +99,10 @@ body > footer > p {
 
 .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
 
-section > ul > li > div.sourceCode,
-section > ul > li > pre:not(.sourceCode),
-section > ol > li > div.sourceCode,
-section > ol > li > pre:not(.sourceCode) {
+section > ul > li > div.code-toolbar,
+section > ul > li > pre:not(.code-toolbar),
+section > ol > li > div.code-toolbar,
+section > ol > li > pre:not(.code-toolbar) {
   width: 163.6363%;
 }
 
@@ -142,7 +142,7 @@ section > ol > li > pre:not(.sourceCode) {
 div.code-toolbar > .toolbar {
   width: 100%;
   opacity: 1;
-  right: 1.4em;
+  right: 0em;
   display: flex;
   top: -1.25em;
   justify-content: space-between;
