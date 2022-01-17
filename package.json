@@ -60,5 +60,8 @@
     "unist-util-visit": "^4.1.0",
     "vite-plugin-inspect": "^0.3.12"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-icons": "^2.1.0"
+  }
 }

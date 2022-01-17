@@ -28,6 +28,8 @@
   }
   $: metadata.humanDate = formatDate(metadata.date)
 
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
+
   import {onMount} from 'svelte'
   onMount(() => {
     Prism.highlightAll()
@@ -69,7 +71,7 @@
     <a target="_blank" href={metadata.source}>
       {metadata.humanDate}
     </a>
-    <button class="theme-toggle"></button>
+    <DarkModeToggle/>
   </p>
   </header>
 

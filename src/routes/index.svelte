@@ -1,4 +1,5 @@
 <script context="module">
+
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   let humanDate = new Date().toLocaleDateString(undefined, options)
 
@@ -17,6 +18,7 @@
 </script>
 
 <script>
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
   import { onMount } from 'svelte'
   export let posts = []
   const formatDate = (dateString) => {
@@ -40,7 +42,7 @@
     <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
-    <button class="theme-toggle"></button>
+    <DarkModeToggle/>
   </p>
   </header>
   <section>
