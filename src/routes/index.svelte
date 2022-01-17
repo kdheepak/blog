@@ -32,6 +32,7 @@
 </svelte:head>
 
 <article>
+  <header>
   <h1 class="title">
     <a href="https://kdheepak.com">~</a> / blog
   </h1>
@@ -39,7 +40,9 @@
     <a target="_blank" href="https://github.com/kdheepak/blog">
       {humanDate}
     </a>
+    <button class="theme-toggle"></button>
   </p>
+  </header>
   <section>
     <div class="tocwrapper">
       <br />

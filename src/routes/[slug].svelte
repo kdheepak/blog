@@ -44,8 +44,6 @@
       })
     )
   })
-
-
 </script>
 
 <svelte:head>
@@ -71,6 +69,7 @@
     <a target="_blank" href={metadata.source}>
       {metadata.humanDate}
     </a>
+    <button class="theme-toggle"></button>
   </p>
   </header>
 
