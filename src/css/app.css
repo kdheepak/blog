@@ -201,3 +201,7 @@ body.dark-mode {
     justify-content: flex-start;
     gap: 10px;
 }
+
+.sidenote, .marginnote {
+    z-index: 9;
+}
