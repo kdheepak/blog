@@ -49,8 +49,6 @@
     }
     theme = document.body.classList.contains('light') ? 'light' : 'dark';
     localStorage.setItem('theme', theme);
-    if (!document.body.classList.contains('bg-transition'))
-      document.body.classList.add('bg-transition');
   };
 
   import {onMount} from 'svelte'
