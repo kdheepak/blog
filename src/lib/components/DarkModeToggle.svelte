@@ -30,7 +30,7 @@
       theme: theme,
     });
   };
-  // ts-lint was freaking out, so this "_" argument is just to make that go away
+
   const checkTheme = (_) => {
     const storedTheme = getStoredTheme();
     if (storedTheme === 'light') setLightTheme();
@@ -52,6 +52,13 @@
     if (!document.body.classList.contains('bg-transition'))
       document.body.classList.add('bg-transition');
   };
+
+  import {onMount} from 'svelte'
+
+  onMount(() => {
+    checkTheme()
+  })
+
 </script>
 
 <button
