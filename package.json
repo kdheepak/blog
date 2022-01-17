@@ -41,6 +41,7 @@
     "prettier": "^2.4.1",
     "prettier-plugin-svelte": "^2.4.0",
     "prettier-plugin-tailwind": "^2.2.12",
+    "rehype-katex": "^6.0.2",
     "rehype-mathjax": "^4.0.2",
     "rehype-parse": "^8.0.3",
     "rehype-preset-minify": "^6.0.0",

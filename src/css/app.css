@@ -205,3 +205,13 @@ body.dark {
 .sidenote, .marginnote {
     z-index: 9;
 }
+
+.MathJax_Display, .MJXc-display, .MathJax_SVG_Display {
+    overflow-x: auto;
+}
+
+mjx-container {
+  width: 75vw;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
