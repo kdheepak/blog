@@ -80,25 +80,12 @@
     padding: 0.75em 1.5em;
     border-radius: 4px;
     font-weight: 600;
-    background: transparent;
     border: none;
     cursor: pointer;
-  }
-  button:hover {
-    background: var(--bg-hover);
   }
   button > div {
     height: 1.25rem;
     width: 1.25rem;
-    color: var(--text);
-  }
-  @media screen and (max-width: 600px) {
-    button {
-      padding: 0.75em 1em;
-    }
-    button > div {
-      height: 1.15rem;
-      width: 1.15rem;
-    }
+    color: var(--text-color);
   }
 </style>
