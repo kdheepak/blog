@@ -106,10 +106,6 @@ section > ol > li > pre:not(.sourceCode) {
   width: 163.6363%;
 }
 
-.code-toolbar {
-    margin-top: 2em;
-}
-
 div.sourceCode,
 pre:not(.sourceCode) {
   padding: 1.4rem;
@@ -146,9 +142,9 @@ section > ol > li > pre:not(.sourceCode) {
 div.code-toolbar > .toolbar {
   width: 100%;
   opacity: 1;
-  right: 0em;
+  right: 1.4em;
   display: flex;
-  top: -0.7em;
+  top: -1.25em;
   justify-content: space-between;
 }
 
@@ -159,6 +155,10 @@ div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .
     border-radius: 8px 8px 0px 0px;
     font-size: 18px;
     padding: 2px 12px 0px;
+}
+
+.code-toolbar {
+    margin-top: 3em;
 }
 
 .token.operator {
