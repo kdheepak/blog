@@ -8,7 +8,7 @@
   const getPrefersDarkMode = () =>
     window ? window.matchMedia('(prefers-color-scheme: dark)').matches : true;
   const getStoredTheme = () =>
-    localStorage.getItem('theme') | undefined;
+    localStorage.getItem('theme')
 
   const setLightTheme = () => {
     const prism_theme = document.querySelector("#prism-theme");
