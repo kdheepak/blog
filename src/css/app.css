@@ -1,11 +1,3 @@
-@media (max-width: 760px) {
-
-    td, th {
-        font-size: 0.75rem;
-    }
-
-}
-
 h1.title {
   font-size: 3.2rem;
 }
@@ -35,9 +27,9 @@ body > footer > p {
   font-size: 1rem;
 }
 
-.utterances {
+.giscus {
   margin-left: 0 !important;
-  width: 55%;
+  width: 81%;
 }
 
 .tocwrapper > p {
@@ -107,40 +99,49 @@ body > footer > p {
 
 .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
 
-.sidenote {
-    z-index: 9;
-}
-
-pre {
-    z-index: auto;
-}
-
-pre > code {
-    z-index: auto;
-}
-
-article {
-    display: grid;
-    grid-template-columns:
-      [full-start] minmax(1em, 1fr)
-      [main-start] minmax(0, 1440px) [main-end]
-      minmax(1em, 1fr) [full-end];
-}
-
-article > * {
-    grid-column: main;
-}
-
-section {
-    display: grid;
-    grid-template-columns: subgrid;
+section > ul > li > div.sourceCode,
+section > ul > li > pre:not(.sourceCode),
+section > ol > li > div.sourceCode,
+section > ol > li > pre:not(.sourceCode) {
+  width: 163.6363%;
 }
 
 .code-toolbar {
-  grid-column: full;
-  margin-top: 1.5em;
+    margin-top: 2em;
 }
 
+div.sourceCode,
+pre:not(.sourceCode) {
+  padding: 1.4rem;
+  margin: -0.7rem -1.4rem;
+  width: 80%;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+div.sourceCode code,
+pre:not(.sourceCode) code {
+  font-size: 0.9rem;
+}
+
+.fullwidth div.sourceCode,
+.fullwidth pre:not(.sourceCode) {
+  width: 100%;
+}
+
+section > ul > li > div.sourceCode,
+section > ul > li > pre:not(.sourceCode),
+section > ol > li > div.sourceCode,
+section > ol > li > pre:not(.sourceCode) {
+  width: 125%;
+}
+
+@media (max-width: 760px) {
+  div.sourceCode,
+  pre:not(.sourceCode) {
+    width: 100%;
+  }
+}
 
 div.code-toolbar > .toolbar {
   width: 100%;

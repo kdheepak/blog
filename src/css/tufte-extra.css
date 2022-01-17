@@ -1,49 +1,59 @@
+/* The default x-height for code is slightly too large in side notes */
+.marginnote code, .sidenote code {
+    font-size: 0.9rem;
+}
+
+/* ... and slightly too small in body text */
+code {
+    font-size: 1.05rem;
+}
+
 /* Also make the sidenote numbers hang */
 .sidenote {
-  text-indent: -0.4rem;
+    text-indent: -0.4rem;
 }
 .sidenote:before {
-  /* removes trailing space from the counter content */
-  content: counter(sidenote-counter);
-  left: -0.4rem;
+    /* removes trailing space from the counter content */
+    content: counter(sidenote-counter);
+    left: -0.4rem;
 }
 
 /* To get spacing between lists, use paragraphs.
  * 0.25rem of spacing between list elements looks bad. */
 li:not(:first-child) {
-  margin-top: initial;
+    margin-top: initial;
 }
 
 /* To get the pandoc-generated bibliography to match style, define csl classes. */
 div.csl-bib-body {
-  width: 55%;
+    width: 55%;
 }
 div.csl-entry {
-  clear: both;
-  margin-top: 0.5rem;
+    clear: both;
+    margin-top: .5rem;
 }
 .hanging div.csl-entry {
-  margin-left: 2rem;
-  text-indent: -2rem;
+    margin-left: 2rem;
+    text-indent: -2rem;
 }
 div.csl-left-margin {
-  min-width: 2rem;
-  float: left;
+    min-width: 2rem;
+    float: left;
 }
 div.csl-right-inline {
-  margin-left: 2rem;
-  padding-left: 1rem;
+    margin-left: 2rem;
+    padding-left: 1rem;
 }
 div.csl-indent {
-  margin-left: 2rem;
+    margin-left: 2rem;
 }
-div.hanging-indent {
-  margin-left: 1.5rem;
-  text-indent: -1.5rem;
+div.hanging-indent{
+    margin-left: 1.5rem;
+    text-indent: -1.5rem;
 }
 
 @media (max-width: 760px) {
-  div.csl-bib-body {
-    width: 100%;
-  }
+    div.csl-bib-body {
+        width: 100%;
+    }
 }
