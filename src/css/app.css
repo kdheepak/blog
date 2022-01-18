@@ -103,7 +103,7 @@ section > ul > li > div.code-toolbar,
 section > ul > li > pre:not(.code-toolbar),
 section > ol > li > div.code-toolbar,
 section > ol > li > pre:not(.code-toolbar) {
-  width: 163.6363%;
+  width: 150%;
 }
 
 div.sourceCode,
@@ -125,18 +125,19 @@ pre:not(.sourceCode) code {
   width: 100%;
 }
 
-section > ul > li > div.sourceCode,
-section > ul > li > pre:not(.sourceCode),
-section > ol > li > div.sourceCode,
-section > ol > li > pre:not(.sourceCode) {
-  width: 125%;
-}
-
 @media (max-width: 760px) {
   div.sourceCode,
   pre:not(.sourceCode) {
     width: 100%;
   }
+
+  section > ul > li > div.code-toolbar,
+  section > ul > li > pre:not(.code-toolbar),
+  section > ol > li > div.code-toolbar,
+  section > ol > li > pre:not(.code-toolbar) {
+    width: 100%;
+  }
+
 }
 
 div.code-toolbar > .toolbar {
