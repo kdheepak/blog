@@ -271,7 +271,7 @@ local function getCodeClass(classes)
 	if classes[1] and (startswith(classes[1], "diff-") or languages[classes[1]]) then
 		return ' class="language-' .. table.remove(classes, 1) .. '"'
 	else
-		return ""
+		return ' class="language-markup'
 	end
 end
 
