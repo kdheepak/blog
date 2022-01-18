@@ -23,7 +23,7 @@ function xml(posts, tag) {
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${post.summary}</description>
     </item>
-    `)}
+    `).join("\n")}
   </channel>
 </rss>`
 }
