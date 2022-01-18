@@ -55,7 +55,9 @@ Download the latest Raspbian from the [official source](https://www.raspberrypi.
 I used the image `2016-03-18-raspbian-jessie.img`.
 Flash the operating system onto a memory card.
 
-    sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
+```bash
+sudo dd bs=1m if=2016-03-18-raspbian-jessie.img of=/dev/rdisk$DISKNUMBER
+```
 
 When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`[^2].
 
@@ -63,40 +65,50 @@ When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`[^2].
 
 (**Optional**) Expand the file system to use all the available space on the memory card.
 
-    sudo raspi-config
-    -> Expand File System
-    -> Save
-    -> Reboot
+```bash
+sudo raspi-config
+-> Expand File System
+-> Save
+-> Reboot
+```
 
 To control this particular LED strip, we are going to use the SPI bus on the Raspberry Pi.
 We need to set up the Pi to use SPI.
 
-    sudo raspi-config
-    -> Advanced Options
-    -> Enable SPI
-    -> Enable on Boot
-    -> Save
-    -> Reboot
+```bash
+sudo raspi-config
+-> Advanced Options
+-> Enable SPI
+-> Enable on Boot
+-> Save
+-> Reboot
+```
 
 Next, we need to install some packages to use the SPI bus.
 First, let's update the Raspberry Pi.
 
-    sudo apt-get update
-    sudo apt-get upgrade
+```bash
+sudo apt-get update
+sudo apt-get upgrade
+```
 
 Then we need to install `python-dev`, [pyspidev]( https://github.com/doceme/py-spidev ) and [BiblioPixel](https://github.com/ManiacalLabs/BiblioPixel).
 These are all required to control the LED strip.
 
-    sudo apt-get install python-dev
-    sudo pip install spidev
-    sudo pip install BiblioPixel
+```bash
+sudo apt-get install python-dev
+sudo pip install spidev
+sudo pip install BiblioPixel
+```
 
 Instead of installing spidev and BiblioPixel, you can also clone the repositories and add them to your `PYTHONPATH`.
 I found that `sudo pip install <package-name>` is easier, however I had to browse through the source code of `BiblioPixel` and found having a local copy accessible was helpful.
 
 Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
-    sudo pip install Flask
+```
+sudo pip install Flask
+```
 
 I've used `sudo` for all the `pip` installations.
 It is definitely required for `spidev`, but may not be for the others.
