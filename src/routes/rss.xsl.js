@@ -8,11 +8,11 @@ function xml() {
                 <meta charset="UTF-8"/>
                 <meta name="viewport" content="width=device-width"/>
                 <title><xsl:value-of select="rss/channel/title"/> (RSS)</title>
-                <link rel="stylesheet" href="/src/css/latex.css"/>
-                <link rel="stylesheet" href="/src/css/tufte-extra.css"/>
-                <link rel="stylesheet" href="/src/css/tufte.css"/>
-                <link rel="stylesheet" href="/src/css/pandoc.css"/>
-                <link rel="stylesheet" href="/src/css/app.css"/>
+                <link rel="stylesheet" href="/css/app.css"/>
+                <link rel="stylesheet" href="/css/tufte.css"/>
+                <link rel="stylesheet" href="/css/tufte-extra.css"/>
+                <link rel="stylesheet" href="/css/latex.css"/>
+                <link rel="stylesheet" href="/css/pandoc.css"/>
             </head>
             <body>
                 <article>

@@ -1,9 +1,9 @@
 <script context="module">
-  import '../css/app.css'
-  import '../css/tufte.css'
-  import '../css/tufte-extra.css'
-  import '../css/latex.css'
-  import '../css/pandoc.css'
+  import '../../static/css/app.css'
+  import '../../static/css/tufte.css'
+  import '../../static/css/tufte-extra.css'
+  import '../../static/css/latex.css'
+  import '../../static/css/pandoc.css'
 
   import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
   import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
@@ -23,7 +23,7 @@
       <a href="https://github.com/kdheepak" target="_blank"><DiGithubBadge/></a>
     </div>
     <div class="icon">
-      <a href="./rss.xml" target="_blank"><FaRssSquare/></a>
+      <a href="./rss.xml"><FaRssSquare/></a>
     </div>
   </div>
 </footer>

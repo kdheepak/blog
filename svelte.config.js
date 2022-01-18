@@ -233,6 +233,7 @@ function getPages() {
   for (const p of slugs) {
     pages.push(`/${p}`)
   }
+  pages.push("/rss.xsl")
   return pages
 }
 
