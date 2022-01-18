@@ -125,6 +125,10 @@ pre:not(.sourceCode) code {
   width: 100%;
 }
 
+.fullwidth {
+  overflow-x: auto;
+}
+
 @media (max-width: 760px) {
   div.sourceCode,
   pre:not(.sourceCode) {
@@ -194,6 +198,10 @@ body.dark {
     --bkg-color: #fffff8;
     --code-bkg-color: #f5f2f0
   }
+}
+
+figure {
+    background: var(--code-bkg-color);
 }
 
 .subtitle {
