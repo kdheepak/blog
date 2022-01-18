@@ -202,19 +202,21 @@ For example, take a look at the syntax for a creating a section, a subsection an
 
 <!-- BEGIN SLIDES -->
 
-    \section{Section Name}
-    This is text in the section
-    \subsection{Sub Section Name}
-    The following is a list in this subsection
-    \begin{enumerate}
-      \item The first \textbf{bold} item
-      \begin{enumerate}
-        \item Nested item 1
-        \item Nested item 2
-      \end{enumerate}
-      \item The second \textit{italicized} item
-      \item The third etc \ldots
-    \end{enumerate}
+```latex
+\section{Section Name}
+This is text in the section
+\subsection{Sub Section Name}
+The following is a list in this subsection
+\begin{enumerate}
+  \item The first \textbf{bold} item
+  \begin{enumerate}
+    \item Nested item 1
+    \item Nested item 2
+  \end{enumerate}
+  \item The second \textit{italicized} item
+  \item The third etc \ldots
+\end{enumerate}
+```
 
 <!-- END SLIDES -->
 
@@ -272,14 +274,15 @@ Take for example this table {@tbl:table}.
 
 <!-- BEGIN SLIDES -->
 
+```markdown
+  Right     Left     Center     Default
+-------     ------ ----------   -------
+      12     12        12            12
+    123     123       123          123
+      1     1          1             1
 
-      Right     Left     Center     Default
-    -------     ------ ----------   -------
-         12     12        12            12
-        123     123       123          123
-          1     1          1             1
-
-    Table:  Demonstration of simple table syntax.
+Table:  Demonstration of simple table syntax.
+```
 
 <!-- END SLIDES -->
 
@@ -556,11 +559,15 @@ Table:  Demonstration of simple table syntax. {#tbl:table}
 
 ```markdown
 Example of a footnote [^0]
+
+[^0]: _aside_: This is the content of a footnote, rendered as a margin note in HTML.
 ```
 
 **Example**
 
 Example of a footnote [^0]
+
+[^0]: _aside_: This is the content of a footnote, rendered as a margin note in HTML.
 
 ### ***Citations***
 

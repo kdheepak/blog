@@ -166,8 +166,8 @@ div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .
     margin-top: 3em;
 }
 
-.token.operator {
-    background: none;
+.language-css .token.string, .style .token.string, .token.entity, .token.operator, .token.url {
+  background: none;
 }
 
 body {
@@ -224,3 +224,4 @@ mjx-container {
   overflow-x: auto;
   overflow-y: hidden;
 }
+
