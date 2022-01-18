@@ -22,13 +22,16 @@
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let component
   export let metadata
+  let tags
   const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
   $: metadata.humanDate = formatDate(metadata.date)
-  $: tags = metadata.tags?.split(',').map(s => s.trim().toLowerCase())
+  $: {
+    tags = metadata.htmltags.map(s => s.trim().toLowerCase()).filter(s => s !== undefined && s !== '')
+  }
 
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
 
@@ -93,7 +96,7 @@
       <DarkModeToggle/>
     </div>
     <div class="flex">
-      {#if tags}
+      {#if tags.length !== 0}
       <div class="tag">
         <FaTags />
       </div>

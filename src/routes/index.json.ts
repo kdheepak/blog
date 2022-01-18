@@ -19,6 +19,8 @@ async function fromDir(startPath, filter) {
         .spawnSync('git', ['log', '-n', '1', '--pretty=format:%H', '--', `${filename}`])
         .stdout.toString()
       metadata.source = `https://github.com/kdheepak/blog/blob/${commit}/${filename}`
+      metadata.htmltags = metadata.tags === undefined ? '' : metadata.tags
+      metadata.htmltags = metadata.htmltags.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== undefined || s !== '')
       if (!metadata.slug) {
         metadata.slug = metadata.title
           .toString()

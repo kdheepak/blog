@@ -11,7 +11,7 @@
       const { posts } = await res.json()
       var tags = [
         ...new Set(
-          posts.flatMap((post) => post.tags?.split(',').map((s) => s.trim().toLowerCase())),
+          posts.flatMap((metadata) => metadata.htmltags?.split(',').map((s) => s.trim().toLowerCase())),
         ),
       ]
       tags.sort()
