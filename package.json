@@ -45,6 +45,7 @@
     "rehype-parse": "^8.0.3",
     "rehype-preset-minify": "^6.0.0",
     "rehype-stringify": "^9.0.2",
+    "sass": "^1.48.0",
     "svelte": "^3.44.0",
     "svelte-check": "^2.2.6",
     "svelte-cubed": "^0.2.1",

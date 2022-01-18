@@ -173,6 +173,7 @@ div.code-toolbar > .toolbar > .toolbar-item > a, div.code-toolbar > .toolbar > .
 body {
   --text-color: #111;
   --bkg-color: #fffff8;
+  --bkg-hover: #e0e0e0;
   --code-bkg-color: #f5f2f0
   --text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
 }
@@ -181,6 +182,7 @@ body.dark {
   --text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
   --text-color: #ddd;
   --bkg-color: #151515;
+  --bkg-hover: #303030;
   --code-bkg-color: #2d2d2d;
 }
 
@@ -189,6 +191,7 @@ body.dark {
     --text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515, 0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515, -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
     --text-color: #ddd;
     --bkg-color: #151515;
+    --bkg-hover: #303030;
     --code-bkg-color: #2d2d2d;
   }
 
@@ -196,6 +199,7 @@ body.dark {
     --text-shadow: 0.03em 0 #fffff8, -0.03em 0 #fffff8, 0 0.03em #fffff8, 0 -0.03em #fffff8, 0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8, -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
     --text-color: #111;
     --bkg-color: #fffff8;
+    --bkg-hover: #e0e0e0;
     --code-bkg-color: #f5f2f0
   }
 }

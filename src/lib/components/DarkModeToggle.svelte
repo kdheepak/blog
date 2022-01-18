@@ -2,7 +2,7 @@
   let theme = 'dark';
   import { fade } from 'svelte/transition';
   import FaSun from 'svelte-icons/fa/FaSun.svelte'
-  import FaRegMoon from 'svelte-icons/fa/FaRegMoon.svelte'
+  import FaRegMoon from 'svelte-icons/fa/FaMoon.svelte'
   import { createEventDispatcher } from 'svelte';
   const dispatch = createEventDispatcher();
   const getPrefersDarkMode = () =>
@@ -79,10 +79,16 @@
     transition: 0.1s;
     padding: 0.75em 1.5em;
     border-radius: 4px;
+    background: transparent;
     font-weight: 600;
     border: none;
     cursor: pointer;
   }
+
+  button:hover {
+    background: var(--bkg-hover);
+  }
+
   button > div {
     height: 1.25rem;
     width: 1.25rem;
