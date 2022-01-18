@@ -274,7 +274,7 @@ local function getCodeClass(classes)
 		end
 		return ' class="language-' .. cls .. '"'
 	else
-		return ' class="language-markup'
+		return ' class="language-markup"'
 	end
 end
 
