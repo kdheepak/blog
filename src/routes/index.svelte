@@ -58,15 +58,15 @@
 
 <article>
   <header>
-  <h1 class="title">
-    <a href="https://kdheepak.com">~</a> / blog
-  </h1>
-  <p class="subtitle sourceurl">
-    <a target="_blank" href="https://github.com/kdheepak/blog">
-      {humanDate}
-    </a>
-    <DarkModeToggle/>
-  </p>
+    <h1 class="title">
+      <a href="https://kdheepak.com">~</a> / blog
+    </h1>
+    <p class="subtitle sourceurl">
+      <a target="_blank" href="https://github.com/kdheepak/blog">
+        {humanDate}
+      </a>
+      <DarkModeToggle/>
+    </p>
   </header>
   <section>
     <div class="tocwrapper">
