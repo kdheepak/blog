@@ -1,10 +1,11 @@
 <script context="module">
-
   import { base } from '$app/paths'
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   let humanDate = new Date().toLocaleDateString(undefined, options)
+  let tag = ''
 
   export async function load({ params, fetch }) {
+    tag = params.tag
     const url = `/index.json`
     const res = await fetch(url)
     if (res.ok) {
@@ -16,7 +17,17 @@
       ]
       tags.sort()
       tags = tags.filter((tag) => tag !== undefined)
-      return { props: { tags, posts } }
+      return {
+        props: {
+          tags,
+          posts: posts.filter((post) =>
+            post.tags
+              ?.split(',')
+              .map((s) => s.trim().toLowerCase())
+              .includes(tag.toLowerCase()),
+          ),
+        },
+      }
     }
     return {
       status: res.status,
@@ -26,8 +37,9 @@
 </script>
 
 <script>
-  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
+  import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
+  import { onMount } from 'svelte'
   export let posts = []
   export let tags = []
   const formatDate = (dateString) => {
@@ -44,34 +56,35 @@
 
 <article>
   <header>
-  <h1 class="title">
-    <a href="https://kdheepak.com">~</a> / blog
-  </h1>
-  <p class="subtitle sourceurl">
-    <a target="_blank" href="https://github.com/kdheepak/blog">
-      {humanDate}
-    </a>
-    <DarkModeToggle/>
-  </p>
+    <h1 class="title">
+      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
+      <i>{tag}</i>
+    </h1>
+    <p class="subtitle sourceurl">
+      <a target="_blank" href="https://github.com/kdheepak/blog">
+        {humanDate}
+      </a>
+      <DarkModeToggle />
+    </p>
   </header>
   <section>
     <div class="tocwrapper">
       <br />
-        {#each posts as post}
-      <p>
+      {#each posts as post}
+        <p>
           {#if post.date}
-              <span class="toclink">
-                <a sveltekit:prefetch href={post.slug}>
-                  {post.title}
-                </a>
-              </span>
-              <span class="tocdate">
-                {formatDate(post.date)}
-              </span>
+            <span class="toclink">
+              <a sveltekit:prefetch href={post.slug}>
+                {post.title}
+              </a>
+            </span>
+            <span class="tocdate">
+              {formatDate(post.date)}
+            </span>
             <br />
           {/if}
-      </p>
-        {/each}
+        </p>
+      {/each}
     </div>
     <br />
     <div class="flex">

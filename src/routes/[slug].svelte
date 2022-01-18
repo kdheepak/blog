@@ -19,6 +19,7 @@
 </script>
 
 <script>
+  import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let component
   export let metadata
   const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
@@ -27,6 +28,7 @@
     return new Date(dateString).toLocaleDateString(undefined, options)
   }
   $: metadata.humanDate = formatDate(metadata.date)
+  $: tags = metadata.tags?.split(',').map(s => s.trim().toLowerCase())
 
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
 
@@ -67,12 +69,29 @@
     <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a>
     / {metadata.title}
   </h1>
-  <p class="subtitle sourceurl">
-    <a target="_blank" href={metadata.source}>
-      {metadata.humanDate}
-    </a>
-    <DarkModeToggle/>
-  </p>
+  <div class="flex space-between main-subtitle">
+    <div class="subtitle sourceurl">
+      <p>
+        <a target="_blank" href={metadata.source}>
+          {metadata.humanDate}
+        </a>
+      </p>
+      <DarkModeToggle/>
+    </div>
+    <div class="flex">
+      <div class="tag">
+        <FaTags />
+      </div>
+      {#if tags}
+        <p>
+          &nbsp;
+          {#each tags as tag, index}
+            <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          {/each}
+        </p>
+      {/if}
+    </div>
+  </div>
   </header>
 
   <section>
@@ -100,4 +119,22 @@
 </article>
 
 <style>
+  .main-subtitle {
+    width: 75%;
+  }
+
+  .flex {
+    display: flex;
+    align-items: center;
+  }
+
+  .space-between {
+    justify-content: space-between;
+  }
+
+  .tag {
+    height: 1.25rem;
+    width: 1.25rem;
+    color: var(--text-color);
+  }
 </style>

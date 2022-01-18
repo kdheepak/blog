@@ -204,10 +204,6 @@ body.dark {
   }
 }
 
-figure {
-    background: var(--code-bkg-color);
-}
-
 .subtitle {
     display: flex !important;
     width: 66.6666%;
