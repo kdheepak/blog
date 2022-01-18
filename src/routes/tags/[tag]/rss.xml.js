@@ -8,8 +8,8 @@ function xml(posts, tag) {
     <title>Dheepak Krishnamurthy's Blog</title>
     <description>My thoughts, notes and blogs</description>
     <link>https://blog.kdheepak.com/</link>
-    <lastBuildDate>${new Date()}</lastBuildDate>
-    <pubDate>${new Date()}</pubDate>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <pubDate>${new Date().toUTCString()}</pubDate>
     <language>en-us</language>
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/tags/julia/rss.xml" rel="self" type="application/rss+xml"></atom:link>
@@ -20,7 +20,7 @@ function xml(posts, tag) {
       <link>https://blog.kdheepak.com/${post.slug}</link>
       <guid isPermaLink="true">https://blog.kdheepak.com/${post.slug}</guid>
       <atom:link href="https://blog.kdheepak.com/${post.slug}" rel="self"></atom:link>
-      <pubDate>${new Date(post.date)}</pubDate>
+      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${post.summary}</description>
     </item>
     `)}
