@@ -225,3 +225,14 @@ mjx-container {
   overflow-y: hidden;
 }
 
+@media (max-width: 760px) {
+    body {
+      overflow-x: hidden;
+      width: 66%;
+      padding-left: 8%;
+      padding-right: 8%;
+    }
+    iframe {
+      width: 100%
+    }
+}
