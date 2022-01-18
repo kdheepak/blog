@@ -15,7 +15,7 @@
         ),
       ]
       tags.sort()
-      tags = tags.filter((tag) => tag !== undefined)
+      tags = tags.filter((tag) => tag !== undefined && tag !== '')
       return { props: { tags, posts } }
     }
     return {
