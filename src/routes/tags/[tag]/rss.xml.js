@@ -3,7 +3,7 @@ import { getPostsMetadata } from '$lib/posts'
 function xml(posts, tag) {
   return `<?xml version="1.0"?>
 <?xml-stylesheet type="text/xsl" media="screen" href="/rss.xsl"?>
-<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dheepak Krishnamurthy's Blog</title>
     <description>My thoughts, notes and blogs</description>
