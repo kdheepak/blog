@@ -40,6 +40,20 @@
   <title>Dheepak Krishnamurthy - Blog</title>
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="./rss.xml"
+  />
+  {#each tags as tag}
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="RSS for {tag}"
+      href="./tags/{tag}/rss.xml"
+    />
+  {/each}
 </svelte:head>
 
 <article>
