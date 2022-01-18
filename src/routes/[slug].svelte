@@ -137,7 +137,7 @@
 
 <style>
   .main-subtitle {
-    width: 75%;
+    width: 80%;
   }
 
   .flex {
