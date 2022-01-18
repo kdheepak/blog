@@ -79,10 +79,10 @@
       <DarkModeToggle/>
     </div>
     <div class="flex">
+      {#if tags}
       <div class="tag">
         <FaTags />
       </div>
-      {#if tags}
         <p>
           &nbsp;
           {#each tags as tag, index}
