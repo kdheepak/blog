@@ -2,7 +2,7 @@
 title: My Unicode cheat sheet
 category: blog
 date: 2020-09-19T02:29:49-06:00
-tags: programming, unicode, vim, python, julia, rust
+tags: unicode, vim, python, julia, rust
 keywords: python, julia, vim, rust, unicode
 summary: References for various things associated with unicode in Vim, Python, Julia and Rust
 references:
