@@ -45,7 +45,7 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 32px;
-    width: 66vw;
+    width: 50%;
     justify-content: center;
   }
 
