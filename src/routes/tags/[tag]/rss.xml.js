@@ -8,8 +8,6 @@ function xml(posts, tag) {
     <title>Dheepak Krishnamurthy's Blog</title>
     <description>My thoughts, notes and blogs</description>
     <link>https://blog.kdheepak.com/</link>
-    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <pubDate>${new Date().toUTCString()}</pubDate>
     <language>en-us</language>
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/tags/julia/rss.xml" rel="self" type="application/rss+xml"></atom:link>
