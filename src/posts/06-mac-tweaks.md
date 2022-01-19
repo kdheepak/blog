@@ -2,7 +2,7 @@
 title: Mac OSX Tweaks
 category: blog
 date: 2015-03-21T19:00:00-06:00
-tags: OSX
+tags: osx
 summary: OSX is more customizable than you think. Here are a bunch of tweaks that I found useful.
 ---
 

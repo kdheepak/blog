@@ -2,7 +2,7 @@
 title: Vim, tmux and zsh — the productivity trio
 category: blog
 date: 2015-05-08T22:58:18-06:00
-tags: vim, tmux, zsh
+tags: vim
 keywords: vim, tmux, zsh
 summary: I've not found a greater combination of tools than vim, tmux and zsh. I've detailed below some of the configuration ...
 slug: vim-tmux-zsh

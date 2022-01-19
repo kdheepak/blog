@@ -2,7 +2,7 @@
 title: Geektool and Desktop Widgets in OSX
 category: blog
 date: 2014-12-13T10:00:00-06:00
-tags: OSX
+tags: osx
 summary: This is a Geektool tutorial on customizing OSX desktop - Calvin & Hobbes themed ...
 ---
 

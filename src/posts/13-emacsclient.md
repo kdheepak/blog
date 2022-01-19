@@ -2,7 +2,7 @@
 title: Create Emacsclient.app using AppleScript
 category: blog
 date: 2015-07-18T10:00:00-06:00
-tags: emacs, applescript, osx
+tags: emacs, osx
 keywords: Create an emacsclient application using OSX, applescript
 summary: I've created an Emacsclient.app using AppleScript to aid with my Alfred workflow ...
 ---
