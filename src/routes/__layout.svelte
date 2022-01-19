@@ -34,7 +34,7 @@
       <a href="https://github.com/kdheepak" target="_blank"><DiGithubBadge/></a>
     </div>
     <div class="icon">
-      <a target="_blank" href="/rss.xml"><FaRssSquare/></a>
+      <a rel="external" href="/rss.xml"><FaRssSquare/></a>
     </div>
   </div>
 </footer>
