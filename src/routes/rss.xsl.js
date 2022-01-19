@@ -31,10 +31,12 @@ function xml() {
                         <p>You may use the <acronym title="Uniform Resource Locater">URL</acronym> of this document or copy the address below and paste it for any RSS purposes.
                         <br/>
                         <label for="address">RSS address: </label>
-                        <input style="width:250px">
+                        <input style="width:300px">
                             <xsl:attribute name="id">address</xsl:attribute>
                             <xsl:attribute name="spellcheck">false</xsl:attribute>
-                            <xsl:attribute name="value">https://blog.kdheepak.com/rss.xml</xsl:attribute>
+                            <xsl:attribute name="value">
+                                <xsl:value-of select="rss/channel/atom:link[@rel='self']/@href"/>
+                            </xsl:attribute>
                         </input>
                         </p>
                         <p>New to feeds? You can find out more about the RSS file format at <a href="http://en.wikipedia.org/wiki/RSS_(file_format)">Wikipedia's RSS entry</a> or by clicking <a target="_blank" href="https://duckduckgo.com/?q=how+to+get+started+with+rss+feeds">here</a> to search on the web to learn more.</p>
