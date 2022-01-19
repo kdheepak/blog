@@ -1,4 +1,6 @@
 <script context="module">
+  import { base } from '$app/paths'
+
   import '../../static/css/app.css'
   import '../../static/css/tufte.css'
   import '../../static/css/tufte-extra.css'
@@ -7,7 +9,15 @@
 
   import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
   import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
-  import MdEmail from 'svelte-icons/md/MdEmail.svelte'
+
+  export async function load({ fetch }) {
+    try {
+      await fetch('/rss.xml');
+      return true;
+    } catch (error) {
+      console.error(error);
+    }
+  }
 </script>
 
 <main class="line-numbers match-braces rainbow-braces Prose">
@@ -18,12 +28,13 @@
   <p>
     <a rel="license noopener noreferrer" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="This work is licensed under a Creative Commons Attribution 4.0 International License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
   </p>
+  <br/>
   <div class="icons">
     <div class="icon">
       <a href="https://github.com/kdheepak" target="_blank"><DiGithubBadge/></a>
     </div>
     <div class="icon">
-      <a href="/rss.xml"><FaRssSquare/></a>
+      <a target="_blank" href="/rss.xml"><FaRssSquare/></a>
     </div>
   </div>
 </footer>
@@ -34,21 +45,19 @@
     flex-direction: column;
     align-items: center;
     padding-bottom: 32px;
+    width: 66vw;
+    justify-content: center;
   }
+
   .icons {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     gap: 20px;
   }
+
   .icon {
     width: 32px;
     height: 32px;
-  }
-
-  footer {
-    width: 66vw;
-    display: flex;
-    justify-content: center;
   }
 </style>
