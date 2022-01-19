@@ -13,7 +13,7 @@ function xml(posts) {
     <language>en-us</language>
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/rss.xml" rel="self" type="application/rss+xml"/>
-    <generator>website</generator>
+    <generator>sveltekit</generator>
     ${posts.map(post => `
     <item>
       <title>${post.title}</title>

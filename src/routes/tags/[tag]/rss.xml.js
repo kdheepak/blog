@@ -11,7 +11,7 @@ function xml(posts, tag) {
     <language>en-us</language>
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/tags/${tag}/rss.xml" rel="self" type="application/rss+xml"></atom:link>
-    <generator>website</generator>
+    <generator>sveltekit</generator>
     ${posts.filter((post) => post.tags?.split(',').map((s) => s.trim()).includes(tag)).map(post => `
     <item>
       <title>${post.title}</title>
