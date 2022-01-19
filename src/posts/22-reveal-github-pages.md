@@ -2,7 +2,6 @@
 title: Jupyter Notebook, Reveal.js and Github Pages
 category: blog
 date: 2015-12-05T13:03:54-06:00
-tags: reveal.js, github pages
 keywords: ipython, ipython notebook, jupyter, jupyter notebook, reveal.js, github pages, presentations
 summary: Use jupyter notebooks for presentations
 slug: jupyter-notebook-revealjs-and-github-pages
