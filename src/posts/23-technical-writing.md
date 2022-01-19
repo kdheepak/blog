@@ -1,7 +1,7 @@
 ---
 title: Writing Technical Papers with Markdown and Pandoc
 date: 2015-12-20T00:00:00-06:00
-tags: markdown, writing
+tags: markdown, pandoc
 summary: Use Markdown and Pandoc for technical writing
 keywords: markdown, pandoc, papers, writing, academic, scholarly, technical, scientific
 slug: writing-papers-with-markdown
