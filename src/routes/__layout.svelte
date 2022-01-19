@@ -23,7 +23,7 @@
       <a href="https://github.com/kdheepak" target="_blank"><DiGithubBadge/></a>
     </div>
     <div class="icon">
-      <a href="./rss.xml"><FaRssSquare/></a>
+      <a href="/rss.xml"><FaRssSquare/></a>
     </div>
   </div>
 </footer>
