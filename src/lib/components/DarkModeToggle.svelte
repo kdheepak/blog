@@ -64,13 +64,15 @@
   use:checkTheme
   aria-label="toggle color mode"
 >
-  <div in:fade>
-    {#if theme === 'light'}
+  {#if theme === 'light'}
+    <div in:fade="{{ duration: 200 }}">
       <FaSun />
-    {:else}
+    </div>
+  {:else}
+    <div in:fade="{{ duration: 200 }}">
       <FaRegMoon />
-    {/if}
-  </div>
+    </div>
+  {/if}
 </button>
 
 <style>
