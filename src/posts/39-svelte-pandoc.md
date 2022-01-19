@@ -2,6 +2,7 @@
 title: Svelte and Pandoc
 category: blog
 date: 2022-01-11T23:03:31-06:00
+tags: blog, svelte, pandoc
 ---
 
 This is a svelte pandoc example.
