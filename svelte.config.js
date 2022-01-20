@@ -1,4 +1,3 @@
-import adapter from '@sveltejs/adapter-static'
 import preprocess from 'svelte-preprocess'
 import child_process from 'child_process'
 import path from 'path'
@@ -11,6 +10,21 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
 import rehypePrism from '@mapbox/rehype-prism'
 import importAssets from 'svelte-preprocess-import-assets'
+
+import adapterStatic from "@sveltejs/adapter-static"
+
+function adapter(options) {
+    const baseStatic = adapterStatic(options)
+    const pages = options?.pages || "build"
+    return {
+        name: "svelte-adapter-static",
+        async adapt(builder) {
+            await baseStatic.adapt(builder)
+            builder.copy(`${pages}/404/index.html`, `${pages}/404.html`)
+            builder.rimraf(`${pages}/404`)
+        },
+    }
+}
 
 const dev = process.env.NODE_ENV === 'development'; // TODO: use import.meta.env.MODE?
 const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE;

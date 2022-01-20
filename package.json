@@ -36,6 +36,7 @@
     "highlight.js": "^11.4.0",
     "html-entities": "^2.3.2",
     "magic-string": "^0.25.7",
+    "move-file": "^3.0.0",
     "patch-package": "^6.4.7",
     "postcss": "^8.4.5",
     "prettier": "^2.4.1",
