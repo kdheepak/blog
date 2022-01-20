@@ -38,6 +38,7 @@
 
 <script>
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
+  import FaRssSquare from 'svelte-icons/fa/faRssSquare.svelte'
   import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
   import { onMount } from 'svelte'
   export let posts = []
@@ -52,13 +53,13 @@
   <title>Dheepak Krishnamurthy - Blog</title>
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="./rss.xml" />
 </svelte:head>
 
 <article>
   <header>
     <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
-      <i>{tag}</i>
+      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
     </h1>
     <p class="subtitle sourceurl">
       <a target="_blank" href="https://github.com/kdheepak/blog">
@@ -94,7 +95,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a rel="external" href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
         {/each}
       </span>
     </div>

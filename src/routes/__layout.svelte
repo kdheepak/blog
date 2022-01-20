@@ -1,5 +1,6 @@
 <script context="module">
   import { base } from '$app/paths'
+  import { page } from '$app/stores';
 
   import '../../static/css/app.css'
   import '../../static/css/tufte.css'
@@ -20,6 +21,10 @@
   }
 </script>
 
+<script>
+  $: rssFeed = $page.url.pathname.startsWith('/tags/') ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
+</script>
+
 <main class="line-numbers match-braces rainbow-braces Prose">
   <slot />
 </main>
@@ -34,7 +39,7 @@
       <a href="https://github.com/kdheepak" target="_blank"><DiGithubBadge/></a>
     </div>
     <div class="icon">
-      <a rel="external" href="/rss.xml"><FaRssSquare/></a>
+      <a rel="external" href="{rssFeed}"><FaRssSquare/></a>
     </div>
   </div>
 </footer>
