@@ -11,11 +11,11 @@
 </script>
 
 <script>
-  export let title = 404
+  export let title
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>404</title>
   <link
     rel="alternate"
     type="application/rss+xml"
@@ -29,7 +29,7 @@
     <h1 class="title">
       <a class="home" href="https://kdheepak.com">~</a> /
       <a class="bloghome" href="{base}/">blog</a>
-      / {title}
+      / 404
     </h1>
   </header>
 
