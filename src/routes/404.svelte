@@ -11,7 +11,7 @@
 </script>
 
 <script>
-  export let title
+  export let title = 404
 </script>
 
 <svelte:head>
