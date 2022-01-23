@@ -205,6 +205,23 @@ body.dark {
   }
 }
 
+p > svg {
+  background-color: var(--code-bkg-color);
+  color-scheme:light dark;
+}
+
+p > svg > line, path, circle, rect, polygon {
+  stroke: var(--text-color) !important;
+}
+
+p > svg > g > line, path, circle, rect, polygon {
+  stroke: var(--text-color) !important;
+}
+
+p > svg > text {
+  fill: var(--text-color) !important;
+}
+
 .subtitle {
     display: flex !important;
     width: 66.6666%;
