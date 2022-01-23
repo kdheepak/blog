@@ -53,7 +53,9 @@
         Array.from(ois.attributes).forEach(attr =>
           script.setAttribute(attr.name, attr.value))
         const theme = localStorage.getItem('theme')
-        script.setAttribute("date-theme", theme)
+        if (theme === "light" || theme === "dark") {
+          script.setAttribute("data-theme", theme)
+        }
         ois.parentNode.prepend(commentheader)
         ois.parentNode.replaceChild(script, ois)
       })
@@ -132,8 +134,8 @@
       data-category-id="DIC_kwDOAw0qeM4B_3gQ"
       data-mapping="url"
       data-reactions-enabled="1"
-      data-emit-metadata="0"
       data-theme="preferred_color_scheme"
+      data-emit-metadata="0"
       data-lang="en"
       crossorigin="anonymous"
       async
