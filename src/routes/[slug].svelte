@@ -4,6 +4,12 @@
   const allPosts = import.meta.glob('/src/posts/*.md')
 
   export async function load({ params, fetch }) {
+    if (params.slug.endsWith(".html")) {
+      return {
+        status: 302,
+        redirect: params.slug.replace(/.html/g, "")
+      }
+    }
     const url = `/${params.slug}.json`
     const res = await fetch(url)
     if (res.ok) {

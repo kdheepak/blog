@@ -247,6 +247,9 @@ function getPages() {
   for (const p of slugs) {
     pages.push(`/${p}`)
   }
+  for (const p of slugs) {
+    pages.push(`/${p}.html`)
+  }
   pages.push("/rss.xsl")
   return pages
 }
