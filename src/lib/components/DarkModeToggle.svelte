@@ -10,6 +10,15 @@
   const getStoredTheme = () =>
     localStorage.getItem('theme')
 
+  function setGiscusTheme(theme) {
+    function sendMessage(message) {
+      const iframe = document.querySelector('iframe.giscus-frame');
+      if (!iframe) return;
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+    }
+    sendMessage({ setConfig: { theme } });
+  }
+
   const setLightTheme = () => {
     const prism_theme = document.querySelector("#prism-theme");
     prism_theme.href = "https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.min.css"
@@ -19,6 +28,7 @@
     dispatch('message', {
       theme: theme,
     });
+    setGiscusTheme("light")
   };
   const setDarkTheme = () => {
     const prism_theme = document.querySelector("#prism-theme");
@@ -29,6 +39,7 @@
     dispatch('message', {
       theme: theme,
     });
+    setGiscusTheme("dark")
   };
 
   const checkTheme = (_) => {

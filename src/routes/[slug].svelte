@@ -7,7 +7,7 @@
     if (params.slug.endsWith(".html")) {
       return {
         status: 302,
-        redirect: params.slug.replace(/.html/g, "")
+        redirect: `/${params.slug.replace(/.html/g, "")}`
       }
     }
     const url = `/${params.slug}.json`
@@ -131,7 +131,7 @@
       data-mapping="url"
       data-reactions-enabled="1"
       data-emit-metadata="0"
-      data-theme="light"
+      data-theme="preferred_color_scheme"
       data-lang="en"
       crossorigin="anonymous"
       async
