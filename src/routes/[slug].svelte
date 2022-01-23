@@ -66,11 +66,19 @@
 <svelte:head>
   <title>{metadata.title}</title>
   <link rel="canonical" href="https://blog.kdheepak.com/{slug}" />
+  <meta name="robots" content="index, follow">
   <meta name="description" content={metadata.description} />
+  <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.kdheepak.com/{slug}/" />
   <meta property="og:title" content={metadata.title} />
   <meta property="og:description" content={metadata.description} />
   <meta property="og:published_time" content={metadata.date} />
+  <meta property="og:site_name" content={metadata.title} />
+  <meta name="twitter:title" content={metadata.title} />
+  <meta name="twitter:description" content={metadata.description} />
+  <meta name="keywords" content={metadata.keywords}>
+  <meta name="author" content="Dheepak Krishnamurthy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   {#if metadata.summary}
     <meta name="description" content={metadata.summary} />
   {/if}
