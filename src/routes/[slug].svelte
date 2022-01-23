@@ -98,11 +98,9 @@
   </h1>
   <div class="flex space-between main-subtitle">
     <div class="subtitle sourceurl">
-      <p>
-        <a target="_blank" href={metadata.source}>
-          {metadata.humanDate}
-        </a>
-      </p>
+      <a target="_blank" href={metadata.source}>
+        {metadata.humanDate}
+      </a>
       <DarkModeToggle/>
     </div>
     <div class="flex">

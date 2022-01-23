@@ -61,12 +61,14 @@
     <h1 class="title">
       <a href="https://kdheepak.com">~</a> / blog
     </h1>
-    <p class="subtitle sourceurl">
-      <a target="_blank" href="https://github.com/kdheepak/blog">
-        {humanDate}
-      </a>
-      <DarkModeToggle/>
-    </p>
+    <div class="flex space-between main-subtitle">
+      <div class="subtitle sourceurl">
+        <a target="_blank" href="https://github.com/kdheepak/blog">
+          {humanDate}
+        </a>
+        <DarkModeToggle/>
+      </div>
+    </div>
   </header>
   <section>
     <div class="tocwrapper">

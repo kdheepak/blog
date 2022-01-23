@@ -227,6 +227,11 @@ p > svg > text {
     width: 66.6666%;
     justify-content: flex-start;
     gap: 10px;
+    font-style: italic;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.8rem !important;
+    line-height: 1;
 }
 
 .sidenote, .marginnote {
