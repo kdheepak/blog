@@ -52,6 +52,8 @@
         let script = document.createElement("script")
         Array.from(ois.attributes).forEach(attr =>
           script.setAttribute(attr.name, attr.value))
+        const theme = localStorage.getItem('theme')
+        script.setAttribute("date-theme", theme)
         ois.parentNode.prepend(commentheader)
         ois.parentNode.replaceChild(script, ois)
       })
