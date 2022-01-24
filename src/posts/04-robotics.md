@@ -1,6 +1,5 @@
 ---
 title: Robotics
-category: blog
 date: 2014-12-13T10:00:00-06:00
 summary: Here are some videos from projects I worked on during my undergraduate degree ...
 ---

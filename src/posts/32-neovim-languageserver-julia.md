@@ -1,7 +1,6 @@
 ---
 title: Neovim + LanguageServer.jl
 slug: neovim-languageserver-julia
-category: blog
 date: 2020-06-02T01:28:44-06:00
 tags: neovim, julia
 keywords: neovim, vim, languageserver, julia, lsp

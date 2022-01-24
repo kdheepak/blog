@@ -5,7 +5,6 @@ tags: python
 summary: Notes on mpld3 force layout
 keywords: python, mpld3, networkx, d3.js
 slug: mpld3-networkx-d3js-force-layout
-category: blog
 references:
 - id: svg
   title: SVG Semantic Zooming

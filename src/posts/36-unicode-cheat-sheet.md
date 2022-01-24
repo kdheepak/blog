@@ -1,6 +1,5 @@
 ---
 title: My Unicode cheat sheet
-category: blog
 date: 2020-09-19T02:29:49-06:00
 tags: neovim, python, julia, rust
 keywords: python, julia, vim, rust, unicode

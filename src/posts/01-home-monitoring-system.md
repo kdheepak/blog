@@ -1,6 +1,5 @@
 ---
 title: Home monitoring system
-category: blog
 date: 2014-12-11T13:03:31-06:00
 ---
 

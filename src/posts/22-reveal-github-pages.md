@@ -1,6 +1,5 @@
 ---
 title: Jupyter Notebook, Reveal.js and Github Pages
-category: blog
 date: 2015-12-05T13:03:54-06:00
 tags: python
 keywords: ipython, ipython notebook, jupyter, jupyter notebook, reveal.js, github pages, presentations

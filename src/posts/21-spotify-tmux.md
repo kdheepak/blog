@@ -1,6 +1,5 @@
 ---
 title: Spotify and tmux
-category: blog
 date: 2015-09-20T09:26:15-06:00
 tags: tmux
 keywords: tmux, spotify, powerline

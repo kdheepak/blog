@@ -1,6 +1,5 @@
 ---
 title: Active, Reactive and Apparent Power
-category: blog
 date: 2015-04-29T19:00:00-06:00
 tags: math, python
 keywords: what is active power, what is reactive power, what is real power, what is imaginary power, Active Power, Reactive Power, Apparent Power

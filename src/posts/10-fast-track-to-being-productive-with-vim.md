@@ -1,8 +1,6 @@
 ---
 title: Fast track to being productive in Vim
-category: blog
 date: 2015-05-01T22:59:49-06:00
-modified: 2020-05-31T19:07:40-0600
 tags: vim
 keywords: vim, beginner, tutorial
 summary: What I wish I had known when I first started using vim

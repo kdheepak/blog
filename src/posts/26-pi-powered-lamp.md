@@ -1,6 +1,5 @@
 ---
 title: Raspberry Pi Powered LED Lamp
-category: blog
 date: 2016-03-27T19:17:58-06:00
 keywords: raspberry, pi, led, flask
 tags: python

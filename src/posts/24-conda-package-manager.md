@@ -5,8 +5,6 @@ tags: python
 summary: Use conda env to manage packages
 keywords: python, acaconda, conda, environment, pip, conda vs pip
 slug: using-conda-to-manage-packages
-category: blog
-alias: /blog/using-conda-to-manage-packages
 references:
 - id: conda/conda
   title: conda/conda

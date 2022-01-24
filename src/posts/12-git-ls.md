@@ -1,6 +1,5 @@
 ---
 title: Better git log with git ls
-category: blog
 date: 2015-06-01T20:45:00-06:00
 tags: git
 keywords: Git tips and tricks

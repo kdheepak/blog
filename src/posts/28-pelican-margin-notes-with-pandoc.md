@@ -1,10 +1,9 @@
 ---
 title: Pelican Margin Notes with Pandoc
 date: 2016-10-09T17:42:12-06:00
-tags: pandoc, python, blog
+tags: pandoc, python
 summary: How to get margin notes to work with pandoc
 keywords: python, pelican, pandoc, margin notes, side notes
-category: blog
 references:
 - id: johnjameson
   author:

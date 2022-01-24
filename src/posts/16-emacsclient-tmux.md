@@ -1,6 +1,5 @@
 ---
 title: Emacsclient and tmux split navigation
-category: blog
 date: 2015-07-26T22:00:00-06:00
 tags: emacs, osx
 keywords: emacsclient, terminal, workflow, tmux, split, navigation

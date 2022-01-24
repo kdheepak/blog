@@ -1,6 +1,5 @@
 ---
 title: Patched fonts madness
-category: blog
 date: 2015-07-12T19:59:22-06:00
 tags: vim, tmux
 keywords: fonts, osx, vim, tmux

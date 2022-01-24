@@ -1,14 +1,13 @@
 ---
 title: How to set up a Pelican blog with Github pages
-category: blog
 date: 2015-05-02T19:00:00-06:00
 modified: 2015-08-02T17:00:00-06:00
-tags: blog
+tags: pandoc
 keywords: How to set up a Pelican blog with GitHub Pages
 summary: Here, I will show how to set up a working static blog on github pages using Pelican. Pelican is a static site generator, written in Python ...
 ---
 
-I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator instead of the conventional CMS.
+I've been quite vocal about the benefits of blogging using Markdown, and using a static page generator with Pandoc instead of the conventional CMS.
 But a lot of people I've spoken to have expressed their doubts about the simplicity of the process.
 I figured if I could fit it in one blog post I could claim it were simple, right?
 

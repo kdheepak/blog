@@ -1,6 +1,5 @@
 ---
 title: Emacs Tips — Close compilation buffer
-category: blog
 date: 2015-07-19T12:43:56-06:00
 tags: emacs
 keywords: tips and tricks, compilation buffer, auto close

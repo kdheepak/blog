@@ -4,7 +4,6 @@ date: 2016-12-16T15:31:07-06:00
 tags: python
 summary: Some of my thoughts on the current state of Python 2 vs 3
 keywords: python, python2, python3
-category: blog
 ---
 
 This post is an account of my personal experience.

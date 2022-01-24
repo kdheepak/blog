@@ -1,6 +1,5 @@
 ---
 title: The egg tower puzzle
-category: blog
 date: 2020-06-06T20:14:19-06:00
 tags: math, julia
 keywords: math, analytical, closed form, riddle, puzzle, problem, egg, tower, building, marble, light bulb, julia,
