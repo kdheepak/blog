@@ -54,6 +54,7 @@
       href="./tags/{tag}/rss.xml"
     />
   {/each}
+  <html lang="en-GB"/>
 </svelte:head>
 
 <article>

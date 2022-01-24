@@ -79,6 +79,7 @@
   <meta name="keywords" content={metadata.keywords}>
   <meta name="author" content="Dheepak Krishnamurthy">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <html lang="en-GB"/>
   {#if metadata.summary}
     <meta name="description" content={metadata.summary} />
   {/if}
