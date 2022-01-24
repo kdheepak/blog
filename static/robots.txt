@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /*.html$
+
+Disallow: /downloads/*
+
+Sitemap: https://blog.kdheepak.com/sitemap.xml
