@@ -28,8 +28,7 @@
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let posts = []
   export let tags = []
-  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-  export humanDate = new Date().toLocaleDateString(undefined, options)
+  export let humanDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
