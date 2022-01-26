@@ -64,7 +64,7 @@
 
 <svelte:head>
   <title>{metadata.title}</title>
-  <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}" />
+  <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}/" />
   <meta name="robots" content="index, follow">
   <meta name="description" content={metadata.description} />
   <meta property="og:type" content="website" />
