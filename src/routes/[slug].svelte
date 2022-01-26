@@ -85,14 +85,14 @@
     rel="alternate"
     type="application/rss+xml"
     title="RSS"
-    href="./rss.xml"
+    href="/rss.xml"
   />
   {#each tags as tag}
     <link
       rel="alternate"
       type="application/rss+xml"
       title="RSS for {tag}"
-      href="./tags/{tag}/rss.xml"
+      href="/tags/{tag}/rss.xml"
     />
   {/each}
 </svelte:head>
@@ -100,8 +100,7 @@
 <article>
   <header>
   <h1 class="title">
-    <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a>
-    / {metadata.title}
+    <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / {metadata.title}
   </h1>
   <div class="flex space-between main-subtitle">
     <div class="subtitle sourceurl">
