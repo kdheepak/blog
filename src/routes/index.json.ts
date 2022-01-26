@@ -44,7 +44,9 @@ async function fromDir(startPath, filter) {
 
 export async function get() {
   const posts = await fromDir('src/posts/', '.md')
+  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
+  let humanDate = new Date().toLocaleDateString(undefined, options)
   return {
-    body: JSON.stringify({ posts }),
+    body: JSON.stringify({ humanDate, posts }),
   }
 }

@@ -1,14 +1,12 @@
 <script context="module">
 
   import { base } from '$app/paths'
-  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-  let humanDate = new Date().toLocaleDateString(undefined, options)
 
   export async function load({ params, fetch }) {
     const url = `/index.json`
     const res = await fetch(url)
     if (res.ok) {
-      const { posts } = await res.json()
+      const { posts, humanDate } = await res.json()
       var tags = [
         ...new Set(
           posts.flatMap((metadata) => metadata.htmltags),
@@ -16,7 +14,7 @@
       ]
       tags.sort()
       tags = tags.filter((tag) => tag !== undefined && tag !== '')
-      return { props: { tags, posts } }
+      return { props: { tags, posts, humanDate } }
     }
     return {
       status: res.status,
@@ -30,6 +28,8 @@
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let posts = []
   export let tags = []
+  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
+  export humanDate = new Date().toLocaleDateString(undefined, options)
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
@@ -44,17 +44,16 @@
     rel="alternate"
     type="application/rss+xml"
     title="RSS"
-    href="./rss.xml"
+    href="/rss.xml"
   />
   {#each tags as tag}
     <link
       rel="alternate"
       type="application/rss+xml"
       title="RSS for {tag}"
-      href="./tags/{tag}/rss.xml"
+      href="/tags/{tag}/rss.xml"
     />
   {/each}
-  <html lang="en-GB"/>
 </svelte:head>
 
 <article>
