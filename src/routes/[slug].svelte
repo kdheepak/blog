@@ -67,7 +67,7 @@
   <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}/" />
   <meta name="robots" content="index, follow">
   <meta name="description" content={metadata.description} />
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="article" />
   <meta property="og:url" content="https://blog.kdheepak.com/{metadata.slug}/" />
   <meta property="og:title" content={metadata.title} />
   <meta property="og:description" content={metadata.description} />
