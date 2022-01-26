@@ -29,7 +29,6 @@
   export let component
   export let metadata
   let tags
-  const slug = metadata.title.replaceAll(' ', '_').toLowerCase()
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
@@ -65,11 +64,11 @@
 
 <svelte:head>
   <title>{metadata.title}</title>
-  <link rel="canonical" href="https://blog.kdheepak.com/{slug}" />
+  <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}" />
   <meta name="robots" content="index, follow">
   <meta name="description" content={metadata.description} />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://blog.kdheepak.com/{slug}/" />
+  <meta property="og:url" content="https://blog.kdheepak.com/{metadata.slug}/" />
   <meta property="og:title" content={metadata.title} />
   <meta property="og:description" content={metadata.description} />
   <meta property="og:published_time" content={metadata.date} />
