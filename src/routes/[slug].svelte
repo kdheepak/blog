@@ -60,6 +60,31 @@
       })
     )
   })
+
+  const jsonLd = () => `<script type="application/ld+json">${
+      JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        author: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
+        copyrightHolder: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
+        copyrightYear: new Date().getFullYear(),
+        creator: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
+        publisher: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
+        description: metadata.description,
+        headline: metadata.title,
+        name: metadata.title,
+        inLanguage: 'en',
+        datePublished: metadata.date,
+        dateCreated: metadata.date,
+        dateModified: metadata.date,
+        // image: "",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": "https://blog.kdheepak.com/"
+        }
+      })
+  }` + `${'<'}/script>`
+
 </script>
 
 <svelte:head>
@@ -92,27 +117,7 @@
     />
   {/each}
 
-  {@html `<script type="application/ld+json">${JSON.stringify({
-    '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    author: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
-    copyrightHolder: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
-    copyrightYear: new Date().getFullYear(),
-    creator: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
-    publisher: {['@type']: 'Person', name: 'Dheepak Krishnamurthy', url: 'https://kdheepak.com'},
-    description: metadata.description,
-    headline: metadata.title,
-    name: metadata.title,
-    inLanguage: 'en',
-    datePublished: metadata.date,
-    dateCreated: metadata.date,
-    dateModified: metadata.date,
-    // image: "",
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": "https://blog.kdheepak.com/"
-    }
-  })}</script>`}
+  {@html jsonLd()}
 
 </svelte:head>
 
