@@ -25,7 +25,7 @@
   $: rssFeed = $page.url.pathname.startsWith('/tags/') ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
 </script>
 
-<main class="line-numbers match-braces rainbow-braces Prose">
+<main class="line-numbers match-braces rainbow-braces Prose" data-prismjs-copy="⎘">
   <slot />
 </main>
 
