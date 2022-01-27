@@ -11,7 +11,7 @@
 </script>
 
 <script>
-  export const title
+  export let title
 </script>
 
 <svelte:head>
