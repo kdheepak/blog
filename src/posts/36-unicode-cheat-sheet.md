@@ -322,6 +322,7 @@ before making a git commit.
 # Julia
 
 Let's take a look at how Julia handles strings.
+This is the version of Julia that I'm using:
 
 ```bash
                _
@@ -333,6 +334,7 @@ Let's take a look at how Julia handles strings.
  _/ |\__'_|_|_|\__'_|  |  Official https://julialang.org/ release
 |__/                   |
 
+julia>
 ```
 
 

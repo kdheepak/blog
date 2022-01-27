@@ -146,9 +146,9 @@ pre:not(.sourceCode) code {
 }
 
 div.code-toolbar > .toolbar {
-  width: 100%;
+  width: 80%;
   opacity: 1;
-  right: 0em;
+  left: 2%;
   display: flex;
   top: -1.25em;
   justify-content: space-between;
