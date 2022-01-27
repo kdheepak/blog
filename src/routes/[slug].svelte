@@ -77,7 +77,6 @@
   <meta name="twitter:description" content={metadata.summary} />
   <meta name="keywords" content={metadata.keywords}>
   <meta name="author" content="Dheepak Krishnamurthy">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link
     rel="alternate"
     type="application/rss+xml"
