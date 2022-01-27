@@ -39,6 +39,17 @@
   <title>Dheepak Krishnamurthy - Blog</title>
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
+  <meta name="description" content="My thoughts and notes" />
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://blog.kdheepak.com" />
+  <meta property="og:title" content="Dheepak Krishnamurthy - Blog" />
+  <meta property="og:description" content="My thoughts and notes" />
+  <meta property="og:site_name" content="kdheepak.com" />
+  <meta name="twitter:title" content="Dheepak Krishnamurthy - Blog" />
+  <meta name="twitter:description" content="My thoughts and notes" />
+  <meta name="author" content="Dheepak Krishnamurthy">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link
     rel="alternate"
     type="application/rss+xml"
