@@ -21,7 +21,7 @@
 
   const setLightTheme = () => {
     const prism_theme = document.querySelector("#prism-theme");
-    prism_theme.href = "https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism.min.css"
+    prism_theme.href = "/css/prism-light.css"
     document.body.classList.toggle('light', true);
     document.body.classList.toggle('dark', false);
     theme = 'light';
@@ -32,7 +32,7 @@
   };
   const setDarkTheme = () => {
     const prism_theme = document.querySelector("#prism-theme");
-    prism_theme.href = "https://cdn.jsdelivr.net/npm/prismjs@1.26.0/themes/prism-tomorrow.min.css"
+    prism_theme.href = "/css/prism-dark.css"
     document.body.classList.toggle('light', false);
     document.body.classList.toggle('dark', true);
     theme = 'dark';
