@@ -23,13 +23,13 @@ You can view this post in the following formats, thanks to Pandoc!
 
 Format      Link
 -------     -------
-IEEE-PDF    [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf)
-IEEE-DOCX   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx)
-IEEE-HTML   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html)
-PDF         [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf)
-DOCX        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx)
-HTML        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html)
-SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf)
+IEEE-PDF    [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.pdf){rel="external"}
+IEEE-DOCX   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.docx){rel="external"}
+IEEE-HTML   [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.ieee.html){rel="external"}
+PDF         [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.pdf){rel="external"}
+DOCX        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.docx){rel="external"}
+HTML        [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.html){rel="external"}
+SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markdown.slides.pdf){rel="external"}
 
 </figure>
 
