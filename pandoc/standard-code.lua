@@ -166,7 +166,7 @@ local function getCodeClass(classes)
 	-- Check if the first element of classes (pandoc.CodeBlock.classes) matches a
 	-- programming language name. If it does, it gets removed from classes and a valid
 	-- HTML class attribute string (with space at beginning) is returned.
-	if classes[1] then
+	if classes[1] and languages[classes[1]] then
 		local cls = table.remove(classes, 1)
 		if cls == "zsh" then
 			cls = "bash"
