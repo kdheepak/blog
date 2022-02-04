@@ -75,7 +75,7 @@
         <p>
           {#if post.date}
             <span class="toclink">
-              <a sveltekit:prefetch href="../{post.slug}">
+              <a sveltekit:prefetch href="../{post.slug}/">
                 {post.title}
               </a>
             </span>
@@ -95,7 +95,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a rel="external" href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a rel="external" href="{base}/tags/{tag}/">{tag}</a>{index == tags.length - 1 ? '' : ', '}
         {/each}
       </span>
     </div>

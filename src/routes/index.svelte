@@ -60,19 +60,19 @@
     <div class="tocwrapper">
       <br />
         {#each posts as post}
-      <p>
-          {#if post.date}
-              <span class="toclink">
-                <a sveltekit:prefetch href="/{post.slug}/">
-                  {post.title}
-                </a>
-              </span>
-              <span class="tocdate">
-                {formatDate(post.date)}
-              </span>
-            <br />
-          {/if}
-      </p>
+          <p>
+            {#if post.date}
+                <span class="toclink">
+                  <a sveltekit:prefetch href="/{post.slug}/">
+                    {post.title}
+                  </a>
+                </span>
+                <span class="tocdate">
+                  {formatDate(post.date)}
+                </span>
+              <br />
+            {/if}
+          </p>
         {/each}
     </div>
     <br />
