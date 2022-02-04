@@ -12,7 +12,7 @@ This is an example of using a svelte component when using pandoc as a preprocess
 
 <Counter/>
 
-```html
+```svelte
 <script>
     import Counter from "$lib/components/Counter.svelte"
 </script>
