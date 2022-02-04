@@ -5,10 +5,10 @@ import child_process from 'child_process'
 
 async function fromDir(startPath, filter) {
   const posts = []
-  var files = fs.readdirSync(startPath)
-  for (var i = 0; i < files.length; i++) {
-    var filename = path.join(startPath, files[i])
-    var stat = fs.lstatSync(filename)
+  const files = fs.readdirSync(startPath)
+  for (let i = 0; i < files.length; i++) {
+    const filename = path.join(startPath, files[i])
+    const stat = fs.lstatSync(filename)
     if (stat.isDirectory()) {
       continue
     } else if (filename.indexOf(filter) >= 0) {
@@ -45,8 +45,15 @@ async function fromDir(startPath, filter) {
 export async function get() {
   const posts = await fromDir('src/posts/', '.md')
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-  let humanDate = new Date().toLocaleDateString(undefined, options)
+  const humanDate = new Date().toLocaleDateString(undefined, options)
+  let tags = [
+    ...new Set(
+      posts.flatMap((metadata) => metadata.htmltags),
+    ),
+  ]
+  tags.sort()
+  tags = tags.filter((tag) => tag !== undefined && tag !== '')
   return {
-    body: JSON.stringify({ humanDate, posts }),
+    body: { tags, humanDate, posts },
   }
 }

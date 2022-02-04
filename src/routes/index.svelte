@@ -1,29 +1,6 @@
-<script context="module">
-
+<script>
   import { base } from '$app/paths'
 
-  export async function load({ params, fetch }) {
-    const url = `/index.json`
-    const res = await fetch(url)
-    if (res.ok) {
-      const { posts, humanDate } = await res.json()
-      var tags = [
-        ...new Set(
-          posts.flatMap((metadata) => metadata.htmltags),
-        ),
-      ]
-      tags.sort()
-      tags = tags.filter((tag) => tag !== undefined && tag !== '')
-      return { props: { tags, posts, humanDate } }
-    }
-    return {
-      status: res.status,
-      error: new Error(`Could not load ${url}`),
-    }
-  }
-</script>
-
-<script>
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let posts = []

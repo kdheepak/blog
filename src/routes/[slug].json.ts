@@ -45,9 +45,8 @@ export async function get({ params }) {
   const s = slug.replace(path.parse(slug).ext, '')
   if (slugs[s] !== undefined) {
     const { metadata } = slugs[s]
-
     return {
-      body: JSON.stringify({ metadata }),
+      body: { metadata },
     }
   }
 }
