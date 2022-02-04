@@ -12,6 +12,7 @@
                 <link rel="stylesheet" href="/css/tufte-extra.css"/>
                 <link rel="stylesheet" href="/css/latex.css"/>
                 <link rel="stylesheet" href="/css/pandoc.css"/>
+                <link rel="icon" href="/favicon.svg" />
             </head>
             <body>
                 <article>
