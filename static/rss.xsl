@@ -1,5 +1,4 @@
-function xml() {
-  return `<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/" version="1.0">
     <xsl:output method="xml"/>
     <xsl:template match="/">
@@ -53,17 +52,4 @@ function xml() {
             </body>
         </html>
     </xsl:template>
-</xsl:stylesheet>`
-}
-
-export async function get() {
-  const headers = {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
-  }
-  const body = xml();
-  return {
-    headers,
-    body,
-  }
-}
+</xsl:stylesheet>
