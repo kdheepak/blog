@@ -58,6 +58,16 @@ function fullWidthFigures () {
   }
 }
 
+function videoStripLink () {
+  return function transformer (tree) {
+    visit(tree, 'element', function (node) {
+      if (node.tagName === 'video') {
+        node.children = []
+      }
+    })
+  }
+}
+
 function mathJaxSetup() {
   return (tree) => {
     visit(tree, 'element', (node) => {
@@ -92,7 +102,6 @@ function escapeCurlies () {
           '<': '&#60;',
           '>': '&#62;',
           '`': '&#96;',
-          ' ': "{' '}",
         }, {
           ignore: ['title', 'script', 'style']
         })
@@ -188,6 +197,7 @@ function pandocRemarkPreprocess() {
           .use(rehypeMathjaxSvg)
           .use(rehypePrettyCode, options)
           .use(fullWidthFigures)
+          .use(videoStripLink)
           .use(escapeCurlies)
           .use(customComponent)
           .use(rehypeStringify, {allowDangerousHtml: false})
