@@ -1,48 +1,13 @@
-<script context="module">
-  import { base } from '$app/paths'
-  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-  let humanDate = new Date().toLocaleDateString(undefined, options)
-  let tag = ''
-
-  export async function load({ params, fetch }) {
-    tag = params.tag
-    const url = `/index.json`
-    const res = await fetch(url)
-    if (res.ok) {
-      const { posts } = await res.json()
-      var tags = [
-        ...new Set(
-          posts.flatMap((post) => post.tags?.split(',').map((s) => s.trim().toLowerCase())),
-        ),
-      ]
-      tags.sort()
-      tags = tags.filter((tag) => tag !== undefined)
-      return {
-        props: {
-          tags,
-          posts: posts.filter((post) =>
-            post.tags
-              ?.split(',')
-              .map((s) => s.trim().toLowerCase())
-              .includes(tag.toLowerCase()),
-          ),
-        },
-      }
-    }
-    return {
-      status: res.status,
-      error: new Error(`Could not load ${url}`),
-    }
-  }
-</script>
-
 <script>
+  import { base } from '$app/paths'
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   import FaRssSquare from 'svelte-icons/fa/faRssSquare.svelte'
   import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
   import { onMount } from 'svelte'
   export let posts = []
   export let tags = []
+  export let humanDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
+  export let tag = ''
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
@@ -59,7 +24,7 @@
 <article>
   <header>
     <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
+      <a href="https://kdheepak.com">~</a> / <a rel="external" class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
     </h1>
     <p class="subtitle sourceurl">
       <a target="_blank" href="https://github.com/kdheepak/blog">
