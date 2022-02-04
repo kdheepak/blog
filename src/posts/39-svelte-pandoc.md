@@ -7,7 +7,15 @@ tags: svelte, pandoc
 This is an example of using a svelte component when using pandoc as a preprocessor.
 
 <script>
-import Counter from "$lib/components/Counter.svelte"
+    import Counter from "$lib/components/Counter.svelte"
 </script>
 
 <Counter/>
+
+```html
+<script>
+    import Counter from "$lib/components/Counter.svelte"
+</script>
+
+<Counter/>
+```

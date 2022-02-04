@@ -42,7 +42,6 @@
 
   import {onMount} from 'svelte'
   onMount(() => {
-    Prism.highlightAll()
     document.querySelectorAll("opt-in-script").forEach(ois =>
       (ois.querySelector("button") || ois).addEventListener("click", _ => {
         let commentheader = document.createElement("h1");

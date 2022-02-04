@@ -8,7 +8,6 @@ import { unified } from 'unified'
 import rehypeParse from 'rehype-parse'
 import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
-import rehypePrism from '@mapbox/rehype-prism'
 import importAssets from 'svelte-preprocess-import-assets'
 
 import adapterStatic from "@sveltejs/adapter-static"
@@ -92,7 +91,8 @@ function escapeCurlies () {
           "'": '&#39;',
           '<': '&#60;',
           '>': '&#62;',
-          '`': '&#96;'
+          '`': '&#96;',
+          ' ': "{' '}",
         }, {
           ignore: ['title', 'script', 'style']
         })
@@ -157,6 +157,23 @@ function pandoc(input, ...args) {
   return content
 }
 
+import {getHighlighter, BUNDLED_LANGUAGES} from 'shiki';
+import rehypePrettyCode from 'rehype-pretty-code';
+
+const options = {
+  theme: {
+    light: 'github-light',
+    dark: 'github-dark',
+  },
+  getHighlighter: (options) =>
+    getHighlighter({
+      ...options,
+      langs: [
+        ...BUNDLED_LANGUAGES,
+      ],
+    }),
+};
+
 function pandocRemarkPreprocess() {
   return {
       markup: async ({ content, filename }) => {
@@ -169,7 +186,7 @@ function pandocRemarkPreprocess() {
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(mathJaxSetup)
           .use(rehypeMathjaxSvg)
-          .use(rehypePrism, {ignoreMissing: true})
+          .use(rehypePrettyCode, options)
           .use(fullWidthFigures)
           .use(escapeCurlies)
           .use(customComponent)
@@ -264,8 +281,6 @@ const config = {
 
   kit: {
     adapter: adapter(),
-    // hydrate the <div id="svelte"> element in src/app.html
-    target: '#svelte',
     paths: {
       base: pathsBase
     },

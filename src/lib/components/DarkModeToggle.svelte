@@ -20,21 +20,34 @@
   }
 
   const setLightTheme = () => {
-    const prism_theme = document.querySelector("#prism-theme");
-    prism_theme.href = "/css/prism-light.css"
     document.body.classList.toggle('light', true);
     document.body.classList.toggle('dark', false);
+    document.querySelectorAll("[data-theme='light']").forEach((item) => {
+      item.style.display = 'block';
+      item.closest('pre').classList.remove('hidden')
+    });
+    document.querySelectorAll("[data-theme='dark']").forEach((item) => {
+      item.style.display = 'block';
+      item.closest('pre').classList.add('hidden');
+    });
     theme = 'light';
     dispatch('message', {
       theme: theme,
     });
     setGiscusTheme("light")
   };
+
   const setDarkTheme = () => {
-    const prism_theme = document.querySelector("#prism-theme");
-    prism_theme.href = "/css/prism-dark.css"
     document.body.classList.toggle('light', false);
     document.body.classList.toggle('dark', true);
+    document.querySelectorAll("[data-theme='light']").forEach((item) => {
+      item.style.display = 'block';
+      item.closest('pre').classList.add('hidden');
+    });
+    document.querySelectorAll("[data-theme='dark']").forEach((item) => {
+      item.style.display = 'block';
+      item.closest('pre').classList.remove('hidden')
+    });
     theme = 'dark';
     dispatch('message', {
       theme: theme,
