@@ -197,7 +197,6 @@ In [6]: print(s)
 As mentioned earlier, indexing into a Python Unicode string gives us the code point at that location.
 
 ```python
-
 In [6]: s[0]
 Out[6]: '🤦'
 

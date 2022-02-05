@@ -14,6 +14,8 @@ local languages = {
 	awk = true,
 	ballerina = true,
 	bat = true,
+	bash = true,
+	zsh = true,
 	berry = true,
 	bibtex = true,
 	bicep = true,
@@ -168,8 +170,8 @@ local function getCodeClass(classes)
 	-- HTML class attribute string (with space at beginning) is returned.
 	if classes[1] and languages[classes[1]] then
 		local cls = table.remove(classes, 1)
-		if cls == "zsh" then
-			cls = "bash"
+		if cls == "zsh" or cls == "bash" then
+			cls = "fish"
 		end
 		return ' class="language-' .. cls .. '"'
 	else

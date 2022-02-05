@@ -100,17 +100,14 @@ body > footer > p {
 
 .eqnos-number { position: absolute; right: 0em; top: 50%; line-height: 0; }
 
-section > ul > li > div.code-toolbar,
-section > ul > li > pre:not(.code-toolbar),
-section > ol > li > div.code-toolbar,
-section > ol > li > pre:not(.code-toolbar) {
+section > ol > li > div > pre:not(.code-toolbar) {
   width: 150%;
 }
 
 div.sourceCode,
 pre:not(.sourceCode) {
   padding: 1.4rem;
-  margin: -0.7rem -1.4rem;
+  margin: 1rem -1.4rem;
   width: 80%;
   font-size: 0.9rem;
   overflow-x: auto;
