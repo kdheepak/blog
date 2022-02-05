@@ -19,7 +19,9 @@ references:
   URL: https://daringfireball.net/2005/08/notes_on_notes
 ---
 
-__Edit__: I've shifted to using just pandoc without pelican.
+I've been inspired by a few other blogs to consider adding margin notes to this theme.
+
+**Edit**: I've shifted to using just pandoc without pelican.
 I'm also using [Tufte CSS](https://github.com/jez/tufte-pandoc-css).
 I'll leave this blog post up for reference if someone is interested.
 

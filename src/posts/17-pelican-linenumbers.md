@@ -6,11 +6,11 @@ keywords: How to add line numbers for code blocks in Pelican
 summary: Brief tutorial on adding the right css for getting line numbering for code blocks in pelican ...
 ---
 
-**_Update_**: I've removed line numbers because it is selected along with the code if someone wants to copy. I'll post here if I find a better solution.
-
 I've found that line numbering with word wrap could only be achieved in Pelican by a
 certain set of steps. I've listed the CSS and the Plugin I've used to get that
 to work.
+
+**_Update_**: I've removed line numbers because it is selected along with the code if someone wants to copy. I'll post here if I find a better solution.
 
 Add the following lines in your theme.css:
 
