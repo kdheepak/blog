@@ -60,6 +60,7 @@
   },
   "type": "module",
   "dependencies": {
+    "flexsearch": "^0.7.21",
     "svelte-icons": "^2.1.0"
   }
 }

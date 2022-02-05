@@ -210,6 +210,16 @@ code > .line::before {
   color: gray;
 }
 
+/* drop cap */
+p:first-child:first-letter {
+  float: left;
+  font-size: 75px;
+  line-height: 60px;
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-left: 3px;
+}
+
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
   code[data-theme='dark'] {
     display: none;
