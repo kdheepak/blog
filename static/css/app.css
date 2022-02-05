@@ -211,7 +211,7 @@ code > .line::before {
 }
 
 /* drop cap */
-article p:first-child::first-letter {
+section > p:first-child::first-letter {
   float: left;
   font-size: 75px;
   line-height: 60px;
