@@ -5,10 +5,10 @@ import { encode } from 'html-entities'
 
 export async function getPostsMetadata(startPath: string) {
   const posts = []
-  var files = fs.readdirSync(startPath)
-  for (var i = 0; i < files.length; i++) {
-    var filename = path.join(startPath, files[i])
-    var stat = fs.lstatSync(filename)
+  const files = fs.readdirSync(startPath)
+  for (let i = 0; i < files.length; i++) {
+    const filename = path.join(startPath, files[i])
+    const stat = fs.lstatSync(filename)
     if (stat.isDirectory()) {
       continue
     } else if (filename.indexOf('.md') >= 0) {

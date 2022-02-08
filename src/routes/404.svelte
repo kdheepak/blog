@@ -2,12 +2,6 @@
   import { base } from '$app/paths'
   /** @type {import('@sveltejs/kit').ErrorLoad} */
   export function load({ error, params, status }) {
-    if (params.slug.endsWith(".html")) {
-      return {
-        status: 302,
-        redirect: `/${params.slug.replace(/.html/g, "/")}`
-      }
-    }
     return {
       props: {
         title: `${status}`,

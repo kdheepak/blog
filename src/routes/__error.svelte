@@ -1,21 +1,24 @@
 <script context="module">
+  import { dev } from '$app/env';
   import { base } from '$app/paths'
   /** @type {import('@sveltejs/kit').ErrorLoad} */
   export function load({ error, status }) {
     return {
       props: {
-        title: `${status}`,
+        error,
+        status,
       },
     }
   }
 </script>
 
 <script>
-  export let title
+  export let status
+  export let error
 </script>
 
 <svelte:head>
-  <title>{title}</title>
+  <title>{status}</title>
   <link
     rel="alternate"
     type="application/rss+xml"
@@ -29,7 +32,7 @@
     <h1 class="title">
       <a class="home" href="https://kdheepak.com">~</a> /
       <a class="bloghome" href="{base}/">blog</a>
-      / {title}
+      / {status}
     </h1>
   </header>
 
@@ -40,10 +43,10 @@
         target="_blank">here</a
       >.
     </p>
-    <p>
-      You can see all available posts here: <a href="{base}/" class="uri"
-        >https://blog.kdheepak.com</a
-      >
-    </p>
+    <p>{error.message}</p>
+
+    {#if dev && error.stack}
+      <pre>{error.stack}</pre>
+    {/if}
   </section>
 </article>

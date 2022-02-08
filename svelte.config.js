@@ -25,7 +25,6 @@ function adapter(options) {
     }
 }
 
-const dev = process.env.NODE_ENV === 'development'; // TODO: use import.meta.env.MODE?
 const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE;
 
 import { visit } from 'unist-util-visit'
@@ -290,7 +289,6 @@ const config = {
     paths: {
       base: pathsBase
     },
-    trailingSlash: true,
     prerender: {
         crawl: true,
         enabled: true,
