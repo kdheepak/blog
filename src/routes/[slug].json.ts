@@ -3,12 +3,22 @@ import matter from 'gray-matter'
 import path from 'path'
 import child_process from 'child_process'
 
+function readingTime(post, metadata) {
+  const WORDS_PER_MINUTE = 200
+  //Matches words
+  //See
+  //https://regex101.com/r/q2Kqjg/6
+  const regex = /\w+/g
+  const wordCount = (post || "").match(regex).length
+  metadata.readingTime = Math.ceil(wordCount / WORDS_PER_MINUTE)
+}
+
 async function fromDir(startPath, filter) {
   const slugs = {}
-  var files = fs.readdirSync(startPath)
-  for (var i = 0; i < files.length; i++) {
-    var filename = path.join(startPath, files[i])
-    var stat = fs.lstatSync(filename)
+  const files = fs.readdirSync(startPath)
+  for (let i = 0; i < files.length; i++) {
+    const filename = path.join(startPath, files[i])
+    const stat = fs.lstatSync(filename)
     if (stat.isDirectory()) {
       continue
     } else if (filename.indexOf(filter) >= 0) {
@@ -21,6 +31,7 @@ async function fromDir(startPath, filter) {
       metadata.path = filename
       metadata.htmltags = metadata.tags === undefined ? '' : metadata.tags
       metadata.htmltags = metadata.htmltags.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== undefined && s !== '')
+      readingTime(content, metadata)
       if (metadata.slug) {
         slugs[metadata.slug] = { metadata, content }
       } else {

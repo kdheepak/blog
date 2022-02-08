@@ -26,6 +26,7 @@
 
 <script>
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
+  import FaGlasses from 'svelte-icons/fa/FaGlasses.svelte'
   export let component
   export let metadata
   let tags
@@ -131,6 +132,15 @@
         {metadata.humanDate}
       </a>
       <DarkModeToggle/>
+    </div>
+    <div class="flex">
+      <div class="tag">
+        <FaGlasses />
+      </div>
+      <p>
+        &nbsp;
+        ~ {metadata.readingTime} minute(s)
+      </p>
     </div>
     <div class="flex">
       {#if tags.length !== 0}
