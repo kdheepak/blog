@@ -6,7 +6,7 @@
   if (browser) {
     const slug = window.location.href
     if (slug.endsWith('.html')) {
-      goto(`/${slug.replace(/.html/g, '/')}`)
+      goto(`${slug.replace(/.html/g, '/')}`)
     }
   }
 </script>
