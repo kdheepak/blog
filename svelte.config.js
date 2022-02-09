@@ -273,6 +273,9 @@ function getPages() {
   for (const p of slugs) {
     pages.push(`/${p}`)
   }
+  for (const p of slugs) {
+    pages.push(`/${p}.html`)
+  }
   return pages
 }
 
