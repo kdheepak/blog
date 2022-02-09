@@ -1,0 +1,50 @@
+<script context="module">
+  import { dev } from '$app/env'
+  import { base } from '$app/paths'
+  /** @type {import('@sveltejs/kit').ErrorLoad} */
+  export function load({ error }) {
+    return {
+      props: {
+        error,
+      },
+    }
+  }
+</script>
+
+<script>
+  export let error
+</script>
+
+<svelte:head>
+  <title>404</title>
+  <link
+    rel="alternate"
+    type="application/rss+xml"
+    title="RSS"
+    href="https://blog.kdheepak.com/rss.xml"
+  />
+</svelte:head>
+
+<article>
+  <header>
+    <h1 class="title">
+      <a class="home" href="https://kdheepak.com">~</a> /
+      <a class="bloghome" href="{base}/">blog</a>
+      / 404
+    </h1>
+  </header>
+
+  <section>
+    <p>
+      Sorry, this URL is broken. If you would like to let me know, please report it <a
+        href="https://github.com/kdheepak/blog/issues"
+        target="_blank">here</a
+      >.
+    </p>
+    <p>{error.message}</p>
+
+    {#if dev && error.stack}
+      <pre>{error.stack}</pre>
+    {/if}
+  </section>
+</article>
