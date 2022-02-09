@@ -15,6 +15,16 @@
 <script>
   export let status
   export let error
+
+  import { browser } from '$app/env'
+  import { goto } from '$app/navigation'
+
+  if (browser) {
+    const slug = window.location.href
+    if (slug.endsWith('.html')) {
+      goto(`${slug.replace(/.html/g, '/')}`)
+    }
+  }
 </script>
 
 <svelte:head>
