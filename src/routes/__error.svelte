@@ -48,7 +48,9 @@
 
   <section>
     <p>
-      Sorry, this URL is broken. If you would like to let me know, please report it <a
+      Sorry, this URL is broken.
+      <a class="home" href="https://kdheepak.com">Go back to the home page</a> to find what you are looking for.
+      If you would like to let me know, please report it <a
         href="https://github.com/kdheepak/blog/issues"
         target="_blank">here</a
       >.
