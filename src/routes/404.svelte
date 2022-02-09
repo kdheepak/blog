@@ -1,18 +1,6 @@
 <script context="module">
   import { dev } from '$app/env'
   import { base } from '$app/paths'
-  /** @type {import('@sveltejs/kit').ErrorLoad} */
-  export function load({ error }) {
-    return {
-      props: {
-        error,
-      },
-    }
-  }
-</script>
-
-<script>
-  export let error
 </script>
 
 <svelte:head>
@@ -41,10 +29,5 @@
         target="_blank">here</a
       >.
     </p>
-    <p>{error.message}</p>
-
-    {#if dev && error.stack}
-      <pre>{error.stack}</pre>
-    {/if}
   </section>
 </article>
