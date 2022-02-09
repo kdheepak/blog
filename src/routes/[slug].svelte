@@ -7,7 +7,7 @@
     if (params.slug.endsWith(".html")) {
       return {
         status: 302,
-        redirect: `/${params.slug.replace(/.html/g, "")}`
+        redirect: `/${params.slug.replace(/.html/g, "/")}`
       }
     }
     const url = `/${params.slug}.json`
