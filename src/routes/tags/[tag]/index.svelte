@@ -24,7 +24,7 @@
 <article>
   <header>
     <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a rel="external" class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
+      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
     </h1>
     <p class="subtitle sourceurl">
       <a target="_blank" href="https://github.com/kdheepak/blog">
@@ -60,7 +60,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a rel="external" href="{base}/tags/{tag}/">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a href="{base}/tags/{tag}/">{tag}</a>{index == tags.length - 1 ? '' : ', '}
         {/each}
       </span>
     </div>

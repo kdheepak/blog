@@ -124,7 +124,7 @@
 <article>
   <header>
   <h1 class="title">
-    <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" rel="external" href="{base}/">blog</a> / {metadata.title}
+    <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / {metadata.title}
   </h1>
   <div class="flex space-between main-subtitle">
     <div class="subtitle sourceurl">
