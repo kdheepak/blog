@@ -3,10 +3,10 @@
   import { page } from '$app/stores';
 
   import '../../static/css/app.css'
+  import '../../static/css/pandoc.css'
   import '../../static/css/tufte.css'
   import '../../static/css/tufte-extra.css'
   import '../../static/css/latex.css'
-  import '../../static/css/pandoc.css'
 
   import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
   import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
