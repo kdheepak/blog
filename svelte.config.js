@@ -288,10 +288,11 @@ const config = {
   preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
 
   kit: {
-    adapter: adapter({precompress: true}),
+    adapter: adapter(),
     paths: {
       base: pathsBase
     },
+    trailingSlash: 'always',
     prerender: {
         crawl: true,
         enabled: true,
