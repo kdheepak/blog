@@ -19,8 +19,6 @@ function adapter(options) {
         name: "svelte-adapter-static",
         async adapt(builder) {
             await baseStatic.adapt(builder)
-            builder.copy(`${pages}/404/index.html`, `${pages}/404.html`)
-            builder.rimraf(`${pages}/404`)
         },
     }
 }
