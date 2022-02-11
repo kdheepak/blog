@@ -15,9 +15,9 @@ function xml(posts, tag) {
     ${posts.filter((post) => post.tags?.split(',').map((s) => s.trim()).includes(tag)).map(post => `
     <item>
       <title>${post.title}</title>
-      <link>https://blog.kdheepak.com/${post.slug}</link>
-      <guid isPermaLink="true">https://blog.kdheepak.com/${post.slug}</guid>
-      <atom:link href="https://blog.kdheepak.com/${post.slug}" rel="self"></atom:link>
+      <link>https://blog.kdheepak.com/${post.slug}.html</link>
+      <guid isPermaLink="true">https://blog.kdheepak.com/${post.slug}.html</guid>
+      <atom:link href="https://blog.kdheepak.com/${post.slug}.html" rel="self"></atom:link>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${post.summary}</description>
     </item>
