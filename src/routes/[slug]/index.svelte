@@ -4,7 +4,7 @@
   const allPosts = import.meta.glob('/src/posts/*.md')
 
   export async function load({ params, fetch }) {
-    const url = `/${params.slug.replace(/.html/g, "")}.json`
+    const url = `/${params.slug}.json`
     const res = await fetch(url)
     if (res.ok) {
       const { metadata } = await res.json()
