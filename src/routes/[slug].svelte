@@ -4,13 +4,7 @@
   const allPosts = import.meta.glob('/src/posts/*.md')
 
   export async function load({ params, fetch }) {
-    if (params.slug.endsWith(".html")) {
-      return {
-        status: 302,
-        redirect: `/${params.slug.replace(/.html/g, "/")}`
-      }
-    }
-    const url = `/${params.slug}.json`
+    const url = `/${params.slug.replace(/.html/g, "")}.json`
     const res = await fetch(url)
     if (res.ok) {
       const { metadata } = await res.json()
