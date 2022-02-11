@@ -63,7 +63,7 @@
           <p>
             {#if post.date}
                 <span class="toclink">
-                  <a sveltekit:prefetch href="/{post.slug}.html">
+                  <a sveltekit:prefetch href="/{post.slug}">
                     {post.title}
                   </a>
                 </span>
