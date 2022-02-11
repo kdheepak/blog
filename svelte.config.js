@@ -288,7 +288,7 @@ const config = {
   preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
 
   kit: {
-    adapter: adapter(),
+    adapter: adapter({precompress: true}),
     paths: {
       base: pathsBase
     },
