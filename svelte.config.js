@@ -292,7 +292,6 @@ const config = {
     paths: {
       base: pathsBase
     },
-    trailingSlash: 'always',
     prerender: {
         crawl: true,
         enabled: true,
