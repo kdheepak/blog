@@ -183,17 +183,9 @@
 </article>
 
 <style>
-  .main-subtitle {
-    width: 80%;
-  }
-
   .flex {
     display: flex;
     align-items: center;
-  }
-
-  .space-between {
-    justify-content: space-between;
   }
 
   .tag {
