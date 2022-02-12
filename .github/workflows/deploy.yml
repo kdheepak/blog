@@ -29,3 +29,9 @@ jobs:
           python --version
           npm install
           NODE_ENV=production pipenv run npm run build
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: build
