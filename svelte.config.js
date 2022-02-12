@@ -252,15 +252,13 @@ function fromDir(startPath, filter) {
 
 function debugPreprocess() {
   return {
-      markup: async ({ content, filename }) => {
+      markup: async ({ content }) => {
         console.log(content)
         return {
           code: content,
           map: ''
         }
-      },
-      script: () => {},
-      style: () => {}
+      }
     }
 }
 
@@ -269,7 +267,10 @@ function getPages() {
   let pages = ['*']
   const slugs = fromDir('src/posts/', '.md')
   for (const p of slugs) {
-    pages.push(`/${p}`)
+    pages.push(`/${p}/`)
+  }
+  for (const p of slugs) {
+    pages.push(`/${p}.html`)
   }
   return pages
 }
