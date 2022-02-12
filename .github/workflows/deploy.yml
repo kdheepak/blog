@@ -8,7 +8,9 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
-      - run: cargo install svgbob_cli
+      - run: |
+          cargo install svgbob_cli
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
       - name: Install pipenv
         run: pipx install pipenv
       - uses: actions/setup-python@v2
