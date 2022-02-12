@@ -1,7 +1,6 @@
 <script>
   import { base } from '$app/paths'
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
-  import FaRssSquare from 'svelte-icons/fa/faRssSquare.svelte'
   import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
   import { onMount } from 'svelte'
   export let posts = []
