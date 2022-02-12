@@ -22,7 +22,7 @@ local renderer = {
 	render_svgbob = function(text, attrs)
 		-- io.stderr:write("svgbob found: " .. text .. "\n")
 		params = { "--background", "transparent" }
-		return { "svgbob", params, text }, "svg"
+		return { "svgbob_cli", params, text }, "svg"
 	end,
 }
 
