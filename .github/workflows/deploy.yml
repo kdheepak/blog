@@ -13,4 +13,4 @@ jobs:
           pandoc --version
           node --version
           npm install
-          NODE_ENV=production npm run build
+          npm run build
