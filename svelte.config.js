@@ -65,6 +65,29 @@ function videoStripLink () {
   }
 }
 
+function internalLinkMap () {
+  return function transformer (tree) {
+    visit(tree, 'element', function (node) {
+      if (node.tagName == "a" && node.properties.href.endsWith('.md')) {
+        const doc = fs.readFileSync("./src/posts/" + node.properties.href, 'utf8')
+        const { data: metadata } = matter(doc)
+        if (!metadata.slug) {
+          metadata.slug = (
+            metadata.title
+              .toString()
+              .toLowerCase()
+              .replace(/<code>/, '')
+              .replace(/<\/code>/g, '')
+              .replace(/[^\w ]+/g, '')
+              .replace(/ +/g, '-')
+          )
+        }
+        node.properties.href = '/' + metadata.slug
+      }
+    })
+  }
+}
+
 function mathJaxSetup() {
   return (tree) => {
     visit(tree, 'element', (node) => {
@@ -195,6 +218,7 @@ function pandocRemarkPreprocess() {
           .use(rehypePrettyCode, options)
           .use(fullWidthFigures)
           .use(videoStripLink)
+          .use(internalLinkMap)
           .use(escapeCurlies)
           .use(customComponent)
           .use(rehypeStringify, {allowDangerousHtml: false})
@@ -267,10 +291,7 @@ function getPages() {
   let pages = ['*']
   const slugs = fromDir('src/posts/', '.md')
   for (const p of slugs) {
-    pages.push(`/${p}/`)
-  }
-  for (const p of slugs) {
-    pages.push(`/${p}.html`)
+    pages.push(`/${p}`)
   }
   return pages
 }
@@ -288,7 +309,6 @@ const config = {
     paths: {
       base: pathsBase
     },
-    trailingSlash: 'always',
     prerender: {
         crawl: true,
         enabled: true,
