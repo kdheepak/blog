@@ -60,7 +60,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a href="{base}/tags/{tag}/">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
         {/each}
       </span>
     </div>
