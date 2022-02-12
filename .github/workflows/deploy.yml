@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - run: cargo install svgbob_cli
       - name: Install pipenv
         run: pipx install pipenv
       - uses: actions/setup-python@v2
@@ -19,5 +23,7 @@ jobs:
           sudo dpkg -i /tmp/pandoc.deb
           pandoc --version
           node --version
+          svgbob --version
+          python --version
           npm install
           NODE_ENV=production pipenv run npm run build
