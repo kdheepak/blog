@@ -267,7 +267,6 @@ p > svg > text {
 
 .subtitle {
     display: flex !important;
-    width: 66.6666%;
     justify-content: flex-start;
     gap: 10px;
     font-style: italic;

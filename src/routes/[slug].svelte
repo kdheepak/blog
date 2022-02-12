@@ -120,22 +120,28 @@
   <h1 class="title">
     <a class="home" href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / {metadata.title}
   </h1>
-  <div class="flex space-between main-subtitle">
+  <div class="flex">
     <div class="subtitle sourceurl">
       <a target="_blank" href={metadata.source}>
         {metadata.humanDate}
       </a>
       <DarkModeToggle/>
     </div>
+    &nbsp;
+    &nbsp;
     <div class="flex">
       <div class="tag">
         <FaGlasses />
       </div>
       <p>
         &nbsp;
-        ~ {metadata.readingTime} minute(s)
+        {metadata.readingTime} minute(s)
       </p>
     </div>
+    &nbsp;
+    &nbsp;
+    &nbsp;
+    &nbsp;
     <div class="flex">
       {#if tags.length !== 0}
       <div class="tag">
