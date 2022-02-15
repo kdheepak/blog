@@ -310,9 +310,7 @@ const config = {
       base: pathsBase
     },
     prerender: {
-        concurrency: 4,
         crawl: true,
-        enabled: true,
         entries: getPages(),
     },
   },
