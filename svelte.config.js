@@ -311,6 +311,8 @@ const config = {
     },
     prerender: {
         concurrency: 4,
+        crawl: true,
+        enabled: true,
         entries: getPages(),
     },
   },
