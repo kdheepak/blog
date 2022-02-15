@@ -1,11 +1,11 @@
-<script>
+<script context="module">
   import { base } from '$app/paths'
 
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
   import FaTags from 'svelte-icons/fa/FaTags.svelte'
   export let posts = []
   export let tags = []
-  export let humanDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
+  export const humanDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
