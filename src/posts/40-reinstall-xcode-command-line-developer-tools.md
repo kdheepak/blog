@@ -16,5 +16,5 @@ This does require root to run.
 # uninstall command line tools
 sudo rm -rf /Library/Developer/CommandLineTools
 # install command line tools
-xcode-select —install
+xcode-select --install
 ```
