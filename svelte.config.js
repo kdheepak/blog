@@ -29,11 +29,27 @@ import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
 
+function getCustomComponents() {
+  const components = []
+  const files = fs.readdirSync("./src/lib/components/")
+  for (const file of files) {
+    const filename = path.join("./src/lib/components/", file)
+    const stat = fs.lstatSync(filename)
+    if (stat.isDirectory()) {
+      continue
+    } else if (filename.indexOf(".svelte") >= 0) {
+      components.push(file.replace(".svelte", ""))
+    }
+  }
+  return components
+}
 function customComponent () {
+  const components = getCustomComponents()
   return function transformer (tree) {
     visit(tree, 'element', function (node) {
-      if (node.tagName === 'counter') {
-        node.tagName = "Counter"
+      if (components.map(c => c.toLowerCase()).includes(node.tagName)) {
+        const i = components.map(c => c.toLowerCase()).indexOf(node.tagName)
+        node.tagName = components[i]
       }
     })
   }
@@ -210,7 +226,7 @@ function pandocRemarkPreprocess() {
           return
         }
         let c = pandoc(content)
-        c = c.replaceAll(/<\!--separator-->/g, " ")
+        c = c.replaceAll(/<!--separator-->/g, " ")
         const markdown2svelte = unified()
           .use(rehypeParse, {fragment: true, emitParseErrors: true})
           .use(mathJaxSetup)
@@ -238,9 +254,7 @@ function pandocRemarkPreprocess() {
           code: `${html}`,
           map: ''
         }
-      },
-      script: () => {},
-      style: () => {}
+      }
     }
 }
 
@@ -254,7 +268,7 @@ function fromDir(startPath, filter) {
       continue
     } else if (filename.indexOf(filter) >= 0) {
       const doc = fs.readFileSync(filename, 'utf8')
-      const { data: metadata, content } = matter(doc)
+      const { data: metadata } = matter(doc)
       metadata.path = filename
       if (metadata.slug) {
         slugs.push(metadata.slug)
