@@ -301,3 +301,31 @@ mjx-container {
       width: 100%
     }
 }
+
+
+.info,
+.success,
+.warning,
+.error {
+  border-radius: 3px 3px 3px 3px;
+  padding: 0.25rem 0rem 0.25rem 1.4rem;
+  margin: 1rem -1.4rem;
+  width: 80%;
+}
+.info {
+  color: #059;
+  background-color: #BEF;
+}
+.success {
+  color: #270;
+  background-color: #DFF2BF;
+}
+.warning {
+  color: #9F6000;
+  background-color: #FEEFB3;
+}
+.error {
+  color: #D8000C;
+  background-color: #FFBABA;
+}
+

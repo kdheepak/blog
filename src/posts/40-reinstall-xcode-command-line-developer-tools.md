@@ -8,8 +8,8 @@ summary: Steps to uninstall and reinstall xcode command line developer tools
 
 Delete existing command line tools and install them again.
 
-::: Warning
-This requires root.
+::: warning
+This does require root to run.
 :::
 
 ```bash
