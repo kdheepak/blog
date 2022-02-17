@@ -31,7 +31,7 @@
   <header>
     <h1 class="title">
       <a class="home" href="https://kdheepak.com">~</a> /
-      <a class="bloghome" href="{base}/">blog</a>
+      <a class="bloghome" href="{base}">blog</a>
       / {status}
     </h1>
   </header>

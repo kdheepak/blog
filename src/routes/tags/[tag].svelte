@@ -23,7 +23,7 @@
 <article>
   <header>
     <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / <i>{tag}</i>
+      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}">blog</a> / <i>{tag}</i>
     </h1>
     <p class="subtitle sourceurl">
       <a target="_blank" href="https://github.com/kdheepak/blog">
