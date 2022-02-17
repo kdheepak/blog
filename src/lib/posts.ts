@@ -3,7 +3,7 @@ import matter from 'gray-matter'
 import path from 'path'
 import { encode } from 'html-entities'
 
-export async function getPostsMetadata(startPath: string) {
+export function getPostsMetadata(startPath: string) {
   const posts = []
   const files = fs.readdirSync(startPath)
   for (let i = 0; i < files.length; i++) {
@@ -12,7 +12,7 @@ export async function getPostsMetadata(startPath: string) {
     if (stat.isDirectory()) {
       continue
     } else if (filename.indexOf('.md') >= 0) {
-      const doc = await fs.promises.readFile(filename, 'utf8')
+      const doc = fs.readFileSync(filename, 'utf8')
       const { data: metadata } = matter(doc)
       if (!metadata.slug) {
         metadata.slug = metadata.title

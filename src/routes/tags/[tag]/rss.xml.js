@@ -12,7 +12,15 @@ function xml(posts, tag) {
     <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
     <atom:link href="https://blog.kdheepak.com/tags/${tag}/rss.xml" rel="self" type="application/rss+xml"></atom:link>
     <generator>sveltekit</generator>
-    ${posts.filter((post) => post.tags?.split(',').map((s) => s.trim()).includes(tag)).map(post => `
+    ${posts
+      .filter((post) =>
+        post.tags
+          ?.split(',')
+          .map((s) => s.trim())
+          .includes(tag),
+      )
+      .map(
+        (post) => `
     <item>
       <title>${post.title}</title>
       <link>https://blog.kdheepak.com/${post.slug}</link>
@@ -21,14 +29,16 @@ function xml(posts, tag) {
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
       <description>${post.summary}</description>
     </item>
-    `).join("\n")}
+    `,
+      )
+      .join('\n')}
   </channel>
 </rss>`
 }
 
-export async function get({ params }) {
-  const { tag } = params;
-  const posts = await getPostsMetadata("src/posts")
+export function get({ params }) {
+  const { tag } = params
+  const posts = getPostsMetadata('src/posts')
   const headers = {
     'Cache-Control': 'max-age=0, s-maxage=3600',
     'Content-Type': 'application/xml',

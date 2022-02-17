@@ -1,18 +1,12 @@
 <script context="module">
   import { getPostsMetadata } from '$lib/posts'
-  export async function load() {
-    const posts = await getPostsMetadata("src/posts")
-    return {
-      posts
-    }
-  }
+  let posts = getPostsMetadata("src/posts")
 </script>
 
 <script lang="ts">
   import { base } from '$app/paths'
   import { browser } from '$app/env';
 
-  export let posts = []
   let param
   if (browser) {
     let chunks = window.location.href.split('/');
