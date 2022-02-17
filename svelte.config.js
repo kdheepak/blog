@@ -323,7 +323,6 @@ const config = {
     paths: {
       base: pathsBase
     },
-    trailingSlash: 'always',
     prerender: {
       concurrency: 4,
       crawl: true,
