@@ -1,5 +1,26 @@
+<script context="module">
+  import { getPostsMetadata } from '$lib/posts'
+  export async function load() {
+    const posts = await getPostsMetadata("src/posts")
+    return {
+      posts
+    }
+  }
+</script>
+
 <script lang="ts">
   import { base } from '$app/paths'
+  import { browser } from '$app/env';
+
+  export let posts = []
+  let param
+  if (browser) {
+    let chunks = window.location.href.split('/');
+    param = chunks[chunks.length - 1];
+    if (posts.map((c) => c.slug).includes(param)) {
+      goto('/' + param);
+    }
+  }
 </script>
 
 <svelte:head>
@@ -8,7 +29,7 @@
     rel="alternate"
     type="application/rss+xml"
     title="RSS"
-    href="https://blog.kdheepak.com/rss.xml"
+    href="{base}/rss.xml"
   />
 </svelte:head>
 

@@ -23,7 +23,7 @@
     rel="alternate"
     type="application/rss+xml"
     title="RSS"
-    href="https://blog.kdheepak.com/rss.xml"
+    href="{base}/rss.xml"
   />
 </svelte:head>
 
