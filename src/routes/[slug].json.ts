@@ -35,15 +35,14 @@ async function fromDir(startPath, filter) {
       if (metadata.slug) {
         slugs[metadata.slug] = { metadata, content }
       } else {
-        slugs[
-          metadata.title
+        metadata.slug = metadata.title
             .toString()
             .toLowerCase()
             .replace(/<code>/, '')
             .replace(/<\/code>/g, '')
             .replace(/[^\w ]+/g, '')
             .replace(/ +/g, '-')
-        ] = { metadata, content }
+        slugs[metadata.slug] = { metadata, content }
       }
     }
   }

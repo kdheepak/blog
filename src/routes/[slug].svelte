@@ -83,10 +83,10 @@
 
 <svelte:head>
   <title>{metadata.title}</title>
-  <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}/" />
+  <link rel="canonical" href="https://blog.kdheepak.com/{metadata.slug}" />
   <meta name="robots" content="index, follow">
   <meta property="og:type" content="article" />
-  <meta property="og:url" content="https://blog.kdheepak.com/{metadata.slug}/" />
+  <meta property="og:url" content="https://blog.kdheepak.com/{metadata.slug}" />
   <meta property="og:title" content={metadata.title} />
   <meta property="og:description" content={metadata.summary} />
   <meta property="og:published_time" content={metadata.date} />
