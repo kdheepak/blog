@@ -302,7 +302,6 @@ mjx-container {
     }
 }
 
-
 .info,
 .success,
 .warning,
@@ -311,15 +310,6 @@ mjx-container {
   padding: .25rem 1.4rem .25rem 1.4rem;
   margin: 3rem 0rem 0rem -1.4rem;
   width: 80%;
-}
-
-@media (max-width: 760px) {
-  .info,
-  .success,
-  .warning,
-  .error {
-    width: 100%;
-  }
 }
 
 .info {
@@ -338,4 +328,14 @@ mjx-container {
   color: #D8000C;
   background-color: #FFBABA;
 }
+
+@media (max-width: 760px) {
+  .info,
+  .success,
+  .warning,
+  .error {
+    width: 100%;
+  }
+}
+
 
