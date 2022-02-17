@@ -16,7 +16,7 @@
   <header>
     <h1 class="title">
       <a class="home" href="https://kdheepak.com">~</a> /
-      <a class="bloghome" href="{base}">blog</a>
+      <a class="bloghome" href="{base}/">blog</a>
       / 404
     </h1>
   </header>
