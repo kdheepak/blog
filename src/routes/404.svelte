@@ -24,7 +24,7 @@
   <section>
     <p>
       Sorry, this URL is broken.
-      <a class="home" href="https://blog.kdheepak.com">Go back to the home page</a> to find all blog
+      <a class="bloghome" href="{base}/">Go back to the home page</a> to find all blog
       posts. If you would you like to report this, please open an issue
       <a href="https://github.com/kdheepak/blog/issues" target="_blank">here</a>.
     </p>
