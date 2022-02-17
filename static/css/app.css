@@ -312,6 +312,15 @@ mjx-container {
   margin: 3rem 0rem 0rem -1.4rem;
   width: 80%;
 }
+
+@media (max-width: 760px) {
+  .info,
+  .success,
+  .warning,
+  .error {
+    width: 100%;
+  }
+}
 .info {
   color: #059;
   background-color: #BEF;
