@@ -2,6 +2,16 @@ local pandoc = require("pandoc")
 local mmdc = os.getenv("MMDC") or pandoc.system.get_working_directory() .. "/node_modules/.bin/mmdc"
 local filetype = "svg"
 
+local tikz_doc_template = [[
+\documentclass{standalone}
+\usepackage{xcolor}
+\usepackage{tikz}
+\begin{document}
+\nopagecolor
+%s
+\end{document}
+]]
+
 local renderer = {
 	render_dot = function(text, attrs)
 		if attrs[1] then
@@ -15,9 +25,25 @@ local renderer = {
 		local data = pandoc.pipe(cmd[1], cmd[2], cmd[3])
 		return data
 	end,
+	render_tikz = function(text, attributes)
+		local data
+		pandoc.system.with_temporary_directory("tikz2image", function(tmpdir)
+			pandoc.system.with_working_directory(tmpdir, function()
+				local f = io.open("tikz.tex", "w")
+				f:write(tikz_doc_template:format(text))
+				f:close()
+				os.execute("pdflatex tikz.tex")
+				local outputfile = "tikz." .. filetype
+				os.execute("pdf2svg tikz.pdf " .. outputfile)
+				local r = io.open(outputfile, "rb")
+				data = r:read("*all")
+			end)
+		end)
+		return data
+	end,
 	render_mermaid = function(code, attributes)
 		local file = code
-		local img_data
+		local data
 		local width = 1000
 		if attributes.file then
 			_, file = pandoc.mediabag.fetch(attributes.file)
@@ -47,11 +73,11 @@ local renderer = {
 					width,
 				}, "")
 				local r = io.open(outputfile, "rb")
-				img_data = r:read("*all"):gsub("<br>", "<br/>")
+				data = r:read("*all"):gsub("<br>", "<br/>")
 				r:close()
 			end)
 		end)
-		return img_data
+		return data
 	end,
 	render_svgbob = function(text)
 		-- io.stderr:write("svgbob found: " .. text .. "\n")

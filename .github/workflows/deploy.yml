@@ -5,6 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install pdflatex
+        run: |
+          sudo apt-get update
+          sudo apt install texlive-latex-extra texlive-base texlive-fonts-extra pdf2svg imagemagick ghostscript
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
