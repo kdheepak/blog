@@ -4,7 +4,9 @@
   import { goto } from '$app/navigation';
   if (browser) {
     if (window.location.href.endsWith('/')) {
+      console.log(window.location.href);
       let chunks = window.location.href.split('/');
+      console.log(chunks);
       let param = chunks[chunks.length - 1];
       console.log(param);
       goto('/' + param);
