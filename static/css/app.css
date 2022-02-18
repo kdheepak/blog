@@ -263,6 +263,7 @@ p > svg > g > line, path, circle, rect, polygon {
 
 p > svg > text {
   fill: var(--text-color) !important;
+  stroke: var(--text-color) !important;
 }
 
 .subtitle {
@@ -337,5 +338,3 @@ mjx-container {
     width: 100%;
   }
 }
-
-

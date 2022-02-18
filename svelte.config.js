@@ -10,20 +10,20 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
 import importAssets from 'svelte-preprocess-import-assets'
 
-import adapterStatic from "@sveltejs/adapter-static"
+import adapterStatic from '@sveltejs/adapter-static'
 
 function adapter(options) {
-    const baseStatic = adapterStatic(options)
-    const pages = options?.pages || "build"
-    return {
-        name: "svelte-adapter-static",
-        async adapt(builder) {
-            await baseStatic.adapt(builder)
-        },
-    }
+  const baseStatic = adapterStatic(options)
+  const pages = options?.pages || 'build'
+  return {
+    name: 'svelte-adapter-static',
+    async adapt(builder) {
+      await baseStatic.adapt(builder)
+    },
+  }
 }
 
-const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE;
+const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE
 
 import { visit } from 'unist-util-visit'
 
@@ -31,38 +31,38 @@ import { findAndReplace } from 'hast-util-find-and-replace'
 
 function getCustomComponents() {
   const components = []
-  const files = fs.readdirSync("./src/lib/components/")
+  const files = fs.readdirSync('./src/lib/components/')
   for (const file of files) {
-    const filename = path.join("./src/lib/components/", file)
+    const filename = path.join('./src/lib/components/', file)
     const stat = fs.lstatSync(filename)
     if (stat.isDirectory()) {
       continue
-    } else if (filename.indexOf(".svelte") >= 0) {
-      components.push(file.replace(".svelte", ""))
+    } else if (filename.indexOf('.svelte') >= 0) {
+      components.push(file.replace('.svelte', ''))
     }
   }
   return components
 }
-function customComponent () {
+function customComponent() {
   const components = getCustomComponents()
-  return function transformer (tree) {
+  return function transformer(tree) {
     visit(tree, 'element', function (node) {
-      if (components.map(c => c.toLowerCase()).includes(node.tagName)) {
-        const i = components.map(c => c.toLowerCase()).indexOf(node.tagName)
+      if (components.map((c) => c.toLowerCase()).includes(node.tagName)) {
+        const i = components.map((c) => c.toLowerCase()).indexOf(node.tagName)
         node.tagName = components[i]
       }
     })
   }
 }
 
-function fullWidthFigures () {
-  return function transformer (tree) {
+function fullWidthFigures() {
+  return function transformer(tree) {
     visit(tree, 'element', function (node) {
       if (node.tagName === 'figure') {
         for (const child of node.children) {
           if (child.tagName === 'img') {
-            if (child.properties["className"] !== undefined) {
-              node.properties["className"] = child.properties["className"]
+            if (child.properties['className'] !== undefined) {
+              node.properties['className'] = child.properties['className']
             }
           }
         }
@@ -71,8 +71,8 @@ function fullWidthFigures () {
   }
 }
 
-function videoStripLink () {
-  return function transformer (tree) {
+function videoStripLink() {
+  return function transformer(tree) {
     visit(tree, 'element', function (node) {
       if (node.tagName === 'video') {
         node.children = []
@@ -81,22 +81,20 @@ function videoStripLink () {
   }
 }
 
-function internalLinkMap () {
-  return function transformer (tree) {
+function internalLinkMap() {
+  return function transformer(tree) {
     visit(tree, 'element', function (node) {
-      if (node.tagName == "a" && node.properties.href.endsWith('.md')) {
-        const doc = fs.readFileSync("./src/posts/" + node.properties.href, 'utf8')
+      if (node.tagName == 'a' && node.properties.href.endsWith('.md')) {
+        const doc = fs.readFileSync('./src/posts/' + node.properties.href, 'utf8')
         const { data: metadata } = matter(doc)
         if (!metadata.slug) {
-          metadata.slug = (
-            metadata.title
-              .toString()
-              .toLowerCase()
-              .replace(/<code>/, '')
-              .replace(/<\/code>/g, '')
-              .replace(/[^\w ]+/g, '')
-              .replace(/ +/g, '-')
-          )
+          metadata.slug = metadata.title
+            .toString()
+            .toLowerCase()
+            .replace(/<code>/, '')
+            .replace(/<\/code>/g, '')
+            .replace(/[^\w ]+/g, '')
+            .replace(/ +/g, '-')
         }
         node.properties.href = '/' + metadata.slug
       }
@@ -107,17 +105,21 @@ function internalLinkMap () {
 function mathJaxSetup() {
   return (tree) => {
     visit(tree, 'element', (node) => {
-      if (node.tagName == "span" && node.properties["className"] !== undefined && node.properties["className"].includes('math')) {
-        if (node.properties["className"].includes("display")) {
-          node.properties["className"].push("math-display")
+      if (
+        node.tagName == 'span' &&
+        node.properties['className'] !== undefined &&
+        node.properties['className'].includes('math')
+      ) {
+        if (node.properties['className'].includes('display')) {
+          node.properties['className'].push('math-display')
           for (const child of node.children) {
-            child.value = child.value.replace("\\[", "").replace("\\]", "")
+            child.value = child.value.replace('\\[', '').replace('\\]', '')
           }
         }
-        if (node.properties["className"].includes("inline")) {
-          node.properties["className"].push("math-inline")
+        if (node.properties['className'].includes('inline')) {
+          node.properties['className'].push('math-inline')
           for (const child of node.children) {
-            child.value = child.value.replace("\\(", "").replace("\\)", "")
+            child.value = child.value.replace('\\(', '').replace('\\)', '')
           }
         }
       }
@@ -125,22 +127,32 @@ function mathJaxSetup() {
   }
 }
 
-function escapeCurlies () {
+function escapeCurlies() {
   return function (tree) {
     visit(tree, 'element', function (node) {
-      if (node.tagName === 'code' || node.tagName === 'math' || (node.tagName == "span" && node.properties["className"] !== undefined && node.properties["className"].includes('math'))) {
-        findAndReplace(node, {
-          '&': '&#38;',
-          '{': '&#123;',
-          '}': '&#125;',
-          '"': '&#34;',
-          "'": '&#39;',
-          '<': '&#60;',
-          '>': '&#62;',
-          '`': '&#96;',
-        }, {
-          ignore: ['title', 'script', 'style']
-        })
+      if (
+        node.tagName === 'code' ||
+        node.tagName === 'math' ||
+        (node.tagName == 'span' &&
+          node.properties['className'] !== undefined &&
+          node.properties['className'].includes('math'))
+      ) {
+        findAndReplace(
+          node,
+          {
+            '&': '&#38;',
+            '{': '&#123;',
+            '}': '&#125;',
+            '"': '&#34;',
+            "'": '&#39;',
+            '<': '&#60;',
+            '>': '&#62;',
+            '`': '&#96;',
+          },
+          {
+            ignore: ['title', 'script', 'style'],
+          },
+        )
       }
     })
   }
@@ -150,7 +162,9 @@ function pandoc(input, ...args) {
   const option = [
     '-t',
     'html',
-    '--email-obfuscation', 'javascript', '--shift-heading-level=0',
+    '--email-obfuscation',
+    'javascript',
+    '--shift-heading-level=0',
     '--no-highlight',
     '--section-divs',
     '--mathjax',
@@ -173,9 +187,7 @@ function pandoc(input, ...args) {
     '--metadata',
     'reference-section-title=References',
     '--lua-filter',
-    './pandoc/render-mermaid.lua',
-    '--lua-filter',
-    './pandoc/render-svgbob.lua',
+    './pandoc/render.lua',
     '--lua-filter',
     './pandoc/ref-section-level.lua',
     '--lua-filter',
@@ -199,13 +211,12 @@ function pandoc(input, ...args) {
   if (pandoc.stderr && pandoc.stderr.length) {
     console.log(option, input, Error(pandoc.output[2].toString()))
   }
-  var content = pandoc.stdout
-    .toString()
+  var content = pandoc.stdout.toString()
   return content
 }
 
-import {getHighlighter, BUNDLED_LANGUAGES} from 'shiki';
-import rehypePrettyCode from 'rehype-pretty-code';
+import { getHighlighter, BUNDLED_LANGUAGES } from 'shiki'
+import rehypePrettyCode from 'rehype-pretty-code'
 
 const options = {
   theme: {
@@ -215,49 +226,47 @@ const options = {
   getHighlighter: (options) =>
     getHighlighter({
       ...options,
-      langs: [
-        ...BUNDLED_LANGUAGES,
-      ],
+      langs: [...BUNDLED_LANGUAGES],
     }),
-};
+}
 
 function pandocRemarkPreprocess() {
   return {
-      markup: async ({ content, filename }) => {
-        if (!path.extname(filename).startsWith('.md')) {
-          return
-        }
-        let c = pandoc(content)
-        c = c.replaceAll(/<!--separator-->/g, " ")
-        const markdown2svelte = unified()
-          .use(rehypeParse, {fragment: true, emitParseErrors: true})
-          .use(mathJaxSetup)
-          .use(rehypeMathjaxSvg)
-          .use(rehypePrettyCode, options)
-          .use(fullWidthFigures)
-          .use(videoStripLink)
-          .use(internalLinkMap)
-          .use(escapeCurlies)
-          .use(customComponent)
-          .use(rehypeStringify, {allowDangerousHtml: false})
-        const result = await markdown2svelte()
-          .process(c)
-        const html = result.toString()
-                      .replace(/&#x26;#34;/g,  '&#34;')
-                      .replace(/&#x26;#38;/g,  '&#38;')
-                      .replace(/&#x26;#123;/g, '&#123;')
-                      .replace(/&#x26;#125;/g, '&#125;')
-                      .replace(/&#x26;#34;/g,  '&#34;')
-                      .replace(/&#x26;#39;/g,  '&#39;')
-                      .replace(/&#x26;#60;/g,  '&#60;')
-                      .replace(/&#x26;#62;/g,  '&#62;')
-                      .replace(/&#x26;#96;/g,  '&#96;')
-        return {
-          code: `${html}`,
-          map: ''
-        }
+    markup: async ({ content, filename }) => {
+      if (!path.extname(filename).startsWith('.md')) {
+        return
       }
-    }
+      let c = pandoc(content)
+      c = c.replaceAll(/<!--separator-->/g, ' ')
+      const markdown2svelte = unified()
+        .use(rehypeParse, { fragment: true, emitParseErrors: true })
+        .use(mathJaxSetup)
+        .use(rehypeMathjaxSvg)
+        .use(rehypePrettyCode, options)
+        .use(fullWidthFigures)
+        .use(videoStripLink)
+        .use(internalLinkMap)
+        .use(escapeCurlies)
+        .use(customComponent)
+        .use(rehypeStringify, { allowDangerousHtml: false })
+      const result = await markdown2svelte().process(c)
+      const html = result
+        .toString()
+        .replace(/&#x26;#34;/g, '&#34;')
+        .replace(/&#x26;#38;/g, '&#38;')
+        .replace(/&#x26;#123;/g, '&#123;')
+        .replace(/&#x26;#125;/g, '&#125;')
+        .replace(/&#x26;#34;/g, '&#34;')
+        .replace(/&#x26;#39;/g, '&#39;')
+        .replace(/&#x26;#60;/g, '&#60;')
+        .replace(/&#x26;#62;/g, '&#62;')
+        .replace(/&#x26;#96;/g, '&#96;')
+      return {
+        code: `${html}`,
+        map: '',
+      }
+    },
+  }
 }
 
 function fromDir(startPath, filter) {
@@ -282,7 +291,7 @@ function fromDir(startPath, filter) {
             .replace(/<code>/, '')
             .replace(/<\/code>/g, '')
             .replace(/[^\w ]+/g, '')
-            .replace(/ +/g, '-')
+            .replace(/ +/g, '-'),
         )
       }
     }
@@ -292,16 +301,15 @@ function fromDir(startPath, filter) {
 
 function debugPreprocess() {
   return {
-      markup: async ({ content }) => {
-        console.log(content)
-        return {
-          code: content,
-          map: ''
-        }
+    markup: async ({ content }) => {
+      console.log(content)
+      return {
+        code: content,
+        map: '',
       }
-    }
+    },
+  }
 }
-
 
 function getPages() {
   let pages = ['*']
@@ -318,12 +326,12 @@ const config = {
 
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [ pandocRemarkPreprocess(), preprocess(), importAssets() ],
+  preprocess: [pandocRemarkPreprocess(), preprocess(), importAssets()],
 
   kit: {
     adapter: adapter(),
     paths: {
-      base: pathsBase
+      base: pathsBase,
     },
     prerender: {
       concurrency: 4,
