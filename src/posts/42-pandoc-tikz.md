@@ -2,7 +2,6 @@
 title: Using Tikz with Pandoc
 date: 2022-02-18T20:03:31-06:00
 tags: pandoc
-keywords: pandoc, tikz
 keywords: tikz, latex, pandoc, lua, filter
 summary: Showcase of using integrating Tikz with Pandoc lua filters
 ---
