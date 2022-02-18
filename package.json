@@ -16,6 +16,7 @@
   },
   "devDependencies": {
     "@mapbox/rehype-prism": "^0.8.0",
+    "@mermaid-js/mermaid-cli": "^8.14.0",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
     "@typescript-eslint/eslint-plugin": "^5.8.1",

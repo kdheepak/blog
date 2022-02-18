@@ -173,6 +173,8 @@ function pandoc(input, ...args) {
     '--metadata',
     'reference-section-title=References',
     '--lua-filter',
+    './pandoc/render-mermaid.lua',
+    '--lua-filter',
     './pandoc/render-svgbob.lua',
     '--lua-filter',
     './pandoc/ref-section-level.lua',
