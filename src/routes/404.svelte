@@ -2,12 +2,10 @@
   import { base } from '$app/paths'
   import { browser } from '$app/env';
 
-  export let posts
-  let param
   if (browser) {
-    let chunks = window.location.href.split('/');
-    param = chunks[chunks.length - 1];
-    if (posts.map((c) => c.slug).includes(param)) {
+    if (window.location.href.endsWith('/')) {
+      let chunks = window.location.href.split('/');
+      param = chunks[chunks.length - 1];
       goto('/' + param);
     }
   }
