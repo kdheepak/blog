@@ -5,7 +5,7 @@
   if (browser) {
     if (window.location.href.endsWith('/')) {
       let chunks = window.location.href.split('/');
-      param = chunks[chunks.length - 1];
+      let param = chunks[chunks.length - 1];
       goto('/' + param);
     }
   }
