@@ -1,7 +1,7 @@
 <script lang="ts">
   import { base } from '$app/paths'
   import { browser } from '$app/env';
-
+  import { goto } from '$app/navigation';
   if (browser) {
     if (window.location.href.endsWith('/')) {
       let chunks = window.location.href.split('/');
