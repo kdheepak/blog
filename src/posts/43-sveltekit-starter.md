@@ -18,4 +18,5 @@ npm install -D @fortawesome/free-solid-svg-icons@5.15.4 @fortawesome/free-regula
 npm install layercake
 npm uninstall @sveltejs/adapter-auto
 npm install @sveltejs/adapter-static@next -D
+npm install tw-elements
 ```
