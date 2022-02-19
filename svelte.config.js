@@ -299,9 +299,12 @@ function fromDir(startPath, filter) {
   return slugs
 }
 
-function debugPreprocess() {
+function debugPreprocess(message) {
   return {
     markup: async ({ content }) => {
+      if (message) {
+        console.log(message)
+      }
       console.log(content)
       return {
         code: content,

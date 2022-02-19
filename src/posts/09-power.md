@@ -401,7 +401,7 @@ When $\theta$ is 90, the load is purely inductive
 # <!-- collapse=True -->
 
 f0 = 60 # Hz (frequency)
-phi = -np.pi/2 # phase shift
+phi = np.pi/2 # phase shift
 
 Av = 110*np.sqrt(2) # voltage peak
 Ai = 5*np.sqrt(2) # current peak
