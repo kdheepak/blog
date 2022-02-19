@@ -5,7 +5,10 @@
   if (browser) {
     if (window.location.href.endsWith('/')) {
       let chunks = window.location.href.split('/').filter(s => s != "");
-      goto('/' + chunks[chunks.length - 1]);
+      goto('/' + chunks[chunks.length - 1].replace(".html", ""));
+    } else if (window.location.href.endsWith('.html')) {
+      let chunks = window.location.href.split('/').filter(s => s != "");
+      goto('/' + chunks[chunks.length - 1].replace(".html", ""));
     }
   }
 </script>
