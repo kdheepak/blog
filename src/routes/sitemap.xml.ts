@@ -3,13 +3,13 @@ import { getPostsMetadata } from '$lib/posts'
 function xml(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    ${
-      posts.map((m) => {
+    ${posts
+      .map((m) => {
         return `<url>
-          <loc>https://blog.kdheepak.com/{m.slug}</loc>
+          <loc>https://blog.kdheepak.com/${m.slug}</loc>
         </url>`
-      }).join('\n')
-    }
+      })
+      .join('\n')}
     <url>
       <loc>https://blog.kdheepak.com/</loc>
     </url>
@@ -19,13 +19,13 @@ function xml(posts) {
     <url>
       <loc>https://blog.kdheepak.com/rss.xml</loc>
     </url>
-    ${
-      [...new Set(posts.flatMap((metadata) => metadata.htmltags))].map(s => {
+    ${[...new Set(posts.flatMap((metadata) => metadata.htmltags))]
+      .map((s) => {
         return `<url>
-          <loc>https://blog.kdheepak.com/tags/{s}</loc>
+          <loc>https://blog.kdheepak.com/tags/${s}</loc>
         </url>`
-      }).join('\n')
-    }
+      })
+      .join('\n')}
   </urlset>`
 }
 
