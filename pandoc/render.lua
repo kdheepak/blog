@@ -32,9 +32,9 @@ local renderer = {
 				local f = io.open("tikz.tex", "w")
 				f:write(tikz_doc_template:format(text))
 				f:close()
-				os.execute("pdflatex tikz.tex")
+				os.execute("pdflatex tikz.tex > /dev/null")
 				local outputfile = "tikz." .. filetype
-				os.execute("pdf2svg tikz.pdf " .. outputfile)
+				os.execute("pdf2svg tikz.pdf " .. outputfile .. " > /dev/null")
 				local r = io.open(outputfile, "rb")
 				data = r:read("*all")
 			end)
