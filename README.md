@@ -9,7 +9,8 @@ npm install
 Other requirements:
 
 - pandoc
-
+- latex
+- svgbob
 
 ## Developing
 
