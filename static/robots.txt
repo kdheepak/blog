@@ -1,7 +1,5 @@
 User-agent: *
 
-Allow: /
-
 Disallow: /downloads/*
 
 Sitemap: https://blog.kdheepak.com/sitemap.xml
