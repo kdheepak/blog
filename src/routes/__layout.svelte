@@ -14,6 +14,7 @@
   export async function load({ fetch }) {
     try {
       await fetch('/rss.xml');
+      await fetch('/sitemap.xml');
       return true;
     } catch (error) {
       console.error(error);
@@ -22,7 +23,17 @@
 </script>
 
 <script>
-  $: rssFeed = $page.url.pathname.startsWith('/tags/') ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
+  function isTagUrl(url) {
+    if (!url.startsWith('/tags')) {
+      return false
+    }
+    const chunks = url.split('/').filter(c => c != '')
+    if (chunks[chunks.length - 1] == 'tags' || chunks.length == 1) {
+      return false
+    }
+    return true
+  }
+  $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
 </script>
 
 <main>
