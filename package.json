@@ -14,7 +14,6 @@
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
   },
   "devDependencies": {
-    "@mapbox/rehype-prism": "^0.8.0",
     "@mermaid-js/mermaid-cli": "^8.14.0",
     "@sveltejs/adapter-static": "next",
     "@sveltejs/kit": "next",
