@@ -14,7 +14,6 @@ import adapterStatic from '@sveltejs/adapter-static'
 
 function adapter(options) {
   const baseStatic = adapterStatic(options)
-  const pages = options?.pages || 'build'
   return {
     name: 'svelte-adapter-static',
     async adapt(builder) {

@@ -315,7 +315,8 @@ It is best practice to add the following lines to the top of your Python file th
 ```
 
 If your Python files are part of a package, just adding the second line is sufficient.
-I recommend using [pre-commit](https://blog.kdheepak.com/using-pre-commit-hooks.html) hooks to ensure that [the encoding pragma of python files are fixed](https://github.com/pre-commit/pre-commit-hooks/blob/31d41ff29115a87808277ee0ec23999b17d5b583/pre_commit_hooks/fix_encoding_pragma.py)
+I recommend using [pre-commit](./35-precommit-hooks.md) hooks to ensure that
+[the encoding pragma of python files are fixed](https://github.com/pre-commit/pre-commit-hooks/blob/31d41ff29115a87808277ee0ec23999b17d5b583/pre_commit_hooks/fix_encoding_pragma.py)
 before making a git commit.
 
 # Julia
