@@ -52,6 +52,11 @@ export async function get() {
   let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))]
   tags.sort()
   tags = tags.filter((tag) => tag !== undefined && tag !== '')
+
+  for (const tag of tags) {
+    await fetch(`/tags/{tag}/rss.xml`);
+  }
+
   return {
     body: { tags, humanDate, posts },
   }
