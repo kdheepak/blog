@@ -6,8 +6,8 @@ function xml(posts) {
     ${posts
       .map((m) => {
         return `<url>
-          <loc>https://blog.kdheepak.com/${m.slug}</loc>
-        </url>`
+            <loc>https://blog.kdheepak.com/${m.slug}</loc>
+          </url>`
       })
       .join('\n')}
     <url>
@@ -19,13 +19,6 @@ function xml(posts) {
     <url>
       <loc>https://blog.kdheepak.com/rss.xml</loc>
     </url>
-    ${[...new Set(posts.flatMap((metadata) => metadata.htmltags))]
-      .map((s) => {
-        return `<url>
-          <loc>https://blog.kdheepak.com/tags/${s}</loc>
-        </url>`
-      })
-      .join('\n')}
   </urlset>`
 }
 
