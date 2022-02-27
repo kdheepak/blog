@@ -325,12 +325,9 @@ function debugPreprocess(message) {
 
 function getPages() {
   let pages = ['*']
-  const { slugs, tags } = fromDir('src/posts/', '.md')
+  const { slugs } = fromDir('src/posts/', '.md')
   for (const p of slugs) {
     pages.push(`/${p}`)
-  }
-  for (const t of tags) {
-    pages.push(`/tags/${t}/rss.xml`)
   }
   return pages
 }
