@@ -53,10 +53,6 @@ export async function get() {
   tags.sort()
   tags = tags.filter((tag) => tag !== undefined && tag !== '')
 
-  for (const tag of tags) {
-    await fetch(`/tags/${tag}/rss.xml`);
-  }
-
   return {
     body: { tags, humanDate, posts },
   }

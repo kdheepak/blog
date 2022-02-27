@@ -13,6 +13,9 @@
   }
 
   function getPostsByTag(posts, tag) {
+    for (const tag of tags) {
+      await fetch(`/tags/${tag}/rss.xml`);
+    }
     return posts.filter((post) =>
       post.tags
         ?.split(',')
