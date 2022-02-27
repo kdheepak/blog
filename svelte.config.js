@@ -270,7 +270,7 @@ function pandocRemarkPreprocess() {
 
 function fromDir(startPath, filter) {
   const slugs = []
-  let tags = new Set()
+  let tags = []
   var files = fs.readdirSync(startPath)
   for (var i = 0; i < files.length; i++) {
     var filename = path.join(startPath, files[i])
@@ -281,7 +281,9 @@ function fromDir(startPath, filter) {
       const doc = fs.readFileSync(filename, 'utf8')
       const { data: metadata } = matter(doc)
       metadata.path = filename
-      for (const tag of metadata.htmltags) {
+      metadata.htmltags = metadata.tags === undefined ? '' : metadata.tags
+      metadata.htmltags = metadata.htmltags.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== undefined || s !== '')
+      for (const tag of metadata.htmltags.map(s => s.trim().toLowerCase()).filter(s => s !== undefined && s !== '')) {
         tags.push(tag)
       }
       if (metadata.slug) {
@@ -299,7 +301,7 @@ function fromDir(startPath, filter) {
       }
     }
   }
-  tags = [...tags]
+  tags = [...new Set(tags)]
   tags.sort()
   tags = tags.filter((tag) => tag !== undefined && tag !== '')
 
