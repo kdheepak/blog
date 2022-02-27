@@ -17,7 +17,7 @@
   <title>Dheepak Krishnamurthy - Blog</title>
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
-  {#if tag}
+  {#if tag != ""}
   <link rel="alternate" type="application/rss+xml" title="RSS" href="./rss.xml" />
   {/if}
 </svelte:head>
