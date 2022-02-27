@@ -36,7 +36,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@releases/v3
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          clean: true
           branch: gh-pages
           folder: build
           single-commit: true
