@@ -46,7 +46,7 @@ async function fromDir(startPath, filter) {
 }
 
 export async function get() {
-  let posts = await fromDir('src/posts/', '.md')
+  const posts = await fromDir('src/posts/', '.md')
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   const humanDate = new Date().toLocaleDateString(undefined, options)
   let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))]
