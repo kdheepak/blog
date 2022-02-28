@@ -24,11 +24,6 @@
   export let component
   export let metadata
   let tags
-  const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-    return new Date(dateString).toLocaleDateString(undefined, options)
-  }
-  $: metadata.humanDate = formatDate(metadata.date)
   $: {
     tags = metadata.htmltags.map(s => s.trim().toLowerCase()).filter(s => s !== undefined && s !== '')
   }

@@ -49,12 +49,18 @@ async function fromDir(startPath, filter) {
   return slugs
 }
 
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
+  return new Date(dateString).toLocaleDateString(undefined, options)
+}
+
 export async function get({ params }) {
   const { slug } = params
   const slugs = await fromDir('src/posts/', '.md')
   const s = slug.replace(path.parse(slug).ext, '')
   if (slugs[s] !== undefined) {
     const { metadata } = slugs[s]
+    metadata.humanDate = formatDate(metadata.date)
     return {
       body: { metadata },
     }

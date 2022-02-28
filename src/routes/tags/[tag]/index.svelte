@@ -5,8 +5,8 @@
   import { onMount } from 'svelte'
   export let posts = []
   export let tags = []
-  export let humanDate = new Date().toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' })
   export let tag = ''
+  export let humanDate
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
     return new Date(dateString).toLocaleDateString(undefined, options)
