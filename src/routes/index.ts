@@ -3,6 +3,11 @@ import matter from 'gray-matter'
 import path from 'path'
 import child_process from 'child_process'
 
+const formatDate = (dateString) => {
+  const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
+  return new Date(dateString).toLocaleDateString(undefined, options)
+}
+
 async function fromDir(startPath, filter) {
   const posts = []
   const files = fs.readdirSync(startPath)
@@ -20,7 +25,10 @@ async function fromDir(startPath, filter) {
         .stdout.toString()
       metadata.source = `https://github.com/kdheepak/blog/blob/${commit}/${filename}`
       metadata.htmltags = metadata.tags === undefined ? '' : metadata.tags
-      metadata.htmltags = metadata.htmltags.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== undefined || s !== '')
+      metadata.htmltags = metadata.htmltags
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s !== undefined || s !== '')
       if (!metadata.slug) {
         metadata.slug = metadata.title
           .toString()
@@ -31,6 +39,7 @@ async function fromDir(startPath, filter) {
           .replace(/ +/g, '-')
       }
       if (metadata.date) {
+        metadata.humanDate = formatDate(metadata.date)
         posts.push(metadata)
       }
     }
@@ -46,11 +55,7 @@ export async function get() {
   const posts = await fromDir('src/posts/', '.md')
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   const humanDate = new Date().toLocaleDateString(undefined, options)
-  let tags = [
-    ...new Set(
-      posts.flatMap((metadata) => metadata.htmltags),
-    ),
-  ]
+  let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))]
   tags.sort()
   tags = tags.filter((tag) => tag !== undefined && tag !== '')
   return {
