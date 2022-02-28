@@ -38,7 +38,7 @@ function xml(posts, tag) {
 
 export function get({ params }) {
   const { tag } = params
-  if (tag == 'rss.xml') {
+  if (tag === undefined || tag == 'rss.xml') {
     return { fallthrough: true }
   }
   const posts = getPostsMetadata('src/posts')

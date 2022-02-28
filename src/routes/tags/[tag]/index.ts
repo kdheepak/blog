@@ -48,8 +48,8 @@ async function fromDir(startPath, filter) {
 export async function get({ params }) {
   const tag = params.tag
 
-  if (tag === undefined) {
-    return { fallthrough: true };
+  if (tag === undefined || tag == 'rss.xml') {
+    return { fallthrough: true }
   }
 
   let posts = await fromDir('src/posts/', '.md')
