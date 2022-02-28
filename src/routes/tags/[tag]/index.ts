@@ -48,10 +48,6 @@ async function fromDir(startPath, filter) {
 export async function get({ params }) {
   const tag = params.tag
 
-  if (tag === undefined || tag == 'rss.xml') {
-    return { fallthrough: true }
-  }
-
   let posts = await fromDir('src/posts/', '.md')
   const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
   const humanDate = new Date().toLocaleDateString(undefined, options)

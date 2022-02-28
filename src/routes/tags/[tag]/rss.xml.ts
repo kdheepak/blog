@@ -38,9 +38,6 @@ function xml(posts, tag) {
 
 export function get({ params }) {
   const { tag } = params
-  if (tag === undefined || tag == 'rss.xml') {
-    return { fallthrough: true }
-  }
   const posts = getPostsMetadata('src/posts')
   const headers = {
     'Cache-Control': 'max-age=0, s-maxage=3600',
