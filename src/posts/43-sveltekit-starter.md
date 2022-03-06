@@ -14,6 +14,7 @@ mkdir project && cd project
 npm init svelte@next
 npx svelte-add@latest tailwindcss
 npm install
+npm install -D @tailwindcss/forms
 npm install -D svelte-fa
 npm install -D @fortawesome/free-solid-svg-icons@5.15.4 @fortawesome/free-regular-svg-icons@5.15.4 @fortawesome/free-brands-svg-icons@5.15.4
 npm install layercake
