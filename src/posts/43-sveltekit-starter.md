@@ -14,7 +14,7 @@ mkdir project && cd project
 npm init svelte@next
 npx svelte-add@latest tailwindcss
 npm install
-npm install -D @tailwindcss/forms svelte-fa @fortawesome/free-solid-svg-icons@5.15.4 @fortawesome/free-regular-svg-icons@5.15.4 @fortawesome/free-brands-svg-icons@5.15.4 @sveltejs/adapter-static@next
+npm install -D @tailwindcss/forms @tailwindcss/typography svelte-fa @fortawesome/free-solid-svg-icons@5.15.4 @fortawesome/free-regular-svg-icons@5.15.4 @fortawesome/free-brands-svg-icons@5.15.4 @sveltejs/adapter-static@next
 npm install layercake tw-elements
 npm uninstall @sveltejs/adapter-auto
 ```
@@ -27,16 +27,16 @@ module.exports = {
   plugins: [
     require('tw-elements/dist/plugin'),
     require('@tailwindcss/forms'),
-  ]
+    require('@tailwindcss/typography'),
+  ],
 }
 ```
 
 Update `__layout.svelte` to include the following:
 
-
 ```svelte
 <script lang="ts">
-  import '../app.css';
+  import '../app.css'
   import { browser } from '$app/env'
   import { onMount } from 'svelte'
   onMount(async () => {
