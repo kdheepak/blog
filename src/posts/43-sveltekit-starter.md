@@ -9,8 +9,6 @@ summary: Minimal starter using sveltekit tailwind and fontawesome
 The following is minimal instructions for getting started with the SvelteKit skeleton app, with tailwind and font awesome support
 
 ```bash
-mkdir project && cd project
-
 npm init svelte@next
 npx svelte-add@latest tailwindcss
 npm install
