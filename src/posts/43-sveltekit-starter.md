@@ -21,7 +21,7 @@ npm uninstall @sveltejs/adapter-auto
 
 Change `tailwind.config.js` to the following:
 
-```js
+```javascript
 module.exports = {
   content: ['./src/**/*.{html,js}', './node_modules/tw-elements/dist/js/**/*.js'],
   plugins: [
