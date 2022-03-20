@@ -14,8 +14,15 @@ mkdir project && cd project
 npm init svelte@next
 npx svelte-add@latest tailwindcss
 npm install
-npm install -D @tailwindcss/forms @tailwindcss/typography svelte-fa @fortawesome/free-solid-svg-icons@5.15.4 @fortawesome/free-regular-svg-icons@5.15.4 @fortawesome/free-brands-svg-icons@5.15.4 @sveltejs/adapter-static@next
-npm install layercake tw-elements
+npm install -D @tailwindcss/forms
+npm install -D tailwindcss/typography
+npm install -D velte-fa
+npm install -D fortawesome/free-solid-svg-icons@5.15.4
+npm install -D fortawesome/free-regular-svg-icons@5.15.4
+npm install -D fortawesome/free-brands-svg-icons@5.15.4
+npm install -D sveltejs/adapter-static@next
+npm install layercake
+npm install tw-elements
 npm uninstall @sveltejs/adapter-auto
 ```
 
