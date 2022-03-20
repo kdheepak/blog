@@ -1,6 +1,6 @@
 ---
 title: How to Compile the Moonlander Keyboard with QMK
-date: 2022-02-18T22:03:31-06:00
+date: 2022-03-19T20:40:31-06:00
 tags: keyboards
 keywords: moonlander, qmk, keyboard, compile, firmware
 summary: Summary of steps to compile firmware for moonlander keyboard using QMK
