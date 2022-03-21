@@ -25,7 +25,6 @@ export function getPostsMetadata(startPath: string) {
       }
       metadata.slug = encode(metadata.slug)
       metadata.title = encode(metadata.title)
-      metadata.summary = encode(metadata.summary)
       if (metadata.date) {
         posts.push(metadata)
       }
