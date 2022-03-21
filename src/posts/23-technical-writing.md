@@ -94,7 +94,7 @@ And speaking of sharing documents, did you know you can end up transferring malw
 Just think about that for a second.
 Opening what should be essentially a text file is a security risk for your machine.
 And some of these viruses (as of the time of this writing) do not even have patches yet [@beaumont_bypass_2015].
-Loads of people have already talked about this and similar issues at some length [@steingold_proprietary_nodate;@cottrell_word_nodate], and have probably done more justice to this topic that I possibly could.
+Loads of people have already talked about this and similar issues at some length [@cottrell_word_nodate], and have probably done more justice to this topic that I possibly could.
 With all these issues, it is hard to believe Word is so widely accepted as a standard.
 
 I think there is a strong case to be made about why you should consider dropping Word for your next paper. In addition to what has been discussed above:
