@@ -5,7 +5,6 @@ tags: osx
 summary: A number of Mac application can improve productivity. Here I've complied my favourite useful Mac applications ...
 ---
 
-
 1. Alfred
 
 [https://www.alfredapp.com/](https://www.alfredapp.com/)
@@ -16,7 +15,7 @@ summary: A number of Mac application can improve productivity. Here I've complie
 
 3. The Unarchiver
 
-[https://itunes.apple.com/au/app/the-unarchiver/id425424353?mt=12](https://itunes.apple.com/au/app/the-unarchiver/id425424353?mt=12)
+[https://apps.apple.com/au/app/the-unarchiver/id425424353?mt=12](https://apps.apple.com/au/app/the-unarchiver/id425424353?mt=12)
 
 4. Geektool
 
@@ -24,7 +23,7 @@ summary: A number of Mac application can improve productivity. Here I've complie
 
 ![](https://lh4.googleusercontent.com/TZkEbkEUgfXVhtL3XNgQ8tYNuaO_WF_WhgtuN0nYGJEx=s0)
 
-[https://projects.tynsoe.org/en/geektool/](https://projects.tynsoe.org/en/geektool/)
+[https://projects.tynsoe.org/en/geektool/](https://www.tynsoe.org/geektool/)
 
 5. Retinizer
 
@@ -40,11 +39,11 @@ summary: A number of Mac application can improve productivity. Here I've complie
 
 8. Hazel
 
-[https://www.noodlesoft.com/hazel.php](https://www.noodlesoft.com/hazel.php)
+[https://www.noodlesoft.com/](https://www.noodlesoft.com/)
 
 9. Flycut
 
-[https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12](https://itunes.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12)
+[https://apps.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12](https://apps.apple.com/us/app/flycut-clipboard-manager/id442160987?mt=12)
 
 10. ClipMenu
 
