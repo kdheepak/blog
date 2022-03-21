@@ -8,7 +8,7 @@ slug: mpld3-networkx-d3js-force-layout
 references:
 - id: svg
   title: SVG Semantic Zooming
-  URL: http://bl.ocks.org/mbostock/3680957
+  URL: https://bl.ocks.org/mbostock/3680957
 ---
 
 [mpld3](https://mpld3.github.io/) is a matplotlib to d3 library.

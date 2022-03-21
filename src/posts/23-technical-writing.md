@@ -14,7 +14,7 @@ references:
   title: Example Citation
 - id: stallman_emacs
   title: Emacs as a word processors
-  URL: http://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html
+  URL: https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html
 ---
 
 You can view this post in the following formats, thanks to Pandoc!
