@@ -1,5 +1,7 @@
 # blog
 
+<https://blog.kdheepak.com>
+
 ## Install
 
 ```bash
