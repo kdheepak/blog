@@ -1,3 +1,4 @@
+import { encode } from 'html-entities'
 import { getPostsMetadata } from '$lib/posts'
 
 function xml(posts) {
@@ -23,7 +24,7 @@ function xml(posts) {
       <guid isPermaLink="true">https://blog.kdheepak.com/${post.slug}</guid>
       <atom:link href="https://blog.kdheepak.com/${post.slug}" rel="self"></atom:link>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>
-      <description>${post.summary}</description>
+      <description>${encode(post.summary)}</description>
     </item>
     `,
       )
