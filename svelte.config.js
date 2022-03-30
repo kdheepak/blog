@@ -24,9 +24,36 @@ function adapter(options) {
 
 const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE
 
+import { h } from 'hastscript'
 import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
+
+function addCopyToClipboard() {
+  return function transformer(tree) {
+    visit(tree, 'element', function (node) {
+      modify(node, 'code')
+    })
+  }
+
+  function modify(node, prop) {
+    const notYetProcessed =
+      !node.properties.className || node.properties.className.indexOf('canCopyCode') === -1 // prevent infinite loop
+    if (node.tagName === 'pre' && notYetProcessed) {
+      // Docu: https://github.com/syntax-tree/hastscript#use
+      const newNodeData = h('div.copyCodeContainer', [
+        h('a.copyCode', { onclick: 'copyCode(event, this)' }, [
+          h('div', [
+            h('img', { src: pathsBase + '/images/copy-clipboard.svg' }),
+            h('.popoverCopy', ['Click to copy']),
+          ]),
+        ]),
+        h('pre.canCopyCode', node.children),
+      ])
+      Object.assign(node, newNodeData)
+    }
+  }
+}
 
 function getCustomComponents() {
   const components = []
@@ -42,6 +69,7 @@ function getCustomComponents() {
   }
   return components
 }
+
 function customComponent() {
   const components = getCustomComponents()
   return function transformer(tree) {
@@ -247,6 +275,7 @@ function pandocRemarkPreprocess() {
         .use(internalLinkMap)
         .use(escapeCurlies)
         .use(customComponent)
+        .use(addCopyToClipboard)
         .use(rehypeStringify, { allowDangerousHtml: false })
       const result = await markdown2svelte().process(c)
       const html = result
@@ -282,8 +311,13 @@ function fromDir(startPath, filter) {
       const { data: metadata } = matter(doc)
       metadata.path = filename
       metadata.htmltags = metadata.tags === undefined ? '' : metadata.tags
-      metadata.htmltags = metadata.htmltags.split(',').map(s => s.trim().toLowerCase()).filter(s => s !== undefined || s !== '')
-      for (const tag of metadata.htmltags.map(s => s.trim().toLowerCase()).filter(s => s !== undefined && s !== '')) {
+      metadata.htmltags = metadata.htmltags
+        .split(',')
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s !== undefined || s !== '')
+      for (const tag of metadata.htmltags
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s !== undefined && s !== '')) {
         tags.push(tag)
       }
       if (metadata.slug) {
@@ -305,7 +339,7 @@ function fromDir(startPath, filter) {
   tags.sort()
   tags = tags.filter((tag) => tag !== undefined && tag !== '')
 
-  return {slugs, tags}
+  return { slugs, tags }
 }
 
 function debugPreprocess(message) {
