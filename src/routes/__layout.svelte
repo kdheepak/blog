@@ -1,6 +1,8 @@
 <script context="module">
   import { base } from '$app/paths'
   import { page } from '$app/stores'
+  import { browser } from '$app/env'
+  import { onMount } from 'svelte'
 
   import '../../static/css/app.css'
   import '../../static/css/latex.css'
@@ -84,5 +86,22 @@
   .icon {
     width: 32px;
     height: 32px;
+  }
+
+  :global(.copyCodeContainer) {
+    position: relative;
+  }
+
+  :global(.copyCode) {
+    position: absolute;
+    left: 79%;
+    top: 15px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+  }
+  :global(.copyCodeImg) {
+    width: 13px;
+    height: 16px;
   }
 </style>

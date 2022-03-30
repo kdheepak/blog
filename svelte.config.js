@@ -43,10 +43,7 @@ function addCopyToClipboard() {
       // Docu: https://github.com/syntax-tree/hastscript#use
       const newNodeData = h('div.copyCodeContainer', [
         h('a.copyCode', { onclick: 'copyCode(event, this)' }, [
-          h('div', [
-            h('img', { src: './images/copy-clipboard.svg' }),
-            h('.popoverCopy', ['Click to copy']),
-          ]),
+          h('div', [h('img.copyCodeImg', { src: './images/copy-clipboard.svg' })]),
         ]),
         h('pre.canCopyCode', node.children),
       ])

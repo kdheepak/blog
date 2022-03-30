@@ -188,6 +188,10 @@ pre {
   background-color: var(--code-bkg-color);
 }
 
+.copyCode.hidden {
+  display: none;
+}
+
 pre.hidden {
   display: none;
 }
