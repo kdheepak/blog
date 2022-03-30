@@ -44,7 +44,7 @@ function addCopyToClipboard() {
       const newNodeData = h('div.copyCodeContainer', [
         h('a.copyCode', { onclick: 'copyCode(event, this)' }, [
           h('div', [
-            h('img', { src: pathsBase + '/images/copy-clipboard.svg' }),
+            h('img', { src: 'images/copy-clipboard.svg' }),
             h('.popoverCopy', ['Click to copy']),
           ]),
         ]),
