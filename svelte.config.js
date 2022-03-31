@@ -354,6 +354,15 @@ function debugPreprocess(message) {
   }
 }
 
+function getPages() {
+  let pages = ['*']
+  const { slugs } = fromDir('src/posts/', '.md')
+  for (const p of slugs) {
+    pages.push(`/${p}`)
+  }
+  return pages
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: ['.svelte', '.md'],
@@ -368,8 +377,10 @@ const config = {
       base: pathsBase,
     },
     prerender: {
+      default: true,
       concurrency: 4,
       crawl: true,
+      entries: getPages(),
     },
   },
 }
