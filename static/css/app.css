@@ -359,6 +359,7 @@ mjx-container {
   width: 13px;
   height: 16px;
   padding: 10px 10px 10px 10px;
+  color: var(--text-color);
 }
 
 .copyCodeImg:hover {
