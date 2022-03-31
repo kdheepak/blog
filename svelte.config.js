@@ -248,6 +248,8 @@ function pandoc(input, ...args) {
     '--lua-filter',
     './pandoc/standard-code.lua',
     '--lua-filter',
+    './pandoc/alert.lua',
+    '--lua-filter',
     './pandoc/fix-image-links.lua',
   ].concat(args)
   let pandoc
