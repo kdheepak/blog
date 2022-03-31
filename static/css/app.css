@@ -342,3 +342,30 @@ mjx-container {
     width: 100%;
   }
 }
+
+.copyCodeContainer {
+  position: relative;
+}
+
+.copyCode {
+  position: absolute;
+  left: 79%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+}
+
+.copyCodeImg {
+  width: 13px;
+  height: 16px;
+  padding: 10px 10px 10px 10px;
+}
+
+.copyCodeImg:hover {
+  background: var(--bkg-hover);
+}
+
+@media (max-width: 760px) {
+  .copyCode {
+    left: 98%;
+}

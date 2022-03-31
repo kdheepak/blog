@@ -1,5 +1,7 @@
 <script lang="ts">
   let theme = 'dark'
+
+  import { toast } from '@zerodevx/svelte-toast'
   import { fade } from 'svelte/transition'
   import FaSun from 'svelte-icons/fa/FaSun.svelte'
   import FaRegMoon from 'svelte-icons/fa/FaMoon.svelte'
@@ -78,6 +80,15 @@
     localStorage.setItem('theme', theme)
   }
 
+  const success = (m) =>
+    toast.push(m, {
+      theme: {
+        '--toastColor': 'white',
+        '--toastBackground': '#48BB78',
+        '--toastBarBackground': '#2F855A',
+      },
+    })
+
   function init() {
     window.copyCode = (evt, elem) => {
       evt.preventDefault()
@@ -85,6 +96,8 @@
       try {
         selectText(elem.parentNode.querySelector('code'))
         document.execCommand('copy')
+        const selection = window.getSelection()
+        success('Copied!')
       } catch (e) {
         console.error('Browser copy command not supported?', e)
       }

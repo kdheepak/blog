@@ -13,6 +13,8 @@
   import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
   import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
 
+  import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+
   export async function load({ fetch }) {
     try {
       await fetch('/rss.xml')
@@ -36,7 +38,10 @@
     return true
   }
   $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
+  const options = {}
 </script>
+
+<SvelteToast {options} />
 
 <main>
   <slot />
@@ -86,22 +91,5 @@
   .icon {
     width: 32px;
     height: 32px;
-  }
-
-  :global(.copyCodeContainer) {
-    position: relative;
-  }
-
-  :global(.copyCode) {
-    position: absolute;
-    left: 79%;
-    top: 15px;
-    width: 28px;
-    height: 28px;
-    cursor: pointer;
-  }
-  :global(.copyCodeImg) {
-    width: 13px;
-    height: 16px;
   }
 </style>
