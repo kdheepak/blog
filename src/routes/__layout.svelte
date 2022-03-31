@@ -70,26 +70,3 @@
     </div>
   </div>
 </footer>
-
-<style>
-  footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-bottom: 32px;
-    width: 50%;
-    justify-content: center;
-  }
-
-  .icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .icon {
-    width: 32px;
-    height: 32px;
-  }
-</style>
