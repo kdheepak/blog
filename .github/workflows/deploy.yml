@@ -33,9 +33,8 @@ jobs:
           npm install
           NODE_ENV=production pipenv run npm run build
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@releases/v3
+        uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
           folder: build
           single-commit: true
