@@ -20,7 +20,6 @@
         .includes(tag.toLowerCase()),
     )
   }
-
 </script>
 
 <svelte:head>
@@ -46,7 +45,9 @@
     <div class="tocwrapper">
       <br />
       {#each tags as tag}
-        <h3><a class="tag" href="#{tag}">#</a>&nbsp;<a class="tag" href="{base}/tags/{tag}">{tag}</a></h3>
+        <h3>
+          <a class="tag" href="#{tag}">#</a>&nbsp;<a class="tag" href="{base}/tags/{tag}">{tag}</a>
+        </h3>
         {#each getPostsByTag(posts, tag) as post}
           <p>
             {#if post.date}
@@ -86,14 +87,5 @@
     height: 1.25rem;
     width: 1.25rem;
     color: var(--text-color);
-  }
-
-  svg {
-    stroke: currentColor;
-    fill: currentColor;
-    stroke-width: 0;
-    width: 0.75em;
-    height: auto;
-    max-height: 0.75em;
   }
 </style>
