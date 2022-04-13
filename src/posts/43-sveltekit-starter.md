@@ -61,6 +61,7 @@ Update `__layout.svelte` to include the following:
   onMount(async () => {
     if (browser) {
       await import('tw-elements')
+      await import('flowbite')
     }
   })
 </script>
