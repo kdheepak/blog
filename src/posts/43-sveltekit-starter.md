@@ -22,20 +22,33 @@ npm install -D @fortawesome/free-brands-svg-icons@5.15.4
 npm install -D @sveltejs/adapter-static@next
 npm install layercake
 npm install tw-elements
+npm install flowbite
 npm install d3
 ```
 
 Change `tailwind.config.js` to the following:
 
 ```javascript
-module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/tw-elements/dist/js/**/*.js'],
+const config = {
+  content: [
+    './src/**/*.{html,js,svelte,ts}',
+    './node_modules/tw-elements/dist/js/**/*.js',
+    './node_modules/flowbite/dist/*.js',
+  ],
+
+  theme: {
+    extend: {},
+  },
+
   plugins: [
-    require('tw-elements/dist/plugin'),
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
+    require('tw-elements/dist/plugin'),
+    require('flowbite/plugin'),
   ],
 }
+
+module.exports = config
 ```
 
 Update `__layout.svelte` to include the following:
