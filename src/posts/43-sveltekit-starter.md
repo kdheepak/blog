@@ -22,7 +22,7 @@ npm install -D @fortawesome/free-brands-svg-icons@5.15.4
 npm install -D @sveltejs/adapter-static@next
 npm install layercake
 npm install tw-elements
-npm uninstall @sveltejs/adapter-auto
+npm install d3
 ```
 
 Change `tailwind.config.js` to the following:
