@@ -83,9 +83,9 @@
   const success = (m) =>
     toast.push(m, {
       theme: {
-        '--toastColor': 'white',
-        '--toastBackground': '#48BB78',
-        '--toastBarBackground': '#2F855A',
+        '--toastColor': theme == 'light' ? 'black' : 'white',
+        '--toastBackground': theme == 'light' ? '#f5f2f0' : '#2d2d2d',
+        '--toastBarBackground': theme == 'light' ? '#303030' : '#e0e0e0',
       },
     })
 
