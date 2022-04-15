@@ -96,7 +96,7 @@
       try {
         selectText(elem.parentNode.querySelector('code'))
         document.execCommand('copy')
-        const selection = window.getSelection()
+        window.getSelection()
         success('Copied!')
       } catch (e) {
         console.error('Browser copy command not supported?', e)
