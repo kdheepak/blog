@@ -6,11 +6,17 @@ keywords: svelte, sveltekit, tailwind, fontawesome, layercake, starter
 summary: Minimal starter using sveltekit tailwind and fontawesome
 ---
 
-The following is minimal instructions for getting started with the SvelteKit skeleton app, with tailwind and font awesome support:
+The following is minimal instructions for getting started with the SvelteKit skeleton app, with tailwind and font awesome support.
+Run the following and follow prompts:
 
 ```bash
 npm init svelte@next
 npx svelte-add@latest tailwindcss
+```
+
+Install all the following packages:
+
+```bash
 npm install
 npm install -D @tailwindcss/forms
 npm install -D tailwindcss/typography
