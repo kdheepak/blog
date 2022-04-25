@@ -541,8 +541,9 @@ And this text is in **_bold-italic_**.
 
 ### **_Tables_**
 
-```markdown
 <!-- prettier-ignore-start -->
+
+```markdown
   Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -550,8 +551,9 @@ And this text is in **_bold-italic_**.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax. {#tbl:table}
-<!-- prettier-ignore-end -->
 ```
+
+<!-- prettier-ignore-end -->
 
 **Example**
 
