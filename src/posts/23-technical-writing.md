@@ -611,7 +611,6 @@ Block equations
 $$
 \pi
 $$ {#eq:pi}
-$$
 ```
 
 **Example**
@@ -810,4 +809,3 @@ Let me know if you have any questions in the comments below.
 <!-- BEGIN SLIDESNOHEADER -->
 
 <!-- END SLIDES -->
-$$
