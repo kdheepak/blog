@@ -52,7 +52,6 @@ However, when a Python3 package is not compatible with Python2 the changes aren'
 For example, the use of asyncio in a package make it immediately incompatible with Python2.
 A more innocuous change is the use of keyword only arguments, introduced by PEP 3102.
 
-
 ```python
 def compare(a, b, *ignore, key=None):
     ...

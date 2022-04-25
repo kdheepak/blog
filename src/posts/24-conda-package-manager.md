@@ -6,9 +6,9 @@ summary: Use conda env to manage packages
 keywords: python, acaconda, conda, environment, pip, conda vs pip
 slug: using-conda-to-manage-packages
 references:
-- id: conda/conda
-  title: conda/conda
-  URL: https://github.com/conda/conda
+  - id: conda/conda
+    title: conda/conda
+    URL: https://github.com/conda/conda
 ---
 
 # Why use conda
@@ -28,12 +28,12 @@ One simple way to start is to first specify a `environment.yml` file
 # environment.yml
 name: psst-env
 dependencies:
-- python
-- nose
-- numpy
-- pandas
-- pip:
-    - pyomo
+  - python
+  - nose
+  - numpy
+  - pandas
+  - pip:
+      - pyomo
 ```
 
 The name of the environment can be changed. Activate the environment by using the following.

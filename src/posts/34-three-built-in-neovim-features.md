@@ -34,7 +34,6 @@ At the time of writing, you'll need a `v0.5.0` or `nightly`[^nightly-1] release 
 
 [^nightly-1]: _aside_: Precompiled binaries are available on the [github releases](https://github.com/neovim/neovim/releases/tag/nightly) page.
 
-
 ```bash
 $ nvim --version | head -1
 ```
@@ -74,41 +73,41 @@ While technically you can configure the LSP client straight from your `vimrc` fi
 
 In order to set this up you need to do 3 things:
 
-1) Add the `neovim/nvim-lsp` plugin:
+1. Add the `neovim/nvim-lsp` plugin:
 
-    ```vim
-    Plug 'neovim/nvim-lsp'
-    ```
+   ```vim
+   Plug 'neovim/nvim-lsp'
+   ```
 
-2) Run `:LspInstall {servername}`:
+2. Run `:LspInstall {servername}`:
 
-    ```vim
-    :LspInstall sumneko_lua
-    :LspInstall julials
-    :LspInstall nimls
-    :LspInstall rust_analyzer
-    :LspInstall vimls
-    :LspInstall pyls
-    ```
+   ```vim
+   :LspInstall sumneko_lua
+   :LspInstall julials
+   :LspInstall nimls
+   :LspInstall rust_analyzer
+   :LspInstall vimls
+   :LspInstall pyls
+   ```
 
-3) Set up configurations with options in your `vimrc`:
+3. Set up configurations with options in your `vimrc`:
 
-    ```lua
-    lua <<EOF
-        local nvim_lsp = require'nvim_lsp'
-        nvim_lsp.sumneko_lua.setup()
-        nvim_lsp.julials.setup()
-        nvim_lsp.nimls.setup()
-        nvim_lsp.vimls.setup()
-        nvim_lsp.pyls.setup{
-            settings = {
-                pyls = {
-                    configurationSources = {
-                        pycodestyle,
-                        flake8
-                    }
-                }
-            }
-        }
-    EOF
-    ```
+   ```lua
+   lua <<EOF
+       local nvim_lsp = require'nvim_lsp'
+       nvim_lsp.sumneko_lua.setup()
+       nvim_lsp.julials.setup()
+       nvim_lsp.nimls.setup()
+       nvim_lsp.vimls.setup()
+       nvim_lsp.pyls.setup{
+           settings = {
+               pyls = {
+                   configurationSources = {
+                       pycodestyle,
+                       flake8
+                   }
+               }
+           }
+       }
+   EOF
+   ```

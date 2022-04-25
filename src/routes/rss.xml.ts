@@ -1,5 +1,5 @@
-import { encode } from 'html-entities'
-import { getPostsMetadata } from '$lib/posts'
+import { encode } from "html-entities";
+import { getPostsMetadata } from "$lib/posts";
 
 function xml(posts) {
   return `<?xml version="1.0"?>
@@ -28,19 +28,19 @@ function xml(posts) {
     </item>
     `,
       )
-      .join('\n')}
+      .join("\n")}
   </channel>
-</rss>`
+</rss>`;
 }
 
 export function get() {
-  const posts = getPostsMetadata('src/posts')
+  const posts = getPostsMetadata("src/posts");
   const headers = {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
-  }
+    "Cache-Control": "max-age=0, s-maxage=3600",
+    "Content-Type": "application/xml",
+  };
   return {
     headers,
     body: xml(posts),
-  }
+  };
 }

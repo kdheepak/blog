@@ -1,24 +1,24 @@
 <script>
-  import { base } from '$app/paths'
-  import FaTags from 'svelte-icons/fa/FaTags.svelte'
-  import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
-  import { onMount } from 'svelte'
-  export let posts = []
-  export let tags = []
-  export let humanDate
+  import { base } from "$app/paths";
+  import FaTags from "svelte-icons/fa/FaTags.svelte";
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
+  import { onMount } from "svelte";
+  export let posts = [];
+  export let tags = [];
+  export let humanDate;
 
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-    return new Date(dateString).toLocaleDateString(undefined, options)
-  }
+    const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 
   function getPostsByTag(posts, tag) {
     return posts.filter((post) =>
       post.tags
-        ?.split(',')
+        ?.split(",")
         .map((s) => s.trim().toLowerCase())
         .includes(tag.toLowerCase()),
-    )
+    );
   }
 </script>
 
@@ -70,7 +70,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? "" : ", "}
         {/each}
       </span>
     </div>

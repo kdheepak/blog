@@ -5,12 +5,12 @@ keywords: raspberry, pi, led, flask
 tags: python
 summary: Use your Raspberry Pi to control a desk lamp
 references:
-- id: led
-  title: LED strip and RGB - LED software Raspberry Pi LED Spectrum Analyzer - Adafruit Learning System
-  URL: https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software
-- id: maniacallabs/bibliopixel
-  title: BiblioPixel - A pure Python 2 library for programming light animation
-  URL: https://github.com/ManiacalLabs/BiblioPixel
+  - id: led
+    title: LED strip and RGB - LED software Raspberry Pi LED Spectrum Analyzer - Adafruit Learning System
+    URL: https://learn.adafruit.com/raspberry-pi-spectrum-analyzer-display-on-rgb-led-strip/led-strip-and-rgb-led-software
+  - id: maniacallabs/bibliopixel
+    title: BiblioPixel - A pure Python 2 library for programming light animation
+    URL: https://github.com/ManiacalLabs/BiblioPixel
 ---
 
 With a Raspberry Pi, you can control a RGB addressable LED strip.
@@ -22,12 +22,12 @@ This post will go through the steps to build your own Pi powered desk lamp.
 
 # Requirements
 
-* Raspberry Pi
-* Memory card (greater than 4 GB recommended)
-* Power Adapter
-* LED Strip (LPD8806)
-* Wires
-* Lamp shade
+- Raspberry Pi
+- Memory card (greater than 4 GB recommended)
+- Power Adapter
+- LED Strip (LPD8806)
+- Wires
+- Lamp shade
 
 # Instructions
 
@@ -91,7 +91,7 @@ sudo apt-get update
 sudo apt-get upgrade
 ```
 
-Then we need to install `python-dev`, [pyspidev]( https://github.com/doceme/py-spidev ) and [BiblioPixel](https://github.com/ManiacalLabs/BiblioPixel).
+Then we need to install `python-dev`, [pyspidev](https://github.com/doceme/py-spidev) and [BiblioPixel](https://github.com/ManiacalLabs/BiblioPixel).
 These are all required to control the LED strip.
 
 ```bash

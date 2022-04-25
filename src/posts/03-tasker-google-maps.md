@@ -1,10 +1,9 @@
 ---
-title:  Tasker and Google Maps
+title: Tasker and Google Maps
 date: 2014-12-13T10:00:00-06:00
 tags: tasker, android
 summary: Tasker in combination with Python with SL4A can be used to calculate information about events from Google Calendar. This is very similar to what Google Now does but more customizable ...
 ---
-
 
 # Android Projects
 
@@ -51,39 +50,39 @@ change.
 
 If you would like to setup something similar follow the steps below.
 
-1) Install Tasker, SL4A and the Python intepreter.
+1. Install Tasker, SL4A and the Python intepreter.
 
-2) Paste the python script from the link here in the SL4A folder. This
-script has to be modified depending on what you want done. To use
-information from your Google Calendar, you need to add your private
-Google Calendar link to the script. I've written this to pull Transit
-details from a xml data, but you can theoretically do anything.
+2. Paste the python script from the link here in the SL4A folder. This
+   script has to be modified depending on what you want done. To use
+   information from your Google Calendar, you need to add your private
+   Google Calendar link to the script. I've written this to pull Transit
+   details from a xml data, but you can theoretically do anything.
 
-3) Setup a tasker profile similar to what I have below.
+3. Setup a tasker profile similar to what I have below.
 
 ![](https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/1.png){.aligncenter
 width="270" height="480"}
 
-4) The Task that will be performed when this context is triggered is
-setup as below.
+4. The Task that will be performed when this context is triggered is
+   setup as below.
 
 ![](https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/2.png){width="270"
 height="480"}[ ]{style="text-align: center; line-height: 1.5em;"}![](https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/3.png){width="270"
 height="480"}
 
-5) The above task turns on GPS, finds your current location using GPS
-and NET, stores the location data in a file and runs the python script.
-The python script uses the location data written into the file along
-with your next calendar event information to find out transit details.
-This then calls the show route task.
+5. The above task turns on GPS, finds your current location using GPS
+   and NET, stores the location data in a file and runs the python script.
+   The python script uses the location data written into the file along
+   with your next calendar event information to find out transit details.
+   This then calls the show route task.
 
-6) The show route is attached below.
+6. The show route is attached below.
 
 ![](https://raw.githubusercontent.com/kdheepak/tasker_sl4a/master/Screenshots/4.png){.aligncenter
 width="270" height="480"}
 
-7) All you need to do now is create an event on your Calendar with
-location information and you are good to go!
+7. All you need to do now is create an event on your Calendar with
+   location information and you are good to go!
 
 Here are some screenshots of what it looks like after you are done.
 

@@ -7,9 +7,9 @@ keywords: julia, unicode
 summary: Notes on the unicode specification and implementing a state machine
 draft: true
 references:
-- id: unicodespec
-  title: "Unicode Text Segmentation"
-  URL: http://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundary_Rules
+  - id: unicodespec
+    title: "Unicode Text Segmentation"
+    URL: http://www.unicode.org/reports/tr29/#Grapheme_Cluster_Boundary_Rules
 ---
 
 A boundary specification summarizes boundary property values used in that specification, then lists the rules for boundary determinations in terms of those property values.

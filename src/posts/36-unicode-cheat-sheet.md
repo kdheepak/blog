@@ -5,27 +5,27 @@ tags: neovim, python, julia, rust
 keywords: python, julia, vim, rust, unicode
 summary: References for various things associated with unicode in Vim, Python, Julia and Rust
 references:
-- id: joelonsoftware
-  title: "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
-  URL: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
-- id: hsivonen
-  title: "It’s Not Wrong that \"🤦🏼‍♂️\".length == 7"
-  URL: https://hsivonen.fi/string-length/
-- id: fasterthanlime
-  title: "Working with strings in Rust"
-  URL: https://fasterthanli.me/articles/working-with-strings-in-rust
-- id: manishearth1
-  title: "Let’s Stop Ascribing Meaning to Code Points"
-  URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
-- id: manishearth2
-  title: "Breaking Our Latin-1 Assumptions"
-  URL: https://manishearth.github.io/blog/2017/01/15/breaking-our-latin-1-assumptions/
-- id: eevee
-  title: "Dark corners of Unicode"
-  URL: https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
-- id: blist
-  title: "How Python does Unicode"
-  URL: https://www.b-list.org/weblog/2017/sep/05/how-python-does-unicode/
+  - id: joelonsoftware
+    title: "The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)"
+    URL: https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+  - id: hsivonen
+    title: 'It’s Not Wrong that "🤦🏼‍♂️".length == 7'
+    URL: https://hsivonen.fi/string-length/
+  - id: fasterthanlime
+    title: "Working with strings in Rust"
+    URL: https://fasterthanli.me/articles/working-with-strings-in-rust
+  - id: manishearth1
+    title: "Let’s Stop Ascribing Meaning to Code Points"
+    URL: https://manishearth.github.io/blog/2017/01/14/stop-ascribing-meaning-to-unicode-code-points/
+  - id: manishearth2
+    title: "Breaking Our Latin-1 Assumptions"
+    URL: https://manishearth.github.io/blog/2017/01/15/breaking-our-latin-1-assumptions/
+  - id: eevee
+    title: "Dark corners of Unicode"
+    URL: https://eev.ee/blog/2015/09/12/dark-corners-of-unicode/
+  - id: blist
+    title: "How Python does Unicode"
+    URL: https://www.b-list.org/weblog/2017/sep/05/how-python-does-unicode/
 nocite: |
   @hsivonen
   @fasterthanlime
@@ -55,28 +55,28 @@ First some basics:
    For example, my name in Devangari and Tamil can be written as 3 graphemes, but it consists of 4 and 5 code points respectively in these languages:
 
    - DEVANGARI: दीपक
-       - <span>द</span>      : U+0926 DEVANAGARI LETTER DA
-       - <span> ी</span>     : U+0940 DEVANAGARI VOWEL SIGN II
-       - <span>प</span>      : U+092A DEVANAGARI LETTER PA
-       - <span>क</span>      : U+0915 Dec:2325 DEVANAGARI LETTER KA
+     - <span>द</span> : U+0926 DEVANAGARI LETTER DA
+     - <span> ी</span> : U+0940 DEVANAGARI VOWEL SIGN II
+     - <span>प</span> : U+092A DEVANAGARI LETTER PA
+     - <span>क</span> : U+0915 Dec:2325 DEVANAGARI LETTER KA
    - TAMIL: தீபக்
-       - <span>த</span>    : U+0BA4 TAMIL LETTER TA
-       - <span> ீ</span>    : U+0BC0 TAMIL VOWEL SIGN II
-       - <span>ப</span>    : U+0BAA TAMIL LETTER PA
-       - <span>க</span>    : U+0B95 TAMIL LETTER KA
-       - <span> ்</span>    : U+0BCD TAMIL SIGN VIRAMA
+     - <span>த</span> : U+0BA4 TAMIL LETTER TA
+     - <span> ீ</span> : U+0BC0 TAMIL VOWEL SIGN II
+     - <span>ப</span> : U+0BAA TAMIL LETTER PA
+     - <span>க</span> : U+0B95 TAMIL LETTER KA
+     - <span> ்</span> : U+0BCD TAMIL SIGN VIRAMA
 
    Additionally, multiple "ideas" may be defined as a single code point.
    For example, the following grapheme
    ﷺ
    translates to "peace be upon him" and is defined as the code point at U+FDFA:
 
-   -  ﷺ  : U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
+   - ﷺ : U+FDFA ARABIC LIGATURE SALLALLAHOU ALAYHE WASALLAM
 
    And to make matters more complicated, graphemes and visual representations of code points may not be a single column width wide, even in monospaced fonts.
    See the code point at U+FDFD:
 
-   -  ﷽   : U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
+   - ﷽ : U+FDFD ARABIC LIGATURE BISMILLAH AR-RAHMAN AR-RAHEEM
 
    Code points can be of different categories, Normal, Pictographic, Spacer, Zero Width Joiners, Controls etc.
 
@@ -237,8 +237,8 @@ Out[14]: ['🤦', '🏼', '\u200d', '♂', '️']
 However, in practice, indexing into a string may not be what we want or may not be useful.
 More often, we are either interested in:
 
-1) indexing into the byte string representation or
-2) indexing into the graphemes.
+1. indexing into the byte string representation or
+2. indexing into the graphemes.
 
 We can use the `s.encode('utf-8')` function to get a Python byte string representation of the Python unicode string in `s`.
 
@@ -336,7 +336,6 @@ This is the version of Julia that I'm using:
 
 julia>
 ```
-
 
 ```julia
 julia> s = "🤦🏼‍♂️"

@@ -7,17 +7,19 @@ keywords: markdown, pandoc, papers, writing, academic, scholarly, technical, sci
 slug: writing-papers-with-markdown
 abstract: Recently, I’ve had several people ask me about the Markdown workflow I use to write papers. I figured I'd use this post to write about my workflow and my resources on this topic.
 references:
-- id: citation_example
-  author:
-  - family: Doe
-    given: J
-  title: Example Citation
-- id: stallman_emacs
-  title: Emacs as a word processors
-  URL: https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html
+  - id: citation_example
+    author:
+      - family: Doe
+        given: J
+    title: Example Citation
+  - id: stallman_emacs
+    title: Emacs as a word processors
+    URL: https://lists.gnu.org/archive/html/emacs-devel/2013-11/msg00515.html
 ---
 
 You can view this post in the following formats, thanks to Pandoc!
+
+<!-- prettier-ignore-start -->
 
 <figure class="fullwidth">
 
@@ -33,6 +35,7 @@ SLIDES-PDF  [LINK](https://blog.kdheepak.com/downloads/writing-papers-with-markd
 
 </figure>
 
+<!-- prettier-ignore-end -->
 
 <!-- BEGIN SLIDESNOHEADER -->
 
@@ -63,7 +66,7 @@ There are currently two popular options for academics seeking to write technical
 ## A word about Word
 
 Microsoft Word is ubiquitous when it comes to writing reports.
-The great thing about Word is that there is almost no barrier to *begin* writing.
+The great thing about Word is that there is almost no barrier to _begin_ writing.
 You can incrementally build your skill in using this tool as and when you are using it.
 This is useful since it makes it immediately accessible, thereby decreasing the time and effort spent on learning how to use a software for writing and allowing you to concentrate on the writing itself.
 
@@ -74,9 +77,8 @@ Have you ever experienced a sudden jump in spacing?
 Or mismatched formatting after a copy and paste from one part of the document to another?
 Or have indents and bullet points misbehave haphazardly?
 Word applies these formatting changes seemingly at random!
-These are all typesetting and formatting processes and these should be applied ***after*** the text is completed.
+These are all typesetting and formatting processes and these should be applied **_after_** the text is completed.
 These processes should not distract from the task at hand^[I understand that there may be more *correct* ways to go about it, I just don't want to be thinking about all that while I'm writing.] - writing!
-
 
 There are other issues as well.
 Microsoft's ecosystem comes at a price, literally.
@@ -101,11 +103,11 @@ I think there is a strong case to be made about why you should consider dropping
 
 <!-- BEGIN SLIDES -->
 
-* Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.
-* there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.
-* collaborating with other people requires foresight and planning.
-* the equation editor is painful to use.
-* Word does not work in the workflow for **scientific research papers or reports**.
+- Word is slow, and consumes sometimes up to a gig of virtual memory. For what is basically a word processor, that is unnecessary.
+- there is no clean way to permanently save comments or notes, that persist in the final version without affecting how final document looks.
+- collaborating with other people requires foresight and planning.
+- the equation editor is painful to use.
+- Word does not work in the workflow for **scientific research papers or reports**.
 
 <!-- END SLIDES -->
 
@@ -128,7 +130,6 @@ To quote Raymond Hettinger:
 
 <!-- END SLIDES -->
 
-
 ## $\LaTeX$ - lah-tekh, lah-tek or lay-tek
 
 <!-- BEGIN SLIDES -->
@@ -144,10 +145,10 @@ It is infamous for displaying equations in a manner that looks great.
 Math is beautiful, and it deserves to be presented beautifully.
 
 \begin{align}
-  \hskip6em \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \hskip6em \\
-  \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-  \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-  \nabla \cdot \vec{\mathbf{B}} & = 0
+\hskip6em \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \hskip6em \\
+\nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
+\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
+\nabla \cdot \vec{\mathbf{B}} & = 0
 \end{align}
 
 <!-- BEGIN SLIDES -->
@@ -164,7 +165,7 @@ For example, take a look at the following commands.
     \textbf{bold}
     \textit{italic}
 
-This markup will format the words passed into these "functions" as **bold** and *italic* respectively.
+This markup will format the words passed into these "functions" as **bold** and _italic_ respectively.
 
 <!-- END SLIDES -->
 
@@ -181,7 +182,7 @@ $\LaTeX$ is free. Free as in beer and free as in freedom.
 You can have the confidence that your code and documents can survive possibly forever in its current format.
 The $\LaTeX$ community is great and are very helpful towards beginners.
 There are hundreds of packages that improve upon the functionality that $\LaTeX$ provides.
-There are packages like *TikZ* that let you to create high resolution print quality detailed diagrams, which I've seen used even outside a $\LaTeX$ environment.
+There are packages like _TikZ_ that let you to create high resolution print quality detailed diagrams, which I've seen used even outside a $\LaTeX$ environment.
 
 However, there is a barrier to entry which one must overcome in order to begin using $\LaTeX$.
 Unlike Word, you have to know which commands are used for what markup functionality, not only to know when to use them, but also when not to use them.
@@ -227,7 +228,6 @@ So, if you cannot afford to experiment with $\LaTeX$, are you resigned to Word?
 I don't think so.
 Markdown to the rescue!
 
-
 ## Markdown
 
 <!-- BEGIN SLIDES -->
@@ -244,11 +244,11 @@ This is text in the section
 
 The following is a list in this subsection
 
-* The first **bold** item
-    - Nested item 1
-    - Nested item 2
-* The second *italicized* item
-* The third etc ...
+- The first **bold** item
+  - Nested item 1
+  - Nested item 2
+- The second _italicized_ item
+- The third etc ...
 ```
 
 <!-- END SLIDES -->
@@ -261,10 +261,10 @@ The main advantages of Markdown:
 
 <!-- BEGIN SLIDES -->
 
-* Easy: the syntax is simple
-* Fast: the simple formatting saves time and speeds up workflows of writers
-* Portable: documents are cross-platform by nature
-* Flexible: HTML, PDF, DOCX, TEX are all supported output formats
+- Easy: the syntax is simple
+- Fast: the simple formatting saves time and speeds up workflows of writers
+- Portable: documents are cross-platform by nature
+- Flexible: HTML, PDF, DOCX, TEX are all supported output formats
 
 <!-- END SLIDES -->
 
@@ -274,6 +274,7 @@ Take for example this table {@tbl:table}.
 <!-- BEGIN SLIDES -->
 
 ```markdown
+<!-- prettier-ignore-start -->
   Right     Left     Center     Default
 -------     ------ ----------   -------
       12     12        12            12
@@ -281,6 +282,7 @@ Take for example this table {@tbl:table}.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax.
+<!-- prettier-ignore-end -->
 ```
 
 <!-- END SLIDES -->
@@ -311,6 +313,7 @@ Right & Left & Center & Default\tabularnewline
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
+
 However, Markdown does not allow for the level of detailed customization that you can achieve using $\LaTeX$.
 Even a moderately complex table such as the one below is not supported (currently) by any form of Markdown.
 
@@ -340,67 +343,67 @@ And works really well.
 
 Input formats:
 
-* native (native Haskell)
-* json (JSON version of native AST)
-* markdown (pandoc’s extended Markdown)
-* markdown_strict (original unextended Markdown)
-* markdown_phpextra (PHP Markdown Extra)
-* markdown_github (GitHub-Flavored Markdown)
-* commonmark (CommonMark Markdown)
-* textile (Textile)
-* rst (reStructuredText)
-* html (HTML)
-* docbook (DocBook)
-* t2t (txt2tags)
-* docx (docx)
-* odt (ODT)
-* epub (EPUB)
-* opml (OPML)
-* org (Emacs Org mode)
-* mediawiki (MediaWiki markup)
-* twiki (TWiki markup)
-* haddock (Haddock markup)
-* or latex ($\LaTeX$)
+- native (native Haskell)
+- json (JSON version of native AST)
+- markdown (pandoc’s extended Markdown)
+- markdown_strict (original unextended Markdown)
+- markdown_phpextra (PHP Markdown Extra)
+- markdown_github (GitHub-Flavored Markdown)
+- commonmark (CommonMark Markdown)
+- textile (Textile)
+- rst (reStructuredText)
+- html (HTML)
+- docbook (DocBook)
+- t2t (txt2tags)
+- docx (docx)
+- odt (ODT)
+- epub (EPUB)
+- opml (OPML)
+- org (Emacs Org mode)
+- mediawiki (MediaWiki markup)
+- twiki (TWiki markup)
+- haddock (Haddock markup)
+- or latex ($\LaTeX$)
 
 Output formats:
 
-* native (native Haskell)
-* json (JSON version of native AST)
-* plain (plain text)
-* markdown (pandoc’s extended Markdown)
-* markdown_strict (original unextended Markdown)
-* markdown_phpextra (PHP Markdown Extra)
-* markdown_github (GitHub-Flavored Markdown)
-* commonmark (CommonMark Markdown)
-* rst (reStructuredText)
-* html (XHTML)
-* html5 (HTML5)
-* latex ($\LaTeX$)
-* beamer ($\LaTeX$ beamer slide show)
-* context (ConTeXt)
-* man (groff man)
-* mediawiki (MediaWiki markup)
-* dokuwiki (DokuWiki markup)
-* textile (Textile)
-* org (Emacs Org mode)
-* texinfo (GNU Texinfo)
-* opml (OPML)
-* docbook (DocBook)
-* opendocument (OpenDocument)
-* odt (OpenOffice text document)
-* docx (Word docx)
-* haddock (Haddock markup)
-* rtf (rich text format)
-* epub (EPUB v2 book)
-* epub3 (EPUB v3)
-* fb2 (FictionBook2 e-book)
-* asciidoc (AsciiDoc)
-* icml (InDesign ICML)
-* slidy (Slidy HTML and javascript slide show)
-* slideous (Slideous HTML and javascript slide show)
-* dzslides (DZSlides HTML5 + javascript slide show)
-* revealjs (reveal.js HTML5 + javascript slide show)
-* s5 (S5 HTML and javascript slide show)
+- native (native Haskell)
+- json (JSON version of native AST)
+- plain (plain text)
+- markdown (pandoc’s extended Markdown)
+- markdown_strict (original unextended Markdown)
+- markdown_phpextra (PHP Markdown Extra)
+- markdown_github (GitHub-Flavored Markdown)
+- commonmark (CommonMark Markdown)
+- rst (reStructuredText)
+- html (XHTML)
+- html5 (HTML5)
+- latex ($\LaTeX$)
+- beamer ($\LaTeX$ beamer slide show)
+- context (ConTeXt)
+- man (groff man)
+- mediawiki (MediaWiki markup)
+- dokuwiki (DokuWiki markup)
+- textile (Textile)
+- org (Emacs Org mode)
+- texinfo (GNU Texinfo)
+- opml (OPML)
+- docbook (DocBook)
+- opendocument (OpenDocument)
+- odt (OpenOffice text document)
+- docx (Word docx)
+- haddock (Haddock markup)
+- rtf (rich text format)
+- epub (EPUB v2 book)
+- epub3 (EPUB v3)
+- fb2 (FictionBook2 e-book)
+- asciidoc (AsciiDoc)
+- icml (InDesign ICML)
+- slidy (Slidy HTML and javascript slide show)
+- slideous (Slideous HTML and javascript slide show)
+- dzslides (DZSlides HTML5 + javascript slide show)
+- revealjs (reveal.js HTML5 + javascript slide show)
+- s5 (S5 HTML and javascript slide show)
 
 With 21 input formats and 37 output formats, it doesn't take long to guess that there's no way they implemented a converter for each input to output format.
 Pandoc employs a Abstract Syntax Tree (AST) structure as an intermediate stage to convert one format to another^[Understanding this will be important if you want to write your own custom filters. We will talk about that in the next section.].
@@ -430,11 +433,13 @@ Feel free to go through other people's Makefiles to see what they have done, and
 
 ## Syntax
 
-### ***Headings***
+### **_Headings_**
 
 ```markdown
 # Section
+
 ## Sub Section
+
 ### Sub Sub Section
 ```
 
@@ -442,21 +447,21 @@ Feel free to go through other people's Makefiles to see what they have done, and
 
 I've not provided an example here to avoid messing with this document's headings.
 
-### ***Text***
+### **_Text_**
 
 ```markdown
-This text is in *italic*.
+This text is in _italic_.
 This text is in **bold**.
-And this text is in ***bold-italic***
+And this text is in **_bold-italic_**
 ```
 
 **Example**
 
-This text is in *italic*.
+This text is in _italic_.
 This text is in **bold**.
-And this text is in ***bold-italic***.
+And this text is in **_bold-italic_**.
 
-### ***Link***
+### **_Link_**
 
 ```markdown
 [Text](https://google.com)
@@ -466,7 +471,7 @@ And this text is in ***bold-italic***.
 
 [Text](https://google.com)
 
-### ***Images***
+### **_Images_**
 
 ```markdown
 ![Caption](images/markdown.png)
@@ -476,47 +481,49 @@ And this text is in ***bold-italic***.
 
 ![Caption](images/markdown.png)
 
-### ***Lists***
+### **_Lists_**
 
 ```markdown
-* item
-* item
-    * item
-* item
+- item
+- item
+  - item
+- item
 
 1. item
 1. item
-    1. item
+   1. item
 1. item
 ```
 
 **Example**
 
-* item
-* item
-    * item
-* item
+- item
+- item
+  - item
+- item
 
 1. item
 1. item
-    1. item
+   1. item
 1. item
 
-### ***Quotes***
+### **_Quotes_**
 
 ```markdown
 > Research is what I'm doing
-when I don't know what I'm doing.
+> when I don't know what I'm doing.
+
 - Wernher von Braun
 ```
 
 **Example**
 
 > Research is what I'm doing
-when I don't know what I'm doing.
+> when I don't know what I'm doing.
+
 - Wernher von Braun
 
-### ***Code***
+### **_Code_**
 
 ```markdown
 `inline code`
@@ -532,9 +539,10 @@ when I don't know what I'm doing.
     Tab space
     for code block
 
-### ***Tables***
+### **_Tables_**
 
 ```markdown
+<!-- prettier-ignore-start -->
   Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -542,10 +550,12 @@ when I don't know what I'm doing.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax. {#tbl:table}
+<!-- prettier-ignore-end -->
 ```
 
 **Example**
 
+<!-- prettier-ignore-start -->
   Right     Left     Center     Default
 -------     ------ ----------   -------
      12     12        12            12
@@ -553,8 +563,9 @@ Table:  Demonstration of simple table syntax. {#tbl:table}
       1     1          1             1
 
 Table:  Demonstration of simple table syntax. {#tbl:table}
+<!-- prettier-ignore-end -->
 
-### ***Footnotes***
+### **_Footnotes_**
 
 ```markdown
 Example of a footnote [^0]
@@ -568,7 +579,7 @@ Example of a footnote [^0]
 
 [^0]: _aside_: This is the content of a footnote, rendered as a margin note in HTML.
 
-### ***Citations***
+### **_Citations_**
 
 ```markdown
 This is a very important fact [@citation_example]
@@ -578,8 +589,7 @@ This is a very important fact [@citation_example]
 
 This is a very important fact [@citation_example]
 
-
-### ***Strikethrough***
+### **_Strikethrough_**
 
 ```markdown
 ~~Strikethrough text~~
@@ -589,7 +599,7 @@ This is a very important fact [@citation_example]
 
 ~~Strikethrough text~~
 
-### ***Equations***
+### **_Equations_**
 
 ```markdown
 Inline equations $\pi$
@@ -599,6 +609,7 @@ Block equations
 $$
 \pi
 $$ {#eq:pi}
+$$
 ```
 
 **Example**
@@ -797,3 +808,4 @@ Let me know if you have any questions in the comments below.
 <!-- BEGIN SLIDESNOHEADER -->
 
 <!-- END SLIDES -->
+$$

@@ -7,9 +7,9 @@ keywords: neovim, vim, languageserver, julia, lsp
 summary: Showcasing Neovim and LanguageServer.jl
 links-as-notes: true
 references:
-- id: nonjedieglot
-  title: LanguageServer.jl with emacs eglot
-  URL: https://github.com/non-Jedi/eglot-jl/
+  - id: nonjedieglot
+    title: LanguageServer.jl with emacs eglot
+    URL: https://github.com/non-Jedi/eglot-jl/
 nocite: |
   @nonjedieglot
 ---
@@ -42,7 +42,7 @@ The `.vimrc` code corresponding to the capability is linked in the caption of ea
 
 ## Document symbols
 
-![[vim.lsp.buf.document\_symbol](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L986)](images/symbols.mov.gif)
+![[vim.lsp.buf.document_symbol](https://github.com/kdheepak/dotfiles/blob/9f2f76877e0b6ace32c109d95e206ee9f1851193/vimrc#L986)](images/symbols.mov.gif)
 
 # Install
 

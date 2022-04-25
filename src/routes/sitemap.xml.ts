@@ -1,4 +1,4 @@
-import { getPostsMetadata } from '$lib/posts'
+import { getPostsMetadata } from "$lib/posts";
 
 function xml(posts) {
   return `<?xml version="1.0" encoding="UTF-8"?>
@@ -7,9 +7,9 @@ function xml(posts) {
       .map((m) => {
         return `<url>
             <loc>https://blog.kdheepak.com/${m.slug}</loc>
-          </url>`
+          </url>`;
       })
-      .join('\n')}
+      .join("\n")}
     <url>
       <loc>https://blog.kdheepak.com/</loc>
     </url>
@@ -19,17 +19,17 @@ function xml(posts) {
     <url>
       <loc>https://blog.kdheepak.com/rss.xml</loc>
     </url>
-  </urlset>`
+  </urlset>`;
 }
 
 export function get() {
-  const posts = getPostsMetadata('src/posts')
+  const posts = getPostsMetadata("src/posts");
   const headers = {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
-  }
+    "Cache-Control": "max-age=0, s-maxage=3600",
+    "Content-Type": "application/xml",
+  };
   return {
     headers,
     body: xml(posts),
-  }
+  };
 }

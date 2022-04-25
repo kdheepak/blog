@@ -34,17 +34,17 @@ Change `tailwind.config.js` to the following:
 
 ```javascript
 const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/tw-elements/dist/js/**/*.js'],
+  content: ["./src/**/*.{html,js,svelte,ts}", "./node_modules/tw-elements/dist/js/**/*.js"],
 
-	theme: {
-		extend: {}
-	},
+  theme: {
+    extend: {},
+  },
 
-	plugins: [
-		require('@tailwindcss/forms'),
-		require('@tailwindcss/typography'),
-		require('tw-elements/dist/plugin')
-	]
+  plugins: [
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/typography"),
+    require("tw-elements/dist/plugin"),
+  ],
 };
 
 module.exports = config;
@@ -54,13 +54,13 @@ Update `__layout.svelte` to include the following:
 
 ```svelte
 <script lang="ts">
-	import '../app.css';
-	import { browser } from '$app/env';
-	import { onMount } from 'svelte';
-	onMount(async () => {
-		if (browser) {
-			await import('tw-elements');
-		}
-	});
+  import "../app.css";
+  import { browser } from "$app/env";
+  import { onMount } from "svelte";
+  onMount(async () => {
+    if (browser) {
+      await import("tw-elements");
+    }
+  });
 </script>
 ```

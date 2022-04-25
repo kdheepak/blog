@@ -6,9 +6,9 @@ summary: Notes on mpld3 force layout
 keywords: python, mpld3, networkx, d3.js
 slug: mpld3-networkx-d3js-force-layout
 references:
-- id: svg
-  title: SVG Semantic Zooming
-  URL: https://bl.ocks.org/mbostock/3680957
+  - id: svg
+    title: SVG Semantic Zooming
+    URL: https://bl.ocks.org/mbostock/3680957
 ---
 
 [mpld3](https://mpld3.github.io/) is a matplotlib to d3 library.
@@ -85,7 +85,6 @@ When converted to a force layout, this will fix the positions of those nodes.
 
 We are almost done! This registers the plugin with mpld3.
 
-
 ```python
 plugins.connect(fig, NetworkXD3ForceLayout(G, pos, ax))
 ```
@@ -137,7 +136,6 @@ mpld3.plugins.connect(fig,
 ```
 
 <div id="fig_el8173445058185128276242074"></div>
-
 
 <script>
 import {onMount} from "svelte"

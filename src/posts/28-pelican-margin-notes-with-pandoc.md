@@ -5,18 +5,18 @@ tags: pandoc, python
 summary: How to get margin notes to work with pandoc
 keywords: python, pelican, pandoc, margin notes, side notes
 references:
-- id: johnjameson
-  author:
-  - family: Jameson
-    given: J.
-  title: Responsive Sidenotes
-  URL: https://johndjameson.com/blog/responsive-sidenotes/
-- id: jgruber
-  author:
-  - family: Gruber
-    given: J.
-  title: Notes on notes
-  URL: https://daringfireball.net/2005/08/notes_on_notes
+  - id: johnjameson
+    author:
+      - family: Jameson
+        given: J.
+    title: Responsive Sidenotes
+    URL: https://johndjameson.com/blog/responsive-sidenotes/
+  - id: jgruber
+    author:
+      - family: Gruber
+        given: J.
+    title: Notes on notes
+    URL: https://daringfireball.net/2005/08/notes_on_notes
 ---
 
 I've been inspired by a few other blogs to consider adding margin notes to this theme.
@@ -82,11 +82,9 @@ Pandoc does however support [footnotes](https://pandoc.org/MANUAL.html#footnotes
 Inline notes are different for traditional footnotes in the source document. The following is an example of footnotes in Pandoc Markdown.
 
 ```markdown
-
 Here is a footnote reference,[^1] and another.[^longnote]
 
 [^1]: Here is the footnote.
-
 [^longnote]: Here's one with multiple blocks.
 
     Subsequent paragraphs are indented to show that they
@@ -95,9 +93,8 @@ Here is a footnote reference,[^1] and another.[^longnote]
         { some.code }
 
     The whole paragraph can be indented, or just the first
-    line.  In this way, multi-paragraph footnotes work like
+    line. In this way, multi-paragraph footnotes work like
     multi-paragraph list items.
-
 
 This paragraph won't be part of the note, because it
 isn't indented.
@@ -125,9 +122,9 @@ I chose the following syntax for implementing a `aside` tag when converting from
 When run through the filter, the above will be rendered as the following html.
 
 ```html
-<p>This is an example for the syntax<span id='aside-0'></span> in Markdown.</p>
-<div id='div-aside-0'>
-    <aside id='aside-0'>This is a note that will appear in a tag</aside>
+<p>This is an example for the syntax<span id="aside-0"></span> in Markdown.</p>
+<div id="div-aside-0">
+  <aside id="aside-0">This is a note that will appear in a tag</aside>
 </div>
 ```
 
@@ -140,8 +137,9 @@ This turned out to be more tricky than I originally anticipated.
 The current theme uses bootstrap and the following layout to display content.
 
 ```html
-<div class='row'>
-    <div class='col-sm-8'></div> <div class='col-sm-4'></div>
+<div class="row">
+  <div class="col-sm-8"></div>
+  <div class="col-sm-4"></div>
 </div>
 ```
 

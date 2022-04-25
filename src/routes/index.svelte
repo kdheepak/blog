@@ -1,13 +1,13 @@
 <script context="module">
-  import { base } from '$app/paths'
-  import FaTags from 'svelte-icons/fa/FaTags.svelte'
-  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte"
+  import { base } from "$app/paths";
+  import FaTags from "svelte-icons/fa/FaTags.svelte";
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
 </script>
 
 <script>
-  export let posts = []
-  export let tags = []
-  export let humanDate
+  export let posts = [];
+  export let tags = [];
+  export let humanDate;
 </script>
 
 <svelte:head>
@@ -15,7 +15,7 @@
   <link rel="canonical" href="https://blog.kdheepak.com/" />
   <meta property="og:url" content="https://blog.kdheepak.com/" />
   <meta name="description" content="My thoughts and notes" />
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://blog.kdheepak.com" />
   <meta property="og:title" content="Dheepak Krishnamurthy - Blog" />
@@ -23,13 +23,8 @@
   <meta property="og:site_name" content="kdheepak.com" />
   <meta name="twitter:title" content="Dheepak Krishnamurthy - Blog" />
   <meta name="twitter:description" content="My thoughts and notes" />
-  <meta name="author" content="Dheepak Krishnamurthy">
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="RSS"
-    href="/rss.xml"
-  />
+  <meta name="author" content="Dheepak Krishnamurthy" />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
   {#each tags as tag}
     <link
       rel="alternate"
@@ -50,28 +45,28 @@
         <a target="_blank" href="https://github.com/kdheepak/blog">
           {humanDate}
         </a>
-        <DarkModeToggle/>
+        <DarkModeToggle />
       </div>
     </div>
   </header>
   <section>
     <div class="tocwrapper">
       <br />
-        {#each posts as post}
-          <p>
-            {#if post.date}
-                <span class="toclink">
-                  <a sveltekit:prefetch href="/{post.slug}">
-                    {post.title}
-                  </a>
-                </span>
-                <span class="tocdate">
-                  {post.humanDate}
-                </span>
-              <br />
-            {/if}
-          </p>
-        {/each}
+      {#each posts as post}
+        <p>
+          {#if post.date}
+            <span class="toclink">
+              <a sveltekit:prefetch href="/{post.slug}">
+                {post.title}
+              </a>
+            </span>
+            <span class="tocdate">
+              {post.humanDate}
+            </span>
+            <br />
+          {/if}
+        </p>
+      {/each}
     </div>
     <br />
     <div class="flex">
@@ -81,7 +76,9 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
+            ? ""
+            : ", "}
         {/each}
       </span>
     </div>

@@ -1,26 +1,21 @@
 <script lang="ts">
-  import { base } from '$app/paths'
-  import { browser } from '$app/env';
-  import { goto } from '$app/navigation';
+  import { base } from "$app/paths";
+  import { browser } from "$app/env";
+  import { goto } from "$app/navigation";
   if (browser) {
-    if (window.location.href.endsWith('/')) {
-      let chunks = window.location.href.split('/').filter(s => s != "");
-      goto('/' + chunks[chunks.length - 1].replace(".html", ""));
-    } else if (window.location.href.endsWith('.html')) {
-      let chunks = window.location.href.split('/').filter(s => s != "");
-      goto('/' + chunks[chunks.length - 1].replace(".html", ""));
+    if (window.location.href.endsWith("/")) {
+      let chunks = window.location.href.split("/").filter((s) => s != "");
+      goto("/" + chunks[chunks.length - 1].replace(".html", ""));
+    } else if (window.location.href.endsWith(".html")) {
+      let chunks = window.location.href.split("/").filter((s) => s != "");
+      goto("/" + chunks[chunks.length - 1].replace(".html", ""));
     }
   }
 </script>
 
 <svelte:head>
   <title>404</title>
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="RSS"
-    href="{base}/rss.xml"
-  />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{base}/rss.xml" />
 </svelte:head>
 
 <article>
@@ -35,8 +30,8 @@
   <section>
     <p>
       Sorry, this URL is broken.
-      <a class="bloghome" href="{base}/">Go back to the home page</a> to find all blog
-      posts. If you would you like to report this, please open an issue
+      <a class="bloghome" href="{base}/">Go back to the home page</a> to find all blog posts. If you
+      would you like to report this, please open an issue
       <a href="https://github.com/kdheepak/blog/issues" target="_blank">here</a>.
     </p>
   </section>

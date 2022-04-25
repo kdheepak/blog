@@ -6,9 +6,7 @@ keywords: Git tips and tricks
 summary: I've stopped using git log and have replaced it with this custom command ...
 ---
 
-
 Add the following command to `~/.gitconfig`:
-
 
 ```toml
 [alias]

@@ -6,7 +6,6 @@ summary: Here are some videos from projects I worked on during my undergraduate 
 
 <h3>Robotics and Microcontroller Projects</h3>
 
-
 <iframe width="420" height="345"
 src="https://www.youtube.com/embed/eoN-HOUOjBk">
 </iframe>

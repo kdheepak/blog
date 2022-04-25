@@ -1,6 +1,6 @@
 <script context="module">
-  import { dev } from '$app/env';
-  import { base } from '$app/paths'
+  import { dev } from "$app/env";
+  import { base } from "$app/paths";
   /** @type {import('@sveltejs/kit').ErrorLoad} */
   export function load({ error, status }) {
     return {
@@ -8,23 +8,18 @@
         error,
         status,
       },
-    }
+    };
   }
 </script>
 
 <script>
-  export let status
-  export let error
+  export let status;
+  export let error;
 </script>
 
 <svelte:head>
   <title>{status}</title>
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title="RSS"
-    href="{base}/rss.xml"
-  />
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="{base}/rss.xml" />
 </svelte:head>
 
 <article>
@@ -39,8 +34,8 @@
   <section>
     <p>
       Sorry, this URL is broken.
-      <a class="bloghome" href="{base}/">Go back to the home page</a> to find all blog
-      posts. If you would you like to report this, please open an issue
+      <a class="bloghome" href="{base}/">Go back to the home page</a> to find all blog posts. If you
+      would you like to report this, please open an issue
       <a href="https://github.com/kdheepak/blog/issues" target="_blank">here</a>.
     </p>
     <p>{error.message}</p>

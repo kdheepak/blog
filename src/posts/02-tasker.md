@@ -1,12 +1,11 @@
 ---
-title:  Tasker Projects
+title: Tasker Projects
 date: 2014-12-12T19:00:00-06:00
 tags: tasker, android
 summary: A collection of Tasker projects I've worked on ...
 ---
 
 # Google Calendar
-
 
 [This page](https://kdheepak.com/blog/tasker-and-google-maps.html) contains information about the [profile](https://github.com/kdheepak/tasker_sl4a) that uses Tasker to get contextual information from Google Calendar and react based on it.
 

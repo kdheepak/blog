@@ -1,44 +1,44 @@
 <script context="module">
-  import { base } from '$app/paths'
-  import { page } from '$app/stores'
-  import { browser } from '$app/env'
-  import { onMount } from 'svelte'
+  import { base } from "$app/paths";
+  import { page } from "$app/stores";
+  import { browser } from "$app/env";
+  import { onMount } from "svelte";
 
-  import '../../static/css/app.css'
-  import '../../static/css/latex.css'
-  import '../../static/css/pandoc.css'
-  import '../../static/css/tufte-extra.css'
-  import '../../static/css/tufte.css'
+  import "../../static/css/app.css";
+  import "../../static/css/latex.css";
+  import "../../static/css/pandoc.css";
+  import "../../static/css/tufte-extra.css";
+  import "../../static/css/tufte.css";
 
-  import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
-  import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
+  import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
+  import FaRssSquare from "svelte-icons/fa/FaRssSquare.svelte";
 
-  import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+  import { SvelteToast, toast } from "@zerodevx/svelte-toast";
 
   export async function load({ fetch }) {
     try {
-      await fetch('/rss.xml')
-      await fetch('/sitemap.xml')
-      return true
+      await fetch("/rss.xml");
+      await fetch("/sitemap.xml");
+      return true;
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 </script>
 
 <script>
   function isTagUrl(url) {
-    if (!url.startsWith('/tags')) {
-      return false
+    if (!url.startsWith("/tags")) {
+      return false;
     }
-    const chunks = url.split('/').filter((c) => c != '')
-    if (chunks[chunks.length - 1] == 'tags' || chunks.length == 1) {
-      return false
+    const chunks = url.split("/").filter((c) => c != "");
+    if (chunks[chunks.length - 1] == "tags" || chunks.length == 1) {
+      return false;
     }
-    return true
+    return true;
   }
-  $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
-  const options = {}
+  $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : "/rss.xml";
+  const options = {};
 </script>
 
 <SvelteToast {options} />

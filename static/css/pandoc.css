@@ -1,5 +1,7 @@
 /* For smart quotes */
-q { quotes: "“" "”" "‘" "’"; }
+q {
+  quotes: "“" "”" "‘" "’";
+}
 
 /* Override section behavior.
  * We only want the top-level <section> to have padding.
@@ -14,8 +16,9 @@ article > section {
 }
 
 /* Make byline (date and/or author) small */
-p.byline { font-size: 1.2rem; }
-
+p.byline {
+  font-size: 1.2rem;
+}
 
 /* Simulate Pandoc's table output styles */
 table {
@@ -25,7 +28,8 @@ table {
 th {
   border-bottom: 1px solid black;
 }
-td, th {
+td,
+th {
   font-size: 1.4rem;
   padding: 10px;
   text-align: left;

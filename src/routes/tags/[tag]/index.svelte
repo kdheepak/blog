@@ -1,16 +1,16 @@
 <script>
-  import { base } from '$app/paths'
-  import FaTags from 'svelte-icons/fa/FaTags.svelte'
-  import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
-  import { onMount } from 'svelte'
-  export let posts = []
-  export let tags = []
-  export let tag = ''
-  export let humanDate
+  import { base } from "$app/paths";
+  import FaTags from "svelte-icons/fa/FaTags.svelte";
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
+  import { onMount } from "svelte";
+  export let posts = [];
+  export let tags = [];
+  export let tag = "";
+  export let humanDate;
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric', weekday: 'short' }
-    return new Date(dateString).toLocaleDateString(undefined, options)
-  }
+    const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
+    return new Date(dateString).toLocaleDateString(undefined, options);
+  };
 </script>
 
 <svelte:head>
@@ -23,7 +23,9 @@
 <article>
   <header>
     <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a>  / <a class="bloghome" href="{base}/tags">tags</a> / <i>{tag}</i>
+      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
+      <a class="bloghome" href="{base}/tags">tags</a>
+      / <i>{tag}</i>
     </h1>
     <p class="subtitle sourceurl">
       <a target="_blank" href="https://github.com/kdheepak/blog">
@@ -59,7 +61,7 @@
       <span>
         &nbsp;
         {#each tags as tag, index}
-          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? '' : ', '}
+          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? "" : ", "}
         {/each}
       </span>
     </div>

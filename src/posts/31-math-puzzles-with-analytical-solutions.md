@@ -290,6 +290,8 @@ julia> starting_floor(100, 2)
 
 Using the function `f`, we can also generate a table that explores what is the maximum number of floors that can be check for various number of drops and eggs.
 
+<!-- prettier-ignore-start -->
+
 <figure class="fullwidth">
 
 Table: Maximum number of floors that can be checked with $x$ drops and $n$ eggs
@@ -330,6 +332,8 @@ Table: Maximum number of floors that can be checked with $x$ drops and $n$ eggs
 +-------------+-----+-----+-----+------+------+------+-------+-------+-------+-------+
 
 </figure>
+
+<!-- prettier-ignore-end -->
 
 You'll notice that the upper right corner of the table stays the same if you increase the number of eggs you have at your disposal.
 You can see this even more clearly in this visualization.
