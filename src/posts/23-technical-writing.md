@@ -603,6 +603,7 @@ This is a very important fact [@citation_example]
 
 ### **_Equations_**
 
+<!-- prettier-ignore-start -->
 ```markdown
 Inline equations $\pi$
 
@@ -612,8 +613,11 @@ $$
 \pi
 $$ {#eq:pi}
 ```
+<!-- prettier-ignore-end -->
 
 **Example**
+
+<!-- prettier-ignore-start -->
 
 Inline equations $\pi$
 
@@ -622,6 +626,7 @@ Block equations
 $$
 \pi
 $$ {#eq:pi}
+<!-- prettier-ignore-end -->
 
 
 ## Pandoc conversion
