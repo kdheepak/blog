@@ -8,6 +8,7 @@
   export let posts = [];
   export let tags = [];
   export let humanDate;
+  export let source;
 </script>
 
 <svelte:head>
@@ -42,7 +43,7 @@
     </h1>
     <div class="flex space-between main-subtitle">
       <div class="subtitle sourceurl">
-        <a target="_blank" href="https://github.com/kdheepak/blog">
+        <a target="_blank" href={source}>
           {humanDate}
         </a>
         <DarkModeToggle />

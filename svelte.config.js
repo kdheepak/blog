@@ -390,6 +390,8 @@ function getPages() {
   return pages;
 }
 
+import { searchForWorkspaceRoot } from "vite";
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
@@ -399,6 +401,13 @@ const config = {
   preprocess: [pandocRemarkPreprocess(), preprocess(), importAssets()],
 
   kit: {
+    vite: {
+      server: {
+        fs: {
+          allow: [searchForWorkspaceRoot(process.cwd())],
+        },
+      },
+    },
     adapter: adapter(),
     paths: {
       base: pathsBase,

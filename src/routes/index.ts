@@ -58,7 +58,11 @@ export async function get() {
   let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))];
   tags.sort();
   tags = tags.filter((tag) => tag !== undefined && tag !== "");
+  const commit = child_process
+    .spawnSync("git", ["log", "-n", "1", "--pretty=format:%H"])
+    .stdout.toString();
+  const source = `https://github.com/kdheepak/blog/tree/${commit}`;
   return {
-    body: { tags, humanDate, posts },
+    body: { tags, humanDate, source, posts },
   };
 }
