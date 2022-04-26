@@ -603,31 +603,21 @@ This is a very important fact [@citation_example]
 
 ### **_Equations_**
 
-<!-- prettier-ignore-start -->
 ```markdown
 Inline equations $\pi$
 
 Block equations
 
-$$
-\pi
-$$ {#eq:pi}
+$$ \pi $$ {#eq:pi}
 ```
-<!-- prettier-ignore-end -->
 
 **Example**
-
-<!-- prettier-ignore-start -->
 
 Inline equations $\pi$
 
 Block equations
 
-$$
-\pi
-$$ {#eq:pi}
-<!-- prettier-ignore-end -->
-
+$$ \pi $$ {#eq:pi}
 
 ## Pandoc conversion
 
@@ -659,8 +649,8 @@ It has loads of examples and you might be able to find what you are looking for 
 
 With PDF files, you can specify the following additional arguments:
 
-* `--latex-engine=pdflatex`: latex engine
-* `--latex-template=latex.template`: latex template file
+- `--latex-engine=pdflatex`: latex engine
+- `--latex-template=latex.template`: latex template file
 
 <!-- END SLIDES -->
 
@@ -670,16 +660,17 @@ This allows you to define a $\LaTeX$ template to use. By default, `pandoc` uses 
 
 With html files, you can specify the following arguments:
 
-* `--template=html.template`: html template file
-* `--css=cssfile.css`: css file
+- `--template=html.template`: html template file
+- `--css=cssfile.css`: css file
 
 <!-- END SLIDES -->
 
 <!-- BEGIN SLIDES -->
+
 With docx files unfortunately, you cannot specify a template (at least not at the time of writing this post) [@noauthor_googlegroups_nodate].
 You can however, specify a reference-docx:
 
-* `--reference-docx=reference.docx`: docx for reference styles
+- `--reference-docx=reference.docx`: docx for reference styles
 
 <!-- END SLIDES -->
 
@@ -687,9 +678,9 @@ You can however, specify a reference-docx:
 
 These following arguments allow you to use citations when writing academic papers.
 
-* `--filter pandoc-citeproc`: filter to parse citations
-* `--csl=CSLFILE`: define a citation style sheet e.g. ieee.csl
-* `--bibliography=BIBFILE`: look for citations from a bibliography
+- `--filter pandoc-citeproc`: filter to parse citations
+- `--csl=CSLFILE`: define a citation style sheet e.g. ieee.csl
+- `--bibliography=BIBFILE`: look for citations from a bibliography
 
 <!-- END SLIDES -->
 
@@ -700,9 +691,9 @@ It works great and I've had no issues with it so far.
 
 Also, I've found the following filters useful.
 
-* `--filter pandoc-eqnos`: equation numbers
-* `--filter pandoc-fignos`: figure numbers
-* `--filter pandoc-tablenos`: table numbers
+- `--filter pandoc-eqnos`: equation numbers
+- `--filter pandoc-fignos`: figure numbers
+- `--filter pandoc-tablenos`: table numbers
 
 <!-- END SLIDES -->
 
