@@ -14,6 +14,7 @@ jobs:
           toolchain: stable
       - run: |
           cargo install svgbob_cli
+          cargo install stork-search --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
       - name: Install pipenv
         run: pipx install pipenv
