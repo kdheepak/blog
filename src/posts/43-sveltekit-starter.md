@@ -32,7 +32,30 @@ npm install tw-elements
 npm install d3
 ```
 
-Change `tailwind.config.js` to the following:
+Add the following to `.prettierrc`:
+
+```json
+{
+  "useTabs": false,
+  "quoteProps": "preserve",
+  "singleQuote": false,
+  "trailingComma": "all",
+  "printWidth": 100,
+  "tabWidth": 2,
+  "bracketSameLine": false,
+  "bracketSpacing": true
+}
+```
+
+And run the following to format all files:
+
+```bash
+prettier . --write --ignore-path .gitignore
+```
+
+### `tailwind-elements`
+
+If you want to add `tailwind-elements`, change `tailwind.config.js` to the following:
 
 ```javascript
 const config = {
@@ -52,7 +75,7 @@ const config = {
 module.exports = config;
 ```
 
-Update `__layout.svelte` to include the following:
+And update `__layout.svelte` to include the following:
 
 ```svelte
 <script lang="ts">
