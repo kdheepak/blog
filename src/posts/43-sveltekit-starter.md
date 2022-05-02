@@ -12,6 +12,8 @@ Run the following and follow prompts:
 ```bash
 npm init svelte@next
 npx svelte-add@latest tailwindcss
+npx svelte-add@latest scss
+npx svelte-add@latest postcss
 ```
 
 Install all the following packages:
