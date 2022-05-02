@@ -1,14 +1,14 @@
 <script context="module">
-  import { base } from "$app/paths";
-  import FaTags from "svelte-icons/fa/FaTags.svelte";
-  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
+  import { base } from '$app/paths'
+  import FaTags from 'svelte-icons/fa/FaTags.svelte'
+  import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
 </script>
 
 <script>
-  export let posts = [];
-  export let tags = [];
-  export let humanDate;
-  export let source;
+  export let posts = []
+  export let tags = []
+  export let humanDate
+  export let source
 </script>
 
 <svelte:head>
@@ -38,10 +38,12 @@
 
 <article>
   <header>
-    <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / blog
-    </h1>
-    <div class="flex space-between main-subtitle">
+    <div class="">
+      <h1 class="title">
+        <a href="https://kdheepak.com">~</a> / blog
+      </h1>
+    </div>
+    <div class="flex main-subtitle">
       <div class="subtitle sourceurl">
         <a target="_blank" href={source}>
           {humanDate}
@@ -78,8 +80,8 @@
         &nbsp;
         {#each tags as tag, index}
           <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
-            ? ""
-            : ", "}
+            ? ''
+            : ', '}
         {/each}
       </span>
     </div>
@@ -89,6 +91,10 @@
 <style>
   .flex {
     display: flex;
+  }
+
+  .space-between {
+    justify-content: space-between;
   }
 
   .tag {
