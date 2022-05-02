@@ -105,7 +105,7 @@
 }
 
 .stork-wrapper-flat .stork-result.selected {
-  background: var(--stork-blue-2);
+  background: var(--bkg-hover);
 }
 
 .stork-wrapper-flat .stork-result a:link {
@@ -113,6 +113,11 @@
   display: block;
   color: currentcolor;
   text-decoration: none;
+  text-shadow: none;
+}
+
+.stork-wrapper-flat .stork-result a {
+  background: none;
 }
 
 .stork-wrapper-flat .stork-result p {
