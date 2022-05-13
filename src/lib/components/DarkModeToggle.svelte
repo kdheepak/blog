@@ -12,12 +12,9 @@
   const getStoredTheme = () => localStorage.getItem("theme");
 
   function setGiscusTheme(theme) {
-    function sendMessage(message) {
-      const iframe = document.querySelector("iframe.giscus-frame");
-      if (!iframe) return;
-      iframe.contentWindow.postMessage({ giscus: message }, "https://giscus.app");
-    }
-    sendMessage({ setConfig: { theme } });
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (!iframe) return;
+    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } }}, "https://giscus.app");
   }
 
   const setLightTheme = () => {
@@ -25,13 +22,17 @@
     document.body.classList.toggle("dark", false);
     document.querySelectorAll("[data-theme='light']").forEach((item) => {
       item.style.display = "block";
-      item.closest("pre").classList.remove("hidden");
-      item.closest("pre").previousElementSibling.classList.remove("hidden");
+      if item.closest("pre") {
+        item.closest("pre").classList.remove("hidden");
+        item.closest("pre").previousElementSibling.classList.remove("hidden");
+      };
     });
     document.querySelectorAll("[data-theme='dark']").forEach((item) => {
       item.style.display = "block";
-      item.closest("pre").classList.add("hidden");
-      item.closest("pre").previousElementSibling.classList.add("hidden");
+      if item.closest("pre") {
+        item.closest("pre").classList.add("hidden");
+        item.closest("pre").previousElementSibling.classList.add("hidden");
+      };
     });
     theme = "light";
     dispatch("message", {
@@ -45,13 +46,17 @@
     document.body.classList.toggle("dark", true);
     document.querySelectorAll("[data-theme='light']").forEach((item) => {
       item.style.display = "block";
-      item.closest("pre").classList.add("hidden");
-      item.closest("pre").previousElementSibling.classList.add("hidden");
+      if item.closest("pre") {
+        item.closest("pre").classList.add("hidden");
+        item.closest("pre").previousElementSibling.classList.add("hidden");
+      }
     });
     document.querySelectorAll("[data-theme='dark']").forEach((item) => {
       item.style.display = "block";
-      item.closest("pre").classList.remove("hidden");
-      item.closest("pre").previousElementSibling.classList.remove("hidden");
+      if item.closest("pre") {
+        item.closest("pre").classList.remove("hidden");
+        item.closest("pre").previousElementSibling.classList.remove("hidden");
+      }
     });
     theme = "dark";
     dispatch("message", {
