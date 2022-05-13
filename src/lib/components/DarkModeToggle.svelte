@@ -147,11 +147,18 @@
 
 <style>
   button {
+    position: fixed;
     text-decoration: none;
+    width:60px;
+    height:60px;
+    bottom:40px;
+    right:40px;
     transition: 0.1s;
     padding: 0.75em 1.5em;
-    border-radius: 4px;
-    background: transparent;
+    background: var(--code-bkg-color);
+    border-radius: 50px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    text-align:center;
     font-weight: 600;
     border: none;
     cursor: pointer;
