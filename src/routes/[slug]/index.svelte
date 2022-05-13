@@ -167,8 +167,10 @@
       data-category-id="DIC_kwDOAw0qeM4B_3gQ"
       data-mapping="url"
       data-reactions-enabled="1"
+      data-input-position="top"
       data-theme="preferred_color_scheme"
-      data-emit-metadata="0"
+      data-emit-metadata="1"
+      data-loading="lazy"
       data-lang="en"
       crossorigin="anonymous"
       async
