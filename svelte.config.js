@@ -10,6 +10,9 @@ import rehypeStringify from 'rehype-stringify'
 import rehypeMathjaxSvg from 'rehype-mathjax'
 import importAssets from 'svelte-preprocess-import-assets'
 
+import { h, s } from 'hastscript'
+import { visit } from 'unist-util-visit'
+
 import adapterStatic from '@sveltejs/adapter-static'
 
 function adapter(options) {
@@ -23,9 +26,6 @@ function adapter(options) {
 }
 
 const pathsBase = process.env.PATHS_BASE === undefined ? '' : process.env.PATHS_BASE
-
-import { h, s } from 'hastscript'
-import { visit } from 'unist-util-visit'
 
 import { findAndReplace } from 'hast-util-find-and-replace'
 
