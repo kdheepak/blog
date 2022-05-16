@@ -24,4 +24,4 @@ The following is the code I included in the Markdown source file:
 <Counter />
 ```
 
-You can click on the date in this blog post to see the source markdown file.
+You can click on the date in this blog post to see the source markdown file that was used to render this page.
