@@ -27,6 +27,8 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - uses: Swatinem/rust-cache@v1
+
       - run: |
           cargo install svgbob_cli
           cargo install stork-search --locked
