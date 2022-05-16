@@ -65,7 +65,7 @@
               <span class="dull">({post.readingTime} min)</span>
             </span>
             <span class="tocdate">
-              {post.humanDate}
+              <a target="_blank" href={post.source}>{post.humanDate}</a>
             </span>
             <br />
           {/if}
