@@ -55,6 +55,7 @@
                 <a sveltekit:prefetch href="../{post.slug}">
                   {post.title}
                 </a>
+                <span class="dull">({post.readingTime} min)</span>
               </span>
               <span class="tocdate">
                 {formatDate(post.date)}
@@ -87,5 +88,9 @@
     height: 1.25rem;
     width: 1.25rem;
     color: var(--text-color);
+  }
+
+  .dull {
+    color: var(--text-color-dull);
   }
 </style>
