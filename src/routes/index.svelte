@@ -1,14 +1,14 @@
 <script context="module">
-  import { base } from '$app/paths'
-  import FaTags from 'svelte-icons/fa/FaTags.svelte'
-  import DarkModeToggle from '$lib/components/DarkModeToggle.svelte'
+  import { base } from "$app/paths";
+  import FaTags from "svelte-icons/fa/FaTags.svelte";
+  import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
 </script>
 
 <script>
-  export let posts = []
-  export let tags = []
-  export let humanDate
-  export let source
+  export let posts = [];
+  export let tags = [];
+  export let humanDate;
+  export let source;
 </script>
 
 <svelte:head>
@@ -62,6 +62,7 @@
               <a sveltekit:prefetch href="/{post.slug}">
                 {post.title}
               </a>
+              <span class="dull">({post.readingTime} min)</span>
             </span>
             <span class="tocdate">
               {post.humanDate}
@@ -80,8 +81,8 @@
         &nbsp;
         {#each tags as tag, index}
           <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
-            ? ''
-            : ', '}
+            ? ""
+            : ", "}
         {/each}
       </span>
     </div>
@@ -91,6 +92,10 @@
 <style>
   .flex {
     display: flex;
+  }
+
+  .dull {
+    color: var(--text-color-dull);
   }
 
   .space-between {

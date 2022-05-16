@@ -84,7 +84,7 @@ body > footer > p {
   width: 200px;
   font-size: 1.4rem;
   box-sizing: border-box;
-  font-family: et-book, Palatino, 'Palatino Linotype', 'Palatino LT STD', 'Book Antiqua', Georgia,
+  font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia,
     serif;
 }
 
@@ -186,6 +186,7 @@ div.code-toolbar > .toolbar > .toolbar-item > span {
 
 body {
   --text-color: #111;
+  --text-color-dull: #777;
   --bkg-color: #fffff8;
   --bkg-hover: #e0e0e0;
   --code-bkg-color: #f5f2f0;
@@ -199,6 +200,7 @@ body.dark {
     0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515,
     -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
   --text-color: #ddd;
+  --text-color-dull: #777;
   --bkg-color: #151515;
   --bkg-hover: #303030;
   --code-bkg-color: #2d2d2d;
@@ -245,7 +247,7 @@ section > p:first-child::first-letter {
 }
 
 @media (prefers-color-scheme: light), (prefers-color-scheme: no-preference) {
-  code[data-theme='dark'] {
+  code[data-theme="dark"] {
     display: none;
   }
 }
@@ -256,6 +258,7 @@ section > p:first-child::first-letter {
       0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515,
       -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
     --text-color: #ddd;
+    --text-color-dull: #777;
     --bkg-color: #151515;
     --bkg-hover: #303030;
     --code-bkg-color: #2d2d2d;
@@ -266,12 +269,13 @@ section > p:first-child::first-letter {
       0.06em 0 #fffff8, -0.06em 0 #fffff8, 0.09em 0 #fffff8, -0.09em 0 #fffff8, 0.12em 0 #fffff8,
       -0.12em 0 #fffff8, 0.15em 0 #fffff8, -0.15em 0 #fffff8;
     --text-color: #111;
+    --text-color-dull: #777;
     --bkg-color: #fffff8;
     --bkg-hover: #e0e0e0;
     --code-bkg-color: #f5f2f0;
   }
 
-  code[data-theme='light'] {
+  code[data-theme="light"] {
     display: none;
   }
 }
