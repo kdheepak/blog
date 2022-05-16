@@ -1,46 +1,47 @@
 <script context="module">
-  import { base } from '$app/paths'
-  import { page } from '$app/stores'
-  import { browser } from '$app/env'
-  import { onMount } from 'svelte'
-  import Search from '$lib/components/Search.svelte'
+  import { base } from "$app/paths";
+  import { page } from "$app/stores";
+  import { browser } from "$app/env";
+  import { onMount } from "svelte";
+  import Search from "$lib/components/Search.svelte";
 
-  import '../../static/css/app.css'
-  import '../../static/css/latex.css'
-  import '../../static/css/pandoc.css'
-  import '../../static/css/tufte-extra.css'
-  import '../../static/css/tufte.css'
-  import '../../static/css/stork.css'
+  import "../../static/css/app.css";
+  import "../../static/css/latex.css";
+  import "../../static/css/pandoc.css";
+  import "../../static/css/tufte-extra.css";
+  import "../../static/css/tufte.css";
+  import "../../static/css/stork.css";
 
-  import DiGithubBadge from 'svelte-icons/di/DiGithubBadge.svelte'
-  import FaRssSquare from 'svelte-icons/fa/FaRssSquare.svelte'
+  import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
+  import FaRssSquare from "svelte-icons/fa/FaRssSquare.svelte";
+  import FaHeart from "svelte-icons/fa/FaHeart.svelte";
 
-  import { SvelteToast, toast } from '@zerodevx/svelte-toast'
+  import { SvelteToast, toast } from "@zerodevx/svelte-toast";
 
   export async function load({ fetch }) {
     try {
-      await fetch('/rss.xml')
-      await fetch('/sitemap.xml')
-      return true
+      await fetch("/rss.xml");
+      await fetch("/sitemap.xml");
+      return true;
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
   }
 </script>
 
 <script>
   function isTagUrl(url) {
-    if (!url.startsWith('/tags')) {
-      return false
+    if (!url.startsWith("/tags")) {
+      return false;
     }
-    const chunks = url.split('/').filter((c) => c != '')
-    if (chunks[chunks.length - 1] == 'tags' || chunks.length == 1) {
-      return false
+    const chunks = url.split("/").filter((c) => c != "");
+    if (chunks[chunks.length - 1] == "tags" || chunks.length == 1) {
+      return false;
     }
-    return true
+    return true;
   }
-  $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : '/rss.xml'
-  const options = {}
+  $: rssFeed = isTagUrl($page.url.pathname) ? `${$page.url.pathname}/rss.xml` : "/rss.xml";
+  const options = {};
 </script>
 
 <SvelteToast {options} />
@@ -72,6 +73,13 @@
     <div class="icon">
       <a rel="external" href={rssFeed}><FaRssSquare /></a>
     </div>
+  </div>
+  &nbsp; &nbsp;
+  <div>This site does not collect any analytics.</div>
+  <div>
+    Made with <a target="_blank" href="https://kit.svelte.dev/docs">SvelteKit</a>,
+    <a target="_blank" href="https://pandoc.org">Pandoc </a>
+    and <a target="_blank" href="https://edwardtufte.github.io/tufte-css/">TufteCSS</a>.
   </div>
 </footer>
 
