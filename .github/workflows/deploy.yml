@@ -16,12 +16,12 @@ jobs:
           cargo install svgbob_cli
           cargo install stork-search --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
-      - name: Install pipenv
-        run: pipx install pipenv
+      - name: Install pdm
+        run: pipx install pdm
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - run: pipenv install
+      - run: pdm install
       - uses: actions/setup-node@v2
       - name: Build
         run: |
@@ -32,7 +32,7 @@ jobs:
           svgbob_cli --version
           python --version
           npm install
-          NODE_ENV=production pipenv run npm run build
+          NODE_ENV=production pdm run npm run build
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
