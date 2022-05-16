@@ -14,7 +14,7 @@
   function setGiscusTheme(theme) {
     const iframe = document.querySelector("iframe.giscus-frame");
     if (!iframe) return;
-    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } }}, "https://giscus.app");
+    iframe.contentWindow.postMessage({ giscus: { setConfig: { theme } } }, "https://giscus.app");
   }
 
   const setLightTheme = () => {
@@ -25,14 +25,14 @@
       if (item.closest("pre")) {
         item.closest("pre").classList.remove("hidden");
         item.closest("pre").previousElementSibling.classList.remove("hidden");
-      };
+      }
     });
     document.querySelectorAll("[data-theme='dark']").forEach((item) => {
       item.style.display = "block";
       if (item.closest("pre")) {
         item.closest("pre").classList.add("hidden");
         item.closest("pre").previousElementSibling.classList.add("hidden");
-      };
+      }
     });
     theme = "light";
     dispatch("message", {
@@ -88,9 +88,9 @@
   const success = (m) =>
     toast.push(m, {
       theme: {
-        "--toastColor": theme == "light" ? "white" : "black",
-        "--toastBackground": theme == "light" ? "#2d2d2d" : "#f5f2f0",
-        "--toastBarBackground": theme == "light" ? "#a0a0a0" : "#303030",
+        "--toastColor": theme == "dark" ? "white" : "black",
+        "--toastBackground": theme == "dark" ? "#2d2d2d" : "#f5f2f0",
+        "--toastBarBackground": theme == "dark" ? "#a0a0a0" : "#303030",
       },
     });
 
@@ -149,16 +149,16 @@
   button {
     position: fixed;
     text-decoration: none;
-    width:60px;
-    height:60px;
-    bottom:40px;
-    right:40px;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
     transition: 0.1s;
     padding: 0.75em 1.5em;
     background: var(--code-bkg-color);
     border-radius: 50px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    text-align:center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    text-align: center;
     font-weight: 600;
     border: none;
     cursor: pointer;

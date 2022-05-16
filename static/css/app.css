@@ -74,9 +74,10 @@ body > footer > p {
 }
 
 .comments-button {
-  background-color: var(--text-color);
-  border: 1px solid #000;
-  color: var(--bkg-color);
+  background-color: var(--code-bkg-color);
+  border: 0px solid #777;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  color: var(--text-color);
   padding: 0 0 0 0;
   margin-top: 5px;
   text-align: center;
@@ -89,7 +90,7 @@ body > footer > p {
 }
 
 .comments-button:hover {
-  background-color: var(--bkg-color);
+  background-color: var(--bkg-hover);
   color: var(--text-color);
   cursor: pointer;
 }
