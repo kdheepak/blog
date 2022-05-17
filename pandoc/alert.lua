@@ -1,7 +1,7 @@
 function Div(el)
 	if el.classes:includes("exercise") then
 		local inlines = pandoc.List:new({})
-		inlines[1] = pandoc.Str("🏋 ")
+		inlines[1] = pandoc.Str("🥋")
 		inlines[2] = pandoc.Space()
 		for j = 1, #el.c[1].c do
 			inlines[j + 2] = el.c[1].c[j]
