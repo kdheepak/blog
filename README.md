@@ -6,6 +6,8 @@
 
 ```bash
 npm install
+pdm install
+cargo install svgbob
 ```
 
 Other requirements:
