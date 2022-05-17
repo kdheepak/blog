@@ -45,7 +45,7 @@
 .stork-wrapper-flat .stork-progress {
   position: absolute;
   display: block;
-  content: '';
+  content: "";
   bottom: 1px;
   background-color: var(--bkg-color);
   height: 1px;

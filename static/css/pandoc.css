@@ -1,6 +1,6 @@
 /* For smart quotes */
 q {
-  quotes: '“' '”' '‘' '’';
+  quotes: "“" "”" "‘" "’";
 }
 
 /* Override section behavior.
