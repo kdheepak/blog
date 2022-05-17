@@ -1,6 +1,6 @@
 /* For smart quotes */
 q {
-  quotes: "“" "”" "‘" "’";
+  quotes: '“' '”' '‘' '’';
 }
 
 /* Override section behavior.
@@ -22,11 +22,11 @@ p.byline {
 
 /* Simulate Pandoc's table output styles */
 table {
-  border-top: 2px solid black;
-  border-bottom: 2px solid black;
+  border-top: 2px solid var(--text-color);
+  border-bottom: 2px solid var(--text-color);
 }
 th {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid var(--text-color);
 }
 td,
 th {
