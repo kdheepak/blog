@@ -34,7 +34,7 @@ jobs:
         run: pipx install pdm
       - uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: "3.9"
       - run: pdm install
       - uses: actions/setup-node@v2
       - name: Build

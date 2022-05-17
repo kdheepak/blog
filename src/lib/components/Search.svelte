@@ -1,9 +1,9 @@
 <script>
-  import { base } from '$app/paths'
-  import { onMount } from 'svelte'
+  import { base } from "$app/paths";
+  import { onMount } from "svelte";
   onMount(() => {
-    stork.register('blog', `${base}/assets/stork/search.st`)
-  })
+    stork.register("blog", `${base}/assets/stork/search.st`);
+  });
 </script>
 
 <div class="stork-wrapper-flat">

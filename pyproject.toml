@@ -2,19 +2,19 @@
 name = ""
 version = ""
 description = ""
-authors = [
-    {name = "Dheepak Krishnamurthy", email = "me@kdheepak.com"},
-]
+authors = [{ name = "Dheepak Krishnamurthy", email = "me@kdheepak.com" }]
 dependencies = ["pandoc-fignos", "pandoc-secnos", "pandoc-eqnos", "pandoc-tablenos"]
 requires-python = ">=3.9"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [tool.pdm]
 allow_prereleases = true
+
 [[tool.pdm.source]]
 name = "pypi"
 url = "https://pypi.org/simple"
 verify_ssl = true
+
 [tool.pdm.dev-dependencies]
 dev = []
 
