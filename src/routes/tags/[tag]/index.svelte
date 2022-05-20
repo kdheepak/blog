@@ -1,6 +1,7 @@
 <script>
   import { base } from "$app/paths";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
+  import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import { onMount } from "svelte";
   export let posts = [];
@@ -22,17 +23,24 @@
 
 <article>
   <header>
-    <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
-      <a class="bloghome" href="{base}/tags">tags</a>
-      / <i>{tag}</i>
-    </h1>
-    <p class="subtitle sourceurl">
-      <a target="_blank" href="https://github.com/kdheepak/blog">
-        {humanDate}
-      </a>
-      <DarkModeToggle />
-    </p>
+    <div class="flex">
+      <h1 class="title">
+        <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
+        <a class="bloghome" href="{base}/tags">tags</a>
+        / <i>{tag}</i>
+      </h1>
+    </div>
+    <div class="flex">
+      <p class="subtitle sourceurl">
+        <span class="tag">
+          <FaRegCalendarAlt />
+        </span>
+        <a target="_blank" href="https://github.com/kdheepak/blog">
+          {humanDate}
+        </a>
+        <DarkModeToggle />
+      </p>
+    </div>
   </header>
   <section>
     <div class="tocwrapper">
@@ -72,6 +80,12 @@
 <style>
   .flex {
     display: flex;
+    align-items: center;
+  }
+
+  .subtitle {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
   }
 
   .tag {

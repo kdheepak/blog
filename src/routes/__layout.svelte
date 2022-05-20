@@ -3,7 +3,6 @@
   import { page } from "$app/stores";
   import { browser } from "$app/env";
   import { onMount } from "svelte";
-  import Search from "$lib/components/Search.svelte";
 
   import "../../static/css/app.css";
   import "../../static/css/latex.css";
@@ -49,8 +48,6 @@
 <main>
   <slot />
 </main>
-
-<Search />
 
 <footer>
   <p>

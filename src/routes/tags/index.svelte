@@ -1,5 +1,6 @@
 <script>
   import { base } from "$app/paths";
+  import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import { onMount } from "svelte";
@@ -31,15 +32,22 @@
 
 <article>
   <header>
-    <h1 class="title">
-      <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / tags
-    </h1>
-    <p class="subtitle sourceurl">
-      <a target="_blank" href="https://github.com/kdheepak/blog">
-        {humanDate}
-      </a>
-      <DarkModeToggle />
-    </p>
+    <div class="flex">
+      <h1 class="title">
+        <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> / tags
+      </h1>
+    </div>
+    <div class="flex main-subtitle">
+      <p class="subtitle sourceurl">
+        <span class="tag">
+          <FaRegCalendarAlt />
+        </span>
+        <a target="_blank" href="https://github.com/kdheepak/blog">
+          {humanDate}
+        </a>
+        <DarkModeToggle />
+      </p>
+    </div>
   </header>
   <section>
     <div class="tocwrapper">
@@ -82,6 +90,11 @@
   .flex {
     display: flex;
     align-items: center;
+  }
+
+  .subtitle {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
   }
 
   .tag {

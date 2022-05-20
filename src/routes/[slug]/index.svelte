@@ -19,6 +19,7 @@
 </script>
 
 <script>
+  import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
   export let component;
@@ -120,6 +121,9 @@
     </h1>
     <div class="flex">
       <div class="subtitle sourceurl">
+        <div class="tag">
+          <FaRegCalendarAlt />
+        </div>
         <a target="_blank" href={metadata.source}>
           {metadata.humanDate}
         </a>

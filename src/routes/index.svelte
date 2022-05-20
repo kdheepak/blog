@@ -1,7 +1,10 @@
 <script context="module">
   import { base } from "$app/paths";
+  import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
+  import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
+  import Search from "$lib/components/Search.svelte";
 </script>
 
 <script>
@@ -38,20 +41,50 @@
 
 <article>
   <header>
-    <div class="">
+    <div class="flex">
       <h1 class="title">
         <a href="https://kdheepak.com">~</a> / blog
       </h1>
     </div>
     <div class="flex main-subtitle">
       <div class="subtitle sourceurl">
+        <div class="tag">
+          <FaRegCalendarAlt />
+        </div>
         <a target="_blank" href={source}>
           {humanDate}
         </a>
         <DarkModeToggle />
       </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <div class="flex">
+        <div class="tag">
+          <FaTags />
+        </div>
+        <p>
+          &nbsp;
+          <a href="{base}/tags" class="font-normal">tags</a>
+        </p>
+      </div>
     </div>
   </header>
+  <section>
+    <div class="flex">
+      <div class="tag">
+        <FaTags />
+      </div>
+      <span>
+        &nbsp;
+        {#each tags as tag, index}
+          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
+            ? ""
+            : ", "}
+        {/each}
+      </span>
+    </div>
+    <br />
+    <Search />
+  </section>
   <section>
     <div class="tocwrapper">
       <br />
@@ -72,26 +105,17 @@
         </p>
       {/each}
     </div>
-    <br />
-    <div class="flex">
-      <div class="tag">
-        <FaTags />
-      </div>
-      <span>
-        &nbsp;
-        {#each tags as tag, index}
-          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
-            ? ""
-            : ", "}
-        {/each}
-      </span>
-    </div>
   </section>
 </article>
 
 <style>
+  .font-normal {
+    font-style: normal;
+  }
+
   .flex {
     display: flex;
+    align-items: center;
   }
 
   .dull {
