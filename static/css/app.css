@@ -413,6 +413,7 @@ mjx-container {
 
 .copyCode {
   position: absolute;
+  top: 0;
   left: 79%;
   width: 28px;
   height: 28px;
