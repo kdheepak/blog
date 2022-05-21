@@ -112,6 +112,10 @@ body > footer > p {
   line-height: 0;
 }
 
+mjx-container {
+  text-align: start !important;
+}
+
 section > ol > li > .copyCodeContainer {
   width: 150%;
 }
