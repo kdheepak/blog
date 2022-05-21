@@ -119,7 +119,7 @@
       <a class="bloghome" href="{base}/">blog</a>
       / {metadata.title}
     </h1>
-    <div class="flex">
+    <div class="flex main-subtitle">
       <div class="subtitle sourceurl">
         <div class="tag">
           <FaRegCalendarAlt />
@@ -188,6 +188,13 @@
   .flex {
     display: flex;
     align-items: center;
+  }
+
+  .subtitle {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
   }
 
   .tag {

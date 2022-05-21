@@ -38,7 +38,7 @@
       </h1>
     </div>
     <div class="flex main-subtitle">
-      <p class="subtitle sourceurl">
+      <div class="subtitle sourceurl">
         <span class="tag">
           <FaRegCalendarAlt />
         </span>
@@ -46,7 +46,10 @@
           {humanDate}
         </a>
         <DarkModeToggle />
-      </p>
+      </div>
+      <div class="flex">
+        <p>&nbsp;</p>
+      </div>
     </div>
   </header>
   <section>
@@ -95,6 +98,8 @@
   .subtitle {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
   }
 
   .tag {

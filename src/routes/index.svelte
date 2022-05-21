@@ -56,15 +56,8 @@
         </a>
         <DarkModeToggle />
       </div>
-      &nbsp;&nbsp;&nbsp;&nbsp;
       <div class="flex">
-        <div class="tag">
-          <FaTags />
-        </div>
-        <p>
-          &nbsp;
-          <a href="{base}/tags" class="font-normal">tags</a>
-        </p>
+        <p>&nbsp;</p>
       </div>
     </div>
   </header>
@@ -73,14 +66,15 @@
       <div class="tag">
         <FaTags />
       </div>
-      <span>
+      <div>
         &nbsp;
+        <a sveltekit:prefetch href="{base}/tags">tags</a>,
         {#each tags as tag, index}
           <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
             ? ""
             : ", "}
         {/each}
-      </span>
+      </div>
     </div>
     <br />
     <Search />
@@ -111,6 +105,13 @@
 <style>
   .font-normal {
     font-style: normal;
+  }
+
+  .subtitle {
+    margin-top: 1.4rem;
+    margin-bottom: 1.4rem;
+    padding-right: 0;
+    vertical-align: baseline;
   }
 
   .flex {
