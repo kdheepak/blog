@@ -115,7 +115,7 @@
 <article>
   <header>
     <div class="flex">
-      <h1 class="title">
+      <h1 class="title flex">
         <a class="home" href="https://kdheepak.com">~</a> /
         <a class="bloghome" href="{base}/">blog</a>
         / {metadata.title}
