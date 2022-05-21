@@ -112,7 +112,27 @@ body > footer > p {
   line-height: 0;
 }
 
-section > ol > li > div > pre:not(.code-toolbar) {
+section > ol > li > .copyCodeContainer {
+  width: 150%;
+}
+
+section > ol > li > div > .copyCodeContainer {
+  width: 150%;
+}
+
+section > dl > li > .copyCodeContainer {
+  width: 150%;
+}
+
+section > dl > li > div > .copyCodeContainer {
+  width: 150%;
+}
+
+section > ul > li > .copyCodeContainer {
+  width: 150%;
+}
+
+section > ul > li > div > .copyCodeContainer {
   width: 150%;
 }
 
