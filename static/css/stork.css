@@ -18,6 +18,7 @@
   --stork-text-color: var(--text-color);
 
   --stork-input-height: 2.4em;
+  --stork-input-width: 100%;
 }
 
 .stork-wrapper-flat *,
@@ -27,7 +28,7 @@
 }
 
 .stork-wrapper-flat .stork-input {
-  width: 65%;
+  width: var(--stork-input-width);
   height: var(--stork-input-height);
   font-size: 1em;
   padding: 0.4em 0.8em;
@@ -56,7 +57,7 @@
 
 .stork-wrapper-flat .stork-output {
   position: absolute;
-  width: 65%;
+  width: var(--stork-input-width);
   margin-top: 0.5em;
   border-radius: 6px;
   display: flex;
@@ -77,13 +78,14 @@
 }
 
 .stork-wrapper-flat .stork-message {
-  width: 65%;
+  font-size: 0.8em;
+  width: var(--stork-input-width);
   padding: 0.5em 1em;
   color: var(--stork-text-color);
 }
 
 .stork-wrapper-flat .stork-attribution {
-  width: 65%;
+  width: var(--stork-input-width);
   padding: 0.5em 1em;
   font-size: 0.8em;
   color: var(--stork-text-color);
@@ -162,7 +164,7 @@
 
 .stork-wrapper-flat .stork-close-button {
   position: absolute;
-  right: 35%;
+  right: 0%;
   margin: 0.5em 0.5em;
   height: 1.4em;
   width: 1.4em;

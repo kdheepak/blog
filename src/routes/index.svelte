@@ -41,10 +41,15 @@
 
 <article>
   <header>
-    <div class="flex">
-      <h1 class="title">
-        <a href="https://kdheepak.com">~</a> / blog
+    <div class="flex justify-between w-2-by-3">
+      <h1 class="title flex">
+        <span>
+          <a href="https://kdheepak.com">~</a> / blog
+        </span>
       </h1>
+      <div class="search">
+        <Search />
+      </div>
     </div>
     <div class="flex main-subtitle">
       <div class="subtitle sourceurl">
@@ -76,8 +81,6 @@
         {/each}
       </div>
     </div>
-    <br />
-    <Search />
   </section>
   <section>
     <div class="tocwrapper">
@@ -103,6 +106,16 @@
 </article>
 
 <style>
+  .w-2-by-3 {
+    width: 66.66666%;
+  }
+
+  .search {
+    width: 55%;
+    margin-top: 4rem;
+    margin-bottom: 1.4rem;
+  }
+
   .font-normal {
     font-style: normal;
   }
@@ -123,7 +136,7 @@
     color: var(--text-color-dull);
   }
 
-  .space-between {
+  .justify-between {
     justify-content: space-between;
   }
 
