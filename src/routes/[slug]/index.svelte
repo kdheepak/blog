@@ -131,16 +131,6 @@
       </div>
       &nbsp; &nbsp; &nbsp; &nbsp;
       <div class="flex">
-        <div class="tag">
-          <FaGlasses />
-        </div>
-        <p>
-          &nbsp;
-          {metadata.readingTime} minute(s)
-        </p>
-      </div>
-      &nbsp; &nbsp; &nbsp; &nbsp;
-      <div class="flex">
         {#if tags.length !== 0}
           <div class="tag">
             <FaTags />
@@ -154,6 +144,16 @@
             {/each}
           </p>
         {/if}
+      </div>
+      &nbsp; &nbsp; &nbsp; &nbsp;
+      <div class="flex">
+        <div class="tag">
+          <FaGlasses />
+        </div>
+        <p>
+          &nbsp;
+          {metadata.readingTime} minute(s)
+        </p>
       </div>
     </div>
   </header>
