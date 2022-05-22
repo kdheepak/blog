@@ -332,7 +332,7 @@ And $\theta$ is determined by the nature of the impedance.
 
 Let's look at three cases
 
-### Case 1 : $\theta$ is zero
+## Case 1 : $\theta$ is zero
 
 When we assume $\theta$ is zero, the load is purely resistive
 
@@ -393,7 +393,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 The Instantaneous power in the phase is equal to the active power.
 
-### Case 2 : $\theta$ is 90
+## Case 2 : $\theta$ is 90
 
 When $\theta$ is 90, the load is purely inductive
 
@@ -453,7 +453,7 @@ ax2.axis([0, 1/f0, -1500, 1500]);
 
 The Instantaneous power in the phase is equal to the reactive power. The power oscillates between the source and the inductive circuit.
 
-### Case 3 : $\theta$ is -90
+## Case 3 : $\theta$ is -90
 
 When $\theta$ is -90, the load is purely capacitive
 
