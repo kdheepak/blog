@@ -46,22 +46,6 @@
     </div>
   </header>
   <section>
-    <div class="flex items-center">
-      <div class="tag">
-        <FaTags />
-      </div>
-      <div>
-        &nbsp;
-        <a sveltekit:prefetch href="{base}/tags">tags</a>,
-        {#each tags as tag, index}
-          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
-            ? ""
-            : ", "}
-        {/each}
-      </div>
-    </div>
-  </section>
-  <section>
     <div class="tocwrapper">
       <br />
       {#each posts as post}
