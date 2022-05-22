@@ -1,8 +1,8 @@
 ---
 title: Fast track to being productive in Vim
 date: 2015-05-01T22:59:49-06:00
-tags: vim
-keywords: vim, beginner, tutorial
+tags: neovim
+keywords: neovim, vim, beginner, tutorial
 summary: What I wish I had known when I first started using vim
 ---
 

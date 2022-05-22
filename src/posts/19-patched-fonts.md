@@ -1,8 +1,8 @@
 ---
 title: Patched fonts madness
 date: 2015-07-12T19:59:22-06:00
-tags: vim, tmux
-keywords: fonts, osx, vim, tmux
+tags: neovim, tmux
+keywords: fonts, osx, vim, neovim, tmux
 summary: Patched fonts on MacOSX
 ---
 
