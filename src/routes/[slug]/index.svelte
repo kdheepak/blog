@@ -115,13 +115,13 @@
 <article>
   <header>
     <div class="flex">
-      <h1 class="title flex">
+      <h1 class="title">
         <a class="home" href="https://kdheepak.com">~</a> /
         <a class="bloghome" href="{base}/">blog</a>
         / {metadata.title}
       </h1>
     </div>
-    <div class="flex main-subtitle">
+    <div class="flex items-center main-subtitle">
       <div class="subtitle sourceurl">
         <div class="tag">
           <FaRegCalendarAlt />
@@ -132,7 +132,7 @@
         <DarkModeToggle />
       </div>
       &nbsp; &nbsp; &nbsp; &nbsp;
-      <div class="flex">
+      <div class="flex items-center">
         {#if tags.length !== 0}
           <div class="tag">
             <FaTags />
@@ -148,7 +148,7 @@
         {/if}
       </div>
       &nbsp; &nbsp; &nbsp; &nbsp;
-      <div class="flex">
+      <div class="flex items-center">
         <div class="tag">
           <FaGlasses />
         </div>
@@ -189,6 +189,9 @@
 <style>
   .flex {
     display: flex;
+  }
+
+  .items-center {
     align-items: center;
   }
 

@@ -42,7 +42,7 @@
 <article>
   <header>
     <div class="flex justify-between w-2-by-3">
-      <h1 class="title flex">
+      <h1 class="title">
         <span>
           <a href="https://kdheepak.com">~</a> / blog
         </span>
@@ -51,7 +51,7 @@
         <Search />
       </div>
     </div>
-    <div class="flex main-subtitle">
+    <div class="flex items-center main-subtitle">
       <div class="subtitle sourceurl">
         <div class="tag">
           <FaRegCalendarAlt />
@@ -61,13 +61,13 @@
         </a>
         <DarkModeToggle />
       </div>
-      <div class="flex">
+      <div class="flex items-center">
         <p>&nbsp;</p>
       </div>
     </div>
   </header>
   <section>
-    <div class="flex">
+    <div class="flex items-center">
       <div class="tag">
         <FaTags />
       </div>
@@ -114,6 +114,7 @@
     width: 55%;
     margin-top: 4rem;
     margin-bottom: 1.4rem;
+    padding-top: 0.4rem;
   }
 
   .font-normal {
@@ -129,6 +130,9 @@
 
   .flex {
     display: flex;
+  }
+
+  .items-center {
     align-items: center;
   }
 

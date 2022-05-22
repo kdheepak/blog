@@ -24,13 +24,13 @@
 <article>
   <header>
     <div class="flex">
-      <h1 class="title flex">
+      <h1 class="title">
         <a href="https://kdheepak.com">~</a> / <a class="bloghome" href="{base}/">blog</a> /
         <a class="bloghome" href="{base}/tags">tags</a>
         / <i>{tag}</i>
       </h1>
     </div>
-    <div class="flex main-subtitle">
+    <div class="flex items-center main-subtitle">
       <div class="subtitle sourceurl">
         <span class="tag">
           <FaRegCalendarAlt />
@@ -40,11 +40,27 @@
         </a>
         <DarkModeToggle />
       </div>
-      <div class="flex">
+      <div class="flex items-center">
         <p>&nbsp;</p>
       </div>
     </div>
   </header>
+  <section>
+    <div class="flex items-center">
+      <div class="tag">
+        <FaTags />
+      </div>
+      <div>
+        &nbsp;
+        <a sveltekit:prefetch href="{base}/tags">tags</a>,
+        {#each tags as tag, index}
+          <a sveltekit:prefetch href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1
+            ? ""
+            : ", "}
+        {/each}
+      </div>
+    </div>
+  </section>
   <section>
     <div class="tocwrapper">
       <br />
@@ -65,24 +81,15 @@
         </p>
       {/each}
     </div>
-    <br />
-    <div class="flex">
-      <div class="tag">
-        <FaTags />
-      </div>
-      <span>
-        &nbsp;
-        {#each tags as tag, index}
-          <a href="{base}/tags/{tag}">{tag}</a>{index == tags.length - 1 ? "" : ", "}
-        {/each}
-      </span>
-    </div>
   </section>
 </article>
 
 <style>
   .flex {
     display: flex;
+  }
+
+  .items-center {
     align-items: center;
   }
 
