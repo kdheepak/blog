@@ -183,6 +183,9 @@ Here is a tree view of the folder structure.
 
 ```bash
 $ tree -a
+```
+
+```
 .
 ├── .cargo
 │  └── config
