@@ -110,8 +110,14 @@
     width: 66.66666%;
   }
 
+  @media (max-width: 760px) {
+    .w-2-by-3 {
+      width: 100%;
+    }
+  }
+
   .search {
-    width: 55%;
+    width: 33.33333%;
     margin-top: 4rem;
     margin-bottom: 1.4rem;
     padding-top: 0.4rem;
