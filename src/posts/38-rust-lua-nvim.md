@@ -51,7 +51,7 @@ This blog post is a summary of the scaffolding required to get a hello world lua
 When a `require 'mymodule'` expression is encountered in lua, the lua interpreter searches for `mymodule.lua` and `mymodule.so` files in a bunch of predefined locations.
 This is the output of typing `:lua require'mymodule'` in neovim:
 
-```markdown
+```txt
 E5108: Error executing lua [string ":lua"]:1: module 'mymodule' not found:
         no field package.preload['mymodule']
         no file './mymodule.lua'
@@ -109,7 +109,8 @@ First, you will need the following in your Cargo.toml:
 crate-type = ["cdylib"]
 
 [dependencies]
-mlua = {version = "*", features = ["luajit", "vendored", "module", "macros"]}
+mlua = { version = "*", features = ["luajit", "vendored", "module", "macros"] }
+
 ```
 
 It is important to use the `features` flag and add `luajit`, `vendored`, and `module` to the list.
@@ -159,16 +160,11 @@ For MacOS, we also have to add the following to `.cargo/config`:
 
 ```toml
 [target.x86_64-apple-darwin]
-rustflags = [
-  "-C", "link-arg=-undefined",
-  "-C", "link-arg=dynamic_lookup",
-]
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]
 
 [target.aarch64-apple-darwin]
-rustflags = [
-  "-C", "link-arg=-undefined",
-  "-C", "link-arg=dynamic_lookup",
-]
+rustflags = ["-C", "link-arg=-undefined", "-C", "link-arg=dynamic_lookup"]
+
 ```
 
 We need to do this because we need to tell the rust linker that the symbols used in the shared library may not be defined at link time, and will only be available when the shared library is loaded.

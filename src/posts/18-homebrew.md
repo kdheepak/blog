@@ -25,7 +25,7 @@ set -e
 /usr/bin/which -s git || abort "brew install git first!"
 test -d /usr/local/.git || abort "brew update first!"
 
-cd `brew --prefix`
+cd $(brew --prefix)
 git checkout master
 git ls-files -z | pbcopy
 rm -rf Cellar

@@ -12,6 +12,9 @@ This is what my remotes look like:
 ```bash
 $ cd qmk_firmware
 $ git remote -v
+```
+
+```
 origin	git@github.com:kdheepak/qmk_firmware.git (fetch)
 origin	git@github.com:kdheepak/qmk_firmware.git (push)
 qmk	git@github.com:qmk/qmk_firmware.git (fetch)
@@ -28,10 +31,13 @@ The keymaps are located here:
 
 ```bash
 $ ls keyboards/moonlander/keymaps/kdheepak
+```
+
+```
 Permissions Size Date Modified Git Name
-.rw-r--r--   250 19 Mar 20:24   -- config.h
-.rw-r--r--  5.7k 19 Mar 20:24   -- keymap.c
-.rw-r--r--   292 19 Mar 20:24   -- rules.mk
+.rw-r--r--   250 21 Mar 03:54   -- config.h
+.rw-r--r--  5.7k 21 Mar 03:54   -- keymap.c
+.rw-r--r--   292 21 Mar 03:54   -- rules.mk
 ```
 
 Modify `keymap.c` based on your preferences.

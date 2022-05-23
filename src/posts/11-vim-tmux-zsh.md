@@ -88,8 +88,8 @@ bind r source-file ~/.tmux.conf \; display "Reloaded!"
 
 ## Easy bindings for split
 unbind %
-bind | split-window -h  -c "#{pane_current_path}"
-bind - split-window -v  -c "#{pane_current_path}"
+bind | split-window -h -c "#{pane_current_path}"
+bind - split-window -v -c "#{pane_current_path}"
 
 #bind y run 'tmux save-buffer - | reattach-to-user-namespace pbcopy '
 #bind C-y run 'tmux save-buffer - | reattach-to-user-namespace pbcopy '
@@ -110,8 +110,8 @@ bind -n M-r move-pane -h -t '.-'
 bind M-r move-pane -h -t '.-'
 
 ### Join windows: <prefix> s, <prefix> j
-bind-key j command-prompt -p "join pane from:"  "join-pane -s '%%'"
-bind-key s command-prompt -p "send pane to:"  "join-pane -t '%%'"
+bind-key j command-prompt -p "join pane from:" "join-pane -s '%%'"
+bind-key s command-prompt -p "send pane to:" "join-pane -t '%%'"
 ```
 
 ## zsh

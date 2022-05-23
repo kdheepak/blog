@@ -66,6 +66,9 @@ When using `dd` on OSX, I've found that `rdisk` is much faster than `disk`[^2].
 
 ```bash
 sudo raspi-config
+```
+
+```
 -> Expand File System
 -> Save
 -> Reboot
@@ -76,6 +79,9 @@ We need to set up the Pi to use SPI.
 
 ```bash
 sudo raspi-config
+```
+
+```
 -> Advanced Options
 -> Enable SPI
 -> Enable on Boot

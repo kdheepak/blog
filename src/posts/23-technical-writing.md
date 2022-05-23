@@ -703,14 +703,14 @@ A paper may be generated using a command as shown below:
 
 ```bash
 pandoc -s -S --latex-engine=pdflatex \
---template=./templates/ieee-latex.template \
---filter pandoc-fignos \
---filter pandoc-eqnos \
---filter pandoc-tablenos \
---filter pandoc-citeproc \
---csl=./styles/ieee.csl \
---bibliography=./bib/research.bib \
--o ieee-paper.pdf paper.md
+  --template=./templates/ieee-latex.template \
+  --filter pandoc-fignos \
+  --filter pandoc-eqnos \
+  --filter pandoc-tablenos \
+  --filter pandoc-citeproc \
+  --csl=./styles/ieee.csl \
+  --bibliography=./bib/research.bib \
+  -o ieee-paper.pdf paper.md
 ```
 
 As you can see, there are a lot of arguments that can be passed to Pandoc.

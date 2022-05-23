@@ -137,9 +137,13 @@ Now create a `~/gitrepos/dotfiles/git-templates` folder with a single folder ins
 
 ```bash
 $ tree git-templates
+```
+
+```
 git-templates
 └── hooks
-   └── pre-commit*
+   ├── commit-msg
+   └── pre-commit
 ```
 
 You can create a text file and make it executable by running `chmod +x pre-commit`.
