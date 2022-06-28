@@ -14,13 +14,11 @@
 ##	formats that you want to keep!
 
 ## Location of your working bibliography file
-SCRIPTS = ./../scripts
-
 MARKDOWN = ./23-technical-writing
 
-MARKDOWNFOLDER = ./..
+MARKDOWNFOLDER = ./../../src/posts/
 
-OUTPUT = ./downloads
+OUTPUT = ./../../static/downloads
 
 OUTPUTFILE = writing-papers-with-markdown
 
@@ -30,36 +28,35 @@ setup:
 	cp IEEETran.cls $(MARKDOWNFOLDER)/
 
 ieeepdf:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --template=$(OUTPUT)/ieee.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.pdf $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --template=$(OUTPUT)/ieee.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.pdf $(MARKDOWN).md --metadata link-citations=true
 
 ieeetex:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --template=$(OUTPUT)/ieee.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.tex $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --template=$(OUTPUT)/ieee.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.tex $(MARKDOWN).md --metadata link-citations=true
 
 
 ieeedocx:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib --reference-doc=$(OUTPUT)/trans_jour.docx  -o $(OUTPUT)/$(OUTPUTFILE).ieee.docx $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib --reference-doc=$(OUTPUT)/trans_jour.docx  -o $(OUTPUT)/$(OUTPUTFILE).ieee.docx $(MARKDOWN).md --metadata link-citations=true
 
 ieeehtml:
-	cd .. && pandoc --mathjax -r markdown+smart+table_captions+yaml_metadata_block -s -w html --template=$(OUTPUT)/ieeehtml.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.html $(MARKDOWN).md --metadata link-citations=true -c https://cdn.rawgit.com/thomaspark/pubcss/549f945ffeff64f1929011785adf1c8e75264058/formats/acm-sig/css/pub.css
+	cd $(MARKDOWNFOLDER) && pandoc --mathjax -r markdown+smart+table_captions+yaml_metadata_block -s -w html --template=$(OUTPUT)/ieeehtml.template --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).ieee.html $(MARKDOWN).md --metadata link-citations=true -c https://cdn.rawgit.com/thomaspark/pubcss/549f945ffeff64f1929011785adf1c8e75264058/formats/acm-sig/css/pub.css
 
 pdf:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --filter $(SCRIPTS)/remove_ieeekeywords.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).pdf $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).pdf $(MARKDOWN).md --metadata link-citations=true
 
 docx:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).docx $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).docx $(MARKDOWN).md --metadata link-citations=true
 
 html:
-	cd .. && pandoc --mathjax -r markdown+smart+table_captions+yaml_metadata_block -s -w html --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -o $(OUTPUT)/$(OUTPUTFILE).html $(MARKDOWN).md --metadata link-citations=true -c https://cdn.rawgit.com/claymcleod/pandoc-academic-publication/ce07fa7a20af53cab8c8a50c5bad5ad15d726bba/assets/css/academic-pub.css
+	cd $(MARKDOWNFOLDER) && pandoc --mathjax -r markdown+smart+table_captions+yaml_metadata_block -s -w html --filter pandoc-fignos --filter pandoc-eqnos --filter pandoc-tablenos --citeproc  --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -o $(OUTPUT)/$(OUTPUTFILE).html $(MARKDOWN).md --metadata link-citations=true -c https://cdn.rawgit.com/claymcleod/pandoc-academic-publication/ce07fa7a20af53cab8c8a50c5bad5ad15d726bba/assets/css/academic-pub.css
 
 slidespdf:
-	cd .. && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --filter $(SCRIPTS)/slides.py --filter pandoc-citeproc --filter $(SCRIPTS)/fix-latex-symbol.py --csl=$(OUTPUT)/ieee.csl --bibliography=blog.bib -t beamer -o $(OUTPUT)/$(OUTPUTFILE).slides.pdf $(MARKDOWN).md --metadata link-citations=true
+	cd $(MARKDOWNFOLDER) && pandoc -r markdown+smart+table_captions+yaml_metadata_block -s --pdf-engine=pdflatex --citeproc --csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib -t beamer -o $(OUTPUT)/$(OUTPUTFILE).slides.pdf $(MARKDOWN).md --metadata link-citations=true
 
 slideshtml:
 	pandoc -t html5 --template=default.revealjs \
 	--mathjax -r markdown+smart+table_captions+yaml_metadata_block \
-	--filter $(SCRIPTS)/slides.py \
-	--filter pandoc-citeproc --filter $(SCRIPTS)/remove_ieeekeywords.py \
-	--csl=$(OUTPUT)/ieee.csl --bibliography=$(MARKDOWNFOLDER)/blog.bib \
+	--citeproc \
+	--csl=$(OUTPUT)/ieee.csl --bibliography=../../pandoc/blog.bib \
 	--standalone --section-divs \
 	--variable reveal-url=/../reveal.js \
 	--variable theme="white" \

@@ -74,7 +74,7 @@
   &nbsp; &nbsp;
   <div>This site does not collect any analytics.</div>
   <div>
-    Made with <a target="_blank" href="https://kit.svelte.dev/docs">SvelteKit</a>,
+    Made with <a target="_blank" href="https://kit.svelte.dev/">SvelteKit</a>,
     <a target="_blank" href="https://pandoc.org">Pandoc</a>
     and <a target="_blank" href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.
   </div>

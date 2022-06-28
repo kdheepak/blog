@@ -142,7 +142,7 @@ With `unicode.vim` and `fzf` installed, you can even fuzzy find Unicode symbols.
 
 # Python
 
-Since Python >=3.3, the Unicode string type supports a ["flexible string representation"](https://www.python.org/dev/peps/pep-0393/).
+Since Python >=3.3, the Unicode string type supports a ["flexible string representation"](https://peps.python.org/pep-0393/).
 This means that any one of multiple internal representations may be used depending on the largest Unicode ordinal (1, 2, or 4 bytes) in a Unicode string.
 
 For the common case, a string used in the English speaking world may only use ASCII characters thereby using a Latin-1 encoding to store the data.

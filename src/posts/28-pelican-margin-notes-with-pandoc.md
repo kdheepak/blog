@@ -9,8 +9,8 @@ references:
     author:
       - family: Jameson
         given: J.
-    title: Responsive Sidenotes
-    URL: https://johndjameson.com/blog/responsive-sidenotes/
+    title: Responsive Footnotes
+    URL: https://johndjameson.com/blog/responsive-footnotes
   - id: jgruber
     author:
       - family: Gruber

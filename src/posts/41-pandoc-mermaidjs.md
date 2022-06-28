@@ -6,7 +6,7 @@ keywords: mermaid, js, pandoc, lua, filter
 summary: Showcase of using integrating MermaidJS with Pandoc lua filters
 ---
 
-GitHub recently announced [support for MermaidJS](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid).
+GitHub recently announced [support for MermaidJS](https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/).
 I thought it would be nice to integrate it as part of my blog using Pandoc lua filters.
 So the following:
 

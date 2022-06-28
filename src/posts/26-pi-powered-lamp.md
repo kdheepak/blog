@@ -50,7 +50,7 @@ I purchased the LED strip from Adafruit.
 
 ## Software
 
-Download the latest Raspbian from the [official source](https://www.raspberrypi.org/downloads/raspbian/).
+Download the latest Raspbian from the [official source](https://www.raspberrypi.com/software/operating-systems/).
 I used the image `2016-03-18-raspbian-jessie.img`.
 Flash the operating system onto a memory card.
 
