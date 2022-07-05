@@ -24,7 +24,7 @@ export function getPostsMetadata(startPath: string) {
           .replace(/ +/g, "-");
       }
       metadata.slug = encode(metadata.slug);
-      metadata.title = encode(metadata.title);
+      // metadata.title = encode(metadata.title);
       if (metadata.date) {
         posts.push(metadata);
       }

@@ -54,7 +54,7 @@ async function fromDir(startPath, filter) {
 
 const formatDate = (dateString) => {
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
-  return new Date(dateString).toLocaleDateString(undefined, options);
+  return new Date(dateString || new Date()).toLocaleDateString(undefined, options);
 };
 
 export async function get({ params }) {
