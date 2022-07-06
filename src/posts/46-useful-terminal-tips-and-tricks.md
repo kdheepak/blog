@@ -1,5 +1,5 @@
 ---
-title: Beginner's guide to using a terminal
+title: Quickstart guide to using a terminal
 tags: terminal
 keywords: terminal, bash, zsh, shell
 summary: If you are using a terminal for the first time, here's a number of useful things to know to get you started.
@@ -105,6 +105,8 @@ drwx------     - 19 Feb  2020  Music/
 drwx------     - 30 Jan  2020  Pictures/
 drwxr-xr-x     - 28 Jan  2020  Public/
 ```
+
+# Permissions
 
 # Environment Variables
 
