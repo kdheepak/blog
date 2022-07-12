@@ -22,6 +22,7 @@ bash-5.1$
 ```
 
 This is your terminal prompt.
+In the examples below, I will elide the prompt characters and show only the command you would type or the output of the command.
 
 # Movement
 
@@ -48,7 +49,7 @@ These are `readline` keybindings and we'll talk more about this in a future post
 Type the following in your terminal:
 
 ```bash
-$ echo "hello world"
+echo "hello world"
 ```
 
 ```
@@ -60,7 +61,7 @@ hello world
 Now type the following:
 
 ```bash
-$ ls $HOME
+ls $HOME
 ```
 
 `ls` lists the files and folders in a particular directory.
@@ -69,9 +70,12 @@ Now try running `ls -al $HOME`.
 Notice the `-al` flags.
 The `-a` flag is for `all` files or folders and `-l` is for printing it out in a list form.
 
-<!-- prettier-ignore -->
 ```bash
-$ ls -al $HOME
+ls -al $HOME
+```
+
+<!-- prettier-ignore -->
+```
 Permissions Size Date Modified Name
 drwx------     - 28 Jan  2020  .bash_sessions/
 drwxr-xr-x     - 22 Jun 18:40  .cache/
@@ -153,11 +157,11 @@ You want to ensure that the destination does not exist or there is no folder by 
 `mv` has the following flags:
 
 ```
-       -i      Cause mv to write a prompt to standard error before moving a file that would overwrite an existing file.  If
-       the response from the standard input begins with the character `y' or `Y', the move is attempted.  (The -i option
-       overrides any previous -f or -n options.)
+   -i      Cause mv to write a prompt to standard error before moving a file that would overwrite an existing file.  If
+   the response from the standard input begins with the character `y' or `Y', the move is attempted.  (The -i option
+   overrides any previous -f or -n options.)
 
-       -v      Cause mv to be verbose, showing files after they are moved.
+   -v      Cause mv to be verbose, showing files after they are moved.
 ```
 
 I like to alias `mv` to `mv -iv` since I always want to play it safe.
@@ -194,7 +198,7 @@ You can use regular expressions to widen your search criteria.
 `grep` is handy in finding text within files. I like to use `-ri` for recursively searching for a case insensitive match in a particular folder.
 
 ```bash
-$ grep -ri "when I first" src/posts
+grep -ri "when I first" src/posts
 ```
 
 ```
@@ -212,7 +216,7 @@ Check out [my post on how to get started with vim](./10-fast-track-to-being-prod
 If you type the following and hit enter:
 
 ```bash
-$ echo $HOME
+echo $HOME
 ```
 
 you should see something like this being printed in your terminal:
