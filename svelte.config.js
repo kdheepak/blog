@@ -31,7 +31,7 @@ import { findAndReplace } from "hast-util-find-and-replace";
 
 function addCopyToClipboard() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       modify(node, "code");
     });
   };
@@ -95,7 +95,7 @@ function getCustomComponents() {
 function customComponent() {
   const components = getCustomComponents();
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (components.map((c) => c.toLowerCase()).includes(node.tagName)) {
         const i = components.map((c) => c.toLowerCase()).indexOf(node.tagName);
         node.tagName = components[i];
@@ -106,7 +106,7 @@ function customComponent() {
 
 function fullWidthFigures() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName === "figure") {
         for (const child of node.children) {
           if (child.tagName === "img") {
@@ -122,7 +122,7 @@ function fullWidthFigures() {
 
 function videoStripLink() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName === "video") {
         node.children = [];
       }
@@ -132,7 +132,7 @@ function videoStripLink() {
 
 function internalLinkMap() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName == "a" && node.properties.href.endsWith(".md")) {
         const doc = fs.readFileSync("./src/posts/" + node.properties.href, "utf8");
         const { data: metadata } = matter(doc);
@@ -177,8 +177,8 @@ function mathJaxSetup() {
 }
 
 function escapeCurlies() {
-  return function (tree) {
-    visit(tree, "element", function (node) {
+  return function(tree) {
+    visit(tree, "element", function(node) {
       if (
         node.tagName === "code" ||
         node.tagName === "math" ||
@@ -391,7 +391,6 @@ function getPages() {
   return pages;
 }
 
-import { searchForWorkspaceRoot } from "vite";
 
 function buildSearchIndex() {
   let config = `
@@ -424,19 +423,11 @@ const config = {
   preprocess: [pandocRemarkPreprocess(), preprocess(), importAssets()],
 
   kit: {
-    vite: {
-      server: {
-        fs: {
-          allow: [searchForWorkspaceRoot(process.cwd())],
-        },
-      },
-    },
     adapter: adapter(),
     paths: {
       base: pathsBase,
     },
     prerender: {
-      default: true,
       concurrency: 4,
       crawl: true,
       entries: getPages(),
