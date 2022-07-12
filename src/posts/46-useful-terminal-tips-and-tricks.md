@@ -101,7 +101,7 @@ drwx------     - 30 Jan  2020  Pictures/
 drwxr-xr-x     - 28 Jan  2020  Public/
 ```
 
-::: tip
+::: info
 Learning how to read "permissions" for files and folders when you use `ls -al path/to/file-or-folder` is crucial to debugging issues with permissions.
 :::
 
@@ -153,7 +153,9 @@ You want to ensure that the destination does not exist or there is no folder by 
 `mv` has the following flags:
 
 ```
-       -i      Cause mv to write a prompt to standard error before moving a file that would overwrite an existing file.  If          ↪ the response from the standard input begins with the character `y' or `Y', the move is attempted.  (The -i option           ↪ overrides any previous -f or -n options.)
+       -i      Cause mv to write a prompt to standard error before moving a file that would overwrite an existing file.  If
+       the response from the standard input begins with the character `y' or `Y', the move is attempted.  (The -i option
+       overrides any previous -f or -n options.)
 
        -v      Cause mv to be verbose, showing files after they are moved.
 ```
