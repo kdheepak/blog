@@ -26,6 +26,13 @@ jobs:
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
+      - name: Cache cargo installs
+        uses: actions/cache@v3
+        id: cache-cargo
+        with:
+          path: |
+            ~/.cargo/bin/
+          key: ${{ runner.os }}-cargo
       - run: |
           cargo install svgbob_cli
           cargo install stork-search --locked
