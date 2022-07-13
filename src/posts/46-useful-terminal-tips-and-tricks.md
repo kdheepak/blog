@@ -105,7 +105,7 @@ drwx------     - 30 Jan  2020  Pictures/
 drwxr-xr-x     - 28 Jan  2020  Public/
 ```
 
-::: info
+::: tip
 Learning how to read "permissions" for files and folders when you use `ls -al path/to/file-or-folder` is crucial to debugging issues with permissions.
 :::
 
