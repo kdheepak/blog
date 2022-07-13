@@ -239,6 +239,9 @@ When invoked as an interactive login shell, `bash` looks for `/etc/profile`, the
 
 When invoked as an interactive non-login shell, `bash` reads and executes from `~/.bashrc`.
 
+`~/.profile` or `~/.bash_profile` should contain modifications to `$PATH` whereas `~/.bashrc` can contain modifications to your prompt or aliases or other customizations.
+`~/.profile` is typically run just one, but `~/.bashrc` is run everytime you run a new shell.
+
 # <kbd>Ctrl + c</kbd>
 
 For long running processes, you can use <kbd>Ctrl + c</kbd> to kill the process.
