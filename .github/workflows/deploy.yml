@@ -37,6 +37,7 @@ jobs:
           cargo install svgbob_cli --force
           cargo install stork-search --force --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+        if: steps.cache-cargo.outputs.cache-hit != 'true'
       - name: Install pdm
         run: pipx install pdm
       - uses: actions/setup-python@v2
