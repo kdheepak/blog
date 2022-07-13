@@ -31,11 +31,11 @@ jobs:
         id: cache-cargo
         with:
           path: |
-            ~/.cargo/bin/
+            ~/.cargo/
           key: ${{ runner.os }}-cargo
       - run: |
-          cargo install svgbob_cli
-          cargo install stork-search --locked
+          cargo install svgbob_cli --force
+          cargo install stork-search --force --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
       - name: Install pdm
         run: pipx install pdm
