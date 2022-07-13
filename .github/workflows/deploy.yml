@@ -49,19 +49,26 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Build
+      - name: Download Pandoc
         run: |
           wget https://github.com/jgm/pandoc/releases/download/2.17.1.1/pandoc-2.17.1.1-1-amd64.deb -O /tmp/pandoc.deb
           sudo dpkg -i /tmp/pandoc.deb
+      - name: Check
+        run: |
           pandoc --version
           node --version
           svgbob_cli --version
           python --version
+      - name: Install
+        run: |
           pdm install
           npm install
-          NODE_ENV=production pdm run npm run build
+      - name: Build
+        run: |
+          pdm run npm run build
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
+          NODE_ENV: "production"
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
