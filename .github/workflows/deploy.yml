@@ -33,7 +33,8 @@ jobs:
           path: |
             ~/.cargo/
           key: ${{ runner.os }}-cargo
-      - run: |
+      - name: Cargo install
+        run: |
           cargo install svgbob_cli --force
           cargo install stork-search --force --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
