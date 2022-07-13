@@ -15,7 +15,6 @@ Other requirements:
 
 - pandoc
 - latex
-- svgbob
 
 ## Developing
 
