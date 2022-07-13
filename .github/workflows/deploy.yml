@@ -49,6 +49,8 @@ jobs:
           python --version
           npm install
           NODE_ENV=production pdm run npm run build
+        env:
+          NODE_OPTIONS: "--max_old_space_size=4096"
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.2.5
         with:
