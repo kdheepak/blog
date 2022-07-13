@@ -39,12 +39,13 @@ jobs:
           cargo install stork-search --force --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
         if: steps.cache-cargo.outputs.cache-hit != 'true'
-      - name: Install pdm
-        run: pipx install pdm
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
-      - run: pdm install
+      - name: Install pdm
+        run: |
+          pip install pipx
+          pipx install pdm
       - uses: actions/setup-node@v3
         with:
           node-version: 18
@@ -56,6 +57,7 @@ jobs:
           node --version
           svgbob_cli --version
           python --version
+          pdm install
           npm install
           NODE_ENV=production pdm run npm run build
         env:
