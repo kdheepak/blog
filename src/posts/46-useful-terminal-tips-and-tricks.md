@@ -68,7 +68,7 @@ ls $HOME
 
 Now try running `ls -al $HOME`.
 Notice the `-al` flags.
-The `-a` flag is for `all` files or folders and `-l` is for printing it out in a list form.
+The `-a` flag is for "all" files or folders and `-l` is for printing it out in a "list" form.
 
 ```bash
 ls -al $HOME
