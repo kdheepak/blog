@@ -231,6 +231,10 @@ body.dark {
   --code-bkg-color: #2d2d2d;
 }
 
+[data-rehype-pretty-code-fragment=""] > div > pre {
+  background-color: var(--bkg-color);
+}
+
 pre {
   background-color: var(--code-bkg-color);
 }
@@ -411,12 +415,17 @@ mjx-container {
 }
 
 .copyCode {
+  display: none;
   position: absolute;
   top: 0;
   left: 79%;
   width: 28px;
   height: 28px;
   cursor: pointer;
+}
+
+.copyCodeContainer:hover .copyCode {
+  display: block;
 }
 
 .copyCodeImg {
