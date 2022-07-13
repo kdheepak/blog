@@ -391,7 +391,6 @@ function getPages() {
   return pages;
 }
 
-
 function buildSearchIndex() {
   let config = `
 [input]
@@ -428,6 +427,7 @@ const config = {
       base: pathsBase,
     },
     prerender: {
+      default: true,
       concurrency: 4,
       crawl: true,
       entries: getPages(),
