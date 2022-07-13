@@ -21,7 +21,7 @@
     try {
       await fetch("/rss.xml");
       await fetch("/sitemap.xml");
-      return true;
+      return { status: 200 };
     } catch (error) {
       console.error(error);
     }

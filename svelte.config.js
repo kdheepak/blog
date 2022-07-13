@@ -14,6 +14,10 @@ import { h, s } from "hastscript";
 import { visit } from "unist-util-visit";
 
 import adapterStatic from "@sveltejs/adapter-static";
+import { findAndReplace } from "hast-util-find-and-replace";
+
+import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
+import rehypePrettyCode from "rehype-pretty-code";
 
 function adapter(options) {
   const baseStatic = adapterStatic(options);
@@ -24,10 +28,6 @@ function adapter(options) {
     },
   };
 }
-
-const pathsBase = process.env.PATHS_BASE === undefined ? "" : process.env.PATHS_BASE;
-
-import { findAndReplace } from "hast-util-find-and-replace";
 
 function addCopyToClipboard() {
   return function transformer(tree) {
@@ -266,9 +266,6 @@ function pandoc(input, ...args) {
   return content;
 }
 
-import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
-import rehypePrettyCode from "rehype-pretty-code";
-
 const options = {
   theme: {
     light: "github-light",
@@ -416,16 +413,12 @@ buildSearchIndex();
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
-
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
   preprocess: [pandocRemarkPreprocess(), preprocess(), importAssets()],
 
   kit: {
     adapter: adapter(),
-    paths: {
-      base: pathsBase,
-    },
     prerender: {
       default: true,
       concurrency: 4,
