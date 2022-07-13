@@ -227,7 +227,17 @@ you should see something like this being printed in your terminal:
 
 `$HOME` is an environment variable that contains the value of your user's "home" directory.
 
+Type `echo $PATH` in your command line.
+On unix, the `$PATH` environment variable contains `:` separated paths to folders.
+Your shell looks through these in order when searching for binaries to execute.
+
 # `.bashrc` and `.bash_profile`
+
+The `bash` shell, when invoked, can read and execute commands from a set of start up files.
+
+When invoked as an interactive login shell, `bash` looks for `/etc/profile`, then `~/.bash_profile`, then `~/.bash_login` and then `~/.profile`.
+
+When invoked as an interactive non-login shell, `bash` reads and executes from `~/.bashrc`.
 
 # <kbd>Ctrl + c</kbd>
 
