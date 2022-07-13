@@ -266,10 +266,13 @@ function pandoc(input, ...args) {
   return content;
 }
 
-const options = {
+const rehypePrettyCodeOptions = {
   theme: {
     light: "github-light",
     dark: "github-dark",
+  },
+  onVisitHighlightedLine(node) {
+    node.properties.className.push("highlighted");
   },
   getHighlighter: (options) =>
     getHighlighter({
@@ -290,7 +293,7 @@ function pandocRemarkPreprocess() {
         .use(rehypeParse, { fragment: true, emitParseErrors: true })
         .use(mathJaxSetup)
         .use(rehypeMathjaxSvg)
-        .use(rehypePrettyCode, options)
+        .use(rehypePrettyCode, rehypePrettyCodeOptions)
         .use(fullWidthFigures)
         .use(videoStripLink)
         .use(internalLinkMap)
