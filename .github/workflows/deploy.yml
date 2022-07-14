@@ -6,23 +6,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache node modules
-        id: cache-npm
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
-        with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
       - name: Run apt update and install
         run: |
           sudo apt-get update
           sudo apt install texlive-latex-extra texlive-base texlive-fonts-extra pdf2svg imagemagick ghostscript
+      - name: Download Pandoc
+        run: |
+          wget https://github.com/jgm/pandoc/releases/download/2.17.1.1/pandoc-2.17.1.1-1-amd64.deb -O /tmp/pandoc.deb
+          sudo dpkg -i /tmp/pandoc.deb
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -39,6 +30,31 @@ jobs:
           cargo install stork-search --force --locked
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
         if: steps.cache-cargo.outputs.cache-hit != 'true'
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Check
+        run: |
+          pandoc --version
+          node --version
+          svgbob_cli --version
+          python --version
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: NPM install
+        run: |
+          npm install
+        if: steps.cache-npm.outputs.cache-hit != 'true'
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
@@ -46,23 +62,9 @@ jobs:
         run: |
           pip install pipx
           pipx install pdm
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Download Pandoc
-        run: |
-          wget https://github.com/jgm/pandoc/releases/download/2.17.1.1/pandoc-2.17.1.1-1-amd64.deb -O /tmp/pandoc.deb
-          sudo dpkg -i /tmp/pandoc.deb
-      - name: Check
-        run: |
-          pandoc --version
-          node --version
-          svgbob_cli --version
-          python --version
-      - name: Install
+      - name: PDM install
         run: |
           pdm install
-          npm install
       - name: Build
         run: |
           pdm run npm run build
