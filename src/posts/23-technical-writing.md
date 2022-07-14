@@ -162,8 +162,10 @@ Content is written in plain text and can be annotated with commands that describ
 
 For example, take a look at the following commands.
 
-    \textbf{bold}
-    \textit{italic}
+```latex
+\textbf{bold}
+\textit{italic}
+```
 
 This markup will format the words passed into these "functions" as **bold** and _italic_ respectively.
 
