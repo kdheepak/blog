@@ -310,7 +310,7 @@ Out[32]: 2
 It is best practice to add the following lines to the top of your Python file that you expect to run as scripts.
 
 ```python
-#!/usr/bin/env/python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 ```
 
