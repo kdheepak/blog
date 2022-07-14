@@ -136,7 +136,7 @@ Add the following to your [`~/.gitconfig`](https://github.com/kdheepak/dotfiles/
 Now create a `~/gitrepos/dotfiles/git-templates` folder with a single folder inside it called `hooks`, and with a single executable file inside the `hooks` folder called `pre-commit`.
 
 ```bash
-$ tree git-templates
+tree git-templates
 ```
 
 ```
