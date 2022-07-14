@@ -256,9 +256,13 @@ code[data-line-numbers=""] > .line::before {
   content: counter(line);
   display: inline-block;
   width: 1rem;
-  margin-right: 2rem;
+  margin-right: 3rem;
   text-align: right;
+  left: -3rem;
+  position: absolute;
   color: lightgray;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 /* drop cap */
