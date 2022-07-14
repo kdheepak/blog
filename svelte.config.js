@@ -17,11 +17,10 @@ import adapter from "@sveltejs/adapter-static";
 import { findAndReplace } from "hast-util-find-and-replace";
 
 import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
-import rehypePrettyCode from "rehype-pretty-code";
 
 function addCopyToClipboard() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       modify(node, "code");
     });
   };
@@ -85,7 +84,7 @@ function getCustomComponents() {
 function customComponent() {
   const components = getCustomComponents();
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (components.map((c) => c.toLowerCase()).includes(node.tagName)) {
         const i = components.map((c) => c.toLowerCase()).indexOf(node.tagName);
         node.tagName = components[i];
@@ -96,7 +95,7 @@ function customComponent() {
 
 function fullWidthFigures() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName === "figure") {
         for (const child of node.children) {
           if (child.tagName === "img") {
@@ -112,7 +111,7 @@ function fullWidthFigures() {
 
 function videoStripLink() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName === "video") {
         node.children = [];
       }
@@ -122,7 +121,7 @@ function videoStripLink() {
 
 function internalLinkMap() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName == "a" && node.properties.href.endsWith(".md")) {
         const doc = fs.readFileSync("./src/posts/" + node.properties.href, "utf8");
         const { data: metadata } = matter(doc);
@@ -167,8 +166,8 @@ function mathJaxSetup() {
 }
 
 function escapeCurlies() {
-  return function(tree) {
-    visit(tree, "element", function(node) {
+  return function (tree) {
+    visit(tree, "element", function (node) {
       if (
         node.tagName === "code" ||
         node.tagName === "math" ||
@@ -273,6 +272,165 @@ const rehypePrettyCodeOptions = {
     }),
 };
 
+function rehypePrettyCode(options = {}) {
+  const {
+    theme,
+    tokensMap = {},
+    onVisitLine = () => {},
+    onVisitHighlightedLine = () => {},
+    onVisitHighlightedWord = () => {},
+    getHighlighter = shikiHighlighter,
+  } = options;
+
+  // Cache highlighters per unified processor
+  const highlighterCache = new Map();
+  const hastParser = unified().use(rehypeParse, { fragment: true });
+
+  function toFragment({ node, trees, lang, title, inline = false }) {
+    node.tagName = inline ? "span" : "div";
+    // User can replace this with a real Fragment at runtime
+    node.properties = { "data-rehype-pretty-code-fragment": "" };
+    node.children = Object.entries(trees)
+      .map(([mode, tree]) => {
+        const pre = tree.children[0];
+        // Remove class="shiki" and the background-color
+        pre.properties = {};
+        pre.properties["data-language"] = lang;
+        pre.properties["data-theme"] = mode;
+
+        const code = pre.children[0];
+        code.properties["data-language"] = lang;
+        code.properties["data-theme"] = mode;
+        if (code.children.length > 1) {
+            // TODO: Only show line numbers if defined in markdown
+            code.properties["data-line-numbers"] = "";
+        }
+
+        if (inline) {
+          return code;
+        }
+
+        if (title) {
+          return [
+            {
+              type: "element",
+              tagName: "div",
+              properties: {
+                "data-rehype-pretty-code-title": "",
+                "data-language": lang,
+                "data-theme": mode,
+              },
+              children: [{ type: "text", value: title }],
+            },
+            pre,
+          ];
+        }
+
+        return pre;
+      })
+      .flatMap((c) => c);
+  }
+
+  return async (tree) => {
+    for (const [mode, value] of Object.entries(theme)) {
+      if (!highlighterCache.has(mode)) {
+        highlighterCache.set(mode, getHighlighter({ theme: value }));
+      }
+    }
+
+    const hastParser = unified().use(rehypeParse, { fragment: true });
+
+    const highlighters = new Map();
+    for (const [mode, loadHighlighter] of highlighterCache.entries()) {
+      highlighters.set(mode, await loadHighlighter);
+    }
+
+    visit(tree, "element", (node, index, parent) => {
+      // Inline code
+      if ((node.tagName === "code" && parent.tagName !== "pre") || node.tagName === "inlineCode") {
+        const value = node.children[0].value;
+
+        if (!value) {
+          return;
+        }
+
+        // TODO: allow escape characters to break out of highlighting
+        const stippedValue = value.replace(/{:[a-zA-Z.-]+}/, "");
+        const meta = value.match(/{:([a-zA-Z.-]+)}$/)?.[1];
+
+        if (!meta) {
+          return;
+        }
+
+        const isLang = meta[0] !== ".";
+
+        const trees = {};
+        for (const [mode, highlighter] of highlighters.entries()) {
+          if (!isLang) {
+            const color =
+              highlighter
+                .getTheme()
+                .settings.find(({ scope }) =>
+                  scope?.includes(tokensMap[meta.slice(1)] ?? meta.slice(1)),
+                )?.settings.foreground ?? "inherit";
+
+            trees[mode] = hastParser.parse(
+              `<pre><code><span style="color:${color}">${stippedValue}</span></code></pre>`,
+            );
+          } else {
+            trees[mode] = hastParser.parse(highlighter.codeToHtml(stippedValue, meta));
+          }
+        }
+
+        toFragment({ node, trees, lang: isLang ? meta : ".token", inline: true });
+      }
+
+      if (
+        // Block code
+        // Check from https://github.com/leafac/rehype-shiki
+        node.tagName === "pre" &&
+        Array.isArray(node.children) &&
+        node.children.length === 1 &&
+        node.children[0].tagName === "code" &&
+        typeof node.children[0].properties === "object" &&
+        Array.isArray(node.children[0].properties.className) &&
+        typeof node.children[0].properties.className[0] === "string" &&
+        node.children[0].properties.className[0].startsWith("language-")
+      ) {
+        const codeNode = node.children[0].children[0];
+        const lang = node.children[0].properties.className[0].replace("language-", "");
+        const title = null;
+
+        const trees = {};
+        for (const [mode, highlighter] of highlighters.entries()) {
+          try {
+            trees[mode] = hastParser.parse(
+              highlighter.codeToHtml(codeNode.value.replace(/\n$/, ""), lang),
+            );
+          } catch (e) {
+            // Fallback to plain text if a language has not been registered
+            trees[mode] = hastParser.parse(
+              highlighter.codeToHtml(codeNode.value.replace(/\n$/, ""), "txt"),
+            );
+          }
+        }
+
+        Object.entries(trees).forEach(([mode, tree]) => {
+          visit(tree, "element", (node) => {
+
+            if (node.properties.className?.[0] === "line") {
+              onVisitLine(node);
+              onVisitHighlightedLine(node);
+            }
+          });
+        });
+
+        toFragment({ node, trees, lang, title });
+      }
+    });
+  };
+}
+
 function pandocRemarkPreprocess() {
   return {
     markup: async ({ content, filename }) => {
@@ -281,7 +439,6 @@ function pandocRemarkPreprocess() {
       }
       let c = pandoc(content);
       c = c.replaceAll(/<!--separator-->/g, " ");
-      console.log(c);
       const markdown2svelte = unified()
         .use(rehypeParse, { fragment: true, emitParseErrors: true })
         .use(mathJaxSetup)

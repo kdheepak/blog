@@ -247,19 +247,19 @@ pre.hidden {
   display: none;
 }
 
-/* code { */
-/*   counter-reset: line; */
-/* } */
+code[data-line-numbers=""] {
+  counter-reset: line;
+}
 
-/* code > .line::before { */
-/*   counter-increment: line; */
-/*   content: counter(line); */
-/*   display: inline-block; */
-/*   width: 1rem; */
-/*   margin-right: 2rem; */
-/*   text-align: right; */
-/*   color: gray; */
-/* } */
+code[data-line-numbers=""] > .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 1rem;
+  margin-right: 2rem;
+  text-align: right;
+  color: lightgray;
+}
 
 /* drop cap */
 section > p:first-child::first-letter {

@@ -132,6 +132,7 @@ local languages = {
 	verilog = true,
 	vhdl = true,
 	viml = true,
+	vim = true,
 	["vue-html"] = true,
 	vue = true,
 	wasm = true,
@@ -172,6 +173,9 @@ local function getCodeClass(classes)
 		local cls = table.remove(classes, 1)
 		if cls == "zsh" or cls == "bash" then
 			cls = "fish"
+		end
+		if cls == "vim" then
+			cls = "viml"
 		end
 		return ' class="language-' .. cls .. '"'
 	else
