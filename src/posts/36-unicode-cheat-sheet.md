@@ -625,7 +625,10 @@ fn main() {
 ```
 
 ```bash
-$ rustc main.rs && ./main
+rustc main.rs && ./main
+```
+
+```
 [src/main.rs:8] s.len() = 17
 [src/main.rs:9] s.graphemes(true).count() = 1
 ```
