@@ -111,7 +111,7 @@ I found that `sudo pip install <package-name>` is easier, however I had to brows
 
 Finally, we need `Flask` to set up a server on the Raspberry Pi.
 
-```
+```bash
 sudo pip install Flask
 ```
 
