@@ -10,8 +10,8 @@ First, clone the `qmk_firmware` GitHub repo, and make a fork to maintain your cu
 This is what my remotes look like:
 
 ```bash
-$ cd qmk_firmware
-$ git remote -v
+cd qmk_firmware
+git remote -v
 ```
 
 ```
@@ -24,13 +24,13 @@ qmk	git@github.com:qmk/qmk_firmware.git (push)
 Then, compile the firmware using the following from the root of the repository:
 
 ```bash
-$ make moonlander:kdheepak:flash
+make moonlander:kdheepak:flash
 ```
 
 The keymaps are located here:
 
 ```bash
-$ ls keyboards/moonlander/keymaps/kdheepak
+ls keyboards/moonlander/keymaps/kdheepak
 ```
 
 ```
