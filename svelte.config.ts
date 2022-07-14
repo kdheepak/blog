@@ -13,21 +13,11 @@ import importAssets from "svelte-preprocess-import-assets";
 import { h, s } from "hastscript";
 import { visit } from "unist-util-visit";
 
-import adapterStatic from "@sveltejs/adapter-static";
+import adapter from "@sveltejs/adapter-static";
 import { findAndReplace } from "hast-util-find-and-replace";
 
 import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
 import rehypePrettyCode from "rehype-pretty-code";
-
-function adapter(options) {
-  const baseStatic = adapterStatic(options);
-  return {
-    name: "svelte-adapter-static",
-    async adapt(builder) {
-      await baseStatic.adapt(builder);
-    },
-  };
-}
 
 function addCopyToClipboard() {
   return function transformer(tree) {
