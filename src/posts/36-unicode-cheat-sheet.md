@@ -481,7 +481,7 @@ If we wish to encode a Julia string as
 UTF-8^[_aside_: As of Julia v1.5.0, only conversion to/from UTF-8 is currently supported: <https://docs.julialang.org/en/v1/base/strings/#Base.transcode>],
 we can use the following:
 
-```
+```julia
 julia> transcode(UInt8, s)
 17-element Base.CodeUnits{UInt8,String}:
  0xf0
