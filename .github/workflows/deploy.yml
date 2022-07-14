@@ -54,7 +54,6 @@ jobs:
       - name: NPM install
         run: |
           npm install
-        if: steps.cache-npm.outputs.cache-hit != 'true'
       - uses: actions/setup-python@v2
         with:
           python-version: "3.9"
