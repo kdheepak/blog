@@ -35,7 +35,7 @@ At the time of writing, you'll need a `v0.5.0` or `nightly`[^nightly-1] release 
 [^nightly-1]: _aside_: Precompiled binaries are available on the [github releases](https://github.com/neovim/neovim/releases/tag/nightly) page.
 
 ```bash
-$ nvim --version | head -1
+nvim --version | head -1
 ```
 
 ```
@@ -62,7 +62,7 @@ At the time of writing, you'll need a `v0.5.0` or `nightly`[^nightly-2] release 
 [^nightly-2]: _aside_: Precompiled binaries are available on the [github releases](https://github.com/neovim/neovim/releases/tag/nightly) page.
 
 ```bash
-$ nvim --version | head -1
+nvim --version | head -1
 ```
 
 ```
