@@ -275,8 +275,8 @@ Take for example this table {@tbl:table}.
 
 <!-- BEGIN SLIDES -->
 
+<!-- prettier-ignore -->
 ```markdown
-<!-- prettier-ignore-start -->
   Right     Left     Center     Default
 -------     ------ ----------   -------
       12     12        12            12
@@ -284,7 +284,6 @@ Take for example this table {@tbl:table}.
       1     1          1             1
 
 Table:  Demonstration of simple table syntax.
-<!-- prettier-ignore-end -->
 ```
 
 <!-- END SLIDES -->
