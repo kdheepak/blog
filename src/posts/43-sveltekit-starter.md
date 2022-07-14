@@ -53,7 +53,7 @@ And run the following to format all files:
 prettier . --write --ignore-path .gitignore
 ```
 
-### `tailwind-elements`
+**`tailwind-elements`**
 
 If you want to add `tailwind-elements`, change `tailwind.config.js` to the following:
 
