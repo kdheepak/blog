@@ -743,6 +743,8 @@ if(typeof(mpld3) !== "undefined" && mpld3._mpld3IsLoaded){
 See [mpld3 documentation](https://mpld3.github.io/examples/networkxd3forcelayout.html) for more information.
 
 ```python
+import mpld3
+
 class NetworkXD3ForceLayout(mpld3.plugins.PluginBase):
     """A NetworkX to D3 Force Layout Plugin"""
 
