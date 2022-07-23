@@ -20,7 +20,7 @@ import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
 
 function addCopyToClipboard() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       modify(node, "code");
     });
   };
@@ -59,7 +59,7 @@ function addCopyToClipboard() {
             ),
           ]),
         ]),
-        h("pre.canCopyCode", node.children),
+        h(`pre.canCopyCode`, node.children),
       ]);
       Object.assign(node, newNodeData);
     }
@@ -84,7 +84,7 @@ function getCustomComponents() {
 function customComponent() {
   const components = getCustomComponents();
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (components.map((c) => c.toLowerCase()).includes(node.tagName)) {
         const i = components.map((c) => c.toLowerCase()).indexOf(node.tagName);
         node.tagName = components[i];
@@ -95,7 +95,7 @@ function customComponent() {
 
 function fullWidthFigures() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName === "figure") {
         for (const child of node.children) {
           if (child.tagName === "img") {
@@ -111,7 +111,7 @@ function fullWidthFigures() {
 
 function videoStripLink() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName === "video") {
         node.children = [];
       }
@@ -121,7 +121,7 @@ function videoStripLink() {
 
 function internalLinkMap() {
   return function transformer(tree) {
-    visit(tree, "element", function (node) {
+    visit(tree, "element", function(node) {
       if (node.tagName == "a" && node.properties.href.endsWith(".md")) {
         const doc = fs.readFileSync("./src/posts/" + node.properties.href, "utf8");
         const { data: metadata } = matter(doc);
@@ -166,8 +166,8 @@ function mathJaxSetup() {
 }
 
 function escapeCurlies() {
-  return function (tree) {
-    visit(tree, "element", function (node) {
+  return function(tree) {
+    visit(tree, "element", function(node) {
       if (
         node.tagName === "code" ||
         node.tagName === "math" ||
@@ -276,17 +276,15 @@ function rehypePrettyCode(options = {}) {
   const {
     theme,
     tokensMap = {},
-    onVisitLine = () => {},
-    onVisitHighlightedLine = () => {},
-    onVisitHighlightedWord = () => {},
-    getHighlighter = shikiHighlighter,
+    onVisitLine = () => { },
+    onVisitHighlightedLine = () => { },
+    getHighlighter = getHighlighter,
   } = options;
 
   // Cache highlighters per unified processor
   const highlighterCache = new Map();
-  const hastParser = unified().use(rehypeParse, { fragment: true });
 
-  function toFragment({ node, trees, lang, title, inline = false }) {
+  function toFragment({ node, trees, lang, title, inline = false, collapse = false }) {
     node.tagName = inline ? "span" : "div";
     // User can replace this with a real Fragment at runtime
     node.properties = { "data-rehype-pretty-code-fragment": "" };
@@ -297,13 +295,15 @@ function rehypePrettyCode(options = {}) {
         pre.properties = {};
         pre.properties["data-language"] = lang;
         pre.properties["data-theme"] = mode;
+        pre.properties["data-collapse"] = collapse;
 
         const code = pre.children[0];
         code.properties["data-language"] = lang;
         code.properties["data-theme"] = mode;
+        code.properties["data-collapse"] = collapse;
         if (code.children.length > 1) {
-            // TODO: Only show line numbers if defined in markdown
-            code.properties["data-line-numbers"] = "";
+          // TODO: Only show line numbers if defined in markdown
+          code.properties["data-line-numbers"] = "";
         }
 
         if (inline) {
@@ -319,6 +319,7 @@ function rehypePrettyCode(options = {}) {
                 "data-rehype-pretty-code-title": "",
                 "data-language": lang,
                 "data-theme": mode,
+                "data-collapse": collapse,
               },
               children: [{ type: "text", value: title }],
             },
@@ -400,6 +401,9 @@ function rehypePrettyCode(options = {}) {
         const codeNode = node.children[0].children[0];
         const lang = node.children[0].properties.className[0].replace("language-", "");
         const title = null;
+        const collapse = node.properties.className
+          ? node.properties.className.indexOf("collapse") !== -1
+          : false;
 
         const trees = {};
         for (const [mode, highlighter] of highlighters.entries()) {
@@ -417,7 +421,6 @@ function rehypePrettyCode(options = {}) {
 
         Object.entries(trees).forEach(([mode, tree]) => {
           visit(tree, "element", (node) => {
-
             if (node.properties.className?.[0] === "line") {
               onVisitLine(node);
               onVisitHighlightedLine(node);
@@ -425,7 +428,7 @@ function rehypePrettyCode(options = {}) {
           });
         });
 
-        toFragment({ node, trees, lang, title });
+        toFragment({ node, trees, lang, title, collapse });
       }
     });
   };
@@ -438,6 +441,7 @@ function pandocRemarkPreprocess() {
         return;
       }
       let c = pandoc(content);
+      // console.log(c);
       c = c.replaceAll(/<!--separator-->/g, " ");
       const markdown2svelte = unified()
         .use(rehypeParse, { fragment: true, emitParseErrors: true })
@@ -463,6 +467,7 @@ function pandocRemarkPreprocess() {
         .replace(/&#x26;#60;/g, "&#60;")
         .replace(/&#x26;#62;/g, "&#62;")
         .replace(/&#x26;#96;/g, "&#96;");
+      // console.log(html);
       return {
         code: `${html}`,
         map: "",
@@ -568,7 +573,12 @@ const config = {
   extensions: [".svelte", ".md"],
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [pandocRemarkPreprocess(), preprocess(), importAssets()],
+  preprocess: [
+    pandocRemarkPreprocess(),
+    preprocess(),
+    // debugPreprocess("Debug Process"),
+    importAssets(),
+  ],
 
   kit: {
     adapter: adapter(),

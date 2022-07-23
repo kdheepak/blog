@@ -18,7 +18,7 @@ $i = 7.07106781187 \cos\omega t$
 
 Let us plot this and see what it looks like.
 
-```python
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
@@ -37,20 +37,18 @@ ax.plot(t, i, label = 'Current')
 ax.axis([0, 2/f0, -200, 200])
 
 ax.legend();
-
 ```
 
 ![](images/power_3_0.png)
 
-```python
+```{.python .collapse}
 def rms(x):
     return np.sqrt(np.mean(x**2))
-
 ```
 
 We can calculate the maximum, minimum and the RMS value as follows:
 
-```python
+```{.python .collapse}
 print 'Maximum', max(v)
 print 'Minimum', min(v)
 print 'RMS', rms(v)
@@ -88,8 +86,7 @@ $i_{an} = I_{max} \cos\omega t$
 Instantaneous power is calculated by $p_{a} = v_{an} \times i_{an}$.
 If we plot the above equations, assuming $\theta = -\frac{\pi}{6}$, we get the following.
 
-```python
-
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/6 # phase shift
 
@@ -128,7 +125,6 @@ ax2.set_ylabel('Power')
 #     tl.set_color('g')
 ax2.legend()
 ax2.axis([0, 1/f0, -120, 120]);
-
 ```
 
 ![](images/power_11_0.png)
@@ -181,7 +177,7 @@ We see that the sign of the first term remains unaffected by the sign of $\theta
 
 Let us plot the two parts of this equation.
 
-```python
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/3 # phase shift
 
@@ -228,7 +224,6 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='lower left')
 ax2.axis([0, 1/f0, -1500, 1500]);
-
 ```
 
 ![](images/power_16_0.png)
@@ -249,7 +244,7 @@ $Q = |V||I|\sin\theta$
 
 # So why is it called real power?
 
-```python
+```{.python .collapse}
 import SchemDraw as schem
 import SchemDraw.elements as e
 
@@ -270,7 +265,7 @@ d.draw()
 
 ![](images/power_19_0.png)
 
-```python
+```{.python .collapse}
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 
 soa =np.array([[0,0,0,5],[0,0,0,10],[0,0,5,0],[0,0,5,5]])
@@ -324,7 +319,7 @@ Let's look at three cases
 
 When we assume $\theta$ is zero, the load is purely resistive
 
-```python
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = 0 # phase shift
 
@@ -372,7 +367,6 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='lower left')
 ax2.axis([0, 1/f0, -1500, 1500]);
-
 ```
 
 ![](images/power_26_0.png)
@@ -383,7 +377,7 @@ The Instantaneous power in the phase is equal to the active power.
 
 When $\theta$ is 90, the load is purely inductive
 
-```python
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = np.pi/2 # phase shift
 
@@ -430,7 +424,6 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='upper left')
 ax2.axis([0, 1/f0, -1500, 1500]);
-
 ```
 
 ![](images/power_30_0.png)
@@ -488,7 +481,6 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='upper left')
 ax2.axis([0, 1/f0, -1500, 1500]);
-
 ```
 
 ![](images/power_34_0.png)
