@@ -19,8 +19,6 @@ $i = 7.07106781187 \cos\omega t$
 Let us plot this and see what it looks like.
 
 ```python
-# <!-- collapse=True -->
-
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
@@ -45,8 +43,6 @@ ax.legend();
 ![](images/power_3_0.png)
 
 ```python
-# <!-- collapse=True -->
-
 def rms(x):
     return np.sqrt(np.mean(x**2))
 
@@ -55,8 +51,6 @@ def rms(x):
 We can calculate the maximum, minimum and the RMS value as follows:
 
 ```python
-# <!-- collapse=True -->
-
 print 'Maximum', max(v)
 print 'Minimum', min(v)
 print 'RMS', rms(v)
@@ -188,8 +182,6 @@ We see that the sign of the first term remains unaffected by the sign of $\theta
 Let us plot the two parts of this equation.
 
 ```python
-# <!-- collapse=True -->
-
 f0 = 60 # Hz (frequency)
 phi = -np.pi/3 # phase shift
 
@@ -258,8 +250,6 @@ $Q = |V||I|\sin\theta$
 # So why is it called real power?
 
 ```python
-# <!-- collapse=True -->
-
 import SchemDraw as schem
 import SchemDraw.elements as e
 
@@ -281,8 +271,6 @@ d.draw()
 ![](images/power_19_0.png)
 
 ```python
-# <!-- collapse=True -->
-
 fig, ax = plt.subplots(1,1,figsize = (4,4))
 
 soa =np.array([[0,0,0,5],[0,0,0,10],[0,0,5,0],[0,0,5,5]])
@@ -337,8 +325,6 @@ Let's look at three cases
 When we assume $\theta$ is zero, the load is purely resistive
 
 ```python
-# <!-- collapse=True -->
-
 f0 = 60 # Hz (frequency)
 phi = 0 # phase shift
 
@@ -398,8 +384,6 @@ The Instantaneous power in the phase is equal to the active power.
 When $\theta$ is 90, the load is purely inductive
 
 ```python
-# <!-- collapse=True -->
-
 f0 = 60 # Hz (frequency)
 phi = np.pi/2 # phase shift
 
@@ -458,8 +442,6 @@ The Instantaneous power in the phase is equal to the reactive power. The power o
 When $\theta$ is -90, the load is purely capacitive
 
 ```python
-# <!-- collapse=True -->
-
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
