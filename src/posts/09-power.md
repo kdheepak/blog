@@ -48,7 +48,7 @@ def rms(x):
 
 We can calculate the maximum, minimum and the RMS value as follows:
 
-```{.python .collapse}
+```python
 print 'Maximum', max(v)
 print 'Minimum', min(v)
 print 'RMS', rms(v)
@@ -434,7 +434,7 @@ The Instantaneous power in the phase is equal to the reactive power. The power o
 
 When $\theta$ is -90, the load is purely capacitive
 
-```python
+```{.python collapse}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
