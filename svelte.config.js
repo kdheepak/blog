@@ -30,37 +30,41 @@ function addCopyToClipboard() {
       !node.properties.className || node.properties.className.indexOf("canCopyCode") === -1; // prevent infinite loop
     if (node.tagName === "pre" && notYetProcessed) {
       // Docu: https://github.com/syntax-tree/hastscript#use
-      const newNodeData = h("div.copyCodeContainer", [
-        h("a.copyCode", { onclick: "copyCode(event, this)" }, [
-          h("div", [
-            s(
-              "svg.copyCodeImg",
-              {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "14",
-                height: "17",
-                viewBox: "0 0 14 17",
-              },
-              [
-                s(
-                  "g",
-                  {
-                    fill: "none",
-                    "fill-rule": "nonzero",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                  },
-                  [
-                    s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
-                    s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
-                  ],
-                ),
-              ],
-            ),
+      const newNodeData = h(
+        `div.copyCodeContainer${node.properties["data-collapse"] ? ".copyCodeContainerCollapse" : ""
+        }`,
+        [
+          h("a.copyCode", { onclick: "copyCode(event, this)" }, [
+            h("div", [
+              s(
+                "svg.copyCodeImg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "14",
+                  height: "17",
+                  viewBox: "0 0 14 17",
+                },
+                [
+                  s(
+                    "g",
+                    {
+                      fill: "none",
+                      "fill-rule": "nonzero",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                    },
+                    [
+                      s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
+                      s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
+                    ],
+                  ),
+                ],
+              ),
+            ]),
           ]),
-        ]),
-        h(`pre.canCopyCode`, node.children),
-      ]);
+          h(`pre.canCopyCode`, node.children),
+        ],
+      );
       Object.assign(node, newNodeData);
     }
   }

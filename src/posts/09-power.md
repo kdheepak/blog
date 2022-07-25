@@ -434,7 +434,7 @@ The Instantaneous power in the phase is equal to the reactive power. The power o
 
 When $\theta$ is -90, the load is purely capacitive
 
-```{.python collapse}
+```{.python .collapse}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 

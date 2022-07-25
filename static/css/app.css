@@ -265,8 +265,8 @@ code[data-line-numbers=""] > .line::before {
   user-select: none;
 }
 
-code[data-collapse=""] {
-  display: none !important;
+div.copyCodeContainerCollapse {
+  display: none;
 }
 
 /* drop cap */
