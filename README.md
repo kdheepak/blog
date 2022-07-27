@@ -16,6 +16,10 @@ Other requirements:
 ```bash
 brew install pandoc pdf2svg imagemagick ghostscript
 brew install --cask basictex
+tlmgr install standalone
+tlmgr install luatex85
+tlmgr install pgf  # this installs tikz.sty
+tlmgr install pgfplots
 ```
 
 ## Developing
