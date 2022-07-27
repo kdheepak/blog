@@ -13,8 +13,10 @@ cargo install stork-search --locked
 
 Other requirements:
 
-- pandoc
-- latex
+```bash
+brew install pandoc pdf2svg imagemagick ghostscript
+brew install --cask basictex
+```
 
 ## Developing
 
