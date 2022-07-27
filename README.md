@@ -7,7 +7,7 @@
 ```bash
 npm install
 pdm install
-cargo install svgbob
+cargo install svgbob_cli
 cargo install stork-search --locked
 ```
 
