@@ -20,7 +20,7 @@ import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
 
 function addCopyToClipboard() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       modify(node, "code");
     });
   };
@@ -30,37 +30,40 @@ function addCopyToClipboard() {
       !node.properties.className || node.properties.className.indexOf("canCopyCode") === -1; // prevent infinite loop
     if (node.tagName === "pre" && notYetProcessed) {
       // Docu: https://github.com/syntax-tree/hastscript#use
-      const newNodeData = h("div.copyCodeContainer", [
-        h("a.copyCode", { onclick: "copyCode(event, this)" }, [
-          h("div", [
-            s(
-              "svg.copyCodeImg",
-              {
-                xmlns: "http://www.w3.org/2000/svg",
-                width: "14",
-                height: "17",
-                viewBox: "0 0 14 17",
-              },
-              [
-                s(
-                  "g",
-                  {
-                    fill: "none",
-                    "fill-rule": "nonzero",
-                    "stroke-linecap": "round",
-                    "stroke-linejoin": "round",
-                  },
-                  [
-                    s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
-                    s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
-                  ],
-                ),
-              ],
-            ),
+      const newNodeData = h(
+        `div.copyCodeContainer${node.properties["data-hide"] ? ".copyCodeContainerHide" : ""}`,
+        [
+          h("a.copyCode", { onclick: "copyCode(event, this)" }, [
+            h("div", [
+              s(
+                "svg.copyCodeImg",
+                {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "14",
+                  height: "17",
+                  viewBox: "0 0 14 17",
+                },
+                [
+                  s(
+                    "g",
+                    {
+                      fill: "none",
+                      "fill-rule": "nonzero",
+                      "stroke-linecap": "round",
+                      "stroke-linejoin": "round",
+                    },
+                    [
+                      s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
+                      s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
+                    ],
+                  ),
+                ],
+              ),
+            ]),
           ]),
-        ]),
-        h(`pre.canCopyCode`, node.children),
-      ]);
+          h(`pre.canCopyCode`, node.children),
+        ],
+      );
       Object.assign(node, newNodeData);
     }
   }
@@ -84,7 +87,7 @@ function getCustomComponents() {
 function customComponent() {
   const components = getCustomComponents();
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (components.map((c) => c.toLowerCase()).includes(node.tagName)) {
         const i = components.map((c) => c.toLowerCase()).indexOf(node.tagName);
         node.tagName = components[i];
@@ -95,7 +98,7 @@ function customComponent() {
 
 function fullWidthFigures() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName === "figure") {
         for (const child of node.children) {
           if (child.tagName === "img") {
@@ -111,7 +114,7 @@ function fullWidthFigures() {
 
 function videoStripLink() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName === "video") {
         node.children = [];
       }
@@ -121,7 +124,7 @@ function videoStripLink() {
 
 function internalLinkMap() {
   return function transformer(tree) {
-    visit(tree, "element", function(node) {
+    visit(tree, "element", function (node) {
       if (node.tagName == "a" && node.properties.href.endsWith(".md")) {
         const doc = fs.readFileSync("./src/posts/" + node.properties.href, "utf8");
         const { data: metadata } = matter(doc);
@@ -166,8 +169,8 @@ function mathJaxSetup() {
 }
 
 function escapeCurlies() {
-  return function(tree) {
-    visit(tree, "element", function(node) {
+  return function (tree) {
+    visit(tree, "element", function (node) {
       if (
         node.tagName === "code" ||
         node.tagName === "math" ||
@@ -278,15 +281,15 @@ function rehypePrettyCode(options = {}) {
   const {
     theme,
     tokensMap = {},
-    onVisitLine = () => { },
-    onVisitHighlightedLine = () => { },
+    onVisitLine = () => {},
+    onVisitHighlightedLine = () => {},
     getHighlighter = getHighlighter,
   } = options;
 
   // Cache highlighters per unified processor
   const highlighterCache = new Map();
 
-  function toFragment({ node, trees, lang, title, inline = false, collapse = false }) {
+  function toFragment({ node, trees, lang, title, inline = false, hide = false }) {
     node.tagName = inline ? "span" : "div";
     // User can replace this with a real Fragment at runtime
     node.properties = { "data-rehype-pretty-code-fragment": "" };
@@ -297,12 +300,12 @@ function rehypePrettyCode(options = {}) {
         pre.properties = {};
         pre.properties["data-language"] = lang;
         pre.properties["data-theme"] = mode;
-        // pre.properties["data-collapse"] = collapse;
+        pre.properties["data-hide"] = hide;
 
         const code = pre.children[0];
         code.properties["data-language"] = lang;
         code.properties["data-theme"] = mode;
-        // code.properties["data-collapse"] = collapse;
+        code.properties["data-hide"] = hide;
         if (code.children.length > 1) {
           // TODO: Only show line numbers if defined in markdown
           code.properties["data-line-numbers"] = "";
@@ -321,7 +324,7 @@ function rehypePrettyCode(options = {}) {
                 "data-rehype-pretty-code-title": "",
                 "data-language": lang,
                 "data-theme": mode,
-                // "data-collapse": collapse,
+                "data-hide": hide,
               },
               children: [{ type: "text", value: title }],
             },
@@ -403,8 +406,8 @@ function rehypePrettyCode(options = {}) {
         const codeNode = node.children[0].children[0];
         const lang = node.children[0].properties.className[0].replace("language-", "");
         const title = null;
-        const collapse = node.properties.className
-          ? node.properties.className.indexOf("collapse") !== -1
+        const hide = node.properties.className
+          ? node.properties.className.indexOf("hide") !== -1
           : false;
 
         const trees = {};
@@ -430,7 +433,7 @@ function rehypePrettyCode(options = {}) {
           });
         });
 
-        toFragment({ node, trees, lang, title, collapse });
+        toFragment({ node, trees, lang, title, hide });
       }
     });
   };

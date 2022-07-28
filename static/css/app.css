@@ -265,7 +265,7 @@ code[data-line-numbers=""] > .line::before {
   user-select: none;
 }
 
-div.copyCodeContainerCollapse {
+div.copyCodeContainerHide {
   display: none;
 }
 
