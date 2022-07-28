@@ -254,6 +254,7 @@ $Q = |V||I|\sin\theta$
 # So why is it called real power?
 
 ```{.python .hide}
+plt.rc("font", size=20)
 fig, ax = plt.subplots(1,1,figsize = (16,10))
 
 ax.axis('off');
