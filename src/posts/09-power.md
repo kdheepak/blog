@@ -19,6 +19,9 @@ $i = 7.07106781187 \cos\omega t$
 Let us plot this and see what it looks like.
 
 ```{.python .collapse}
+import matplotlib.pyplot as plt
+import numpy as np
+
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
@@ -37,6 +40,8 @@ ax.plot(t, i, label = 'Current')
 ax.axis([0, 2/f0, -200, 200])
 
 ax.legend();
+
+plt.savefig("./images/power_3_0.png", transparent=True, dpi=300)
 ```
 
 ![](images/power_3_0.png)
@@ -61,11 +66,13 @@ else:
     print 'Maximum value = √2 x RMS value'
 ```
 
-    Maximum 155.563491861
-    Minimum -155.563491861
-    RMS 110.0
-    Ratio max/rms 1.41421356237
-    Maximum value = √2 x RMS value
+```
+Maximum 155.563491861
+Minimum -155.563491861
+RMS 110.0
+Ratio max/rms 1.41421356237
+Maximum value = √2 x RMS value
+```
 
 $|V|$ is used to represent magnitude of the phasors.
 
@@ -84,7 +91,7 @@ $i_{an} = I_{max} \cos\omega t$
 Instantaneous power is calculated by $p_{a} = v_{an} \times i_{an}$.
 If we plot the above equations, assuming $\theta = -\frac{\pi}{6}$, we get the following.
 
-```{.python .collapse}
+```{.python .hide}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/6 # phase shift
 
@@ -123,6 +130,8 @@ ax2.set_ylabel('Power')
 #     tl.set_color('g')
 ax2.legend()
 ax2.axis([0, 1/f0, -120, 120]);
+
+plt.savefig("./images/power_11_0.png", transparent=True, dpi=300)
 ```
 
 ![](images/power_11_0.png)
@@ -175,7 +184,7 @@ We see that the sign of the first term remains unaffected by the sign of $\theta
 
 Let us plot the two parts of this equation.
 
-```{.python .collapse}
+```{.python .hide}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/3 # phase shift
 
@@ -222,6 +231,8 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='lower left')
 ax2.axis([0, 1/f0, -1500, 1500]);
+
+plt.savefig("images/power_16_0.png", transparent=True, dpi=300)
 ```
 
 ![](images/power_16_0.png)
@@ -242,9 +253,14 @@ $Q = |V||I|\sin\theta$
 
 # So why is it called real power?
 
-```{.python .collapse}
-import SchemDraw as schem
-import SchemDraw.elements as e
+```{.python .hide}
+fig, ax = plt.subplots(1,1,figsize = (16,10))
+
+ax.axis('off');
+
+import schemdraw as schem
+import schemdraw.elements as e
+# schem.use('svg')
 
 d = schem.Drawing()
 
@@ -257,14 +273,15 @@ d.add( e.LINE, d='right' )
 d.add( e.INDUCTOR2, d='down', botlabel='$L$' )
 d.add( e.LINE, to=V1.start )
 d.add( e.GND )
-d.draw()
-
+d.draw(ax=ax, show=False)
+plt.savefig("./images/schemdraw.png", dpi=300, transparent=True)
 ```
 
-![](images/power_19_0.png)
+![](images/schemdraw.png)
 
-```{.python .collapse}
-fig, ax = plt.subplots(1,1,figsize = (4,4))
+```{.python .hide}
+plt.rc("font", size=20)
+fig, ax = plt.subplots(1,1,figsize = (16,10))
 
 soa =np.array([[0,0,0,5],[0,0,0,10],[0,0,5,0],[0,0,5,5]])
 X,Y,U,V = zip(*soa)
@@ -280,9 +297,11 @@ ax.text(0, 10, r'$V_{an}$')
 ax.text(0.25, 1, r'$\theta$')
 
 ax.axis('off');
+
+plt.savefig("./images/power_20_0.png", transparent=True, dpi=300)
 ```
 
-![](images/power_20_0.png)
+![](./images/power_20_0.png)
 
 We know that $\theta$ is the phase difference between the Voltage and Current.
 
@@ -317,7 +336,7 @@ Let's look at three cases
 
 When we assume $\theta$ is zero, the load is purely resistive
 
-```{.python .collapse}
+```{.python .hide}
 f0 = 60 # Hz (frequency)
 phi = 0 # phase shift
 
@@ -365,6 +384,8 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='lower left')
 ax2.axis([0, 1/f0, -1500, 1500]);
+
+plt.savefig("./images/power_26_0.png", dpi=300, transparent=True)
 ```
 
 ![](images/power_26_0.png)
@@ -375,7 +396,7 @@ The Instantaneous power in the phase is equal to the active power.
 
 When $\theta$ is 90, the load is purely inductive
 
-```{.python .collapse}
+```{.python .hide}
 f0 = 60 # Hz (frequency)
 phi = np.pi/2 # phase shift
 
@@ -422,6 +443,8 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='upper left')
 ax2.axis([0, 1/f0, -1500, 1500]);
+
+plt.savefig("./images/power_30_0.png", dpi=300, transparent=True)
 ```
 
 ![](images/power_30_0.png)
@@ -432,7 +455,7 @@ The Instantaneous power in the phase is equal to the reactive power. The power o
 
 When $\theta$ is -90, the load is purely capacitive
 
-```{.python .collapse}
+```{.python .hide}
 f0 = 60 # Hz (frequency)
 phi = -np.pi/2 # phase shift
 
@@ -479,6 +502,8 @@ ax2.plot(t, p_R+p_X, label = 'Instantaneous Power in phase A', color='g')
 ax2.set_ylabel('Power')
 ax2.legend(loc='upper left')
 ax2.axis([0, 1/f0, -1500, 1500]);
+
+plt.savefig("./images/power_34_0.png", dpi=300, transparent=True)
 ```
 
 ![](images/power_34_0.png)
