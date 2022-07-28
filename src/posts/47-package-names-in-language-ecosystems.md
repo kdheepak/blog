@@ -5,4 +5,7 @@ keywords: python, julia, rust, nim
 summary: I was curious how package names were chosen in various language ecosystems.
 ---
 
-![](./images/power_20_0.svg)
+```{.python .collapse fold=show}
+def hello(_):
+   print("hello world")
+```
