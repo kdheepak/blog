@@ -30,41 +30,37 @@ function addCopyToClipboard() {
       !node.properties.className || node.properties.className.indexOf("canCopyCode") === -1; // prevent infinite loop
     if (node.tagName === "pre" && notYetProcessed) {
       // Docu: https://github.com/syntax-tree/hastscript#use
-      const newNodeData = h(
-        `div.copyCodeContainer${node.properties["data-collapse"] ? ".copyCodeContainerCollapse" : ""
-        }`,
-        [
-          h("a.copyCode", { onclick: "copyCode(event, this)" }, [
-            h("div", [
-              s(
-                "svg.copyCodeImg",
-                {
-                  xmlns: "http://www.w3.org/2000/svg",
-                  width: "14",
-                  height: "17",
-                  viewBox: "0 0 14 17",
-                },
-                [
-                  s(
-                    "g",
-                    {
-                      fill: "none",
-                      "fill-rule": "nonzero",
-                      "stroke-linecap": "round",
-                      "stroke-linejoin": "round",
-                    },
-                    [
-                      s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
-                      s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
-                    ],
-                  ),
-                ],
-              ),
-            ]),
+      const newNodeData = h("div.copyCodeContainer", [
+        h("a.copyCode", { onclick: "copyCode(event, this)" }, [
+          h("div", [
+            s(
+              "svg.copyCodeImg",
+              {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "14",
+                height: "17",
+                viewBox: "0 0 14 17",
+              },
+              [
+                s(
+                  "g",
+                  {
+                    fill: "none",
+                    "fill-rule": "nonzero",
+                    "stroke-linecap": "round",
+                    "stroke-linejoin": "round",
+                  },
+                  [
+                    s("path", { d: "M.84 5.2h7.84v11.2H.84z" }),
+                    s("path", { d: "M5.32 2.49V.72h7.84v11.2h-1.71" }),
+                  ],
+                ),
+              ],
+            ),
           ]),
-          h(`pre.canCopyCode`, node.children),
-        ],
-      );
+        ]),
+        h(`pre.canCopyCode`, node.children),
+      ]);
       Object.assign(node, newNodeData);
     }
   }
@@ -231,6 +227,8 @@ function pandoc(input, ...args) {
     "--metadata",
     "reference-section-title=References",
     "--lua-filter",
+    "./pandoc/foldcode.lua",
+    "--lua-filter",
     "./pandoc/render.lua",
     "--lua-filter",
     "./pandoc/ref-section-level.lua",
@@ -299,12 +297,12 @@ function rehypePrettyCode(options = {}) {
         pre.properties = {};
         pre.properties["data-language"] = lang;
         pre.properties["data-theme"] = mode;
-        pre.properties["data-collapse"] = collapse;
+        // pre.properties["data-collapse"] = collapse;
 
         const code = pre.children[0];
         code.properties["data-language"] = lang;
         code.properties["data-theme"] = mode;
-        code.properties["data-collapse"] = collapse;
+        // code.properties["data-collapse"] = collapse;
         if (code.children.length > 1) {
           // TODO: Only show line numbers if defined in markdown
           code.properties["data-line-numbers"] = "";
@@ -323,7 +321,7 @@ function rehypePrettyCode(options = {}) {
                 "data-rehype-pretty-code-title": "",
                 "data-language": lang,
                 "data-theme": mode,
-                "data-collapse": collapse,
+                // "data-collapse": collapse,
               },
               children: [{ type: "text", value: title }],
             },

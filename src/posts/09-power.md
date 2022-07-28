@@ -41,19 +41,17 @@ ax.legend();
 
 ![](images/power_3_0.png)
 
-```{.python .collapse}
-def rms(x):
-    return np.sqrt(np.mean(x**2))
-```
-
 We can calculate the maximum, minimum and the RMS value as follows:
 
 ```python
-print 'Maximum', max(v)
-print 'Minimum', min(v)
-print 'RMS', rms(v)
+def rms(x):
+    return np.sqrt(np.mean(x**2))
 
-print 'Ratio max/rms', max(v)/rms(v)
+print('Maximum', max(v))
+print('Minimum', min(v))
+print('RMS', rms(v))
+
+print('Ratio max/rms', max(v)/rms(v))
 
 try:
     np.testing.assert_approx_equal(np.sqrt(2), max(v)/rms(v))
