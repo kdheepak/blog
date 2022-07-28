@@ -28,10 +28,10 @@ function Image(elem)
     elem.src = "./" .. elem.src
   end
 
-  if endswith(elem.src, ".svg") then
-    local svg_inline = readFile("./src/posts/" .. elem.src)
-    return pandoc.RawInline("html", svg_inline)
-  end
+  -- if endswith(elem.src, ".svg") then
+  --   local svg_inline = readFile("./src/posts/" .. elem.src)
+  --   return pandoc.RawInline("html", svg_inline)
+  -- end
 
   return elem
 end
