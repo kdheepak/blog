@@ -22,10 +22,14 @@ The following is the code I'm using:
 ```{.python .collapse}
 %matplotlib inline
 import matplotlib.pyplot as plt
+import numpy as np
 
-plt.rc("font", size = 12)
+plt.rc("font", size = 10)
 
 from collections import defaultdict
+
+reference = {}
+total_reference = 0
 
 def frequency_plot(items, lang, kind="packages"):
     bucket = defaultdict(lambda: 0)
@@ -36,16 +40,30 @@ def frequency_plot(items, lang, kind="packages"):
     if kind=="packages":
         colors[lang[0].lower()] = "orange"
     keys = [k for k in sorted(list(bucket.keys())) if k.isalpha()]
-
     fig, axs = plt.subplots(1,1,figsize=(16,10))
     ax = axs
     ax.bar(keys, [bucket[k] for k in keys], color=[colors[k] for k in keys])
     total = sum(bucket[k] for k in keys)
     rects = ax.patches
+
+    global reference
+    global total_reference
+    if kind != "packages":
+        reference = bucket
+        total_reference = total
+
     for rect, k in zip(rects, keys):
         height = rect.get_height()
+        if kind == "packages":
+            v = round(bucket[k] / total * 100 - reference[k] / total_reference * 100, 1)
+            s = ["+", "-"][int(v < 0)]
+        else:
+            v = round(bucket[k] / total * 100, 1)
+            s = ""
+
+        label = f"{s}{v}%"
         ax.text(
-            rect.get_x() + rect.get_width() / 2, height + 5, f"{round(bucket[k] / total * 100, 1)}%", ha="center", va="bottom"
+            rect.get_x() + rect.get_width() / 2, height + 5, label, ha="center", va="bottom"
         )
 
     ax.set_title(f"Total {kind} in {lang}: {total}")
@@ -117,8 +135,6 @@ plt.savefig("./images/julia-package-names.png", dpi=300, transparent=True);
 
 ## Rust
 
-<https://crates.io> conveniently has a [data-access](https://crates.io/data-access) page that links to the latest dump which contains a `csv` file with the names of all the packages.
-
 ```python
 import pandas as pd
 packages = set(pd.read_csv("~/Downloads/2022-07-29-020018/data/crates.csv")["name"].dropna())
@@ -133,8 +149,6 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ![](./images/rust-package-names.png)
 
 ## R
-
-For R, similar to Python, we can parse the HTML from <https://cran.r-project.org/web/packages/available_packages_by_name.html>:
 
 ```python
 import requests
@@ -158,4 +172,4 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 ## Conclusion
 
 In all these cases, the number of packages are higher, but not by a whole lot.
-It would be nice to test this assumption on C, C++, and Go, but these languages, as far as I can tell, don't have central registries.
+It would be nice to test this assumption on C, C++, Go.
