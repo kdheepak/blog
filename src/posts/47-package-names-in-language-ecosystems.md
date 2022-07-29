@@ -1,5 +1,5 @@
 ---
-title: Do programmers alliterate package names with the programming language?
+title: Do programmers prefer alliteration of package names with the programming language?
 tags: analysis, python, julia, rust
 keywords: python, julia, rust, R
 summary: I was curious how package names were chosen in various language ecosystems.
@@ -112,6 +112,10 @@ plt.savefig("./images/python-package-names.png", dpi=300, transparent=True);
 
 ![](./images/python-package-names.png)
 
+The difference in percent of names of Python packages starting with "p" and words in the English language starting with "p" is +3.5%.
+The largest positive difference however is with the letter "d", with "+4.2%".
+I'm personally a little surprised it isn't higher.
+
 ## Julia
 
 When you install a package using Julia, it downloads a general registry into your "home" directory, and we can traverse that directory only one level deep.
@@ -133,6 +137,8 @@ plt.savefig("./images/julia-package-names.png", dpi=300, transparent=True);
 
 ![](./images/julia-package-names.png)
 
+The difference in percent of names of Julia packages starting with "j" and words in the English language starting with "j" is +0.8%.
+
 ## Rust
 
 <https://crates.io> conveniently has a [data-access](https://crates.io/data-access) page that links to the latest dump which contains a `csv` file with the names of all the packages.
@@ -149,6 +155,8 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ```
 
 ![](./images/rust-package-names.png)
+
+In Rust, the difference is +3.9%, and it is the highest difference amongst all the letters.
 
 ## R
 
@@ -173,7 +181,10 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 
 ![](./images/r-package-names.png)
 
+In R, the difference is +6% for the letter "r". This by far the biggest difference we've seen.
+
 ## Conclusion
 
 In all these cases, there is a greater percentage of packages whose name starts with the same letter as the name of the programming language compared to the average distribution of words in the English language.
-It would be nice to test this assumption on C, C++, and Go, but these languages, as far as I can tell, don't have central registries.
+I don't think it is enough to conclusively say that programmers prefer alliterating the package names with the programming language.
+It would be nice to test this assumption on C, C++, and Go (and possibly other languages), but these languages, as far as I can tell, don't have central registries.
