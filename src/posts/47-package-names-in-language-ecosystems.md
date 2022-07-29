@@ -73,6 +73,8 @@ plt.savefig("./images/word-names.png", dpi=300, transparent=True);
 
 ## Python
 
+For Python, we can get the list of packages on PyPi using <https://pypi.org/simple> and use a HTML parser to get all the links on that page.
+
 ```python
 import requests
 r = requests.get("https://pypi.org/simple")
@@ -94,12 +96,14 @@ plt.savefig("./images/python-package-names.png", dpi=300, transparent=True);
 
 ## Julia
 
+When you install a package using Julia, it downloads a general registry into your "home" directory, and we can traverse that directory only one level deep.
+
 ```python
 import os
 packages = set()
 for root, folders, files in os.walk(os.path.expanduser("~/.julia/registries/General/")):
     for folder in folders:
-        if len(folder) > 1:
+        if len(folder) > 1 and len("~/.julia/registries/General".split("/")) + 2 < len(root.split("/")):
             packages.add(folder)
 
 frequency_plot(packages, "Julia")
@@ -112,6 +116,8 @@ plt.savefig("./images/julia-package-names.png", dpi=300, transparent=True);
 ![](./images/julia-package-names.png)
 
 ## Rust
+
+<https://crates.io> conveniently has a [data-access](https://crates.io/data-access) page that links to the latest dump which contains a `csv` file with the names of all the packages.
 
 ```python
 import pandas as pd
@@ -127,6 +133,8 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ![](./images/rust-package-names.png)
 
 ## R
+
+For R, similar to Python, we can parse the HTML from <https://cran.r-project.org/web/packages/available_packages_by_name.html>:
 
 ```python
 import requests
