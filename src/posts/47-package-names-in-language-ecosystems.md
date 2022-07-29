@@ -7,7 +7,7 @@ slug: alliteration-preferences-for-package-names-with-programming-language
 date: 2022-07-29T01:47:12-0600
 ---
 
-Is there a trend in choosing package names in various programming ecosystems?
+Are there trends in choosing package names in various programming ecosystems?
 Do package authors choose names for their packages that are alliterated with the name of the programming language?
 Let's venture to find out.
 
