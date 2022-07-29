@@ -175,5 +175,5 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 
 ## Conclusion
 
-In all these cases, the number of packages are higher whose name starts with the same letter as the name of the programming language is higher.
+In all these cases, there is a greater percentage of packages whose name starts with the same letter as the name of the programming language compared to the average distribution of words in the English language.
 It would be nice to test this assumption on C, C++, and Go, but these languages, as far as I can tell, don't have central registries.
