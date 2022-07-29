@@ -3,6 +3,7 @@ title: Do programmers prefer alliteration of package names with the programming 
 tags: analysis, python, julia, rust
 keywords: python, julia, rust, R
 summary: I was curious how package names were chosen in various language ecosystems.
+slug: alliteration-preferences-for-package-names-in-programming-languages
 date: 2022-07-29T01:47:12-0600
 ---
 
