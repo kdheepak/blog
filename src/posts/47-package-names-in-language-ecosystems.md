@@ -158,4 +158,4 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 ## Conclusion
 
 In all these cases, the number of packages are higher, but not by a whole lot.
-It would be nice to test this assumption on C, C++, Go.
+It would be nice to test this assumption on C, C++, and Go, but these languages, as far as I can tell, don't have central registries.
