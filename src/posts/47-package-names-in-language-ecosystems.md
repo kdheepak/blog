@@ -93,7 +93,7 @@ plt.savefig("./images/word-names.png", dpi=300, transparent=True);
 
 For Python, we can get the list of packages on PyPi using <https://pypi.org/simple> and use a HTML parser to get all the links on that page.
 
-```python
+```{.python .collapse}
 import requests
 r = requests.get("https://pypi.org/simple")
 text = r.text
@@ -120,7 +120,7 @@ I'm personally a little surprised it isn't higher.
 
 When you install a package using Julia, it downloads a general registry into your "home" directory, and we can traverse that directory only one level deep.
 
-```python
+```{.python .collapse}
 import os
 packages = set()
 for root, folders, files in os.walk(os.path.expanduser("~/.julia/registries/General/")):
@@ -162,7 +162,7 @@ In Rust, the difference is +3.9%, and it is the highest difference amongst all t
 
 For R, similar to Python, we can parse the HTML from <https://cran.r-project.org/web/packages/available_packages_by_name.html>:
 
-```python
+```{.python .collapse}
 import requests
 r = requests.get("https://cran.r-project.org/web/packages/available_packages_by_name.html")
 text = r.text
