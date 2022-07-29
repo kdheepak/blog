@@ -25,7 +25,7 @@ The following is the code I'm using:
 import matplotlib.pyplot as plt
 import numpy as np
 
-plt.rc("font", size = 10)
+plt.rc("font", size = 8)
 
 from collections import defaultdict
 
@@ -41,9 +41,9 @@ def frequency_plot(items, lang, kind="packages"):
     if kind=="packages":
         colors[lang[0].lower()] = "orange"
     keys = [k for k in sorted(list(bucket.keys())) if k.isalpha()]
-    fig, axs = plt.subplots(1,1,figsize=(16,10))
+    fig, axs = plt.subplots(1,1,figsize=(16,10),facecolor='#fffff8')
     ax = axs
-    ax.bar(keys, [bucket[k] for k in keys], color=[colors[k] for k in keys])
+    ax.bar(keys, [bucket[k] for k in keys], color=[colors[k] for k in keys], )
     total = sum(bucket[k] for k in keys)
     rects = ax.patches
 
@@ -61,15 +61,18 @@ def frequency_plot(items, lang, kind="packages"):
         else:
             v = round(bucket[k] / total * 100, 1)
             s = ""
-
-        label = f"{s}{abs(v)}%"
+        if kind == "packages":
+            label = f"{round(bucket[k] / total * 100, 1)}%\n({s}{abs(v)}%)"
+        else:
+            label = f"{s}{abs(v)}%"
         ax.text(
-            rect.get_x() + rect.get_width() / 2, height + 5, label, ha="center", va="bottom"
+            rect.get_x() + rect.get_width() / 2, height*1.01, label, ha="center", va="bottom"
         )
 
-    ax.set_title(f"Total {kind} in {lang}: {total}")
+    ax.set_title(f"Frequency count of {kind} in {lang} (Total: {total})")
     ax.set_ylabel("Count")
     ax.set_xlabel("First Letter")
+    ax.set_facecolor("#fffff8")
     return ax
 ```
 
