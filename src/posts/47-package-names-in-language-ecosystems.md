@@ -144,7 +144,7 @@ The difference in percent of names of Julia packages starting with "j" and words
 
 <https://crates.io> conveniently has a [data-access](https://crates.io/data-access) page that links to the latest dump which contains a `csv` file with the names of all the packages.
 
-```python
+```{.python .collapse}
 import pandas as pd
 packages = set(pd.read_csv("~/Downloads/2022-07-29-020018/data/crates.csv")["name"].dropna())
 
