@@ -187,5 +187,6 @@ In R, the difference is +6% for the letter "r". This is the biggest difference w
 ## Conclusion
 
 In all these cases, there is a greater percentage of packages whose name starts with the same letter as the name of the programming language compared to the average distribution of words in the English language.
-I don't think it is enough to conclusively say that programmers prefer alliterating the package names with the programming language.
+
+However, I don't think it is enough to conclusively say that programmers prefer alliterating the package names with the programming language.
 It would be nice to test this assumption on C, C++, and Go (and possibly other languages), but these languages, as far as I can tell, don't have central registries.
