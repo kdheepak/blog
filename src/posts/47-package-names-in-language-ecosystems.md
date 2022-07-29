@@ -61,7 +61,7 @@ def frequency_plot(items, lang, kind="packages"):
             v = round(bucket[k] / total * 100, 1)
             s = ""
 
-        label = f"{s}{v}%"
+        label = f"{s}{abs(v)}%"
         ax.text(
             rect.get_x() + rect.get_width() / 2, height + 5, label, ha="center", va="bottom"
         )
