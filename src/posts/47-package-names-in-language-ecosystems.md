@@ -1,6 +1,6 @@
 ---
 title: Do programmers alliterate package names with the programming language?
-tags: analysis
+tags: analysis, python, julia, rust
 keywords: python, julia, rust, R
 summary: I was curious how package names were chosen in various language ecosystems.
 date: 2022-07-29T01:47:12-0600
