@@ -182,7 +182,7 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 
 ![](./images/r-package-names.png){ .fullwidth }
 
-In R, the difference is +6% for the letter "r". This by far the biggest difference we've seen.
+In R, the difference is +6% for the letter "r". This is the biggest difference we've seen so far.
 
 ## Conclusion
 
