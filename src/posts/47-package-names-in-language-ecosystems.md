@@ -135,6 +135,8 @@ plt.savefig("./images/julia-package-names.png", dpi=300, transparent=True);
 
 ## Rust
 
+<https://crates.io> conveniently has a [data-access](https://crates.io/data-access) page that links to the latest dump which contains a `csv` file with the names of all the packages.
+
 ```python
 import pandas as pd
 packages = set(pd.read_csv("~/Downloads/2022-07-29-020018/data/crates.csv")["name"].dropna())
@@ -149,6 +151,8 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ![](./images/rust-package-names.png)
 
 ## R
+
+For R, similar to Python, we can parse the HTML from <https://cran.r-project.org/web/packages/available_packages_by_name.html>:
 
 ```python
 import requests
@@ -171,5 +175,5 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 
 ## Conclusion
 
-In all these cases, the number of packages are higher, but not by a whole lot.
-It would be nice to test this assumption on C, C++, Go.
+In all these cases, the number of packages are higher whose name starts with the same letter as the name of the programming language is higher.
+It would be nice to test this assumption on C, C++, and Go, but these languages, as far as I can tell, don't have central registries.
