@@ -80,7 +80,7 @@ def frequency_plot(items, lang, kind="packages"):
 
 For a reference case, let's plot the distribution of words in the English language, per the list in `/usr/share/dict/words` on my MacOS 12.5.
 
-```python
+```{.python .collapse}
 with open("/usr/share/dict/words") as f:
     words = set(f.read().split())
 
