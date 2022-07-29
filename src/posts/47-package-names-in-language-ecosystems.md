@@ -1,15 +1,14 @@
 ---
 title: Do developers alliterate package and language names?
 tags: analysis
-keywords: python, julia, rust
+keywords: python, julia, rust, R
 summary: I was curious how package names were chosen in various language ecosystems.
 date: 2022-07-29T01:47:12-0600
 ---
 
-I'm interested in understanding if there was a trend in choosing package names in various programming ecosystems.
-Specifically, I wanted to know if package authors choose package names that are alliterated with the name of the programming language.
-
-We can "bucket" the package names by their starting letter and count the number of packages in each bucket, also known as a frequency plot.
+Is there a trend in choosing package names in various programming ecosystems?
+Do package authors choose names for their packages that are alliterated with the name of the programming language?
+Let's venture to find out.
 
 First let's install a couple of useful packages.
 
@@ -17,6 +16,7 @@ First let's install a couple of useful packages.
 python -m pip install requests beautifulsoup4 pandas matplotlib
 ```
 
+We can "bucket" the package names by their starting letter and count the number of packages in each bucket, i.e. a frequency plot.
 The following is the code I'm using:
 
 ```{.python .collapse}
@@ -56,7 +56,7 @@ def frequency_plot(items, lang, kind="packages"):
 
 ## English
 
-For a reference case, let's plot the distribution of words in the English, per the list in `/usr/share/dict/words` on my MacOS 12.5.
+For a reference case, let's plot the distribution of words in the English language, per the list in `/usr/share/dict/words` on my MacOS 12.5.
 
 ```python
 with open("/usr/share/dict/words") as f:
@@ -125,3 +125,29 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ```
 
 ![](./images/rust-package-names.png)
+
+## R
+
+```python
+import requests
+r = requests.get("https://cran.r-project.org/web/packages/available_packages_by_name.html")
+text = r.text
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(text, 'html.parser')
+packages = set()
+for link in soup.find_all("a", href=True):
+    packages.add(link.contents[0])
+
+frequency_plot(packages, "R")
+```
+
+```{.python .hide}
+plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
+```
+
+![](./images/r-package-names.png)
+
+## Conclusion
+
+In all these cases, the number of packages are higher, but not by a whole lot.
+It would be nice to test this assumption on C, C++, Go.
