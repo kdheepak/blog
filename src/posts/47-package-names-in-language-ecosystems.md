@@ -159,7 +159,7 @@ plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 
 ![](./images/rust-package-names.png){ .fullwidth }
 
-In Rust, the difference is +3.9%, and it is the highest difference amongst all the letters.
+In Rust, the difference is +3.9%, and it is the highest positive difference amongst all the letters.
 
 ## R
 
