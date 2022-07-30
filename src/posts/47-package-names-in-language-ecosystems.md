@@ -7,7 +7,7 @@ date: 2022-07-29T01:47:12-0600
 ---
 
 Are there trends in choosing package names in various programming ecosystems?
-Do package authors choose names for their packages that are alliterated with the name of the programming language?
+Do package authors choose names for their packages that are [alliterated](https://en.wikipedia.org/wiki/Alliteration) with the name of the programming language?
 Let's venture to find out.
 
 First let's install a couple of useful packages.
