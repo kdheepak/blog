@@ -1,5 +1,5 @@
 ---
-title: Programmers preferences for package names
+title: Programmers' preferences for package names
 tags: analysis, python, julia, rust
 keywords: python, julia, rust, R
 summary: I was curious how package names were chosen in various language ecosystems.
