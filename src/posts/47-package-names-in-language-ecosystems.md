@@ -98,10 +98,10 @@ For Python, we can get the list of packages on PyPi using <https://pypi.org/simp
 
 ```{.python .collapse}
 import requests
-r = requests.get("https://pypi.org/simple")
-text = r.text
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(text, 'html.parser')
+
+r = requests.get("https://pypi.org/simple")
+soup = BeautifulSoup(r.text, 'html.parser')
 packages = set()
 for link in soup.find_all("a", href=True):
     packages.add(link.contents[0])
@@ -167,10 +167,10 @@ For R, similar to Python, we can parse the HTML from <https://cran.r-project.org
 
 ```{.python .collapse}
 import requests
-r = requests.get("https://cran.r-project.org/web/packages/available_packages_by_name.html")
-text = r.text
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(text, 'html.parser')
+
+r = requests.get("https://cran.r-project.org/web/packages/available_packages_by_name.html")
+soup = BeautifulSoup(r.text, 'html.parser')
 packages = set()
 for link in soup.find_all("a", href=True):
     packages.add(link.contents[0])
