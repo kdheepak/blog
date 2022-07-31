@@ -186,6 +186,30 @@ plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 
 In R, the difference is +6% for the letter "r". This is the biggest difference we've seen so far.
 
+## NPM
+
+For NPM packages, <https://replicate.npmjs.com/_all_docs> contains a 228 MB `json` that contains all the packages.
+
+```{.python .collapse}
+import json
+import os
+with open(os.path.expanduser("~/Downloads/_all_docs")) as f:
+    data = json.loads(f.read())
+
+packages = set()
+for elem in data["rows"]:
+    assert(elem["id"] == elem["key"])
+    packages.add(elem["id"].split("/")[-1])
+
+frequency_plot(packages, "NPM")
+```
+
+```{.python .hide}
+plt.savefig("./images/npm-package-names.png", dpi=300, transparent=True);
+```
+
+![](./images/npm-package-names.png){ .fullwidth }
+
 ## Conclusion
 
 In all these cases, there is a greater percentage of packages whose name starts with the same letter as the name of the programming language compared to the average distribution of words in the English language.
