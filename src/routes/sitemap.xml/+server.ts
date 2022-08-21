@@ -22,7 +22,7 @@ function xml(posts) {
   </urlset>`;
 }
 
-export function get() {
+export function GET() {
   const posts = getPostsMetadata("src/posts");
   const headers = {
     "Cache-Control": "max-age=0, s-maxage=3600",

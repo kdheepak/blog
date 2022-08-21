@@ -1,24 +1,28 @@
 <script context="module">
-  import { base } from "$app/paths";
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  const allPosts = import.meta.glob("/src/posts/*.md");
+  // import { base } from "$app/paths";
 
-  export async function load({ params, fetch }) {
-    const url = `/${params.slug}.json`;
-    const res = await fetch(url);
-    if (res.ok) {
-      const { metadata } = await res.json();
-      const component = (await allPosts[`/${metadata.path}`]()).default;
-      return { props: { component, metadata } };
-    }
-    return {
-      status: 404,
-      error: new Error(`Could not load ${url}`),
-    };
-  }
+  // const allPosts = import.meta.glob("/src/posts/*.md");
+
+  // export async function load({ params, fetch }) {
+  //   const url = `/${params.slug}.json`;
+  //   const res = await fetch(url);
+  //   if (res.ok) {
+  //     const { metadata } = await res.json();
+  //     const component = (await allPosts[`/${metadata.path}`]()).default;
+  //     return { props: { component, metadata } };
+  //   }
+  //   return {
+  //     status: 404,
+  //     error: new Error(`Could not load ${url}`),
+  //   };
+  // }
 </script>
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";

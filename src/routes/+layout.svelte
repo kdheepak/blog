@@ -1,34 +1,11 @@
-<script context="module">
-  import { base } from "$app/paths";
+<script>
   import { page } from "$app/stores";
-  import { browser } from "$app/env";
-  import { onMount } from "svelte";
-
-  import "../../static/css/app.css";
-  import "../../static/css/latex.css";
-  import "../../static/css/pandoc.css";
-  import "../../static/css/tufte-extra.css";
-  import "../../static/css/tufte.css";
-  import "../../static/css/stork.css";
 
   import DiGithubBadge from "svelte-icons/di/DiGithubBadge.svelte";
   import FaRssSquare from "svelte-icons/fa/FaRssSquare.svelte";
-  import FaHeart from "svelte-icons/fa/FaHeart.svelte";
 
   import { SvelteToast, toast } from "@zerodevx/svelte-toast";
 
-  export async function load({ fetch }) {
-    try {
-      await fetch("/rss.xml");
-      await fetch("/sitemap.xml");
-      return { status: 200 };
-    } catch (error) {
-      console.error(error);
-    }
-  }
-</script>
-
-<script>
   function isTagUrl(url) {
     if (!url.startsWith("/tags")) {
       return false;

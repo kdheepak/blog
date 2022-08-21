@@ -1,3 +1,10 @@
+import { base } from "$app/paths";
+import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
+import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
+import FaTags from "svelte-icons/fa/FaTags.svelte";
+import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
+import Search from "$lib/components/Search.svelte";
+
 import fs from "fs";
 import matter from "gray-matter";
 import path from "path";
@@ -62,7 +69,7 @@ async function fromDir(startPath, filter) {
     .reverse();
 }
 
-export async function get() {
+export async function load() {
   const posts = await fromDir("src/posts/", ".md");
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
   const humanDate = new Date().toLocaleDateString(undefined, options);
@@ -74,6 +81,9 @@ export async function get() {
     .stdout.toString();
   const source = `https://github.com/kdheepak/blog/tree/${commit}`;
   return {
-    body: { tags, humanDate, source, posts },
+    tags,
+    humanDate,
+    source,
+    posts,
   };
 }
