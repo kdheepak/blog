@@ -591,7 +591,6 @@ const config = {
       default: true,
       concurrency: 8,
       crawl: true,
-      entries: getPages(),
     },
   },
 };
