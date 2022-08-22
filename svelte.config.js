@@ -542,15 +542,6 @@ function debugPreprocess(message) {
   };
 }
 
-function getPages() {
-  let pages = ["*"];
-  const { slugs } = fromDir("src/posts/", ".md");
-  for (const p of slugs) {
-    pages.push(`/${p}`);
-  }
-  return pages;
-}
-
 function buildSearchIndex() {
   let config = `
 [input]
