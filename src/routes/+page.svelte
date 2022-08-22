@@ -29,6 +29,7 @@
   <meta name="twitter:description" content="My thoughts and notes" />
   <meta name="author" content="Dheepak Krishnamurthy" />
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/rss.xml" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
   {#each tags as tag}
     <link
       rel="alternate"
