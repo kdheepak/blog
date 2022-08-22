@@ -36,11 +36,8 @@ function xml(posts) {
 export function GET() {
   const posts = getPostsMetadata("src/posts");
   const headers = {
-    "Cache-Control": "max-age=0, s-maxage=3600",
-    "Content-Type": "application/xml",
+    "cache-control": "max-age=0, s-maxage=3600",
+    "content-type": "application/xml; charset=utf-8",
   };
-  return {
-    headers,
-    body: xml(posts),
-  };
+  return new Response(xml(posts), { headers });
 }
