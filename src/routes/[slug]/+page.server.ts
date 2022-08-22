@@ -58,15 +58,16 @@ const formatDate = (dateString) => {
   return new Date(dateString || new Date()).toLocaleDateString(undefined, options);
 };
 
-export async function GET({ params }) {
+/** @type {import('./$types').PageServerLoad} */
+export async function load({ params }) {
   const { slug } = params;
   const slugs = await fromDir("src/posts/", ".md");
   const s = slug.replace(path.parse(slug).ext, "");
   if (slugs[s] !== undefined) {
     const { metadata } = slugs[s];
     metadata.humanDate = formatDate(metadata.date);
-    return new Response(JSON.stringify({
-      metadata
-    }));
+    return {
+      metadata,
+    };
   }
 }
