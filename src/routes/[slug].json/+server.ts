@@ -65,8 +65,8 @@ export async function GET({ params }) {
   if (slugs[s] !== undefined) {
     const { metadata } = slugs[s];
     metadata.humanDate = formatDate(metadata.date);
-    return {
-      body: { metadata },
-    };
+    return new Response(JSON.stringify({
+      metadata
+    }));
   }
 }

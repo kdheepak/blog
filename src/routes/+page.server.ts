@@ -58,6 +58,7 @@ async function fromDir(startPath, filter) {
       }
       if (metadata.date) {
         metadata.humanDate = formatDate(metadata.date);
+        metadata.date = formatDate(metadata.date);
         posts.push(metadata);
       }
     }
