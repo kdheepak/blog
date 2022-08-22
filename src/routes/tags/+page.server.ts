@@ -56,12 +56,12 @@ async function fromDir(startPath, filter) {
     .reverse();
 }
 
-export async function GET() {
+export async function load() {
   const posts = await fromDir("src/posts/", ".md");
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
   const humanDate = new Date().toLocaleDateString(undefined, options);
   let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))];
   tags.sort();
   tags = tags.filter((tag) => tag !== undefined && tag !== "");
-  return new Response(JSON.stringify({ tags, humanDate, posts }));
+  return { tags, humanDate, posts };
 }

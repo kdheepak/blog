@@ -56,7 +56,7 @@ async function fromDir(startPath, filter) {
     .reverse();
 }
 
-export async function GET({ params }) {
+export async function load({ params }) {
   const tag = params.tag;
 
   let posts = await fromDir("src/posts/", ".md");
@@ -73,6 +73,9 @@ export async function GET({ params }) {
   );
 
   return {
-    body: { tag, tags, humanDate, posts },
+    tag,
+    tags,
+    humanDate,
+    posts,
   };
 }

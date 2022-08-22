@@ -1,15 +1,14 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import { base } from "$app/paths";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import { onMount } from "svelte";
-  export let posts = [];
-  export let tags = [];
-  export let tag = "";
-  export let humanDate;
+
+  export let data;
+  let { posts, tags, tag, humanDate } = data;
+  $: ({ posts, tags, tag, humanDate } = data);
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
     return new Date(dateString).toLocaleDateString(undefined, options);

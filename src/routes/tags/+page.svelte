@@ -6,9 +6,8 @@
   import { onMount } from "svelte";
   export let data;
 
-  let { humanDate } = data;
-  let posts = [];
-  let tags = [];
+  let { posts, tags, humanDate } = data;
+  $: ({ posts, tags, humanDate } = data);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
