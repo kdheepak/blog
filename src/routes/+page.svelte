@@ -123,10 +123,6 @@
     padding-top: 0.4rem;
   }
 
-  .font-normal {
-    font-style: normal;
-  }
-
   .subtitle {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
