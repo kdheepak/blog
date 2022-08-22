@@ -4,9 +4,10 @@
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import { onMount } from "svelte";
-  export let posts = [];
-  export let tags = [];
-  export let humanDate;
+  export let data;
+
+  let { posts, tags, humanDate } = data;
+  $: ({ posts, tags, humanDate } = data);
 
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };

@@ -4,10 +4,11 @@
   import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import { onMount } from "svelte";
-  export let posts = [];
-  export let tags = [];
-  export let tag = "";
-  export let humanDate;
+
+  export let data;
+  let { posts, tags, tag, humanDate } = data;
+  $: ({ posts, tags, tag, humanDate } = data);
+
   const formatDate = (dateString) => {
     const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
     return new Date(dateString).toLocaleDateString(undefined, options);

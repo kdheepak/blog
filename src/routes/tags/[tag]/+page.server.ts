@@ -56,15 +56,26 @@ async function fromDir(startPath, filter) {
     .reverse();
 }
 
-export async function get() {
-  const posts = await fromDir("src/posts/", ".md");
+export async function load({ params }) {
+  const tag = params.tag;
+
+  let posts = await fromDir("src/posts/", ".md");
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
   const humanDate = new Date().toLocaleDateString(undefined, options);
   let tags = [...new Set(posts.flatMap((metadata) => metadata.htmltags))];
   tags.sort();
   tags = tags.filter((tag) => tag !== undefined && tag !== "");
+  posts = posts.filter((post) =>
+    post.tags
+      ?.split(",")
+      .map((s) => s.trim().toLowerCase())
+      .includes(tag.toLowerCase()),
+  );
 
   return {
-    body: { tags, humanDate, posts },
+    tag,
+    tags,
+    humanDate,
+    posts,
   };
 }

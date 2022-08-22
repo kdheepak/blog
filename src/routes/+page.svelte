@@ -1,17 +1,17 @@
-<script context="module">
+<script>
   import { base } from "$app/paths";
   import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
   import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
   import Search from "$lib/components/Search.svelte";
-</script>
 
-<script>
-  export let posts = [];
-  export let tags = [];
-  export let humanDate;
-  export let source;
+  /** @type {import('./$types').PageData} */
+  export let data;
+  let posts = [];
+  let tags = [];
+  let { humanDate, source } = data;
+  $: ({ posts, tags, humanDate, source } = data);
 </script>
 
 <svelte:head>
