@@ -22,8 +22,8 @@ function xml(posts) {
   </urlset>`;
 }
 
-export function GET() {
-  const posts = getPostsMetadata("src/posts");
+export async function GET() {
+  const { posts } = await getPostsMetadata("src/posts");
   const headers = {
     "cache-control": "max-age=0, s-maxage=3600",
     "content-type": "application/xml; charset=utf-8",
