@@ -112,13 +112,6 @@
     }
   }
 
-  .search {
-    width: 33.33333%;
-    margin-top: 4rem;
-    margin-bottom: 1.4rem;
-    padding-top: 0.4rem;
-  }
-
   .subtitle {
     margin-top: 1.4rem;
     margin-bottom: 1.4rem;
