@@ -481,52 +481,6 @@ function pandocRemarkPreprocess() {
   };
 }
 
-function fromDir(startPath, filter) {
-  const slugs = [];
-  let tags = [];
-  var files = fs.readdirSync(startPath);
-  const metadatas = [];
-  for (var i = 0; i < files.length; i++) {
-    var filename = path.join(startPath, files[i]);
-    var stat = fs.lstatSync(filename);
-    if (stat.isDirectory()) {
-      continue;
-    } else if (filename.indexOf(filter) >= 0) {
-      const doc = fs.readFileSync(filename, "utf8");
-      const { data: metadata } = matter(doc);
-      metadata.path = filename;
-      metadata.htmltags = metadata.tags === undefined ? "" : metadata.tags;
-      metadata.htmltags = metadata.htmltags
-        .split(",")
-        .map((s) => s.trim().toLowerCase())
-        .filter((s) => s !== undefined || s !== "");
-      for (const tag of metadata.htmltags
-        .map((s) => s.trim().toLowerCase())
-        .filter((s) => s !== undefined && s !== "")) {
-        tags.push(tag);
-      }
-      if (metadata.slug) {
-        slugs.push(metadata.slug);
-      } else {
-        metadata.slug = metadata.title
-          .toString()
-          .toLowerCase()
-          .replace(/<code>/, "")
-          .replace(/<\/code>/g, "")
-          .replace(/[^\w ]+/g, "")
-          .replace(/ +/g, "-");
-        slugs.push(metadata.slug);
-      }
-      metadatas.push(metadata);
-    }
-  }
-  tags = [...new Set(tags)];
-  tags.sort();
-  tags = tags.filter((tag) => tag !== undefined && tag !== "");
-
-  return { slugs, tags, metadatas };
-}
-
 function debugPreprocess(message) {
   return {
     markup: async ({ content }) => {
@@ -541,28 +495,6 @@ function debugPreprocess(message) {
     },
   };
 }
-
-function buildSearchIndex() {
-  let config = `
-[input]
-base_directory = "."
-url_prefix = "https://blog.kdheepak.com/"
-files = [\n`;
-
-  const { metadatas } = fromDir("src/posts/", ".md");
-  for (const metadata of metadatas) {
-    config +=
-      ` { path = "${metadata.path}",` +
-      ` filetype = "Markdown",` +
-      ` url = "${metadata.slug}",` +
-      ` title = "${metadata.title}" },\n`;
-  }
-
-  config += `\n]\n`;
-  fs.writeFileSync(path.join(process.cwd(), "static", "assets", "stork", "search.toml"), config);
-}
-
-buildSearchIndex();
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

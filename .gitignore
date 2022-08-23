@@ -9,4 +9,3 @@ node_modules
 !.env.example
 src/posts/rendered
 __pypackages__
-static/assets/stork/search.toml

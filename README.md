@@ -8,7 +8,6 @@
 npm install
 pdm install
 cargo install svgbob_cli
-cargo install stork-search --locked
 ```
 
 Other requirements:
