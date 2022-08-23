@@ -1,7 +1,3 @@
-import fs from "fs";
-import matter from "gray-matter";
-import path from "path";
-import child_process from "child_process";
 import { getPostsMetadata } from "$lib/posts";
 
 export async function load() {
