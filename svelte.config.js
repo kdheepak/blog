@@ -18,6 +18,8 @@ import { findAndReplace } from "hast-util-find-and-replace";
 
 import { getHighlighter, BUNDLED_LANGUAGES } from "shiki";
 
+import { getPostsMetadata } from "./src/lib/posts.js";
+
 function addCopyToClipboard() {
   return function transformer(tree) {
     visit(tree, "element", function (node) {
@@ -496,6 +498,15 @@ function debugPreprocess(message) {
   };
 }
 
+function getPages() {
+  let pages = ["*"];
+  const { metadatas } = getPostsMetadata("src/posts");
+  for (const data of Object.values(metadatas)) {
+    pages.push(`/${data.metadata.slug}`);
+  }
+  return pages;
+}
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   extensions: [".svelte", ".md"],
@@ -514,6 +525,7 @@ const config = {
       default: true,
       concurrency: 8,
       crawl: true,
+      entries: getPages(),
     },
   },
 };

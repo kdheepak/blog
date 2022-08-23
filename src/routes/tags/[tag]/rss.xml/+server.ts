@@ -36,9 +36,9 @@ function xml(posts, tag) {
 </rss>`;
 }
 
-export async function GET({ params }) {
+export function GET({ params }) {
   const { tag } = params;
-  const { posts } = await getPostsMetadata("src/posts");
+  const { posts } = getPostsMetadata("src/posts");
   const headers = {
     "cache-control": "max-age=0, s-maxage=3600",
     "content-type": "application/xml; charset=utf-8",

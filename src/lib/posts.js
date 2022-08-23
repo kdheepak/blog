@@ -4,7 +4,7 @@ import path from "path";
 import { encode } from "html-entities";
 import child_process from "child_process";
 
-export function formatDate(dateString: string) {
+export function formatDate(dateString) {
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
   return new Date(dateString).toLocaleDateString(undefined, options);
 }
@@ -16,7 +16,7 @@ export function readingTime(post, metadata) {
   metadata.readingTime = Math.ceil(wordCount / WORDS_PER_MINUTE);
 }
 
-export async function getPostsMetadata(startPath: string, filter = ".md") {
+export function getPostsMetadata(startPath, filter = ".md") {
   let posts = [];
   let metadatas = {};
   let tags = [];
@@ -27,7 +27,7 @@ export async function getPostsMetadata(startPath: string, filter = ".md") {
     if (stat.isDirectory()) {
       continue;
     } else if (filename.indexOf(filter) >= 0) {
-      const doc = await fs.promises.readFile(filename, "utf8");
+      const doc = fs.readFileSync(filename, "utf8");
       const { data: metadata, content } = matter(doc);
       const commit = child_process
         .spawnSync("git", ["log", "-n", "1", "--pretty=format:%H", "--", `${filename}`])
@@ -37,8 +37,8 @@ export async function getPostsMetadata(startPath: string, filter = ".md") {
       metadata.htmltags = metadata.tags === undefined ? "" : metadata.tags;
       metadata.htmltags = metadata.htmltags
         .split(",")
-        .map((s: string) => s.trim().toLowerCase())
-        .filter((s: string) => s !== undefined || s !== "");
+        .map((s) => s.trim().toLowerCase())
+        .filter((s) => s !== undefined || s !== "");
       if (!metadata.slug) {
         metadata.slug = metadata.title
           .toString()
@@ -49,6 +49,7 @@ export async function getPostsMetadata(startPath: string, filter = ".md") {
           .replace(/ +/g, "-");
       }
       metadata.slug = encode(metadata.slug);
+      metadata.path = filename;
       if (metadata.date) {
         metadata.humanDate = formatDate(metadata.date);
         metadata.date = formatDate(metadata.date);
