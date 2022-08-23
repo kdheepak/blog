@@ -1,10 +1,3 @@
-import { base } from "$app/paths";
-import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
-import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
-import FaTags from "svelte-icons/fa/FaTags.svelte";
-import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
-import Search from "$lib/components/Search.svelte";
-
 import child_process from "child_process";
 
 import { getPostsMetadata } from "$lib/posts";

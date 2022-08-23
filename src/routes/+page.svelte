@@ -1,10 +1,8 @@
 <script>
   import { base } from "$app/paths";
   import FaRegCalendarAlt from "svelte-icons/fa/FaRegCalendarAlt.svelte";
-  import FaGlasses from "svelte-icons/fa/FaGlasses.svelte";
   import FaTags from "svelte-icons/fa/FaTags.svelte";
   import DarkModeToggle from "$lib/components/DarkModeToggle.svelte";
-  import Search from "$lib/components/Search.svelte";
 
   /** @type {import('./$types').PageData} */
   export let data;
@@ -48,9 +46,6 @@
           <a href="https://kdheepak.com">~</a> / blog
         </span>
       </h1>
-      <div class="search">
-        <Search />
-      </div>
     </div>
     <div class="flex items-center main-subtitle">
       <div class="subtitle sourceurl">
