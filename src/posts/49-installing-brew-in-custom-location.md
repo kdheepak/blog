@@ -10,9 +10,13 @@ See [https://gist.github.com/pudquick/29bc95b6c49703992981864e48f8e341](https://
 
 1. Install homebrew in `~/.local/homebrew`.
 
-```
-cd ~/.local/
-mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
-```
+   ```bash
+   cd ~/.local/
+   mkdir homebrew && curl -L https://github.com/Homebrew/brew/tarball/master | tar xz --strip 1 -C homebrew
+   ```
 
-2. Add the following to PATH `alias brew=~/.local/homebrew/bin/brew`
+2. Add the following to `PATH`:
+
+   ```bash
+   alias brew=~/.local/homebrew/bin/brew
+   ```
