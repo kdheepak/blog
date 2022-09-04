@@ -144,7 +144,7 @@ div.sourceCode,
 pre:not(.sourceCode) {
   padding: 1.4rem;
   margin: 1rem -1.4rem;
-  width: 80%;
+  width: 80% !important;
   font-size: 0.9rem;
   overflow-x: auto;
 }
