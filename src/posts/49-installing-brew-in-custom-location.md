@@ -1,5 +1,5 @@
 ---
-title: Installing `homebrew` in alternative location
+title: Installing `homebrew` in an alternative location
 tags: osx
 keywords: homebrew, alternative, install, osx
 summary: Install `homebrew` in an alternative location to avoid globally available homebrew executables and libraries
