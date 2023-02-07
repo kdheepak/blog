@@ -9,3 +9,5 @@ node_modules
 !.env.example
 src/posts/rendered
 __pypackages__
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
