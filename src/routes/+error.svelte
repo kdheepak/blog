@@ -1,7 +1,8 @@
 <script>
+  export const prerender = true
   import { page } from "$app/stores";
   import { base } from "$app/paths";
-  import { dev } from "$app/env";
+  import { dev } from "$app/environment";
 </script>
 
 <svelte:head>
