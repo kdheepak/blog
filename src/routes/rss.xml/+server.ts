@@ -41,3 +41,4 @@ export function GET() {
   };
   return new Response(xml(posts), { headers });
 }
+export const prerender = true;

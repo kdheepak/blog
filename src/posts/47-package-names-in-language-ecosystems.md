@@ -90,7 +90,7 @@ frequency_plot(words, "/usr/share/dict/words", kind="words")
 plt.savefig("./images/word-names.png", dpi=300, transparent=True);
 ```
 
-![](./images/word-names.png){ .fullwidth }
+![](images/word-names.png){ .fullwidth }
 
 ## Python
 
@@ -113,7 +113,7 @@ frequency_plot(packages, "Python")
 plt.savefig("./images/python-package-names.png", dpi=300, transparent=True);
 ```
 
-![](./images/python-package-names.png){ .fullwidth }
+![](images/python-package-names.png){ .fullwidth }
 
 The difference in percent of names of Python packages starting with "p" and words in the English language starting with "p" is +3.5%.
 The largest positive difference however is with the letter "d", with "+4.2%".
@@ -138,7 +138,7 @@ frequency_plot(packages, "Julia")
 plt.savefig("./images/julia-package-names.png", dpi=300, transparent=True);
 ```
 
-![](./images/julia-package-names.png){ .fullwidth }
+![](images/julia-package-names.png){ .fullwidth }
 
 The difference in percent of names of Julia packages starting with "j" and words in the English language starting with "j" is +0.8%.
 
@@ -157,7 +157,7 @@ frequency_plot(packages, "Rust")
 plt.savefig("./images/rust-package-names.png", dpi=300, transparent=True);
 ```
 
-![](./images/rust-package-names.png){ .fullwidth }
+![](images/rust-package-names.png){ .fullwidth }
 
 In Rust, the difference is +3.9%, and it is the highest positive difference amongst all the letters.
 
@@ -182,7 +182,7 @@ frequency_plot(packages, "R")
 plt.savefig("./images/r-package-names.png", transparent=True, dpi=300)
 ```
 
-![](./images/r-package-names.png){ .fullwidth }
+![](images/r-package-names.png){ .fullwidth }
 
 In R, the difference is +6% for the letter "r". This is the biggest difference we've seen so far.
 
@@ -208,7 +208,7 @@ frequency_plot(packages, "NPM")
 plt.savefig("./images/npm-package-names.png", dpi=300, transparent=True);
 ```
 
-![](./images/npm-package-names.png){ .fullwidth }
+![](images/npm-package-names.png){ .fullwidth }
 
 ## Conclusion
 

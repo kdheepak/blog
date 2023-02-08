@@ -1,6 +1,6 @@
 <script lang="ts">
   import { base } from "$app/paths";
-  import { browser } from "$app/env";
+  import { browser } from "$app/environment";
   import { goto } from "$app/navigation";
   if (browser) {
     if (window.location.href.endsWith("/")) {

@@ -1,8 +1,7 @@
 import { sveltekit } from "@sveltejs/kit/vite";
-import { searchForWorkspaceRoot } from "vite";
+import { searchForWorkspaceRoot, defineConfig } from "vite";
 
-/** @type {import('vite').UserConfig} */
-const config = {
+export default defineConfig({
   plugins: [sveltekit()],
   server: {
     fs: {
@@ -12,6 +11,4 @@ const config = {
       ],
     },
   },
-};
-
-export default config;
+});
