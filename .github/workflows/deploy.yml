@@ -66,6 +66,10 @@ jobs:
       - name: PDM install
         run: |
           pdm install
+      - name: Setup static folder
+        run: |
+          cp -r src/posts/videos static/videos
+          cp -r src/posts/images static/images
       - name: Build
         run: |
           pdm run npm run build

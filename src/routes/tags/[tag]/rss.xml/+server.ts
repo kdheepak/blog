@@ -45,3 +45,4 @@ export function GET({ params }) {
   };
   return new Response(xml(posts, tag), { headers });
 }
+export const prerender = true;

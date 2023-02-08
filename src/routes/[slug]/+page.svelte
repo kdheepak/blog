@@ -91,7 +91,6 @@
       href="/tags/{tag}/rss.xml"
     />
   {/each}
-
   {@html jsonLd()}
 </svelte:head>
 
@@ -144,7 +143,7 @@
   </header>
 
   <section>
-    <svelte:component this={component} />
+    {@html component}
   </section>
 
   <section>
