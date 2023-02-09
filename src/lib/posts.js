@@ -28,7 +28,7 @@ export function readingTime(post, metadata) {
   metadata.readingTime = Math.ceil(wordCount / WORDS_PER_MINUTE);
 }
 
-export function getPostsMetadata(startPath, filter = ".md") {
+export function getPostsMetadata(startPath, filter = ".md", ignore_drafts = false) {
   let posts = [];
   let metadatas = {};
   let tags = [];
@@ -41,6 +41,9 @@ export function getPostsMetadata(startPath, filter = ".md") {
     } else if (filename.indexOf(filter) >= 0) {
       const doc = fs.readFileSync(filename, "utf8");
       const { data: metadata, content } = matter(doc);
+      if (ignore_drafts && metadata.draft) {
+        continue
+      }
       const commit = child_process
         .spawnSync("git", ["log", "-n", "1", "--pretty=format:%H", "--", `${filename}`])
         .stdout.toString();
@@ -349,8 +352,8 @@ function rehypePrettyCode(options = {}) {
   const {
     theme,
     tokensMap = {},
-    onVisitLine = () => {},
-    onVisitHighlightedLine = () => {},
+    onVisitLine = () => { },
+    onVisitHighlightedLine = () => { },
     getHighlighter = getHighlighter,
   } = options;
 

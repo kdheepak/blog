@@ -69,7 +69,7 @@ pre > code {
 div.sourceCode,
 pre:not(.sourceCode) {
   padding: 1.4rem;
-  margin: -0.7rem -1.4rem;
+  margin: 0rem -1.4rem;
   width: 55%;
   overflow-x: auto;
 }
@@ -83,7 +83,7 @@ pre:not(.sourceCode) {
   div.sourceCode,
   pre:not(.sourceCode) {
     padding: 1.4rem 8vw;
-    margin: -0.7rem -8vw;
+    margin: 0rem -8vw;
     width: 100%;
   }
 

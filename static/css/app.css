@@ -116,26 +116,11 @@ mjx-container {
   text-align: start !important;
 }
 
-section > ol > li > .copyCodeContainer {
-  width: 150%;
-}
-
-section > ol > li > div > .copyCodeContainer {
-  width: 150%;
-}
-
-section > dl > li > .copyCodeContainer {
-  width: 150%;
-}
-
-section > dl > li > div > .copyCodeContainer {
-  width: 150%;
-}
-
-section > ul > li > .copyCodeContainer {
-  width: 150%;
-}
-
+section > ol > li > .copyCodeContainer,
+section > ol > li > div > .copyCodeContainer,
+section > dl > li > .copyCodeContainer,
+section > dl > li > div > .copyCodeContainer,
+section > ul > li > .copyCodeContainer,
 section > ul > li > div > .copyCodeContainer {
   width: 150%;
 }
@@ -166,14 +151,23 @@ pre:not(.sourceCode) code {
 @media (max-width: 760px) {
   div.sourceCode,
   pre:not(.sourceCode) {
-    width: 100%;
+    width: 100% !important;
+  }
+
+  section > ol > li > .copyCodeContainer,
+  section > ol > li > div > .copyCodeContainer,
+  section > dl > li > .copyCodeContainer,
+  section > dl > li > div > .copyCodeContainer,
+  section > ul > li > .copyCodeContainer,
+  section > ul > li > div > .copyCodeContainer {
+    width: 95%;
   }
 
   section > ul > li > div.code-toolbar,
   section > ul > li > pre:not(.code-toolbar),
   section > ol > li > div.code-toolbar,
   section > ol > li > pre:not(.code-toolbar) {
-    width: 100%;
+    width: 65%;
   }
 }
 
@@ -221,22 +215,22 @@ body {
 }
 
 body.dark {
-  --text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515,
-    0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515,
-    -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
   --text-color: #ddd;
   --text-color-dull: #777;
   --bkg-color: #151515;
   --bkg-hover: #303030;
   --code-bkg-color: #2d2d2d;
+  --text-shadow: 0.03em 0 #151515, -0.03em 0 #151515, 0 0.03em #151515, 0 -0.03em #151515,
+    0.06em 0 #151515, -0.06em 0 #151515, 0.09em 0 #151515, -0.09em 0 #151515, 0.12em 0 #151515,
+    -0.12em 0 #151515, 0.15em 0 #151515, -0.15em 0 #151515;
 }
 
 [data-rehype-pretty-code-fragment=""] > div > pre {
-  background-color: var(--bkg-color);
+  background-color: var(--code-bkg-color);
 }
 
 pre {
-  background-color: var(--code-bkg-color);
+  background-color: var(--bkg-color);
 }
 
 .copyCode.hidden {
@@ -317,7 +311,7 @@ section > p:first-child::first-letter {
 }
 
 p > svg {
-  background-color: var(--code-bkg-color);
+  background-color: var(--bkg-color);
   color-scheme: light dark;
 }
 
@@ -426,7 +420,7 @@ mjx-container {
   display: none;
   position: absolute;
   top: 0;
-  left: 79%;
+  left: 78.25%;
   width: 28px;
   height: 28px;
   cursor: pointer;
@@ -448,6 +442,15 @@ mjx-container {
 }
 
 @media (max-width: 760px) {
+  section > ol > li > .copyCodeContainer > .copyCode,
+  section > ol > li > div > .copyCodeContainer > .copyCode,
+  section > dl > li > .copyCodeContainer > .copyCode,
+  section > dl > li > div > .copyCodeContainer > .copyCode,
+  section > ul > li > .copyCodeContainer > .copyCode,
+  section > ul > li > div > .copyCodeContainer > .copyCode {
+    left: 104.75%;
+  }
+
   .copyCode {
     left: 97%;
   }
@@ -459,11 +462,6 @@ summary {
 
 details + details {
   margin-top: 0.5rem;
-}
-
-details {
-  padding: 1.5em;
-  width: 80%;
 }
 
 details > * + * {
