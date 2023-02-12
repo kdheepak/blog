@@ -4,7 +4,7 @@ date: 2022-01-11T23:03:31-06:00
 tags: svelte, pandoc
 ---
 
-This is an example of using a svelte component when using pandoc as a preprocessor.
+This page is a test of using a svelte component when using pandoc as a preprocessor.
 
 The following is a button that is a Svelte component that increments a counter when you click on it:
 
