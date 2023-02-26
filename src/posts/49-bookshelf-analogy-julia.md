@@ -32,6 +32,20 @@ julia> x = [0.0, 0.0, 0.0, 0.0];
 
 julia> y = x;
 
+julia> x
+3-element Vector{Float64}:
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+
+julia> y
+3-element Vector{Float64}:
+ 0.0
+ 0.0
+ 0.0
+ 0.0
+
 julia> x[1] = 2.0;
 
 julia> x
