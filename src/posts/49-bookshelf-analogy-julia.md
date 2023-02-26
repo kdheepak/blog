@@ -5,19 +5,21 @@ date: 2023-02-25T21:14:15-0500
 draft: true
 ---
 
-If you are new to programming or new to Julia, it can be helpful to think of the program's memory as number of bookshelves in a library.
+It can be helpful to think of the program's memory as number of bookshelves in a library.
 
 Imagine you are at a library full of books on bookshelves, but they are all over the place and you can't find what you want.
-However, you can't interact directly with the books or bookshelves; and instead, you have to ask a smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
-And, in order for them to help you, this librarian requires you to form a contract with them which requires you to only speak in a predefined set of instructions for them to perform their functions correctly.
+Also, you can't interact directly with the books or bookshelves.
+
+Instead, you have to ask a very smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
+But in order for them to help you, you are form a pact to speak in a very specific language with certain rules and decrees.
 
 In this mental model, the librarian represents the CPU of your computer, and the Julia programming language is the language that you use to communicate with the CPU. To interact with the bookshelf (i.e., the program's memory), you use functions and variables in Julia.
 
-The books on these bookshelves happen to be numbered by the order in which they are located, giving each book a unique address.
-You can think of these addresses as the memory locations that your program has access to.
-
 Functions in Julia are like the instructions that you give to the librarian, telling them what actions you'd like to take with the books.
 And variables in Julia are the labels the librarian gives you that are associated with specific books on the bookshelf, allowing you to refer to them later on.
+
+The books on these bookshelves happen to be numbered by the order in which they are located, giving each book a unique address.
+You can think of these addresses as the memory locations that your program has access to.
 
 By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
 
