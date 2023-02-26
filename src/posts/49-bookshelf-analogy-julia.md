@@ -180,8 +180,10 @@ It's like erasing and re-writing some of the information on a page, without chan
 
 If a book is mutable, you can add or remove pages or modify existing pages, while if a book is not mutable, you cannot modify its contents and must create a new book with the desired changes.
 
+::: tip
 Remember, mutations never create new labels.
-They only modify labels that already exist.
+They only modify objects that already exist.
+:::
 
 In Julia, objects can be mutable or not.
 You can check if a object is mutable by using the `ismutable()` function:
