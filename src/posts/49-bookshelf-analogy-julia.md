@@ -14,16 +14,16 @@ To best understand any subject, I recommend using multiple different analogies t
 
 :::
 
-It can be helpful to think of the program's memory as number of bookshelves in a library.
-
 Imagine you are at a library full of books on bookshelves, but they are all over the place and you can't find what you want.
 Also, you can't interact directly with the books or bookshelves.
 
 Instead, you have to ask a very smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
 But in order for them to help you, you are form a pact to speak in a very specific language with certain rules and decrees.
 
-In this mental model, the librarian represents the Julia programming language (i.e. command line tool + LLVM compiler), and the text in the `.jl` files or the code you may enter in a REPL is the interface through which you communicate with the language.
-To interact with the bookshelf (i.e., the program's memory), the Julia language lets you use functions and variables as part of its vocabulary.
+In this mental model, you can think of the program's memory as number of bookshelves in a library.
+The librarian represents the Julia programming language (i.e. command line tool + LLVM compiler), and the text in the `.jl` files or the code you may enter in a REPL is the interface through which you communicate with the language.
+
+To interact with the bookshelf (i.e., the program's memory), the Julia language, as part of its vocabulary, provides you with functions and variables among other things.
 
 Functions in Julia are like a set of instructions that you give to the librarian, telling them what actions you'd like to take with the books.
 And variables in Julia are the labels the librarian gives you that are associated with specific books on the bookshelf, allowing you to refer to them later on.
