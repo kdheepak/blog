@@ -54,7 +54,7 @@ and label called `x` that is bound to said object.
 
 When you assign `y = x`, you are essentially asking to create new label called `y` that is also bound to the same object as the `x` label.
 
-So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the bookshelf.
+So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
 
 Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
 
