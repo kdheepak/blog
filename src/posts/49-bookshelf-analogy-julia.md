@@ -511,7 +511,17 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
 
-You can modify the values of the object inside the function, which will be reflected which you tried to view the same object from a variable that exists at the call site.
+In the analogy, passing an argument to a function is like taking a book from the shelf and giving its location address to the function.
+The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it.
+If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
+
+The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location. Anyone else holding a label that contains an association that with address of the book will be able to see the updated content.
+
+On the other hand, the function `incorrect_replace_with_zeros` is like someone taking a book from the shelf, creating a new book, and putting the new book in a different location on the shelf and leaving the old book in the same location.
+The function also doesn't return any reference to the new book.
+Therefore, the caller still has the original book and any changes made by the function are lost.
+
+You can modify the values of the object "shared" from the call site that you can access inside the function, which will be reflected which you tried to view the same object from a variable that exists at the call site.
 
 If you wanted to write a version that does this, you can do the following:
 
@@ -542,17 +552,7 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
 
-In the analogy, passing an argument to a function is like taking a book from the shelf and giving its location address to the function.
-The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it.
-If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
-
-The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location. Anyone else holding the address of the book will see the updated content.
-
-On the other hand, the function `incorrect_replace_with_zeros` is like someone taking a book from the shelf, replacing it with a new empty book, and putting it back in a different location on the shelf.
-Even though the same address was given back to the caller, the book they were holding onto is not the same as the one that was modified by the function.
-Therefore, the caller still has the original book and any changes made by the function are lost.
-
-To fix this, the function `replace_with_zeros!` modifies the same book that was passed to it, like someone taking a book from the shelf, erasing its content, and putting it back in the same location.
+The function `replace_with_zeros!` modifies the same book that was passed to it, like someone taking a book from the shelf, erasing its content, and putting it back in the same location.
 Since the location address is not changed, anyone else holding the same address will see the updated content.
 
 By convention, the `!` at the end of the function name is a convention in Julia to indicate that the function modifies its argument in place.
@@ -565,7 +565,7 @@ In Julia, you can use the `const` keyword before declaring a variable for the fi
 julia> const CONFIG = Dict()
 ```
 
-In our analogy, this is like if the librarian handed you a label that would always be bound to the same object for the life of the program.
+In our analogy, this is like if the librarian handed back a label that would always be bound to the same object for the life of the program.
 
 Trying to redefine the variable is an error:
 
