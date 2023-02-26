@@ -8,10 +8,8 @@ draft: true
 I want to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy involving books and bookshelves.
 
 ::: note
-
 Before I begin, I want to say that analogies can be useful because they allow us to understand complex concepts by comparing them to something more familiar or simpler. But also, analogies can be oversimplified, leading to incorrect or incomplete understanding of the topic.
 To best understand any subject, I recommend using multiple different analogies to bolster your confidence and then dive deeper into the subject matter to harden your intuition.
-
 :::
 
 Imagine you are at a library full of books on bookshelves, but they are all over the place and you can't find what you want.
@@ -132,7 +130,10 @@ Then the librarian would take away the old `y` label that you were holding and g
 The new object created is completely independent from the old, with its own unique address.
 Any changes made to the original object will not affect the copy and vice versa.
 
+::: tip
 Assignments in Julia always create new labels and may replace an existing label of yours.
+:::
+
 Labels you receive from the librarian may or may not point to the same location as an existing label of yours, and that is for the librarian to decide.
 
 # Mutability
