@@ -136,7 +136,7 @@ for i in eachindex(x)
 end
 ```
 
-This `.=` is called broadcasting and you can read more about it in the Julia documentation.
+This `.=` is called broadcasting and you can read more about it in the [Julia documentation](https://docs.julialang.org/en/v1/manual/arrays/#Broadcasting).
 
 Julia also supports broadcasting over a subset of elements in an array:
 
@@ -155,7 +155,7 @@ julia> x
 
 Mutation can also occur when the `obj.field`.
 
-```
+```julia
 julia> mutable struct Book
          title::String
          price::Float64
