@@ -549,6 +549,39 @@ Since the location address is not changed, anyone else holding the same address 
 
 By convention, the `!` at the end of the function name is a convention in Julia to indicate that the function modifies its argument in place.
 
+# `const` variables
+
+In Julia, you can use the `const` keyword before declaring a variable for the first time in the global scope.
+
+```julia
+julia> const CONFIG = Dict()
+```
+
+In our analogy, this is like if the librarian handed you a label that would always be bound to the same object for the life of the program.
+
+Trying to redefine the variable is an error:
+
+```julia
+julia> const CONFIG = []
+ERROR: invalid redefinition of constant CONFIG
+Stacktrace:
+ [1] top-level scope
+   @ REPL[172]:1
+```
+
+But even though the variable is `const`, the object is still mutable.
+
+```julia
+julia> ismutable(CONFIG)
+true
+
+julia> CONFIG["debug"] = false;
+
+julia> CONFIG
+Dict{Any, Any} with 1 entry:
+  "debug" => false
+```
+
 # Conclusions
 
 Thinking of programming memory as a bookshelf in a library can help beginners understand how their program interacts with memory and how different elements of their code work together.
