@@ -21,7 +21,7 @@ And variables in Julia are the labels the librarian gives you that are associate
 
 By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
 
-## Assignment
+# Assignment
 
 Let's look at a code example:
 
@@ -95,7 +95,7 @@ Any changes made to the original object will not affect the copy and vice versa.
 Assignments in Julia always create new labels and may replace an existing label of yours.
 Labels you receive from the librarian may or may not point to the same location as an existing label of yours, and that is for the librarian to decide.
 
-## Mutability
+# Mutability
 
 In Julia, the `=` operator can be used to either assign values to a label or mutate existing values that can be accessed through a label.
 
@@ -142,11 +142,11 @@ If a book is mutable, you can add or remove pages or modify existing pages, whil
 Remember, mutations never create new labels.
 They only modify labels that already exist.
 
-## Special cases
+# Special cases
 
 As a sidebar, I want to touch on some special syntax that you will come across when using Julia.
 
-### Tuple unpacking
+## Tuple unpacking
 
 Julia supports syntax that is called "unpacking":
 
@@ -191,7 +191,7 @@ julia> remaining
  10
 ```
 
-### Named Tuple unpacking
+## Named Tuple unpacking
 
 Julia also supports named tuple unpacking using the `(; )` syntax:
 
@@ -206,7 +206,7 @@ julia> b
 2
 ```
 
-### Shorthand assignment
+## Shorthand assignment
 
 Sometimes you may see a character before the `=`, like `+=` or `-=`.
 
@@ -217,7 +217,7 @@ b -= 2          # b = b - 1
 
 With one exception, these are all just a short hand for the longer assignment form.
 
-### Broadcasting
+## Broadcasting
 
 The exception is a special syntax called broadcasting, which instead of assignment does what mutability does.
 When you see `.=`, it is "broadcasting" the `=` operation on all elements of the LHS.
@@ -272,7 +272,7 @@ julia> x
  4.0
 ```
 
-### Chained `=` operations
+## Chained `=` operations
 
 Julia also supports chained `=` operations which may do an assignment or mutation depending on what is on the LHS of that operation:
 
@@ -303,7 +303,7 @@ essentially does this:
 c = (x[1] = 2.0);
 ```
 
-### Immutability
+# Immutability
 
 In Julia, there are a number of types that represent immutable objects. For example, `String`s, `Int`s, `Float64`s are all immutable.
 
@@ -368,7 +368,7 @@ Book("The Hitchhiker's Guide to the Galaxy", 4.99, Dict("id" => "42"))
 To use our analogy, the `meta` field is like a page inside the book that contains the address of another book on the bookshelf.
 We cannot change the address on the page, but we can still modify the contents of the book at that address.
 
-### Pass by sharing
+# Pass by sharing
 
 In Julia, arguments to functions are always ["passed by sharing"](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing).
 This means that when a function is called with an argument, the function receives a reference to the object that the argument refers to, rather than a copy of the object.
@@ -465,6 +465,6 @@ Since the location address is not changed, anyone else holding the same address 
 
 By convention, the `!` at the end of the function name is a convention in Julia to indicate that the function modifies its argument in place.
 
-## Conclusions
+# Conclusions
 
 Thinking of programming memory as a bookshelf in a library can help beginners understand how their program interacts with memory and how different elements of their code work together.
