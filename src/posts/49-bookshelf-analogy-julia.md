@@ -388,6 +388,8 @@ julia> x
  4.0
 ```
 
+Broadcasting is always a mutation operation and will never create a new label.
+
 ## Chained `=` operations
 
 Julia also supports chained `=` operations which may do an assignment or mutation depending on what is on the LHS of that operation:
