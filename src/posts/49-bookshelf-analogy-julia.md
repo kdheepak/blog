@@ -395,15 +395,17 @@ Broadcasting is always a mutation operation and will never create a new label.
 Julia also supports chained `=` operations which may do an assignment or mutation depending on what is on the LHS of that operation:
 
 ```julia
+julia> x = [0.0, 0.0, 0.0, 0.0];
+
 julia> c = x[1] = 2.0;
 2.0
 
 julia> x
 4-element Vector{Float64}:
  2.0
- 5.0
- 5.0
- 5.0
+ 0.0
+ 0.0
+ 0.0
 
 julia> c
 2.0
