@@ -5,21 +5,23 @@ date: 2023-02-25T21:14:15-0500
 draft: true
 ---
 
-I wanted to present an discuss an analogy that I like to use when thinking about code in the Julia language.
+If you are new to programming or new to Julia, it can be helpful to think of the program's memory as number of bookshelves in a library.
 
-Imagine there exists a bookshelf with books in a library, maintained by a librarian who follows a specific set of rules.
-You, a curious mind, are interested in access some of the knowledge in these books, as well as putting your own thoughts into appropriate sections of books, binders or folders this bookshelf.
-However, you can only interact with the librarian, who will process your instructions to access or modify contents on the bookshelf.
+Imagine you are at a library full of books on bookshelves, but they are all over the place and you can't find what you want.
+However, you can't interact directly with the books or bookshelves; and instead, you have to ask a smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
+And, in order for them to help you, this librarian requires you to form a contract with them which requires you to only speak in a predefined set of instructions for them to perform their functions correctly.
 
-These books on the bookshelf are numbered by the order in which they are placed in the bookshelf, and hence every book has a unique address.
-You may hand over a label to the librarian that contains the location of a book, as well as an instruction associated with that label (e.g. "retrieve it", "destroy it", etc).
+In this mental model, the librarian represents the CPU of your computer, and the Julia programming language is the language that you use to communicate with the CPU. To interact with the bookshelf (i.e., the program's memory), you use functions and variables in Julia.
 
-In this mental model, the librarian is like the CPU of a computer, the language in which you communicate with the librarian is the Julia programming language, and a bookshelf would represent the memory your program has access to.
-In the Julia language, you would have to use functions and variables.
-Functions would be actions you'd like the librarian to take or instructions you'd like the librarian to follow.
-And variables in Julia are a label that contains the unique address to a book on the bookshelf.
+The books on these bookshelves happen to be numbered by the order in which they are located, giving each book a unique address.
+You can think of these addresses as the memory locations that your program has access to.
 
-### Assignment
+Functions in Julia are like the instructions that you give to the librarian, telling them what actions you'd like to take with the books.
+And variables in Julia are the labels the librarian gives you that are associated with specific books on the bookshelf, allowing you to refer to them later on.
+
+By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
+
+## Assignment
 
 Let's look at a code example:
 
@@ -45,13 +47,14 @@ julia> y
  0.0
 ```
 
-In this code, the `x` and `y` variables are like two labels that both point to the same "book" on the bookshelf.
-When you assign `y = x`, you are essentially telling the "librarian" to create a new label that points to the same memory location as the `x` variable.
+When you ask the librarian to perform this action, `x = [0.0, 0.0, 0.0, 0.0]`, the librarian creates a "book" and returns to you a label called `x` that is associated with said book.
+When you assign `y = x`, you are essentially telling the "librarian" to create a new label called `y` for you, that also points to the same location as the `x` label.
 
-So when you modify `x[1] = 2.0`, you are telling the librarian to make a change to the book at the address pointed to by the `x` label, which changes the first element of the vector to `2.0`.
+In this code, the `x` and `y` variables are two labels that both point to the same "book" on the bookshelf.
+So when you modify `x[1] = 2.0`, you are telling the librarian to make a change to the book tagged to the `x` label, which changes the first element of the vector to `2.0`.
 
 Since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
-Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be reflected when you look at the contents through the other label.
+Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
 You can verify that this is the case by using the `pointer()` function:
 
@@ -63,7 +66,10 @@ julia> pointer(y)
 Ptr{Float64} @0x0000000161c60d60
 ```
 
-If you did want to create a entirely new object, you can use `deepcopy()`:
+When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was tagged to that label by the librarian.
+You can see that `x` and `y` point to an object that has the same memory address.
+
+So what if you did want to create a entirely new object instead? You can use the `deepcopy()` function:
 
 ```julia
 julia> y = deepcopy(x)
@@ -80,14 +86,16 @@ julia> pointer(y)
 Ptr{Float64} @0x0000000107e4c880
 ```
 
-In the analogy of the bookshelf, using `deepcopy()` would be like making a photocopy of a book and placing it on a new shelf.
+In the analogy of the bookshelf, using `deepcopy()` would be like asking the librarian to make a photocopy of a book and placing it at a new location on the shelf.
+Then the librarian would take away the old `y` label that you were holding and give you a new `y` label associated with this new object.
 
-The new book on the new shelf is a completely independent object with its own unique address, and any changes made to the original book will not affect the copy.
-Similarly, `deepcopy()` creates a new object in memory that is completely independent of the original object, so any changes made to one object will not affect the other.
+The new object created is completely independent from the old, with its own unique address.
+Any changes made to the original object will not affect the copy and vice versa.
 
-Assignments always create new "labels", that may or may not have the same address as an existing object.
+Assignments in Julia always create new labels and may replace an existing label of yours.
+Labels you receive from the librarian may or may not point to the same location as an existing label of yours, and that is for the librarian to decide.
 
-### Mutability
+## Mutability
 
 In Julia, the `=` operator can be used to either assign values to a label or mutate existing values that can be accessed through a label.
 
@@ -97,7 +105,7 @@ For example, this is an assignment:
 julia> x = [0.0, 0.0, 0.0, 0.0];
 ```
 
-If the LHS of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
+If the Left Hand Side (LHS) of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
 
 However, if for example there's a `[]` in the LHS, like so:
 
@@ -105,13 +113,114 @@ However, if for example there's a `[]` in the LHS, like so:
 julia> x[1] = 2.0;
 ```
 
-that is indexing into the object at the address in the label `x`, and changing that value of that element.
+then that is not an assignment anymore. That is mutating the first index of the object tagged by the `x` label.
 
-Mutability is an important concept in Julia because it determines whether or not an object can be modified. In general, mutable objects can be modified, and other objects cannot be modified.
+Mutation can also occur when the `obj.field` syntax is in the LHS.
 
-In the analogy of the bookshelf, mutability would be like the ability to modify the contents of a book on the bookshelf. If a book is mutable, you can add or remove pages or modify existing pages, while if a book is not mutable, you cannot modify its contents and must create a new book with the desired changes.
+```julia
+julia> mutable struct Book
+         title::String
+         price::Float64
+       end
 
-Julia also has a special `.=` syntax, which instead of assignment does what mutability does.
+julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99);
+
+julia> book.price = 4.99;
+
+julia> book
+Book("The Hitchhiker's Guide to the Galaxy", 4.99)
+```
+
+Mutability is an important concept in Julia because it determines whether or not an object can be modified.
+In general, mutable objects can be modified, and other objects cannot be modified.
+
+In the analogy of the bookshelf, mutability would be like the ability to modify the contents of a book already on the bookshelf.
+It's like erasing and re-writing some of the information on a page, without changing the location of the book on the shelf.
+
+If a book is mutable, you can add or remove pages or modify existing pages, while if a book is not mutable, you cannot modify its contents and must create a new book with the desired changes.
+
+Remember, mutations never create new labels.
+They only modify labels that already exist.
+
+## Special cases
+
+As a sidebar, I want to touch on some special syntax that you will come across when using Julia.
+
+### Tuple unpacking
+
+Julia supports syntax that is called "unpacking":
+
+```julia
+julia> (a, b) = (1, 2)
+(1, 2)
+
+julia> a
+1
+
+julia> b
+2
+
+julia> (a, b, remaining...) = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+10-element Vector{Int64}:
+  1
+  2
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+
+julia> a
+1
+
+julia> b
+2
+
+julia> remaining
+8-element Vector{Int64}:
+  3
+  4
+  5
+  6
+  7
+  8
+  9
+ 10
+```
+
+### Named Tuple unpacking
+
+Julia also supports named tuple unpacking using the `(; )` syntax:
+
+```julia
+julia> (;a,b) = (a=1,b=2)
+(a = 1, b = 2)
+
+julia> a
+1
+
+julia> b
+2
+```
+
+### Shorthand assignment
+
+Sometimes you may see a character before the `=`, like `+=` or `-=`.
+
+```julia
+a += 1          # a = a + 1
+b -= 2          # b = b - 1
+```
+
+With one exception, these are all just a short hand for the longer assignment form.
+
+### Broadcasting
+
+The exception is a special syntax called broadcasting, which instead of assignment does what mutability does.
+When you see `.=`, it is "broadcasting" the `=` operation on all elements of the LHS.
 
 ```julia
 julia> x = [0.0, 0.0, 0.0, 0.0];
@@ -163,24 +272,36 @@ julia> x
  4.0
 ```
 
-Mutation can also occur when the `obj.field`.
+### Chained `=` operations
+
+Julia also supports chained `=` operations which may do an assignment or mutation depending on what is on the LHS of that operation:
 
 ```julia
-julia> mutable struct Book
-         title::String
-         price::Float64
-       end
+julia> c = x[1] = 2.0;
+2.0
 
-julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99);
+julia> x
+4-element Vector{Float64}:
+ 2.0
+ 5.0
+ 5.0
+ 5.0
 
-julia> book.price = 4.99;
-
-julia> book
-Book("The Hitchhiker's Guide to the Galaxy", 4.99)
+julia> c
+2.0
 ```
 
-Using the analogy of the bookshelf in the library, mutability would be analogous to being able to change the content of a book already on the shelf.
-It's like erasing and re-writing some of the information on a page, without changing the location of the book on the shelf.
+This is because in Julia everything is an expression, even the `=` operation and this code:
+
+```julia
+c = x[1] = 2.0;
+```
+
+essentially does this:
+
+```julia
+c = (x[1] = 2.0);
+```
 
 ### Immutability
 
