@@ -411,7 +411,7 @@ julia> c
 2.0
 ```
 
-This is because in Julia everything is an expression, even the `=` operation and this code:
+This is because in Julia everything is an expression, even the `=` operation. This code:
 
 ```julia
 c = x[1] = 2.0;
@@ -420,7 +420,8 @@ c = x[1] = 2.0;
 essentially does this:
 
 ```julia
-c = (x[1] = 2.0);
+tmp = x[1] = 2.0
+c = tmp;
 ```
 
 ### Strings
