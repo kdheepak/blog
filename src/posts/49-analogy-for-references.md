@@ -250,7 +250,6 @@ julia> function incorrect_replace_with_zeros(arr)
   println("Before assignment: ", pointer(arr))
   arr = [0.0 for _ in eachindex(arr)]
   println("After assignment: ", pointer(arr))
-  return nothing
 end
 
 julia> arr = [1, 2, 3];
@@ -258,7 +257,7 @@ julia> arr = [1, 2, 3];
 julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 
-julia> incorrect_replace_with_zeros(arr)
+julia> incorrect_replace_with_zeros(arr);
 Before assignment: Ptr{Int64} @0x000000010d156070
 After assignment: Ptr{Float64} @0x000000012de42b60
 
@@ -300,3 +299,5 @@ julia> arr
 julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
+
+In Julia, because everything is always "pass by sharing" it is helpful to hint at the call site whether or not the function is going to mutate the arguments. By convention, this is done by adding a `!` at the end of a function name.
