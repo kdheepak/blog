@@ -483,7 +483,7 @@ julia> arr
  4
 ```
 
-The function cannot modify the "address" that the label points to in the call site.
+A function cannot modify the "address" that the label points to in the call site.
 
 ```julia
 julia> arr = [1, 2, 3];
