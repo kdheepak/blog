@@ -335,7 +335,7 @@ With one exception, these are all just a short hand for the longer assignment fo
 
 ## Broadcasting
 
-The exception is a special syntax called broadcasting, which instead of assignment does what mutability does.
+The exception is the special syntax `.=`, which instead of assignment does what mutability does.
 When you see `.=`, it is "broadcasting" the `=` operation on all elements of the LHS.
 
 ```julia
