@@ -45,6 +45,25 @@ julia> y
  0.0
  0.0
  0.0
+```
+
+If you see a `=` symbol and to the left of the `=` there is a simple name of a variable, that is an assignment.
+When you ask to perform this action, `x = [0.0, 0.0, 0.0, 0.0]`, the `[0.0, 0.0, 0.0, 0.0]` object is created,
+and label called `x` that is bound to said object.
+
+When you assign `y = x`, you are essentially asking to create new label called `y` that is also bound to the same object as the `x` label.
+
+So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the bookshelf.
+
+Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
+
+```julia
+julia> x
+3-element Vector{Float64}:
+ 0.0
+ 0.0
+ 0.0
+ 0.0
 
 julia> x[1] = 2.0;
 
@@ -63,13 +82,8 @@ julia> y
  0.0
 ```
 
-When you ask the librarian to perform this action, `x = [0.0, 0.0, 0.0, 0.0]`, the librarian creates a "book" and returns to you a label called `x` that is associated with said book.
-When you assign `y = x`, you are essentially telling the "librarian" to create a new label called `y` for you, that also points to the same location as the `x` label.
-
-In this code, the `x` and `y` variables are two labels that both point to the same "book" on the bookshelf.
-So when you modify `x[1] = 2.0`, you are telling the librarian to make a change to the book tagged to the `x` label, which changes the first element of the vector to `2.0`.
-
-Since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
+When you modify `x[1] = 2.0`, you are telling the librarian to make a change to the book tagged to the `x` label, which in this case changes the first element of the vector to `2.0`.
+And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
 Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
 You can verify that this is the case by using the `pointer()` function:
@@ -157,6 +171,78 @@ If a book is mutable, you can add or remove pages or modify existing pages, whil
 
 Remember, mutations never create new labels.
 They only modify labels that already exist.
+
+In Julia, objects can be mutable or not.
+You can check if a object is mutable by using the `ismutable()` function:
+
+```julia
+julia> ismutable(x)
+true
+
+julia> ismutable([])
+true
+
+julia> ismutable(Dict())
+true
+
+julia> ismutable((1,))
+false
+
+julia> ismutable(1)
+false
+
+julia> ismutable("hello world")
+true
+```
+
+In Julia, there are a number of types that represent immutable objects. For example, `Int`s and `Float64`s are all immutable.
+
+You can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
+
+```julia
+julia> struct Book
+         title::String
+         price::Float64
+         meta::Dict{String, String}
+       end
+
+julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
+
+julia> book.price = 4.99;
+ERROR: setfield!: immutable struct of type Book cannot be changed
+Stacktrace:
+ [1] setproperty!(x::Book, f::Symbol, v::Float64)
+   @ Base ./Base.jl:39
+ [2] top-level scope
+   @ REPL[3]:1
+
+```
+
+In this code, we define a `Book` `struct` that has a `title` and `price` as before, and an additional `meta` dictionary.
+All three fields, `title`, `price` and `meta` point to their respective objects, and once assigned they cannot be reassigned to a new object.
+In Julia, for `immutable` `struct`s, if you want to update the data that corresponds to a immutable object, you'll essentially have to create a new instance of the struct.
+
+```julia
+julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
+
+julia> book = Book(book.title, 4.99, book.meta);
+
+julia> book
+Book("The Hitchhiker's Guide to the Galaxy", 4.99, Dict{String, String}())
+```
+
+The `meta` dictionary, however, happens to be a mutable object.
+And that can be modified even though the `Book` instance itself is immutable.
+
+```julia
+julia> book.meta["id"] = "42";
+
+julia> book
+Book("The Hitchhiker's Guide to the Galaxy", 4.99, Dict("id" => "42"))
+```
+
+To use our analogy, the `meta` field is like a page inside the book that contains the address of another book on the bookshelf.
+We cannot change the address on the page, but we can still modify the contents of the book at that address.
 
 # Special cases
 
@@ -319,14 +405,30 @@ essentially does this:
 c = (x[1] = 2.0);
 ```
 
-# Immutability
+### Strings
 
-In Julia, there are a number of types that represent immutable objects. For example, `String`s, `Int`s, `Float64`s are all immutable.
+Although `String`s are mutable types, they cannot be modified using the array access.
 
 ```julia
 julia> title = "The Hitchhiker's Guide to the Galaxy"
 "The Hitchhiker's Guide to the Galaxy"
 
+julia> typeof(title)
+String
+
+julia> ismutable(title)
+true
+
+julia> title[1] = 't'
+ERROR: MethodError: no method matching setindex!(::String, ::Char, ::Int64)
+Stacktrace:
+ [1] top-level scope
+   @ REPL[138]:1
+```
+
+It is easiest to just create a new `String`:
+
+```julia
 julia> title_author = title * " - Douglas Adams"
 "The Hitchhiker's Guide to the Galaxy - Douglas Adams"
 
@@ -336,53 +438,6 @@ Ptr{UInt8} @0x0000000160f687f8
 julia> pointer(title_author)
 Ptr{UInt8} @0x0000000107ea82a0
 ```
-
-You can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
-
-```julia
-julia> struct Book
-         title::String
-         price::Float64
-         meta::Dict{String, String}
-       end
-
-julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
-
-julia> book.price = 4.99;
-ERROR: setfield!: immutable struct of type Book cannot be changed
-Stacktrace:
- [1] setproperty!(x::Book, f::Symbol, v::Float64)
-   @ Base ./Base.jl:39
- [2] top-level scope
-   @ REPL[3]:1
-
-```
-
-In this code, we define a `Book` `struct` that has a `title` and `price` as before, and an additional `meta` dictionary.
-All three fields, `title`, `price` and `meta` point to their respective objects, and once assigned they cannot be reassigned to a new object.
-In Julia, for `immutable` `struct`s, if you want to update the data that corresponds to a immutable object, you'll have to create a new instance of the struct.
-
-```julia
-julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
-
-julia> book = Book(book.title, 4.99, book.meta);
-
-julia> book
-Book("The Hitchhiker's Guide to the Galaxy", 4.99, Dict{String, String}())
-```
-
-The `meta` dictionary, however, happens to be a mutable object.
-And that can be modified even though the `Book` instance itself is immutable.
-
-```julia
-julia> book.meta["id"] = "42";
-
-julia> book
-Book("The Hitchhiker's Guide to the Galaxy", 4.99, Dict("id" => "42"))
-```
-
-To use our analogy, the `meta` field is like a page inside the book that contains the address of another book on the bookshelf.
-We cannot change the address on the page, but we can still modify the contents of the book at that address.
 
 # Pass by sharing
 
