@@ -327,8 +327,8 @@ julia> b
 Sometimes you may see a character before the `=`, like `+=` or `-=`.
 
 ```julia
-a += 1          # a = a + 1
-b -= 2          # b = b - 1
+a += 1 # a = a + 1
+b -= 2 # b = b - 1
 ```
 
 With one exception, these are all just a short hand for the longer assignment form.
