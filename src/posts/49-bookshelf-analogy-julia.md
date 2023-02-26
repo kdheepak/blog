@@ -1,5 +1,5 @@
 ---
-title: A Bookshelf Analogy for Understanding Variables and Mutability in Julia
+title: A Bookshelf Analogy: Understanding Variables and Mutability in Julia
 summary: In this blog post, I present a mental model for understanding the basics of variable assignment and mutability in Julia, using analogies to books and bookshelves to help illustrate the concepts.
 date: 2023-02-25T21:14:15-0500
 draft: true
@@ -370,7 +370,7 @@ We cannot change the address on the page, but we can still modify the contents o
 
 ### Pass by sharing
 
-In Julia, arguments to functions are always passed by sharing.
+In Julia, arguments to functions are always ["passed by sharing"](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing).
 This means that when a function is called with an argument, the function receives a reference to the object that the argument refers to, rather than a copy of the object.
 The function can modify the object if it is mutable, but the modifications will also be visible to the caller.
 
@@ -396,16 +396,16 @@ julia> arr
 The function cannot modify the "address" that the label points to in the call site.
 
 ```julia
+julia> arr = [1, 2, 3];
+
+julia> pointer(arr)
+Ptr{Int64} @0x000000010d156070
+
 julia> function incorrect_replace_with_zeros(arr)
   println("Before assignment: ", pointer(arr))
   arr = [0.0 for _ in eachindex(arr)]
   println("After assignment: ", pointer(arr))
 end
-
-julia> arr = [1, 2, 3];
-
-julia> pointer(arr)
-Ptr{Int64} @0x000000010d156070
 
 julia> incorrect_replace_with_zeros(arr);
 Before assignment: Ptr{Int64} @0x000000010d156070
@@ -421,14 +421,9 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
 
-If you wanted to write a working version, you can do the following:
+If you wanted to write a correct version, you can do the following:
 
 ```julia
-julia> function replace_with_zeros!(arr)
-         arr .= zero(eltype(arr))
-       end
-replace_with_zeros! (generic function with 1 method)
-
 julia> arr
 3-element Vector{Int64}:
  1
@@ -437,6 +432,11 @@ julia> arr
 
 julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
+
+julia> function replace_with_zeros!(arr)
+         arr .= zero(eltype(arr))
+       end
+replace_with_zeros! (generic function with 1 method)
 
 julia> replace_with_zeros!(arr);
 
@@ -450,12 +450,21 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
 
-In the analogy, passing an argument to a function is like taking a book from the shelf and giving its location address to the function. The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it. If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
+In the analogy, passing an argument to a function is like taking a book from the shelf and giving its location address to the function.
+The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it.
+If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
 
 The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location. Anyone else holding the address of the book will see the updated content.
 
-On the other hand, the function `incorrect_replace_with_zeros` is like someone taking a book from the shelf, replacing it with a new empty book, and putting it back in a different location on the shelf. Even though the same address was given back to the caller, the book they were holding onto is not the same as the one that was modified by the function. Therefore, the caller still has the original book and any changes made by the function are lost.
+On the other hand, the function `incorrect_replace_with_zeros` is like someone taking a book from the shelf, replacing it with a new empty book, and putting it back in a different location on the shelf.
+Even though the same address was given back to the caller, the book they were holding onto is not the same as the one that was modified by the function.
+Therefore, the caller still has the original book and any changes made by the function are lost.
 
-To fix this, the function `replace_with_zeros!` modifies the same book that was passed to it, like someone taking a book from the shelf, erasing its content, and putting it back in the same location. Since the location address is not changed, anyone else holding the same address will see the updated content.
+To fix this, the function `replace_with_zeros!` modifies the same book that was passed to it, like someone taking a book from the shelf, erasing its content, and putting it back in the same location.
+Since the location address is not changed, anyone else holding the same address will see the updated content.
 
 By convention, the `!` at the end of the function name is a convention in Julia to indicate that the function modifies its argument in place.
+
+## Conclusions
+
+Thinking of programming memory as a bookshelf in a library can help beginners understand how their program interacts with memory and how different elements of their code work together.
