@@ -511,7 +511,9 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 ```
 
-If you wanted to write a correct version, you can do the following:
+You can modify the values of the object inside the function, which will be reflected which you tried to view the same object from a variable that exists at the call site.
+
+If you wanted to write a version that does this, you can do the following:
 
 ```julia
 julia> arr
