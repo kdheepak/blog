@@ -312,7 +312,7 @@ julia> remaining
 Julia also supports named tuple unpacking using the `(; )` syntax:
 
 ```julia
-julia> (;a,b) = (a=1,b=2)
+julia> (; a, b) = (a = 1, b = 2)
 (a = 1, b = 2)
 
 julia> a
