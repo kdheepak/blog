@@ -7,7 +7,7 @@ draft: true
 
 I want to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy involving books and bookshelves.
 
-Before I begin, I want to say that analogies can be useful because they allow us to understand complex concepts by comparing them to something more familiar or simpler. But also, analogies can be oversimplified, leading to incorrect or incomplete understanding of the topic.
+Before we begin, I want to say that analogies can be useful because they allow us to understand complex concepts by comparing them to something more familiar or simpler. But also, analogies can be oversimplified, leading to incorrect or incomplete understanding of the topic.
 
 To best understand any subject, I recommend using multiple different analogies to bolster your confidence and then dive deeper into the subject matter to harden your intuition.
 
@@ -15,18 +15,40 @@ Imagine you are at a library full of books on bookshelves, but they are all over
 Also, you can't interact directly with the books or bookshelves.
 
 Instead, you have to ask a very smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
-But in order for them to help you, you are form a pact to speak in a very specific language with certain rules and decrees.
+But in order for them to help you, you are form a pact with the librarian to speak in a very specific language with certain rules and decrees.
 
-In this mental model, you can think of the program's memory as number of bookshelves in a library.
-The librarian represents the Julia programming language (i.e. command line tool + LLVM compiler), and the text in the `.jl` files or the code you may enter in a REPL is the interface through which you communicate with the language.
+In this mental model, you can think of a program's memory as number of bookshelves in a library.
+The librarian represents the Julia program (i.e. command line interface, the language semantics, the LLVM compiler, etc), and the text in the `.jl` files is how you communicate using the Julia language.
 
 To interact with the bookshelf (i.e., the program's memory), the Julia language, as part of its vocabulary, provides you with functions and variables among other things.
 
 Functions in Julia are like a set of instructions that you give to the librarian, telling them what actions you'd like to take with the books.
+
+```julia
+julia> function foo()
+  1 + 2
+end
+
+julia> foo()
+3
+```
+
+Here we have a simple function `foo()` that adds the numbers `1` and `2` together and returns the result.
+
 And variables in Julia are the labels the librarian gives you that are associated with specific books on the bookshelf, allowing you to refer to them later on.
 
-The books on these bookshelves happen to be numbered by the order in which they are located, giving each book a unique address.
-You can think of these addresses as the memory locations that your program has access to.
+```julia
+julia> x = 1;
+
+julia> y = 2;
+
+julia> x + y
+3
+```
+
+Here we bind the value `1` to the label `x`, bind the value `2` to label `y` and use the labels `x` and `y` to retrieve these values and add them together to get the result.
+
+We'll explore this concept of labels in more detail later in this discussion.
 
 By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
 
@@ -89,6 +111,9 @@ So in our analogy, the `x` and `y` variables are two labels that both point to t
            └─────────────┘    └─────────────┘
 ```
 
+You can think of these books on the bookshelves being addressed by the order in which they are located, giving each book a unique address.
+These addresses are the memory locations that your program has access to.
+
 Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
 
 ```julia
@@ -116,7 +141,7 @@ julia> y
  0.0
 ```
 
-When you modify `x[1] = 2.0`, you are telling the librarian to make a change to the book tagged to the `x` label, which in this case changes the first element of the vector to `2.0`.
+When you modify `x[1] = 2.0`, you are telling the librarian to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
 And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
 Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
@@ -130,7 +155,7 @@ julia> pointer(y)
 Ptr{Float64} @0x0000000161c60d60
 ```
 
-When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was tagged to that label by the librarian.
+When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was bound to that label by the librarian.
 You can see that `x` and `y` point to an object that has the same memory address.
 
 So what if you did want to create a entirely new object instead? You can use the `deepcopy()` function:
@@ -207,7 +232,7 @@ However, if for example there's a `[]` in the LHS, like so:
 julia> x[1] = 2.0;
 ```
 
-then that is not an assignment anymore. That is mutating the first index of the object tagged by the `x` label.
+then that is not an assignment anymore. That is mutating the first index of the object bound by the `x` label.
 
 Mutation can also occur when the `obj.field` syntax is in the LHS.
 
