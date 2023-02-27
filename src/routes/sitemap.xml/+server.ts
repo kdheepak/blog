@@ -23,7 +23,7 @@ function xml(posts) {
 }
 
 export function GET() {
-  const { posts } = getPostsMetadata("src/posts");
+  const { posts } = getPostsMetadata("src/posts", ".md", true);
   const headers = {
     "cache-control": "max-age=0, s-maxage=3600",
     "content-type": "application/xml; charset=utf-8",
