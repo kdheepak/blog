@@ -185,29 +185,8 @@ They only modify objects that already exist.
 :::
 
 In Julia, objects can be mutable or not.
-You can check if a object is mutable by using the `ismutable()` function:
-
-```julia
-julia> ismutable(x)
-true
-
-julia> ismutable([])
-true
-
-julia> ismutable(Dict())
-true
-
-julia> ismutable((1,))
-false
-
-julia> ismutable(1)
-false
-
-julia> ismutable("hello world")
-true
-```
-
-In Julia, there are a number of types that represent immutable objects. For example, `Int`s and `Float64`s are all immutable.
+There are a number of types that represent immutable objects.
+For example, `Int`s and `Float64`s are immutable.
 
 You can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
 
@@ -433,9 +412,6 @@ julia> title = "The Hitchhiker's Guide to the Galaxy"
 julia> typeof(title)
 String
 
-julia> ismutable(title)
-true
-
 julia> title[1] = 't'
 ERROR: MethodError: no method matching setindex!(::String, ::Char, ::Int64)
 Stacktrace:
@@ -578,9 +554,6 @@ Stacktrace:
 But even though the variable is `const`, the object is still mutable.
 
 ```julia
-julia> ismutable(CONFIG)
-true
-
 julia> CONFIG["debug"] = false;
 
 julia> CONFIG
