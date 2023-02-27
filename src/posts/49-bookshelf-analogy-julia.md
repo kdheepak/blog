@@ -703,3 +703,29 @@ Dict{Any, Any} with 1 entry:
 # Conclusions
 
 Thinking of programming memory as a bookshelf in a library can help you understand how your program interacts with memory and how mutation works in languages like Julia with shared references.
+
+In summary:
+
+```julia
+julia> arr = [0.0, 0.0, 0.0, 0.0]; # assignment
+
+julia> arr[1] = 1.0; # mutation of first element
+
+julia> arr .= 1.0; # mutation of all elements
+
+julia> mutable struct Arr
+  value
+end;
+
+julia> arr = Arr([0.0, 0.0, 0.0, 0.0]);
+
+julia> arr.value = [1.0, 1.0, 1.0, 1.0]; # create a new array and assign it to the value
+
+julia> arr.value .= 2.0; # mutate all values of existing array
+
+julia> v = value;
+
+julia> push!(v, 3.0);
+
+julia> @assert arr.value == [2.0, 2.0, 2.0, 2.0, 3.0];
+```
