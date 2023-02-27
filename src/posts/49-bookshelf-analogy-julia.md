@@ -76,13 +76,11 @@ julia> y
  0.0
 ```
 
-If you see a `=` symbol and to the left of the `=` there is a simple name of a variable, that is an assignment.
+If you see a `=` symbol and to the left of the `=` there is a simple name of a variable, that is an assignment operation.
 When you ask to perform this action, `x = [0.0, 0.0, 0.0, 0.0]`, the `[0.0, 0.0, 0.0, 0.0]` object is created,
-and label called `x` that is bound to said object.
+and label called `x` that is bound to said created object.
 
-When you assign `y = x`, you are essentially asking to create new label called `y` that is also bound to the same object as the `x` label.
-
-So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
+When you assign `y = x`, you are asking to create new label called `y` that is also bound to the same object as the `x` label.
 
 ```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
@@ -113,6 +111,21 @@ So in our analogy, the `x` and `y` variables are two labels that both point to t
 
 You can think of these books on the bookshelves being addressed by the order in which they are located, giving each book a unique address.
 These addresses are the memory locations that your program has access to.
+
+So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
+
+You can verify that this is the case by using the `pointer()` function:
+
+```julia
+julia> pointer(x)
+Ptr{Float64} @0x0000000161c60d60
+
+julia> pointer(y)
+Ptr{Float64} @0x0000000161c60d60
+```
+
+When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was bound to that label by the librarian.
+You can see that `x` and `y` point to an object that has the same memory address.
 
 Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
 
@@ -145,20 +158,34 @@ When you modify `x[1] = 2.0`, you are telling the librarian to make a change to 
 And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
 Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
-You can verify that this is the case by using the `pointer()` function:
-
-```julia
-julia> pointer(x)
-Ptr{Float64} @0x0000000161c60d60
-
-julia> pointer(y)
-Ptr{Float64} @0x0000000161c60d60
+```txt
+      0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
+     ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+0x00 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x10 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x20 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x30 │    │    │    │    │ 2. │ 0. │ 0. │ 0. │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─▲──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x40 │    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─┼──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x50 │    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─┼──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x60 │    │    │  ┌─┼────┼─┴──┼────┼─┐  │    │    │    │    │    │    │    │    │    │
+     └────┴────┴──┼─┴────┴────┴────┴─┼──┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
+                  │                  │
+           ┌──────┴──────┐    ┌──────┴──────┐
+           │             │    │             │
+           │             │    │             │
+           │      x      │    │      y      │
+           │             │    │             │
+           │             │    │             │
+           └─────────────┘    └─────────────┘
 ```
 
-When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was bound to that label by the librarian.
-You can see that `x` and `y` point to an object that has the same memory address.
-
-So what if you did want to create a entirely new object instead? You can use the `deepcopy()` function:
+So what if you did want to create a entirely new object instead? You can do that using the `deepcopy()` function:
 
 ```julia
 julia> y = deepcopy(x)
@@ -176,10 +203,6 @@ Ptr{Float64} @0x0000000107e4c880
 ```
 
 In the analogy of the bookshelf, using `deepcopy()` would be like asking the librarian to make a photocopy of a book and placing it at a new location on the shelf.
-Then the librarian would take away the old `y` label that you were holding and give you a new `y` label associated with this new object.
-
-The new object created is completely independent from the old, with its own unique address.
-Any changes made to the original object will not affect the copy and vice versa.
 
 ```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
@@ -208,11 +231,12 @@ Any changes made to the original object will not affect the copy and vice versa.
            └─────────────┘    └─────────────┘
 ```
 
+The new object created is completely independent from the old, with its own unique address.
+Any changes made to the original object will not affect the copy and vice versa.
+
 ::: tip
 Assignments in Julia always create new labels and may replace an existing label of yours.
 :::
-
-Labels you receive from the librarian may or may not point to the same location as an existing label of yours, and that is for the librarian to decide.
 
 # Mutability
 
