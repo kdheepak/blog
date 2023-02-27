@@ -62,7 +62,7 @@ When you assign `y = x`, you are essentially asking to create new label called `
 
 So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
 
-```render_svgbob
+```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
      ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
 0x00 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
@@ -156,7 +156,7 @@ Then the librarian would take away the old `y` label that you were holding and g
 The new object created is completely independent from the old, with its own unique address.
 Any changes made to the original object will not affect the copy and vice versa.
 
-```render_svgbob
+```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
      ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
 0x00 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
