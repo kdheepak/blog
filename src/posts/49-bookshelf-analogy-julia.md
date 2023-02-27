@@ -579,7 +579,6 @@ julia> function add_one(arr)
   for i in eachindex(arr)
     arr[i] += 1
   end
-  return arr
 end
 
 julia> arr = [1, 2, 3];
