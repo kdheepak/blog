@@ -473,7 +473,7 @@ tmp = x[1] = 2.0
 c = tmp;
 ```
 
-### Strings
+## Strings
 
 Although `String`s are mutable types, they cannot be modified using the array access.
 
