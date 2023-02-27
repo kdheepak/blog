@@ -54,12 +54,12 @@ By thinking of code in this way, you can better understand how your program inte
 
 # Assignment
 
+In Julia, the `=` operator can be used to create a new label.
+
 Let's look at a code example:
 
 ```julia
 julia> x = [0.0, 0.0, 0.0, 0.0];
-
-julia> y = x;
 
 julia> x
 3-element Vector{Float64}:
@@ -67,6 +67,42 @@ julia> x
  0.0
  0.0
  0.0
+```
+
+This creates a new label `x` that is associated to an object in memory.
+You can retrieve a value that is bound to a label using the label itself.
+
+```txt
+      0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
+     ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+0x00 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x10 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x20 │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x30 │    │    │    │    │ 0. │ 0. │ 0. │ 0. │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─▲──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x40 │    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─┼──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x50 │    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+     ├────┼────┼────┼────┼─┼──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+0x60 │    │    │  ┌─┼────┼─┘  │    │    │    │    │    │    │    │    │    │    │    │
+     └────┴────┴──┼─┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┴────┘
+                  │
+           ┌──────┴──────┐
+           │             │
+           │             │
+           │      x      │
+           │             │
+           │             │
+           └─────────────┘
+```
+
+We can use existing labels in assignments in the Right Hand Side (RHS):
+
+```julia
+julia> y = x;
 
 julia> y
 3-element Vector{Float64}:
@@ -108,9 +144,6 @@ When you assign `y = x`, you are asking to create new label called `y` that is a
            │             │    │             │
            └─────────────┘    └─────────────┘
 ```
-
-You can think of these books on the bookshelves being addressed by the order in which they are located, giving each book a unique address.
-These addresses are the memory locations that your program has access to.
 
 So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
 
