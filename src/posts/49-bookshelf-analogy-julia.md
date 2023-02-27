@@ -48,8 +48,6 @@ julia> x + y
 
 Here we bind the value `1` to the label `x`, bind the value `2` to label `y` and use the labels `x` and `y` to retrieve these values and add them together to get the result.
 
-We'll explore this concept of labels in more detail later in this discussion.
-
 By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
 
 # Assignment
@@ -145,7 +143,7 @@ When you assign `y = x`, you are asking to create new label called `y` that is a
            └─────────────┘    └─────────────┘
 ```
 
-So in our analogy, the `x` and `y` variables are two labels that both point to the same "book" on the "bookshelf" (i.e. the same object in memory).
+So in our analogy, the `x` and `y` variables are two labels that you and the librarian agree point to the same "book" on the "bookshelf" (i.e. the same object in memory).
 
 You can verify that this is the case by using the `pointer()` function:
 
@@ -187,7 +185,9 @@ julia> y
  0.0
 ```
 
-When you modify `x[1] = 2.0`, you are telling the librarian to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
+This is like if the librarian changed a page in the book located at label `x`. If you came back later and asked for the book located at label `y`, you'd get the same book as you would have with label `y`, which would contain the changes made.
+
+When you modify `x[1] = 2.0`, you are telling Julia to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
 And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
 Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
@@ -218,7 +218,7 @@ Because both `x` and `y` are just different labels pointing to the same memory l
            └─────────────┘    └─────────────┘
 ```
 
-So what if you did want to create a entirely new object instead? You can do that using the `deepcopy()` function:
+But what if you did want to create a entirely new object instead? You can do that using the `deepcopy()` function:
 
 ```julia
 julia> y = deepcopy(x)
@@ -235,7 +235,7 @@ julia> pointer(y)
 Ptr{Float64} @0x0000000107e4c880
 ```
 
-In the analogy of the bookshelf, using `deepcopy()` would be like asking the librarian to make a photocopy of a book and placing it at a new location on the shelf.
+In the analogy of the bookshelf, using `deepcopy()` would be like asking the librarian to make a photocopy of a book and place it at a new location on the shelf.
 
 ```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
@@ -268,12 +268,12 @@ The new object created is completely independent from the old, with its own uniq
 Any changes made to the original object will not affect the copy and vice versa.
 
 ::: tip
-Assignments in Julia always create new labels and may replace an existing label of yours.
+Assignments in Julia always create labels, but may replace the binding of an existing label of yours.
 :::
 
 # Mutability
 
-In Julia, the `=` operator can be used to either assign values to a label or mutate existing values that can be accessed through a label.
+We saw in the previous section that the `=` operator can be used to assign values to a label. But in Julia, it can also be used to mutate existing values that can be accessed through a label. The difference is what exists on the Left Hand Side (LHS) of the `=` operator.
 
 For example, this is an assignment:
 
@@ -281,7 +281,7 @@ For example, this is an assignment:
 julia> x = [0.0, 0.0, 0.0, 0.0];
 ```
 
-If the Left Hand Side (LHS) of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
+i.e. if the LHS of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
 
 However, if for example there's a `[]` in the LHS, like so:
 
@@ -289,7 +289,9 @@ However, if for example there's a `[]` in the LHS, like so:
 julia> x[1] = 2.0;
 ```
 
-then that is not an assignment anymore. That is mutating the first index of the object bound by the `x` label.
+then that is not an assignment anymore. 
+That is mutating the first index of the object bound by the `x` label.
+We saw an example of this mutation syntax in the previous section.
 
 Mutation can also occur when the `obj.field` syntax is in the LHS.
 
@@ -320,11 +322,10 @@ Remember, mutations never create new labels.
 They only modify objects that already exist.
 :::
 
-In Julia, objects can be mutable or not.
 There are a number of types that represent immutable objects.
 For example, `Int`s and `Float64`s are immutable.
 
-You can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
+Interestingly, you can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
 
 ```julia
 julia> struct Book
@@ -342,8 +343,11 @@ Stacktrace:
    @ Base ./Base.jl:39
  [2] top-level scope
    @ REPL[3]:1
-
 ```
+
+This is like if a book which was sealed or laminated had a reference in one of its pages to another notebook, diary, journal or binder. 
+The first book which is immutable cannot be changed to point to a new second book, and will always have the same reference to the second book. 
+The second book's contents on the other hand can be modified.
 
 In this code, we define a `Book` `struct` that has a `title` and `price` as before, and an additional `meta` dictionary.
 All three fields, `title`, `price` and `meta` point to their respective objects, and once assigned they cannot be reassigned to a new object.
