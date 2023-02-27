@@ -702,4 +702,4 @@ Dict{Any, Any} with 1 entry:
 
 # Conclusions
 
-Thinking of programming memory as a bookshelf in a library can help beginners understand how their program interacts with memory and how different elements of their code work together.
+Thinking of programming memory as a bookshelf in a library can help you understand how your program interacts with memory and how mutation works in languages like Julia with shared references.
