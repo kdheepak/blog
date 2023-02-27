@@ -90,13 +90,12 @@ So in our analogy, the `x` and `y` variables are two labels that both point to t
              │                  │
              │                  │
       ┌──────┴──────┐    ┌──────┴──────┐
-      │             │░   │             │░
-      │             │░   │             │░
-      │      x      │░   │      y      │░
-      │             │░   │             │░
-      │             │░   │             │░
-      └─────────────┘░   └─────────────┘░
-       ░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░
+      │             │    │             │
+      │             │    │             │
+      │      x      │    │      y      │
+      │             │    │             │
+      │             │    │             │
+      └─────────────┘    └─────────────┘
 ```
 
 Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
@@ -194,13 +193,13 @@ Any changes made to the original object will not affect the copy and vice versa.
              │                  │
              │                  │
       ┌──────┴──────┐    ┌──────┴──────┐
-      │             │░   │             │░
-      │             │░   │             │░
-      │      x      │░   │      y      │░
-      │             │░   │             │░
-      │             │░   │             │░
-      └─────────────┘░   └─────────────┘░
-       ░░░░░░░░░░░░░░░    ░░░░░░░░░░░░░░░                                        ```
+      │             │    │             │
+      │             │    │             │
+      │      x      │    │      y      │
+      │             │    │             │
+      │             │    │             │
+      └─────────────┘    └─────────────┘
+```
 
 ::: tip
 Assignments in Julia always create new labels and may replace an existing label of yours.
