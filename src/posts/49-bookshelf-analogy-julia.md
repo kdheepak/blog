@@ -579,9 +579,9 @@ This means that when a function is called with an argument, the function receive
 The function can modify the object if it is mutable, but the modifications will also be visible to the caller.
 
 ```julia
-julia> function add_one(A)
-  for i in eachindex(A)
-    A[i] += 1
+julia> function add_one(V)
+  for i in eachindex(V)
+    V[i] += 1
   end
 end
 
