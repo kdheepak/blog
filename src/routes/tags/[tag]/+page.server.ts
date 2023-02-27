@@ -7,7 +7,7 @@ import { getPostsMetadata } from "$lib/posts";
 export function load({ params }) {
   const tag = params.tag;
 
-  let { posts, tags } = getPostsMetadata("src/posts/", ".md");
+  let { posts, tags } = getPostsMetadata("src/posts/", ".md", true);
   const options = { year: "numeric", month: "short", day: "numeric", weekday: "short" };
   const humanDate = new Date().toLocaleDateString(undefined, options);
   posts = posts.filter((post) =>
