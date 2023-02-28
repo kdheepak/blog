@@ -174,7 +174,7 @@ julia> y
  0.0
  0.0
  0.0
- 
+
 julia> x[1] = 2.0;
 
 julia> x
@@ -296,7 +296,7 @@ However, if for example there's a `[]` in the LHS, like so:
 julia> x[1] = 2.0;
 ```
 
-then that is not an assignment anymore. 
+then that is not an assignment anymore.
 That is mutating the first index of the object bound by the `x` label.
 We saw an example of this mutation syntax in the previous section.
 
@@ -352,8 +352,8 @@ Stacktrace:
    @ REPL[3]:1
 ```
 
-This is like if a book which was sealed or laminated had a reference in one of its pages to another notebook, diary, journal or binder. 
-The first book which is immutable cannot be changed to point to a new second book, and will always have the same reference to the second book. 
+This is like if a book which was sealed or laminated had a reference in one of its pages to another notebook, diary, journal or binder.
+The first book which is immutable cannot be changed to point to a new second book, and will always have the same reference to the second book.
 The second book's contents on the other hand can be modified.
 
 In this code, we define a `Book` `struct` that has a `title` and `price` as before, and an additional `meta` dictionary.
@@ -623,7 +623,7 @@ In the analogy, passing an argument to a function is like taking a book from the
 The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it.
 If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
 
-The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location. 
+The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location.
 Any object that is holding a reference to the address of the book will be able to see the updated content.
 
 A function cannot modify the "address" that the label points to in the call site.
@@ -673,7 +673,7 @@ Ptr{Int64} @0x000000010d156070
 ```
 
 The function `incorrect_replace_with_zeros` is like someone taking a book from the shelf, creating a new book, and putting the new book in a different location on the shelf and leaving the old book in the same location.
-Therefore, the caller still has the original book, and the original book was unaffected by this function. 
+Therefore, the caller still has the original book, and the original book was unaffected by this function.
 The function also doesn't return any reference to the new book, and the new book is effectively lost forever.
 
 You can only modify the values of the object "shared" from the call site using the `[]`, `.=` or `.fieldname` syntax.
@@ -740,6 +740,42 @@ julia> CONFIG["debug"] = false;
 julia> CONFIG
 Dict{Any, Any} with 1 entry:
   "debug" => false
+```
+
+```txt
+┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │ 2. │ 0. │ 0. │ 0. │    │    │    │    │    │    │    │    │
+│    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼─▲──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+│    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼─┼──┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │    │    │ │  │    │    │ 2. │ 0. │ 0. │ 0. │    │    │    │    │    │
+│    │    │    │    │ │  │    │    │    │    │    │    │    │    │    │    │    │
+├────┼────┼────┼────┼─┼──┼────┼────┼─▲──┼────┼────┼────┼────┼────┼────┼────┼────┤
+│    │    │  ┌─┼────┼─┘  │    │    │ │  │    │Dict│    │    │    │    │    │    │
+│    │    │  │ │    │    │    │    │ │  │    │    │    │    │    │    │    │    │
+└────┴────┴──┼─┴────┴────┴────┴────┴─┼──┴────┴─▲──┴────┴────┴────┴────┴────┴────┘
+             │                  ┌────┘         ║
+             │                  │              ║
+             │                  │              ╚══════════╗
+             │                  │                         ║
+      ┌──────┴──────┐    ┌──────┴──────┐           ╔══════╩═══════╗
+      │             │    │             │           ║              ║
+      │             │    │             │           ║              ║
+      │      x      │    │      y      │           ║    CONFIG    ║
+      │             │    │             │           ║              ║
+      │             │    │             │           ║              ║
+      └─────────────┘    └─────────────┘           ╚══════════════╝
 ```
 
 # Conclusions
