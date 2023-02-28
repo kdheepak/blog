@@ -192,7 +192,8 @@ julia> y
  0.0
 ```
 
-This is like if the librarian changed a page in the book located at label `x`. If you came back later and asked for the book located at label `y`, you'd get the same book as you would have with label `y`, which would contain the changes made.
+This is like if the librarian changed a page in the book located at label `x`. 
+If you came back later and asked for the book located at label `y`, you'd get the same book as you would have with label `y`, which would contain the changes made.
 
 When you modify `x[1] = 2.0`, you are telling Julia to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
 And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
