@@ -723,26 +723,6 @@ julia> const CONFIG = Dict()
 
 In our analogy, this is like if the librarian handed back a label that would always be bound to the same object for the life of the program.
 
-Trying to redefine the variable is an error:
-
-```julia
-julia> const CONFIG = []
-ERROR: invalid redefinition of constant CONFIG
-Stacktrace:
- [1] top-level scope
-   @ REPL[172]:1
-```
-
-But even though the variable is `const`, the object is still mutable.
-
-```julia
-julia> CONFIG["debug"] = false;
-
-julia> CONFIG
-Dict{Any, Any} with 1 entry:
-  "debug" => false
-```
-
 ```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
      ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -768,6 +748,26 @@ Dict{Any, Any} with 1 entry:
            │             │    │             │           ║              ║
            │             │    │             │           ║              ║
            └─────────────┘    └─────────────┘           ╚══════════════╝
+```
+
+Trying to redefine the variable is an error:
+
+```julia
+julia> const CONFIG = []
+ERROR: invalid redefinition of constant CONFIG
+Stacktrace:
+ [1] top-level scope
+   @ REPL[172]:1
+```
+
+But even though the variable is `const`, the object is still mutable.
+
+```julia
+julia> CONFIG["debug"] = false;
+
+julia> CONFIG
+Dict{Any, Any} with 1 entry:
+  "debug" => false
 ```
 
 # Conclusions
