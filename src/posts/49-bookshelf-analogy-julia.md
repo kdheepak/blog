@@ -436,14 +436,21 @@ julia> remaining
 Julia also supports named tuple unpacking using the `(; )` syntax:
 
 ```julia
-julia> (; a, b) = (a = 1, b = 2)
+julia> (; a, b) = (a = 3, b = 4)
 (a = 1, b = 2)
 
 julia> a
-1
+3
 
 julia> b
-2
+4
+```
+
+Even though the above works fine, I like to use the following syntax for named tuples.
+
+```julia
+julia> (; a, b) = (;a = 3, b = 4)
+(a = 3, b = 4)
 ```
 
 ## Shorthand assignment
@@ -451,8 +458,8 @@ julia> b
 Sometimes you may see a character before the `=`, like `+=` or `-=`.
 
 ```julia
-a += 1 # a = a + 1
-b -= 2 # b = b - 1
+a += 1; # a = a + 1
+b -= 2; # b = b - 1
 ```
 
 With one exception, these are all just a short hand for the longer assignment form.
@@ -500,6 +507,15 @@ This `.=` is called broadcasting and you can read more about it in the [Julia do
 Julia also supports broadcasting over a subset of elements in an array:
 
 ```julia
+julia> x[2:3] .= 1.0;
+
+julia> x
+4-element Vector{Float64}:
+ 5.0
+ 2.0
+ 2.0
+ 5.0
+
 julia> x[begin:2] .= 2.0;
 
 julia> x[3:end] .= 4.0;
@@ -550,7 +566,7 @@ c = tmp;
 
 ## Strings
 
-Although `String`s are mutable types, they cannot be modified using the array access.
+`String`s cannot be modified using the array access.
 
 ```julia
 julia> title = "The Hitchhiker's Guide to the Galaxy"
@@ -566,7 +582,7 @@ Stacktrace:
    @ REPL[138]:1
 ```
 
-It is easiest to just create a new `String`:
+It is easiest to just create a new `String` that has the modification you want:
 
 ```julia
 julia> title_author = title * " - Douglas Adams"
@@ -581,7 +597,7 @@ Ptr{UInt8} @0x0000000107ea82a0
 
 # Pass by sharing
 
-In Julia, arguments to functions are always ["passed by sharing"](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing).
+In Julia, arguments to functions are always "[passed by sharing](https://en.wikipedia.org/wiki/Evaluation_strategy#Call_by_sharing)".
 This means that when a function is called with an argument, the function receives a reference to the object that the argument refers to, rather than a copy of the object.
 The function can modify the object if it is mutable, but the modifications will also be visible to the caller.
 
