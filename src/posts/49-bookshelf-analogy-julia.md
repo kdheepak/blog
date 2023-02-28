@@ -791,19 +791,19 @@ julia> arr[1] = 1.0; # mutation of first element
 
 julia> arr .= 1.0; # mutation of all elements
 
-julia> mutable struct Arr
+julia> mutable struct Container
   value
 end;
 
-julia> arr = Arr([0.0, 0.0, 0.0, 0.0]);
+julia> c = Container([0.0, 0.0, 0.0, 0.0]);
 
-julia> arr.value = [1.0, 1.0, 1.0, 1.0]; # create a new array and assign it to the value
+julia> c.value = [1.0, 1.0, 1.0, 1.0]; # create a new array and assign it to the value
 
-julia> arr.value .= 2.0; # mutate all values of existing array
+julia> c.value .= 2.0; # mutate all values of existing array
 
 julia> v = value;
 
 julia> push!(v, 3.0);
 
-julia> @assert arr.value == [2.0, 2.0, 2.0, 2.0, 3.0];
+julia> @assert c.value == [2.0, 2.0, 2.0, 2.0, 3.0];
 ```
