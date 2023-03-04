@@ -793,7 +793,7 @@ julia> c.value = [1.0, 1.0, 1.0, 1.0]; # create a new array and assign it to the
 
 julia> c.value .= 2.0; # mutate all values of existing array
 
-julia> v = value;
+julia> v = c.value;
 
 julia> push!(v, 3.0);
 
