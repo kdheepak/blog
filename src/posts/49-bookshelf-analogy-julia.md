@@ -293,7 +293,7 @@ julia> x = [0.0, 0.0, 0.0, 0.0];
 
 i.e. if the LHS of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
 
-However, if for example there's a `[]` in the LHS, then it is not an assignment anymore.
+However, if for example there's a `[]` in the LHS, then it is not an assignment anymore, but a mutation instead.
 
 ```julia
 julia> x[1] = 2.0;
