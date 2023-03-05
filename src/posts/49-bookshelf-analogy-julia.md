@@ -14,7 +14,7 @@ references:
     URL: https://docs.julialang.org/en/v1/manual/functions/
 nocite: |
   @ndarray
-  @destructuring
+  @functions
 ---
 
 I would like to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy[^analogy] involving books and bookshelves, from a complete beginner's perspective.
