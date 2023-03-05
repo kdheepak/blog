@@ -273,7 +273,7 @@ function escapeCurlies() {
 function pandoc(input, ...args) {
   const option = [
     "-f",
-    "markdown-literate_haskell+rebase_relative_paths+mark+emoji",
+    "markdown-literate_haskell+emoji",
     "-t",
     "html",
     "--email-obfuscation",
