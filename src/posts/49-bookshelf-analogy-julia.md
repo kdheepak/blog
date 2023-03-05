@@ -277,6 +277,10 @@ In the analogy of the bookshelf, using `deepcopy()` would be like asking the lib
 The new object created is completely independent from the old, with its own unique address.
 Any changes made to the original object will not affect the copy and vice versa.
 
+::: tip
+Assignments always create labels, and may replace the value in an existing label with a new one.
+:::
+
 # Mutability
 
 We saw in the previous section that the `=` operator can be used to assign values to a label. But in Julia, it can also be used to mutate existing values that can be accessed through a label. The difference is what exists on the Left Hand Side (LHS) of the `=` operator.
@@ -289,16 +293,11 @@ julia> x = [0.0, 0.0, 0.0, 0.0];
 
 i.e. if the LHS of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
 
-However, if for example there's a `[]` in the LHS, like so:
+However, if for example there's a `[]` in the LHS, then it is not an assignment anymore.
 
 ```julia
 julia> x[1] = 2.0;
-```
 
-then that is not an assignment anymore.
-That is mutating the first index of the object bound by the `x` label.
-
-```julia
 julia> x
 3-element Vector{Float64}:
  2.0
@@ -306,6 +305,8 @@ julia> x
  0.0
  0.0
 ```
+
+In this case, the `=` operation mutates the index of the LHS, in this case the first index of the object bound by the `x` label.
 
 Mutation can also occur when the `obj.field` syntax is in the LHS.
 
