@@ -15,6 +15,8 @@ Also, you can't interact directly with the books or bookshelves.
 Instead, you have to ask a very smart and helpful librarian, who knows where all the books are and can help you find what you need, to retrieve or modify the books for you.
 But in order for them to help you, you are form a pact with the librarian to speak in a very specific language with certain rules and decrees.
 
+![](images/bookshelf-analogy.png)
+
 In this mental model, you can think of a program's memory as number of bookshelves in a library.
 The librarian represents the Julia program (i.e. command line interface, the language semantics, the LLVM compiler, etc), and the text in the `.jl` files is how you communicate using the Julia language.
 
