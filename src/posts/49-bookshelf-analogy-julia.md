@@ -3,6 +3,10 @@ title: "Understanding Variables and Mutability in Julia"
 summary: In this blog post, I present a mental model for understanding the basics of variable assignment and mutability in Julia, using analogies to books and bookshelves to help illustrate the concepts.
 date: 2023-02-25T21:14:15-0500
 draft: true
+references:
+  - id: ndarray
+    title: Multi-dimensional Arrays
+    URL: https://docs.julialang.org/en/v1/manual/arrays/
 ---
 
 I would like to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy[^analogy] involving books and bookshelves, from a complete beginner's perspective.
@@ -531,7 +535,7 @@ for i in eachindex(x)
 end
 ```
 
-This `.=` is called broadcasting and you can read more about it in the [Julia documentation](https://docs.julialang.org/en/v1/manual/arrays/#Broadcasting).
+This `.=` is called broadcasting and you can read more about it in the [Julia documentation [@ndarray]](https://docs.julialang.org/en/v1/manual/arrays/#Broadcasting).
 
 Julia also supports broadcasting over a subset of elements in an array:
 
