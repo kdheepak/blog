@@ -308,7 +308,8 @@ julia> x
 
 In this case, the `=` operation mutates the index of the LHS, in this case the first index of the object bound by the `x` label.
 
-Mutation can also occur when the `obj.field` syntax is in the LHS.
+Mutation can also occur when the LHS is of the form `obj.field`.
+In this case, only the `field` is reassigned but the `obj` is mutated.
 
 ```julia
 julia> mutable struct Book
@@ -318,10 +319,30 @@ julia> mutable struct Book
 
 julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99);
 
+julia> pointer_from_objref(book)
+Ptr{Nothing} @0x000000012b440f10
+
 julia> book.price = 4.99;
 
 julia> book
 Book("The Hitchhiker's Guide to the Galaxy", 4.99)
+
+julia> pointer_from_objref(book)
+Ptr{Nothing} @0x000000012b440f10
+
+julia> pointer(book.title)
+Ptr{UInt8} @0x000000012b30ad98
+
+julia> book.title = "The Hitchhiker's Guide to the Galaxy - Douglas Adams";
+
+julia> book
+Book("The Hitchhiker's Guide to the Galaxy - Douglas Adams", 9.99)
+
+julia> pointer(book.title)
+Ptr{UInt8} @0x000000012b27d800
+
+julia> pointer_from_objref(book)
+Ptr{Nothing} @0x000000012b440f10
 ```
 
 Mutability is an important concept in Julia because it determines whether or not an object can be modified.
