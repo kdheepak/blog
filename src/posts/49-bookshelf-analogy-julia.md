@@ -475,7 +475,7 @@ julia> b
 4
 ```
 
-Even though the above works fine, I like to use the following syntax for named tuples.
+Even though the above works fine, I like to be explicit and use `;` at the beginning of named tuples, like so:
 
 ```julia
 julia> (; a, b) = (;a = 3, b = 4)
