@@ -699,11 +699,15 @@ julia> pointer(arr)
 Ptr{Int64} @0x000000010d156070
 
 julia> function replace_with_zeros!(arr)
-         arr .= zero(eltype(arr))
+          println("Before assignment: ", pointer(arr))
+          arr .= [0.0 for _ in eachindex(arr)]
+          println("After assignment: ", pointer(arr))
        end
 replace_with_zeros! (generic function with 1 method)
 
 julia> replace_with_zeros!(arr);
+Before assignment: Ptr{Int64} @0x000000010d156070
+After assignment: Ptr{Int64} @0x000000010d156070
 
 julia> arr
 3-element Vector{Int64}:
