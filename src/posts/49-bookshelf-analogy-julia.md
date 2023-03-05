@@ -844,6 +844,7 @@ end
 So every time you call the function, the default value is recreated.
 
 Other than that the pass by sharing semantics are the same in Python and Julia.
+If you passed an keyword argument into these functions in Python and Julia, you'll get the same behavior.
 
 In Python:
 
