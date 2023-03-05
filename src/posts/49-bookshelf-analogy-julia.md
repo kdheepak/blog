@@ -17,7 +17,7 @@ But in order for them to help you, you are form a pact with the librarian to spe
 
 ![](images/bookshelf-analogy.png){ .fullwidth }
 
-In this mental model, you can think of a program's memory as number of bookshelves in a library.
+In this mental model, you can think of a program's memory as a number of bookshelves in a library.
 The librarian represents the Julia program (i.e. command line interface, the language semantics, the LLVM compiler, etc), and the text in the `.jl` files is how you communicate using the Julia language.
 
 To interact with the bookshelf (i.e., the program's memory), the Julia language, as part of its vocabulary, provides you with functions and variables among other things.
@@ -299,7 +299,15 @@ julia> x[1] = 2.0;
 
 then that is not an assignment anymore.
 That is mutating the first index of the object bound by the `x` label.
-We saw an example of this mutation syntax in the previous section.
+
+```julia
+julia> x
+3-element Vector{Float64}:
+ 2.0
+ 0.0
+ 0.0
+ 0.0
+```
 
 Mutation can also occur when the `obj.field` syntax is in the LHS.
 
