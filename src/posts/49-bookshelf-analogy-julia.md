@@ -147,7 +147,7 @@ So in our analogy, the `x` and `y` variables are two labels that you and the lib
 
 In Julia, you can check the location by using the `pointer()` function[^pointer]:
 
-[^pointer]: This only works for mutable objects. For immutable objects Julia does not let you call the `pointer` function because there's certain optimizations that the compiler may make that would make the `pointer` function invalid. The mental model here can still be used though.
+[^pointer]: The `pointer` function only works for mutable objects.
 
 ```julia
 julia> pointer(x)
