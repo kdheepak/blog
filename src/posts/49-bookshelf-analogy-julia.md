@@ -197,10 +197,6 @@ julia> y
 This is like if the librarian changed a page in the book located at label `x`.
 If you came back later and asked for the book located at label `y`, you'd get the same book as you would have with label `y`, which would contain the changes made.
 
-When you modify `x[1] = 2.0`, you are telling Julia to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
-And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
-Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
-
 ```txt
       0x00 0x01 0x02 0x03 0x04 0x05 0x06 0x07 0x08 0x09 0x0A 0x0B 0x0C 0x0D 0x0E 0x0F
      ┌────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┬────┐
@@ -227,6 +223,10 @@ Because both `x` and `y` are just different labels pointing to the same memory l
            │             │    │             │
            └─────────────┘    └─────────────┘
 ```
+
+When you modify `x[1] = 2.0`, you are telling Julia to make a change to the object bound to the `x` label, which in this case changes the first element of the vector to `2.0`.
+And since `y` points to the same memory location as `x`, when you inspect the `y` variable, you will see that it also reflects the same changes made to the underlying memory location.
+Because both `x` and `y` are just different labels pointing to the same memory location, any changes made through one of the labels will be visible when you look at the contents through the other label.
 
 But what if you did want to create a entirely new object instead? You can do that using the `deepcopy()` function:
 
