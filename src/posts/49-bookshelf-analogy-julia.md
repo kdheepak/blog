@@ -157,7 +157,7 @@ julia> pointer(y)
 Ptr{Float64} @0x0000000161c60d60
 ```
 
-When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was bound to that label by the librarian.
+When you call this `pointer` function, you are passing in a label called `x` and Julia returns the memory address of the object that was bound to that label.
 You can see that `x` and `y` point to an object that has the same memory address.
 
 Because `x` and `y` are bound to the same object, changes made to the object through `x` will also be visible through `y`.
