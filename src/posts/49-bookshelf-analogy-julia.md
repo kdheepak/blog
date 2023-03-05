@@ -4,7 +4,6 @@ summary: In this blog post, I present a mental model for understanding the basic
 date: 2023-02-25T21:14:15-0500
 tags: julia
 keywords: julia, analogy, pass by sharing
-draft: true
 references:
   - id: ndarray
     title: Multi-dimensional Arrays
@@ -989,28 +988,4 @@ Dict{Any, Any} with 1 entry:
 
 Thinking of programming memory as a bookshelf in a library can help you understand how your program interacts with memory and how mutation works in languages like Julia with shared references.
 
-In summary:
-
-```julia
-julia> arr = [0.0, 0.0, 0.0, 0.0]; # assignment
-
-julia> arr[1] = 1.0; # mutation of first element
-
-julia> arr .= 1.0; # mutation of all elements
-
-julia> mutable struct Container
-  value
-end;
-
-julia> c = Container([0.0, 0.0, 0.0, 0.0]);
-
-julia> c.value = [1.0, 1.0, 1.0, 1.0]; # create a new array and assign it to the value
-
-julia> c.value .= 2.0; # mutate all values of existing array
-
-julia> v = c.value;
-
-julia> push!(v, 3.0);
-
-julia> @assert c.value == [2.0, 2.0, 2.0, 2.0, 3.0];
-```
+The Julia official is great at formally explaining these concepts and I highly recommend reading the manual to learn more.
