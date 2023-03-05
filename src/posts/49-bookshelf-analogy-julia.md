@@ -497,11 +497,13 @@ a += 1; # a = a + 1
 b -= 2; # b = b - 1
 ```
 
-With one exception, these are all just a short hand for the longer assignment form.
+These are called updating operations: <https://docs.julialang.org/en/v1/manual/mathematical-operations/#Updating-operators>
+
+Updating operations are just a short hand for the longer assignment form.
 
 ## Broadcasting
 
-The exception is the special syntax `.=`, which instead of assignment does what mutability does.
+In Julia there's a special syntax that you can use (`.`) in front of normal operators (e.g. `.=`), which, instead of assignment, does a mutation operation.
 When you see `.=`, it is "broadcasting" the `=` operation on all elements of the LHS.
 
 ```julia
