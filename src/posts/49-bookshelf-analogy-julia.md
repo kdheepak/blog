@@ -277,10 +277,6 @@ In the analogy of the bookshelf, using `deepcopy()` would be like asking the lib
 The new object created is completely independent from the old, with its own unique address.
 Any changes made to the original object will not affect the copy and vice versa.
 
-::: tip
-Assignments in Julia always create labels, but may replace the binding of an existing label of yours.
-:::
-
 # Mutability
 
 We saw in the previous section that the `=` operator can be used to assign values to a label. But in Julia, it can also be used to mutate existing values that can be accessed through a label. The difference is what exists on the Left Hand Side (LHS) of the `=` operator.
