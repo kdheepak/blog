@@ -724,6 +724,176 @@ Since the location address is not changed, anyone else holding the same address 
 
 By convention, the `!` at the end of the function name is a convention in Julia to indicate that the function modifies its argument in place.
 
+## Default keyword arguments
+
+Both Python and Julia support keyword arguments with default values for functions, but their behavior is subtly different.
+
+```python
+In [1]: def append_to_arr(*, arr=[]):
+   ...:   arr.append(1)
+   ...:   return arr
+   ...:
+
+In [2]: append_to_arr()
+Out[2]: [1]
+
+In [3]: append_to_arr()
+Out[3]: [1, 1]
+
+In [4]: append_to_arr()
+Out[4]: [1, 1, 1]
+
+In [5]: append_to_arr()
+Out[5]: [1, 1, 1, 1]
+
+In [6]: append_to_arr()
+Out[6]: [1, 1, 1, 1, 1]
+```
+
+```julia
+julia> function append_to_arr(; arr = [])
+         push!(arr, 1)
+         return arr
+       end
+append_to_arr (generic function with 1 method)
+
+julia> append_to_arr()
+1-element Vector{Any}:
+ 1
+
+julia> append_to_arr()
+1-element Vector{Any}:
+ 1
+
+julia> append_to_arr()
+1-element Vector{Any}:
+ 1
+
+julia> append_to_arr()
+1-element Vector{Any}:
+ 1
+
+julia> append_to_arr()
+1-element Vector{Any}:
+ 1
+```
+
+In Python, a function like this:
+
+```python
+def append_to_arr(*, arr=[]):
+  arr.append(1)
+  return arr
+```
+
+is equivalent to the following:
+
+```python
+GLOBAL_ARR = []
+def append_to_arr(*, arr=None):
+  if arr is None
+    arr = GLOBAL_ARR
+  arr.append(1)
+  return arr
+```
+
+So every time you call `append_to_arr`, you are modifying the global array.
+
+But in Julia, a function like this:
+
+```julia
+function append_to_arr(; arr = [])
+  push!(arr, 1)
+  return arr
+end
+```
+
+is equivalent to:
+
+```julia
+function append_to_arr(; arr = nothing)
+  if isnothing(arr)
+    arr = []
+  end
+  push!(arr, 1)
+  return arr
+end
+```
+
+So every time you call the function, the default value is recreated.
+
+Other than that the pass by sharing semantics are the same in Python and Julia.
+
+In Python:
+
+```python
+In [1]: def append_to_arr(*, arr=[]):
+          arr.append(1)
+          return arr
+
+In [2]: arr = []
+
+In [3]: append_to_arr(arr = arr)
+Out[3]: [1]
+
+In [4]: append_to_arr(arr = arr)
+Out[4]: [1, 1]
+
+In [5]: append_to_arr(arr = arr)
+Out[5]: [1, 1, 1]
+
+In [6]: arr
+Out[6]: [1, 1, 1]
+```
+
+In Julia:
+
+```julia
+julia> function append_to_arr(; arr = [])
+           push!(arr, 1)
+           return arr
+       end
+append_to_arr (generic function with 1 method)
+
+julia> arr = []
+Any[]
+
+julia> append_to_arr(; arr = arr)
+1-element Vector{Any}:
+ 1
+
+julia> append_to_arr(; arr)
+2-element Vector{Any}:
+ 1
+ 1
+
+julia> append_to_arr(; arr)
+3-element Vector{Any}:
+ 1
+ 1
+ 1
+
+julia> arr
+3-element Vector{Any}:
+ 1
+ 1
+ 1
+```
+
+You may have noticed that we skipped the `= arr` in the latter two function calls.
+
+For keyword arguments written after a `;`, if the variable name is the same as the keyword argument name, Julia lets you use a shorthand syntax that lets you skip writing the same variable name twice.
+
+The following are identical:
+
+```julia
+julia> append_to_arr(; arr = arr);
+
+julia> append_to_arr(; arr);
+```
+
+If the variable name is different from the keyword argument name, you'll have to use the explicit syntax.
+
 # `const` variables
 
 In Julia, you can use the `const` keyword before declaring a variable for the first time in the global scope.
