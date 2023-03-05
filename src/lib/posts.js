@@ -42,7 +42,7 @@ export function getPostsMetadata(startPath, filter = ".md", ignore_drafts = fals
       const doc = fs.readFileSync(filename, "utf8");
       const { data: metadata, content } = matter(doc);
       if (ignore_drafts && metadata.draft) {
-        continue
+        continue;
       }
       const commit = child_process
         .spawnSync("git", ["log", "-n", "1", "--pretty=format:%H", "--", `${filename}`])
@@ -273,7 +273,7 @@ function escapeCurlies() {
 function pandoc(input, ...args) {
   const option = [
     "-f",
-    "markdown-literate_haskell",
+    "markdown-literate_haskell+rebase_relative_paths+mark+emoji",
     "-t",
     "html",
     "--email-obfuscation",
@@ -352,8 +352,8 @@ function rehypePrettyCode(options = {}) {
   const {
     theme,
     tokensMap = {},
-    onVisitLine = () => { },
-    onVisitHighlightedLine = () => { },
+    onVisitLine = () => {},
+    onVisitHighlightedLine = () => {},
     getHighlighter = getHighlighter,
   } = options;
 
