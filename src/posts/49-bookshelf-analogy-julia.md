@@ -5,11 +5,9 @@ date: 2023-02-25T21:14:15-0500
 draft: true
 ---
 
-I want to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy involving books and bookshelves.
+I want to present a mental model for understanding the basics of variable assignment and mutability in Julia using an analogy[^analogy] involving books and bookshelves, from a complete beginner's perspective.
 
-Before we begin, I want to say that analogies can be useful because they allow us to understand complex concepts by comparing them to something more familiar or simpler. But also, analogies can be oversimplified, leading to incorrect or incomplete understanding of the topic.
-
-To best understand any subject, I recommend using multiple different analogies to bolster your confidence and then dive deeper into the subject matter to harden your intuition.
+[^analogy]: **aside**: I want to say that analogies can be useful because they allow us to understand complex concepts by comparing them to something more familiar or simpler. But also, analogies can be oversimplified, leading to incorrect or incomplete understanding of the topic. To best understand any subject, I recommend using multiple different analogies to bolster your confidence and then dive deeper into the subject matter to harden your intuition.
 
 Imagine you are at a library full of books on bookshelves, but they are all over the place and you can't find what you want.
 Also, you can't interact directly with the books or bookshelves.
