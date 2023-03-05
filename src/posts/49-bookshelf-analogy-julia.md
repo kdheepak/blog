@@ -761,7 +761,9 @@ In our analogy, this is like if the librarian handed back a label that would alw
            └─────────────┘    └─────────────┘           ╚══════════════╝
 ```
 
-Trying to redefine the variable is an error:
+For the duration of the program, the `CONFIG` label will point to location `0x6009`.
+
+Trying to redefine a `const` variable to bind to a different value is an error:
 
 ```julia
 julia> const CONFIG = []
@@ -771,7 +773,7 @@ Stacktrace:
    @ REPL[172]:1
 ```
 
-But even though the variable is `const`, the object is still mutable.
+It is important to remember that even though the variable is `const`, the object is still mutable.
 
 ```julia
 julia> CONFIG["debug"] = false;
