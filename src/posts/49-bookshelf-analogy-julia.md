@@ -145,7 +145,9 @@ When you assign `y = x`, you are asking to create new label called `y` that is a
 
 So in our analogy, the `x` and `y` variables are two labels that you and the librarian agree point to the same "book" on the "bookshelf" (i.e. the same object in memory).
 
-You can verify that this is the case by using the `pointer()` function:
+In Julia, you can check the location by using the `pointer()` function[^pointer]:
+
+[^pointer]: This only works for mutable objects. For immutable objects Julia does not let you call the `pointer` function because there's certain optimizations that the compiler may make that would make the `pointer` function invalid. The mental model here can still be used though.
 
 ```julia
 julia> pointer(x)
