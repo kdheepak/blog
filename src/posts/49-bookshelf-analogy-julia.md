@@ -2,6 +2,8 @@
 title: "Understanding Variables and Mutability in Julia"
 summary: In this blog post, I present a mental model for understanding the basics of variable assignment and mutability in Julia, using analogies to books and bookshelves to help illustrate the concepts.
 date: 2023-02-25T21:14:15-0500
+tags: julia
+keywords: julia, analogy, pass by sharing
 draft: true
 references:
   - id: ndarray
