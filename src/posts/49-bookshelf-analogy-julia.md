@@ -58,7 +58,7 @@ julia> x + y
 3
 ```
 
-Here we bind the value `1` to the label `x`, bind the value `2` to label `y` and use the labels `x` and `y` to retrieve these values and add them together to get the result.
+Here we assign the value `1` (also sometimes referred to as "bind the value") to the label `x`, assign (or bind) the value `2` to label `y` and use the labels `x` and `y` to retrieve these values and add them together to get the result.
 
 By thinking of code in this way, you can better understand how your program interacts with memory and how the different elements of your code work together.
 
@@ -303,9 +303,9 @@ For example, this is an assignment:
 julia> x = [0.0, 0.0, 0.0, 0.0];
 ```
 
-i.e. if the LHS of a `=` is variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
+i.e. if the LHS of the equals operator is a variable without any `[]` or `.` or `@` symbols, it means an assignment has happened.
 
-However, if for example there's a `[]` in the LHS, then it is not an assignment anymore, but a mutation instead.
+However, if there's a `[]` in the LHS, then it is not an assignment anymore, but a mutation instead.
 
 ```julia
 julia> x[1] = 2.0;
@@ -318,10 +318,11 @@ julia> x
  0.0
 ```
 
-In this case, the `=` operation mutates the index of the LHS, in this case the first index of the object bound by the `x` label.
+Here, the equals operation changes the value at the specified index of the LHS, and in this case that is the first index of the object bound by the `x` label.
 
-Mutation can also occur when the LHS is of the form `obj.field`.
-In this case, only the `field` is reassigned but the `obj` is mutated.
+There's another case where the equals operation does a mutation, and that is when you use the object notation in the LHS, i.e. `object.field`.
+
+In Julia, you can create `struct` objects that have fields, and you can get the value of a field by using the `object.field`:
 
 ```julia
 julia> mutable struct Book
@@ -331,6 +332,14 @@ julia> mutable struct Book
 
 julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99);
 
+julia> book.price
+9.99
+```
+
+You can also set the value of the `field` by using the `object.field = value` notation.
+In this case, the `field` is reassigned or rebound to a new object, but the `object` is said to be mutated.
+
+```julia
 julia> pointer_from_objref(book)
 Ptr{Nothing} @0x000000012b440f10
 
@@ -341,7 +350,11 @@ Book("The Hitchhiker's Guide to the Galaxy", 4.99)
 
 julia> pointer_from_objref(book)
 Ptr{Nothing} @0x000000012b440f10
+```
 
+Notice how the pointer value of the `book` object did not change.
+
+```julia
 julia> pointer(book.title)
 Ptr{UInt8} @0x000000012b30ad98
 
@@ -350,11 +363,11 @@ julia> book.title = "The Hitchhiker's Guide to the Galaxy - Douglas Adams";
 julia> book
 Book("The Hitchhiker's Guide to the Galaxy - Douglas Adams", 9.99)
 
-julia> pointer(book.title)
-Ptr{UInt8} @0x000000012b27d800
-
 julia> pointer_from_objref(book)
 Ptr{Nothing} @0x000000012b440f10
+
+julia> pointer(book.title)
+Ptr{UInt8} @0x000000012b27d800
 ```
 
 Mutability is an important concept in Julia because it determines whether or not an object can be modified.
@@ -374,20 +387,21 @@ There are a number of types that represent immutable objects.
 For example, `Int`s and `Float64`s are immutable.
 
 Interestingly, you can also have a `struct` that is `immutable` that contains an instance of a `mutable` type.
+You can create a `immutable` struct by dropping the `mutable` keyword from the struct definition.
 
 ```julia
-julia> struct Book
+julia> struct ImmutableBook
          title::String
          price::Float64
          meta::Dict{String, String}
        end
 
-julia> book = Book("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
+julia> book = ImmutableBook("The Hitchhiker's Guide to the Galaxy", 9.99, Dict());
 
 julia> book.price = 4.99;
-ERROR: setfield!: immutable struct of type Book cannot be changed
+ERROR: setfield!: immutable struct of type ImmutableBook cannot be changed
 Stacktrace:
- [1] setproperty!(x::Book, f::Symbol, v::Float64)
+ [1] setproperty!(x::ImmutableBook, f::Symbol, v::Float64)
    @ Base ./Base.jl:39
  [2] top-level scope
    @ REPL[3]:1
@@ -429,10 +443,19 @@ As a sidebar, I want to touch on some special syntax that you will come across w
 
 ## Tuple unpacking
 
-Julia supports syntax that is called "unpacking":
+Julia supports syntax that is called "unpacking" that can be used with `Tuple`s:
 
 ```julia
-julia> (a, b) = (1, 2)
+julia> obj = (1, 2)
+(1, 2)
+
+julia> obj[1]
+1
+
+julia> obj[2]
+2
+
+julia> (a, b) = obj
 (1, 2)
 
 julia> a
@@ -474,9 +497,18 @@ julia> remaining
 
 ## Named Tuple unpacking
 
-Julia also supports named tuple unpacking using the `(; )` syntax:
+Julia also supports `NamedTuple` and unpacking, however you have to use a semicolon in the LHS in the unpacking syntax:
 
 ```julia
+julia> obj = (a = 3, b = 4)
+(a = 3, b = 4)
+
+julia> obj.a
+3
+
+julia> obj.b
+4
+
 julia> (; a, b) = (a = 3, b = 4)
 (a = 1, b = 2)
 
@@ -487,7 +519,7 @@ julia> b
 4
 ```
 
-Even though the above works fine, I like to be explicit and use `;` at the beginning of named tuples, like so:
+Even though the above works fine, I like to be explicit and use `;` in the construction of named tuples, like so:
 
 ```julia
 julia> (; a, b) = (;a = 3, b = 4)
@@ -555,8 +587,8 @@ julia> x[2:3] .= 1.0;
 julia> x
 4-element Vector{Float64}:
  5.0
- 2.0
- 2.0
+ 1.0
+ 1.0
  5.0
 
 julia> x[begin:2] .= 2.0;
@@ -600,7 +632,13 @@ This is because in Julia everything is an expression, even the `=` operation. Th
 c = x[1] = 2.0;
 ```
 
-essentially does this:
+is equivalent to this:
+
+```julia
+c = (x[1] = 2.0);
+```
+
+which effectively does this:
 
 ```julia
 tmp = x[1] = 2.0
@@ -628,7 +666,7 @@ Stacktrace:
 It is easiest to just create a new `String` that has the modification you want:
 
 ```julia
-julia> title_author = title * " - Douglas Adams"
+julia> title_author = title * " - Douglas Adams" # you can concat strings together in Julia using `*`
 "The Hitchhiker's Guide to the Galaxy - Douglas Adams"
 
 julia> pointer(title)
@@ -662,8 +700,8 @@ julia> arr
  4
 ```
 
-In the analogy, passing an argument to a function is like taking a book from the shelf and giving its location address to the function.
-The function can read the content of the book and make changes to it, but it cannot change the location address that was given to it.
+In the analogy, passing an argument to a function is like reference's a book's location and handing that address over to the function.
+The function can read the content of the book using this location address and make changes to it, but it cannot change the location address itself that was given to it.
 If the book is mutable, any changes made by the function will also be visible to anyone else holding the same address.
 
 The function `add_one` is like someone taking a book from the shelf, incrementing every number in it by one, and putting it back in the same location.
@@ -993,4 +1031,4 @@ Dict{Any, Any} with 1 entry:
 
 Thinking of programming memory as a bookshelf in a library can help you understand how your program interacts with memory and how mutation works in languages like Julia with shared references.
 
-The Julia official is great at formally explaining these concepts and I highly recommend reading the manual to learn more.
+The Julia official documentation is great at formally explaining these concepts and I highly recommend reading the manual to learn more.
