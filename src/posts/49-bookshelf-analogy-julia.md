@@ -8,7 +8,6 @@ references:
   - id: ndarray
     title: Multi-dimensional Arrays
     URL: https://docs.julialang.org/en/v1/manual/arrays/
-references:
   - id: functions
     title: Functions
     URL: https://docs.julialang.org/en/v1/manual/functions/
