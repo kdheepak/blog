@@ -1,0 +1,19 @@
+---
+title: "My personal thoughts and notes"
+date: last-modified
+citation: false
+listing:
+  contents: "./"
+  sort: "date desc"
+  type: table
+  categories: true
+  sort-ui: false
+  filter-ui: true
+  feed:
+    type: partial
+    categories: ["julia"]
+  fields: [date, title, reading-time]
+  table-hover: true
+execute:
+  freeze: false
+---

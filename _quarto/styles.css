@@ -1,0 +1,8 @@
+.column-margin.column-container > :not(.collapse) {
+	padding-top: 0em;
+}
+
+mjx-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}

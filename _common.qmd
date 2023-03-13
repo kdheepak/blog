@@ -1,0 +1,71 @@
+```{julia}
+#| include: false
+using Pkg
+Pkg.activate(@__DIR__)
+Pkg.instantiate()
+```
+
+```{julia}
+#| include: false
+using Pandoc
+using FilePaths
+using JSON3
+using Dates
+using TimeZones
+
+function xml(posts)
+  posts = map(posts) do post
+    """
+      <item>
+        <title>$(post[:title])</title>
+        <link>https://blog.kdheepak.com/$(post[:slug])</link>
+        <guid isPermaLink="true">https://blog.kdheepak.com/$(post[:slug])</guid>
+        <atom:link href="https://blog.kdheepak.com/$(post[:slug])" rel="self"></atom:link>
+        <pubDate>$(Dates.format(DateTime(ZonedDateTime(post[:date], DateFormat("yyyy-mm-ddTHH:MM:SSz")), UTC), "e, d u yyyy HH:MM:SS")) GMT</pubDate>
+        <description>$(post[:summary])</description>
+      </item>
+    """
+  end
+
+  posts = join(posts, "\n")
+
+  date = Dates.now()
+
+  return """<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" media="screen" href="/rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dheepak Krishnamurthy's Blog</title>
+    <description>My thoughts, notes and blogs</description>
+    <link>https://blog.kdheepak.com/</link>
+    <language>en-us</language>
+    <copyright>Copyright 2020, Dheepak Krishnamurthy</copyright>
+    <atom:link href="https://blog.kdheepak.com/rss.xml" rel="self" type="application/rss+xml"/>
+    <generator>quarto</generator>
+    $(posts)
+  </channel>
+</rss>"""
+end
+
+function rss(category)
+  rm("./_site/tags/$category/", force=true, recursive=true)
+  posts = []
+  for folder in filter(folder -> isdir(folder) && !startswith(folder, "_") && !startswith(folder, "."), readdir("."))
+    filename = joinpath(folder, "index.qmd")
+    if isfile(filename)
+      d = Pandoc.metadata(FilePaths.Path(filename))
+      categories = :categories ∈ keys(d) ? d[:categories] : []
+      if category ∈ lowercase.(categories)
+        d[:slug] = folder
+        push!(posts, d)
+      end
+    end
+  end
+  posts = sort(posts, by=x -> ZonedDateTime(x[:date], DateFormat("yyyy-mm-ddTHH:MM:SSz")), rev=true)
+  mkpath("./_site/tags/$category/")
+  data = xml(posts)
+  open("./_site/tags/$category/rss.xml", "w") do f
+    write(f, data)
+  end
+end
+```
