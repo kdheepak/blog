@@ -12,3 +12,12 @@ cp("./_quarto/downloads", "./_site/downloads", force=true)
 # Setup CNAME
 
 cp("./_quarto/CNAME", "./_site/CNAME", force=true)
+
+# RSS style
+
+cp("./_quarto/index.xsl", "./_site/index.xsl", force=true)
+lines = readlines("./_site/index.xml")
+insert!(lines, 2, raw"""<?xml-stylesheet type="text/xsl" media="screen" href="/index.xsl"?>""")
+open("./_site/index.xml", "w") do f
+  write(f, join(lines, "\n"))
+end
