@@ -8,3 +8,7 @@ cp(srcFilePath, dstFilePath, force=true)
 # Setup downloads
 
 cp("./_quarto/downloads", "./_site/downloads", force=true)
+
+# Setup CNAME
+
+cp("./_quarto/CNAME", "./_site/CNAME", force=true)
