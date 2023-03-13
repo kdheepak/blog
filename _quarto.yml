@@ -1,5 +1,5 @@
 project:
-  type: website
+  type: sverto
   post-render:
     - julia ./_quarto/post-render.jl
 
