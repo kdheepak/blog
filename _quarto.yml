@@ -6,7 +6,7 @@ project:
 author: "Dheepak Krishnamurthy"
 
 website:
-  title: Δ
+  title: "blog"
   favicon: ./_quarto/favicon.svg
   search:
     location: navbar
