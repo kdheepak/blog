@@ -7,6 +7,7 @@ author: "Dheepak Krishnamurthy"
 
 website:
   title: Δ
+  favicon: ./_quarto/favicon.svg
   search:
     location: navbar
   site-url: https://blog.kdheepak.com
