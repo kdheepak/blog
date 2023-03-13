@@ -11,7 +11,7 @@ website:
   search:
     location: navbar
   site-url: https://blog.kdheepak.com
-  repo-url: https://github.com/kdheepak/quarto-blog
+  repo-url: https://github.com/kdheepak/blog
   open-graph: true
   sidebar:
     alignment: left
