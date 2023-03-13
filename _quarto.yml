@@ -1,7 +1,7 @@
 project:
   type: website
   post-render:
-    - julia ./_quarto/copy-rss.jl
+    - julia ./_quarto/post-render.jl
 
 author: "Dheepak Krishnamurthy"
 
