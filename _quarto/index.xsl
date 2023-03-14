@@ -89,6 +89,16 @@
                         <h3>Recent blogs:</h3>
                         <div class="quarto-listing quarto-listing-container-table">
                         <table class="quarto-listing-table table table-hover">
+                          <thead>
+                          <tr>
+                          <th>
+                          Title
+                          </th>
+                          <th>
+                          Date
+                          </th>
+                          </tr>
+                          </thead>
                           <tbody class="list">
                           <xsl:for-each select="rss/channel/item">
                             <tr>
