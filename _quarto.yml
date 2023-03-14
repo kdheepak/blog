@@ -6,7 +6,7 @@ project:
 author: "Dheepak Krishnamurthy"
 
 website:
-  title: "Δ"
+  title: "kdheepak"
   favicon: ./_quarto/favicon.svg
   search:
     location: navbar
@@ -18,6 +18,9 @@ website:
     alignment: left
     style: docked
   navbar:
+    title: false
+    logo: _quarto/favicon.svg
+    collapse: false
     search: true
     pinned: false
     right:
