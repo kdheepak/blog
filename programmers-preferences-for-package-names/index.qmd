@@ -96,7 +96,7 @@ display(ax)
 
 ## Python
 
-For Python, we can get the list of packages on PyPi using <https://pypi.org/simple> and use a HTML parser to get all the links on that page.
+For Python, we can get the list of packages on PyPi using <https://pypi.org/simple> and get the names of all packages from the links.
 
 ```{julia}
 #| code-fold: true
@@ -117,7 +117,7 @@ Personally, I'm surprised this difference isn't higher.
 
 ## Julia
 
-When you install a package using Julia, it downloads a general registry into your "home" directory, and we can traverse that directory only one level deep.
+When you install a package using Julia, it downloads a general registry into your "home" directory, and we can traverse that directory only one level deep to figure out all the names of the packages in the registry.
 
 ```{julia}
 #| code-fold: true

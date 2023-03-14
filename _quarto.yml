@@ -96,7 +96,7 @@ execute:
   echo: true
   warning: true
   error: true
-  freeze: auto
+  freeze: true
   eval: true
   daemon: true
 
