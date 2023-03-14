@@ -58,6 +58,14 @@ format:
     link-external-filter: '^(?:http:|https:)\/\/blog\.kdheepak\.com\/'
     filters:
       - _quarto/alert.lua
+      - line-highlight
+      - code-visibility
+      - collapse-callout
+      - pseudocode
+      - hide-comment
+      - code-fullscreen
+      - include-code-files
+      - abstract-section
     comments:
       hypothesis: true
       giscus:
