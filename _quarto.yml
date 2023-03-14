@@ -24,6 +24,9 @@ website:
     search: true
     pinned: false
     right:
+      - icon: house
+        href: https://kdheepak.com
+        aria-label: Home
       - icon: github
         href: https://github.com/kdheepak
         aria-label: GitHub
