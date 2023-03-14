@@ -8,3 +8,4 @@
 **/*_files/*
 /.quarto/
 /.luarc.json
+/node_modules

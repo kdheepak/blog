@@ -21,3 +21,6 @@ insert!(lines, 2, raw"""<?xml-stylesheet type="text/xsl" media="screen" href="/i
 open("./_site/index.xml", "w") do f
   write(f, join(lines, "\n"))
 end
+
+cp("./_quarto/styles.css", "./_site/styles.css", force=true)
+cp("./_quarto/favicon.svg", "./_site/favicon.svg", force=true)

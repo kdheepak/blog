@@ -10,6 +10,7 @@ listing:
   sort-ui: false
   filter-ui: true
   feed:
+    items: -1
     type: partial
     categories: ["julia"]
   fields: [date, title, reading-time]
