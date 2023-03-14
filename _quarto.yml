@@ -12,6 +12,7 @@ website:
     location: navbar
   site-url: https://blog.kdheepak.com
   repo-url: https://github.com/kdheepak/blog
+  repo-actions: [edit, issue]
   open-graph: true
   sidebar:
     alignment: left
