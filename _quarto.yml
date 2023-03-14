@@ -14,6 +14,7 @@ website:
   repo-url: https://github.com/kdheepak/blog
   repo-actions: [edit, issue]
   open-graph: true
+  twitter-card: true
   sidebar:
     alignment: left
     style: docked
@@ -35,8 +36,12 @@ format:
     grid:
       content-mode: full
     theme:
-      - pulse
-      - ./_quarto/theme.scss
+      light:
+        - pulse
+        - ./_quarto/theme.scss
+      dark:
+        - solar
+        - ./_quarto/theme.scss
     css:
       - ./_quarto/styles.css
     code-copy: hover
