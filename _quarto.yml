@@ -33,6 +33,8 @@ format:
     css:
       - ./_quarto/styles.css
     code-copy: hover
+    code-tools:
+      source: repo
     highlight-style: github
     anchor-sections: true
     section-divs: true
@@ -56,6 +58,7 @@ format:
     filters:
       - _quarto/alert.lua
     comments:
+      hypothesis: true
       giscus:
         repo: kdheepak/blog
         category: Comments

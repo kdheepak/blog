@@ -2,6 +2,7 @@
 title: "My personal thoughts and notes"
 date: last-modified
 citation: false
+comments: false
 listing:
   contents: "./"
   sort: "date desc"
