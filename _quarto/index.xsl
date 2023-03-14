@@ -72,7 +72,7 @@
               >URL</acronym> of this document or copy the address below and paste it for any RSS purposes.
                         <br />
                         <label for="address">RSS address: </label>
-                        <input style="width:300px">
+                        <input style="width:600px">
                             <xsl:attribute name="id">address</xsl:attribute>
                             <xsl:attribute name="spellcheck">false</xsl:attribute>
                             <xsl:attribute name="value">
@@ -98,6 +98,9 @@
                       select="link"
                     /></xsl:attribute><xsl:value-of select="title" />
                                 </a>
+                              </td>
+                              <td>
+                                <xsl:value-of select="pubDate" />
                               </td>
                             </tr>
                           </xsl:for-each>
