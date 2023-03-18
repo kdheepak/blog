@@ -1,7 +1,5 @@
 project:
   type: website
-  post-render:
-    - julia ./_quarto/post-render.jl
 
 author: "Dheepak Krishnamurthy"
 
@@ -10,7 +8,7 @@ website:
   favicon: ./_quarto/favicon.svg
   search:
     location: navbar
-  site-url: https://blog.kdheepak.com
+  site-url: https://kdheepak.com/blog
   repo-url: https://github.com/kdheepak/blog
   repo-actions: [edit, issue]
   open-graph: true
